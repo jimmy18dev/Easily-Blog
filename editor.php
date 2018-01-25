@@ -30,9 +30,10 @@ $article->get($article_id);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<div class="header">
+<div class="header fixed">
+	<a href="index.php" class="page-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="title">เขียนบทความ</div>
-	<a class="btn" href="article/<?php echo $article->id?>">Close</a>
+	<a class="btn" href="article/<?php echo $article->id?>"><i class="fa fa-times" aria-hidden="true"></i></a>
 </div>
 <div class="article editor">
 	<!-- Article Header -->

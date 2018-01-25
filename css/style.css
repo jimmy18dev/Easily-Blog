@@ -147,9 +147,8 @@ body {
   overflow-x: hidden;
 }
 .header {
-  width: 70%;
+  width: 100%;
   height: 50px;
-  padding: 0px 15%;
   float: left;
   display: inline-block;
   z-index: 50;
@@ -157,12 +156,13 @@ body {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid #EEEEEE;
 }
 .header.fixed {
   position: fixed;
   top: 0;
   left: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.9);
 }
 .header.shadow {
   background: rgba(0, 77, 64, 0.95);
@@ -184,6 +184,19 @@ body {
 }
 .header.light .btn-profile {
   color: #666666;
+}
+.header .page-icon {
+  float: left;
+  display: inline-block;
+  padding: 10px 1%;
+  padding-right: 0%;
+  height: 30px;
+  font-size: 1.2em;
+  color: #999999;
+}
+.header .page-icon:hover {
+  color: #666666;
+  cursor: pointer;
 }
 .header a.logo {
   width: 28%;
@@ -442,6 +455,7 @@ body {
 }
 .article.editor {
   margin-bottom: 10%;
+  margin-top: 50px;
 }
 .article .article-header {
   width: 90%;
