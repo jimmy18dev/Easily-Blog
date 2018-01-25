@@ -509,30 +509,11 @@ body {
 .article .option-control .btnAction i {
   margin-right: 7px;
 }
-.article .photoForm {
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
-  position: relative;
-  border-radius: 5px;
-}
 .article .photoForm:hover {
   background: #FAFAFA;
 }
 .article .photoForm:hover .info {
   display: inline-block;
-}
-.article .photoForm .info {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  float: left;
-  font-size: 0.7em;
-  padding: 1% 0%;
-  color: #BBBBBB;
-  display: none;
 }
 .article .photoForm .control {
   position: absolute;
@@ -580,7 +561,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 100px;
+  width: 200px;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -590,7 +571,7 @@ body {
   z-index: 99;
 }
 .article .photoForm .option .option-items .more-option .btnAction {
-  width: 100%;
+  width: 25%;
   float: left;
   display: inline-block;
   margin: 0px;
@@ -638,6 +619,8 @@ body {
   border: 0px;
   padding: 2% 1%;
   background: transparent;
+  font-style: italic;
+  color: #999999;
 }
 .article .photoForm .image-file {
   display: none;
@@ -648,7 +631,7 @@ body {
   display: inline-block;
   background: #FAFAFA;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .article .photoForm .preview .imgpreview {
   width: 100%;
@@ -668,24 +651,45 @@ body {
   display: inline-block;
 }
 .article .photoForm .preview .imgpreview .btn-choose-image i {
-  margin-right: 10px;
+  display: block;
+  font-size: 4em;
+  margin-bottom: 10px;
+  color: #DDDDDD;
+}
+.article .photoForm .preview .imgpreview .btn-choose-image span {
+  display: block;
+  font-size: 0.9em;
 }
 .article .photoForm .preview .imgpreview .btn-choose-image:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.article .photoForm .preview .btn-change-image {
+.article .photoForm .preview .image-option {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 5px;
-  border-radius: 3px;
-  margin: 10px;
-  line-height: 1em;
+  width: 94%;
+  margin: 3%;
+  float: left;
+  display: inline-block;
 }
-.article .photoForm .preview .btn-change-image:hover {
+.article .photoForm .preview .image-option .btn {
+  float: right;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  line-height: 1em;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-size: 0.75em;
+  margin-left: 8px;
+}
+.article .photoForm .preview .image-option .btn i {
+  margin-right: 8px;
+}
+.article .photoForm .preview .image-option .btn:hover {
   cursor: pointer;
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.2);
 }
 .article .content {
   width: 90%;
@@ -694,12 +698,22 @@ body {
   display: inline-block;
   border-radius: 5px;
   position: relative;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
 }
 .article .content:hover {
   background: #FAFAFA;
 }
 .article .content:hover .info {
-  display: inline-block;
+  color: #BBBBBB;
+}
+.article .content:hover .control button {
+  color: #999999;
+}
+.article .content:hover .option .option-items {
+  color: #999999;
 }
 .article .content h2 {
   font-size: 1.6em;
@@ -734,19 +748,26 @@ body {
   float: right;
   display: inline-block;
   position: relative;
-  padding: 10px;
+  padding: 15px;
+  font-size: 0.9em;
+  color: transparent;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 .article .content .option .option-items i {
   margin-left: 3px;
 }
 .article .content .option .option-items:hover {
   cursor: pointer;
+  color: #333333;
 }
 .article .content .option .option-items .more-option {
   position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100px;
+  top: 90%;
+  right: -20px;
+  width: 240px;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -756,23 +777,48 @@ body {
   z-index: 99;
 }
 .article .content .option .option-items .more-option .btnAction {
-  width: 100%;
+  width: 25%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
   margin: 0px;
-  padding: 0px;
   border: 0px;
+  text-align: center;
+  line-height: 1em;
+}
+.article .content .option .option-items .more-option .btnAction i {
+  display: block;
+  font-size: 1.3em;
+  margin-bottom: 5px;
+}
+.article .content .option .option-items .more-option .btnAction span {
+  display: block;
+  font-size: 0.7em;
+}
+.article .content .option .option-items .more-option .btnAction:hover {
+  background: #EEEEEE;
 }
 .article .content .info {
   position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
+  top: 0%;
+  width: 12%;
+  right: 100%;
   float: left;
+  padding: 4%;
+  color: transparent;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  text-align: right;
+}
+.article .content .info .id {
+  font-size: 2em;
+}
+.article .content .info .time {
   font-size: 0.7em;
-  padding: 1% 0%;
-  color: #BBBBBB;
-  display: none;
+  line-height: 1.2em;
 }
 .article .content .control {
   position: absolute;
@@ -789,8 +835,12 @@ body {
   background: transparent;
   font-size: 1.1em;
   line-height: 1em;
-  padding: 10px;
-  color: #BBBBBB;
+  padding: 15px;
+  color: transparent;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 .article .content .control button:hover {
   cursor: pointer;

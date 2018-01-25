@@ -45,7 +45,12 @@ $article->get($article_id);
 	<?php foreach ($article->contents as $var) {?>
 	<?php if($var['type'] == 'textbox'){?>
 	<div class="content" data-content="<?php echo $var['id'];?>">
-		<div class="info">#<?php echo $var['id']?> แก้ไขล่าสุดเมื่อ <?php echo $var['create_time'];?> โดย Puwadon Sricharoen</div>
+
+		<div class="info">
+			<div class="id">#<?php echo $var['id']?></div>
+			<div class="time"><?php echo $var['create_time'];?></div>
+		</div>
+
 		<div class="control">
 			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
 		</div>
@@ -58,16 +63,33 @@ $article->get($article_id);
 				แทรก<i class="fa fa-angle-down" aria-hidden="true"></i>
 
 				<div class="more-option">
-					<button class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
-					<button class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
+					<div class="btnAction" data-action="textbox">
+						<i class="fa fa-font" aria-hidden="true"></i>
+						<span>บทความ</span>
+					</div>
+					<div class="btnAction" data-action="image">
+						<i class="fa fa-picture-o" aria-hidden="true"></i>
+						<span>รูปภาพ</span>
+					</div>
+					<div class="btnAction" data-action="document">
+						<i class="fa fa-paperclip" aria-hidden="true"></i>
+						<span>เอกสาร</span>
+					</div>
+					<div class="btnAction" data-action="youtube">
+						<i class="fa fa-youtube-play" aria-hidden="true"></i>
+						<span>YouTube</span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
-	<form action="upload_image.php" class="photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
+	<form action="upload_image.php" class=" content photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 
-		<div class="info">#<?php echo $var['id']?> แก้ไขล่าสุดเมื่อ <?php echo $var['create_time'];?> โดย Puwadon Sricharoen</div>
+		<div class="info">
+			<div class="id">#<?php echo $var['id']?></div>
+			<div class="time"><?php echo $var['create_time'];?></div>
+		</div>
 		<div class="control">
 			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
 		</div>
@@ -77,11 +99,17 @@ $article->get($article_id);
 				<?php if(!empty($var['img_location'])){?>
 				<img src="image/upload/normal/<?php echo $var['img_location'];?>">
 				<?php }else{?>
-				<span class="btn-choose-image"><i class="fa fa-picture-o" aria-hidden="true"></i>เลือกไฟล์รูปภาพ</span>
+				<div class="btn-choose-image">
+					<i class="fa fa-picture-o" aria-hidden="true"></i>
+					<span>เลือกไฟล์รูปภาพ</span>
+				</div>
 				<?php }?>
 			</div>
 
-			<div class="btn-change-image">เลือกภาพใหม่</div>
+			<div class="image-option">
+				<div class="btn btn-change-image"><i class="fa fa-upload" aria-hidden="true"></i>เลือกภาพใหม่</div>
+				<div class="btn"><i class="fa fa-repeat" aria-hidden="true"></i>หมุนภาพ</div>
+			</div>
 		</div>
 
 		<div class="uploading" id="loading<?php echo $var['id'];?>">

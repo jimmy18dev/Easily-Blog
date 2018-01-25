@@ -363,31 +363,12 @@
 	}
 
 	.photoForm{
-		width: 90%;
-		padding: 5%;
-		float: left;
-		display: inline-block;
-		position: relative;
-		border-radius: 5px;
-
 		&:hover{
 			background: #FAFAFA;
 
 			.info{
 				display: inline-block;
 			}
-		}
-
-		.info{
-			position: absolute;
-			bottom: 100%;
-			left: 0;
-			width: 100%;
-			float: left;
-			font-size: 0.7em;
-			padding: 1% 0%;
-			color: #BBBBBB;
-			display: none;
 		}
 
 		.control{
@@ -441,7 +422,7 @@
 					position: absolute;
 					top: 100%;
 					right: 0;
-					width: 100px;
+					width: 200px;
 					float: left;
 					display: inline-block;
 					background: #FFFFFF;
@@ -451,7 +432,7 @@
 					z-index: 99;
 
 					.btnAction{
-						width: 100%;
+						width: 25%;
 						float: left;
 						display: inline-block;
 						margin: 0px;
@@ -507,6 +488,8 @@
 			border: 0px;
 			padding: 2% 1%;
 			background: transparent;
+			font-style: italic;
+			color: #999999;
 		}
 
 		.image-file{ display: none; }
@@ -517,7 +500,7 @@
 			display: inline-block;
 			background: #FAFAFA;
 			position: relative;
-			border-radius: 5px;
+			border-radius: 10px;
 
 			.imgpreview{
 				width: 100%;
@@ -538,7 +521,15 @@
 					display: inline-block;
 
 					i{
-						margin-right: 10px;
+						display: block;
+						font-size: 4em;
+						margin-bottom: 10px;
+						color: #DDDDDD;
+					}
+
+					span{
+						display: block;
+						font-size: 0.9em;
 					}
 
 					&:hover{
@@ -548,18 +539,34 @@
 				}
 			}
 
-			.btn-change-image{
+			.image-option{
 				position: absolute;
 				bottom: 0;
 				right: 0;
-				padding: 5px;
-				border-radius: 3px;
-				margin: 10px;
-				line-height: 1em;
+				width: 94%;
+				margin: 3%;
+				float: left;
+				display: inline-block;
 
-				&:hover{
-					cursor: pointer;
-					text-decoration: underline;
+				.btn{
+					float: right;
+					display: inline-block;
+					padding: 8px 16px;
+					border-radius: 20px;
+					line-height: 1em;
+					color: #FFFFFF;
+					border: 1px solid #FFFFFF;
+					font-size: 0.75em;
+					margin-left: 8px;
+
+					i{
+						margin-right: 8px;
+					}
+
+					&:hover{
+						cursor: pointer;
+						background: rgba(255,255,255,0.2);
+					}
 				}
 			}
 		}
@@ -572,13 +579,20 @@
 		display: inline-block;
 		border-radius: 5px;
 		position: relative;
+		.transitionAnimation(0.2s);
 		
 		&:hover{
 			background: #FAFAFA;
 
 			.info{
-				display: inline-block;
+				color: #BBBBBB;
 			}
+
+			.control button{
+				color: #999999;
+			}
+
+			.option .option-items{ color: #999999; }
 		}
 
 		h2{
@@ -618,7 +632,10 @@
 				float: right;
 				display: inline-block;
 				position: relative;
-				padding: 10px;
+				padding: 15px;
+				font-size: 0.9em;
+				color: transparent;
+				.transitionAnimation(0.5s);
 
 				i{
 					margin-left: 3px;
@@ -626,13 +643,14 @@
 
 				&:hover{
 					cursor: pointer;
+					color: #333333;
 				}
 
 				.more-option{
 					position: absolute;
-					top: 100%;
-					right: 0;
-					width: 100px;
+					top: 90%;
+					right: -20px;
+					width: 240px;
 					float: left;
 					display: inline-block;
 					background: #FFFFFF;
@@ -642,12 +660,28 @@
 					z-index: 99;
 
 					.btnAction{
-						width: 100%;
+						width: 25%;
+						padding: 3% 0%;
 						float: left;
 						display: inline-block;
 						margin: 0px;
-						padding: 0px;
 						border: 0px;
+						text-align: center;
+						line-height: 1em;
+
+						i{
+							display: block;
+							font-size: 1.3em;
+							margin-bottom: 5px;
+						}
+						span{
+							display: block;
+							font-size: 0.7em;
+						}
+
+						&:hover{
+							background: #EEEEEE;
+						}
 					}
 				}
 			}
@@ -655,14 +689,23 @@
 
 		.info{
 			position: absolute;
-			bottom: 100%;
-			left: 0;
-			width: 100%;
+			top: 0%;
+			width: 12%;
+			right: 100%;
 			float: left;
-			font-size: 0.7em;
-			padding: 1% 0%;
-			color: #BBBBBB;
-			display: none;
+			padding: 4%;
+			color: transparent;
+			display: inline-block;
+			.transitionAnimation(0.5s);
+			text-align: right;
+
+			.id{
+				font-size: 2em;
+			}
+			.time{
+				font-size: 0.7em;
+				line-height: 1.2em;
+			}
 		}
 
 		.control{
@@ -680,8 +723,9 @@
 				background: transparent;
 				font-size: 1.1em;
 				line-height: 1em;
-				padding: 10px;
-				color: #BBBBBB;
+				padding: 15px;
+				color: transparent;
+				.transitionAnimation(0.5s);
 
 				&:hover{
 					cursor: pointer;
