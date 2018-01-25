@@ -12,6 +12,13 @@ $(document).ready(function(){
     var article_title;
     var article_description;
 
+    $(document).click(function(e){
+        if(!$(e.target).is('.between-option')){
+            console.log(e.target);
+            $('.more-option').fadeOut(100);
+        }
+    });
+
     // Edit Article Title.
     $articleTitle = $('#articleTitle');
     $articleTitle.focus(function(){
@@ -311,8 +318,8 @@ $(document).ready(function(){
         });
     });
 
-    $('.option-items').click(function(){
+    $('.between-option').click(function(){
         $moreOption = $(this).children('.more-option');
-        $moreOption.fadeToggle(300);
+        $moreOption.fadeIn(300);
     });
 });

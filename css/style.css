@@ -156,7 +156,6 @@ body {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  border-bottom: 1px solid #EEEEEE;
 }
 .header.fixed {
   position: fixed;
@@ -455,7 +454,7 @@ body {
 }
 .article.editor {
   margin-bottom: 10%;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .article .article-header {
   width: 90%;
@@ -467,31 +466,6 @@ body {
 .article .article-header h1 {
   font-size: 2.4em;
   font-family: "maledpan", sans-serif;
-}
-.article textarea {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  border: 0px;
-  resize: none;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-}
-.article textarea#articleTitle {
-  font-size: 2.4em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1.2em;
-  margin-bottom: 3%;
-}
-.article textarea#articleDescription {
-  font-size: 1em;
-  margin-bottom: 3%;
-}
-.article textarea.topic-input {
-  font-size: 1.6em;
-  line-height: 1.2em;
 }
 .article .option-control {
   width: 90%;
@@ -523,211 +497,101 @@ body {
 .article .option-control .btnAction i {
   margin-right: 7px;
 }
-.article .photoForm:hover {
-  background: #FAFAFA;
-}
-.article .photoForm:hover .info {
-  display: inline-block;
-}
-.article .photoForm .control {
-  position: absolute;
-  top: 0;
-  right: 0;
+.article .between-option {
   width: 100%;
+  padding: 1% 0%;
   float: left;
   display: inline-block;
-}
-.article .photoForm .control button {
-  float: right;
-  display: inline-block;
-  border: 0px;
-  background: transparent;
-  font-size: 1.1em;
-  line-height: 1em;
-  padding: 10px;
-  color: #BBBBBB;
-}
-.article .photoForm .control button:hover {
-  cursor: pointer;
-  color: #333333;
-}
-.article .photoForm .option {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.article .photoForm .option .option-items {
-  float: right;
-  display: inline-block;
-  position: relative;
-  padding: 10px;
-}
-.article .photoForm .option .option-items i {
-  margin-left: 3px;
-}
-.article .photoForm .option .option-items:hover {
-  cursor: pointer;
-}
-.article .photoForm .option .option-items .more-option {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 200px;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  display: none;
-  border-radius: 5px;
-  z-index: 99;
-}
-.article .photoForm .option .option-items .more-option .btnAction {
-  width: 25%;
-  float: left;
-  display: inline-block;
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-}
-.article .photoForm .uploading {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  float: left;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.8);
-  display: none;
-}
-.article .photoForm .uploading .inprogress {
-  width: 80%;
-  margin: 10%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  border-radius: 5px;
-}
-.article .photoForm .uploading .inprogress .bar {
-  width: 30%;
-  float: left;
-  display: inline-block;
-  background: #0099a4;
-  height: 5px;
-  border-radius: 5px;
-}
-.article .photoForm img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.article .photoForm .image-alt {
-  width: 98%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 1em;
-  border: 0px;
-  padding: 2% 1%;
-  background: transparent;
-  font-style: italic;
-  color: #999999;
-}
-.article .photoForm .image-file {
-  display: none;
-}
-.article .photoForm .preview {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FAFAFA;
   position: relative;
   border-radius: 10px;
 }
-.article .photoForm .preview .imgpreview {
-  width: 100%;
+.article .between-option:hover {
+  cursor: pointer;
+  background: #FAFAFA;
+}
+.article .between-option .more-option {
+  position: absolute;
+  top: -180%;
+  left: 0;
+  width: 50%;
+  margin: 0% 25%;
+  float: left;
+  display: none;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  border-radius: 5px;
+}
+.article .between-option .more-option .btnAction {
+  width: 25%;
+  padding: 3% 0%;
+  padding-top: 4%;
   float: left;
   display: inline-block;
   text-align: center;
-}
-.article .photoForm .preview .imgpreview img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.article .photoForm .preview .imgpreview .btn-choose-image {
-  width: 100%;
-  padding: 25% 0%;
-  float: left;
-  display: inline-block;
-}
-.article .photoForm .preview .imgpreview .btn-choose-image i {
-  display: block;
-  font-size: 4em;
-  margin-bottom: 10px;
-  color: #DDDDDD;
-}
-.article .photoForm .preview .imgpreview .btn-choose-image span {
-  display: block;
-  font-size: 0.9em;
-}
-.article .photoForm .preview .imgpreview .btn-choose-image:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.article .photoForm .preview .image-option {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 94%;
-  margin: 3%;
-  float: left;
-  display: inline-block;
-}
-.article .photoForm .preview .image-option .btn {
-  float: right;
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 20px;
+  color: #666666;
   line-height: 1em;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
-  font-size: 0.75em;
-  margin-left: 8px;
 }
-.article .photoForm .preview .image-option .btn i {
-  margin-right: 8px;
+.article .between-option .more-option .btnAction i {
+  display: block;
+  font-size: 1.4em;
+  margin-bottom: 3px;
 }
-.article .photoForm .preview .image-option .btn:hover {
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
+.article .between-option .more-option .btnAction span {
+  display: block;
+  font-size: 0.7em;
+}
+.article .between-option .more-option .btnAction:hover {
+  color: #333333;
+  background: #FAFAFA;
 }
 .article .content {
-  width: 90%;
-  padding: 5%;
+  width: 100%;
   float: left;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
-.article .content:hover {
+.article .content.textbox {
+  width: 90%;
+  padding: 5%;
+}
+.article .content.textbox:hover {
   background: #FAFAFA;
 }
-.article .content:hover .info {
-  color: #BBBBBB;
+.article .content .topic-input {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.6em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1.1em;
+  margin: 0px;
+  border: 0px;
+  color: #333333;
+  background: transparent;
+  border-bottom: 1px solid transparent;
 }
-.article .content:hover .control button {
-  color: #999999;
+.article .content .topic-input:focus {
+  border-bottom: 1px solid #DDDDDD;
 }
-.article .content:hover .option .option-items {
-  color: #999999;
+.article .content .body-input {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: #666666;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  resize: none;
 }
 .article .content h2 {
   font-size: 1.6em;
@@ -742,75 +606,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-}
-.article .content .body {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  color: #333333;
-}
-.article .content .option {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.article .content .option .option-items {
-  float: right;
-  display: inline-block;
-  position: relative;
-  padding: 15px;
-  font-size: 0.9em;
-  color: transparent;
-  transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-}
-.article .content .option .option-items i {
-  margin-left: 3px;
-}
-.article .content .option .option-items:hover {
-  cursor: pointer;
-  color: #333333;
-}
-.article .content .option .option-items .more-option {
-  position: absolute;
-  top: 90%;
-  right: -20px;
-  width: 240px;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  display: none;
-  border-radius: 5px;
-  z-index: 99;
-}
-.article .content .option .option-items .more-option .btnAction {
-  width: 25%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-  margin: 0px;
-  border: 0px;
-  text-align: center;
-  line-height: 1em;
-}
-.article .content .option .option-items .more-option .btnAction i {
-  display: block;
-  font-size: 1.3em;
-  margin-bottom: 5px;
-}
-.article .content .option .option-items .more-option .btnAction span {
-  display: block;
-  font-size: 0.7em;
-}
-.article .content .option .option-items .more-option .btnAction:hover {
-  background: #EEEEEE;
+  border-radius: 10px;
 }
 .article .content .info {
   position: absolute;
@@ -838,27 +634,143 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 98%;
+  padding: 1%;
   float: left;
   display: inline-block;
+  z-index: 99;
 }
-.article .content .control button {
+.article .content .control .btn {
   float: right;
   display: inline-block;
   border: 0px;
   background: transparent;
   font-size: 1.1em;
   line-height: 1em;
-  padding: 15px;
-  color: transparent;
-  transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  color: #999999;
+  border-radius: 10px;
 }
-.article .content .control button:hover {
+.article .content .control .btn:hover {
   cursor: pointer;
-  color: #333333;
+  color: #666666;
+}
+.article .content .uploading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+}
+.article .content .uploading .inprogress {
+  width: 80%;
+  margin: 10%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+.article .content .uploading .inprogress .bar {
+  width: 30%;
+  float: left;
+  display: inline-block;
+  background: #0099a4;
+  height: 5px;
+  border-radius: 5px;
+}
+.article .content img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .content .image-alt {
+  width: 98%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  border: 0px;
+  padding: 2% 1%;
+  background: transparent;
+  font-style: italic;
+  color: #999999;
+}
+.article .content .image-file {
+  display: none;
+}
+.article .content .preview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+}
+.article .content .preview .imgpreview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  background: #FAFAFA;
+}
+.article .content .preview .imgpreview img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .content .preview .imgpreview .btn-choose-image {
+  width: 100%;
+  padding: 25% 0%;
+  float: left;
+  display: inline-block;
+}
+.article .content .preview .imgpreview .btn-choose-image i {
+  display: block;
+  font-size: 4em;
+  margin-bottom: 10px;
+  color: #DDDDDD;
+}
+.article .content .preview .imgpreview .btn-choose-image span {
+  display: block;
+  font-size: 0.9em;
+}
+.article .content .preview .imgpreview .btn-choose-image:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.article .content .preview .image-option {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 94%;
+  margin: 3%;
+  float: left;
+  display: inline-block;
+}
+.article .content .preview .image-option .btn {
+  float: right;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  line-height: 1em;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-size: 0.75em;
+  margin-left: 8px;
+}
+.article .content .preview .image-option .btn i {
+  margin-right: 8px;
+}
+.article .content .preview .image-option .btn:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
 }
 .article-list {
   width: 60%;

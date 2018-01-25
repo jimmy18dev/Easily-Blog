@@ -8,7 +8,6 @@
 	display: inline-block;
 	z-index: 50;
 	.transitionAnimation(0.2s);
-	border-bottom: 1px solid #EEEEEE;
 
 	&.fixed{
 		position: fixed; top: 0; left: 0;
@@ -301,7 +300,7 @@
 
 	&.editor{
 		margin-bottom: 10%;
-		margin-top: 50px;
+		margin-top: 100px;
 	}
 
 	.article-header{
@@ -314,36 +313,6 @@
 		h1{
 			font-size: 2.4em;
 			font-family: @topic_font;
-		}
-	}
-
-	textarea{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		font-size: 1.2em;
-		border: 0px;
-		resize: none;
-		padding: 0;
-		margin: 0;
-		background: transparent;
-
-		&#articleTitle{
-			font-size: 2.4em;
-			font-family: @topic_font;
-			line-height: 1.2em;
-			margin-bottom: 3%;
-		}
-
-		&#articleDescription{
-			font-size: 1em;
-			margin-bottom: 3%;
-		}
-
-		&.topic-input{
-			font-size: 1.6em;
-			// font-family: @topic_font;
-			line-height: 1.2em;
 		}
 	}
 
@@ -381,12 +350,145 @@
 		}
 	}
 
-	.photoForm{
-		&:hover{
-			background: #FAFAFA;
+	.between-option{
+		width: 100%;
+		padding: 1% 0%;
+		float: left;
+		display: inline-block;
+		position: relative;
+		border-radius: 10px;
 
-			.info{
+		&:hover{
+			cursor: pointer;
+			background: #FAFAFA;
+		}
+
+		.more-option{
+			position: absolute;
+			top: -180%;
+			left: 0;
+			width: 50%;
+			margin: 0% 25%;
+			float: left;
+			display: none;
+			background: #FFFFFF;
+			box-shadow: 1px 1px 15px rgba(0,0,0,0.2);
+			z-index: 99;
+			border-radius: 5px;
+
+			.btnAction{
+				width: 25%;
+				padding: 3% 0%;
+				padding-top: 4%;
+				float: left;
 				display: inline-block;
+				text-align: center;
+				color: #666666;
+				line-height: 1em;
+
+				i{
+					display: block;
+					font-size: 1.4em;
+					margin-bottom: 3px;
+				}
+				span{
+					display: block;
+					font-size: 0.7em;
+				}
+
+				&:hover{
+					color: #333333;
+					background: #FAFAFA;
+				}
+			}
+		}
+	}
+
+	.content{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		border-radius: 10px;
+		position: relative;
+		.transitionAnimation(0.2s);
+
+		&.textbox{
+			width: 90%;
+			padding: 5%;
+
+			&:hover{
+				background: #FAFAFA;
+			}
+		}
+
+		.topic-input{
+			width: 100%;
+			padding: 1% 0%;
+			float: left;
+			display: inline-block;
+			font-size: 1.6em;
+			font-family: @topic_font;
+			line-height: 1.1em;
+			margin: 0px;
+			border: 0px;
+			color: #333333;
+			background: transparent;
+			border-bottom: 1px solid transparent;
+
+			&:focus{
+				border-bottom: 1px solid #DDDDDD;
+			}
+		}
+		.body-input{
+			width: 100%;
+			padding: 1% 0%;
+			float: left;
+			display: inline-block;
+			font-size: 1.2em;
+			line-height: 1.6em;
+			color: #666666;
+			border: 0;
+			margin: 0;
+			background: transparent;
+			resize: none;
+		}
+
+		h2{
+			font-size: 1.6em;
+			font-family: @topic_font;
+			color: #333333;
+		}
+
+		p{
+			font-size: 0.9em;
+			color: #666666;
+		}
+
+		img{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			border-radius: 10px;
+		}
+
+		.info{
+			position: absolute;
+			top: 0%;
+			width: 12%;
+			right: 100%;
+			float: left;
+			padding: 4%;
+			color: transparent;
+			display: inline-block;
+			.transitionAnimation(0.5s);
+			text-align: right;
+
+			.id{
+				font-size: 2em;
+			}
+			.time{
+				font-size: 0.7em;
+				line-height: 1.2em;
 			}
 		}
 
@@ -394,11 +496,13 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 100%;
+			width: 98%;
+			padding: 1%;
 			float: left;
 			display: inline-block;
+			z-index: 99;
 
-			button{
+			.btn{
 				float: right;
 				display: inline-block;
 				border: 0px;
@@ -406,58 +510,13 @@
 				font-size: 1.1em;
 				line-height: 1em;
 				padding: 10px;
-				color: #BBBBBB;
+				.transitionAnimation(0.2s);
+				color: #999999;
+				border-radius: 10px;
 
 				&:hover{
 					cursor: pointer;
-					color: #333333;
-				}
-			}
-		}
-
-		.option{
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.option-items{
-				float: right;
-				display: inline-block;
-				position: relative;
-				padding: 10px;
-
-				i{
-					margin-left: 3px;
-				}
-
-				&:hover{
-					cursor: pointer;
-				}
-
-				.more-option{
-					position: absolute;
-					top: 100%;
-					right: 0;
-					width: 200px;
-					float: left;
-					display: inline-block;
-					background: #FFFFFF;
-					box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-					display: none;
-					border-radius: 5px;
-					z-index: 99;
-
-					.btnAction{
-						width: 25%;
-						float: left;
-						display: inline-block;
-						margin: 0px;
-						padding: 0px;
-						border: 0px;
-					}
+					color: #666666;
 				}
 			}
 		}
@@ -517,7 +576,6 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			background: #FAFAFA;
 			position: relative;
 			border-radius: 10px;
 
@@ -526,6 +584,7 @@
 				float: left;
 				display: inline-block;
 				text-align: center;
+				background: #FAFAFA;
 
 				img{
 					width: 100%;
@@ -586,169 +645,6 @@
 						cursor: pointer;
 						background: rgba(255,255,255,0.2);
 					}
-				}
-			}
-		}
-	}
-
-	.content{
-		width: 90%;
-		padding: 5%;
-		float: left;
-		display: inline-block;
-		border-radius: 5px;
-		position: relative;
-		.transitionAnimation(0.2s);
-		
-		&:hover{
-			background: #FAFAFA;
-
-			.info{
-				color: #BBBBBB;
-			}
-
-			.control button{
-				color: #999999;
-			}
-
-			.option .option-items{ color: #999999; }
-		}
-
-		h2{
-			font-size: 1.6em;
-			font-family: @topic_font;
-			color: #333333;
-		}
-
-		p{
-			font-size: 0.9em;
-			color: #666666;
-		}
-
-		img{
-			width: 100%;
-			float: left;
-			display: inline-block;
-		}
-
-		.body{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-size: 1.2em;
-			color: #333333;
-		}
-
-		.option{
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.option-items{
-				float: right;
-				display: inline-block;
-				position: relative;
-				padding: 15px;
-				font-size: 0.9em;
-				color: transparent;
-				.transitionAnimation(0.5s);
-
-				i{
-					margin-left: 3px;
-				}
-
-				&:hover{
-					cursor: pointer;
-					color: #333333;
-				}
-
-				.more-option{
-					position: absolute;
-					top: 90%;
-					right: -20px;
-					width: 240px;
-					float: left;
-					display: inline-block;
-					background: #FFFFFF;
-					box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-					display: none;
-					border-radius: 5px;
-					z-index: 99;
-
-					.btnAction{
-						width: 25%;
-						padding: 3% 0%;
-						float: left;
-						display: inline-block;
-						margin: 0px;
-						border: 0px;
-						text-align: center;
-						line-height: 1em;
-
-						i{
-							display: block;
-							font-size: 1.3em;
-							margin-bottom: 5px;
-						}
-						span{
-							display: block;
-							font-size: 0.7em;
-						}
-
-						&:hover{
-							background: #EEEEEE;
-						}
-					}
-				}
-			}
-		}
-
-		.info{
-			position: absolute;
-			top: 0%;
-			width: 12%;
-			right: 100%;
-			float: left;
-			padding: 4%;
-			color: transparent;
-			display: inline-block;
-			.transitionAnimation(0.5s);
-			text-align: right;
-
-			.id{
-				font-size: 2em;
-			}
-			.time{
-				font-size: 0.7em;
-				line-height: 1.2em;
-			}
-		}
-
-		.control{
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			button{
-				float: right;
-				display: inline-block;
-				border: 0px;
-				background: transparent;
-				font-size: 1.1em;
-				line-height: 1em;
-				padding: 15px;
-				color: transparent;
-				.transitionAnimation(0.5s);
-
-				&:hover{
-					cursor: pointer;
-					color: #333333;
 				}
 			}
 		}

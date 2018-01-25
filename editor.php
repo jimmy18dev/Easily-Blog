@@ -45,7 +45,7 @@ $article->get($article_id);
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
 	<?php if($var['type'] == 'textbox'){?>
-	<div class="content" data-content="<?php echo $var['id'];?>">
+	<div class="content textbox" data-content="<?php echo $var['id'];?>">
 
 		<div class="info">
 			<div class="id">#<?php echo $var['id']?></div>
@@ -53,46 +53,24 @@ $article->get($article_id);
 		</div>
 
 		<div class="control">
-			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
+			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
-		<textarea class="topic-input" placeholder="หัวข้อ..."><?php echo $var['topic'];?></textarea>
+		<input type="text" class="topic-input" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
 		<textarea class="body-input" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
-
-		<div class="option">
-			<div class="option-items">
-				แทรก<i class="fa fa-angle-down" aria-hidden="true"></i>
-
-				<div class="more-option">
-					<div class="btnAction" data-action="textbox">
-						<i class="fa fa-font" aria-hidden="true"></i>
-						<span>บทความ</span>
-					</div>
-					<div class="btnAction" data-action="image">
-						<i class="fa fa-picture-o" aria-hidden="true"></i>
-						<span>รูปภาพ</span>
-					</div>
-					<div class="btnAction" data-action="document">
-						<i class="fa fa-paperclip" aria-hidden="true"></i>
-						<span>เอกสาร</span>
-					</div>
-					<div class="btnAction" data-action="youtube">
-						<i class="fa fa-youtube-play" aria-hidden="true"></i>
-						<span>YouTube</span>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
-	<form action="upload_image.php" class=" content photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
+	<form action="upload_image.php" class="content photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 
 		<div class="info">
 			<div class="id">#<?php echo $var['id']?></div>
 			<div class="time"><?php echo $var['create_time'];?></div>
 		</div>
+
 		<div class="control">
-			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
+			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
 		<div class="preview">
@@ -118,17 +96,6 @@ $article->get($article_id);
 				<div class="bar" id="bar<?php echo $var['id'];?>"></div>
 			</div>
 		</div>
-
-		<div class="option">
-			<div class="option-items">
-				แทรก<i class="fa fa-angle-down" aria-hidden="true"></i>
-
-				<div class="more-option">
-					<button class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
-					<button class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
-				</div>
-			</div>
-		</div>
 		
 		<input type="text" class="image-alt" placeholder="ใส่คำอธิบายภาพนี้..." value="<?php echo $var['img_alt'];?>">
 
@@ -137,6 +104,26 @@ $article->get($article_id);
 		<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
 	</form>
 	<?php }?>
+	<div class="between-option">
+		<div class="more-option">
+			<div class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-font" aria-hidden="true"></i>
+				<span>บทความ</span>
+			</div>
+			<div class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-picture-o" aria-hidden="true"></i>
+				<span>รูปภาพ</span>
+			</div>
+			<div class="btnAction" data-action="document" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-paperclip" aria-hidden="true"></i>
+				<span>เอกสาร</span>
+			</div>
+			<div class="btnAction" data-action="youtube" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-youtube-play" aria-hidden="true"></i>
+				<span>YouTube</span>
+			</div>
+		</div>
+	</div>
 	<?php } ?>
 
 	<div class="option-control">
