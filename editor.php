@@ -31,30 +31,45 @@ $article->get($article_id);
 </head>
 <body>
 <div class="header">
+	<div class="title">เขียนบทความ</div>
 	<a class="btn" href="article/<?php echo $article->id?>">Close</a>
 </div>
-<div class="article">
+<div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<textarea id="articleTitle" placeholder="Enter title here..."><?php echo $article->title;?></textarea>
-		<textarea id="articleDescription" placeholder="enter article description"><?php echo $article->description;?></textarea>
+		<textarea id="articleTitle" placeholder="ตั้งชื่อบทความ"><?php echo $article->title;?></textarea>
+		<textarea id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
 	<?php if($var['type'] == 'textbox'){?>
 	<div class="content" data-content="<?php echo $var['id'];?>">
+		<div class="info">#<?php echo $var['id']?> แก้ไขล่าสุดเมื่อ <?php echo $var['create_time'];?> โดย Puwadon Sricharoen</div>
 		<div class="control">
-			<button class="btnDeleteContent">Delete</button>
+			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
 		</div>
 
-		<textarea class="topic-input" placeholder="topic"><?php echo $var['topic'];?></textarea>
-		<textarea class="body-input" placeholder="enter story..."><?php echo $var['body'];?></textarea>
+		<textarea class="topic-input" placeholder="หัวข้อ..."><?php echo $var['topic'];?></textarea>
+		<textarea class="body-input" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
+
+		<div class="option">
+			<div class="option-items">
+				แทรก<i class="fa fa-angle-down" aria-hidden="true"></i>
+
+				<div class="more-option">
+					<button class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
+					<button class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
+
+		<div class="info">#<?php echo $var['id']?> แก้ไขล่าสุดเมื่อ <?php echo $var['create_time'];?> โดย Puwadon Sricharoen</div>
 		<div class="control">
-			<button class="btnDeleteContent">Delete</button>
+			<button class="btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></button>
 		</div>
 
 		<div class="preview">
@@ -74,25 +89,32 @@ $article->get($article_id);
 				<div class="bar" id="bar<?php echo $var['id'];?>"></div>
 			</div>
 		</div>
+
+		<div class="option">
+			<div class="option-items">
+				แทรก<i class="fa fa-angle-down" aria-hidden="true"></i>
+
+				<div class="more-option">
+					<button class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
+					<button class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
+				</div>
+			</div>
+		</div>
 		
-		<input type="text" class="image-alt" placeholder="Image description..." value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="image-alt" placeholder="ใส่คำอธิบายภาพนี้..." value="<?php echo $var['img_alt'];?>">
 
 		<input type="file" name="image" class="image-file" id="imageFiles<?php echo $var['id'];?>">
 		<input type="hidden" name="content_id" value="<?php echo $var['id'];?>">
 		<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
 	</form>
 	<?php }?>
-	<div class="control">
-		<button class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>"><i class="fa fa-font" aria-hidden="true"></i></button>
-		<button class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
-	</div>
 	<?php } ?>
 
-	<div class="control">
-		<button class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i></button>
-		<button class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
-		<button class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i></button>
-		<button class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></button>
+	<div class="option-control">
+		<button class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
+		<button class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
+		<button class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i>เอกสาร</button>
+		<button class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i>YouTube</button>
 	</div>
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">

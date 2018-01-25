@@ -281,21 +281,20 @@
 	float: left;
 	display: inline-block;
 
+	&.editor{
+		margin-bottom: 10%;
+	}
+
 	.article-header{
-		width: 100%;
+		width: 90%;
+		margin: 0 5%;
 		float: left;
 		display: inline-block;
-		border-bottom: 1px solid #EEEEEE;
 		margin-bottom: 3%;
 
 		h1{
 			font-size: 2.4em;
 			font-family: @topic_font;
-		}
-
-		[contenteditable=true]:empty:before{
-			content: attr(placeholder);
-			display: block; /* For Firefox */
 		}
 	}
 
@@ -308,6 +307,7 @@
 		resize: none;
 		padding: 0;
 		margin: 0;
+		background: transparent;
 
 		&#articleTitle{
 			font-size: 2.4em;
@@ -328,14 +328,72 @@
 		}
 	}
 
-	.photoForm{
-		width: 100%;
+	.option-control{
+		width: 90%;
+		padding: 2% 0%;
+		margin: 1% 5%; 
 		float: left;
 		display: inline-block;
-		margin-bottom: 2%;
+		border-top: 1px solid #EEEEEE;
+
+		.btnAction{
+			width: 25%;
+			padding: 2% 0%;
+			float: left;
+			display: inline-block;
+			font-size: 1.1em;
+			border: 0px;
+			font-family: @topic_font;
+			line-height: 1em;
+			margin: 0px;
+			background: transparent;
+			color: #333333;
+			border-radius: 5px;
+
+			&:hover{
+				cursor: pointer;
+				color: #111111;
+				background: #EEEEEE;
+			}
+
+			i{
+				margin-right: 7px;
+			}
+		}
+	}
+
+	.photoForm{
+		width: 90%;
+		padding: 5%;
+		float: left;
+		display: inline-block;
 		position: relative;
+		border-radius: 5px;
+
+		&:hover{
+			background: #FAFAFA;
+
+			.info{
+				display: inline-block;
+			}
+		}
+
+		.info{
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			width: 100%;
+			float: left;
+			font-size: 0.7em;
+			padding: 1% 0%;
+			color: #BBBBBB;
+			display: none;
+		}
 
 		.control{
+			position: absolute;
+			top: 0;
+			right: 0;
 			width: 100%;
 			float: left;
 			display: inline-block;
@@ -343,6 +401,64 @@
 			button{
 				float: right;
 				display: inline-block;
+				border: 0px;
+				background: transparent;
+				font-size: 1.1em;
+				line-height: 1em;
+				padding: 10px;
+				color: #BBBBBB;
+
+				&:hover{
+					cursor: pointer;
+					color: #333333;
+				}
+			}
+		}
+
+		.option{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			float: left;
+			display: inline-block;
+
+			.option-items{
+				float: right;
+				display: inline-block;
+				position: relative;
+				padding: 10px;
+
+				i{
+					margin-left: 3px;
+				}
+
+				&:hover{
+					cursor: pointer;
+				}
+
+				.more-option{
+					position: absolute;
+					top: 100%;
+					right: 0;
+					width: 100px;
+					float: left;
+					display: inline-block;
+					background: #FFFFFF;
+					box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+					display: none;
+					border-radius: 5px;
+					z-index: 99;
+
+					.btnAction{
+						width: 100%;
+						float: left;
+						display: inline-block;
+						margin: 0px;
+						padding: 0px;
+						border: 0px;
+					}
+				}
 			}
 		}
 
@@ -389,7 +505,8 @@
 			text-align: center;
 			font-size: 1em;
 			border: 0px;
-			padding: 1%;
+			padding: 2% 1%;
+			background: transparent;
 		}
 
 		.image-file{ display: none; }
@@ -398,8 +515,9 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			background: #EEEEEE;
+			background: #FAFAFA;
 			position: relative;
+			border-radius: 5px;
 
 			.imgpreview{
 				width: 100%;
@@ -415,7 +533,7 @@
 
 				.btn-choose-image{
 					width: 100%;
-					padding: 15% 0%;
+					padding: 25% 0%;
 					float: left;
 					display: inline-block;
 
@@ -448,10 +566,20 @@
 	}
 
 	.content{
-		width: 100%;
+		width: 90%;
+		padding: 5%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 2%;
+		border-radius: 5px;
+		position: relative;
+		
+		&:hover{
+			background: #FAFAFA;
+
+			.info{
+				display: inline-block;
+			}
+		}
 
 		h2{
 			font-size: 1.6em;
@@ -478,7 +606,69 @@
 			color: #333333;
 		}
 
+		.option{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			float: left;
+			display: inline-block;
+
+			.option-items{
+				float: right;
+				display: inline-block;
+				position: relative;
+				padding: 10px;
+
+				i{
+					margin-left: 3px;
+				}
+
+				&:hover{
+					cursor: pointer;
+				}
+
+				.more-option{
+					position: absolute;
+					top: 100%;
+					right: 0;
+					width: 100px;
+					float: left;
+					display: inline-block;
+					background: #FFFFFF;
+					box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+					display: none;
+					border-radius: 5px;
+					z-index: 99;
+
+					.btnAction{
+						width: 100%;
+						float: left;
+						display: inline-block;
+						margin: 0px;
+						padding: 0px;
+						border: 0px;
+					}
+				}
+			}
+		}
+
+		.info{
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			width: 100%;
+			float: left;
+			font-size: 0.7em;
+			padding: 1% 0%;
+			color: #BBBBBB;
+			display: none;
+		}
+
 		.control{
+			position: absolute;
+			top: 0;
+			right: 0;
 			width: 100%;
 			float: left;
 			display: inline-block;
@@ -486,6 +676,17 @@
 			button{
 				float: right;
 				display: inline-block;
+				border: 0px;
+				background: transparent;
+				font-size: 1.1em;
+				line-height: 1em;
+				padding: 10px;
+				color: #BBBBBB;
+
+				&:hover{
+					cursor: pointer;
+					color: #333333;
+				}
 			}
 		}
 	}

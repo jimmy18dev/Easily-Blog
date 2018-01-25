@@ -440,21 +440,19 @@ body {
   float: left;
   display: inline-block;
 }
+.article.editor {
+  margin-bottom: 10%;
+}
 .article .article-header {
-  width: 100%;
+  width: 90%;
+  margin: 0 5%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
   margin-bottom: 3%;
 }
 .article .article-header h1 {
   font-size: 2.4em;
   font-family: "maledpan", sans-serif;
-}
-.article .article-header [contenteditable=true]:empty:before {
-  content: attr(placeholder);
-  display: block;
-  /* For Firefox */
 }
 .article textarea {
   width: 100%;
@@ -465,6 +463,7 @@ body {
   resize: none;
   padding: 0;
   margin: 0;
+  background: transparent;
 }
 .article textarea#articleTitle {
   font-size: 2.4em;
@@ -480,14 +479,65 @@ body {
   font-size: 1.6em;
   line-height: 1.2em;
 }
-.article .photoForm {
-  width: 100%;
+.article .option-control {
+  width: 90%;
+  padding: 2% 0%;
+  margin: 1% 5%;
   float: left;
   display: inline-block;
-  margin-bottom: 2%;
+  border-top: 1px solid #EEEEEE;
+}
+.article .option-control .btnAction {
+  width: 25%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.1em;
+  border: 0px;
+  font-family: "maledpan", sans-serif;
+  line-height: 1em;
+  margin: 0px;
+  background: transparent;
+  color: #333333;
+  border-radius: 5px;
+}
+.article .option-control .btnAction:hover {
+  cursor: pointer;
+  color: #111111;
+  background: #EEEEEE;
+}
+.article .option-control .btnAction i {
+  margin-right: 7px;
+}
+.article .photoForm {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
   position: relative;
+  border-radius: 5px;
+}
+.article .photoForm:hover {
+  background: #FAFAFA;
+}
+.article .photoForm:hover .info {
+  display: inline-block;
+}
+.article .photoForm .info {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  float: left;
+  font-size: 0.7em;
+  padding: 1% 0%;
+  color: #BBBBBB;
+  display: none;
 }
 .article .photoForm .control {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   float: left;
   display: inline-block;
@@ -495,6 +545,57 @@ body {
 .article .photoForm .control button {
   float: right;
   display: inline-block;
+  border: 0px;
+  background: transparent;
+  font-size: 1.1em;
+  line-height: 1em;
+  padding: 10px;
+  color: #BBBBBB;
+}
+.article .photoForm .control button:hover {
+  cursor: pointer;
+  color: #333333;
+}
+.article .photoForm .option {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .photoForm .option .option-items {
+  float: right;
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+}
+.article .photoForm .option .option-items i {
+  margin-left: 3px;
+}
+.article .photoForm .option .option-items:hover {
+  cursor: pointer;
+}
+.article .photoForm .option .option-items .more-option {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100px;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  display: none;
+  border-radius: 5px;
+  z-index: 99;
+}
+.article .photoForm .option .option-items .more-option .btnAction {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
 }
 .article .photoForm .uploading {
   position: absolute;
@@ -535,7 +636,8 @@ body {
   text-align: center;
   font-size: 1em;
   border: 0px;
-  padding: 1%;
+  padding: 2% 1%;
+  background: transparent;
 }
 .article .photoForm .image-file {
   display: none;
@@ -544,8 +646,9 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #EEEEEE;
+  background: #FAFAFA;
   position: relative;
+  border-radius: 5px;
 }
 .article .photoForm .preview .imgpreview {
   width: 100%;
@@ -560,7 +663,7 @@ body {
 }
 .article .photoForm .preview .imgpreview .btn-choose-image {
   width: 100%;
-  padding: 15% 0%;
+  padding: 25% 0%;
   float: left;
   display: inline-block;
 }
@@ -585,10 +688,18 @@ body {
   text-decoration: underline;
 }
 .article .content {
-  width: 100%;
+  width: 90%;
+  padding: 5%;
   float: left;
   display: inline-block;
-  margin-bottom: 2%;
+  border-radius: 5px;
+  position: relative;
+}
+.article .content:hover {
+  background: #FAFAFA;
+}
+.article .content:hover .info {
+  display: inline-block;
 }
 .article .content h2 {
   font-size: 1.6em;
@@ -611,7 +722,62 @@ body {
   font-size: 1.2em;
   color: #333333;
 }
+.article .content .option {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .content .option .option-items {
+  float: right;
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+}
+.article .content .option .option-items i {
+  margin-left: 3px;
+}
+.article .content .option .option-items:hover {
+  cursor: pointer;
+}
+.article .content .option .option-items .more-option {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100px;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  display: none;
+  border-radius: 5px;
+  z-index: 99;
+}
+.article .content .option .option-items .more-option .btnAction {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+.article .content .info {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  float: left;
+  font-size: 0.7em;
+  padding: 1% 0%;
+  color: #BBBBBB;
+  display: none;
+}
 .article .content .control {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   float: left;
   display: inline-block;
@@ -619,6 +785,16 @@ body {
 .article .content .control button {
   float: right;
   display: inline-block;
+  border: 0px;
+  background: transparent;
+  font-size: 1.1em;
+  line-height: 1em;
+  padding: 10px;
+  color: #BBBBBB;
+}
+.article .content .control button:hover {
+  cursor: pointer;
+  color: #333333;
 }
 .article-list {
   width: 60%;

@@ -310,4 +310,9 @@ $(document).ready(function(){
             location.reload();
         });
     });
+
+    $('.option-items').click(function(){
+        $moreOption = $(this).children('.more-option');
+        $moreOption.fadeToggle(300);
+    });
 });
