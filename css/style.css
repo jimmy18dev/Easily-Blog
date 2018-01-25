@@ -1,0 +1,642 @@
+/**
+ * Global Reset of all HTML Elements
+ *
+ * Resetting all of our HTML Elements ensures a smoother
+ * visual transition between browsers. If you don't believe me,
+ * try temporarily commenting out this block of code, then go
+ * and look at Mozilla versus Safari, both good browsers with
+ * a good implementation of CSS. The thing is, all browser CSS
+ * defaults are different and at the end of the day if visual
+ * consistency is what we're shooting for, then we need to
+ * make sure we're resetting all spacing elements.
+ *
+ */
+html,
+body {
+  border: 0;
+  font-family: "Helvetica-Neue", "Helvetica", Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+div,
+span,
+object,
+iframe,
+img,
+table,
+caption,
+thead,
+tbody,
+tfoot,
+tr,
+tr,
+td,
+article,
+aside,
+canvas,
+details,
+figure,
+hgroup,
+menu,
+nav,
+footer,
+header,
+section,
+summary,
+mark,
+audio,
+video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cit,
+code,
+del,
+dfn,
+em,
+ins,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+b,
+i,
+hr,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+legend,
+label {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+article,
+aside,
+canvas,
+figure,
+figure img,
+figcaption,
+hgroup,
+footer,
+header,
+nav,
+section,
+audio,
+video {
+  display: block;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+table caption,
+table th,
+table td {
+  text-align: left;
+  vertical-align: middle;
+}
+a img {
+  border: 0;
+}
+:focus {
+  outline: 0;
+}
+@font-face {
+  font-family: 'maledpan';
+  src: url('../font/maledpan/maledpan-regular-webfont.eot');
+  src: url('../font/maledpan/maledpan-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/maledpan/maledpan-regular-webfont.woff') format('woff'), url('../font/maledpan/maledpan-regular-webfont.ttf') format('truetype'), url('../font/maledpan/maledpan-regular-webfont.svg#mitr') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a[href],
+button {
+  -ms-touch-action: none;
+  /* IE10 */
+  touch-action: none;
+  /* IE11 */
+}
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+.header {
+  width: 70%;
+  height: 50px;
+  padding: 0px 15%;
+  float: left;
+  display: inline-block;
+  z-index: 50;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+.header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+.header.shadow {
+  background: rgba(0, 77, 64, 0.95);
+}
+.header.shadow .title {
+  color: #1abc9c;
+}
+.header.light a.logo .detail .name {
+  color: #050505;
+}
+.header.light a.logo .detail .desc {
+  color: #999999;
+}
+.header.light .btn {
+  color: #666666;
+}
+.header.light .btn:active {
+  background: #e8e8e9;
+}
+.header.light .btn-profile {
+  color: #666666;
+}
+.header a.logo {
+  width: 28%;
+  float: left;
+  display: inline-block;
+  padding: 10px 1.5%;
+  height: 30px;
+  color: #FFFFFF;
+  text-decoration: none;
+  line-height: 1em;
+  font-size: 1em;
+}
+.header a.logo img {
+  float: left;
+  display: inline-block;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+.header a.logo .detail {
+  float: left;
+  display: inline-block;
+}
+.header a.logo .detail .name {
+  font-family: "maledpan", sans-serif;
+}
+.header a.logo .detail .desc {
+  font-size: 0.5em;
+  color: #1abc9c;
+}
+.header .btn {
+  float: right;
+  display: inline-block;
+  padding: 7px;
+  margin: 9px 0px;
+  margin-left: 7px;
+  height: 18px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1em;
+  border-radius: 5px;
+  font-family: "maledpan", sans-serif;
+  position: relative;
+}
+.header .btn i {
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  margin-right: 7px;
+  margin-top: -1px;
+}
+.header .btn:hover {
+  cursor: pointer;
+}
+.header .btn:active {
+  background: #327066;
+}
+.header .btn.btn-back {
+  float: left;
+}
+.header .btn.btn-cancel {
+  color: #F44336;
+}
+.header .btn.btn-cancel:active {
+  background: #F44336;
+  color: #FFFFFF;
+}
+.header .btn.btn-login i {
+  float: right;
+  margin-right: 0px;
+  margin-left: 7px;
+}
+.header .btn .more-menu {
+  position: absolute;
+  width: 200px;
+  top: 105%;
+  right: 5%;
+  padding: 10px 0%;
+  background: #FFFFFF;
+  border-radius: 5px;
+  display: none;
+  z-index: 999;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+.header .btn .more-menu.open {
+  display: block;
+}
+.header .btn .more-menu .arrow-up {
+  position: absolute;
+  bottom: 100%;
+  right: 10%;
+  border: 8px solid transparent;
+  border-bottom-color: #FFFFFF;
+}
+.header .btn .more-menu .caption {
+  width: 80%;
+  padding: 7% 10%;
+  padding-bottom: 2%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  color: #004d40;
+}
+.header .btn .more-menu .caption:hover {
+  cursor: default;
+}
+.header .btn .more-menu a {
+  width: 80%;
+  padding: 7% 10%;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  color: #050505;
+  border-bottom: 1px solid #FAFAFA;
+}
+.header .btn .more-menu a i {
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  margin-right: 15px;
+  margin-top: -2px;
+}
+.header .btn .more-menu a:last-child {
+  border-bottom: 0px;
+}
+.header .btn .more-menu a:hover {
+  background: #eeeeee;
+}
+.header .title {
+  float: left;
+  display: inline-block;
+  padding: 7px;
+  margin: 9px 0px;
+  margin-left: 7px;
+  height: 18px;
+  color: #BBBBBB;
+  font-family: "maledpan", sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 30%;
+}
+.header .title:hover {
+  cursor: default;
+}
+.header .btn-profile {
+  float: right;
+  display: inline-block;
+  padding: 7px;
+  margin: 9px 0px;
+  margin-left: 7px;
+  height: 18px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1em;
+  position: relative;
+  font-family: "maledpan", sans-serif;
+}
+.header .btn-profile:hover {
+  cursor: pointer;
+}
+.header .btn-profile .notif {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  float: left;
+  display: inline-block;
+  background: #F44336;
+  color: #FFFFFF;
+  font-size: 0.7em;
+  line-height: 1em;
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+.header .btn-profile img {
+  float: left;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  margin-top: -7px;
+  border-radius: 50%;
+}
+.header .btn-profile .icon {
+  margin-left: 5px;
+}
+.header .btn-profile .more-menu {
+  position: absolute;
+  width: 200px;
+  top: 105%;
+  right: 15%;
+  padding: 10px 0%;
+  background: #FFFFFF;
+  border-radius: 5px;
+  display: none;
+  z-index: 999;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+.header .btn-profile .more-menu.open {
+  display: block;
+}
+.header .btn-profile .more-menu .arrow-up {
+  position: absolute;
+  bottom: 100%;
+  right: 20%;
+  border: 8px solid transparent;
+  border-bottom-color: #FFFFFF;
+}
+.header .btn-profile .more-menu .caption {
+  width: 80%;
+  padding: 7% 10%;
+  padding-bottom: 2%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  color: #004d40;
+}
+.header .btn-profile .more-menu .caption:hover {
+  cursor: default;
+}
+.header .btn-profile .more-menu a {
+  width: 80%;
+  padding: 7% 10%;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  color: #050505;
+  border-bottom: 1px solid #FAFAFA;
+}
+.header .btn-profile .more-menu a i {
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  margin-right: 15px;
+  margin-top: -2px;
+}
+.header .btn-profile .more-menu a.btn-logout {
+  color: #c0392b;
+}
+.header .btn-profile .more-menu a:last-child {
+  border-bottom: 0px;
+}
+.header .btn-profile .more-menu a:hover {
+  background: #eeeeee;
+}
+.article {
+  width: 50%;
+  margin: 0 25%;
+  margin-top: 50px;
+  float: left;
+  display: inline-block;
+}
+.article .article-header {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 3%;
+}
+.article .article-header h1 {
+  font-size: 2.4em;
+  font-family: "maledpan", sans-serif;
+}
+.article .article-header [contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  /* For Firefox */
+}
+.article textarea {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  border: 0px;
+  resize: none;
+  padding: 0;
+  margin: 0;
+}
+.article textarea#articleTitle {
+  font-size: 2.4em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1.2em;
+  margin-bottom: 3%;
+}
+.article textarea#articleDescription {
+  font-size: 1em;
+  margin-bottom: 3%;
+}
+.article textarea.topic-input {
+  font-size: 1.6em;
+  line-height: 1.2em;
+}
+.article .photoForm {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+  position: relative;
+}
+.article .photoForm .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .photoForm .control button {
+  float: right;
+  display: inline-block;
+}
+.article .photoForm .uploading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+}
+.article .photoForm .uploading .inprogress {
+  width: 80%;
+  margin: 10%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+.article .photoForm .uploading .inprogress .bar {
+  width: 30%;
+  float: left;
+  display: inline-block;
+  background: #0099a4;
+  height: 5px;
+  border-radius: 5px;
+}
+.article .photoForm img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .photoForm .image-alt {
+  width: 98%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  border: 0px;
+  padding: 1%;
+}
+.article .photoForm .image-file {
+  display: none;
+}
+.article .photoForm .preview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  position: relative;
+}
+.article .photoForm .preview .imgpreview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.article .photoForm .preview .imgpreview img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .photoForm .preview .imgpreview .btn-choose-image {
+  width: 100%;
+  padding: 15% 0%;
+  float: left;
+  display: inline-block;
+}
+.article .photoForm .preview .imgpreview .btn-choose-image i {
+  margin-right: 10px;
+}
+.article .photoForm .preview .imgpreview .btn-choose-image:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.article .photoForm .preview .btn-change-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 10px;
+  line-height: 1em;
+}
+.article .photoForm .preview .btn-change-image:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.article .content {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+}
+.article .content h2 {
+  font-size: 1.6em;
+  font-family: "maledpan", sans-serif;
+  color: #333333;
+}
+.article .content p {
+  font-size: 0.9em;
+  color: #666666;
+}
+.article .content img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .content .body {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  color: #333333;
+}
+.article .content .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .content .control button {
+  float: right;
+  display: inline-block;
+}
+.article-list {
+  width: 60%;
+  margin: 0% 20%;
+  float: left;
+  display: inline-block;
+}
+.article-list .items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  margin-bottom: 1%;
+}
+.article-list .items h2 {
+  font-size: 2em;
+}
+.article-list .items p {
+  font-size: 1em;
+}
+/* Other Device and Screen */

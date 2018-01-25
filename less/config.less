@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'maledpan';
+    src: url('../font/maledpan/maledpan-regular-webfont.eot');
+    src: url('../font/maledpan/maledpan-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/maledpan/maledpan-regular-webfont.woff') format('woff'),
+         url('../font/maledpan/maledpan-regular-webfont.ttf') format('truetype'),
+         url('../font/maledpan/maledpan-regular-webfont.svg#mitr') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@FontStylePrimary   :sans-serif;
+@topic_font         :"maledpan",sans-serif; 
+// @topic_font         :"Sukhumvit Set",sans-serif; 
+
+// COLOR SETUP
+// http://www.color-hex.com/color/040d14
+@bg_color           :#FFFFFF;
+@bg_gray            :#EEEEEE;
+@fontcolor_dark     :#333333;
+@fontcolor_normal   :#666666;
+@fontcolor_light    :#BBBBBB;
+@alertcolor         :#c0392b;
+
+@primary_color      :#004D40;
+@primary_color_dark :#002E26;
+@primary_color_light:#1abc9c;
+
+@green_color        :#28A646;
+@green_color_dark   :#24953f;
+
+@border_color       :#E8E8E9;
+@border_color_focus :#E2E2E3;
+
+html {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+a[href], button {
+    -ms-touch-action: none; /* IE10 */
+    touch-action: none;     /* IE11 */
+}
+
+body{
+    background: @bg_color;
+    overflow-x:hidden;
+}
+
+.bgGradient(@primary,@second){
+    background: @primary;
+    background: -webkit-linear-gradient(to right, @primary, @second);
+    background: linear-gradient(to right, @primary, @second);
+}
+
+.transitionAnimation(@s){
+    transition:all @s ease-in-out;
+    -moz-transition:all @s ease-in-out;
+    -webkit-transition:all @s ease-in-out;
+    -o-transition:all @s ease-in-out;
+}
