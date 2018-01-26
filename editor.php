@@ -38,8 +38,8 @@ $article->get($article_id);
 <div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<textarea id="articleTitle" placeholder="ตั้งชื่อบทความ"><?php echo $article->title;?></textarea>
-		<textarea id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
+		<input type="text" class="article-title" id="articleTitle" placeholder="ตั้งชื่อบทความ" value="<?php echo $article->title;?>">
+		<textarea class="article-desc" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->
@@ -54,7 +54,7 @@ $article->get($article_id);
 
 		<div class="control">
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn"><i class="fa fa-retweet" aria-hidden="true"></i></div>
+			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
 		<input type="text" class="topic-input" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
@@ -70,7 +70,7 @@ $article->get($article_id);
 
 		<div class="control">
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn"><i class="fa fa-retweet" aria-hidden="true"></i></div>
+			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-repeat" aria-hidden="true"></i></div>
 			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-upload" aria-hidden="true"></i><span>เลือกภาพใหม่</span></div>
 		</div>
@@ -132,6 +132,8 @@ $article->get($article_id);
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 </div>
+
+<div class="swap" id="swap"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>

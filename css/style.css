@@ -454,18 +454,40 @@ body {
 }
 .article.editor {
   margin-bottom: 10%;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 .article .article-header {
-  width: 90%;
-  margin: 0 5%;
+  width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 3%;
+  background: #CA00aA;
 }
 .article .article-header h1 {
   font-size: 2.4em;
   font-family: "maledpan", sans-serif;
+}
+.article .article-header textarea,
+.article .article-header input {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  resize: none;
+  border: 0px;
+}
+.article .article-header textarea.article-title,
+.article .article-header input.article-title {
+  font-size: 3em;
+  font-family: "maledpan", sans-serif;
+  border-bottom: 1px solid #EEEEEE;
+}
+.article .article-header textarea.article-desc,
+.article .article-header input.article-desc {
+  font-size: 0.9em;
+  padding: 2% 0%;
+  color: #999999;
 }
 .article .option-control {
   width: 90%;
@@ -801,5 +823,68 @@ body {
 }
 .article-list .items p {
   font-size: 1em;
+}
+.swap {
+  position: fixed;
+  top: 0;
+  right: -8%;
+  width: 8%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  z-index: 120;
+  overflow-y: scroll;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+.swap.-toggle {
+  transform: translateX(-100%);
+}
+.swap .swap-items {
+  width: 80%;
+  margin: 10%;
+  margin-bottom: 0%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  color: #BBBBBB;
+  border-radius: 3px;
+  font-size: 5px;
+  line-height: 1.1em;
+  border: 3px solid transparent;
+  position: relative;
+  max-height: 100px;
+  overflow: hidden;
+}
+.swap .swap-items.text {
+  width: 70%;
+  padding: 5%;
+}
+.swap .swap-items.text a {
+  display: none;
+}
+.swap .swap-items.-active {
+  border: 3px solid #000000;
+}
+.swap .swap-items:hover {
+  cursor: pointer;
+  border: 3px solid #000000;
+}
+.swap .swap-items:first-child {
+  margin-top: 60px;
+}
+.swap .swap-items i {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  padding: 15% 0%;
+}
+.swap .swap-items img {
+  width: 100%;
+  float: left;
+  display: inline-block;
 }
 /* Other Device and Screen */

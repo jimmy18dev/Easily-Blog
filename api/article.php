@@ -99,6 +99,13 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $content_id     = $article->editImageAlt($content_id,$article_id,$img_alt);
                 $returnObject['message'] = 'Image Alt edited';
                 break;
+            case 'swap_content':
+                $current_id     = $_POST['current_id'];
+                $target_id      = $_POST['target_id'];
+                
+                $article->swap($current_id,$target_id);
+                $returnObject['message'] = 'Content Swap';
+                break;
             case 'rotate_image':
                 $content_id     = $_POST['content_id'];
                 $content_data   = $article->getContent($content_id);

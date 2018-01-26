@@ -14,9 +14,14 @@ $(document).ready(function(){
 
     $(document).click(function(e){
         if(!$(e.target).is('.between-option')){
-            // console.log(e.target);
             $('.more-option').fadeOut(100);
         }
+        
+        if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
+            $('#swap').removeClass('-toggle');
+        }
+
+        console.log(e.target);
     });
 
     // Edit Article Title.
@@ -346,6 +351,74 @@ $(document).ready(function(){
         }).done(function(data){
             console.log(data);
             $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
+        });
+    });
+
+    $('.btn-swap').click(function(){
+        $('#swap').addClass('-toggle');
+        $('#swapFilter').fadeIn(300);
+
+        var article_id = $('#article_id').val();
+        content_id = $(this).parent().parent().attr('data-content');
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"GET",
+            data:{
+                request     :'get',
+                article_id  :article_id,
+            },
+            error: function (request, status, error){
+                console.log(request, status, error);
+            }
+        }).done(function(data){
+            console.log(data);
+            $('#swap').html('');
+
+            $.each(data.dataset.contents,function(k,v){
+                var current     = '';
+                if(content_id == v.id) current = '-active';
+
+                if(v.type == 'textbox')
+                    var html = $('<div class="swap-items text '+current+'" data-id="'+v.id+'">'+v.body+'</div>');
+                else if(v.type == 'image')
+                    var html = $('<div class="swap-items '+current+'" data-id="'+v.id+'"><img src="image/upload/thumbnail/'+v.img_location+'"></div>');
+                else if(v.type == 'youtube')
+                    var html = $('<div class="swap-items '+current+'" data-id="'+v.id+'"><img src="http://img.youtube.com/vi/'+v.message+'/mqdefault.jpg"></div>');
+
+                $('#swap').append(html);
+            });
+        });
+
+        $('#swapFilter').click(function(){
+            $(this).fadeOut(300);
+            $('#swap').removeClass('-toggle');
+        });
+    });
+
+    $('#swap').on('click','.swap-items',function(e){
+        var target_id = $(this).attr('data-id');
+        console.log(content_id,target_id);
+
+        if(content_id == target_id) return false;
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'swap_content',
+                current_id  :content_id,
+                target_id   :target_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            location.reload();
         });
     });
 });

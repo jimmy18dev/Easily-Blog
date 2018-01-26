@@ -139,26 +139,6 @@ class Article{
 		return $dataset;
     }
 
-  //   private function listDocument($article_id){
-  //   	$this->db->query('SELECT * FROM document WHERE article_id = :article_id AND status = "active" ORDER BY create_time ASC');
-		// $this->db->bind(':article_id',$article_id);
-		// $this->db->execute();
-		// $dataset = $this->db->resultset();
-
-		// foreach ($dataset as $k => $var) {
-		// 	$dataset[$k]['filesize'] = $this->db->formatBytes($var['filesize']);
-		// }
-
-		// return $dataset;
-  //   }
-  //   public function editCategory($article_id,$category_id){
-  //   	$this->db->query('UPDATE article SET category_id = :category_id, edit_time = :edit_time WHERE id = :article_id');
-		// $this->db->bind(':article_id',$article_id);
-		// $this->db->bind(':category_id',$category_id);
-		// $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
-		// $this->db->execute();
-  //   }
-
     public function delete($article_id){
     	$this->db->query('DELETE FROM article WHERE id = :article_id');
 		$this->db->bind(':article_id',$article_id);
