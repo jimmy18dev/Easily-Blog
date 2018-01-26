@@ -326,7 +326,7 @@
 
 			&.article-title{
 				font-size: 3em;
-				// font-family: @topic_font;
+				font-family: @topic_font;
 				border-bottom: 1px solid #EEEEEE;
 				line-height: 1.2em;
 				padding: 1% 0%;
@@ -365,14 +365,12 @@
 		margin: 1% 5%; 
 		float: left;
 		display: inline-block;
-		border-top: 1px solid #EEEEEE;
 
 		.btnAction{
-			width: 25%;
-			padding: 2% 0%;
+			width: 20%;
+			padding: 3% 0%;
 			float: left;
 			display: inline-block;
-			font-size: 1.1em;
 			border: 0px;
 			font-family: @topic_font;
 			line-height: 1em;
@@ -380,6 +378,7 @@
 			background: transparent;
 			color: #333333;
 			border-radius: 5px;
+			text-align: center;
 
 			&:hover{
 				cursor: pointer;
@@ -388,7 +387,14 @@
 			}
 
 			i{
-				margin-right: 7px;
+				display: block;
+				font-size: 2em;
+				margin-bottom: 10px;
+			}
+
+			span{
+				display: block;
+				font-size: 1.1em;
 			}
 		}
 	}

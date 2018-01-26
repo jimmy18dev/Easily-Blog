@@ -1,7 +1,7 @@
 var article_api = 'api/article';
 
 $(document).ready(function(){
-    $('textarea').textareaAutoSize();
+    $('.autosize').autosize({append: "\n"});
 
     /**
     * Content events listening
@@ -24,6 +24,10 @@ $(document).ready(function(){
 
     // Edit Article Title.
     $articleTitle = $('#articleTitle');
+    setTimeout(function(){
+        var title = $('#realtitle').val();
+        $articleTitle.val(title).trigger("input");
+    },100); 
     $articleTitle.focus(function(){
         article_title = $(this).val();
     });

@@ -146,6 +146,11 @@ body {
   background: #ffffff;
   overflow-x: hidden;
 }
+.autosize {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
+}
 .header {
   width: 100%;
   height: 50px;
@@ -478,6 +483,7 @@ body {
 }
 .article .article-header textarea.article-title {
   font-size: 3em;
+  font-family: "maledpan", sans-serif;
   border-bottom: 1px solid #EEEEEE;
   line-height: 1.2em;
   padding: 1% 0%;
@@ -499,14 +505,12 @@ body {
   margin: 1% 5%;
   float: left;
   display: inline-block;
-  border-top: 1px solid #EEEEEE;
 }
 .article .option-control .btnAction {
-  width: 25%;
-  padding: 2% 0%;
+  width: 20%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
-  font-size: 1.1em;
   border: 0px;
   font-family: "maledpan", sans-serif;
   line-height: 1em;
@@ -514,6 +518,7 @@ body {
   background: transparent;
   color: #333333;
   border-radius: 5px;
+  text-align: center;
 }
 .article .option-control .btnAction:hover {
   cursor: pointer;
@@ -521,7 +526,13 @@ body {
   background: #EEEEEE;
 }
 .article .option-control .btnAction i {
-  margin-right: 7px;
+  display: block;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.article .option-control .btnAction span {
+  display: block;
+  font-size: 1.1em;
 }
 .article .between-option {
   width: 100%;

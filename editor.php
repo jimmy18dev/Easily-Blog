@@ -38,8 +38,9 @@ $article->get($article_id);
 <div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<textarea class="article-title" id="articleTitle" placeholder="ตั้งชื่อบทความ" autofocus><?php echo $article->title;?></textarea>
-		<textarea class="article-desc" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
+		<textarea class="article-title autosize" id="articleTitle" placeholder="ตั้งชื่อบทความ" autofocus></textarea>
+		<input type="hidden" id="realtitle" value="<?php echo $article->title;?>">
+		<textarea class="article-desc autosize" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->
@@ -58,7 +59,7 @@ $article->get($article_id);
 		</div>
 
 		<input type="text" class="topic-input" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
-		<textarea class="body-input" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
+		<textarea class="body-input autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
@@ -124,10 +125,11 @@ $article->get($article_id);
 	<?php } ?>
 
 	<div class="option-control">
-		<button class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i>บทความ</button>
-		<button class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i>รูปภาพ</button>
-		<button class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i>เอกสาร</button>
-		<button class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i>YouTube</button>
+		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
+		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
+		<div class="btnAction" data-action="qoute"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
+		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
+		<div class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
 	</div>
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
@@ -137,7 +139,7 @@ $article->get($article_id);
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.textarea_autosize.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>
 </body>
 </html>
