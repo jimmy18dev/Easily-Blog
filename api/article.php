@@ -8,8 +8,9 @@ $returnObject = array(
 	"updated"  		=> time()
 );
 
-$signature 	= new Signature;
+$signature 	= new Signature();
 $article 	= new Article();
+$image      = new Image();
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
@@ -97,6 +98,22 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $img_alt        = $_POST['img_alt'];
                 $content_id     = $article->editImageAlt($content_id,$article_id,$img_alt);
                 $returnObject['message'] = 'Image Alt edited';
+                break;
+            case 'rotate_image':
+                $content_id     = $_POST['content_id'];
+                $content_data   = $article->getContent($content_id);
+                $filename       = $content_data['img_location'];
+
+                if(!empty($filename)){
+                    $image->rotate('../'.$destination_folder['thumbnail'].$filename);
+                    $image->rotate('../'.$destination_folder['square'].$filename);
+                    $image->rotate('../'.$destination_folder['normal'].$filename);
+                    $image->rotate('../'.$destination_folder['large'].$filename);
+
+                    $returnObject['message'] = 'Image Rotete Done';
+                }else{
+                    $returnObject['message'] = 'Image not found!';
+                }
                 break;
             case 'delete_content':
                 $article_id     = $_POST['article_id'];

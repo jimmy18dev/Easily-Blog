@@ -71,6 +71,8 @@ $article->get($article_id);
 		<div class="control">
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn"><i class="fa fa-retweet" aria-hidden="true"></i></div>
+			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-repeat" aria-hidden="true"></i></div>
+			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-upload" aria-hidden="true"></i><span>เลือกภาพใหม่</span></div>
 		</div>
 
 		<div class="preview">
@@ -84,11 +86,6 @@ $article->get($article_id);
 				</div>
 				<?php }?>
 			</div>
-
-			<div class="image-option">
-				<div class="btn btn-change-image"><i class="fa fa-upload" aria-hidden="true"></i>เลือกภาพใหม่</div>
-				<div class="btn"><i class="fa fa-repeat" aria-hidden="true"></i>หมุนภาพ</div>
-			</div>
 		</div>
 
 		<div class="uploading" id="loading<?php echo $var['id'];?>">
@@ -97,7 +94,7 @@ $article->get($article_id);
 			</div>
 		</div>
 		
-		<input type="text" class="image-alt" placeholder="ใส่คำอธิบายภาพนี้..." value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="image-alt" placeholder="ใส่คำอธิบายภาพ" value="<?php echo $var['img_alt'];?>">
 
 		<input type="file" name="image" class="image-file" id="imageFiles<?php echo $var['id'];?>">
 		<input type="hidden" name="content_id" value="<?php echo $var['id'];?>">

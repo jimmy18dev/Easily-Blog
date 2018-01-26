@@ -563,14 +563,16 @@ body {
 .article .content.textbox:hover {
   background: #FAFAFA;
 }
+.article .content.photoForm .control .btn {
+  color: #FFFFFF;
+}
 .article .content .topic-input {
   width: 100%;
   padding: 1% 0%;
   float: left;
   display: inline-block;
-  font-size: 1.6em;
+  font-size: 1.8em;
   font-family: "maledpan", sans-serif;
-  line-height: 1.1em;
   margin: 0px;
   border: 0px;
   color: #333333;
@@ -647,7 +649,7 @@ body {
   background: transparent;
   font-size: 1.1em;
   line-height: 1em;
-  padding: 10px;
+  padding: 15px;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -657,7 +659,16 @@ body {
 }
 .article .content .control .btn:hover {
   cursor: pointer;
-  color: #666666;
+}
+.article .content .control .btn:hover span {
+  text-decoration: underline;
+}
+.article .content .control .btn.hidden {
+  display: none;
+}
+.article .content .control .btn span {
+  margin-left: 7px;
+  font-size: 0.9em;
 }
 .article .content .uploading {
   position: absolute;
@@ -711,14 +722,14 @@ body {
   float: left;
   display: inline-block;
   position: relative;
-  border-radius: 10px;
 }
 .article .content .preview .imgpreview {
   width: 100%;
   float: left;
   display: inline-block;
   text-align: center;
-  background: #FAFAFA;
+  background: #DEDEDE;
+  border-radius: 5px;
 }
 .article .content .preview .imgpreview img {
   width: 100%;
@@ -735,15 +746,15 @@ body {
   display: block;
   font-size: 4em;
   margin-bottom: 10px;
-  color: #DDDDDD;
+  color: #FFFFFF;
 }
 .article .content .preview .imgpreview .btn-choose-image span {
   display: block;
   font-size: 0.9em;
+  color: #FFFFFF;
 }
 .article .content .preview .imgpreview .btn-choose-image:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
 .article .content .preview .image-option {
   position: absolute;

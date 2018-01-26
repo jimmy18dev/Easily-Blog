@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     $(document).click(function(e){
         if(!$(e.target).is('.between-option')){
-            console.log(e.target);
+            // console.log(e.target);
             $('.more-option').fadeOut(100);
         }
     });
@@ -321,5 +321,31 @@ $(document).ready(function(){
     $('.between-option').click(function(){
         $moreOption = $(this).children('.more-option');
         $moreOption.fadeIn(300);
+    });
+
+    $('.btn-rotate-image').click(function(){
+        content_id = $(this).parent().parent().attr('data-content');
+        $img = $('#imagePreview'+content_id).children('img');
+
+        console.log($img);
+
+        // $img = $imagePreview.children('img');
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'rotate_image',
+                content_id  :content_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
+        });
     });
 });
