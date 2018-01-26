@@ -1,9 +1,7 @@
 var article_api = 'api/article';
 
 $(document).ready(function(){
-    autosize($('textarea'));
-
-    // $('textarea').textareaAutoSize();
+    $('textarea').textareaAutoSize();
 
     /**
     * Content events listening

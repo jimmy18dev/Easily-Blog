@@ -38,7 +38,7 @@ $article->get($article_id);
 <div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<input type="text" class="article-title" id="articleTitle" placeholder="ตั้งชื่อบทความ" value="<?php echo $article->title;?>">
+		<textarea class="article-title" id="articleTitle" placeholder="ตั้งชื่อบทความ" autofocus><?php echo $article->title;?></textarea>
 		<textarea class="article-desc" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
 
@@ -137,7 +137,7 @@ $article->get($article_id);
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
-<script type="text/javascript" src="js/lib/autosize.js"></script>
+<script type="text/javascript" src="js/lib/jquery.textarea_autosize.min.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>
 </body>
 </html>

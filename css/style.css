@@ -457,18 +457,17 @@ body {
   margin-top: 120px;
 }
 .article .article-header {
-  width: 100%;
+  width: 90%;
+  margin: 0% 5%;
   float: left;
   display: inline-block;
   margin-bottom: 3%;
-  background: #CA00aA;
 }
 .article .article-header h1 {
   font-size: 2.4em;
   font-family: "maledpan", sans-serif;
 }
-.article .article-header textarea,
-.article .article-header input {
+.article .article-header textarea {
   width: 100%;
   float: left;
   display: inline-block;
@@ -477,17 +476,22 @@ body {
   resize: none;
   border: 0px;
 }
-.article .article-header textarea.article-title,
-.article .article-header input.article-title {
+.article .article-header textarea.article-title {
   font-size: 3em;
-  font-family: "maledpan", sans-serif;
   border-bottom: 1px solid #EEEEEE;
+  line-height: 1.2em;
+  padding: 1% 0%;
+  min-height: 50px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
-.article .article-header textarea.article-desc,
-.article .article-header input.article-desc {
+.article .article-header textarea.article-desc {
   font-size: 0.9em;
-  padding: 2% 0%;
+  padding-top: 3%;
   color: #999999;
+}
+.article .article-header textarea:hover {
+  cursor: pointer;
 }
 .article .option-control {
   width: 90%;
