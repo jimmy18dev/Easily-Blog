@@ -3,6 +3,19 @@ var article_api = 'api/article';
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
 
+    // var hash = window.location.hash;
+
+    // if(hash){
+    //     console.log('have tag' + hash);
+    //     document.querySelector(hash).scrollIntoView({behavior: 'smooth'});
+    // }else{
+    //     console.log('hash not found!');
+    // }
+
+    // document.querySelector('.option-control').scrollIntoView({ 
+    //     behavior: 'smooth' 
+    // });
+
     /**
     * Content events listening
     */
@@ -24,10 +37,11 @@ $(document).ready(function(){
 
     // Edit Article Title.
     $articleTitle = $('#articleTitle');
+
     setTimeout(function(){
         var title = $('#realtitle').val();
         $articleTitle.val(title).trigger("input");
-    },100); 
+    },0);
     $articleTitle.focus(function(){
         article_title = $(this).val();
     });
@@ -35,6 +49,11 @@ $(document).ready(function(){
         var now_value = $(this).val();
 
         if(article_title == now_value) return false;
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
+    
 
         $.ajax({
             url         :article_api,
@@ -51,6 +70,8 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 
@@ -63,6 +84,10 @@ $(document).ready(function(){
         var now_value = $(this).val();
 
         if(article_description == now_value) return false;
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
 
         $.ajax({
             url         :article_api,
@@ -79,6 +104,9 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 
@@ -88,7 +116,6 @@ $(document).ready(function(){
         var action      = $(this).attr('data-action');
         var content_id  = $(this).attr('data-content');
 
-        console.log(article_id);
         $.ajax({
             url         :article_api,
             cache       :false,
@@ -105,7 +132,12 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-            location.reload();
+            var content_id = data.content_id;
+            var page_url = window.location.pathname+'#content'+content_id;
+            console.log(page_url);
+
+            window.location.href = page_url;
+            window.location.reload(true)
         });
     });
 
@@ -126,10 +158,11 @@ $(document).ready(function(){
         var content_id = $(this).parent().attr('data-content');
         var new_topic = $(this).val();
 
-        console.log(topic);
-        console.log(new_topic);
-
         if(topic == new_topic) return false;
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
 
         $.ajax({
             url         :article_api,
@@ -147,6 +180,9 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 
@@ -161,6 +197,10 @@ $(document).ready(function(){
         var news_body = $(this).val();
 
         if(body == news_body) return false;
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
 
         $.ajax({
             url         :article_api,
@@ -178,6 +218,9 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 
@@ -192,6 +235,10 @@ $(document).ready(function(){
         var new_img_alt = $(this).val();
 
         if(img_alt == new_img_alt) return false;
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
 
         $.ajax({
             url         :article_api,
@@ -209,6 +256,9 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 
@@ -230,7 +280,7 @@ $(document).ready(function(){
     $('.image-file').change(function(){
         // var content_id  = $(this).parent().attr('data-content');
         $imagePreview   = $('#imagePreview'+content_id);
-        $imageForm      = $('#imageForm'+content_id)
+        $imageForm      = $('#content'+content_id)
 
         console.log('content '+content_id);
         var files   = this.files;
@@ -266,7 +316,7 @@ $(document).ready(function(){
     });
 
     // Upload a Photo
-    $photoForm          = $('.photoForm');
+    $photoForm          = $('.content');
     $photoLoading       = null;
     $photoLoadingBar    = null;
     $photoForm.ajaxForm({
@@ -321,7 +371,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-            location.reload();
+            $('#content'+content_id).fadeOut(500);
         });
     });
 
@@ -334,7 +384,13 @@ $(document).ready(function(){
         content_id = $(this).parent().parent().attr('data-content');
         $img = $('#imagePreview'+content_id).children('img');
 
+        document.querySelector('#imagePreview'+content_id).scrollIntoView({behavior: 'smooth'});
+
         console.log($img);
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
 
         // $img = $imagePreview.children('img');
 
@@ -353,6 +409,9 @@ $(document).ready(function(){
         }).done(function(data){
             console.log(data);
             $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
+
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 

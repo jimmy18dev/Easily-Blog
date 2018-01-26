@@ -33,7 +33,14 @@ $article->get($article_id);
 <div class="header fixed">
 	<a href="index.php" class="page-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="title">เขียนบทความ</div>
+	<div class="title">กำลังบันทึก...</div>
+
+	<div class="btn-profile">
+		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
+	</div>
 	<a class="btn" href="article/<?php echo $article->id?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+	<div class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+	<div class="btn"><span>เผยแพร่</span><i class="fa fa-angle-down" aria-hidden="true"></i></div>
 </div>
 <div class="article editor">
 	<!-- Article Header -->
@@ -46,8 +53,7 @@ $article->get($article_id);
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
 	<?php if($var['type'] == 'textbox'){?>
-	<div class="content textbox" data-content="<?php echo $var['id'];?>">
-
+	<div class="content textbox" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="info">
 			<div class="id">#<?php echo $var['id']?></div>
 			<div class="time"><?php echo $var['create_time'];?></div>
@@ -62,7 +68,7 @@ $article->get($article_id);
 		<textarea class="body-input autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
-	<form action="upload_image.php" class="content photoForm" id="imageForm<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
+	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 
 		<div class="info">
 			<div class="id">#<?php echo $var['id']?></div>
@@ -124,7 +130,7 @@ $article->get($article_id);
 	</div>
 	<?php } ?>
 
-	<div class="option-control">
+	<div class="option-control" id="optionControl">
 		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
 		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
 		<div class="btnAction" data-action="qoute"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
@@ -136,10 +142,13 @@ $article->get($article_id);
 </div>
 
 <div class="swap" id="swap"></div>
+<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>
 </body>
 </html>

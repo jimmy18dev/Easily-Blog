@@ -56,6 +56,13 @@ switch ($_SERVER['REQUEST_METHOD']){
     			
     			$returnObject['message'] = 'Description edited';
     			break;
+            case 'change_status':
+                $article_id = $_POST['article_id'];
+                $status     = $_POST['status'];
+                $article_id = $article->changeStatus($article_id,$status);
+                
+                $returnObject['message'] = 'Description edited';
+                break;
 
     		// Content Actions
     		case 'create_content':
@@ -68,16 +75,6 @@ switch ($_SERVER['REQUEST_METHOD']){
     			$returnObject['content_id'] = floatval($content_id);
     			$returnObject['message'] 	= 'New Content created';
     			break;
-            // case 'create_content_between':
-            //     $article_id     = $_POST['article_id'];
-            //     $content_id     = $_POST['content_id'];
-            //     $type           = $_POST['type'];
-            //     $user_id        = 1;
-            //     $content_id     = $article->createContent($user_id,$article_id,$type,$content_id);
-
-            //     $returnObject['content_id'] = floatval($content_id);
-            //     $returnObject['message']    = 'New Between Content created';
-            //     break;
             case 'edit_topic':
                 $article_id     = $_POST['article_id'];
                 $content_id     = $_POST['content_id'];

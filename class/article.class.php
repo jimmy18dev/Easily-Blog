@@ -145,16 +145,11 @@ class Article{
 		$this->db->execute();
     }
 
-    public function published($article_id){
-    	$this->db->query('UPDATE article SET status = "published", published_time = :published_time WHERE id = :article_id');
+    public function changeStatus($article_id,$status){
+    	$this->db->query('UPDATE article SET status = :status, update_time = :update_time WHERE id = :article_id');
 		$this->db->bind(':article_id',$article_id);
-		$this->db->bind(':published_time',date('Y-m-d H:i:s'));
-		$this->db->execute();
-    }
-    public function unpublished($article_id){
-    	$this->db->query('UPDATE article SET status = "draft", edit_time = :edit_time WHERE id = :article_id');
-		$this->db->bind(':article_id',$article_id);
-		$this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->bind(':status',$status);
+		$this->db->bind(':update_time',date('Y-m-d H:i:s'));
 		$this->db->execute();
     }
 
