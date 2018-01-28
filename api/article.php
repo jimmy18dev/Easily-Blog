@@ -61,7 +61,7 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $status     = $_POST['status'];
                 $article_id = $article->changeStatus($article_id,$status);
                 
-                $returnObject['message'] = 'Description edited';
+                $returnObject['message'] = 'Status changed';
                 break;
 
     		// Content Actions

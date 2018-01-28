@@ -2,7 +2,8 @@
 @import "config";
 
 .header{
-	width: 100%;
+	width: 70%;
+	padding: 0 15%;
 	height: 50px;
 	float: left;
 	display: inline-block;
@@ -11,7 +12,7 @@
 
 	&.fixed{
 		position: fixed; top: 0; left: 0;
-		background: transparent;
+		background: rgba(255,255,255,0.95);
 	}
 
 	&.shadow{
@@ -75,55 +76,55 @@
 	.btn{
 		float: right;
 		display: inline-block;
-		padding: 7px;
-		margin: 9px 0px;
-		margin-left: 7px;
-		height: 18px;
+		padding: 15px 20px;
+		height: 20px;
 		color: #666666;
 		text-decoration: none;
 		font-size: 1em;
 		line-height: 1em;
-		position: relative;
-		border-radius: 5px;
 		font-family: @topic_font;
 		position: relative;
 
 		i{
-			float: left;
+			float: right;
 			display: inline-block;
-			font-size: 1.2em;
-			margin-right: 7px;
+			font-size: 1.3em;
 			margin-top: -1px;
 		}
 
-		&:hover{ cursor: pointer; }
-		&:active{ background: #327066; }
-
-		&.btn-back{ float: left; }
-		&.btn-cancel{
-			color: #F44336;
-			&:active{ background: #F44336; color: #FFFFFF; }
+		span{
+			float: left;
+			margin-right: 10px;
+			font-size: 1.1em;
 		}
 
-		&.btn-login{
-			i{
-				float: right;
-				margin-right: 0px;
-				margin-left: 7px;
+		&.btn-profile{
+			padding: 10px 15px;
+			height: 30px;
+
+			img{
+				height: 30px;
+				border-radius: 50%;
+				overflow: hidden;
 			}
 		}
 
-		.more-menu{
+		&:hover{
+			cursor: pointer;
+			background: #FEFEFE;
+		}
+
+		.toggle-panel{
 			position: absolute;
 			width: 200px;
-			top: 105%;
+			top: 100%;
 			right: 5%;
 			padding: 10px 0%;
 			background: #FFFFFF;
 			border-radius: 5px;
-			display: none;
 			z-index: 999;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+			box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+			display: none;
 
 			&.open{ display: block; }
 
@@ -188,107 +189,6 @@
 
 		&:hover{ cursor: default; }
 	}
-
-	.btn-profile{
-		float: right;
-		display: inline-block;
-		padding: 7px;
-		margin: 9px 0px;
-		margin-left: 7px;
-		height: 18px;
-		color: #FFFFFF;
-		text-decoration: none;
-		font-size: 1em;
-		line-height: 1em;
-		position: relative;
-		font-family: @topic_font;
-
-		&:hover{ cursor: pointer; }
-
-		.notif{
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			float: left;
-			display: inline-block;
-			background: #F44336;
-			color: #FFFFFF;
-			font-size: 0.7em;
-			line-height: 1em;
-			padding: 2px 3px;
-			border-radius: 3px;
-		}
-
-		img{
-			float: left;
-			display: inline-block;
-			width: 32px;
-			height: 32px;
-			margin-right: 10px;
-			margin-top: -7px;
-			border-radius: 50%;
-		}
-
-		.icon{ margin-left: 5px; }
-
-		.more-menu{
-			position: absolute;
-			width: 200px;
-			top: 105%;
-			right: 15%;
-			padding: 10px 0%;
-			background: #FFFFFF;
-			border-radius: 5px;
-			display: none;
-			z-index: 999;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
-
-			&.open{ display: block; }
-
-			.arrow-up{
-				position: absolute;
-				bottom: 100%;
-				right: 20%;
-				border: 8px solid transparent;
-				border-bottom-color: #FFFFFF;
-			}
-
-			.caption{
-				width: 80%;
-				padding: 7% 10%;
-				padding-bottom: 2%;
-				float: left;
-				display: inline-block;
-				font-size: 0.75em;
-				color: @primary_color;
-
-				&:hover{ cursor: default; }
-			}
-
-			a{
-				width: 80%;
-				padding: 7% 10%;
-				float: left;
-				display: inline-block;
-				text-decoration: none;
-				color: #050505;
-				border-bottom: 1px solid #FAFAFA;
-
-				i{
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
-					margin-right: 15px;
-					margin-top: -2px;
-				}
-
-				&.btn-logout{ color: @alertcolor; }
-
-				&:last-child{ border-bottom: 0px; }
-				&:hover{ background: @bg_gray; }
-			}
-		}
-	}
 }
 
 .article{
@@ -351,11 +251,13 @@
 	}
 
 	.option-control{
-		width: 90%;
-		padding: 2% 0%;
-		margin: 1% 5%; 
+		width: 100%;
 		float: left;
 		display: inline-block;
+		box-shadow: 0px 1px 20px rgba(0,0,0,0.1);
+		border-radius: 5px;
+		overflow: hidden;
+		margin-top: 5%;
 
 		.btnAction{
 			width: 20%;
@@ -367,14 +269,13 @@
 			line-height: 1em;
 			margin: 0px;
 			background: transparent;
-			color: #333333;
-			border-radius: 5px;
+			color: #666666;
 			text-align: center;
 
 			&:hover{
 				cursor: pointer;
 				color: #111111;
-				background: #EEEEEE;
+				background: #FAFAFA;
 			}
 
 			i{
@@ -393,10 +294,12 @@
 	.between-option{
 		width: 100%;
 		padding: 1% 0%;
+		margin: 2% 0%;
 		float: left;
 		display: inline-block;
 		position: relative;
-		border-radius: 10px;
+		border-radius: 5px;
+		background: #FEFEFE;
 
 		&:hover{
 			cursor: pointer;
@@ -457,11 +360,15 @@
 			padding: 5%;
 
 			&:hover{
+				.info{
+					color: #EEEEEE;
+				}
 				background: #FAFAFA;
 			}
 		}
 
 		&.photoForm{
+			margin-top: 2%;
 			.control .btn{
 				color: #FFFFFF;
 			}
@@ -524,7 +431,7 @@
 			right: 100%;
 			float: left;
 			padding: 4%;
-			color: #EEEEEE;
+			color: transparent;
 			display: inline-block;
 			.transitionAnimation(0.5s);
 			text-align: right;

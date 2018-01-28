@@ -35,6 +35,33 @@ $(document).ready(function(){
         console.log(e.target);
     });
 
+    // Publish Article
+    $('#btn-publish').click(function(){
+        
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'change_status',
+                article_id  :article_id,
+                status: 'publish'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
+        });
+    });
+
     // Edit Article Title.
     $articleTitle = $('#articleTitle');
 

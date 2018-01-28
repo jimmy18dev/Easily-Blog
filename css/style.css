@@ -152,7 +152,8 @@ body {
   transition: height 0.2s;
 }
 .header {
-  width: 100%;
+  width: 70%;
+  padding: 0 15%;
   height: 50px;
   float: left;
   display: inline-block;
@@ -166,7 +167,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.95);
 }
 .header.shadow {
   background: rgba(0, 77, 64, 0.95);
@@ -234,69 +235,62 @@ body {
 .header .btn {
   float: right;
   display: inline-block;
-  padding: 7px;
-  margin: 9px 0px;
-  margin-left: 7px;
-  height: 18px;
+  padding: 15px 20px;
+  height: 20px;
   color: #666666;
   text-decoration: none;
   font-size: 1em;
   line-height: 1em;
-  border-radius: 5px;
   font-family: "maledpan", sans-serif;
   position: relative;
 }
 .header .btn i {
-  float: left;
+  float: right;
   display: inline-block;
-  font-size: 1.2em;
-  margin-right: 7px;
+  font-size: 1.3em;
   margin-top: -1px;
+}
+.header .btn span {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+.header .btn.btn-profile {
+  padding: 10px 15px;
+  height: 30px;
+}
+.header .btn.btn-profile img {
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .header .btn:hover {
   cursor: pointer;
+  background: #FEFEFE;
 }
-.header .btn:active {
-  background: #327066;
-}
-.header .btn.btn-back {
-  float: left;
-}
-.header .btn.btn-cancel {
-  color: #F44336;
-}
-.header .btn.btn-cancel:active {
-  background: #F44336;
-  color: #FFFFFF;
-}
-.header .btn.btn-login i {
-  float: right;
-  margin-right: 0px;
-  margin-left: 7px;
-}
-.header .btn .more-menu {
+.header .btn .toggle-panel {
   position: absolute;
   width: 200px;
-  top: 105%;
+  top: 100%;
   right: 5%;
   padding: 10px 0%;
   background: #FFFFFF;
   border-radius: 5px;
-  display: none;
   z-index: 999;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  display: none;
 }
-.header .btn .more-menu.open {
+.header .btn .toggle-panel.open {
   display: block;
 }
-.header .btn .more-menu .arrow-up {
+.header .btn .toggle-panel .arrow-up {
   position: absolute;
   bottom: 100%;
   right: 10%;
   border: 8px solid transparent;
   border-bottom-color: #FFFFFF;
 }
-.header .btn .more-menu .caption {
+.header .btn .toggle-panel .caption {
   width: 80%;
   padding: 7% 10%;
   padding-bottom: 2%;
@@ -305,10 +299,10 @@ body {
   font-size: 0.75em;
   color: #004d40;
 }
-.header .btn .more-menu .caption:hover {
+.header .btn .toggle-panel .caption:hover {
   cursor: default;
 }
-.header .btn .more-menu a {
+.header .btn .toggle-panel a {
   width: 80%;
   padding: 7% 10%;
   float: left;
@@ -317,17 +311,17 @@ body {
   color: #050505;
   border-bottom: 1px solid #FAFAFA;
 }
-.header .btn .more-menu a i {
+.header .btn .toggle-panel a i {
   float: left;
   display: inline-block;
   font-size: 1.2em;
   margin-right: 15px;
   margin-top: -2px;
 }
-.header .btn .more-menu a:last-child {
+.header .btn .toggle-panel a:last-child {
   border-bottom: 0px;
 }
-.header .btn .more-menu a:hover {
+.header .btn .toggle-panel a:hover {
   background: #eeeeee;
 }
 .header .title {
@@ -348,107 +342,6 @@ body {
 }
 .header .title:hover {
   cursor: default;
-}
-.header .btn-profile {
-  float: right;
-  display: inline-block;
-  padding: 7px;
-  margin: 9px 0px;
-  margin-left: 7px;
-  height: 18px;
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 1em;
-  line-height: 1em;
-  position: relative;
-  font-family: "maledpan", sans-serif;
-}
-.header .btn-profile:hover {
-  cursor: pointer;
-}
-.header .btn-profile .notif {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  float: left;
-  display: inline-block;
-  background: #F44336;
-  color: #FFFFFF;
-  font-size: 0.7em;
-  line-height: 1em;
-  padding: 2px 3px;
-  border-radius: 3px;
-}
-.header .btn-profile img {
-  float: left;
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
-  margin-top: -7px;
-  border-radius: 50%;
-}
-.header .btn-profile .icon {
-  margin-left: 5px;
-}
-.header .btn-profile .more-menu {
-  position: absolute;
-  width: 200px;
-  top: 105%;
-  right: 15%;
-  padding: 10px 0%;
-  background: #FFFFFF;
-  border-radius: 5px;
-  display: none;
-  z-index: 999;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-}
-.header .btn-profile .more-menu.open {
-  display: block;
-}
-.header .btn-profile .more-menu .arrow-up {
-  position: absolute;
-  bottom: 100%;
-  right: 20%;
-  border: 8px solid transparent;
-  border-bottom-color: #FFFFFF;
-}
-.header .btn-profile .more-menu .caption {
-  width: 80%;
-  padding: 7% 10%;
-  padding-bottom: 2%;
-  float: left;
-  display: inline-block;
-  font-size: 0.75em;
-  color: #004d40;
-}
-.header .btn-profile .more-menu .caption:hover {
-  cursor: default;
-}
-.header .btn-profile .more-menu a {
-  width: 80%;
-  padding: 7% 10%;
-  float: left;
-  display: inline-block;
-  text-decoration: none;
-  color: #050505;
-  border-bottom: 1px solid #FAFAFA;
-}
-.header .btn-profile .more-menu a i {
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  margin-right: 15px;
-  margin-top: -2px;
-}
-.header .btn-profile .more-menu a.btn-logout {
-  color: #c0392b;
-}
-.header .btn-profile .more-menu a:last-child {
-  border-bottom: 0px;
-}
-.header .btn-profile .more-menu a:hover {
-  background: #eeeeee;
 }
 .article {
   width: 50%;
@@ -503,11 +396,13 @@ body {
   cursor: pointer;
 }
 .article .option-control {
-  width: 90%;
-  padding: 2% 0%;
-  margin: 1% 5%;
+  width: 100%;
   float: left;
   display: inline-block;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5%;
 }
 .article .option-control .btnAction {
   width: 20%;
@@ -519,14 +414,13 @@ body {
   line-height: 1em;
   margin: 0px;
   background: transparent;
-  color: #333333;
-  border-radius: 5px;
+  color: #666666;
   text-align: center;
 }
 .article .option-control .btnAction:hover {
   cursor: pointer;
   color: #111111;
-  background: #EEEEEE;
+  background: #FAFAFA;
 }
 .article .option-control .btnAction i {
   display: block;
@@ -540,10 +434,12 @@ body {
 .article .between-option {
   width: 100%;
   padding: 1% 0%;
+  margin: 2% 0%;
   float: left;
   display: inline-block;
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
+  background: #FEFEFE;
 }
 .article .between-option:hover {
   cursor: pointer;
@@ -603,6 +499,12 @@ body {
 .article .content.textbox:hover {
   background: #FAFAFA;
 }
+.article .content.textbox:hover .info {
+  color: #EEEEEE;
+}
+.article .content.photoForm {
+  margin-top: 2%;
+}
 .article .content.photoForm .control .btn {
   color: #FFFFFF;
 }
@@ -657,7 +559,7 @@ body {
   right: 100%;
   float: left;
   padding: 4%;
-  color: #EEEEEE;
+  color: transparent;
   display: inline-block;
   transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;

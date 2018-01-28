@@ -33,14 +33,32 @@ $article->get($article_id);
 <div class="header fixed">
 	<a href="index.php" class="page-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="title">เขียนบทความ</div>
-	<div class="title">กำลังบันทึก...</div>
 
-	<div class="btn-profile">
+	<div class="btn btn-profile">
 		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
+
+		<div class="toggle-panel">
+			<div class="arrow-up"></div>
+			<a href="#">Option 1</a>
+			<a href="#">Option 2</a>
+			<a href="#">Option 3</a>
+			<a href="#">Option 4</a>
+		</div>
 	</div>
-	<a class="btn" href="article/<?php echo $article->id?>"><i class="fa fa-times" aria-hidden="true"></i></a>
 	<div class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-	<div class="btn"><span>เผยแพร่</span><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+
+	<div class="btn" id="btn-publish">
+		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
+		<i class="fa fa-angle-down" aria-hidden="true"></i>
+
+		<div class="toggle-panel">
+			<div class="arrow-up"></div>
+			<a href="#">Option 1</a>
+			<a href="#">Option 2</a>
+			<a href="#">Option 3</a>
+			<a href="#">Option 4</a>
+		</div>
+	</div>
 </div>
 <div class="article editor">
 	<!-- Article Header -->
