@@ -57,10 +57,16 @@ $article->get($article_id);
 
 		<div class="toggle-panel" id="publishPanel">
 			<div class="arrow-up"></div>
-			<a href="#">Option 1</a>
-			<a href="#">Option 2</a>
-			<a href="#">Option 3</a>
-			<a href="#">Option 4</a>
+			<div class="meta-form">
+				<div class="imgpreview">
+					<div class="btn-choose-image">เลือกไฟล์รูปภาพ</div>
+				</div>
+				<label for="">ชื่อบทความ</label>
+				<input type="text">
+				<label for="">รายละเอียดอย่างย่อ</label>
+				<textarea></textarea>
+				<div class="btns">เผยแพร่บทความ</div>
+			</div>
 		</div>
 	</div>
 </div>

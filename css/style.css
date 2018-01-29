@@ -273,7 +273,7 @@ body {
 }
 .header .btn .toggle-panel {
   position: absolute;
-  width: 220px;
+  width: 300px;
   top: 100%;
   right: -15%;
   background: #FFFFFF;
@@ -291,6 +291,57 @@ body {
   right: 14%;
   border: 8px solid transparent;
   border-bottom-color: #EEEEEE;
+}
+.header .btn .toggle-panel .meta-form {
+  width: 90%;
+  margin: 5%;
+  float: left;
+  display: inline-block;
+  color: #333333;
+}
+.header .btn .toggle-panel .meta-form .imgpreview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  margin-bottom: 5%;
+}
+.header .btn .toggle-panel .meta-form .imgpreview .btn-choose-image {
+  width: 100%;
+  padding: 20% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.header .btn .toggle-panel .meta-form label {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+  font-size: 0.8em;
+  color: #BBBBBB;
+}
+.header .btn .toggle-panel .meta-form input[type="text"],
+.header .btn .toggle-panel .meta-form textarea {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 5%;
+  font-size: 1.1em;
+  resize: none;
+  background: transparent;
+  border: 0px;
+}
+.header .btn .toggle-panel .meta-form .btns {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
+  background: #4CAF50;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 5px;
 }
 .header .btn .toggle-panel .group {
   width: 100%;
@@ -389,10 +440,11 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
   margin-top: 5%;
+  box-sizing: border-box;
+  border: 1px solid #EEEEEE;
 }
 .article .option-control .btnAction {
   width: 20%;
@@ -419,7 +471,7 @@ body {
 }
 .article .option-control .btnAction span {
   display: block;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .article .between-option {
   width: 100%;

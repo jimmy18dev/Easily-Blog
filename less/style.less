@@ -120,7 +120,7 @@
 
 		.toggle-panel{
 			position: absolute;
-			width: 220px;
+			width: 300px;
 			top: 100%;
 			right: -15%;
 			background: #FFFFFF;
@@ -137,6 +137,62 @@
 				right: 14%;
 				border: 8px solid transparent;
 				border-bottom-color: #EEEEEE;
+			}
+
+			.meta-form{
+				width: 90%;
+				margin: 5%;
+				float: left;
+				display: inline-block;
+				color: #333333;
+
+				.imgpreview{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					background: #EEEEEE;
+					margin-bottom: 5%;
+
+					.btn-choose-image{
+						width: 100%;
+						padding: 20% 0%;
+						float: left;
+						display: inline-block;
+						text-align: center;
+					}
+				}
+
+				label{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					margin-bottom: 3%;
+					font-size: 0.8em;
+					color: #BBBBBB;
+				}
+
+				input[type="text"],textarea{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					margin: 0;
+					margin-bottom: 5%;
+					font-size: 1.1em;
+					resize: none;
+					background: transparent;
+					border: 0px;
+				}
+
+				.btns{
+					width: 90%;
+					padding: 5%;
+					float: left;
+					display: inline-block;
+					background: #4CAF50;
+					color: #FFFFFF;
+					text-align: center;
+					border-radius: 5px;
+				}
 			}
 
 			.group{
@@ -248,10 +304,11 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-		box-shadow: 0px 1px 20px rgba(0,0,0,0.1);
 		border-radius: 5px;
 		overflow: hidden;
 		margin-top: 5%;
+		box-sizing: border-box;
+		border: 1px solid #EEEEEE;
 
 		.btnAction{
 			width: 20%;
@@ -280,7 +337,7 @@
 
 			span{
 				display: block;
-				font-size: 1.1em;
+				font-size: 1em;
 			}
 		}
 	}
