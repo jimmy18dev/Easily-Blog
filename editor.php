@@ -64,12 +64,13 @@ $article->get($article_id);
 		</div>
 	</div>
 </div>
+
 <div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<textarea class="article-title autosize" id="articleTitle" placeholder="ตั้งชื่อบทความ"></textarea>
-		<input type="hidden" id="realtitle" value="<?php echo $article->title;?>">
-		<textarea class="article-desc autosize" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
+		<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
+		<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
+		<textarea class="article-desc autosize" id="description" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->
@@ -80,29 +81,29 @@ $article->get($article_id);
 			<div class="id">#<?php echo $var['id']?></div>
 			<div class="time"><?php echo $var['create_time'];?></div>
 		</div>
-
 		<div class="control">
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
-		<input type="text" class="topic-input" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
-		<textarea class="body-input autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
+		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
+		<textarea class="body textbox-body autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
 	</div>
-	<?php }else if($var['type'] == 'qoute'){?>
-	<div class="content qoute" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
+	<?php }else if($var['type'] == 'quote'){?>
+	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="info">
 			<div class="id">#<?php echo $var['id']?></div>
 			<div class="time"><?php echo $var['create_time'];?></div>
 		</div>
-
 		<div class="control">
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
-		<textarea class="blockquote-input autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
-		<input type="text" class="cite-input" placeholder="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
+		<i class="fa fa-quote-left" aria-hidden="true"></i>
+		<textarea class="body quote-body autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
+		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
+		<i class="fa fa-quote-right" aria-hidden="true"></i>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
@@ -138,7 +139,7 @@ $article->get($article_id);
 			</div>
 		</div>
 		
-		<input type="text" class="image-alt" placeholder="ใส่คำอธิบายภาพ" value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="alt" placeholder="ใส่คำอธิบายภาพ" value="<?php echo $var['img_alt'];?>">
 
 		<input type="file" name="image" class="image-file" id="imageFiles<?php echo $var['id'];?>">
 		<input type="hidden" name="content_id" value="<?php echo $var['id'];?>">
@@ -170,7 +171,7 @@ $article->get($article_id);
 	<div class="option-control" id="optionControl">
 		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
 		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
-		<div class="btnAction" data-action="qoute"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
+		<div class="btnAction" data-action="quote"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
 		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
 		<div class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
 	</div>

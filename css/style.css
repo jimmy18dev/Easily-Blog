@@ -482,9 +482,85 @@ body {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
+.article .content.quote {
+  width: 90%;
+  padding: 5%;
+}
+.article .content.quote:hover {
+  background: #FAFAFA;
+}
+.article .content.quote:hover .info {
+  color: #EEEEEE;
+}
+.article .content.quote i.fa-quote-left,
+.article .content.quote i.fa-quote-right {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2.4em;
+  color: #EEEEEE;
+}
+.article .content.quote i.fa-quote-right {
+  text-align: right;
+}
+.article .content.quote .quote-body {
+  width: 90%;
+  padding: 1% 5%;
+  float: left;
+  display: inline-block;
+  font-size: 2.2em;
+  line-height: 1.3em;
+  color: #666666;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  resize: none;
+  font-style: italic;
+}
+.article .content.quote .quote-cite {
+  width: 80%;
+  padding: 1% 10%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  margin: 0px;
+  border: 0px;
+  color: #333333;
+  background: transparent;
+  text-align: right;
+}
 .article .content.textbox {
   width: 90%;
   padding: 5%;
+}
+.article .content.textbox .textbox-topic {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.8em;
+  font-family: "maledpan", sans-serif;
+  margin: 0px;
+  border: 0px;
+  color: #333333;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.article .content.textbox .textbox-topic:focus {
+  border-bottom: 1px solid #DDDDDD;
+}
+.article .content.textbox .textbox-body {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: #666666;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  resize: none;
 }
 .article .content.textbox:hover {
   background: #FAFAFA;
@@ -495,66 +571,14 @@ body {
 .article .content.photoForm {
   margin-top: 2%;
 }
+.article .content.photoForm img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 10px;
+}
 .article .content.photoForm .control .btn {
   color: #FFFFFF;
-}
-.article .content .topic-input {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1.8em;
-  font-family: "maledpan", sans-serif;
-  margin: 0px;
-  border: 0px;
-  color: #333333;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-.article .content .topic-input:focus {
-  border-bottom: 1px solid #DDDDDD;
-}
-.article .content .cite-input {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1.8em;
-  font-family: "maledpan", sans-serif;
-  margin: 0px;
-  border: 0px;
-  color: #333333;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-.article .content .cite-input:focus {
-  border-bottom: 1px solid #DDDDDD;
-}
-.article .content .blockquote-input {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  color: #666666;
-  border: 0;
-  margin: 0;
-  background: transparent;
-  resize: none;
-}
-.article .content .body-input {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  color: #666666;
-  border: 0;
-  margin: 0;
-  background: transparent;
-  resize: none;
 }
 .article .content h2 {
   font-size: 1.6em;
@@ -564,12 +588,6 @@ body {
 .article .content p {
   font-size: 0.9em;
   color: #666666;
-}
-.article .content img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 10px;
 }
 .article .content .info {
   position: absolute;
@@ -665,7 +683,7 @@ body {
   float: left;
   display: inline-block;
 }
-.article .content .image-alt {
+.article .content .alt {
   width: 98%;
   float: left;
   display: inline-block;

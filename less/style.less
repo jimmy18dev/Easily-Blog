@@ -349,9 +349,92 @@
 		position: relative;
 		.transitionAnimation(0.2s);
 
+		&.quote{
+			width: 90%;
+			padding: 5%;
+
+			&:hover{
+				.info{
+					color: #EEEEEE;
+				}
+				background: #FAFAFA;
+			}
+
+			i.fa-quote-left, i.fa-quote-right{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 2.4em;
+				color: #EEEEEE;
+			}
+
+			i.fa-quote-right{ text-align: right; }
+
+			.quote-body{
+				width: 90%;
+				padding: 1% 5%;
+				float: left;
+				display: inline-block;
+				font-size: 2.2em;
+				line-height: 1.3em;
+				color: #666666;
+				border: 0;
+				margin: 0;
+				background: transparent;
+				resize: none;
+				font-style: italic;
+			}
+			.quote-cite{
+				width: 80%;
+				padding: 1% 10%;
+				float: left;
+				display: inline-block;
+				font-size: 1.2em;
+				margin: 0px;
+				border: 0px;
+				color: #333333;
+				background: transparent;
+				text-align: right;
+
+				&:focus{
+				}
+			}
+		}
+
 		&.textbox{
 			width: 90%;
 			padding: 5%;
+
+			.textbox-topic{
+				width: 100%;
+				padding: 1% 0%;
+				float: left;
+				display: inline-block;
+				font-size: 1.8em;
+				font-family: @topic_font;
+				margin: 0px;
+				border: 0px;
+				color: #333333;
+				background: transparent;
+				border-bottom: 1px solid transparent;
+
+				&:focus{
+					border-bottom: 1px solid #DDDDDD;
+				}
+			}
+			.textbox-body{
+				width: 100%;
+				padding: 1% 0%;
+				float: left;
+				display: inline-block;
+				font-size: 1.2em;
+				line-height: 1.6em;
+				color: #666666;
+				border: 0;
+				margin: 0;
+				background: transparent;
+				resize: none;
+			}
 
 			&:hover{
 				.info{
@@ -362,73 +445,16 @@
 		}
 
 		&.photoForm{
+			img{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				border-radius: 10px;
+			}
 			margin-top: 2%;
 			.control .btn{
 				color: #FFFFFF;
 			}
-		}
-
-		.topic-input{
-			width: 100%;
-			padding: 1% 0%;
-			float: left;
-			display: inline-block;
-			font-size: 1.8em;
-			font-family: @topic_font;
-			// line-height: 1.1em;
-			margin: 0px;
-			border: 0px;
-			color: #333333;
-			background: transparent;
-			border-bottom: 1px solid transparent;
-
-			&:focus{
-				border-bottom: 1px solid #DDDDDD;
-			}
-		}
-		.cite-input{
-			width: 100%;
-			padding: 1% 0%;
-			float: left;
-			display: inline-block;
-			font-size: 1.8em;
-			font-family: @topic_font;
-			// line-height: 1.1em;
-			margin: 0px;
-			border: 0px;
-			color: #333333;
-			background: transparent;
-			border-bottom: 1px solid transparent;
-
-			&:focus{
-				border-bottom: 1px solid #DDDDDD;
-			}
-		}
-		.blockquote-input{
-			width: 100%;
-			padding: 1% 0%;
-			float: left;
-			display: inline-block;
-			font-size: 1.2em;
-			line-height: 1.6em;
-			color: #666666;
-			border: 0;
-			margin: 0;
-			background: transparent;
-			resize: none;
-		}
-		.body-input{
-			width: 100%;
-			padding: 1% 0%;
-			float: left;
-			display: inline-block;
-			font-size: 1.2em;
-			line-height: 1.6em;
-			color: #666666;
-			border: 0;
-			margin: 0;
-			background: transparent;
-			resize: none;
 		}
 
 		h2{
@@ -440,13 +466,6 @@
 		p{
 			font-size: 0.9em;
 			color: #666666;
-		}
-
-		img{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			border-radius: 10px;
 		}
 
 		.info{
@@ -542,7 +561,7 @@
 			display: inline-block;
 		}
 
-		.image-alt{
+		.alt{
 			width: 98%;
 			float: left;
 			display: inline-block;

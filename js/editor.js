@@ -2,7 +2,7 @@ var article_api = 'api/article';
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
-    
+
     $('#btnPublish').click(function(event) {
         console.log('btnPublish click');
         $('#publishPanel').fadeIn(300);
@@ -40,16 +40,6 @@ $(document).ready(function(){
                 break;
         }
     }
-
-
-
-    /**
-    * Content events listening
-    */
-    var article_id  = $('#article_id').val(); // Current Article ID
-    var article_title;
-    var article_description;
-
     $(document).click(function(e){
         if(!$(e.target).is('.between-option')){
             $('.more-option').fadeOut(100);
@@ -59,7 +49,7 @@ $(document).ready(function(){
             $('#swap').removeClass('-toggle');
         }
 
-        console.log(e.target);
+        // console.log(e.target);
     });
 
     // Publish Article
@@ -89,21 +79,31 @@ $(document).ready(function(){
         });
     });
 
+
+
+    /**
+    * Content events listening
+    */
+    var article_id  = $('#article_id').val(); // Current Article ID
+    var title;
+    var description;
+
     // Edit Article Title.
-    $articleTitle = $('#articleTitle');
+    $title = $('#title');
 
     setTimeout(function(){
-        var title = $('#realtitle').val();
-        $articleTitle.val(title).trigger("input");
+        var title = $('#original_title').val();
+        $title.val(title).trigger("input");
     },0);
-    $articleTitle.focus(function(){
-        article_title = $(this).val();
+
+    $title.focus(function(){
+        title = $(this).val();
         inprogress('editing');
     });
-    $articleTitle.blur(function(){
+    $title.blur(function(){
         var now_value = $(this).val();
 
-        if(article_title == now_value){
+        if(title == now_value){
             inprogress();
             return false;
         }
@@ -130,15 +130,15 @@ $(document).ready(function(){
     });
 
     // Edit Article description.
-    $articleDescription = $('#articleDescription');
-    $articleDescription.focus(function(){
-        article_description = $(this).val();
+    $description = $('#description');
+    $description.focus(function(){
+        description = $(this).val();
         inprogress('editing');
     });
-    $articleDescription.blur(function(){
+    $description.blur(function(){
         var now_value = $(this).val();
 
-        if(article_description == now_value){
+        if(description == now_value){
             inprogress();
             return false;
         }
@@ -164,7 +164,7 @@ $(document).ready(function(){
         });
     });
 
-    // Add New Content Box.
+    // Add Content Box.
     $btnAction = $('.btnAction');
     $btnAction.click(function(){
         var action      = $(this).attr('data-action');
@@ -200,16 +200,16 @@ $(document).ready(function(){
     */
     var topic;
     var body;
-    var img_alt;
+    var alt;
 
     // Change topic of Content.
-    $topicInput = $('.topic-input');
-    $topicInput.focus(function(){
+    $topic = $('.topic');
+    $topic.focus(function(){
         topic = $(this).val();
         inprogress('editing');
     });
 
-    $topicInput.blur(function(){
+    $topic.blur(function(){
         var content_id = $(this).parent().attr('data-content');
         var new_topic = $(this).val();
 
@@ -241,13 +241,13 @@ $(document).ready(function(){
     });
 
     // Change Body of Content.
-    $bodyInput = $('.body-input');
-    $bodyInput.focus(function(){
+    $body = $('.body');
+    $body.focus(function(){
         body = $(this).val();
         inprogress('editing');
     });
 
-    $bodyInput.blur(function(){
+    $body.blur(function(){
         var content_id  = $(this).parent().attr('data-content');
         var news_body = $(this).val();
 
@@ -279,17 +279,17 @@ $(document).ready(function(){
     });
 
     // Edit Image Alt
-    $imageAlt = $('.image-alt');
-    $imageAlt.focus(function(){
-        img_alt = $(this).val();
+    $alt = $('.alt');
+    $alt.focus(function(){
+        alt = $(this).val();
         inprogress('editing');
     });
 
-    $imageAlt.blur(function(){
+    $alt.blur(function(){
         var content_id  = $(this).parent().attr('data-content');
-        var new_img_alt = $(this).val();
+        var new_alt = $(this).val();
 
-        if(img_alt == new_img_alt){
+        if(alt == new_alt){
             inprogress();
             return false;
         }
@@ -305,7 +305,7 @@ $(document).ready(function(){
                 request     :'edit_img_alt',
                 article_id  :article_id,
                 content_id  :content_id,
-                img_alt     :new_img_alt
+                img_alt     :new_alt
             },
             error: function (request, status, error){
                 console.log(request.responseText);
