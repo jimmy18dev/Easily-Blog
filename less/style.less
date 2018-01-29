@@ -85,6 +85,10 @@
 		font-family: @topic_font;
 		position: relative;
 
+		&.active{
+			color: #4CAF50;
+		}
+
 		i{
 			float: right;
 			display: inline-block;
@@ -116,14 +120,13 @@
 
 		.toggle-panel{
 			position: absolute;
-			width: 200px;
+			width: 220px;
 			top: 100%;
-			right: 5%;
-			padding: 10px 0%;
+			right: -15%;
 			background: #FFFFFF;
 			border-radius: 5px;
 			z-index: 999;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+			border: 1px solid #EEEEEE;
 			display: none;
 
 			&.open{ display: block; }
@@ -131,42 +134,33 @@
 			.arrow-up{
 				position: absolute;
 				bottom: 100%;
-				right: 10%;
+				right: 14%;
 				border: 8px solid transparent;
-				border-bottom-color: #FFFFFF;
+				border-bottom-color: #EEEEEE;
 			}
 
-			.caption{
-				width: 80%;
-				padding: 7% 10%;
-				padding-bottom: 2%;
+			.group{
+				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 0.75em;
-				color: @primary_color;
-
-				&:hover{ cursor: default; }
-			}
-
-			a{
-				width: 80%;
-				padding: 7% 10%;
-				float: left;
-				display: inline-block;
-				text-decoration: none;
-				color: #050505;
-				border-bottom: 1px solid #FAFAFA;
-
-				i{
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
-					margin-right: 15px;
-					margin-top: -2px;
-				}
+				border-bottom: 1px solid #EEEEEE;
+				margin-bottom: 2%;
 
 				&:last-child{ border-bottom: 0px; }
-				&:hover{ background: @bg_gray; }
+
+				a{
+					width: 80%;
+					padding: 7% 10%;
+					float: left;
+					display: inline-block;
+					text-decoration: none;
+					color: #333333;
+
+					&:hover{
+						color: #111111;
+						background: #FAFAFA;
+					}
+				}
 			}
 		}
 	}
@@ -391,6 +385,37 @@
 			&:focus{
 				border-bottom: 1px solid #DDDDDD;
 			}
+		}
+		.cite-input{
+			width: 100%;
+			padding: 1% 0%;
+			float: left;
+			display: inline-block;
+			font-size: 1.8em;
+			font-family: @topic_font;
+			// line-height: 1.1em;
+			margin: 0px;
+			border: 0px;
+			color: #333333;
+			background: transparent;
+			border-bottom: 1px solid transparent;
+
+			&:focus{
+				border-bottom: 1px solid #DDDDDD;
+			}
+		}
+		.blockquote-input{
+			width: 100%;
+			padding: 1% 0%;
+			float: left;
+			display: inline-block;
+			font-size: 1.2em;
+			line-height: 1.6em;
+			color: #666666;
+			border: 0;
+			margin: 0;
+			background: transparent;
+			resize: none;
 		}
 		.body-input{
 			width: 100%;

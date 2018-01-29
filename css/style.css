@@ -244,6 +244,9 @@ body {
   font-family: "maledpan", sans-serif;
   position: relative;
 }
+.header .btn.active {
+  color: #4CAF50;
+}
 .header .btn i {
   float: right;
   display: inline-block;
@@ -270,14 +273,13 @@ body {
 }
 .header .btn .toggle-panel {
   position: absolute;
-  width: 200px;
+  width: 220px;
   top: 100%;
-  right: 5%;
-  padding: 10px 0%;
+  right: -15%;
   background: #FFFFFF;
   border-radius: 5px;
   z-index: 999;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #EEEEEE;
   display: none;
 }
 .header .btn .toggle-panel.open {
@@ -286,43 +288,31 @@ body {
 .header .btn .toggle-panel .arrow-up {
   position: absolute;
   bottom: 100%;
-  right: 10%;
+  right: 14%;
   border: 8px solid transparent;
-  border-bottom-color: #FFFFFF;
+  border-bottom-color: #EEEEEE;
 }
-.header .btn .toggle-panel .caption {
-  width: 80%;
-  padding: 7% 10%;
-  padding-bottom: 2%;
+.header .btn .toggle-panel .group {
+  width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.75em;
-  color: #004d40;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 2%;
 }
-.header .btn .toggle-panel .caption:hover {
-  cursor: default;
+.header .btn .toggle-panel .group:last-child {
+  border-bottom: 0px;
 }
-.header .btn .toggle-panel a {
+.header .btn .toggle-panel .group a {
   width: 80%;
   padding: 7% 10%;
   float: left;
   display: inline-block;
   text-decoration: none;
-  color: #050505;
-  border-bottom: 1px solid #FAFAFA;
+  color: #333333;
 }
-.header .btn .toggle-panel a i {
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  margin-right: 15px;
-  margin-top: -2px;
-}
-.header .btn .toggle-panel a:last-child {
-  border-bottom: 0px;
-}
-.header .btn .toggle-panel a:hover {
-  background: #eeeeee;
+.header .btn .toggle-panel .group a:hover {
+  color: #111111;
+  background: #FAFAFA;
 }
 .header .title {
   float: left;
@@ -523,6 +513,35 @@ body {
 }
 .article .content .topic-input:focus {
   border-bottom: 1px solid #DDDDDD;
+}
+.article .content .cite-input {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.8em;
+  font-family: "maledpan", sans-serif;
+  margin: 0px;
+  border: 0px;
+  color: #333333;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.article .content .cite-input:focus {
+  border-bottom: 1px solid #DDDDDD;
+}
+.article .content .blockquote-input {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: #666666;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  resize: none;
 }
 .article .content .body-input {
   width: 100%;

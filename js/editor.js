@@ -2,19 +2,46 @@ var article_api = 'api/article';
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
+    
+    $('#btnPublish').click(function(event) {
+        console.log('btnPublish click');
+        $('#publishPanel').fadeIn(300);
+    });
 
-    // var hash = window.location.hash;
+    $('#btnProfile').click(function(event) {
+        $('#profilePanel').fadeIn(300);
+    });
 
-    // if(hash){
-    //     console.log('have tag' + hash);
-    //     document.querySelector(hash).scrollIntoView({behavior: 'smooth'});
-    // }else{
-    //     console.log('hash not found!');
-    // }
+    function inprogress(action){
+        $title = $('#editorTitle');
+        switch (action){
+            case 'editing':
+                $title.html('[แก้ไข]');
+                break;
+            case 'fail':
+                $title.html('ลองอีกครั้ง!');
+                $progressbar.animate({width:'0%'},500);
+                $progressbar.fadeOut();
+                break;
+            case 'progress':
+                $title.html('กำลังบันทึก...');
+                $progressbar.fadeIn(300);
+                $progressbar.width('0%');
+                $progressbar.animate({width:'70%'},500);
+                break;
+            case 'complete':
+                $progressbar.animate({width:'100%'},500);
+                $progressbar.fadeOut(function(){
+                    $title.html('บันทึกแล้ว');
+                });
+                break;
+            default:
+                $title.html('เขียนบทความ');
+                break;
+        }
+    }
 
-    // document.querySelector('.option-control').scrollIntoView({ 
-    //     behavior: 'smooth' 
-    // });
+
 
     /**
     * Content events listening
@@ -71,16 +98,17 @@ $(document).ready(function(){
     },0);
     $articleTitle.focus(function(){
         article_title = $(this).val();
+        inprogress('editing');
     });
     $articleTitle.blur(function(){
         var now_value = $(this).val();
 
-        if(article_title == now_value) return false;
+        if(article_title == now_value){
+            inprogress();
+            return false;
+        }
 
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
-    
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -97,8 +125,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 
@@ -106,15 +133,17 @@ $(document).ready(function(){
     $articleDescription = $('#articleDescription');
     $articleDescription.focus(function(){
         article_description = $(this).val();
+        inprogress('editing');
     });
     $articleDescription.blur(function(){
         var now_value = $(this).val();
 
-        if(article_description == now_value) return false;
+        if(article_description == now_value){
+            inprogress();
+            return false;
+        }
 
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -131,9 +160,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 
@@ -179,17 +206,19 @@ $(document).ready(function(){
     $topicInput = $('.topic-input');
     $topicInput.focus(function(){
         topic = $(this).val();
+        inprogress('editing');
     });
 
     $topicInput.blur(function(){
         var content_id = $(this).parent().attr('data-content');
         var new_topic = $(this).val();
 
-        if(topic == new_topic) return false;
+        if(topic == new_topic){
+            inprogress();
+            return false;
+        }
 
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -207,9 +236,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 
@@ -217,17 +244,19 @@ $(document).ready(function(){
     $bodyInput = $('.body-input');
     $bodyInput.focus(function(){
         body = $(this).val();
+        inprogress('editing');
     });
 
     $bodyInput.blur(function(){
         var content_id  = $(this).parent().attr('data-content');
         var news_body = $(this).val();
 
-        if(body == news_body) return false;
+        if(body == news_body){
+            inprogress();
+            return false;
+        }
 
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -245,9 +274,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 
@@ -255,17 +282,19 @@ $(document).ready(function(){
     $imageAlt = $('.image-alt');
     $imageAlt.focus(function(){
         img_alt = $(this).val();
+        inprogress('editing');
     });
 
     $imageAlt.blur(function(){
         var content_id  = $(this).parent().attr('data-content');
         var new_img_alt = $(this).val();
 
-        if(img_alt == new_img_alt) return false;
+        if(img_alt == new_img_alt){
+            inprogress();
+            return false;
+        }
 
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -283,9 +312,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
-
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 
@@ -367,11 +394,6 @@ $(document).ready(function(){
         complete: function(xhr) {
             // console.log(xhr.responseText);
             console.log(xhr.responseJSON);
-
-            // var image_file  = xhr.responseJSON.image_file;
-            // var content_id  = xhr.responseJSON.content_id;
-            // var alt         = xhr.responseJSON.alt;
-
             $photoLoading.fadeOut(300);
         }
     });
@@ -413,13 +435,7 @@ $(document).ready(function(){
 
         document.querySelector('#imagePreview'+content_id).scrollIntoView({behavior: 'smooth'});
 
-        console.log($img);
-
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
-
-        // $img = $imagePreview.children('img');
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,
@@ -436,9 +452,7 @@ $(document).ready(function(){
         }).done(function(data){
             console.log(data);
             $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
-
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+            inprogress('complete');
         });
     });
 

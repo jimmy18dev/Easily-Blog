@@ -32,26 +32,30 @@ $article->get($article_id);
 <body>
 <div class="header fixed">
 	<a href="index.php" class="page-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-	<div class="title">เขียนบทความ</div>
+	<div class="title" id="editorTitle">เขียนบทความ</div>
 
-	<div class="btn btn-profile">
+	<div class="btn btn-profile" id="btnProfile">
 		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
 
-		<div class="toggle-panel">
+		<div class="toggle-panel" id="profilePanel">
 			<div class="arrow-up"></div>
-			<a href="#">Option 1</a>
-			<a href="#">Option 2</a>
-			<a href="#">Option 3</a>
-			<a href="#">Option 4</a>
+			<div class="group">
+				<a href="#">บทความของฉัน</a>
+			</div>
+			<div class="group">
+				<a href="#">ตั้งค่า</a>
+				<a href="#">วิธีใช้</a>
+				<a href="#">ออกจากระบบ</a>
+			</div>
 		</div>
 	</div>
 	<div class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
 
-	<div class="btn" id="btn-publish">
+	<div class="btn active" id="btnPublish">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
 		<i class="fa fa-angle-down" aria-hidden="true"></i>
 
-		<div class="toggle-panel">
+		<div class="toggle-panel" id="publishPanel">
 			<div class="arrow-up"></div>
 			<a href="#">Option 1</a>
 			<a href="#">Option 2</a>
@@ -63,7 +67,7 @@ $article->get($article_id);
 <div class="article editor">
 	<!-- Article Header -->
 	<header class="article-header">
-		<textarea class="article-title autosize" id="articleTitle" placeholder="ตั้งชื่อบทความ" autofocus></textarea>
+		<textarea class="article-title autosize" id="articleTitle" placeholder="ตั้งชื่อบทความ"></textarea>
 		<input type="hidden" id="realtitle" value="<?php echo $article->title;?>">
 		<textarea class="article-desc autosize" id="articleDescription" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
 	</header>
@@ -84,6 +88,21 @@ $article->get($article_id);
 
 		<input type="text" class="topic-input" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
 		<textarea class="body-input autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
+	</div>
+	<?php }else if($var['type'] == 'qoute'){?>
+	<div class="content qoute" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
+		<div class="info">
+			<div class="id">#<?php echo $var['id']?></div>
+			<div class="time"><?php echo $var['create_time'];?></div>
+		</div>
+
+		<div class="control">
+			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
+		</div>
+
+		<textarea class="blockquote-input autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
+		<input type="text" class="cite-input" placeholder="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
