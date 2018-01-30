@@ -97,7 +97,8 @@ $article->get($article_id);
 	</div>
 	<?php }else if($var['type'] == 'youtube'){?>
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
-		<input type="text" class="body youtube_id" placeholder="ลิ้งค์วิดีโอ" value="<?php echo $var['body'];?>">
+		<input type="text" class="youtube_url" placeholder="Video URL">
+		<input type="text" class="youtube_id" placeholder="Video ID">
 		<div class="videoWrapper">
 			<iframe src="https://www.youtube.com/embed/UMBJ6m6vW9U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>

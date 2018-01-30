@@ -318,45 +318,43 @@ $(document).ready(function(){
     });
 
     // Youtube Content
-    var youtube_id;
-    $youtube = $('.youtube_id');
-    $youtube.focus(function(){
-        youtube_id = $(this).val();
-        inprogress('editing');
-        console.log('Youtube ID Focused');
-    });
-    $youtube.keyup(function(){
+    var own_youtube_id;
+    $YouTubeURL = $('.youtube_url');
+    $YouTubeURL.focus(function(){
         var content_id  = $(this).parent().attr('data-content');
-        var link = $(this).val();
+            $YouTubeID  = $('#content'+content_id).children('.youtube_id');
+        own_youtube_id  = $YouTubeID.val();
 
-        console.log('Youtube Link' + link);
+        console.log(own_youtube_id);
+    });
 
-        $YouTubePreview = $('#content'+content_id).children('.videoWrapper');
+    $YouTubeURL.on('input',function(){
+        var content_id  = $(this).parent().attr('data-content');
+            $YouTubeID  = $('#content'+content_id).children('.youtube_id');
+        var youtube_url = $(this).val();
+        var youtube_id  = YouTubeParser(youtube_url);
 
-        if(link == youtube_id) return false;
+        if(own_youtube_id == youtube_id){
+            console.log('YouTube ID Not Change!');
+            return false;
+        }
 
-        var video_id = youtube_parser(link);
-        var embed = '<iframe src="https://www.youtube.com/embed/'+video_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
-
-        if(video_id != 0 && video_id.length == 11){
+        if(youtube_id != 0 && youtube_id.length == 11){
+            $YouTubePreview = $('#content'+content_id).children('.videoWrapper');
+            $YouTubeID.val(youtube_id);
+            var embed = '<iframe src="https://www.youtube.com/embed/'+youtube_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
             $YouTubePreview.html(embed);
 
-            console.log('video_id',video_id);
-
-            $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+video_id+'&key='+youtube_key,function(data){
+            // Calling YouTube API With Access Key.
+            var youtube_api = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+youtube_id+'&key='+youtube_key;
+            $.getJSON(youtube_api,function(data){
                 var video_title = data.items[0].snippet.title;
                 console.log(video_title);
-                // $YouTubeTitle.val(video_title);
-                // $YouTubeID.val(video_id);
             });
-        }else{
-            // $YouTubePreview.html('<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>');
-            // $btnYouTubeSubmit.removeClass('-active');
         }
-        youtube_url = link;
     });
 
-    function youtube_parser(url){
+    function YouTubeParser(url){
         var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 
         if(videoid != null) {
