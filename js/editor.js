@@ -1,4 +1,5 @@
 var article_api = 'api/article';
+var youtube_key = 'AIzaSyB5KfCVIK9XviNJ9fNYWwAGhZfRskjGQ_M';
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
@@ -315,6 +316,55 @@ $(document).ready(function(){
             inprogress('complete');
         });
     });
+
+    // Youtube Content
+    var youtube_id;
+    $youtube = $('.youtube_id');
+    $youtube.focus(function(){
+        youtube_id = $(this).val();
+        inprogress('editing');
+        console.log('Youtube ID Focused');
+    });
+    $youtube.keyup(function(){
+        var content_id  = $(this).parent().attr('data-content');
+        var link = $(this).val();
+
+        console.log('Youtube Link' + link);
+
+        $YouTubePreview = $('#content'+content_id).children('.videoWrapper');
+
+        if(link == youtube_id) return false;
+
+        var video_id = youtube_parser(link);
+        var embed = '<iframe src="https://www.youtube.com/embed/'+video_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
+
+        if(video_id != 0 && video_id.length == 11){
+            $YouTubePreview.html(embed);
+
+            console.log('video_id',video_id);
+
+            $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+video_id+'&key='+youtube_key,function(data){
+                var video_title = data.items[0].snippet.title;
+                console.log(video_title);
+                // $YouTubeTitle.val(video_title);
+                // $YouTubeID.val(video_id);
+            });
+        }else{
+            // $YouTubePreview.html('<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>');
+            // $btnYouTubeSubmit.removeClass('-active');
+        }
+        youtube_url = link;
+    });
+
+    function youtube_parser(url){
+        var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+
+        if(videoid != null) {
+            return videoid[1];
+        }else{
+            return 0;
+        }
+    }
 
     ////////////////////////////
     // Image Form

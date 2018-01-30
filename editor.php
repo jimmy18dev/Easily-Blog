@@ -95,6 +95,14 @@ $article->get($article_id);
 		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
 		<textarea class="body textbox-body autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
 	</div>
+	<?php }else if($var['type'] == 'youtube'){?>
+	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
+		<input type="text" class="body youtube_id" placeholder="ลิ้งค์วิดีโอ" value="<?php echo $var['body'];?>">
+		<div class="videoWrapper">
+			<iframe src="https://www.youtube.com/embed/UMBJ6m6vW9U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		</div>
+		<input type="text" class="alt" placeholder="ใส่คำอธิบายวิดีโอ" value="<?php echo $var['img_alt'];?>">
+	</div>
 	<?php }else if($var['type'] == 'quote'){?>
 	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="info">
