@@ -98,11 +98,15 @@ $(document).ready(function(){
     setTimeout(function(){
         var title = $('#original_title').val();
         $title.val(title).trigger("input");
+        document.title = title;
     },0);
 
     $title.focus(function(){
         title = $(this).val();
         inprogress('editing');
+    });
+    $title.on('input',function(event) {
+        document.title = $(this).val();
     });
     $title.blur(function(){
         var now_value = $(this).val();
@@ -111,6 +115,8 @@ $(document).ready(function(){
             inprogress();
             return false;
         }
+
+        document.title = now_value;
 
         inprogress('progress');
 

@@ -222,7 +222,7 @@ $article->get($article_id);
 		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
 		<div class="btnAction" data-action="quote"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
 		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
-		<div class="btnAction" data-action="document"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
+		<div class="btnAction" data-action="map"><i class="fa fa-map-marker" aria-hidden="true"></i><span>แผนที่</span></div>
 	</div>
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
