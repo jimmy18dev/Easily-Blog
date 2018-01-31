@@ -97,12 +97,13 @@ $article->get($article_id);
 	</div>
 	<?php }else if($var['type'] == 'youtube'){?>
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
-		<input type="text" class="youtube_url" placeholder="Video URL">
-		<input type="text" class="youtube_id" placeholder="Video ID">
-		<div class="videoWrapper">
-			<iframe src="https://www.youtube.com/embed/UMBJ6m6vW9U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<input type="<?php echo (!empty($var['video_id'])?'hidden':'');?>" class="youtube_url" placeholder="YouTube Video URL">
+		<input type="hidden" class="youtube_id" value="<?php echo $var['video_id'];?>">
+
+		<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
+			<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
-		<input type="text" class="alt" placeholder="ใส่คำอธิบายวิดีโอ" value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="alt <?php echo (empty($var['video_id'])?'hidden':'');?>" placeholder="ใส่คำอธิบายวิดีโอ" value="<?php echo $var['img_alt'];?>">
 	</div>
 	<?php }else if($var['type'] == 'quote'){?>
 	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">

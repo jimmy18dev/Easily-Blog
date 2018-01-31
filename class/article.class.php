@@ -165,7 +165,7 @@ class Article{
     }
 
     public function listContents($article_id){
-        $this->db->query('SELECT content.id,content.user_id owner_id,user.fname owner_fname,content.topic,content.body,content.img_location,content.img_alt,content.position,content.create_time,content.type,content.status FROM content AS content LEFT JOIN user AS user ON content.user_id = user.id WHERE content.article_id = :article_id ORDER BY content.position ASC');
+        $this->db->query('SELECT content.id,content.user_id owner_id,user.fname owner_fname,content.topic,content.body,content.img_location,content.img_alt,content.video_id,content.position,content.create_time,content.type,content.status FROM content AS content LEFT JOIN user AS user ON content.user_id = user.id WHERE content.article_id = :article_id ORDER BY content.position ASC');
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();
         $dataset = $this->db->resultset();
@@ -211,6 +211,15 @@ class Article{
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':img_alt',$img_alt);
+        $this->db->execute();
+    }
+
+    // Video ID
+    public function editVideoID($content_id,$article_id,$video_id){
+        $this->db->query('UPDATE content SET video_id = :video_id WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->bind(':content_id',$content_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':video_id',$video_id);
         $this->db->execute();
     }
 

@@ -341,15 +341,24 @@ $(document).ready(function(){
 
         if(youtube_id != 0 && youtube_id.length == 11){
             $YouTubePreview = $('#content'+content_id).children('.videoWrapper');
+            $YouTubeAlt     = $('#content'+content_id).children('.alt');
             $YouTubeID.val(youtube_id);
             var embed = '<iframe src="https://www.youtube.com/embed/'+youtube_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
             $YouTubePreview.html(embed);
+            $YouTubePreview.fadeIn(300);
+            $YouTubeAlt.fadeIn(300);
 
             // Calling YouTube API With Access Key.
             var youtube_api = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+youtube_id+'&key='+youtube_key;
             $.getJSON(youtube_api,function(data){
-                var video_title = data.items[0].snippet.title;
-                console.log(video_title);
+                console.log(data.items.length,data);
+
+                if(data.items.length != 0){
+                    var video_title = data.items[0].snippet.title;
+                    console.log(video_title);
+                }else{
+                    console.log('Video not found!');
+                }
             });
         }
     });
@@ -363,6 +372,38 @@ $(document).ready(function(){
             return 0;
         }
     }
+
+    $YouTubeURL.blur(function(){
+        var content_id  = $(this).parent().attr('data-content');
+            $YouTubeID  = $('#content'+content_id).children('.youtube_id');
+        var youtube_url = $(this).val();
+        var youtube_id  = YouTubeParser(youtube_url);
+
+        if(youtube_id == 0 || youtube_id.length != 11){
+            return false;
+        }
+
+        inprogress('progress');
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_video_id',
+                article_id  :article_id,
+                content_id  :content_id,
+                video_id    :youtube_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            inprogress('complete');
+        });
+    });
 
     ////////////////////////////
     // Image Form
