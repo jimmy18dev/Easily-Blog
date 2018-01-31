@@ -15,6 +15,8 @@ class Article{
     public $owner_lname;
     public $total_contents;
     public $contents;
+    public $total_document;
+    public $documents;
 	
 	// Database instance
 	private $db;
@@ -69,6 +71,10 @@ class Article{
         $dataset['total_contents'] = count($contents);
         $dataset['contents']    = $contents;
 
+        $documents = $this->listDocument($dataset['id']);
+        $dataset['total_document'] = count($documents);
+        $dataset['documents']    = $documents;
+
         $this->id               = $dataset['id'];
         $this->title            = $dataset['title'];
         $this->description      = $dataset['description'];
@@ -84,8 +90,41 @@ class Article{
         $this->owner_lname      = $dataset['owner_lname'];
         $this->total_contents   = $dataset['total_contents'];
         $this->contents         = $dataset['contents'];
+        $this->documents        = $dataset['documents'];
 
         return $dataset;
+    }
+
+    public function listDocument($article_id){
+        $this->db->query('SELECT * FROM document WHERE article_id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['file_type'] = $this->docType($var['file_type']);
+            $dataset[$k]['file_size'] = $this->db->formatBytes($var['file_size']);
+        }
+        return $dataset;
+    }
+
+    public function docType($type){
+        if($type == 'pdf')
+            $icon = 'PDF';
+        else if($type == 'doc' || $type == 'docx')
+            $icon = 'Word';
+        else if($type == 'xls' || $type == 'xlsx')
+            $icon = 'Excel';
+        else if($type == 'ppt' || $type == 'pptx')
+            $icon = 'PowerPoint';
+        else if($type == 'txt')
+            $icon = 'txt';
+        else if($type == 'zip')
+            $icon = 'Zip';
+        else
+            $icon = 'n/a';
+
+        return $icon;
     }
 
     public function listAll($category_id,$page,$keyword,$status,$owner_id){
@@ -223,6 +262,15 @@ class Article{
         $this->db->execute();
     }
 
+    // Edit Document ID
+    public function editDocID($content_id,$article_id,$doc_id){
+        $this->db->query('UPDATE content SET doc_id = :doc_id WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->bind(':content_id',$content_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':doc_id',$doc_id);
+        $this->db->execute();
+    }
+
     public function createContent($user_id,$article_id,$type,$before_content_id = 0){
 
         if($before_content_id == 0){
@@ -296,5 +344,9 @@ class Article{
         $this->db->bind(':target',$target);
         $this->db->execute();
     }
+
+    /**
+    * Documents
+    */
 }
 ?>

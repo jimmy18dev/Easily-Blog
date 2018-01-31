@@ -1,6 +1,7 @@
 <?php
 include_once'autoload.php';
-$article = new Article();
+$article 	= new Article();
+$document 	= new Document();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
@@ -184,6 +185,37 @@ $article->get($article_id);
 	</div>
 	<?php } ?>
 
+	<div class="documents">
+		<form action="upload_document.php" class="form" id="documentForm" method="POST" enctype="multipart/form-data">
+			
+			<div class="file-preview" id="filePreview">
+				<div class="icon">
+					<i class="fa fa-paperclip" aria-hidden="true"></i>
+				</div>
+				<div class="detail">
+					<div class="progress" id="documentProgress">
+						<div class="bar" id="documentProgressBar"></div>
+					</div>
+					<div class="name" id="fileName">เลือกไฟล์เอกสารของคุณ</div>
+					<div class="info" id="fileSizeInfo"></div>
+				</div>
+			</div>
+			
+			<input type="file" name="file" class="inputfile" id="file">
+			<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
+			<input type="hidden" id="maximumSize" value="<?php echo $document->return_bytes(ini_get('post_max_size'));?>">
+		</form>
+		<?php foreach ($article->documents as $var) {?>
+		<div class="document-items" data-file="<?php echo $var['id'];?>">
+			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
+			<div class="detail">
+				<input type="text" class="file_title" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
+				<div class="info">ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
+			</div>
+		</div>
+		<?php }?>
+	</div>
+
 	<div class="option-control" id="optionControl">
 		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
 		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
@@ -193,6 +225,7 @@ $article->get($article_id);
 	</div>
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
+	<input type="hidden" id="maximumSize" value="<?php echo $document->return_bytes(ini_get('post_max_size'));?>">
 </div>
 
 <div class="swap" id="swap"></div>
@@ -201,6 +234,7 @@ $article->get($article_id);
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>

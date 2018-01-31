@@ -1,5 +1,8 @@
 var article_api = 'api/article';
 var youtube_key = 'AIzaSyB5KfCVIK9XviNJ9fNYWwAGhZfRskjGQ_M';
+// Allowed file size is less than 15 MB (15728640)
+var max_filesize        = $('#maximumSize').val();
+var api_document        = 'api/document';
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
@@ -612,4 +615,146 @@ $(document).ready(function(){
             location.reload();
         });
     });
+
+    $documentForm       = $('#documentForm');
+    $filePreview        = $('#filePreview');
+    $btnSubmit          = $('#btnSubmit');
+    $fileName           = $('#fileName');
+    $fileInput          = $('#file');
+    $titleInput         = $('#title');
+    $descriptionInput   = $('#description');
+    $fileSizeInfo       = $('#fileSizeInfo');
+
+    $documentProgress   = $('#documentProgress');
+    $documentProgressBar = $('#documentProgressBar');
+
+    $fileSizeInfo.html('ขนาดไม่เกิน '+(max_filesize/1048576)+' MB');
+
+    $filePreview.click(function(){
+        $fileInput.focus().click();
+    });
+
+    $fileInput.change(function(){
+        var files       = this.files;
+        var file        = files[0];
+        var size        = file.size;
+        var filename    = file.name.substring(0,file.name.lastIndexOf('.'));
+        var extension   = file.name.substring(file.name.lastIndexOf('.')+1);
+
+        if(!FileType(extension)){
+            alert('ระบบยังไม่รองรับไฟล์ประเภท .'+extension);
+            location.reload();
+            return false;
+        }else if(!FileSize(size)){
+            alert('ไฟล์ของคุณมีขนาด '+numeral(size).format('0.0 b')+' ซึ่งต้องไม่เกิน '+(max_filesize/1048576)+' MB');
+            location.reload();
+            return false;
+        }else{
+            $fileName.html(file.name);
+            $fileSizeInfo.html('ขนาด '+numeral(size).format('0.0 b'));
+
+            $btnSubmit.prop('disabled', false);
+
+            $documentForm.submit();
+        }
+    });
+
+    $documentForm.ajaxForm({
+        beforeSubmit: function(formData, jqForm, options){
+
+            if(!formData[0].value){
+                console.log('File input is empty!');
+                return false;
+            }
+
+            var filename        = formData[0].value.name;
+            var filesize        = formData[0].value.size;
+            var extension       = filename.substring(filename.lastIndexOf('.')+1);
+            var title           = formData[1].value;
+
+            if(!FileSize(filesize)) return false;
+            if(!FileType(extension)) return false;
+            if(!title || !filename) return false;
+            
+            $documentProgress.fadeIn(300);
+            $documentProgressBar.width('0%');
+        },
+        uploadProgress: function(event,position,total,percentComplete) {
+            var percent = percentComplete;
+            percent = (percent * 80) / 100;
+            $documentProgressBar.animate({width:percent+'%'},0);
+        },
+        success: function() {
+            $documentProgressBar.animate({width:'90%'},100);
+        },
+        complete: function(xhr) {
+            console.log(xhr.responseText);
+            if(xhr.responseJSON){
+
+                var file_id = xhr.responseJSON.file_id;
+
+                $documentProgressBar.animate({width:'100%'},300,function(){
+                    location.reload();
+                });
+            }else{
+                alert('ไฟล์ของคุณไม่สามารถอัพโหลดเข้าระบบได้ กรุณาติดต่อผู้ดูแลระบบ');
+                location.reload();
+            }
+        }
+    });
+
+    // Edit Image Alt
+    var own_doc_title;
+    $document = $('.file_title');
+    $document.focus(function(){
+        own_doc_title = $(this).val();
+        inprogress('editing');
+    });
+
+    $document.blur(function(){
+        var file_id  = $(this).parent().parent().attr('data-file');
+        var doc_title = $(this).val();
+
+        if(own_doc_title == doc_title){
+            inprogress();
+            return false;
+        }
+
+        inprogress('progress');
+
+        $.ajax({
+            url         :api_document,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_title',
+                file_id  :file_id,
+                title     :doc_title
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            inprogress('complete');
+        });
+    });  
 });
+
+function FileSize(fsize){
+    if(fsize > max_filesize)
+        return false;
+    else
+        return true;
+}
+function FileType(extension){
+    switch(extension){
+        case 'pdf': case 'txt': case 'doc': case 'docx': case 'ppt': case 'pptx': case 'xls': case 'xlsx': case 'zip':
+            break;
+        default:
+            return false
+        }
+
+    return true;
+}

@@ -398,6 +398,124 @@
 		}
 	}
 
+	.documents{
+		width: 100%;
+		float: left;
+		display: inline-block;
+
+		.form{
+			width: 100%;
+			padding: 3% 5%;
+			float: left;
+			display: inline-block;
+			border-radius: 5px;
+			margin-bottom: 2%;
+			box-sizing: border-box;
+			border: 2px dashed #BBBBBB;
+
+			.inputfile{ display: none; }
+
+			.icon{
+				width: 10%;
+				float: left;
+				display: inline-block;
+				font-size: 2.4em;
+				line-height: 1.5em;
+			}
+			.detail{
+				width: 90%;
+				float: left;
+				display: inline-block;
+
+				.progress{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					background: #EEEEEE;
+					border-radius: 5px;
+					margin-bottom: 2%;
+					display: none;
+
+					.bar{
+						width: 30%;
+						height: 5px;
+						float: left;
+						display: inline-block;
+						border-radius: 5px;
+						.bgGradient(#3BED8D,#38ACC5);
+					}
+				}
+
+				.name{
+					font-size: 1.4em;
+					font-family: @topic_font;
+					line-height: 1.2em;
+				}
+				.file_title{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 1.4em;
+					font-family: @topic_font;
+					line-height: 1em;
+					padding: 0;
+					margin: 0;
+					border: 0;
+					background: transparent;
+				}
+				.info{
+					font-size: 0.8em;
+					color: #999999;
+				}
+			}
+		}
+
+		.document-items{
+			width: 90%;
+			padding: 3% 5%;
+			float: left;
+			display: inline-block;
+			background: #EEEEEE;
+			border-radius: 5px;
+			margin-bottom: 2%;
+
+			.icon{
+				width: 10%;
+				float: left;
+				display: inline-block;
+				font-size: 2.4em;
+				line-height: 1.5em;
+			}
+			.detail{
+				width: 90%;
+				float: left;
+				display: inline-block;
+
+				.name{
+					font-size: 1.4em;
+					font-family: @topic_font;
+					line-height: 1.2em;
+				}
+				.file_title{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 1.4em;
+					font-family: @topic_font;
+					line-height: 1em;
+					padding: 0;
+					margin: 0;
+					border: 0;
+					background: transparent;
+				}
+				.info{
+					font-size: 0.8em;
+					color: #999999;
+				}
+			}
+		}
+	}
+
 	.content{
 		width: 100%;
 		float: left;

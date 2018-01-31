@@ -15,6 +15,7 @@ require_once 'config/image.config.php';
 require_once 'class/database.class.php';
 require_once 'class/image.class.php';
 require_once 'class/article.class.php';
+require_once 'class/document.class.php';
 require_once 'class/category.class.php';
 require_once 'class/user.class.php';
 require_once 'class/signature.class.php';

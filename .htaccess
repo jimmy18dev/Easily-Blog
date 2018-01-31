@@ -13,3 +13,4 @@ RewriteRule ^article/create$ 	/choose-category.php [L]
 ### API ###
 RewriteRule ^api/article$ 		/api/article.php [L]
 RewriteRule ^api/user$ 			/api/user.php [L]
+RewriteRule ^api/document$ 		/api/document.php [L]

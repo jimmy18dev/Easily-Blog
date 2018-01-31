@@ -523,6 +523,118 @@ body {
   color: #333333;
   background: #FAFAFA;
 }
+.article .documents {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .documents .form {
+  width: 100%;
+  padding: 3% 5%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  box-sizing: border-box;
+  border: 2px dashed #BBBBBB;
+}
+.article .documents .form .inputfile {
+  display: none;
+}
+.article .documents .form .icon {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  font-size: 2.4em;
+  line-height: 1.5em;
+}
+.article .documents .form .detail {
+  width: 90%;
+  float: left;
+  display: inline-block;
+}
+.article .documents .form .detail .progress {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  display: none;
+}
+.article .documents .form .detail .progress .bar {
+  width: 30%;
+  height: 5px;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+  background: #3bed8d;
+  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
+  background: linear-gradient(to right, #3bed8d, #38acc5);
+}
+.article .documents .form .detail .name {
+  font-size: 1.4em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1.2em;
+}
+.article .documents .form .detail .file_title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+.article .documents .form .detail .info {
+  font-size: 0.8em;
+  color: #999999;
+}
+.article .documents .document-items {
+  width: 90%;
+  padding: 3% 5%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+.article .documents .document-items .icon {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  font-size: 2.4em;
+  line-height: 1.5em;
+}
+.article .documents .document-items .detail {
+  width: 90%;
+  float: left;
+  display: inline-block;
+}
+.article .documents .document-items .detail .name {
+  font-size: 1.4em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1.2em;
+}
+.article .documents .document-items .detail .file_title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+.article .documents .document-items .detail .info {
+  font-size: 0.8em;
+  color: #999999;
+}
 .article .content {
   width: 100%;
   float: left;
