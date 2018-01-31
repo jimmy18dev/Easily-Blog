@@ -209,6 +209,7 @@ $article->get($article_id);
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
 			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
 			<div class="detail">
+				<div class="btn-doc-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
 				<input type="text" class="file_title" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
 				<div class="info">ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
 			</div>

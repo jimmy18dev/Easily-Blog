@@ -739,7 +739,29 @@ $(document).ready(function(){
             console.log(data);
             inprogress('complete');
         });
-    });  
+    });
+
+    // Delete Delete!
+    $('.btn-doc-delete').click(function(){
+        var file_id  = $(this).parent().parent().attr('data-file');
+        if(!confirm('Delete this Content #'+file_id+' ?')){ return false; }
+
+        $.ajax({
+            url         :api_document,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request :'delete',
+                file_id :file_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+        });
+    });
 });
 
 function FileSize(fsize){

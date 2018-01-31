@@ -58,10 +58,9 @@ class Document{
     }
 
     public function get($file_id){
-        $this->db->query('SELECT document.id file_id,document.user_id file_owner_id,CONCAT(user.fname," ",user.lname) file_owner_name,document.category_id file_category_id,category.name file_category_name,document.title file_title,document.description file_description,document.file_name,document.file_type,document.file_size,document.create_time file_create_time,document.edit_time file_edit_time,document.view file_view,document.download file_download,document.secret file_secret,document.privacy file_privacy,document.status file_status 
+        $this->db->query('SELECT document.id file_id,document.user_id file_owner_id,CONCAT(user.fname," ",user.lname) file_owner_name,document.title file_title,document.description file_description,document.file_name,document.file_type,document.file_size,document.create_time file_create_time,document.edit_time file_edit_time,document.view file_view,document.download file_download,document.secret file_secret,document.privacy file_privacy,document.status file_status 
             FROM document AS document 
-            LEFT JOIN user AS user ON document.user_id = user.id 
-            LEFT JOIN category AS category ON document.category_id = category.id  WHERE document.id = :file_id');
+            LEFT JOIN user AS user ON document.user_id = user.id WHERE document.id = :file_id');
         $this->db->bind(':file_id',$file_id);
         $this->db->execute();
         $dataset = $this->db->single();
@@ -69,8 +68,6 @@ class Document{
         $this->id               = $dataset['file_id'];
         $this->owner_id         = $dataset['file_owner_id'];
         $this->owner_name       = $dataset['file_owner_name'];
-        $this->category_id      = $dataset['file_category_id'];
-        $this->category_name    = $dataset['file_category_name'];
         $this->title            = $dataset['file_title'];
         $this->description      = $dataset['file_description'];
         $this->file_name        = $dataset['file_name'];

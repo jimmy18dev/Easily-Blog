@@ -36,15 +36,10 @@ switch ($_SERVER['REQUEST_METHOD']){
     		
 				$file_id = $_POST['file_id'];
 				$document->get($file_id);
-				$file_location = '../document/'.$document->file_name;
-				$qrcode_location = '../image/qrcode/'.$document->file_name.'.png';
+				$file_location = '../files/'.$document->file_name;
 
 				if(file_exists($file_location)){
 					unlink($file_location);
-				}
-
-				if(file_exists($qrcode_location)){
-					unlink($qrcode_location);
 				}
 
 				$document->delete($document->id);
