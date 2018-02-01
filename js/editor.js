@@ -17,10 +17,12 @@ $(document).ready(function(){
     });
 
     function inprogress(action){
-        $title = $('#editorTitle');
+        $title  = $('#editorTitle');
+        $icon   = $('#editorIcon');
         switch (action){
             case 'editing':
-                $title.html('[แก้ไข]');
+                $title.html('แก้ไข');
+                $icon.html('<i class="fa fa-keyboard-o" aria-hidden="true"></i>');
                 break;
             case 'fail':
                 $title.html('ลองอีกครั้ง!');
@@ -29,6 +31,7 @@ $(document).ready(function(){
                 break;
             case 'progress':
                 $title.html('กำลังบันทึก...');
+                $icon.html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
                 $progressbar.fadeIn(300);
                 $progressbar.width('0%');
                 $progressbar.animate({width:'70%'},500);
@@ -37,6 +40,7 @@ $(document).ready(function(){
                 $progressbar.animate({width:'100%'},500);
                 $progressbar.fadeOut(function(){
                     $title.html('บันทึกแล้ว');
+                    $icon.html('<i class="fa fa-check-circle" aria-hidden="true"></i>');
                 });
                 break;
             default:

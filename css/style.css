@@ -152,8 +152,7 @@ body {
   transition: height 0.2s;
 }
 .header {
-  width: 70%;
-  padding: 0 15%;
+  width: 100%;
   height: 50px;
   float: left;
   display: inline-block;
@@ -167,7 +166,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.95);
 }
 .header.shadow {
   background: rgba(0, 77, 64, 0.95);
@@ -193,56 +191,173 @@ body {
 .header .page-icon {
   float: left;
   display: inline-block;
-  padding: 10px 1%;
+  padding: 8px 1%;
   padding-right: 0%;
-  height: 30px;
-  font-size: 1.2em;
-  color: #999999;
+  height: 34px;
+  font-size: 1.4em;
+  color: #666666;
+  text-decoration: none;
 }
 .header .page-icon:hover {
   color: #666666;
   cursor: pointer;
 }
-.header a.logo {
-  width: 28%;
+.header .page-icon i.fa-check-circle {
+  color: #4CAF50;
+}
+.header .page-title {
   float: left;
   display: inline-block;
-  padding: 10px 1.5%;
-  height: 30px;
-  color: #FFFFFF;
-  text-decoration: none;
-  line-height: 1em;
-  font-size: 1em;
-}
-.header a.logo img {
-  float: left;
-  display: inline-block;
-  height: 30px;
-  margin-right: 10px;
-  margin-top: 0px;
-}
-.header a.logo .detail {
-  float: left;
-  display: inline-block;
-}
-.header a.logo .detail .name {
+  padding: 7px;
+  margin: 9px 0px;
+  margin-left: 7px;
+  height: 18px;
+  color: #666666;
   font-family: "maledpan", sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 30%;
 }
-.header a.logo .detail .desc {
-  font-size: 0.5em;
-  color: #1abc9c;
+.header .page-title:hover {
+  cursor: default;
 }
-.header .btn {
+.header .btn-profile {
   float: right;
   display: inline-block;
-  padding: 15px 20px;
-  height: 20px;
-  color: #666666;
+  height: 34px;
+  margin: 8px 0px;
+  padding: 0 10px;
+  position: relative;
+}
+.header .btn-profile img {
+  width: 34px;
+  height: 34px;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
+.header .btn-profile .toggle-panel {
+  position: absolute;
+  width: 200px;
+  padding: 8px 0;
+  top: 140%;
+  right: 15%;
+  background: #FFFFFF;
+  border-radius: 5px;
+  z-index: 999;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+.header .btn-profile .toggle-panel.open {
+  display: block;
+}
+.header .btn-profile .toggle-panel .popover-arrow {
+  position: absolute;
+  right: 6%;
+  bottom: 100%;
+  transform: rotate(45deg) translate(6px, 6px);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+}
+.header .btn-profile .toggle-panel .meta-form {
+  width: 90%;
+  margin: 5%;
+  float: left;
+  display: inline-block;
+  color: #333333;
+}
+.header .btn-profile .toggle-panel .meta-form .imgpreview {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  margin-bottom: 5%;
+}
+.header .btn-profile .toggle-panel .meta-form .imgpreview .btn-choose-image {
+  width: 100%;
+  padding: 20% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.header .btn-profile .toggle-panel .meta-form label {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+  font-size: 0.8em;
+  color: #BBBBBB;
+}
+.header .btn-profile .toggle-panel .meta-form input[type="text"],
+.header .btn-profile .toggle-panel .meta-form textarea {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 5%;
+  font-size: 1.1em;
+  resize: none;
+  background: transparent;
+  border: 0px;
+}
+.header .btn-profile .toggle-panel .meta-form .btns {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
+  background: #4CAF50;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 5px;
+}
+.header .btn-profile .toggle-panel .group {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 2%;
+}
+.header .btn-profile .toggle-panel .group:last-child {
+  border-bottom: 0px;
+}
+.header .btn-profile .toggle-panel .group a {
+  width: 80%;
+  padding: 7% 10%;
+  float: left;
+  display: inline-block;
   text-decoration: none;
-  font-size: 1em;
+  color: #333333;
+}
+.header .btn-profile .toggle-panel .group a:hover {
+  color: #111111;
+  background: #FAFAFA;
+}
+.header .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  height: 34px;
+  margin: 8px 0px;
+  padding: 0 14px;
   line-height: 1em;
   font-family: "maledpan", sans-serif;
+  background: transparent;
+  border-radius: 20px;
   position: relative;
+  font-size: 1em;
+}
+.header .btn:hover {
+  cursor: pointer;
+}
+.header .btn:active {
+  background: #DDDDDD;
 }
 .header .btn.active {
   color: #4CAF50;
@@ -250,26 +365,12 @@ body {
 .header .btn i {
   float: right;
   display: inline-block;
-  font-size: 1.3em;
-  margin-top: -1px;
+  font-size: 1.2em;
 }
 .header .btn span {
   float: left;
-  margin-right: 10px;
-  font-size: 1.1em;
-}
-.header .btn.btn-profile {
-  padding: 10px 15px;
-  height: 30px;
-}
-.header .btn.btn-profile img {
-  height: 30px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.header .btn:hover {
-  cursor: pointer;
-  background: #FEFEFE;
+  margin-right: 8px;
+  font-size: 1em;
 }
 .header .btn .toggle-panel {
   position: absolute;
@@ -365,24 +466,34 @@ body {
   color: #111111;
   background: #FAFAFA;
 }
-.header .title {
+.header a.logo {
+  width: 28%;
   float: left;
   display: inline-block;
-  padding: 7px;
-  margin: 9px 0px;
-  margin-left: 7px;
-  height: 18px;
-  color: #BBBBBB;
-  font-family: "maledpan", sans-serif;
-  font-size: 1em;
+  padding: 10px 1.5%;
+  height: 30px;
+  color: #FFFFFF;
+  text-decoration: none;
   line-height: 1em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 30%;
+  font-size: 1em;
 }
-.header .title:hover {
-  cursor: default;
+.header a.logo img {
+  float: left;
+  display: inline-block;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+.header a.logo .detail {
+  float: left;
+  display: inline-block;
+}
+.header a.logo .detail .name {
+  font-family: "maledpan", sans-serif;
+}
+.header a.logo .detail .desc {
+  font-size: 0.5em;
+  color: #1abc9c;
 }
 .article {
   width: 50%;

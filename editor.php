@@ -32,14 +32,14 @@ $article->get($article_id);
 </head>
 <body>
 <div class="header fixed">
-	<a href="index.php" class="page-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-	<div class="title" id="editorTitle">เขียนบทความ</div>
+	<a href="index.php" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+	<div class="page-title" id="editorTitle">เขียนบทความ</div>
 
-	<div class="btn btn-profile" id="btnProfile">
+	<div class="btn-profile" id="btnProfile">
 		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
 
 		<div class="toggle-panel" id="profilePanel">
-			<div class="arrow-up"></div>
+			<div class="popover-arrow"></div>
 			<div class="group">
 				<a href="#">บทความของฉัน</a>
 			</div>
@@ -50,7 +50,9 @@ $article->get($article_id);
 			</div>
 		</div>
 	</div>
-	<div class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+	<div class="btn">
+		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+	</div>
 
 	<div class="btn active" id="btnPublish">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
