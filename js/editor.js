@@ -51,6 +51,7 @@ $(document).ready(function(){
     $(document).click(function(e){
         if(!$(e.target).is('.between-option')){
             $('.more-option').fadeOut(100);
+            $overlay.removeClass('open');
         }
         
         if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
@@ -528,6 +529,7 @@ $(document).ready(function(){
 
     $('.between-option').click(function(){
         $moreOption = $(this).children('.more-option');
+        $overlay.addClass('open');
         $moreOption.fadeIn(300);
     });
 

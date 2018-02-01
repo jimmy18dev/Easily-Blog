@@ -40,14 +40,13 @@ $article->get($article_id);
 
 		<div class="toggle-panel" id="profilePanel">
 			<div class="popover-arrow"></div>
-			<div class="group">
-				<a href="#">บทความของฉัน</a>
-			</div>
-			<div class="group">
-				<a href="#">ตั้งค่า</a>
-				<a href="#">วิธีใช้</a>
-				<a href="#">ออกจากระบบ</a>
-			</div>
+			<ul>
+				<li><a href="#">บทความของฉัน</a></li>
+				<li class="separator"></li>
+				<li><a href="#">ตั้งค่า</a></li>
+				<li><a href="#">วิธีใช้</a></li>
+				<li><a href="#" class="logout">ออกจากระบบ</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="btn">
@@ -55,7 +54,7 @@ $article->get($article_id);
 	</div>
 
 	<div class="btn active" id="btnPublish">
-		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
+		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>
 		<i class="fa fa-angle-down" aria-hidden="true"></i>
 
 		<div class="toggle-panel" id="publishPanel">
@@ -86,11 +85,8 @@ $article->get($article_id);
 	<?php foreach ($article->contents as $var) {?>
 	<?php if($var['type'] == 'textbox'){?>
 	<div class="content textbox" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
-		<div class="info">
-			<div class="id">#<?php echo $var['id']?></div>
-			<div class="time"><?php echo $var['create_time'];?></div>
-		</div>
 		<div class="control">
+			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
@@ -100,6 +96,12 @@ $article->get($article_id);
 	</div>
 	<?php }else if($var['type'] == 'youtube'){?>
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
+		<div class="control">
+			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
+			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
+		</div>
+
 		<input type="<?php echo (!empty($var['video_id'])?'hidden':'');?>" class="youtube_url" placeholder="YouTube Video URL">
 		<input type="hidden" class="youtube_id" value="<?php echo $var['video_id'];?>">
 
@@ -110,11 +112,8 @@ $article->get($article_id);
 	</div>
 	<?php }else if($var['type'] == 'quote'){?>
 	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
-		<div class="info">
-			<div class="id">#<?php echo $var['id']?></div>
-			<div class="time"><?php echo $var['create_time'];?></div>
-		</div>
 		<div class="control">
+			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
@@ -126,13 +125,8 @@ $article->get($article_id);
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
-
-		<div class="info">
-			<div class="id">#<?php echo $var['id']?></div>
-			<div class="time"><?php echo $var['create_time'];?></div>
-		</div>
-
 		<div class="control">
+			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-repeat" aria-hidden="true"></i></div>
@@ -175,13 +169,17 @@ $article->get($article_id);
 				<i class="fa fa-picture-o" aria-hidden="true"></i>
 				<span>รูปภาพ</span>
 			</div>
-			<div class="btnAction" data-action="document" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-paperclip" aria-hidden="true"></i>
-				<span>เอกสาร</span>
+			<div class="btnAction" data-action="quote" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-quote-right" aria-hidden="true"></i>
+				<span>คำพูด</span>
 			</div>
 			<div class="btnAction" data-action="youtube" data-content="<?php echo $var['id'];?>">
 				<i class="fa fa-youtube-play" aria-hidden="true"></i>
 				<span>YouTube</span>
+			</div>
+			<div class="btnAction" data-action="map" data-content="<?php echo $var['id'];?>">
+				<i class="fa fa-map-marker" aria-hidden="true"></i>
+				<span>แผนที่</span>
 			</div>
 		</div>
 	</div>
@@ -233,6 +231,7 @@ $article->get($article_id);
 
 <div class="swap" id="swap"></div>
 <div id="progressbar"></div>
+<div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
