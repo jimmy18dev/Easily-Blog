@@ -96,7 +96,7 @@ class Article{
     }
 
     public function listDocument($article_id){
-        $this->db->query('SELECT * FROM document WHERE article_id = :article_id');
+        $this->db->query('SELECT * FROM document WHERE article_id = :article_id ORDER BY create_time DESC');
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();
         $dataset = $this->db->resultset();

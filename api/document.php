@@ -38,14 +38,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$document->get($file_id);
 				$file_location = '../files/'.$document->file_name;
 
-				if(file_exists($file_location)){
+				if(!empty($document->file_name) && file_exists($file_location)){
 					unlink($file_location);
+					$document->delete($document->id);
+					$returnObject['message'] 	= 'Document file deleted';
+				}else{
+					$returnObject['message'] 	= 'Document not found!';
 				}
-
-				$document->delete($document->id);
-
-				$returnObject['message'] 	= 'Document file deleted';
-
 				break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';

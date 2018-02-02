@@ -900,41 +900,80 @@ body {
   float: left;
   display: inline-block;
 }
-.article .documents .form {
-  width: 100%;
-  padding: 3% 5%;
-  float: left;
-  display: inline-block;
-  border-radius: 5px;
-  margin-bottom: 2%;
-  box-sizing: border-box;
-  border: 2px dashed #BBBBBB;
-}
-.article .documents .form .inputfile {
-  display: none;
-}
-.article .documents .form .icon {
-  width: 10%;
-  float: left;
-  display: inline-block;
-  font-size: 2.4em;
-  line-height: 1.5em;
-}
-.article .documents .form .detail {
-  width: 90%;
-  float: left;
-  display: inline-block;
-}
-.article .documents .form .detail .progress {
+.article .documents h2 {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #EEEEEE;
-  border-radius: 5px;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.6em;
+  font-weight: normal;
   margin-bottom: 2%;
+}
+.article .documents .document-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  background: #F5F5F5;
+  margin-bottom: 1%;
+  border-radius: 5px;
+  position: relative;
+}
+.article .documents .document-items.form {
   display: none;
 }
-.article .documents .form .detail .progress .bar {
+.article .documents .document-items:hover .btn {
+  color: #BBBBBB;
+}
+.article .documents .document-items .inputfile {
+  display: none;
+}
+.article .documents .document-items .icon {
+  width: 5%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  margin-top: 0.4%;
+  text-align: center;
+  color: #999999;
+}
+.article .documents .document-items .detail {
+  width: 93%;
+  margin-left: 2%;
+  float: left;
+  display: inline-block;
+}
+.article .documents .document-items .detail .name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+.article .documents .document-items .detail .file_title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+.article .documents .document-items .detail .info {
+  font-size: 0.75em;
+  color: #999999;
+}
+.article .documents .document-items .detail .progress {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #DDDDDD;
+  border-radius: 5px;
+  margin-top: 1%;
+}
+.article .documents .document-items .detail .progress .bar {
   width: 30%;
   height: 5px;
   float: left;
@@ -944,68 +983,21 @@ body {
   background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
   background: linear-gradient(to right, #3bed8d, #38acc5);
 }
-.article .documents .form .detail .name {
-  font-size: 1.4em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1.2em;
-}
-.article .documents .form .detail .file_title {
-  width: 100%;
-  float: left;
+.article .documents .document-items .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.5%;
+  float: right;
   display: inline-block;
-  font-size: 1.4em;
-  font-family: "maledpan", sans-serif;
+  text-align: center;
   line-height: 1em;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: transparent;
+  font-size: 1em;
+  color: transparent;
 }
-.article .documents .form .detail .info {
-  font-size: 0.8em;
-  color: #999999;
-}
-.article .documents .document-items {
-  width: 90%;
-  padding: 3% 5%;
-  float: left;
-  display: inline-block;
-  background: #EEEEEE;
-  border-radius: 5px;
-  margin-bottom: 2%;
-}
-.article .documents .document-items .icon {
-  width: 10%;
-  float: left;
-  display: inline-block;
-  font-size: 2.4em;
-  line-height: 1.5em;
-}
-.article .documents .document-items .detail {
-  width: 90%;
-  float: left;
-  display: inline-block;
-}
-.article .documents .document-items .detail .name {
-  font-size: 1.4em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1.2em;
-}
-.article .documents .document-items .detail .file_title {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.4em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1em;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: transparent;
-}
-.article .documents .document-items .detail .info {
-  font-size: 0.8em;
-  color: #999999;
+.article .documents .document-items .btn:hover {
+  cursor: pointer;
+  color: #666666;
 }
 .article-list {
   width: 60%;

@@ -185,6 +185,8 @@ $(document).ready(function(){
         var action      = $(this).attr('data-action');
         var content_id  = $(this).attr('data-content');
 
+        if(!action) return false;
+
         $.ajax({
             url         :article_api,
             cache       :false,
@@ -629,20 +631,13 @@ $(document).ready(function(){
     });
 
     $documentForm       = $('#documentForm');
-    $filePreview        = $('#filePreview');
-    $btnSubmit          = $('#btnSubmit');
+    $btnAttachFile      = $('#btnAttachFile');
     $fileName           = $('#fileName');
     $fileInput          = $('#file');
-    $titleInput         = $('#title');
-    $descriptionInput   = $('#description');
-    $fileSizeInfo       = $('#fileSizeInfo');
-
     $documentProgress   = $('#documentProgress');
     $documentProgressBar = $('#documentProgressBar');
 
-    $fileSizeInfo.html('ขนาดไม่เกิน '+(max_filesize/1048576)+' MB');
-
-    $filePreview.click(function(){
+    $btnAttachFile.click(function(){
         $fileInput.focus().click();
     });
 
@@ -663,10 +658,6 @@ $(document).ready(function(){
             return false;
         }else{
             $fileName.html(file.name);
-            $fileSizeInfo.html('ขนาด '+numeral(size).format('0.0 b'));
-
-            $btnSubmit.prop('disabled', false);
-
             $documentForm.submit();
         }
     });
@@ -687,7 +678,8 @@ $(document).ready(function(){
             if(!FileSize(filesize)) return false;
             if(!FileType(extension)) return false;
             if(!title || !filename) return false;
-            
+
+            $documentForm.fadeIn(300);
             $documentProgress.fadeIn(300);
             $documentProgressBar.width('0%');
         },
@@ -755,8 +747,9 @@ $(document).ready(function(){
 
     // Delete Delete!
     $('.btn-doc-delete').click(function(){
-        var file_id  = $(this).parent().parent().attr('data-file');
-        if(!confirm('Delete this Content #'+file_id+' ?')){ return false; }
+        var file_id  = $(this).parent().attr('data-file');
+        var file_name = $(this).parent().children('.detail').children('.file_title').val();
+        if(!confirm('คุณต้องการลบ "'+file_name+'" ใช่หรือไม่ ?')){ return false; }
 
         $.ajax({
             url         :api_document,

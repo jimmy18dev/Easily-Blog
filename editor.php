@@ -192,23 +192,19 @@ $article->get($article_id);
 		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
 		<div class="btnAction" data-action="map"><i class="fa fa-map-marker" aria-hidden="true"></i><span>แผนที่</span></div>
 
-		<div class="btnAction right"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
+		<div class="btnAction right" id="btnAttachFile"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
 	</div>
 
 	<div class="documents">
 		<h2>ไฟล์แนบ</h2>
-		<form action="upload_document.php" class="form" id="documentForm" method="POST" enctype="multipart/form-data">
-			
-			<div class="file-preview" id="filePreview">
-				<div class="icon">
-					<i class="fa fa-paperclip" aria-hidden="true"></i>
-				</div>
-				<div class="detail">
-					<div class="progress" id="documentProgress">
-						<div class="bar" id="documentProgressBar"></div>
-					</div>
-					<div class="name" id="fileName">เลือกไฟล์เอกสารของคุณ</div>
-					<div class="info" id="fileSizeInfo"></div>
+		<form action="upload_document.php" class="document-items form" id="documentForm" method="POST" enctype="multipart/form-data">
+			<div class="icon">
+				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+			</div>
+			<div class="detail">
+				<div class="name" id="fileName">เลือกไฟล์เอกสารของคุณ</div>
+				<div class="progress" id="documentProgress">
+					<div class="bar" id="documentProgressBar"></div>
 				</div>
 			</div>
 			
@@ -220,10 +216,10 @@ $article->get($article_id);
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
 			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
 			<div class="detail">
-				<div class="btn-doc-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
 				<input type="text" class="file_title" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
-				<div class="info">ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
+				<div class="info"><?php echo $var['file_type'];?> ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
 			</div>
+			<div class="btn btn-doc-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>
