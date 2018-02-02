@@ -99,11 +99,16 @@ $(document).ready(function(){
 
     // Edit Article Title.
     $title = $('#title');
+    $description = $('#description');
 
     setTimeout(function(){
         var title = $('#original_title').val();
         $title.val(title).trigger("input");
-        document.title = title;
+
+        if(title.length == 0)
+            document.title = 'ตั้งชื่อบทความ';
+        else
+            document.title = title;
     },0);
 
     $title.focus(function(){
@@ -111,10 +116,22 @@ $(document).ready(function(){
         inprogress('editing');
     });
     $title.on('input',function(event) {
-        document.title = $(this).val();
+        var t = $(this).val();
+
+        if(t.length == 0)
+            document.title = 'ตั้งชื่อบทความ';
+        else
+            document.title = $(this).val();
     });
     $title.blur(function(){
         var now_value = $(this).val();
+
+        console.log('Title '+title);
+
+        if(now_value)
+            $description.removeClass('hidden');
+        else
+            $description.addClass('hidden');
 
         if(title == now_value){
             inprogress();
@@ -145,7 +162,6 @@ $(document).ready(function(){
     });
 
     // Edit Article description.
-    $description = $('#description');
     $description.focus(function(){
         description = $(this).val();
         inprogress('editing');
@@ -478,12 +494,14 @@ $(document).ready(function(){
     $photoForm          = $('.content');
     $photoLoading       = null;
     $photoLoadingBar    = null;
+    $photoAlt           = null;
     $photoForm.ajaxForm({
         beforeSubmit: function(formData, jqForm, options){
-            $photoLoading = $('#loading'+content_id);
-            $photoLoadingBar = $('#bar'+content_id);
+            $photoLoading       = $('#loading'+content_id);
+            $photoLoadingBar    = $('#bar'+content_id);
+            $photoAlt           = $('#alt'+content_id);
+
             $photoLoading.fadeIn(300);
-            
             $photoForm.clearForm();
         },
         uploadProgress: function(event,position,total,percentComplete) {
@@ -499,6 +517,7 @@ $(document).ready(function(){
         complete: function(xhr) {
             // console.log(xhr.responseText);
             console.log(xhr.responseJSON);
+            $photoAlt.fadeIn(300);
             $photoLoading.fadeOut(300);
         }
     });
@@ -749,6 +768,7 @@ $(document).ready(function(){
     $('.btn-doc-delete').click(function(){
         var file_id  = $(this).parent().attr('data-file');
         var file_name = $(this).parent().children('.detail').children('.file_title').val();
+        $thisItems = $(this).parent();
         if(!confirm('คุณต้องการลบ "'+file_name+'" ใช่หรือไม่ ?')){ return false; }
 
         $.ajax({
@@ -765,6 +785,7 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+            $thisItems.fadeOut(300);
         });
     });
 });

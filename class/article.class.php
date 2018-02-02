@@ -170,9 +170,9 @@ class Article{
 		$dataset = $this->db->resultset();
 
 		foreach ($dataset as $k => $var) {
-			$dataset[$k]['create_time'] = $this->db->date_thaiformat($var['create_time']);
-			$dataset[$k]['edit_time'] 	= $this->db->date_thaiformat($var['edit_time']);
-			$dataset[$k]['published_time'] 	= $this->db->date_thaiformat($var['published_time']);
+			$dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+			$dataset[$k]['edit_time'] 	= $this->db->datetimeformat($var['edit_time']);
+			$dataset[$k]['published_time'] 	= $this->db->datetimeformat($var['published_time']);
 		}
 
 		return $dataset;
@@ -204,7 +204,7 @@ class Article{
     }
 
     public function listContents($article_id){
-        $this->db->query('SELECT content.id,content.user_id owner_id,user.fname owner_fname,content.topic,content.body,content.img_location,content.img_alt,content.video_id,content.position,content.create_time,content.type,content.status FROM content AS content LEFT JOIN user AS user ON content.user_id = user.id WHERE content.article_id = :article_id ORDER BY content.position ASC');
+        $this->db->query('SELECT content.id,content.user_id owner_id,user.fname owner_fname,content.topic,content.body,content.img_location,content.alt,content.video_id,content.position,content.create_time,content.edit_time,content.type,content.status FROM content AS content LEFT JOIN user AS user ON content.user_id = user.id WHERE content.article_id = :article_id ORDER BY content.position ASC');
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();
         $dataset = $this->db->resultset();
@@ -213,61 +213,59 @@ class Article{
             $dataset[$k]['id']          = floatval($var['id']);
             $dataset[$k]['owner_id']    = floatval($var['owner_id']);
             $dataset[$k]['position']    = floatval($var['position']);
+            $dataset[$k]['created']     = $this->db->datetimeformat($var['create_time'],'facebook');
+            $dataset[$k]['edited']      = $this->db->datetimeformat($var['edit_time'],'facebook');
         }
         return $dataset;
     }
 
     // Edit Content Topic
     public function editTopic($content_id,$article_id,$topic){
-        $this->db->query('UPDATE content SET topic = :topic WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->query('UPDATE content SET topic = :topic,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':topic',$topic);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
 
     // Edit Content Body
     public function editBody($content_id,$article_id,$body){
-        $this->db->query('UPDATE content SET body = :body WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->query('UPDATE content SET body = :body,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':body',$body);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
 
     // Edit Image location.
     public function editImageLocation($content_id,$article_id,$img_location){
-        $this->db->query('UPDATE content SET img_location = :img_location WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->query('UPDATE content SET img_location = :img_location,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':img_location',$img_location);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
 
     // Edit Image Alt
-    public function editImageAlt($content_id,$article_id,$img_alt){
-        $this->db->query('UPDATE content SET img_alt = :img_alt WHERE (id = :content_id AND article_id = :article_id)');
+    public function editImageAlt($content_id,$article_id,$alt){
+        $this->db->query('UPDATE content SET alt = :alt,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':img_alt',$img_alt);
+        $this->db->bind(':alt',$alt);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
 
     // Video ID
     public function editVideoID($content_id,$article_id,$video_id){
-        $this->db->query('UPDATE content SET video_id = :video_id WHERE (id = :content_id AND article_id = :article_id)');
+        $this->db->query('UPDATE content SET video_id = :video_id,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':video_id',$video_id);
-        $this->db->execute();
-    }
-
-    // Edit Document ID
-    public function editDocID($content_id,$article_id,$doc_id){
-        $this->db->query('UPDATE content SET doc_id = :doc_id WHERE (id = :content_id AND article_id = :article_id)');
-        $this->db->bind(':content_id',$content_id);
-        $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':doc_id',$doc_id);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
 

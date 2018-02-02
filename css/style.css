@@ -498,6 +498,9 @@ body {
   color: #BBBBBB;
   font-style: italic;
 }
+.article .article-header textarea.article-desc.hidden {
+  display: none;
+}
 .article .article-header textarea:hover {
   cursor: pointer;
 }
@@ -677,7 +680,6 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  border-radius: 10px;
 }
 .article .content h2 {
   font-size: 1.6em;
@@ -752,7 +754,6 @@ body {
   display: inline-block;
   text-align: center;
   background: #DEDEDE;
-  border-radius: 5px;
 }
 .article .content .preview .imgpreview img {
   width: 100%;
@@ -811,14 +812,15 @@ body {
   float: left;
   display: inline-block;
   margin-bottom: 5%;
+  margin-top: 5%;
   border: 1px solid #EEEEEE;
   box-sizing: border-box;
   border-radius: 5px;
   overflow: hidden;
 }
 .article .option-control .btnAction {
-  width: 10%;
-  padding: 1.5% 0%;
+  width: 12%;
+  padding: 2% 0%;
   float: left;
   display: inline-block;
   border: 0px;

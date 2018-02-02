@@ -5,6 +5,7 @@ $document 	= new Document();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
+$loop = 1;
 ?>
 
 
@@ -78,7 +79,7 @@ $article->get($article_id);
 	<header class="article-header">
 		<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
 		<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
-		<textarea class="article-desc autosize" id="description" placeholder="รายละเอียดอย่างย่อ"><?php echo $article->description;?></textarea>
+		<textarea class="article-desc autosize <?php echo (empty($article->title)?'hidden':'');?>" id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตั่วอักษร"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->
@@ -86,7 +87,7 @@ $article->get($article_id);
 	<?php if($var['type'] == 'textbox'){?>
 	<div class="content textbox" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
-			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
+			<div class="info">บทความ <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
@@ -97,7 +98,7 @@ $article->get($article_id);
 	<?php }else if($var['type'] == 'youtube'){?>
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
-			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
+			<div class="info">YouTube <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
@@ -108,12 +109,12 @@ $article->get($article_id);
 		<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
 			<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
-		<input type="text" class="alt <?php echo (empty($var['video_id'])?'hidden':'');?>" placeholder="ใส่คำอธิบายวิดีโอ" value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="alt <?php echo (empty($var['video_id'])?'hidden':'');?>" placeholder="ใส่คำอธิบายวิดีโอ" value="<?php echo $var['alt'];?>">
 	</div>
 	<?php }else if($var['type'] == 'quote'){?>
 	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
-			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
+			<div class="info">คำพูด <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
@@ -126,7 +127,7 @@ $article->get($article_id);
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 		<div class="control">
-			<div class="info">#<?php echo $var['id']?> · <?php echo $var['create_time'];?></div>
+			<div class="info">รูปภาพ <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
 			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-repeat" aria-hidden="true"></i></div>
@@ -152,13 +153,15 @@ $article->get($article_id);
 			</div>
 		</div>
 		
-		<input type="text" class="alt" placeholder="ใส่คำอธิบายภาพ" value="<?php echo $var['img_alt'];?>">
+		<input type="text" class="alt <?php echo (empty($var['img_location'])?'hidden':'');?>" id="alt<?php echo $var['id'];?>" placeholder="ใส่คำอธิบายภาพ" value="<?php echo $var['alt'];?>">
 
 		<input type="file" name="image" class="image-file" id="imageFiles<?php echo $var['id'];?>">
 		<input type="hidden" name="content_id" value="<?php echo $var['id'];?>">
 		<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
 	</form>
 	<?php }?>
+
+	<?php if(($loop) != (int) $article->total_contents){?>
 	<div class="between-option">
 		<div class="more-option">
 			<div class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>">
@@ -183,7 +186,8 @@ $article->get($article_id);
 			</div>
 		</div>
 	</div>
-	<?php } ?>
+	<?php }?>
+	<?php $loop++; }?>
 
 	<div class="option-control" id="optionControl">
 		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
@@ -196,7 +200,6 @@ $article->get($article_id);
 	</div>
 
 	<div class="documents">
-		<h2>ไฟล์แนบ</h2>
 		<form action="upload_document.php" class="document-items form" id="documentForm" method="POST" enctype="multipart/form-data">
 			<div class="icon">
 				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>

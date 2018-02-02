@@ -362,6 +362,8 @@
 				padding-top: 3%;
 				color: #BBBBBB;
 				font-style: italic;
+
+				&.hidden{ display: none; }
 			}
 
 			&:hover{
@@ -551,7 +553,6 @@
 				width: 100%;
 				float: left;
 				display: inline-block;
-				border-radius: 10px;
 			}
 			margin-top: 2%;
 		}
@@ -632,7 +633,6 @@
 				display: inline-block;
 				text-align: center;
 				background: #DEDEDE;
-				border-radius: 5px;
 
 				img{
 					width: 100%;
@@ -703,14 +703,15 @@
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
+		margin-top: 5%;
 		border: 1px solid #EEEEEE;
 		box-sizing: border-box;
 		border-radius: 5px;
 		overflow: hidden;
 
 		.btnAction{
-			width: 10%;
-			padding: 1.5% 0%;
+			width: 12%;
+			padding: 2% 0%;
 			float: left;
 			display: inline-block;
 			border: 0px;
