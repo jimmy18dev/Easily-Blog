@@ -121,7 +121,7 @@ $loop = 1;
 
 		<i class="fa fa-quote-left" aria-hidden="true"></i>
 		<textarea class="body quote-body autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
-		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
+		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" title="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
 		<i class="fa fa-quote-right" aria-hidden="true"></i>
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
@@ -219,10 +219,10 @@ $loop = 1;
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
 			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
 			<div class="detail">
-				<input type="text" class="file_title" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
+				<input type="text" class="file_title" title="แก้ไขชื่อเอกสาร" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
 				<div class="info"><?php echo $var['file_type'];?> ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
 			</div>
-			<div class="btn btn-doc-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-doc-delete" title="ลบเอกสารนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>
