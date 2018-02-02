@@ -862,7 +862,7 @@ body {
 }
 .article .between-option .more-option {
   position: absolute;
-  top: -180%;
+  top: 5%;
   left: 0;
   width: 50%;
   margin: 0% 25%;

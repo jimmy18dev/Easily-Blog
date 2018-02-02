@@ -88,8 +88,8 @@ $loop = 1;
 	<div class="content textbox" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
 			<div class="info">บทความ <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
-			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
+			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง้"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
 		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
@@ -99,8 +99,8 @@ $loop = 1;
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
 			<div class="info">YouTube <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
-			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
+			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
 		<input type="<?php echo (!empty($var['video_id'])?'hidden':'');?>" class="youtube_url" placeholder="YouTube Video URL">
@@ -115,8 +115,8 @@ $loop = 1;
 	<div class="content quote" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
 		<div class="control">
 			<div class="info">คำพูด <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
-			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
+			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
 		<i class="fa fa-quote-left" aria-hidden="true"></i>
@@ -128,9 +128,9 @@ $loop = 1;
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 		<div class="control">
 			<div class="info">รูปภาพ <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
-			<div class="btn btnDeleteContent"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap"><i class="fa fa-sort" aria-hidden="true"></i></div>
-			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-repeat" aria-hidden="true"></i></div>
+			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
+			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>" title="หมุนรูปภาพ"><i class="fa fa-repeat" aria-hidden="true"></i></div>
 			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-upload" aria-hidden="true"></i><span>เลือกภาพใหม่</span></div>
 		</div>
 
@@ -162,7 +162,7 @@ $loop = 1;
 	<?php }?>
 
 	<?php if(($loop) != (int) $article->total_contents){?>
-	<div class="between-option">
+	<div class="between-option" title="แทรกส่วนนี้">
 		<div class="more-option">
 			<div class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>">
 				<i class="fa fa-font" aria-hidden="true"></i>
@@ -238,6 +238,7 @@ $loop = 1;
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>

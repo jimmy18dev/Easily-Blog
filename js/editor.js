@@ -6,6 +6,7 @@ var api_document        = 'api/document';
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
+    tippy('[title]',{arrow: true});
 
     $('#btnPublish').click(function(event) {
         console.log('btnPublish click');
