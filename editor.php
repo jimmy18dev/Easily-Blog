@@ -185,7 +185,18 @@ $article->get($article_id);
 	</div>
 	<?php } ?>
 
+	<div class="option-control" id="optionControl">
+		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
+		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
+		<div class="btnAction" data-action="quote"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
+		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
+		<div class="btnAction" data-action="map"><i class="fa fa-map-marker" aria-hidden="true"></i><span>แผนที่</span></div>
+
+		<div class="btnAction right"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
+	</div>
+
 	<div class="documents">
+		<h2>ไฟล์แนบ</h2>
 		<form action="upload_document.php" class="form" id="documentForm" method="POST" enctype="multipart/form-data">
 			
 			<div class="file-preview" id="filePreview">
@@ -215,14 +226,6 @@ $article->get($article_id);
 			</div>
 		</div>
 		<?php }?>
-	</div>
-
-	<div class="option-control" id="optionControl">
-		<div class="btnAction" data-action="textbox"><i class="fa fa-font" aria-hidden="true"></i><span>บทความ</span></div>
-		<div class="btnAction" data-action="image"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
-		<div class="btnAction" data-action="quote"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
-		<div class="btnAction" data-action="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
-		<div class="btnAction" data-action="map"><i class="fa fa-map-marker" aria-hidden="true"></i><span>แผนที่</span></div>
 	</div>
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">

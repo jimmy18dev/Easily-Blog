@@ -702,15 +702,15 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
+		margin-bottom: 5%;
+		border: 1px solid #EEEEEE;
+		box-sizing: border-box;
 		border-radius: 5px;
 		overflow: hidden;
-		margin-top: 5%;
-		box-sizing: border-box;
-		border: 1px solid #EEEEEE;
 
 		.btnAction{
-			width: 20%;
-			padding: 3% 0%;
+			width: 10%;
+			padding: 1.5% 0%;
 			float: left;
 			display: inline-block;
 			border: 0px;
@@ -724,18 +724,22 @@
 			&:hover{
 				cursor: pointer;
 				color: #111111;
-				background: #FAFAFA;
+				background: #EEEEEE;
+			}
+
+			&.right{
+				float: right;
 			}
 
 			i{
 				display: block;
-				font-size: 2em;
-				margin-bottom: 10px;
+				font-size: 1.4em;
+				margin-bottom: 3px;
 			}
 
 			span{
 				display: block;
-				font-size: 1em;
+				font-size: 0.9em;
 			}
 		}
 	}
