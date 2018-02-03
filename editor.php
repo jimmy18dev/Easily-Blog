@@ -132,10 +132,13 @@ $loop = 1;
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
 		</div>
 
-		<div class="embed-map">Google Map</div>
+		<div class="embed-map">
+			<div class="loading">Google Map Loading...</div>
+		</div>
+		<input type="text" class="alt" id="alt<?php echo $var['id'];?>" placeholder="ใส่คำอธิบายแผนที่" value="<?php echo $var['alt'];?>">
 
-		<input type="text" class="lat" value="<?php echo $var['lat'];?>" placeholder="Lat">
-		<input type="text" class="lng" value="<?php echo $var['lng'];?>" placeholder="Ing" >
+		<input type="hidden" class="lat" value="<?php echo $var['lat'];?>" placeholder="Lat">
+		<input type="hidden" class="lng" value="<?php echo $var['lng'];?>" placeholder="Ing" >
 	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">

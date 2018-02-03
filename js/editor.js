@@ -23,6 +23,7 @@ $(document).ready(function(){
     function inprogress(action){
         $title  = $('#editorTitle');
         $icon   = $('#editorIcon');
+
         switch (action){
             case 'editing':
                 $title.html('แก้ไข');
@@ -283,6 +284,8 @@ $(document).ready(function(){
         var content_id  = $(this).parent().attr('data-content');
         var lat         = $(this).val();
         var lng         = $(this).parent().children('.lng').val();
+
+        inprogress('progress');
 
         $.ajax({
             url         :article_api,

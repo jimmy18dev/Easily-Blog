@@ -517,11 +517,15 @@ body {
   color: #BBBBBB;
 }
 .article .content .embed-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 300px;
+  height: 450px;
   float: left;
-  display: inline-block;
-  background: #AAAAAA;
+  background: #EEEEEE;
+  color: #BBBBBB;
+  font-size: 1.2em;
 }
 .article .content .control {
   width: 100%;
