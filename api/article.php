@@ -56,6 +56,20 @@ switch ($_SERVER['REQUEST_METHOD']){
     			
     			$returnObject['message'] = 'Description edited';
     			break;
+            case 'edit_url':
+                $article_id = $_POST['article_id'];
+                $url = $_POST['url'];
+                $article_id = $article->editURL($article_id,$url);
+                
+                $returnObject['message'] = 'URL edited';
+                break;
+            case 'set_cover':
+                $article_id = $_POST['article_id'];
+                $cover_id = $_POST['cover_id'];
+                $article_id = $article->setCover($article_id,$cover_id);
+                
+                $returnObject['message'] = 'Article Cover updated';
+                break;
             case 'change_status':
                 $article_id = $_POST['article_id'];
                 $status     = $_POST['status'];

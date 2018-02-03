@@ -3,6 +3,7 @@ class Article{
     public $id;
     public $title;
     public $description;
+    public $url;
     public $create_time;
     public $edit_time;
     public $published_time;
@@ -55,9 +56,27 @@ class Article{
         $this->db->execute();
     }
 
+    // Edit Article URL.
+    public function editURL($article_id,$url){
+        $this->db->query('UPDATE article SET url = :url, edit_time = :edit_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':url',$url);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
+    // Set Article Cover with Image Content.
+    public function setCover($article_id,$cover_id){
+        $this->db->query('UPDATE article SET cover_id = :cover_id, edit_time = :edit_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':cover_id',$cover_id);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }    
+
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id WHERE article.id = :article_id');
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id WHERE article.id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -78,6 +97,7 @@ class Article{
         $this->id               = $dataset['id'];
         $this->title            = $dataset['title'];
         $this->description      = $dataset['description'];
+        $this->url              = $dataset['url'];
         $this->create_time      = $dataset['create_time'];
         $this->edit_time        = $dataset['edit_time'];
         $this->published_time   = $dataset['published_time'];
