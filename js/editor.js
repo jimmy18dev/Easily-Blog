@@ -3,8 +3,11 @@ var youtube_key = 'AIzaSyB5KfCVIK9XviNJ9fNYWwAGhZfRskjGQ_M';
 // Allowed file size is less than 15 MB (15728640)
 var max_filesize        = $('#maximumSize').val();
 var api_document        = 'api/document';
+var current_article_id;
 
 $(document).ready(function(){
+    current_article_id = $('#article_id').val();
+
     $('.autosize').autosize({append: "\n"});
     tippy('[title]',{arrow: true});
 
@@ -124,6 +127,7 @@ $(document).ready(function(){
         else
             document.title = $(this).val();
     });
+
     $title.blur(function(){
         var now_value = $(this).val();
 
@@ -264,6 +268,33 @@ $(document).ready(function(){
                 article_id  :article_id,
                 content_id  :content_id,
                 topic       :new_topic
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            inprogress('complete');
+        });
+    });
+
+    // Google Map location Upload
+    $('.lat').on('input',function(event) {
+        var content_id  = $(this).parent().attr('data-content');
+        var lat         = $(this).val();
+        var lng         = $(this).parent().children('.lng').val();
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_map_location',
+                article_id  :article_id,
+                content_id  :content_id,
+                lat         :parseFloat(lat),
+                lng         :parseFloat(lng)
             },
             error: function (request, status, error){
                 console.log(request.responseText);

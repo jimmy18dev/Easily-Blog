@@ -124,6 +124,19 @@ $loop = 1;
 		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" title="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
 		<i class="fa fa-quote-right" aria-hidden="true"></i>
 	</div>
+	<?php }else if($var['type'] == 'map'){?>
+	<div class="content google-map" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
+		<div class="control">
+			<div class="info">แผนที่ <?php echo $var['id']?> · <?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
+			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
+		</div>
+
+		<div class="embed-map">Google Map</div>
+
+		<input type="text" class="lat" value="<?php echo $var['lat'];?>" placeholder="Lat">
+		<input type="text" class="lng" value="<?php echo $var['lng'];?>" placeholder="Ing" >
+	</div>
 	<?php }else if($var['type'] == 'image'){?>
 	<form action="upload_image.php" class="content photoForm" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>" method="POST" enctype="multipart/form-data">
 		<div class="control">
@@ -243,5 +256,7 @@ $loop = 1;
 <script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>
+<script type="text/javascript" src="js/google-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4gvNqIKPkhZ8TimA9Mv2_QYhTGk2B-Yw"></script>
 </body>
 </html>

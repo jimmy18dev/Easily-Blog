@@ -103,6 +103,15 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $content_id     = $article->editVideoID($content_id,$article_id,$video_id);
                 $returnObject['message'] = 'Video ID edited';
                 break;
+            case 'edit_map_location':
+                $article_id     = $_POST['article_id'];
+                $content_id     = $_POST['content_id'];
+                $lat            = $_POST['lat'];
+                $lng            = $_POST['lng'];
+
+                $article->editMapLocation($content_id,$article_id,$lat,$lng);
+                $returnObject['message'] = 'Map location edited '.$content_id.' ('.$lat.','.$lng.')';
+                break;
             case 'swap_content':
                 $current_id     = $_POST['current_id'];
                 $target_id      = $_POST['target_id'];
