@@ -161,7 +161,7 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,(SELECT img_location FROM content AS content WHERE content.article_id = article.id AND content.type = "image" AND content.status = "active" ORDER BY position ASC LIMIT 1) cover_image FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
 
     	if(!empty($category_id)){

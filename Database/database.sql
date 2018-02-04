@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2018 at 12:15 PM
+-- Generation Time: Feb 04, 2018 at 10:39 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -30,8 +30,10 @@ CREATE TABLE IF NOT EXISTS `article` (
   `id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
   `category_id` int(3) DEFAULT NULL,
+  `cover_id` mediumint(8) DEFAULT NULL,
   `title` text,
   `description` text,
+  `url` text,
   `create_time` datetime NOT NULL,
   `update_time` datetime DEFAULT NULL,
   `edit_time` datetime DEFAULT NULL,
@@ -39,25 +41,30 @@ CREATE TABLE IF NOT EXISTS `article` (
   `count_read` int(8) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT 'draft',
   `verified` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `article`
 --
 
-INSERT INTO `article` (`id`, `user_id`, `category_id`, `title`, `description`, `create_time`, `update_time`, `edit_time`, `published_time`, `count_read`, `status`, `verified`) VALUES
-(1, 1, NULL, 'นี่คือคำพูดที่ผมพูดกับเพื่อนในช่วง 1 - 2 ปีมานี้ คือ ผมเคยชอบเกมแนว', NULL, '2018-01-24 19:33:28', NULL, '2018-01-26 15:59:55', NULL, 0, 'draft', NULL),
-(2, 1, NULL, NULL, NULL, '2018-01-24 19:35:09', NULL, NULL, NULL, 0, 'draft', NULL),
-(3, 1, NULL, '19 อุตสาหกรรมได้รับผลกระทบจาก Blockchain', 'เนื้อหามีมาตั่งแต่กลางปีที่แล้ว มาทวนกันอีกรอบในปี 2018 ดีไม่น้อย พอเข้าใจมากขึ้น ดูซ้ำได้ความคิดใหม่ๆเพิ่มเติม', '2018-01-25 11:09:11', NULL, '2018-01-26 19:21:24', NULL, 0, 'draft', NULL),
-(4, 1, NULL, 'จากความรู้สึกของคุณตอนนี้ คุณว่า ระหว่าง 2 อาชีพนี้ ใครสร้างความกังวลให้คุณมากกว่ากัน...', 'งานของเราช่วงหลัง ทำให้มีโอกาสได้รู้จักคนเก่งเพิ่มขึ้นมากมาย ได้ฟังได้คุยด้วย ยิ่งเปิดโลกเรามากขึ้น โลกใบเดิมเราเริ่มมองอะไรที่ต่างออกไป', '2018-01-25 14:17:01', '2018-01-29 13:41:52', '2018-01-29 19:31:23', NULL, 0, 'publish', NULL),
-(5, 1, NULL, 'ครอบครัวลุคมาจากนิวยอร์ก', 'ผมลองเอาคำว่า “Perfectionism” ไปแปลใส่ Google translate จะได้ความหมายว่า “ลัทธิพอใจ แต่สิ่งดีเลิศ”', '2018-01-25 15:12:53', NULL, '2018-01-29 10:31:12', NULL, 0, 'draft', NULL),
-(6, 1, NULL, NULL, NULL, '2018-01-25 15:48:23', NULL, NULL, NULL, 0, 'draft', NULL),
-(7, 1, NULL, NULL, NULL, '2017-01-01 07:07:29', NULL, NULL, NULL, 0, 'draft', NULL),
-(8, 1, NULL, NULL, NULL, '2018-01-25 19:49:02', NULL, NULL, NULL, 0, 'draft', NULL),
-(9, 1, NULL, '', NULL, '2018-01-26 14:57:12', NULL, '2018-02-02 20:13:13', NULL, 0, 'draft', NULL),
-(10, 1, NULL, 'อินเทลเตรียมปล่อยชิปที่ป้องกัน Meltdown/Spectre', 'หลังจากใช้แล้ว รู้สึกว่า สมองเป็นระเบียบขึ้นเยอะครับ ... เอาไปลองใช้กันดูนะครับ ได้ผลยังงัย เอามาอับเดทกันมั่งนะครับ', '2018-01-26 14:57:57', NULL, '2018-02-01 19:08:27', NULL, 0, 'draft', NULL),
-(11, 1, NULL, '''Top Gear'' Unveils Its Explosive New Trailer For Its 25th Season', NULL, '2018-01-31 11:51:36', NULL, '2018-01-31 11:53:54', NULL, 0, 'draft', NULL),
-(12, 1, NULL, NULL, NULL, '2018-02-01 19:03:57', NULL, NULL, NULL, 0, 'draft', NULL);
+INSERT INTO `article` (`id`, `user_id`, `category_id`, `cover_id`, `title`, `description`, `url`, `create_time`, `update_time`, `edit_time`, `published_time`, `count_read`, `status`, `verified`) VALUES
+(1, 1, NULL, 42, 'นี่คือคำพูดที่ผมพูดกับเพื่อนในช่วง 1 - 2 ปีมานี้ คือ ผมเคยชอบเกมแนว', NULL, NULL, '2018-01-24 19:33:28', '2018-02-04 17:01:03', '2018-02-04 17:00:36', NULL, 0, 'published', NULL),
+(2, 1, NULL, NULL, NULL, NULL, NULL, '2018-01-24 19:35:09', NULL, NULL, NULL, 0, 'draft', NULL),
+(3, 1, NULL, 52, '19 อุตสาหกรรมได้รับผลกระทบจาก Blockchain', 'เนื้อหามีมาตั่งแต่กลางปีที่แล้ว มาทวนกันอีกรอบในปี 2018 ดีไม่น้อย พอเข้าใจมากขึ้น ดูซ้ำได้ความคิดใหม่ๆเพิ่มเติม', NULL, '2018-01-25 11:09:11', NULL, '2018-02-04 16:47:30', NULL, 0, 'draft', NULL),
+(4, 1, NULL, 22, 'จากความรู้สึกของคุณตอนนี้ คุณว่า ระหว่าง 2 อาชีพนี้ ใครสร้างความกังวลให้คุณมากกว่ากัน...', 'งานของเราช่วงหลัง ทำให้มีโอกาสได้รู้จักคนเก่งเพิ่มขึ้นมากมาย ได้ฟังได้คุยด้วย ยิ่งเปิดโลกเรามากขึ้น โลกใบเดิมเราเริ่มมองอะไรที่ต่างออกไป', 'people-awesome', '2018-01-25 14:17:01', '2018-02-04 16:19:09', '2018-02-04 16:19:07', NULL, 0, 'published', NULL),
+(5, 1, NULL, NULL, 'ครอบครัวลุคมาจากนิวยอร์ก', 'ผมลองเอาคำว่า “Perfectionism” ไปแปลใส่ Google translate จะได้ความหมายว่า “ลัทธิพอใจ แต่สิ่งดีเลิศ”', NULL, '2018-01-25 15:12:53', NULL, '2018-01-29 10:31:12', NULL, 0, 'draft', NULL),
+(6, 1, NULL, NULL, NULL, NULL, NULL, '2018-01-25 15:48:23', NULL, NULL, NULL, 0, 'draft', NULL),
+(7, 1, NULL, NULL, NULL, NULL, NULL, '2017-01-01 07:07:29', NULL, NULL, NULL, 0, 'draft', NULL),
+(8, 1, NULL, NULL, NULL, NULL, NULL, '2018-01-25 19:49:02', NULL, NULL, NULL, 0, 'draft', NULL),
+(9, 1, NULL, NULL, '', NULL, NULL, '2018-01-26 14:57:12', NULL, '2018-02-02 20:13:13', NULL, 0, 'draft', NULL),
+(10, 1, NULL, 37, 'อินเทลเตรียมปล่อยชิปที่ป้องกัน Meltdown/Spectre', 'หลังจากใช้แล้ว รู้สึกว่า สมองเป็นระเบียบขึ้นเยอะครับ ... เอาไปลองใช้กันดูนะครับ ได้ผลยังงัย เอามาอับเดทกันมั่งนะครับ', NULL, '2018-01-26 14:57:57', NULL, '2018-02-04 16:46:54', NULL, 0, 'draft', NULL),
+(11, 1, 3, 69, '''Top Gear'' Unveils Its Explosive New Trailer For Its 25th Season', NULL, 'ทสอบอีกครั้ง', '2018-01-31 11:51:36', '2018-02-04 15:23:56', '2018-02-04 15:19:56', NULL, 0, 'published', NULL),
+(12, 1, 3, NULL, NULL, NULL, NULL, '2018-02-01 19:03:57', NULL, NULL, NULL, 0, 'draft', NULL),
+(13, 2, 3, 84, 'If Birds Left Tracks in the Sky, They’d Look Like This', 'อยากชวนดู ซีรีย์เรื่องใหม่จาก Netflix เรื่อง Altered-Carbon', 'Birds-Left-Tracks', '2018-02-04 17:12:14', '2018-02-04 17:32:20', '2018-02-04 17:16:55', NULL, 0, 'published', NULL),
+(14, 2, 4, NULL, NULL, NULL, NULL, '2018-02-04 17:36:01', NULL, NULL, NULL, 0, 'draft', NULL),
+(15, 2, 3, NULL, NULL, NULL, NULL, '2018-02-04 17:36:44', NULL, NULL, NULL, 0, 'draft', NULL),
+(16, 2, 4, NULL, NULL, NULL, NULL, '2018-02-04 17:36:47', NULL, NULL, NULL, 0, 'draft', NULL),
+(17, 2, 2, NULL, NULL, NULL, NULL, '2018-02-04 17:37:26', NULL, NULL, NULL, 0, 'draft', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,7 @@ INSERT INTO `category` (`id`, `title`, `description`, `icon`, `edit_time`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `content` (
-  `id` mediumint(9) NOT NULL,
+  `id` mediumint(8) NOT NULL,
   `user_id` int(8) NOT NULL,
   `article_id` int(8) NOT NULL,
   `topic` text,
@@ -105,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `edit_time` datetime DEFAULT NULL,
   `type` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `content`
@@ -153,7 +160,6 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (54, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, '2018-01-26 19:30:43', NULL, 'image', 'active'),
 (55, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17, '2018-01-26 19:30:54', NULL, 'image', 'active'),
 (56, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-01-29 10:15:50', NULL, 'quote', 'active'),
-(57, 1, 4, 'Puwadon Sricharoen', 'Music is moonlight in the gloomy night of life.', NULL, NULL, NULL, NULL, NULL, 1, '2018-01-29 19:46:53', NULL, 'quote', 'active'),
 (58, 1, 10, NULL, 'https://www.youtube.com/watch?v=3Ybipel58Y0', 'dqvbjL6oGqI', NULL, 'https://www.youtube.com/watch?v=xnlm57-RN8Q', NULL, NULL, 3, '2018-01-30 11:33:50', NULL, 'youtube', 'active'),
 (59, 1, 10, NULL, NULL, '1go3dL2eSYU', NULL, NULL, NULL, NULL, 4, '2018-01-30 20:10:50', NULL, 'youtube', 'active'),
 (60, 1, 10, NULL, NULL, 'D3YIxFFRi2Q', NULL, NULL, NULL, NULL, 5, '2018-01-30 20:11:01', NULL, 'youtube', 'active'),
@@ -171,7 +177,19 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (74, 1, 11, 'หนังสือพิมพ์มีหน้าที่อะไร?', 'คำตอบของคำถามนี้ไม่ได้อยู่ในทวิตเตอร์ แต่ภาพยนตร์เรื่อง The Post กุมคำใบ้สำคัญเอาไว้ นอกจากได้เข้าชิงรางวัล Best Pictures และพา Meryl Steep เข้าชิงรางวัล Actress in a Leading Role ของออสการ์ The Post ยังแสดงพลังของหนังสือพิมพ์ให้เห็นอย่างทะลุปรุโปร่ง', NULL, NULL, NULL, NULL, NULL, 5, '2018-02-02 19:12:18', NULL, 'textbox', 'active'),
 (75, 1, 11, NULL, NULL, NULL, 'content_f20f40c603bb430b843a172b0952a128.jpg', 'วิวตอนบ่าย', NULL, NULL, 2, '2018-02-02 19:14:41', NULL, 'image', 'active'),
 (80, 1, 11, NULL, NULL, NULL, NULL, NULL, 14.94511658462445, 99.99742984771729, 10, '2018-02-03 17:48:32', '2018-02-03 19:11:09', 'map', 'active'),
-(81, 1, 11, NULL, NULL, NULL, NULL, NULL, 13.97062996910808, 101.51620388031006, 11, '2018-02-03 17:49:05', '2018-02-03 19:13:58', 'map', 'active');
+(81, 1, 11, NULL, NULL, NULL, NULL, 'ร้านอยู่ข้างต้นไม้ใหญ่', 14.93105994380192, 100.04738330841064, 11, '2018-02-03 17:49:05', '2018-02-03 19:50:01', 'map', 'active'),
+(82, 1, 11, NULL, NULL, NULL, NULL, 'ทดสอบ', 14.94540683004805, 99.99017715454102, 13, '2018-02-03 19:28:34', '2018-02-03 19:52:32', 'map', 'active'),
+(83, 1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12, '2018-02-03 19:52:48', NULL, 'map', 'active'),
+(84, 2, 13, NULL, NULL, NULL, 'content_4b0fcb71c5de69c3715824c3147602c7.jpg', NULL, NULL, NULL, 1, '2018-02-04 17:12:14', '2018-02-04 17:13:39', 'image', 'active'),
+(85, 2, 13, NULL, 'A Course For You: Learn how to design a beautiful and engaging mobile app with Adobe Experience Design (XD). Learn-by-doing approach.\n\nyears Barcelona-based photographer Xavi Bou has been fascinated by this question. Just as a sinuous impression appears when a snake slides across sand, he imagined, so must a pattern form in the wake of a flying bird. But of course birds in flight leave no trace—at least none visible to the naked eye. Bou, now 38, spent the past five years trying to capture the elusive contours drawn by birds in motion, or, as he says, “to make visible the invisible.”\n\nFirst he had to shed the role of mere observer. “Like a naturalist, I used to travel around the world looking at wildlife,” he says. He began exploring photographic techniques that would allow him to express his love of nature and show the beauty of birds in a way not seen before.', NULL, NULL, NULL, NULL, NULL, 2, '2018-02-04 17:12:14', '2018-02-04 17:14:09', 'textbox', 'active'),
+(86, 2, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-04 17:36:01', NULL, 'image', 'active'),
+(87, 2, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-04 17:36:01', NULL, 'textbox', 'active'),
+(88, 2, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-04 17:36:44', NULL, 'image', 'active'),
+(89, 2, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-04 17:36:44', NULL, 'textbox', 'active'),
+(90, 2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-04 17:36:47', NULL, 'image', 'active'),
+(91, 2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-04 17:36:47', NULL, 'textbox', 'active'),
+(92, 2, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-04 17:37:26', NULL, 'image', 'active'),
+(93, 2, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-04 17:37:26', NULL, 'textbox', 'active');
 
 -- --------------------------------------------------------
 
@@ -209,22 +227,62 @@ INSERT INTO `document` (`id`, `article_id`, `user_id`, `title`, `description`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `signature`
+--
+
+CREATE TABLE IF NOT EXISTS `signature` (
+  `id` int(8) NOT NULL,
+  `sign` text NOT NULL,
+  `expire` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `active_time` datetime DEFAULT NULL,
+  `form` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `signature`
+--
+
+INSERT INTO `signature` (`id`, `sign`, `expire`, `create_time`, `active_time`, `form`) VALUES
+(37, '9c8944b85b15c74833250fdcd089b05da7c8144ca1246f29b9aa12f471eff7af', 1517738933, '2018-02-04 17:07:53', NULL, 'register');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(8) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` text,
   `fname` text NOT NULL,
   `lname` text,
+  `bio` text,
   `password` text NOT NULL,
   `salt` text,
-  `type` varchar(20) NOT NULL,
-  `status` varchar(20) DEFAULT NULL,
   `ip` varchar(50) DEFAULT NULL,
   `register_time` datetime NOT NULL,
-  `visit_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `edit_time` datetime DEFAULT NULL,
+  `visit_time` datetime DEFAULT NULL,
+  `verified` varchar(20) DEFAULT 'non-verified',
+  `type` varchar(20) NOT NULL DEFAULT 'guest',
+  `status` varchar(20) DEFAULT 'pending',
+  `fb_id` varchar(20) DEFAULT NULL,
+  `fb_fname` varchar(50) DEFAULT NULL,
+  `fb_lname` varchar(50) DEFAULT NULL,
+  `fb_link` text,
+  `fb_verified` tinyint(1) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `phone`, `email`, `fname`, `lname`, `bio`, `password`, `salt`, `ip`, `register_time`, `edit_time`, `visit_time`, `verified`, `type`, `status`, `fb_id`, `fb_fname`, `fb_lname`, `fb_link`, `fb_verified`, `gender`) VALUES
+(1, NULL, 'mrjimmy18@gmail.com', '', '', NULL, 'fbb14df497e1250295282f022e19b128e6ad2868f4b9dbbd8120ec2d5a8cf3f1cee1e0c1e6a55904db27a0e089bcebae1417c700d4040841670ca975dbd1a430', '7a8d717dc526b28f758a1dd7f559635b669c9d456b3b1cde9294c2070328d559684b93e715da2cb34233aaef83d091f526bae928ff372fecdd253bfcdd1867bc', '127.0.0.1', '2018-02-04 15:47:10', NULL, '2018-02-04 17:08:08', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '0359450', 'jimmy@gmail.com', 'Dinsorser', '', NULL, 'b8f7e816db42b9a66036e444ccabc6a9b3dab11b7363bc0f58d6056fdad0d8d1889519d81521ea4b809bb240273e3aaa567acb41d5e7b7d6fe80c99f36ce4abe', '98ed6f35f815e61eca7ccbda085a0c672a4da0cf6368a63c01e0a9ba502e0d2c00861fa9447848365061d10c128fcc623b42a4fb0a812e5c326a929dd9de953c', '127.0.0.1', '2018-02-04 17:08:08', NULL, '2018-02-04 17:38:35', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -255,11 +313,16 @@ ALTER TABLE `document`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `signature`
+--
+ALTER TABLE `signature`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -269,7 +332,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -279,17 +342,22 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `signature`
+--
+ALTER TABLE `signature`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

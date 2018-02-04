@@ -32,12 +32,10 @@ switch ($_SERVER['REQUEST_METHOD']){
     		// Article Actions
     		case 'create':
     			$category_id 	= $_POST['category_id'];
-    			$user_id 		= 1;
+    			$article_id = $article->create($user->id,$category_id);
 
-    			$article_id = $article->create($user_id,$category_id);
-
-                $article->createContent($user_id,$article_id,'image',NULL);
-                $article->createContent($user_id,$article_id,'textbox',NULL);
+                $article->createContent($user->id,$article_id,'image',NULL);
+                $article->createContent($user->id,$article_id,'textbox',NULL);
 
     			$returnObject['article_id'] = floatval($article_id);
     			$returnObject['message'] 	= 'New Article created';
@@ -83,8 +81,7 @@ switch ($_SERVER['REQUEST_METHOD']){
     			$article_id 	= $_POST['article_id'];
     			$type 			= $_POST['type'];
                 $content_id     = $_POST['content_id']; // Create Content Between!
-    			$user_id 		= 1;
-    			$content_id 	= $article->createContent($user_id,$article_id,$type,$content_id);
+    			$content_id 	= $article->createContent($user->id,$article_id,$type,$content_id);
 
     			$returnObject['content_id'] = floatval($content_id);
     			$returnObject['message'] 	= 'New Content created';

@@ -63,7 +63,7 @@ $(document).ready(function(){
             data:{
                 request     :'change_status',
                 article_id  :article_id,
-                status: 'publish'
+                status: 'published'
             },
             error: function (request, status, error){
                 console.log(request.responseText);
@@ -72,6 +72,10 @@ $(document).ready(function(){
             console.log(data);
             $progressbar.animate({width:'100%'},500);
             $progressbar.fadeOut();
+
+            setTimeout(function(){
+                window.location = 'article/'+article_id;
+            },1000);
         });
     });
 });

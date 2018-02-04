@@ -11,19 +11,6 @@
 
 	&.fixed{
 		position: fixed; top: 0; left: 0;
-		// background: rgba(235,235,235,0.95);
-	}
-
-	&.shadow{
-		background: rgba(0,77,64,0.95);
-		.title{ color: #1abc9c; }
-	}
-
-	&.light{
-		a.logo .detail .name{ color: #050505; }
-		a.logo .detail .desc{ color: #999999; }
-		.btn{ color: #666666; &:active{ background: @border_color; } }
-		.btn-profile{ color: #666666; }
 	}
 
 	.page-icon{
@@ -156,6 +143,10 @@
 		position: relative;
 		font-size: 1em;
 
+		&.left{
+			float: left;
+		}
+
 		&:hover{
 			cursor: pointer;
 		}
@@ -282,34 +273,25 @@
 		}
 	}
 
-	a.logo{
-		width: 28%;
+	.logo{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		margin: 0 25%;
+		height: 26px;
+		padding: 12px 0;
 		float: left;
 		display: inline-block;
-		padding: 10px 1.5%;
-		height: 30px;
-		color: #FFFFFF;
-		text-decoration: none;
-		line-height: 1em;
-		font-size: 1em;
+		text-align: center;
 
-		img{
-			float: left;
-			display: inline-block;
-			height: 30px;
-			margin-right: 10px;
-			margin-top: 0px;
-		}
-
-		.detail{
-			float: left;
-			display: inline-block;
-
-			.name{ font-family: @topic_font; }
-			.desc{
-				font-size: 0.5em;
-				color: #1abc9c;
-			}
+		a{
+			height: 50px;
+			font-family: @topic_font;
+			font-size: 1.4em;
+			line-height: 1em;
+			text-decoration: none;
+			color: #666666;
 		}
 	}
 }
@@ -952,6 +934,36 @@
 	}
 }
 
+.pagehead{
+	width: 60%;
+	margin: 0% 20%;
+	float: left;
+	display: inline-block;
+
+	h2{
+		font-size: 2em;
+		font-family: @topic_font;
+	}
+
+	ul{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		list-style-type: none;
+		border-bottom: 1px solid #DDDDDD;
+
+		li{
+			padding: 1%;
+			float: left;
+			display: inline-block;
+
+			a{
+				text-decoration: none;
+			}
+		}
+	}
+}
+
 .article-list{
 	width: 60%;
 	margin: 0% 20%;
@@ -959,14 +971,37 @@
 	display: inline-block;
 
 	.items{
-		width: 100%;
+		width: 46%;
+		margin: 2%;
 		float: left;
 		display: inline-block;
-		background: #EEEEEE;
 		margin-bottom: 1%;
 
-		h2{ font-size: 2em; }
-		p{ font-size: 1em; }
+		img{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-bottom: 2%;
+		}
+
+		h2{
+			font-size: 1.4em;
+			line-height: 1.3em;
+			font-family: @topic_font;
+			font-weight: normal;
+			margin-bottom: 2%;
+
+			a{
+				text-decoration: none;
+				color: #333333;
+
+				&:hover{ text-decoration: underline; }
+			}
+		}
+		p{
+			font-size: 0.85em;
+			color: #666666;
+		}
 	}
 }
 

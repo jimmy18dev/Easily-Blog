@@ -167,27 +167,6 @@ body {
   top: 0;
   left: 0;
 }
-.header.shadow {
-  background: rgba(0, 77, 64, 0.95);
-}
-.header.shadow .title {
-  color: #1abc9c;
-}
-.header.light a.logo .detail .name {
-  color: #050505;
-}
-.header.light a.logo .detail .desc {
-  color: #999999;
-}
-.header.light .btn {
-  color: #666666;
-}
-.header.light .btn:active {
-  background: #e8e8e9;
-}
-.header.light .btn-profile {
-  color: #666666;
-}
 .header .page-icon {
   float: left;
   display: inline-block;
@@ -309,6 +288,9 @@ body {
   position: relative;
   font-size: 1em;
 }
+.header .btn.left {
+  float: left;
+}
 .header .btn:hover {
   cursor: pointer;
 }
@@ -422,34 +404,25 @@ body {
   color: #111111;
   background: #FAFAFA;
 }
-.header a.logo {
-  width: 28%;
+.header .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  margin: 0 25%;
+  height: 26px;
+  padding: 12px 0;
   float: left;
   display: inline-block;
-  padding: 10px 1.5%;
-  height: 30px;
-  color: #FFFFFF;
-  text-decoration: none;
-  line-height: 1em;
-  font-size: 1em;
+  text-align: center;
 }
-.header a.logo img {
-  float: left;
-  display: inline-block;
-  height: 30px;
-  margin-right: 10px;
-  margin-top: 0px;
-}
-.header a.logo .detail {
-  float: left;
-  display: inline-block;
-}
-.header a.logo .detail .name {
+.header .logo a {
+  height: 50px;
   font-family: "maledpan", sans-serif;
-}
-.header a.logo .detail .desc {
-  font-size: 0.5em;
-  color: #1abc9c;
+  font-size: 1.4em;
+  line-height: 1em;
+  text-decoration: none;
+  color: #666666;
 }
 .seo {
   width: 50%;
@@ -1035,6 +1008,31 @@ body {
   cursor: pointer;
   color: #666666;
 }
+.pagehead {
+  width: 60%;
+  margin: 0% 20%;
+  float: left;
+  display: inline-block;
+}
+.pagehead h2 {
+  font-size: 2em;
+  font-family: "maledpan", sans-serif;
+}
+.pagehead ul {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  list-style-type: none;
+  border-bottom: 1px solid #DDDDDD;
+}
+.pagehead ul li {
+  padding: 1%;
+  float: left;
+  display: inline-block;
+}
+.pagehead ul li a {
+  text-decoration: none;
+}
 .article-list {
   width: 60%;
   margin: 0% 20%;
@@ -1042,17 +1040,35 @@ body {
   display: inline-block;
 }
 .article-list .items {
+  width: 46%;
+  margin: 2%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+}
+.article-list .items img {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #EEEEEE;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 .article-list .items h2 {
-  font-size: 2em;
+  font-size: 1.4em;
+  line-height: 1.3em;
+  font-family: "maledpan", sans-serif;
+  font-weight: normal;
+  margin-bottom: 2%;
+}
+.article-list .items h2 a {
+  text-decoration: none;
+  color: #333333;
+}
+.article-list .items h2 a:hover {
+  text-decoration: underline;
 }
 .article-list .items p {
-  font-size: 1em;
+  font-size: 0.85em;
+  color: #666666;
 }
 .swap {
   position: fixed;

@@ -4,6 +4,11 @@ $article = new Article();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
+
+if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
+	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
+	die();
+}
 ?>
 
 
@@ -23,14 +28,13 @@ $article->get($article_id);
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title></title>
+<title><?php echo $article->title;?></title>
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-	<a href="index.php">HOME</a>
-	<a href="article/editor/<?php echo $article->id?>">[Edit]</a>
+<?php include_once 'header.php';?>
 
 <div class="article">
 	<!-- Article Header -->

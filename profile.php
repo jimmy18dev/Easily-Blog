@@ -1,10 +1,13 @@
 <?php
 include_once'autoload.php';
 $article = new Article();
-$category = new Category();
-$category_id = $_GET['category_id'];
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
-$categories = $category->listAll();
+
+if(!empty($_GET['status'])){
+	$status = $_GET['status'];
+}else{
+	$status = 'published';
+}
+$articles = $article->listAll(NULL,NULL,NULL,$status,$user->id);
 ?>
 
 <!doctype html>
@@ -32,12 +35,11 @@ $categories = $category->listAll();
 </head>
 <body>
 <?php include_once 'header.php';?>
-
 <div class="pagehead">
+	<h2>บทความ (<?php echo $status;?>)</h2>
 	<ul>
-		<?php foreach ($categories as $var) {?>
-		<li><a href="index.php?category_id=<?php echo $var['id'];?>"><?php echo $var['title'];?></a></li>
-		<?php } ?>
+		<li><a href="profile?status=published">แผยแพร่แล้ว</a></li>
+		<li><a href="profile?status=draft">ฉบับร่าง</a></li>
 	</ul>
 </div>
 <div class="article-list">
@@ -48,8 +50,8 @@ $categories = $category->listAll();
 		<img src="image/upload/normal/<?php echo $var['cover_img'];?>" alt="">
 		</a>
 		<?php }?>
-		<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">[<?php echo $var['id'];?>] <?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-		<p><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?></p>
+		<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
+		<p><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?> <?php echo $var['status'];?></p>
 		<p><?php echo $var['description'];?></p>
 	</div>
 	<?php } ?>

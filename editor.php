@@ -54,10 +54,10 @@ $loop = 1;
 		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 	</div>
 
-	<div class="btn active">
+	<a href="article/<?php echo $article->id;?>/seo" class="btn active">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>
 		<i class="fa fa-angle-right" aria-hidden="true"></i>
-	</div>
+	</a>
 </div>
 
 <div class="article editor">

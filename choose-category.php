@@ -28,9 +28,11 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<h1>Choose Category</h1>
+<?php include_once 'header.php';?>
 <?php foreach ($categories as $var) {?>
-<button class="choose-category" data-id="<?php echo $var['id'];?>"><?php echo $var['title'];?></button>
+<div class="choose-category" data-id="<?php echo $var['id'];?>">
+	<?php echo $var['title'];?>
+</div>
 <?php } ?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

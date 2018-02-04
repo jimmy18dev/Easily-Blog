@@ -29,8 +29,7 @@ $article->get($article_id);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<h1>SEO Article.</h1>
-
+<?php include_once 'header.php';?>
 
 <div class="seo">
 	<h2>Cover Image</h2>
