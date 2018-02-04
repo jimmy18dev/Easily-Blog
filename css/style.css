@@ -153,62 +153,42 @@ body {
   transition: height 0.2s;
 }
 .header {
-  width: 100%;
-  height: 50px;
+  width: 70%;
+  padding: 0% 15%;
+  height: 60px;
   float: left;
   display: inline-block;
   z-index: 50;
-  transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
 }
 .header.fixed {
   position: fixed;
   top: 0;
   left: 0;
 }
-.header .page-icon {
+.header .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  margin: 0 25%;
+  height: 30px;
+  padding: 15px 0;
   float: left;
   display: inline-block;
-  padding: 8px 1%;
-  padding-right: 0%;
-  height: 34px;
-  font-size: 1.4em;
-  color: #666666;
-  text-decoration: none;
+  text-align: center;
 }
-.header .page-icon:hover {
-  color: #666666;
-  cursor: pointer;
-}
-.header .page-icon i.fa-check-circle {
-  color: #4CAF50;
-}
-.header .page-title {
-  float: left;
-  display: inline-block;
-  padding: 7px;
-  margin: 9px 0px;
-  margin-left: 7px;
-  height: 18px;
-  color: #666666;
-  font-family: "maledpan", sans-serif;
-  font-size: 1em;
+.header .logo a {
+  font-family: 'Oleo Script', sans-serif;
+  font-size: 2em;
   line-height: 1em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 30%;
-}
-.header .page-title:hover {
-  cursor: default;
+  text-decoration: none;
+  color: #333333;
 }
 .header .btn-profile {
   float: right;
   display: inline-block;
   height: 34px;
-  margin: 8px 0px;
+  margin: 13px 0px;
   padding: 0 10px;
   position: relative;
 }
@@ -220,6 +200,10 @@ body {
   border-radius: 50%;
   background: #EEEEEE;
 }
+.header .btn-profile img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .header .btn-profile .toggle-panel {
   position: absolute;
   width: 200px;
@@ -230,6 +214,7 @@ body {
   border-radius: 5px;
   z-index: 999;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+  display: none;
 }
 .header .btn-profile .toggle-panel.open {
   display: block;
@@ -280,7 +265,7 @@ body {
   align-items: center;
   float: right;
   height: 34px;
-  margin: 8px 0px;
+  margin: 13px 0px;
   padding: 0 14px;
   line-height: 1em;
   font-family: "maledpan", sans-serif;
@@ -405,25 +390,68 @@ body {
   color: #111111;
   background: #FAFAFA;
 }
-.header .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  margin: 0 25%;
-  height: 26px;
-  padding: 12px 0;
+.header .page-icon {
+  float: left;
+  display: inline-block;
+  padding: 8px 1%;
+  padding-right: 0%;
+  height: 34px;
+  font-size: 1.4em;
+  color: #666666;
+  text-decoration: none;
+}
+.header .page-icon:hover {
+  color: #666666;
+  cursor: pointer;
+}
+.header .page-icon i.fa-check-circle {
+  color: #4CAF50;
+}
+.header .page-title {
+  float: left;
+  display: inline-block;
+  padding: 7px;
+  margin: 9px 0px;
+  margin-left: 7px;
+  height: 18px;
+  color: #666666;
+  font-family: "maledpan", sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 30%;
+}
+.header .page-title:hover {
+  cursor: default;
+}
+.category {
+  width: 60%;
+  padding: 0 20%;
+  margin-top: 10px;
   float: left;
   display: inline-block;
   text-align: center;
+  margin-bottom: 2%;
 }
-.header .logo a {
-  height: 50px;
-  font-family: 'Oleo Script', sans-serif;
-  font-size: 1.4em;
-  line-height: 1em;
+.category a {
+  display: inline-block;
   text-decoration: none;
   color: #666666;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: -1px;
+  font-family: "maledpan", sans-serif;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+.category a:hover {
+  cursor: pointer;
+  color: #333333;
+}
+.category a.active {
+  color: #111111;
 }
 .seo {
   width: 50%;
@@ -1014,25 +1042,8 @@ body {
   margin: 0% 20%;
   float: left;
   display: inline-block;
-}
-.pagehead h2 {
-  font-size: 2em;
-  font-family: "maledpan", sans-serif;
-}
-.pagehead ul {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  list-style-type: none;
-  border-bottom: 1px solid #DDDDDD;
-}
-.pagehead ul li {
-  padding: 1%;
-  float: left;
-  display: inline-block;
-}
-.pagehead ul li a {
-  text-decoration: none;
+  margin-top: 60px;
+  background: #CADADA;
 }
 .article-list {
   width: 60%;
@@ -1041,24 +1052,33 @@ body {
   display: inline-block;
 }
 .article-list .items {
-  width: 46%;
-  margin: 2%;
+  width: 50%;
+  height: 450px;
   float: left;
   display: inline-block;
-  margin-bottom: 1%;
+  background: #CADADA;
 }
-.article-list .items img {
+.article-list .items.highlight {
+  width: 100%;
+  background: #CCAADD;
+}
+.article-list .items figure {
+  width: 100%;
+  height: 250px;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+.article-list .items figure img {
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 2%;
 }
 .article-list .items h2 {
-  font-size: 1.4em;
-  line-height: 1.3em;
+  font-size: 1.5em;
+  line-height: 1.4em;
   font-family: "maledpan", sans-serif;
-  font-weight: normal;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
 }
 .article-list .items h2 a {
   text-decoration: none;
@@ -1068,8 +1088,13 @@ body {
   text-decoration: underline;
 }
 .article-list .items p {
-  font-size: 0.85em;
+  font-size: 1em;
   color: #666666;
+  line-height: 1.5em;
+}
+.article-list .items p.info {
+  font-size: 0.75em;
+  color: #999999;
 }
 .swap {
   position: fixed;

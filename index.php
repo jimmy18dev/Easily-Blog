@@ -32,29 +32,34 @@ $categories = $category->listAll();
 </head>
 <body>
 <?php include_once 'header.php';?>
+<nav class="category">
+	<?php foreach ($categories as $var) {?>
+	<a href="index.php?category_id=<?php echo $var['id'];?>"><?php echo $var['title'];?></a>
+	<?php } ?>
+</nav>
 
-<div class="pagehead">
-	<ul>
-		<?php foreach ($categories as $var) {?>
-		<li><a href="index.php?category_id=<?php echo $var['id'];?>"><?php echo $var['title'];?></a></li>
-		<?php } ?>
-	</ul>
-</div>
 <div class="article-list">
 	<?php foreach ($articles as $var) {?>
-	<div class="items">
+	<article class="items <?php echo ($var['highlight']?'highlight':'');?>">
 		<?php if(!empty($var['cover_id'])){?>
-		<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-		<img src="image/upload/normal/<?php echo $var['cover_img'];?>" alt="">
-		</a>
+		<figure>
+			<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
+			<img src="image/upload/normal/<?php echo $var['cover_img'];?>" alt="">
+			</a>
+		</figure>
 		<?php }?>
-		<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">[<?php echo $var['id'];?>] <?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-		<p><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?></p>
+		
+		<header>
+			<a href="#"><?php echo $var['category_title'];?></a>
+			<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
+			<p class="info"><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?></p>
+		</header>
 		<p><?php echo $var['description'];?></p>
-	</div>
+	</article>
 	<?php } ?>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

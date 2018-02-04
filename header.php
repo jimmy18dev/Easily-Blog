@@ -2,7 +2,7 @@
 	<div class="btn left"><i class="fa fa-search" aria-hidden="true"></i></div>
 	
 	<div class="logo">
-		<a href="index.php">People Awesome</a>
+		<a href="index.php">Peopleawesome</a>
 	</div>
 
 	<div class="btn-profile" id="btnProfile">

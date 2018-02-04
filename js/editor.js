@@ -11,15 +11,6 @@ $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
     tippy('[title]',{arrow: true});
 
-    $('#btnPublish').click(function(event) {
-        console.log('btnPublish click');
-        $('#publishPanel').fadeIn(300);
-    });
-
-    $('#btnProfile').click(function(event) {
-        $('#profilePanel').fadeIn(300);
-    });
-
     function inprogress(action){
         $title  = $('#editorTitle');
         $icon   = $('#editorIcon');
