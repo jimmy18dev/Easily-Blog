@@ -34,6 +34,12 @@ $articles = $article->listAll(NULL,NULL,NULL,NULL,NULL);
 	<a href="article/create">New Article</a>
 </div>
 
+<?php if($user_online){?>
+ONLINE
+<?}else{?>
+<a href="signup" class="btn btn-login">ลงทะเบียนใหม่<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+<?php }?>
+
 <div class="article-list">
 	<?php foreach ($articles as $var) {?>
 	<div class="items">

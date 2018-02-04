@@ -1,22 +1,60 @@
-$(document).ready(function(){
-    $('.btn-new-article').click(function(){
-    	$('.choose-dialog').fadeIn(100);
-    	$('#filter').fadeIn(300);
+var api_user = 'api/user.php';
 
-    	$('#filter').click(function(){
-    		$('.choose-dialog').fadeOut(300);
-    		$(this).fadeOut(100);
-    	});
-    });
+$(document).ready(function(){
+	var sign 		= $('#sign').val();
+	$progressbar 	= $('#progressbar');
+	$btnSubmit 		= $('#btnSubmit');
+
+	$('#btnVerify').click(function(){
+		requestVerify();
+	});
 });
 
+function requestVerify(){
+	var fullname = $('#fullname').val();
+	var email 	= $('#email').val();
+	var phone 	= $('#phone').val();
+	var bio 	= $('#bio').val();
+
+	if(!bio){
+		alert(bio);
+		return false;
+	}
+
+	$overlay.addClass('open');
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'70%'},500);
+
+	$.get({
+		url         :api_user,
+		timeout 	:10000, //10 second timeout
+		cache       :false,
+		dataType    :"json",
+		type        :"POST",
+		data:{
+			request     :'request_verify',
+			fullname 	:fullname,
+			email 		:email,
+			phone 		:phone,
+			bio 		:bio
+		},
+		error: function (request, status, error) {
+			console.log("Request Error",request.responseText);
+		}
+	}).done(function(data){
+		console.log(data);
+		location.reload();
+	});
+}
+
 function login(){
-	var email 		= $('#email').val();
+	var username 	= $('#username').val();
 	var password 	= $('#password').val();
 	var sign 		= $('#sign').val();
 
-	if(email == ''){
-		$('#email').focus();
+	if(username == ''){
+		$('#username').focus();
 		return false;
 	}else if(password == ''){
 		alert('คุณยังไม่ได้กรอกรหัสผ่าน!');
@@ -24,20 +62,19 @@ function login(){
 		return false;
 	}
 
-	$progress = $('#progress-bar');
-	$progress.fadeIn(300);
-	$progress.animate({width:'30%'},300);
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'70%'},500);
 
 	$.get({
-		url         :'api.user.php',
+		url         :api_user,
 		timeout 	:10000, //10 second timeout
 		cache       :false,
 		dataType    :"json",
 		type        :"POST",
 		data:{
-			calling     :'user',
-			action      :'login',
-			email 		:email,
+			request     :'login',
+			username 	:username,
 			password 	:password,
 			sign 		:sign,
 		},
@@ -45,97 +82,107 @@ function login(){
 			console.log("Request Error",request.responseText);
 		}
 	}).done(function(data){
+		console.log(data);
 
-		$progress.animate({width:'70%'},300);
+		if(data.state == 1){
+			$btnSubmit.addClass('loading');
+			$btnSubmit.html('กำลังเข้าระบบ<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+			$progressbar.animate({width:'100%'},500);
 
-		if(data.return == 1){
-			$('#btn-login').addClass('-loading');
-			$('#btn-login').html('กำลังเข้าระบบ...');
-			$progress.animate({width:'100%'},300);
-			
+			var redirect 	= $('#redirect').val();
+
 			setTimeout(function(){
-				window.location = 'index.php?login=success';
+	        	if(redirect != ''){
+	        		window.location = 'document/'+redirect;
+	        	}else{
+	        		window.location = 'index.php?login=success';
+	        	}
 	        },1000);
-		}else if(data.return == 0){
-			$progress.animate({width:'0%'},300);
+
+		}else if(data.state == 0){
+			$progressbar.animate({width:'0%'},500);
 			alert('เข้าระบบไม่สำเร็จ กรุณาตรวจสอบอีกครั้ง!');
-		}else if(data.return == -1){
-			$progress.animate({width:'0%'},300);
+		}else if(data.state == -1){
+			$progressbar.animate({width:'0%'},500);
 			alert('คุณต้องรออีก 5 นาที เพื่อเข้าระบบใหม่!');
 		}
 	}).fail(function() {
 		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
-		$progress.animate({width:'0%'},300);
+		$progressbar.animate({width:'0%'},500);
 		$('#password').focus();
 		$('#password').val('');
 	});
 }
 
 function register(){
-	var email 		= $('#email').val();
-	var name 		= $('#name').val();
+	var fullname 	= $('#fullname').val();
+	var email 	= $('#email').val();
+	var phone 	= $('#phone').val();
 	var password 	= $('#password').val();
 	var sign 		= $('#sign').val();
 
-	if(name == ''){
-		$('#name').focus();
-		return false;
-	}else if(email == ''){
-		alert('คุณยังไม่ได้ใส่อีเมล!');
-		$('#email').focus();
-		return false;
-	}else if(password == ''){
-		alert('คุณยังไม่ได้กรอกรหัสผ่าน!');
-		$('#password').focus();
-		return false;
-	}
+	if(fullname == '' || phone == '' || email == '' || password == '') return false;
 
-	$progress = $('#progress-bar');
-	$progress.fadeIn(300);
-	$progress.animate({width:'30%'},300);
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'70%'},500);
 
-	$.ajax({
-		url         :'api.user.php',
+	$.get({
+		url         :api_user,
 		timeout 	:10000, //10 second timeout
 		cache       :false,
 		dataType    :"json",
 		type        :"POST",
 		data:{
-			calling     :'user',
-			action      :'register',
-			email 		:email,
-			name 		:name,
+			request     :'register',
+			fullname 	:fullname,
+			phone 		:phone,
+			email		:email,
 			password 	:password,
-			sign 		:sign
+			sign 		:sign,
 		},
 		error: function (request, status, error) {
-			console.log("Request Error");
+			console.log("Request Error",request.responseText);
 		}
 	}).done(function(data){
-		var invite_code = $('#invite_code').val();
+		console.log(data);
+		$btnSubmit.addClass('loading');
+		$btnSubmit.html('กำลังลงทะเบียน<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
 
-		$progress.animate({width:'70%'},300);
+		$progressbar.animate({width:'100%'},500);
 
-		if(data.return != 0){
-			$('#btn-register').addClass('-loading');
-			$('#btn-register').html('กำลังลงทะเบียน...');
-			$progress.animate({width:'100%'},300);
+		var redirect 	= $('#redirect').val();
 
-			setTimeout(function(){
-				if(invite_code != ''){
-					window.location = 'invite?c='+invite_code;
-				}else{
-					window.location = 'index.php?regsiter=success';	
-				}
-			},1000);
-		}else{
-			$progress.animate({width:'0%'},300);
-			alert('อีเมลนี้มีในระบบแล้ว!');
-		}
+		setTimeout(function(){
+			if(redirect != ''){
+				window.location = 'document/'+redirect;
+	        }else{
+	        	// window.location = 'index.php?login=success';
+	        	window.location = 'permission.php?e=UserNotActive';
+	        }
+	    },1000);
+	    
 	}).fail(function() {
 		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
-		$progress.animate({width:'0%'},300);
-		$('#password').focus();
-		$('#password').val('');
 	});
+}
+
+function loginProgress(response){
+	var xhr = new XMLHttpRequest();
+
+	console.log(response,response.id,response.email)
+
+	if(response.id === undefined || response.id == ''){
+		location.reload();
+		return false;
+	}
+
+	xhr.open('POST','api/user.php', true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
+			location.reload();
+		}
+	}
+	xhr.send('request=facebook_login&fb_id='+response.id+'&fb_fname='+response.first_name+'&fb_lname='+response.last_name+'&fb_email='+response.email+'&fb_link='+response.link+'&fb_verified='+response.verified+'&gender='+response.gender+'');
 }
