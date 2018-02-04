@@ -451,6 +451,35 @@ body {
   font-size: 0.5em;
   color: #1abc9c;
 }
+.seo {
+  width: 50%;
+  margin: 0 25%;
+  float: left;
+  display: inline-block;
+}
+.seo .list {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.seo .list .cover-items {
+  width: 20%;
+  float: left;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.seo .list .cover-items img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.seo .list .cover-items.active {
+  border: 2px solid #FF0000;
+}
+.seo .list .cover-items:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
 .article {
   width: 50%;
   margin: 0 25%;

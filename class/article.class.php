@@ -18,6 +18,9 @@ class Article{
     public $contents;
     public $total_document;
     public $documents;
+
+    public $cover_id;
+    public $cover_img;
 	
 	// Database instance
 	private $db;
@@ -76,7 +79,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id WHERE article.id = :article_id');
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -111,6 +114,9 @@ class Article{
         $this->total_contents   = $dataset['total_contents'];
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];
+
+        $this->cover_id = $dataset['cover_id'];
+        $this->cover_img = $dataset['cover_img'];
 
         return $dataset;
     }

@@ -34,11 +34,11 @@ $article->get($article_id);
 
 <div class="seo">
 	<h2>Cover Image</h2>
-	<div class="listImage">
+	<div class="list">
 		<?php foreach ($article->contents as $var) {?>
 		<?php if($var['type'] == 'image'){?>
-		<div class="cover-items" data-cover="<?php echo $var['id'];?>">
-			<img src="image/upload/square/<?php echo $var['img_location'];?>" width="200" alt="">
+		<div class="cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>">
+			<img src="image/upload/square/<?php echo $var['img_location'];?>">
 		</div>
 		<?php }?>
 		<?php }?>
@@ -46,6 +46,8 @@ $article->get($article_id);
 
 	<h2>Article URL</h2>
 	<input type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="Article URL...">
+
+	<button id="btn-publish">Publish</button>
 </div>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">

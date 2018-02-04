@@ -3,6 +3,7 @@ var article_id = $('#article_id').val();
 
 $(document).ready(function(){
     $('.cover-items').click(function(){
+        $this = $(this);
         var cover_id = $(this).attr('data-cover');
 
         $.ajax({
@@ -20,6 +21,8 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+            $('.cover-items').removeClass('active');
+            $this.addClass('active');
         });
     });
 
@@ -42,6 +45,33 @@ $(document).ready(function(){
             }
         }).done(function(data){
             console.log(data);
+        });
+    });
+
+    // Publish Article
+    $('#btn-publish').click(function(){
+        
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'change_status',
+                article_id  :article_id,
+                status: 'publish'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut();
         });
     });
 });

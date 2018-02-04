@@ -54,23 +54,9 @@ $loop = 1;
 		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 	</div>
 
-	<div class="btn active" id="btnPublish">
+	<div class="btn active">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>
-		<i class="fa fa-angle-down" aria-hidden="true"></i>
-
-		<div class="toggle-panel" id="publishPanel">
-			<div class="arrow-up"></div>
-			<div class="meta-form">
-				<div class="imgpreview">
-					<div class="btn-choose-image">เลือกไฟล์รูปภาพ</div>
-				</div>
-				<label for="">ชื่อบทความ</label>
-				<input type="text">
-				<label for="">รายละเอียดอย่างย่อ</label>
-				<textarea></textarea>
-				<div class="btns">เผยแพร่บทความ</div>
-			</div>
-		</div>
+		<i class="fa fa-angle-right" aria-hidden="true"></i>
 	</div>
 </div>
 
