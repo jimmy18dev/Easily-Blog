@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
 /**
  * Global Reset of all HTML Elements
  *
@@ -418,7 +419,7 @@ body {
 }
 .header .logo a {
   height: 50px;
-  font-family: "maledpan", sans-serif;
+  font-family: 'Oleo Script', sans-serif;
   font-size: 1.4em;
   line-height: 1em;
   text-decoration: none;
