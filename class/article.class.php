@@ -161,7 +161,7 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
 
     	if(!empty($category_id)){

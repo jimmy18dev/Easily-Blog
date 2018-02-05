@@ -975,70 +975,131 @@
 		margin-right: 3%;
 		margin-bottom: 3%;
 		background: #FFFFFF;
-		position: relative;
-		height: 550px;
-		border-radius: 3px;
+		border-radius: 5px;
 		overflow: hidden;
 
 		&:nth-child(3n+0){
 			margin-right: 0;
 		}
 
-		.thumbnail{
-			width: 100%;
-			float: left;
-			display: inline-block;
+		&.gradient{
+			.bgGradient(#3BED8D,#38ACC5);
 
-			img{
-				width: 100%;
-				float: left;
-				display: inline-block;
+			.wrapper header{
+				padding: 10% 5%;
+
+				h2{
+					font-size: 1.8em;
+
+					a{
+						color: #FFFFFF;
+					}
+				}
+
+				p{
+					color: #FCFCFC;
+					text-overflow: inherit;
+					white-space: inherit;
+					overflow: inherit;
+				}
+			}
+			.info{
+				margin: 0;
+				padding: 5%;
 			}
 		}
 
-		header{
-			width: 90%;
-			padding: 5%;
-			float: left;
-			display: inline-block;
+		&.highlight{
+			.wrapper{
+				position: relative;
 
-			h2{
-				font-size: 1.4em;
-				font-family: @topic_font;
-				line-height: 1.3em;
-				font-weight: normal;
-				margin-bottom: 2%;
+				.thumbnail img{
+					transform: scale(1.3);
+				}
+				header{
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);
+					background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%);
+					background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 
-				a{
-					text-decoration: none;
-					color: #000000;
+					h2 a{
+						color: #FFFFFF;
+					}
+					p{ color: #DDDDDD; }
 				}
 			}
-			p{
+
+			.info{
+				margin: 0;
+				padding: 5%;
+			}
+		}
+
+		.wrapper{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			height: 505px;
+
+			.thumbnail{
 				width: 100%;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
-				font-size: 0.8em;
-				color: #999999;
+				float: left;
+				display: inline-block;
+
+				img{
+					width: 100%;
+					float: left;
+					display: inline-block;
+				}
+			}
+			header{
+				width: 90%;
+				padding: 5%;
+				float: left;
+				display: inline-block;
+
+				h2{
+					font-size: 1.4em;
+					font-family: @topic_font;
+					line-height: 1.3em;
+					font-weight: normal;
+					margin-bottom: 2%;
+
+					a{
+						text-decoration: none;
+						color: #000000;
+					}
+				}
+				p{
+					width: 100%;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+					font-size: 0.85em;
+					color: #999999;
+				}
 			}
 		}
 
 		.info{
-			position: absolute;
-			bottom: 0;
 			width: 90%;
 			padding: 5% 0%;
 			margin: 0% 5%;
-			border-top: 1px solid #EEEEEE;
-			font-size: 0.8em;
+			float: left;
+			display: inline-block;
+			font-size: 0.85em;
 			line-height: 1em;
 			background: #FFFFFF;
+			border-top: 1px solid #EEEEEE;
+			position: relative;
 
 			a,span{
 				float: left;
 				display: inline-block;
-				margin-right: 15px;
+				margin-right: 5%;
 				text-decoration: none;
 				color: #BBBBBB;
 

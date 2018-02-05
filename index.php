@@ -32,6 +32,7 @@ $categories = $category->listAll();
 </head>
 <body>
 <?php include_once 'header.php';?>
+
 <nav class="category">
 	<a class="<?php echo (empty($category_id)?'active':'');?>" href="index.php">All Articles</a>
 	<?php foreach ($categories as $var) {?>
@@ -40,25 +41,7 @@ $categories = $category->listAll();
 </nav>
 
 <div class="article-list">
-	<?php foreach ($articles as $var) {?>
-	<article class="items <?php echo ($var['highlight']?'highlight':'');?>">
-		<?php if(!empty($var['cover_id'])){?>
-		<figure class="thumbnail">
-			<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-			<img src="image/upload/square/<?php echo $var['cover_img'];?>" alt="">
-			</a>
-		</figure>
-		<?php }?>
-		<header>
-			<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-			<p><?php echo $var['description'];?></p>
-		</header>
-		<div class="info">
-			<a href="#"><?php echo $var['category_title'];?></a>
-			<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
-		</div>
-	</article>
-	<?php } ?>
+	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
