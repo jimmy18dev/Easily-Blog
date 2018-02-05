@@ -33,8 +33,9 @@ $categories = $category->listAll();
 <body>
 <?php include_once 'header.php';?>
 <nav class="category">
+	<a class="<?php echo (empty($category_id)?'active':'');?>" href="index.php">All Articles</a>
 	<?php foreach ($categories as $var) {?>
-	<a href="index.php?category_id=<?php echo $var['id'];?>"><?php echo $var['title'];?></a>
+	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="index.php?category_id=<?php echo $var['id'];?>"><?php echo $var['title'];?></a>
 	<?php } ?>
 </nav>
 
@@ -42,19 +43,20 @@ $categories = $category->listAll();
 	<?php foreach ($articles as $var) {?>
 	<article class="items <?php echo ($var['highlight']?'highlight':'');?>">
 		<?php if(!empty($var['cover_id'])){?>
-		<figure>
+		<figure class="thumbnail">
 			<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-			<img src="image/upload/normal/<?php echo $var['cover_img'];?>" alt="">
+			<img src="image/upload/square/<?php echo $var['cover_img'];?>" alt="">
 			</a>
 		</figure>
 		<?php }?>
-		
 		<header>
-			<a href="#"><?php echo $var['category_title'];?></a>
 			<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-			<p class="info"><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?></p>
+			<p><?php echo $var['description'];?></p>
 		</header>
-		<p><?php echo $var['description'];?></p>
+		<div class="info">
+			<a href="#"><?php echo $var['category_title'];?></a>
+			<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
+		</div>
 	</article>
 	<?php } ?>
 </div>
