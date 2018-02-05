@@ -266,11 +266,12 @@ class Article{
     }
 
     // Edit Image location.
-    public function editImageLocation($content_id,$article_id,$img_location){
-        $this->db->query('UPDATE content SET img_location = :img_location,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
+    public function editImageLocation($content_id,$article_id,$img_location,$img_type){
+        $this->db->query('UPDATE content SET img_location = :img_location,img_type = :img_type,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':img_location',$img_location);
+        $this->db->bind(':img_type',$img_type);
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }

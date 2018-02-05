@@ -18,7 +18,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
             $im_width       = $image_size_info[0]; //image width
             $im_height      = $image_size_info[1]; //image height
             $im_type        = $image_size_info['mime']; //image type
-            $im_format      = $image->PhotoFormat($im_width,$im_height);
+            $img_type       = $image->PhotoFormat($im_width,$im_height);
 
             switch($im_type){
                 case 'image/png':
@@ -56,7 +56,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                 }
 
                 // $content->editImageBox($content_id,$article_id,$new_file_name);
-                $article->editImageLocation($content_id,$article_id,$new_file_name);
+                $article->editImageLocation($content_id,$article_id,$new_file_name,$img_type);
                 imagedestroy($image_res);
             }
         }
