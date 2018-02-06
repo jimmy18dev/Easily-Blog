@@ -8,7 +8,6 @@ $article->get($article_id);
 $loop = 1;
 ?>
 
-
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
 <head>
@@ -60,7 +59,7 @@ $loop = 1;
 	</a>
 </div>
 
-<div class="article editor">
+<div class="editor">
 	<!-- Article Header -->
 	<header class="article-header">
 		<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>

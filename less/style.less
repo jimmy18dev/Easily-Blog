@@ -250,12 +250,14 @@
 	.page-icon{
 		float: left;
 		display: inline-block;
-		padding: 8px 1%;
-		padding-right: 0%;
-		height: 34px;
-		font-size: 1.4em;
+		padding: 16.5px;
+		padding-right: 0px;
+		height: 33px;
+		font-size: 1.6em;
 		color: #666666;
 		text-decoration: none;
+		line-height: 1em;
+		background: #CDADAD;
 
 		&:hover{
 			color: #666666;
@@ -268,18 +270,14 @@
 	.page-title{
 		float: left;
 		display: inline-block;
-		padding: 7px;
-		margin: 9px 0px;
-		margin-left: 7px;
-		height: 18px;
+		padding: 16.5px;
+		height: 33px;
+		font-size: 1.2em;
 		color: #666666;
+		text-decoration: none;
 		font-family: @topic_font;
-		font-size: 1em;
 		line-height: 1em;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-		max-width: 30%;
+		background: #CADADA;
 
 		&:hover{ cursor: default; }
 	}
@@ -351,15 +349,155 @@
 
 .article{
 	width: 50%;
-	margin: 0 25%;
-	margin-top: 50px;
+	margin: 10% 25%;
+	margin-top: 120px;
 	float: left;
 	display: inline-block;
 
-	&.editor{
-		margin-bottom: 10%;
-		margin-top: 120px;
+	.article-header{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		margin-bottom: 5%;
+		padding-bottom: 5%;
+		border-bottom: 1px solid #EEEEEE;
+
+		h1{
+			font-size: 3em;
+			font-family: @topic_font;
+			line-height: 1.2em;
+			font-weight: normal;
+		}
+
+		.time{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 0.8em;
+			padding-top: 3%;
+			color: #BBBBBB;
+			letter-spacing: 1px;
+		}
+
+		p{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 1.1em;
+			padding-top: 3%;
+			color: #999999;
+			font-style: italic;
+		}
 	}
+
+	blockquote{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		margin-bottom: 5%;
+
+		i.fa-quote-left, i.fa-quote-right{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 2.4em;
+			color: #EEEEEE;
+		}
+		i.fa-quote-right{ text-align: right; }
+
+		p{
+			width: 90%;
+			padding: 1% 5%;
+			float: left;
+			display: inline-block;
+			font-size: 2.2em;
+			line-height: 1.3em;
+			color: #666666;
+			border: 0;
+			margin: 0;
+			background: transparent;
+			resize: none;
+			font-style: italic;
+		}
+		footer{
+			width: 80%;
+			padding: 1% 10%;
+			float: left;
+			display: inline-block;
+			font-size: 1.2em;
+			margin: 0px;
+			border: 0px;
+			color: #333333;
+			background: transparent;
+			text-align: right;
+		}
+	}
+
+	.content{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		margin-bottom: 5%;
+
+		h2{
+			font-size: 1.8em;
+			font-family: @topic_font;
+			margin-bottom: 1%;
+			color: #333333;
+		}
+		.body{
+			font-size: 1.2em;
+			line-height: 1.6em;
+			color: #333333;
+		}
+
+		img{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		}
+
+		figcaption{
+			width: 98%;
+			float: left;
+			display: inline-block;
+			text-align: center;
+			font-size: 1em;
+			border: 0px;
+			padding: 2% 1%;
+			background: transparent;
+			font-style: italic;
+			color: #999999;
+		}
+
+		.videoWrapper{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			position: relative;
+			padding-bottom: 56.25%;
+			margin-top: 2%;
+			height: 0;
+
+			iframe{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+.editor{
+	width: 50%;
+	margin: 0 25%;
+	margin-top: 120px;
+	float: left;
+	display: inline-block;
+
+	&.editor{ margin-bottom: 10%; }
 
 	.article-header{
 		width: 100%;
@@ -368,11 +506,6 @@
 		border-bottom: 1px solid #EEEEEE;
 		padding-bottom: 2%;
 		margin-bottom: 2%;
-
-		h1{
-			font-size: 2.4em;
-			font-family: @topic_font;
-		}
 
 		textarea{
 			width: 100%;
@@ -412,6 +545,7 @@
 		float: left;
 		display: inline-block;
 		position: relative;
+		background: #CADADA;
 
 		&:hover{
 			.control .info{ color: #CCCCCC; }

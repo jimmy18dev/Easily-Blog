@@ -36,29 +36,60 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <body>
 <?php include_once 'header.php';?>
 
-<div class="article">
+<article class="article">
 	<!-- Article Header -->
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
-		<p><?php echo (!empty($article->edit_time)?'Edited '.$article->edit_time:$article->create_time);?></p>
+		<div class="time"><?php echo (!empty($article->edit_time)?'Edited '.$article->edit_time:$article->create_time);?></div>
 		<p><?php echo $article->description;?></p>
 	</header>
 
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
-	<?php if($var['type'] == 'textbox'){?>
-	<div class="content">
-		<h2><?php echo $var['topic'];?></h2>
-		<p><?php echo $var['create_time'];?>, <?php echo $var['type'];?>, <?php echo $var['status'];?></p>
-		<div class="body"><?php echo $var['body'];?></div>
-	</div>
-	<?php }else if($var['type'] == 'image'){?>
-	<figure class="content">
-		<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="">
-		<figcaption><?php echo $var['img_alt'];?></figcaption>
-	</figure>
-	<?php }?>
+		<?php if($var['type'] == 'textbox'){?>
+		<article class="content">
+			<?php if(!empty($var['topic'])){?>
+			<h2><?php echo $var['topic'];?></h2>
+			<?php }?>
+
+			<?php if(!empty($var['body'])){?>
+			<div class="body"><?php echo $var['body'];?></div>
+			<?php }?>
+		</article>
+		<?php }else if($var['type'] == 'image'){?>
+		<figure class="content image">
+			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="">
+
+			<?php if(!empty($var['alt'])){?>
+			<figcaption><?php echo $var['alt'];?></figcaption>
+			<?php }?>
+		</figure>
+		<?php }else if($var['type'] == 'youtube'){?>
+		<div class="content youtube">
+			<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
+				<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+			<?php if(!empty($var['alt'])){?>
+			<figcaption><?php echo $var['alt'];?></figcaption>
+			<?php }?>
+		</div>
+		<?php }else if($var['type'] == 'quote'){?>
+		<blockquote class="content">
+			<i class="fa fa-quote-left" aria-hidden="true"></i>
+			<p><?php echo $var['body'];?></p>
+			<footer>–<cite><?php echo $var['topic'];?></cite></footer>
+			<i class="fa fa-quote-right" aria-hidden="true"></i>
+		</blockquote>
+		<?php }else if($var['type'] == 'map'){?>
+		<figure class="content image">
+			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x600&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="">
+			<?php if(!empty($var['alt'])){?>
+			<figcaption><?php echo $var['alt'];?></figcaption>
+			<?php }?>
+		</figure>
+		<a class="btn-openmap" href="http://maps.google.com/maps?q=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>" target="_blank">แสดงเส้นทาง<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<?php }?>
 	<?php } ?>
-</div>
+</article>
 </body>
 </html>

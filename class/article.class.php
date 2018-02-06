@@ -128,10 +128,18 @@ class Article{
         $dataset = $this->db->resultset();
 
         foreach ($dataset as $k => $var) {
-            $dataset[$k]['file_type'] = $this->docType($var['file_type']);
-            $dataset[$k]['file_size'] = $this->db->formatBytes($var['file_size']);
+            $dataset[$k]['file_type']   = $this->docType($var['file_type']);
+            $dataset[$k]['file_size']   = $this->db->formatBytes($var['file_size']);
         }
         return $dataset;
+    }
+
+    private function nl2br($var){
+        $var = str_replace(array('\\r\\n','\r\\n','r\\n','\r\n', '\n', '\r'), '<br/>', nl2br($var));
+        $var = str_replace('<br />','<br>',$var);
+        // $var = htmlentities($var, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        // $var = htmlspecialchars($var);
+        return $var;
     }
 
     public function docType($type){
@@ -237,6 +245,7 @@ class Article{
 
         foreach ($dataset as $k => $var) {
             $dataset[$k]['id']          = floatval($var['id']);
+            $dataset[$k]['body']        = $this->nl2br($var['body']);
             $dataset[$k]['owner_id']    = floatval($var['owner_id']);
             $dataset[$k]['position']    = floatval($var['position']);
             $dataset[$k]['created']     = $this->db->datetimeformat($var['create_time'],'facebook');
