@@ -35,6 +35,8 @@ function initMap($this) {
 			position: default_location,
 			map: map
 		});
+	}else{
+		marker = new google.maps.Marker();
 	}
 
 	map.addListener('click', function(e){
