@@ -41,7 +41,11 @@ $categories = $category->listAll();
 </nav>
 
 <div class="article-list">
+	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php }else{?>
+	<div class="empty">ไม่พบบทความ</div>
+	<?php }?>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

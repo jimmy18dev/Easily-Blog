@@ -32,7 +32,7 @@ $loop = 1;
 </head>
 <body>
 <div class="header fixed">
-	<a href="index.php" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+	<a href="article/<?php echo $article->id;?>" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="page-title" id="editorTitle">เขียนบทความ</div>
 
 	<div class="btn-profile" id="btnProfile">
@@ -49,13 +49,12 @@ $loop = 1;
 			</ul>
 		</div>
 	</div>
-	<div class="btn">
-		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-	</div>
+	<a href="#" class="btn">
+		<span>ตัวเลือก</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+	</a>
 
-	<a href="article/<?php echo $article->id;?>/seo" class="btn active">
+	<a href="article/<?php echo $article->id;?>/seo" class="btn publish">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>
-		<i class="fa fa-angle-right" aria-hidden="true"></i>
 	</a>
 </div>
 

@@ -3,11 +3,11 @@
 
 .header{
 	position: fixed;
-	height: 66px;
+	height: 60px;
 	box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.08);
 	background: rgba(255, 255, 255, .98);
 	-webkit-backdrop-filter: blur(20px);
-	z-index: 9999;
+	z-index: 999;
 	top: 0;
 	width: 100%;
 
@@ -17,15 +17,15 @@
 		left: 0;
 		width: 50%;
 		margin: 0 25%;
-		height: 33px;
-		padding: 16.5px 0;
+		height: 30px;
+		padding: 15px 0;
 		float: left;
 		display: inline-block;
 		text-align: center;
 
 		a{
 			font-family: @logo_font;
-			font-size: 1.8em;
+			font-size: 1.75em;
 			line-height: 1em;
 			text-decoration: none;
 			color: #333333;
@@ -35,13 +35,13 @@
 	.btn-profile{
 		float: right;
 		display: inline-block;
-		height: 33px;
-		padding: 16.5px;
+		height: 34px;
+		padding: 13px;
 		position: relative;
 
 		img{
-			width: 33px;
-			height: 33px;
+			width: 34px;
+			height: 34px;
 			float: left;
 			display: inline-block;
 			border-radius: 50%;
@@ -114,18 +114,19 @@
 		}
 	}
 
-	.btn{
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	a.btn{
 		float: right;
-		height: 33px;
-		padding: 16.5px;
-		line-height: 1em;
+		display: inline-block;
+		height: 30px;
+		padding: 15px;
+		line-height: 1.6em;
 		font-family: @topic_font;
 		background: transparent;
 		position: relative;
-		font-size: 1.2em;
+		font-size: 1.1em;
+		text-decoration: none;
+		color: #999999;
+		margin: 0;
 
 		&.left{
 			float: left;
@@ -138,11 +139,18 @@
 			background: #DDDDDD;
 		}
 
-		&.active{
+		&.publish{
 			color: #4CAF50;
 		}
 
-		i{margin: 0px;}
+		i{
+			font-size: 1.2em;
+			float: right;
+			display: inline-block;
+			margin-left: 10px;
+			margin-top: 4px;
+			color: #BBBBBB;
+		}
 
 		.toggle-panel{
 			position: absolute;
@@ -250,14 +258,13 @@
 	.page-icon{
 		float: left;
 		display: inline-block;
-		padding: 16.5px;
-		padding-right: 0px;
-		height: 33px;
-		font-size: 1.6em;
-		color: #666666;
+		padding: 15px;
+		padding-right: 0;
+		height: 30px;
+		font-size: 1.5em;
+		color: #BBBBBB;
 		text-decoration: none;
-		line-height: 1em;
-		background: #CDADAD;
+		line-height: 1.2em;
 
 		&:hover{
 			color: #666666;
@@ -270,14 +277,16 @@
 	.page-title{
 		float: left;
 		display: inline-block;
-		padding: 16.5px;
-		height: 33px;
-		font-size: 1.2em;
-		color: #666666;
-		text-decoration: none;
+		height: 30px;
+		padding: 15px;
+		line-height: 1.6em;
 		font-family: @topic_font;
-		line-height: 1em;
-		background: #CADADA;
+		background: transparent;
+		position: relative;
+		font-size: 1.1em;
+		text-decoration: none;
+		color: #999999;
+		margin: 0;
 
 		&:hover{ cursor: default; }
 	}
@@ -438,6 +447,7 @@
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
+		position: relative;
 
 		h2{
 			font-size: 1.8em;
@@ -445,6 +455,7 @@
 			margin-bottom: 1%;
 			color: #333333;
 		}
+
 		.body{
 			font-size: 1.2em;
 			line-height: 1.6em;
@@ -455,6 +466,25 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
+		}
+
+		a.btn-open-map{
+			position: absolute;
+			top: 82%;
+			right: 7%;
+			background: #2196F3;
+			color: #FFFFFF;
+			text-decoration: none;
+			padding: 2.5% 2.8%;
+			line-height: 1em;
+			font-size: 1.6em;
+			border-radius: 50%;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+
+			&:hover{
+				cursor: pointer;
+				box-shadow: 0px 0px 40px rgba(0,0,0,0.4);
+			}
 		}
 
 		figcaption{
@@ -1100,6 +1130,16 @@
 	margin: 0% 10%;
 	float: left;
 	display: inline-block;
+	.empty{
+		width: 100%;
+		padding-top: 20%;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		font-family: @topic_font;
+		font-size: 1.6em;
+		color: #BBBBBB;
+	}
 
 	.items{
 		width: 31.33%;
@@ -1356,7 +1396,7 @@
 	height: 3px;
 	float: left;
 	display: inline-block;
-	z-index: 999;
+	z-index: 9999;
 	.bgGradient(#3BED8D,#38ACC5);
 }
 

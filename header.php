@@ -1,5 +1,5 @@
 <header class="header">
-	<div class="btn left"><i class="fa fa-search" aria-hidden="true"></i></div>
+	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
 	
 	<div class="logo">
 		<a href="index.php">Peopleawesome</a>
@@ -22,6 +22,6 @@
 	</div>
 
 	<?php if(!empty($article->id)){?>
-	<a href="article/<?php echo $article->id;?>/editor" class="btn">แก้ไขบทความ</a>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
 	<?php }?>
 </header>

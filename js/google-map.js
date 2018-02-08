@@ -22,7 +22,7 @@ function initMap($this) {
 	if(lat && lng){
 		var default_location = {lat:lat, lng:lng};
 	}else{
-		var default_location = {lat: -25.363, lng: 131.044};
+		var default_location = {lat: 14.05732556603862, lng: 101.39625549316406};
 	}
 
 	var map = new google.maps.Map($embed[0], {

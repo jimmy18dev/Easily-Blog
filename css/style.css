@@ -154,11 +154,11 @@ body {
 }
 .header {
   position: fixed;
-  height: 66px;
+  height: 60px;
   box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.98);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 9999;
+  z-index: 999;
   top: 0;
   width: 100%;
 }
@@ -168,15 +168,15 @@ body {
   left: 0;
   width: 50%;
   margin: 0 25%;
-  height: 33px;
-  padding: 16.5px 0;
+  height: 30px;
+  padding: 15px 0;
   float: left;
   display: inline-block;
   text-align: center;
 }
 .header .logo a {
   font-family: 'Oleo Script', sans-serif;
-  font-size: 1.8em;
+  font-size: 1.75em;
   line-height: 1em;
   text-decoration: none;
   color: #333333;
@@ -184,13 +184,13 @@ body {
 .header .btn-profile {
   float: right;
   display: inline-block;
-  height: 33px;
-  padding: 16.5px;
+  height: 34px;
+  padding: 13px;
   position: relative;
 }
 .header .btn-profile img {
-  width: 33px;
-  height: 33px;
+  width: 34px;
+  height: 34px;
   float: left;
   display: inline-block;
   border-radius: 50%;
@@ -255,35 +255,41 @@ body {
 .header .btn-profile .toggle-panel ul li:hover {
   background: #FAFAFA;
 }
-.header .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header a.btn {
   float: right;
-  height: 33px;
-  padding: 16.5px;
-  line-height: 1em;
+  display: inline-block;
+  height: 30px;
+  padding: 15px;
+  line-height: 1.6em;
   font-family: "maledpan", sans-serif;
   background: transparent;
   position: relative;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #999999;
+  margin: 0;
 }
-.header .btn.left {
+.header a.btn.left {
   float: left;
 }
-.header .btn:hover {
+.header a.btn:hover {
   cursor: pointer;
 }
-.header .btn:active {
+.header a.btn:active {
   background: #DDDDDD;
 }
-.header .btn.active {
+.header a.btn.publish {
   color: #4CAF50;
 }
-.header .btn i {
-  margin: 0px;
+.header a.btn i {
+  font-size: 1.2em;
+  float: right;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 4px;
+  color: #BBBBBB;
 }
-.header .btn .toggle-panel {
+.header a.btn .toggle-panel {
   position: absolute;
   width: 300px;
   top: 100%;
@@ -294,38 +300,38 @@ body {
   border: 1px solid #EEEEEE;
   display: none;
 }
-.header .btn .toggle-panel.open {
+.header a.btn .toggle-panel.open {
   display: block;
 }
-.header .btn .toggle-panel .arrow-up {
+.header a.btn .toggle-panel .arrow-up {
   position: absolute;
   bottom: 100%;
   right: 14%;
   border: 8px solid transparent;
   border-bottom-color: #EEEEEE;
 }
-.header .btn .toggle-panel .meta-form {
+.header a.btn .toggle-panel .meta-form {
   width: 90%;
   margin: 5%;
   float: left;
   display: inline-block;
   color: #333333;
 }
-.header .btn .toggle-panel .meta-form .imgpreview {
+.header a.btn .toggle-panel .meta-form .imgpreview {
   width: 100%;
   float: left;
   display: inline-block;
   background: #EEEEEE;
   margin-bottom: 5%;
 }
-.header .btn .toggle-panel .meta-form .imgpreview .btn-choose-image {
+.header a.btn .toggle-panel .meta-form .imgpreview .btn-choose-image {
   width: 100%;
   padding: 20% 0%;
   float: left;
   display: inline-block;
   text-align: center;
 }
-.header .btn .toggle-panel .meta-form label {
+.header a.btn .toggle-panel .meta-form label {
   width: 100%;
   float: left;
   display: inline-block;
@@ -333,8 +339,8 @@ body {
   font-size: 0.8em;
   color: #BBBBBB;
 }
-.header .btn .toggle-panel .meta-form input[type="text"],
-.header .btn .toggle-panel .meta-form textarea {
+.header a.btn .toggle-panel .meta-form input[type="text"],
+.header a.btn .toggle-panel .meta-form textarea {
   width: 100%;
   float: left;
   display: inline-block;
@@ -345,7 +351,7 @@ body {
   background: transparent;
   border: 0px;
 }
-.header .btn .toggle-panel .meta-form .btns {
+.header a.btn .toggle-panel .meta-form .btns {
   width: 90%;
   padding: 5%;
   float: left;
@@ -355,17 +361,17 @@ body {
   text-align: center;
   border-radius: 5px;
 }
-.header .btn .toggle-panel .group {
+.header a.btn .toggle-panel .group {
   width: 100%;
   float: left;
   display: inline-block;
   border-bottom: 1px solid #EEEEEE;
   margin-bottom: 2%;
 }
-.header .btn .toggle-panel .group:last-child {
+.header a.btn .toggle-panel .group:last-child {
   border-bottom: 0px;
 }
-.header .btn .toggle-panel .group a {
+.header a.btn .toggle-panel .group a {
   width: 80%;
   padding: 7% 10%;
   float: left;
@@ -373,21 +379,20 @@ body {
   text-decoration: none;
   color: #333333;
 }
-.header .btn .toggle-panel .group a:hover {
+.header a.btn .toggle-panel .group a:hover {
   color: #111111;
   background: #FAFAFA;
 }
 .header .page-icon {
   float: left;
   display: inline-block;
-  padding: 16.5px;
-  padding-right: 0px;
-  height: 33px;
-  font-size: 1.6em;
-  color: #666666;
+  padding: 15px;
+  padding-right: 0;
+  height: 30px;
+  font-size: 1.5em;
+  color: #BBBBBB;
   text-decoration: none;
-  line-height: 1em;
-  background: #CDADAD;
+  line-height: 1.2em;
 }
 .header .page-icon:hover {
   color: #666666;
@@ -399,14 +404,16 @@ body {
 .header .page-title {
   float: left;
   display: inline-block;
-  padding: 16.5px;
-  height: 33px;
-  font-size: 1.2em;
-  color: #666666;
-  text-decoration: none;
+  height: 30px;
+  padding: 15px;
+  line-height: 1.6em;
   font-family: "maledpan", sans-serif;
-  line-height: 1em;
-  background: #CADADA;
+  background: transparent;
+  position: relative;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #999999;
+  margin: 0;
 }
 .header .page-title:hover {
   cursor: default;
@@ -552,6 +559,7 @@ body {
   float: left;
   display: inline-block;
   margin-bottom: 5%;
+  position: relative;
 }
 .article .content h2 {
   font-size: 1.8em;
@@ -568,6 +576,23 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
+}
+.article .content a.btn-open-map {
+  position: absolute;
+  top: 82%;
+  right: 7%;
+  background: #2196F3;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 2.5% 2.8%;
+  line-height: 1em;
+  font-size: 1.6em;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+.article .content a.btn-open-map:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
 }
 .article .content figcaption {
   width: 98%;
@@ -1162,6 +1187,16 @@ body {
   float: left;
   display: inline-block;
 }
+.article-list .empty {
+  width: 100%;
+  padding-top: 20%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.6em;
+  color: #BBBBBB;
+}
 .article-list .items {
   width: 31.33%;
   float: left;
@@ -1399,7 +1434,7 @@ body {
   height: 3px;
   float: left;
   display: inline-block;
-  z-index: 999;
+  z-index: 9999;
   background: #3bed8d;
   background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
   background: linear-gradient(to right, #3bed8d, #38acc5);

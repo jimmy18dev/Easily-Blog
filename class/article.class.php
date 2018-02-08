@@ -245,7 +245,7 @@ class Article{
 
         foreach ($dataset as $k => $var) {
             $dataset[$k]['id']          = floatval($var['id']);
-            $dataset[$k]['body']        = $this->nl2br($var['body']);
+            $dataset[$k]['bodytext']        = $this->nl2br($var['body']);
             $dataset[$k]['owner_id']    = floatval($var['owner_id']);
             $dataset[$k]['position']    = floatval($var['position']);
             $dataset[$k]['created']     = $this->db->datetimeformat($var['create_time'],'facebook');

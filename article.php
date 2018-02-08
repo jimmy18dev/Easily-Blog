@@ -29,6 +29,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <title><?php echo $article->title;?></title>
+
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
@@ -41,7 +42,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
 		<div class="time"><?php echo (!empty($article->edit_time)?'Edited '.$article->edit_time:$article->create_time);?></div>
+		<?php if(!empty($article->description)){?>
 		<p><?php echo $article->description;?></p>
+		<?php }?>
 	</header>
 
 	<!-- Contents rendering -->
@@ -53,7 +56,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			<?php }?>
 
 			<?php if(!empty($var['body'])){?>
-			<div class="body"><?php echo $var['body'];?></div>
+			<div class="body"><?php echo $var['bodytext'];?></div>
 			<?php }?>
 		</article>
 		<?php }else if($var['type'] == 'image'){?>
@@ -65,14 +68,14 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			<?php }?>
 		</figure>
 		<?php }else if($var['type'] == 'youtube'){?>
-		<div class="content youtube">
+		<figure class="content youtube">
 			<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
 				<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			</div>
 			<?php if(!empty($var['alt'])){?>
 			<figcaption><?php echo $var['alt'];?></figcaption>
 			<?php }?>
-		</div>
+		</figure>
 		<?php }else if($var['type'] == 'quote'){?>
 		<blockquote class="content">
 			<i class="fa fa-quote-left" aria-hidden="true"></i>
@@ -82,14 +85,23 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</blockquote>
 		<?php }else if($var['type'] == 'map'){?>
 		<figure class="content image">
-			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x600&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="">
+			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x500&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="">
 			<?php if(!empty($var['alt'])){?>
 			<figcaption><?php echo $var['alt'];?></figcaption>
 			<?php }?>
+
+			<a class="btn-open-map" title="แสดงเส้นทาง" href="http://maps.google.com/maps?q=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>" target="_blank"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
 		</figure>
-		<a class="btn-openmap" href="http://maps.google.com/maps?q=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>" target="_blank">แสดงเส้นทาง<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		<?php }?>
 	<?php } ?>
 </article>
+
+<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
+<script>
+$(function(){
+	tippy('[title]',{arrow: true});
+});
+</script>
 </body>
 </html>
