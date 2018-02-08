@@ -226,6 +226,19 @@ class Article{
 		$this->db->execute();
     }
 
+    // Count articles with Owner ID
+    public function counter($owner_id){
+        $this->db->query('SELECT status FROM article WHERE user_id = :owner_id');
+        $this->db->bind(':owner_id',$owner_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+        $dataset = array_map(function($var){
+            return $var['status'];
+        },$dataset);
+        $dataset = array_count_values($dataset);
+        return $dataset;
+    }
+
     /**
     * Content in Article Actions
     */

@@ -292,7 +292,7 @@
 	}
 }
 
-.category{
+.navigation{
 	width: 80%;
 	padding: 0 10%;
 	margin-top: 132px;
@@ -300,16 +300,30 @@
 	display: inline-block;
 	margin-bottom: 3%;
 
+	h2{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		font-size: 3em;
+		font-family: @topic_font;
+		margin-bottom: 3%;
+		color: #333333;
+		font-weight: normal;
+		line-height: 1.2em;
+	}
+
 	a{
 		float: left;
 		display: inline-block;
 		text-decoration: none;
 		color: #BBBBBB;
-		margin: auto;
 		font-family: @topic_font;
 		font-weight: normal;
 		font-size: 1.4em;
-		margin-right: 3%;
+		padding: 1% 1.3%;
+		padding-bottom: 1.3%;
+		line-height: 1em;
+		border-radius: 5px;
 
 		&:hover{
 			cursor: pointer;
@@ -317,6 +331,17 @@
 
 		&.active{
 			color: #111111;
+		}
+
+		&.btn-create{
+			float: right;
+			margin-right: 0%;
+			background: #4CAF50;
+			color: #FFFFFF;
+
+			i{
+				margin-right: 10px;
+			}
 		}
 	}
 }

@@ -418,7 +418,7 @@ body {
 .header .page-title:hover {
   cursor: default;
 }
-.category {
+.navigation {
   width: 80%;
   padding: 0 10%;
   margin-top: 132px;
@@ -426,22 +426,44 @@ body {
   display: inline-block;
   margin-bottom: 3%;
 }
-.category a {
+.navigation h2 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 3em;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 3%;
+  color: #333333;
+  font-weight: normal;
+  line-height: 1.2em;
+}
+.navigation a {
   float: left;
   display: inline-block;
   text-decoration: none;
   color: #BBBBBB;
-  margin: auto;
   font-family: "maledpan", sans-serif;
   font-weight: normal;
   font-size: 1.4em;
-  margin-right: 3%;
+  padding: 1% 1.3%;
+  padding-bottom: 1.3%;
+  line-height: 1em;
+  border-radius: 5px;
 }
-.category a:hover {
+.navigation a:hover {
   cursor: pointer;
 }
-.category a.active {
+.navigation a.active {
   color: #111111;
+}
+.navigation a.btn-create {
+  float: right;
+  margin-right: 0%;
+  background: #4CAF50;
+  color: #FFFFFF;
+}
+.navigation a.btn-create i {
+  margin-right: 10px;
 }
 .seo {
   width: 50%;
