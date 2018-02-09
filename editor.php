@@ -41,7 +41,7 @@ $loop = 1;
 		<div class="toggle-panel" id="profilePanel">
 			<div class="popover-arrow"></div>
 			<ul>
-				<li><a href="#">บทความของฉัน</a></li>
+				<li><a href="profile">บทความของฉัน</a></li>
 				<li class="separator"></li>
 				<li><a href="#">ตั้งค่า</a></li>
 				<li><a href="#">วิธีใช้</a></li>
@@ -49,9 +49,20 @@ $loop = 1;
 			</ul>
 		</div>
 	</div>
-	<a href="#" class="btn">
+	<div class="btn" id="btnOption">
 		<span>ตัวเลือก</span><i class="fa fa-angle-down" aria-hidden="true"></i>
-	</a>
+
+		<div class="toggle-panel" id="optionPanel">
+			<div class="popover-arrow"></div>
+			<ul>
+				<li><a href="profile">บทความของฉัน</a></li>
+				<li class="separator"></li>
+				<li><a href="#">ตั้งค่า</a></li>
+				<li><a href="#">วิธีใช้</a></li>
+				<li><a href="#" class="logout">ลบบทความ</a></li>
+			</ul>
+		</div>
+	</div>
 
 	<a href="article/<?php echo $article->id;?>/seo" class="btn publish">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>

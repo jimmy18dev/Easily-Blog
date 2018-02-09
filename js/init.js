@@ -16,6 +16,15 @@ $(document).ready(function(){
         	$ProfilePanel.fadeIn(300);
     });
 
+    $optionPanel = $('#optionPanel');
+    $('#btnOption').click(function(event) {
+        event.stopPropagation();
+        if($optionPanel.is(':visible'))
+            $optionPanel.fadeOut(300)
+        else
+            $optionPanel.fadeIn(300);
+    });
+
     $(window).on('click touchstart',function(event) {
 
     	// Get Current DOM
@@ -26,5 +35,8 @@ $(document).ready(function(){
 		// Profile Panel Hidden!
 		if(current_id != 'profilePanel' && $ProfilePanel.is(':visible'))
 			$('#profilePanel').fadeOut(300);
+
+		if(current_id != 'optionPanel' && $('#optionPanel').is(':visible'))
+			$('#optionPanel').fadeOut(300);
     });
 });

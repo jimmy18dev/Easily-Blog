@@ -204,7 +204,7 @@ body {
   position: absolute;
   width: 200px;
   padding: 8px 0;
-  top: 140%;
+  top: 95%;
   right: 15%;
   background: #FFFFFF;
   border-radius: 5px;
@@ -217,7 +217,7 @@ body {
 }
 .header .btn-profile .toggle-panel .popover-arrow {
   position: absolute;
-  right: 6%;
+  right: 7%;
   bottom: 100%;
   transform: rotate(45deg) translate(6px, 6px);
   box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
@@ -252,10 +252,14 @@ body {
 .header .btn-profile .toggle-panel ul li a.logout {
   color: #F44336;
 }
+.header .btn-profile .toggle-panel ul li a.create {
+  color: #4CAF50;
+}
 .header .btn-profile .toggle-panel ul li:hover {
   background: #FAFAFA;
 }
-.header a.btn {
+.header a.btn,
+.header .btn {
   float: right;
   display: inline-block;
   height: 30px;
@@ -269,19 +273,12 @@ body {
   color: #999999;
   margin: 0;
 }
-.header a.btn.left {
-  float: left;
-}
-.header a.btn:hover {
-  cursor: pointer;
-}
-.header a.btn:active {
-  background: #DDDDDD;
-}
-.header a.btn.publish {
+.header a.btn.publish,
+.header .btn.publish {
   color: #4CAF50;
 }
-.header a.btn i {
+.header a.btn i,
+.header .btn i {
   font-size: 1.2em;
   float: right;
   display: inline-block;
@@ -289,98 +286,90 @@ body {
   margin-top: 4px;
   color: #BBBBBB;
 }
-.header a.btn .toggle-panel {
+.header a.btn.left,
+.header .btn.left {
+  float: left;
+}
+.header a.btn.left i,
+.header .btn.left i {
+  float: left;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.header a.btn:hover,
+.header .btn:hover {
+  cursor: pointer;
+}
+.header a.btn:active,
+.header .btn:active {
+  background: #EEEEEE;
+}
+.header a.btn .toggle-panel,
+.header .btn .toggle-panel {
   position: absolute;
-  width: 300px;
-  top: 100%;
-  right: -15%;
+  width: 200px;
+  padding: 8px 0;
+  top: 95%;
+  right: 15%;
   background: #FFFFFF;
   border-radius: 5px;
   z-index: 999;
-  border: 1px solid #EEEEEE;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
   display: none;
 }
-.header a.btn .toggle-panel.open {
+.header a.btn .toggle-panel.open,
+.header .btn .toggle-panel.open {
   display: block;
 }
-.header a.btn .toggle-panel .arrow-up {
+.header a.btn .toggle-panel .popover-arrow,
+.header .btn .toggle-panel .popover-arrow {
   position: absolute;
+  right: 7%;
   bottom: 100%;
-  right: 14%;
-  border: 8px solid transparent;
-  border-bottom-color: #EEEEEE;
+  transform: rotate(45deg) translate(6px, 6px);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
 }
-.header a.btn .toggle-panel .meta-form {
-  width: 90%;
-  margin: 5%;
-  float: left;
-  display: inline-block;
-  color: #333333;
-}
-.header a.btn .toggle-panel .meta-form .imgpreview {
+.header a.btn .toggle-panel ul,
+.header .btn .toggle-panel ul {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #EEEEEE;
-  margin-bottom: 5%;
+  list-style-type: none;
+  font-size: 1em;
+  font-family: "maledpan", sans-serif;
 }
-.header a.btn .toggle-panel .meta-form .imgpreview .btn-choose-image {
-  width: 100%;
-  padding: 20% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
+.header a.btn .toggle-panel ul li,
+.header .btn .toggle-panel ul li {
+  display: block;
 }
-.header a.btn .toggle-panel .meta-form label {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 3%;
-  font-size: 0.8em;
-  color: #BBBBBB;
+.header a.btn .toggle-panel ul li.separator,
+.header .btn .toggle-panel ul li.separator {
+  border-top: 1px solid #EEEEEE;
+  padding: 0;
+  margin: 2.5% 0%;
 }
-.header a.btn .toggle-panel .meta-form input[type="text"],
-.header a.btn .toggle-panel .meta-form textarea {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin: 0;
-  margin-bottom: 5%;
-  font-size: 1.1em;
-  resize: none;
-  background: transparent;
-  border: 0px;
-}
-.header a.btn .toggle-panel .meta-form .btns {
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
-  background: #4CAF50;
-  color: #FFFFFF;
-  text-align: center;
-  border-radius: 5px;
-}
-.header a.btn .toggle-panel .group {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-  margin-bottom: 2%;
-}
-.header a.btn .toggle-panel .group:last-child {
-  border-bottom: 0px;
-}
-.header a.btn .toggle-panel .group a {
-  width: 80%;
-  padding: 7% 10%;
-  float: left;
-  display: inline-block;
+.header a.btn .toggle-panel ul li a,
+.header .btn .toggle-panel ul li a {
+  padding: 5% 12%;
+  display: block;
   text-decoration: none;
-  color: #333333;
+  color: #666666;
 }
-.header a.btn .toggle-panel .group a:hover {
-  color: #111111;
+.header a.btn .toggle-panel ul li a.logout,
+.header .btn .toggle-panel ul li a.logout {
+  color: #F44336;
+}
+.header a.btn .toggle-panel ul li a.create,
+.header .btn .toggle-panel ul li a.create {
+  color: #4CAF50;
+}
+.header a.btn .toggle-panel ul li:hover,
+.header .btn .toggle-panel ul li:hover {
   background: #FAFAFA;
 }
 .header .page-icon {
@@ -418,7 +407,7 @@ body {
 .header .page-title:hover {
   cursor: default;
 }
-.navigation {
+.pagehead {
   width: 80%;
   padding: 0 10%;
   margin-top: 132px;
@@ -426,7 +415,10 @@ body {
   display: inline-block;
   margin-bottom: 3%;
 }
-.navigation h2 {
+.pagehead.center {
+  text-align: center;
+}
+.pagehead h2 {
   width: 100%;
   float: left;
   display: inline-block;
@@ -437,7 +429,10 @@ body {
   font-weight: normal;
   line-height: 1.2em;
 }
-.navigation a {
+.pagehead p {
+  font-family: "maledpan", sans-serif;
+}
+.pagehead a {
   float: left;
   display: inline-block;
   text-decoration: none;
@@ -450,19 +445,19 @@ body {
   line-height: 1em;
   border-radius: 5px;
 }
-.navigation a:hover {
+.pagehead a:hover {
   cursor: pointer;
 }
-.navigation a.active {
+.pagehead a.active {
   color: #111111;
 }
-.navigation a.btn-create {
+.pagehead a.btn-create {
   float: right;
   margin-right: 0%;
   background: #4CAF50;
   color: #FFFFFF;
 }
-.navigation a.btn-create i {
+.pagehead a.btn-create i {
   margin-right: 10px;
 }
 .seo {
@@ -493,6 +488,86 @@ body {
 .seo .list .cover-items:hover {
   cursor: pointer;
   opacity: 0.9;
+}
+.choose {
+  width: 50%;
+  margin: 0% 25%;
+  float: left;
+  display: inline-block;
+}
+.choose .list {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.choose .list .choose-category {
+  width: 31.33%;
+  padding: 6% 0%;
+  float: left;
+  display: inline-block;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  margin-right: 3%;
+  margin-bottom: 3%;
+  background: #FFFFFF;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  color: #999999;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+.choose .list .choose-category:nth-child(3n+0) {
+  margin-right: 0;
+}
+.choose .list .choose-category.active {
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+.choose .list .choose-category:hover {
+  cursor: pointer;
+}
+.choose .list .choose-category .icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 5%;
+}
+.choose .list .choose-category .name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.6em;
+  line-height: 1.3em;
+}
+.choose .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.choose .control .btn {
+  float: right;
+  display: inline-block;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.4em;
+  background: transparent;
+  color: #CCCCCC;
+  line-height: 1em;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+.choose .control .btn i {
+  margin-left: 15px;
+}
+.choose .control .btn.active {
+  background: #4CAF50;
+  color: #FFFFFF;
+}
+.choose .control .btn:hover {
+  cursor: pointer;
 }
 .article {
   width: 50%;
@@ -697,7 +772,6 @@ body {
   float: left;
   display: inline-block;
   position: relative;
-  background: #CADADA;
 }
 .editor .content:hover .control .info {
   color: #CCCCCC;
@@ -1194,14 +1268,6 @@ body {
 .editor .documents .document-items .btn:hover {
   cursor: pointer;
   color: #666666;
-}
-.pagehead {
-  width: 60%;
-  margin: 0% 20%;
-  float: left;
-  display: inline-block;
-  margin-top: 60px;
-  background: #CADADA;
 }
 .article-list {
   width: 80%;

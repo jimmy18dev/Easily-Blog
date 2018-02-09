@@ -8,8 +8,8 @@ if(!empty($_GET['status'])){
 	$status = 'published';
 }
 
-$articles 			= $article->listAll(NULL,NULL,NULL,$status,$user->id);
-$article_counter 	= $article->counter($user->id);
+$articles 	= $article->listAll(NULL,NULL,NULL,$status,$user->id);
+$c_article 	= $article->counter($user->id);
 ?>
 
 <!doctype html>
@@ -37,10 +37,10 @@ $article_counter 	= $article->counter($user->id);
 </head>
 <body>
 <?php include_once 'header.php';?>
-<div class="navigation">
+<div class="pagehead">
 	<h2><?php echo $user->fullname;?></h2>
-	<a href="profile?status=published">แผยแพร่แล้ว (<?php echo $article_counter['published'];?>)</a>
-	<a href="profile?status=draft">ฉบับร่าง (<?php echo $article_counter['draft'];?>)</a>
+	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+	<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['published']>0?' ('.$c_article['draft'].')':'');?></a>
 
 	<a href="article/create" class="btn-create"><i class="fa fa-pencil" aria-hidden="true"></i>เขียนบทความ</a>
 </div>
