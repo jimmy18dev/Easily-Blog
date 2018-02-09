@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header fixed">
 	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
 	
 	<div class="logo">

@@ -63,7 +63,7 @@ $(document).ready(function(){
             data:{
                 request     :'change_status',
                 article_id  :article_id,
-                status: 'published'
+                status      :'published'
             },
             error: function (request, status, error){
                 console.log(request.responseText);

@@ -2,14 +2,19 @@
 @import "config";
 
 .header{
-	position: fixed;
-	height: 60px;
-	box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.08);
-	background: rgba(255, 255, 255, .98);
-	-webkit-backdrop-filter: blur(20px);
-	z-index: 999;
-	top: 0;
 	width: 100%;
+	float: left;
+	display: inline-block;
+	height: 60px;
+	top: 0;
+	z-index: 999;
+
+	&.fixed{
+		position: fixed;
+		background: rgba(255, 255, 255, .98);
+		box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.08);
+		-webkit-backdrop-filter: blur(20px);
+	}
 
 	.logo{
 		position: absolute;
@@ -199,7 +204,7 @@
 						margin: 2.5% 0%;
 					}
 
-					a{
+					a , span{
 						padding: 5% 12%;
 						display: block;
 						text-decoration: none;
@@ -264,6 +269,7 @@
 
 	&.center{
 		text-align: center;
+		margin-top: 60px;
 	}
 
 	h2{
@@ -318,34 +324,90 @@
 
 .seo{
 	width: 50%;
-	margin: 0 25%;
+	margin: 10% 25%;
+	margin-top: 120px;
 	float: left;
 	display: inline-block;
 
-	.list{
+	.section{
 		width: 100%;
 		float: left;
 		display: inline-block;
+		margin-bottom: 5%;
 
-		.cover-items{
-			width: 20%;
+		h2{
+			font-family: @topic_font;
+			font-size: 2em;
+			font-weight: normal;
+			margin-bottom: 3%;
+		}
+
+		.inputWrapper{
+			width: 100%;
+			padding: 2% 3%;
 			float: left;
 			display: inline-block;
+			font-size: 1.3em;
+			border-radius: 5px;
+			line-height: 2em;
 			box-sizing: border-box;
+			border: 1px solid #EEEEEE;
+			background: #FAFAFA;
 
-			img{
-				width: 100%;
+			span{
 				float: left;
 				display: inline-block;
+				color: #999999;
 			}
 
-			&.active{
-				border: 2px solid #FF0000;
-			}
+			.url-input{
+				width: 50%;
+				float: left;
+				display: inline-block;
+				font-size: 1em;
+				padding: 0 1%;
+				margin: 0;
+				border: 0;
+				line-height: 1.9em;
+				background: transparent;
+				color: #4CAF50;
 
-			&:hover{
-				cursor: pointer;
-				opacity: 0.9;
+				&::-webkit-input-placeholder { color: #4CAF50; }
+				&::-moz-placeholder { color: #4CAF50; }
+				&:-ms-input-placeholder { color: #4CAF50; }
+				&:-moz-placeholder { color: #4CAF50; }
+			}
+		}
+
+		.list{
+			width: 100%;
+			float: left;
+			display: inline-block;
+
+			.cover-items{
+				width: 18.4%;
+				float: left;
+				display: inline-block;
+				box-sizing: border-box;
+				margin-bottom: 2%;
+				margin-right: 2%;
+				border: 3px solid transparent;
+				border-radius: 5px;
+				overflow: hidden;
+
+				&:nth-child(5n+0){ margin-right: 0; }
+
+				img{
+					width: 100%;
+					float: left;
+					display: inline-block;
+				}
+
+				&.active{
+					border: 3px solid #4CAF50;
+				}
+
+				&:hover{ cursor: pointer; }
 			}
 		}
 	}

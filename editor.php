@@ -55,17 +55,15 @@ $loop = 1;
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
 			<ul>
-				<li><a href="profile">บทความของฉัน</a></li>
-				<li class="separator"></li>
 				<li><a href="#">ตั้งค่า</a></li>
 				<li><a href="#">วิธีใช้</a></li>
-				<li><a href="#" class="logout">ลบบทความ</a></li>
+				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>
 	</div>
 
 	<a href="article/<?php echo $article->id;?>/seo" class="btn publish">
-		<span><?php echo ($article->status!='publish'?'เผยแพร่บทความ':'เผยแพร่แล้ว');?></span>
+		<span><?php echo ($article->status!='publish'?'บันทึก':'เผยแพร่แล้ว');?></span>
 	</a>
 </div>
 
