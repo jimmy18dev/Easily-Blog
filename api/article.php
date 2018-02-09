@@ -172,6 +172,16 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $article->deleteContent($content_id,$article_id);
                 $returnObject['message'] = 'Content deleted';
                 break;
+
+            // Tag
+            case 'add_tag':
+                $article_id     = $_POST['article_id'];
+                $tag            = $_POST['tag'];
+                
+                $tag_id = $article->addTag($article_id,$tag);
+
+                $returnObject['message'] = 'New tag created #'.$tag_id;
+                break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';
 			break;

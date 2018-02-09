@@ -424,7 +424,47 @@ class Article{
     }
 
     /**
-    * Documents
+    * Tags
     */
+
+    // Add article tag.
+    public function addTag($article_id,$tag){
+
+        $tag_id = $this->getTagID($tag);
+
+        $this->db->query('SELECT id FROM article_tags WHERE article_id = :article_id AND tag_id = :tag_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':tag_id',$tag_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+
+        if(empty($dataset['id'])){
+            $this->db->query('INSERT INTO article_tags(article_id,tag_id,created) VALUE(:article_id,:tag_id,:created)');
+            $this->db->bind(':article_id',$article_id);
+            $this->db->bind(':tag_id',$tag_id);
+            $this->db->bind(':created',date('Y-m-d H:i:s'));
+            $this->db->execute();
+            return $this->db->lastInsertId();
+        }else{
+            return $dataset['id'];
+        }
+    }
+
+    private function getTagID($name){
+        $this->db->query('SELECT id FROM tag WHERE name = :name');
+        $this->db->bind(':name',$name);
+        $this->db->execute();
+        $dataset = $this->db->single();
+
+        if(empty($dataset['id'])){
+            $this->db->query('INSERT INTO tag(name,created) VALUE(:name,:created)');
+            $this->db->bind(':name',$name);
+            $this->db->bind(':created',date('Y-m-d H:i:s'));
+            $this->db->execute();
+            return $this->db->lastInsertId();
+        }else{
+            return $dataset['id'];
+        }
+    }
 }
 ?>
