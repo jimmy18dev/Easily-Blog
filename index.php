@@ -48,6 +48,9 @@ $categories = $category->listAll();
 	<?php }?>
 </div>
 
+<?php if(count($articles)>0){
+	include_once 'footer.php';
+}?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </body>

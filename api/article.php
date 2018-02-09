@@ -47,6 +47,16 @@ switch ($_SERVER['REQUEST_METHOD']){
 
     			$returnObject['message'] = 'Title edited';
     			break;
+            case 'edit_address':
+                $article_id     = $_POST['article_id'];
+                $province_id    = $_POST['province_id'];
+                $amphur_id      = $_POST['amphur_id'];
+                $district_id    = $_POST['district_id'];
+                
+                $article_id = $article->editAddress($article_id,$province_id,$amphur_id,$district_id);
+
+                $returnObject['message'] = 'Address edited';
+                break;
     		case 'edit_description':
     			$article_id = $_POST['article_id'];
     			$description = $_POST['description'];
@@ -168,7 +178,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 		}
     	break;
     default:
-    	$returnObject['message'] = 'METHOD API Not found!';
+    	$returnObject['message'] = 'METHOD API Not found!!! - '.$_SERVER['REQUEST_METHOD'];
     	break;
 }
 

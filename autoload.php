@@ -13,6 +13,7 @@ require_once 'config/config.php';
 require_once 'config/image.config.php';
 
 require_once 'class/database.class.php';
+require_once 'class/location.class.php';
 require_once 'class/image.class.php';
 require_once 'class/article.class.php';
 require_once 'class/document.class.php';

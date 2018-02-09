@@ -37,6 +37,7 @@ $c_article 	= $article->counter($user->id);
 </head>
 <body>
 <?php include_once 'header.php';?>
+
 <div class="pagehead">
 	<h2><?php echo $user->fullname;?></h2>
 	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
@@ -53,6 +54,11 @@ $c_article 	= $article->counter($user->id);
 	<?php }?>
 </div>
 
+<?php if(count($articles)>0){
+	include_once 'footer.php';
+}?>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

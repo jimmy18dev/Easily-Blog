@@ -95,7 +95,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<?php }?>
 	<?php } ?>
 </article>
-
+<?php include_once 'footer.php';?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>

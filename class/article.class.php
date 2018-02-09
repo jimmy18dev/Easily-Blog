@@ -19,6 +19,10 @@ class Article{
     public $total_document;
     public $documents;
 
+    public $province_id;
+    public $amphur_id;
+    public $district_id;
+
     public $cover_id;
     public $cover_img;
 	
@@ -59,6 +63,17 @@ class Article{
         $this->db->execute();
     }
 
+    // Update Article Address
+    public function editAddress($article_id,$province_id,$amphur_id,$district_id){
+        $this->db->query('UPDATE article SET province_id = :province_id,amphur_id = :amphur_id,district_id = :district_id, edit_time = :edit_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':province_id',$province_id);
+        $this->db->bind(':amphur_id',$amphur_id);
+        $this->db->bind(':district_id',$district_id);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
     // Edit Article URL.
     public function editURL($article_id,$url){
         $this->db->query('UPDATE article SET url = :url, edit_time = :edit_time WHERE id = :article_id');
@@ -79,7 +94,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,article.amphur_id,.article.district_id,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -112,6 +127,11 @@ class Article{
         $this->owner_fname      = $dataset['owner_fname'];
         $this->owner_lname      = $dataset['owner_lname'];
         $this->total_contents   = $dataset['total_contents'];
+
+        $this->province_id = $dataset['province_id'];
+        $this->amphur_id = $dataset['amphur_id'];
+        $this->district_id = $dataset['district_id'];
+
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];
 

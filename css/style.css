@@ -531,6 +531,41 @@ body {
 .seo .section .inputWrapper .url-input:-moz-placeholder {
   color: #4CAF50;
 }
+.seo .section .address-list {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.seo .section .address-list .items {
+  float: left;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  line-height: 1em;
+  color: #666666;
+}
+.seo .section .address-list .items:hover {
+  cursor: pointer;
+}
+.seo .section .address-list .items.active {
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+.seo .section .address-list .items.unselect {
+  color: #BBBBBB;
+}
+.seo .section .btn {
+  float: right;
+  display: inline-block;
+  background: #EEEEEE;
+  color: #666666;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.seo .section .btn:hover {
+  cursor: pointer;
+}
 .seo .section .list {
   width: 100%;
   float: left;
@@ -1585,6 +1620,44 @@ body {
   font-size: 2em;
   text-align: center;
   color: #1abc9c;
+}
+.footer {
+  width: 50%;
+  padding: 5% 25%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
+}
+.footer a.link {
+  text-decoration: none;
+  padding: 3px 15px;
+  line-height: 1em;
+  border-radius: 5px;
+  color: #333333;
+}
+.footer a.link i {
+  margin-left: 10px;
+}
+.footer a.link:hover {
+  cursor: pointer;
+  background: #EEEEEE;
+}
+.footer p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 3%;
+  color: #BBBBBB;
+}
+.footer p.license {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+.footer p a {
+  text-decoration: none;
+  color: #BBBBBB;
 }
 #progressbar {
   position: fixed;

@@ -60,7 +60,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <div class="seo">
 	<div class="section">
-		<h2>ภาพหน้าปก (Cover)</h2>
+		<h2>1. ภาพหน้าปก (Cover)</h2>
 		<div class="list">
 			<?php foreach ($article->contents as $var) {?>
 			<?php if($var['type'] == 'image'){?>
@@ -73,18 +73,43 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section">
-		<h2>ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
+		<h2>2. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
 		<div class="inputWrapper">
 			<span class="domain"><?php echo $article_url;?></span>
 			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
 		</div>
 	</div>
+
+	<div class="section">
+		<h2>3. ที่อยู่</h2>
+		<div class="location">
+			<h3>อำเภอ:</h3>
+			<div class="address-list" id="amphur-list"></div>
+		</div>
+		<div class="location">
+			<h3>ตำบล:</h3>
+			<div class="address-list" id="district-list"></div>
+		</div>
+
+		<div class="btn" id="btnClearLocation">ลบที่อยู่ออก</div>
+	</div>
+
+	<div class="section">
+		<h2>4. คำที่เกี่ยวข้อง</h2>
+		<form action="">
+			<input type="text" placeholder="Enter tag...">
+		</form>
+	</div>
 </div>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
+<input type="text" id="province_id" value="<?php echo $article->province_id;?>">
+<input type="text" id="amphur_id" value="<?php echo $article->amphur_id;?>">
+<input type="text" id="district_id" value="<?php echo $article->district_id;?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/location.js"></script>
 <script type="text/javascript" src="js/seo.js"></script>
 </body>
 </html>
