@@ -48,10 +48,16 @@ $p_url 		= DOMAIN.'/signin';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
+<header class="header fixed">
+	<div class="logo">
+		<a href="index.php">Peopleawesome</a>
+	</div>
+</header>
+
 <div class="login">
 	<div class="content">
 		<button class="btn btn-facebook" onclick="javascript:facebookLogin();"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</button>
-		<div class="line"><span>หรือ</span></div>
+		<div class="separator"><span>หรือ</span></div>
 		<form action="javascript:login();">
 			<input type="phone" class="inputtext" id="username" placeholder="ที่อยู่อีเมลหรือเบอร์โทรศัพท์" required autofocus>
 			<input type="password" class="inputtext" id="password" placeholder="รหัสผ่าน" required>
@@ -59,8 +65,9 @@ $p_url 		= DOMAIN.'/signin';
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">
 			<button type="btn" class="btn btn-submit" id="btnSubmit">ลงชื่อเข้าใช้งาน</button>
 		</form>
-
-		<p>ใช้งานเป็นครั้งแรก <a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่<i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+		<div class="message">
+			ใช้งานเป็นครั้งแรก <a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		</div>
 	</div>
 </div>
 

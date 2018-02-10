@@ -94,6 +94,12 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</figure>
 		<?php }?>
 	<?php } ?>
+
+	<div class="tag">
+		<?php foreach ($article->tags as $var){ ?>
+		<a href="#">#<?php echo $var['name'];?></a>
+		<?php } ?>
+	</div>
 </article>
 <?php include_once 'footer.php';?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

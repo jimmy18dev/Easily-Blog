@@ -5,6 +5,7 @@
 		<a href="index.php">Peopleawesome</a>
 	</div>
 
+	<?php if($user_online){?>
 	<div class="btn-profile" id="btnProfile">
 		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
 
@@ -20,6 +21,9 @@
 			</ul>
 		</div>
 	</div>
+	<?php }else{?>
+	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	<?php }?>
 
 	<?php if(!empty($article->id)){?>
 	<a href="article/<?php echo $article->id;?>/editor" class="btn"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
