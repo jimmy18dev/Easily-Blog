@@ -26,6 +26,55 @@ $(document).ready(function(){
         });
     });
 
+    $('.btn-remove-tag').click(function(){
+        $tag            = $(this).parent();
+        var tag_id      = $tag.attr('data-id');
+        var tag_name    = $tag.attr('data-name');
+
+        if(!confirm('คุณต้องการลบ "'+tag_name+'" ใช่หรือไม่ ?')){ return false; }
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'remove_tag',
+                article_id  :article_id,
+                tag_id      :tag_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $tag.fadeOut(300);
+        });
+    });
+
+    $('#tagForm').submit(function(event) {
+        event.preventDefault();
+        var tag = $('#tag-input').val();
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'add_tag',
+                article_id  :article_id,
+                tag         :tag
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            location.reload();
+        });
+    });
+
     $('#articleURL').on('blur',function(event) {
         var url = $(this).val();
         console.log(url);

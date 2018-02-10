@@ -18,6 +18,7 @@ class Article{
     public $contents;
     public $total_document;
     public $documents;
+    public $tags;
 
     public $province_id;
     public $amphur_id;
@@ -134,6 +135,7 @@ class Article{
 
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];
+        $this->tags             = $this->listTags($this->id);
 
         $this->cover_id = $dataset['cover_id'];
         $this->cover_img = $dataset['cover_img'];
@@ -465,6 +467,26 @@ class Article{
         }else{
             return $dataset['id'];
         }
+    }
+
+    public function removeTag($article_id,$tag_id){
+        $this->db->query('DELETE FROM article_tags WHERE article_id = :article_id AND tag_id = :tag_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':tag_id',$tag_id);
+        $this->db->execute();
+    }
+
+    public function listTags($article_id){
+        $this->db->query('SELECT article_tags.tag_id,tag.name FROM article_tags AS article_tags LEFT JOIN tag AS tag ON article_tags.tag_id = tag.id WHERE article_tags.article_id = :article_id ORDER BY article_tags.created ASC');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            // $dataset[$k]['file_type']   = $this->docType($var['file_type']);
+            // $dataset[$k]['file_size']   = $this->db->formatBytes($var['file_size']);
+        }
+        return $dataset;
     }
 }
 ?>

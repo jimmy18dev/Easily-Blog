@@ -96,8 +96,16 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 	<div class="section">
 		<h2>4. คำที่เกี่ยวข้อง</h2>
-		<form action="">
-			<input type="text" placeholder="Enter tag...">
+		<div class="tag">
+			<?php foreach ($article->tags as $var) {?>
+			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">
+				<span><?php echo $var['name'];?></span>
+				<span class="btn-remove-tag"><i class="fa fa-close" aria-hidden="true"></i></span>
+			</div>
+			<?php }?>
+		</div>
+		<form id="tagForm">
+			<input type="text" id="tag-input" class="input-tag" placeholder="Enter tag...">
 		</form>
 	</div>
 </div>

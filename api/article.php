@@ -176,11 +176,22 @@ switch ($_SERVER['REQUEST_METHOD']){
             // Tag
             case 'add_tag':
                 $article_id     = $_POST['article_id'];
-                $tag            = $_POST['tag'];
-                
-                $tag_id = $article->addTag($article_id,$tag);
+                $tags            = array_filter(explode(' ',$_POST['tag']));
 
-                $returnObject['message'] = 'New tag created #'.$tag_id;
+                foreach ($tags as $tag){
+                    $article->addTag($article_id,$tag);
+                }
+
+                $returnObject['message'] = 'New tag created #';
+                $returnObject['data'] = $tags;
+                break;
+            case 'remove_tag':
+                $article_id     = $_POST['article_id'];
+                $tag_id         = $_POST['tag_id'];
+
+                $article->removeTag($article_id,$tag_id);
+
+                $returnObject['message'] = 'Tag removed';
                 break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';
