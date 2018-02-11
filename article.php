@@ -61,7 +61,11 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</article>
 		<?php }else if($var['type'] == 'image'){?>
 		<figure class="content image">
+			<?php if(!empty($var['img_location']) && file_exists('image/upload/normal/'.$var['img_location'])){?>
 			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="">
+			<?php }else{?>
+			<div class="image-not-found">ไม่พบรูปภาพ</div>
+			<?php }?>
 
 			<?php if(!empty($var['alt'])){?>
 			<figcaption><?php echo $var['alt'];?></figcaption>
