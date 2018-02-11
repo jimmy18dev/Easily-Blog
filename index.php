@@ -34,7 +34,7 @@ $categories = $category->listAll();
 <?php include_once 'header.php';?>
 
 <nav class="pagehead">
-	<a class="<?php echo (empty($category_id)?'active':'');?>" href="index.php">All Articles</a>
+	<a class="<?php echo (empty($category_id)?'active':'');?>" href="index.php">All</a>
 	<?php foreach ($categories as $var) {?>
 	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?>/<?php echo $var['title'];?>"><?php echo $var['title'];?></a>
 	<?php } ?>

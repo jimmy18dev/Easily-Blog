@@ -5,7 +5,7 @@ $article = new Article();
 if(!empty($_GET['status'])){
 	$status = $_GET['status'];
 }else{
-	$status = 'published';
+	$status = 'draft';
 }
 
 $articles 	= $article->listAll(NULL,NULL,NULL,$status,$user->id);
@@ -40,9 +40,9 @@ $c_article 	= $article->counter($user->id);
 
 <div class="pagehead">
 	<h2><?php echo $user->fullname;?></h2>
-	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
 	<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['published']>0?' ('.$c_article['draft'].')':'');?></a>
-
+	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+	
 	<a href="article/create" class="btn-create"><i class="fa fa-pencil" aria-hidden="true"></i>เขียนบทความ</a>
 </div>
 

@@ -49,6 +49,8 @@ $categories = $category->listAll();
 	</div>
 </div>
 
+<div id="progressbar"></div>
+<div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/article.js"></script>

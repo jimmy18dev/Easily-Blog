@@ -99,10 +99,11 @@ $(document).ready(function(){
 
     // Publish Article
     $('#btn-publish').click(function(){
-        
         $progressbar.fadeIn(300);
         $progressbar.width('0%');
         $progressbar.animate({width:'70%'},500);
+
+        $(this).html('<span>กำลังเผยแพร่</span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
 
         $.ajax({
             url         :article_api,

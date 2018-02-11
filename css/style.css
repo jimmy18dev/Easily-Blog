@@ -1797,6 +1797,44 @@ body {
 .login .message a:hover {
   text-decoration: underline;
 }
+.announce {
+  width: 50%;
+  margin: 0% 25%;
+  margin-top: 18%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.announce h2 {
+  font-size: 3em;
+  font-family: "maledpan", sans-serif;
+  font-weight: normal;
+  color: #333333;
+}
+.announce p {
+  font-size: 1.2em;
+  color: #666666;
+}
+.announce .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 10%;
+  font-size: 1.2em;
+}
+.announce .control a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 20px;
+  color: #999999;
+}
+.announce .control a i {
+  margin-right: 10px;
+}
+.announce .control a:active {
+  background: #EEEEEE;
+}
 #progressbar {
   position: fixed;
   top: 0;

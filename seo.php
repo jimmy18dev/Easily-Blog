@@ -53,8 +53,8 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="btn" id="btn-publish">
-		<span>เผยแพร่บทความ</span>
-		<i class="fa fa-check" aria-hidden="true"></i>
+		<span>เผยแพร่</span>
+		<i class="fa fa-angle-right" aria-hidden="true"></i>
 	</div>
 </div>
 
@@ -114,6 +114,9 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <input type="text" id="province_id" value="<?php echo $article->province_id;?>">
 <input type="text" id="amphur_id" value="<?php echo $article->amphur_id;?>">
 <input type="text" id="district_id" value="<?php echo $article->district_id;?>">
+
+<div id="progressbar"></div>
+<div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
