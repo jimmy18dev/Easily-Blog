@@ -25,7 +25,7 @@
 	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>
 
-	<?php if(!empty($article->id)){?>
+	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
 	<a href="article/<?php echo $article->id;?>/editor" class="btn"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
 	<?php }?>
 </header>

@@ -200,13 +200,15 @@ class Article{
     	
     	if($status == 'published'){
     		$where_status = 'AND article.status = "published" ';
-    	}
+    	}else if($status == 'draft'){
+            $where_status = 'AND article.status = "draft" ';
+        }
 
     	if(!empty($owner_id)){
     		$where_owner = 'AND article.user_id = :owner_id ';
     	}
     	
-    	$order = 'ORDER BY article.create_time DESC ';
+    	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
         $limit = 'LIMIT '.$start.','.$perpage;
 
     	$query_string = $select.$where.$where_category.$where_status.$where_owner.$order.$limit;

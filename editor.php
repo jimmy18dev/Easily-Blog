@@ -6,6 +6,11 @@ $document 	= new Document();
 $article_id = $_GET['article_id'];
 $article->get($article_id);
 $loop = 1;
+
+if($article->owner_id != $user->id){
+	header('Location: '.DOMAIN.'/error/NotOwner');
+	die();
+}
 ?>
 
 <!doctype html>

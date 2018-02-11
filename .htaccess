@@ -20,6 +20,9 @@ RewriteRule ^article/create$ 			/choose-category.php [L]
 RewriteRule ^profile$ 					/profile.php [L]
 RewriteRule ^profile/article/([^_]*)$ 	/profile?status=$1 [L]
 
+### ERROR PAGE
+RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
+
 RewriteRule ^signin$ /login.php [L]
 RewriteRule ^signup$ /register.php [L]
 RewriteRule ^signout$ /logout.php [L]
