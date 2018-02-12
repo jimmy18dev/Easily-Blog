@@ -26,6 +26,13 @@ class Article{
 
     public $cover_id;
     public $cover_img;
+
+    // Options Checking
+    public $hasTags;
+    public $hasCover;
+    public $hasLocation;
+    public $hasInfo;
+    public $hasURL;
 	
 	// Database instance
 	private $db;
@@ -141,16 +148,22 @@ class Article{
         $this->owner_lname      = $dataset['owner_lname'];
         $this->total_contents   = $dataset['total_contents'];
 
-        $this->province_id = $dataset['province_id'];
-        $this->amphur_id = $dataset['amphur_id'];
-        $this->district_id = $dataset['district_id'];
+        $this->province_id      = $dataset['province_id'];
+        $this->amphur_id        = $dataset['amphur_id'];
+        $this->district_id      = $dataset['district_id'];
 
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];
         $this->tags             = $this->listTags($this->id);
 
-        $this->cover_id = $dataset['cover_id'];
-        $this->cover_img = $dataset['cover_img'];
+        $this->cover_id         = $dataset['cover_id'];
+        $this->cover_img        = $dataset['cover_img'];
+
+        $this->hasCover = (!empty($this->cover_id)?true:false);
+        $this->hasURL = (!empty($this->url)?true:true);
+        $this->hasInfo = (!empty($this->description)?true:false);
+        $this->hasLocation = (!empty($this->amphur_id) || !empty($this->district_id)?true:false);
+        $this->hasTags = (count($this->tags)>0?true:false);
 
         return $dataset;
     }

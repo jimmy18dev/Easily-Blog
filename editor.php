@@ -50,22 +50,23 @@ if($article->owner_id != $user->id){
 			<ul>
 				<li><a href="#">ดูตัวอย่าง</a></li>
 				<li class="caption">ปรับแต่งเว็บไซต์ให้ติดอันดับ</li>
-				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="article/<?php echo $article->id;?>/option#url">เปลี่ยนลิงค์บทความ<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="article/<?php echo $article->id;?>/option#location">ตำบล อำเภอ จังหวัด<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="article/<?php echo $article->id;?>/option#tag">คำที่เกี่ยวข้อง<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<?php echo ($article->hasCover)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<?php echo ($article->hasInfo)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#url">เปลี่ยนลิงค์บทความ<?php echo ($article->hasURL)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#location">ตำบล อำเภอ จังหวัด<?php echo ($article->hasLocation)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#tag">คำที่เกี่ยวข้อง<?php echo ($article->hasTags)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li class="separator"></li>
-				<li id="btn-disble"><span class="">ยกเลิกเผยแพร่</span></li>
+				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>
 	</div>
-	
+
+	<?php if($article->status!='published'){?>
 	<div class="btn publish iconleft" id="btn-publish">
-		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
-		<i class="fa fa-paper-plane" aria-hidden="true"></i>
+		<span>เผยแพร่</span><i class="fa fa-paper-plane" aria-hidden="true"></i>
 	</div>
+	<?php }?>
 </div>
 
 <div class="editor">

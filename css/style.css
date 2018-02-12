@@ -242,6 +242,14 @@ body {
 .header .btn-profile .toggle-panel ul li {
   display: block;
 }
+.header .btn-profile .toggle-panel ul li.caption {
+  padding: 1% 12%;
+  font-size: 0.8em;
+}
+.header .btn-profile .toggle-panel ul li.caption:hover {
+  cursor: default;
+  background: #FFFFFF;
+}
 .header .btn-profile .toggle-panel ul li.separator {
   border-top: 1px solid #EEEEEE;
   padding: 0;
@@ -284,6 +292,10 @@ body {
   display: inline-block;
   margin-left: 10px;
   margin-top: 4px;
+}
+.header a.btn i.fa-circle,
+.header .btn i.fa-circle {
+  color: #4CAF50;
 }
 .header a.btn.iconleft i,
 .header .btn.iconleft i {

@@ -96,6 +96,16 @@
 				li{
 					display: block;
 
+					&.caption{
+						padding: 1% 12%;
+						font-size: 0.8em;
+
+						&:hover{
+							cursor: default;
+							background: #FFFFFF;
+						}
+					}
+
 					&.separator{
 						border-top: 1px solid #EEEEEE;
 						padding: 0;
@@ -140,6 +150,8 @@
 			display: inline-block;
 			margin-left: 10px;
 			margin-top: 4px;
+
+			&.fa-circle{ color: #4CAF50; }
 		}
 
 		&.iconleft{

@@ -232,7 +232,6 @@ class User{
         $this->email        = $dataset['email'];
         $this->fname           = $dataset['fname'];
         $this->lname           = $dataset['lname'];
-        $this->fullname = $this->fname.' '.$this->lname;
         $this->bio             = $dataset['bio'];
         $this->password       = $dataset['password'];
         $this->salt           = $dataset['salt'];
@@ -249,6 +248,8 @@ class User{
         $this->fb_fname         = $dataset['fb_fname'];
         $this->fb_lname         = $dataset['fb_lname'];
         $this->fb_link         = $dataset['fb_link'];
+
+        $this->fullname = (empty($dataset['fname'])?$dataset['fb_fname'].' '.$dataset['fb_lname']:$dataset['fname'].' '.$dataset['lname']);
     }
 
     private function updateVisitTime($user_id){
