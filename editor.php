@@ -77,7 +77,6 @@ if($article->owner_id != $user->id){
 	<header class="article-header">
 		<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
 		<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
-		<textarea class="article-desc autosize <?php echo (empty($article->title)?'hidden':'');?>" id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตั่วอักษร"><?php echo $article->description;?></textarea>
 	</header>
 
 	<!-- Contents rendering -->

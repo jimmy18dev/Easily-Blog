@@ -1752,6 +1752,7 @@ body {
   border-radius: 5px;
   font-family: "maledpan", sans-serif;
   line-height: 1em;
+  text-decoration: none;
 }
 .login .btn i {
   margin-left: 10px;

@@ -1,9 +1,21 @@
 <?php
 require_once 'autoload.php';
+require_once 'plugin/facebook-sdk-v5/autoload.php';
+
 if($user_online){
 	header('Location: index.php');
 	die();
 }
+
+$fb = new Facebook\Facebook([
+	'app_id' 				=> APP_ID,
+	'app_secret' 			=> APP_SECRET,
+	'default_graph_version' => 'v2.12'
+]);
+
+$helper 		= $fb->getRedirectLoginHelper();
+$permissions 	= ['email']; // optional
+$loginUrl 		= $helper->getLoginUrl(DOMAIN.'/fb-callback.php',$permissions);
 
 $signature 	= new Signature;
 $currentPage = 'login';
@@ -56,7 +68,7 @@ $p_url 		= DOMAIN.'/signin';
 
 <div class="login">
 	<div class="content">
-		<button class="btn btn-facebook" onclick="javascript:facebookLogin();"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</button>
+		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
 		<form action="javascript:login();">
 			<input type="phone" class="inputtext" id="username" placeholder="ที่อยู่อีเมลหรือเบอร์โทรศัพท์" required autofocus>

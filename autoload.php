@@ -5,7 +5,7 @@ ob_start();
 define('StTime', microtime(true));
 
 date_default_timezone_set('Asia/Bangkok');
-error_reporting(E_ALL ^ E_NOTICE);
+// error_reporting(E_ALL ^ E_NOTICE);
 
 define("VERSION",'1.0');
 

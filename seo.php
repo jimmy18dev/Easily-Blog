@@ -73,7 +73,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section">
-		<h2>2. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
+		<h2>2. รายละเอียดอย่างย่อ</h2>
+		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตั่วอักษร"><?php echo $article->description;?></textarea>
+	</div>
+
+	<div class="section">
+		<h2>3. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
 		<div class="inputWrapper">
 			<span class="domain"><?php echo $article_url;?></span>
 			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
@@ -81,7 +86,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section">
-		<h2>3. ที่อยู่</h2>
+		<h2>4. ที่อยู่</h2>
 		<div class="location">
 			<h3>อำเภอ:</h3>
 			<div class="address-list" id="amphur-list"></div>
@@ -95,7 +100,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section">
-		<h2>4. คำที่เกี่ยวข้อง</h2>
+		<h2>5. คำที่เกี่ยวข้อง</h2>
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>
 			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">

@@ -50,34 +50,4 @@ session_destroy();
 	</div>
 </div>
 </body>
-
-<script type="text/javascript">
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "https://connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '<?php echo APP_ID;?>',
-		cookie     : true,
-		xfbml      : true,
-		version    : '<?php echo GRAPH_VERSION;?>'
-	});
-
-	FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {
-			FB.logout(function(response) {
-				console.log(response);
-				setTimeout(function(){window.location = 'signin';},1000);
-			});
-		} else {
-			setTimeout(function(){window.location = 'signin';},1000);
-		}
-	});
-};
-</script>
 </html>

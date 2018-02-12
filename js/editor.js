@@ -64,12 +64,9 @@ $(document).ready(function(){
     */
     var article_id  = $('#article_id').val(); // Current Article ID
     var title;
-    var description;
 
     // Edit Article Title.
     $title = $('#title');
-    $description = $('#description');
-
     setTimeout(function(){
         var title = $('#original_title').val();
         $title.val(title).trigger("input");
@@ -98,11 +95,6 @@ $(document).ready(function(){
 
         console.log('Title '+title);
 
-        if(now_value)
-            $description.removeClass('hidden');
-        else
-            $description.addClass('hidden');
-
         if(title == now_value){
             inprogress();
             return false;
@@ -121,40 +113,6 @@ $(document).ready(function(){
                 request     :'edit_title',
                 article_id  :article_id,
                 title       :now_value
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
-    });
-
-    // Edit Article description.
-    $description.focus(function(){
-        description = $(this).val();
-        inprogress('editing');
-    });
-    $description.blur(function(){
-        var now_value = $(this).val();
-
-        if(description == now_value){
-            inprogress();
-            return false;
-        }
-
-        inprogress('progress');
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_description',
-                article_id  :article_id,
-                description :now_value
             },
             error: function (request, status, error){
                 console.log(request.responseText);

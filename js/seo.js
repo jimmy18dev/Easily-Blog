@@ -2,6 +2,45 @@ var article_api = 'api/article';
 var article_id = $('#article_id').val();
 
 $(document).ready(function(){
+    // Edit Article description.
+    var description;
+
+    $description = $('#description');
+    $description.focus(function(){
+        description = $(this).val();
+    });
+    $description.blur(function(){
+        var now_value = $(this).val();
+
+        if(description == now_value){
+            inprogress();
+            return false;
+        }
+
+        $progressbar.fadeIn(300);
+        $progressbar.width('0%');
+        $progressbar.animate({width:'70%'},500);
+
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_description',
+                article_id  :article_id,
+                description :now_value
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $progressbar.animate({width:'100%'},500);
+            $progressbar.fadeOut(300);
+        });
+    });
+
     $('.cover-items').click(function(){
         $this = $(this);
         var cover_id = $(this).attr('data-cover');
