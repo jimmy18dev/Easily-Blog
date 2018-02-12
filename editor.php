@@ -48,8 +48,14 @@ if($article->owner_id != $user->id){
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
 			<ul>
-				<li><a href="#">ตั้งค่า</a></li>
-				<li><a href="#">วิธีใช้</a></li>
+				<li><a href="#">ดูตัวอย่าง</a></li>
+				<li class="caption">ปรับแต่งเว็บไซต์ให้ติดอันดับ</li>
+				<li><a href="#">เลือกภาพหน้าปก</a></li>
+				<li><a href="#">รายละเอียดอย่างย่อ</a></li>
+				<li><a href="#">เปลี่ยนลิงค์บทความ</a></li>
+				<li><a href="#">ตำบล อำเภอ จังหวัด</a></li>
+				<li class="separator"></li>
+				<li id="btn-disble"><span class="">ยกเลิกเผยแพร่</span></li>
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>

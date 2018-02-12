@@ -351,6 +351,16 @@ body {
 .header .btn .toggle-panel ul li {
   display: block;
 }
+.header a.btn .toggle-panel ul li.caption,
+.header .btn .toggle-panel ul li.caption {
+  padding: 1% 12%;
+  font-size: 0.8em;
+}
+.header a.btn .toggle-panel ul li.caption:hover,
+.header .btn .toggle-panel ul li.caption:hover {
+  cursor: default;
+  background: #FFFFFF;
+}
 .header a.btn .toggle-panel ul li.separator,
 .header .btn .toggle-panel ul li.separator {
   border-top: 1px solid #EEEEEE;
@@ -489,6 +499,18 @@ body {
   font-size: 2em;
   font-weight: normal;
   margin-bottom: 3%;
+}
+.seo .section textarea {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 0px;
+  margin: 0px;
+  resize: none;
 }
 .seo .section .tag {
   width: 100%;
