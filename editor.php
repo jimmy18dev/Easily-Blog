@@ -40,20 +40,8 @@ if($article->owner_id != $user->id){
 	<a href="article/<?php echo $article->id;?>" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="page-title" id="editorTitle">เขียนบทความ</div>
 
-	<div class="btn-profile" id="btnProfile">
-		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
-
-		<div class="toggle-panel" id="profilePanel">
-			<div class="popover-arrow"></div>
-			<ul>
-				<li><a href="profile">บทความของฉัน</a></li>
-				<li class="separator"></li>
-				<li><a href="#">ตั้งค่า</a></li>
-				<li><a href="#">วิธีใช้</a></li>
-				<li><a href="#" class="logout">ออกจากระบบ</a></li>
-			</ul>
-		</div>
-	</div>
+	<?php include 'template/header.profile.php';?>
+	
 	<div class="btn" id="btnOption">
 		<span>ตัวเลือก</span><i class="fa fa-angle-down" aria-hidden="true"></i>
 

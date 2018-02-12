@@ -6,21 +6,7 @@
 	</div>
 
 	<?php if($user_online){?>
-	<div class="btn-profile" id="btnProfile">
-		<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
-
-		<div class="toggle-panel" id="profilePanel">
-			<div class="popover-arrow"></div>
-			<ul>
-				<li><a href="article/create" class="create">เขียนบทความ</a></li>
-				<li><a href="profile">บทความของฉัน</a></li>
-				<li class="separator"></li>
-				<li><a href="#">ตั้งค่า</a></li>
-				<li><a href="#">วิธีใช้</a></li>
-				<li><a href="signout" class="logout">ออกจากระบบ</a></li>
-			</ul>
-		</div>
-	</div>
+	<?php include 'template/header.profile.php';?>
 	<?php }else{?>
 	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>

@@ -49,5 +49,14 @@ session_destroy();
 		<a href="signin"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>ไปหน้าแรก</a>
 	</div>
 </div>
+
+<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	setTimeout(function(){
+		window.location = 'signin';
+	},1000);
+});
+</script>
 </body>
 </html>
