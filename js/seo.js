@@ -135,36 +135,4 @@ $(document).ready(function(){
             console.log(data);
         });
     });
-
-    // Publish Article
-    $('#btn-publish').click(function(){
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
-
-        $(this).html('<span>กำลังเผยแพร่</span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'published'
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
-
-            setTimeout(function(){
-                window.location = 'article/'+article_id;
-            },1000);
-        });
-    });
 });

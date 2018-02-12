@@ -31,22 +31,15 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </head>
 <body>
 
-<div class="header fixed">
+<div class="header">
 	<a href="article/<?php echo $article->id;?>/editor" class="btn left">
 		<i class="fa fa-arrow-left" aria-hidden="true"></i>
 		<span>แก้ไขบทความ</span>
 	</a>
-
-	<?php include 'template/header.profile.php';?>
-
-	<div class="btn" id="btn-publish">
-		<span>เผยแพร่</span>
-		<i class="fa fa-angle-right" aria-hidden="true"></i>
-	</div>
 </div>
 
 <div class="seo">
-	<div class="section">
+	<div class="section" id="cover">
 		<h2>1. ภาพหน้าปก (Cover)</h2>
 		<div class="list">
 			<?php foreach ($article->contents as $var) {?>
@@ -59,12 +52,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 		</div>
 	</div>
 
-	<div class="section">
+	<div class="section" id="info">
 		<h2>2. รายละเอียดอย่างย่อ</h2>
 		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตั่วอักษร"><?php echo $article->description;?></textarea>
 	</div>
 
-	<div class="section">
+	<div class="section" id="url">
 		<h2>3. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
 		<div class="inputWrapper">
 			<span class="domain"><?php echo $article_url;?></span>
@@ -72,7 +65,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 		</div>
 	</div>
 
-	<div class="section">
+	<div class="section" id="location">
 		<h2>4. ที่อยู่</h2>
 		<div class="location">
 			<h3>อำเภอ:</h3>
@@ -86,7 +79,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 		<div class="btn" id="btnClearLocation">ลบที่อยู่ออก</div>
 	</div>
 
-	<div class="section">
+	<div class="section" id="tag">
 		<h2>5. คำที่เกี่ยวข้อง</h2>
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>

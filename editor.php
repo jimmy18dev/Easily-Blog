@@ -50,20 +50,22 @@ if($article->owner_id != $user->id){
 			<ul>
 				<li><a href="#">ดูตัวอย่าง</a></li>
 				<li class="caption">ปรับแต่งเว็บไซต์ให้ติดอันดับ</li>
-				<li><a href="#">เลือกภาพหน้าปก<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="#">รายละเอียดอย่างย่อ<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="#">เปลี่ยนลิงค์บทความ<i class="fa fa-check" aria-hidden="true"></i></a></li>
-				<li><a href="#">ตำบล อำเภอ จังหวัด<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#url">เปลี่ยนลิงค์บทความ<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#location">ตำบล อำเภอ จังหวัด<i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="article/<?php echo $article->id;?>/option#tag">คำที่เกี่ยวข้อง<i class="fa fa-check" aria-hidden="true"></i></a></li>
 				<li class="separator"></li>
 				<li id="btn-disble"><span class="">ยกเลิกเผยแพร่</span></li>
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>
 	</div>
-
-	<a href="article/<?php echo $article->id;?>/seo" class="btn publish">
-		<span><?php echo ($article->status!='publish'?'บันทึก':'เผยแพร่แล้ว');?></span>
-	</a>
+	
+	<div class="btn publish" id="btn-publish">
+		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
+		<i class="fa fa-angle-right" aria-hidden="true"></i>
+	</div>
 </div>
 
 <div class="editor">
