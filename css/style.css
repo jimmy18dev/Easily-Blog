@@ -277,10 +277,6 @@ body {
   color: #999999;
   margin: 0;
 }
-.header a.btn.publish,
-.header .btn.publish {
-  color: #4CAF50;
-}
 .header a.btn i,
 .header .btn i {
   font-size: 1.2em;
@@ -288,7 +284,12 @@ body {
   display: inline-block;
   margin-left: 10px;
   margin-top: 4px;
-  color: #BBBBBB;
+}
+.header a.btn.iconleft i,
+.header .btn.iconleft i {
+  float: left;
+  margin-left: 0px;
+  margin-right: 10px;
 }
 .header a.btn.left,
 .header .btn.left {
@@ -299,6 +300,10 @@ body {
   float: left;
   margin-left: 0px;
   margin-right: 10px;
+}
+.header a.btn.publish,
+.header .btn.publish {
+  color: #4CAF50;
 }
 .header a.btn:hover,
 .header .btn:hover {

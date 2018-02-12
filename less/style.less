@@ -134,17 +134,20 @@
 		color: #999999;
 		margin: 0;
 
-		&.publish{
-			color: #4CAF50;
-		}
-
 		i{
 			font-size: 1.2em;
 			float: right;
 			display: inline-block;
 			margin-left: 10px;
 			margin-top: 4px;
-			color: #BBBBBB;
+		}
+
+		&.iconleft{
+			i{
+				float: left;
+				margin-left: 0px;
+				margin-right: 10px;
+			}
 		}
 
 		&.left{
@@ -157,6 +160,7 @@
 			}
 		}
 
+		&.publish{ color: #4CAF50; }
 		&:hover{ cursor: pointer; }
 		&:active{ background: #EEEEEE; }
 

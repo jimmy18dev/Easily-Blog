@@ -62,9 +62,9 @@ if($article->owner_id != $user->id){
 		</div>
 	</div>
 	
-	<div class="btn publish" id="btn-publish">
+	<div class="btn publish iconleft" id="btn-publish">
 		<span><?php echo ($article->status!='publish'?'เผยแพร่':'เผยแพร่แล้ว');?></span>
-		<i class="fa fa-angle-right" aria-hidden="true"></i>
+		<i class="fa fa-paper-plane" aria-hidden="true"></i>
 	</div>
 </div>
 
