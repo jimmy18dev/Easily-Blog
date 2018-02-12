@@ -73,7 +73,7 @@ switch ($_SERVER['REQUEST_METHOD']){
                 break;
             case 'set_cover':
                 $article_id = $_POST['article_id'];
-                $cover_id = $_POST['cover_id'];
+                $cover_id   = $_POST['cover_id'];
                 $article_id = $article->setCover($article_id,$cover_id);
                 
                 $returnObject['message'] = 'Article Cover updated';

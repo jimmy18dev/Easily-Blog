@@ -311,7 +311,7 @@ body {
 .header a.btn .toggle-panel,
 .header .btn .toggle-panel {
   position: absolute;
-  width: 200px;
+  width: 240px;
   padding: 8px 0;
   top: 95%;
   right: 15%;
@@ -391,6 +391,11 @@ body {
 .header a.btn .toggle-panel ul li:hover,
 .header .btn .toggle-panel ul li:hover {
   background: #FAFAFA;
+}
+.header a.btn .toggle-panel ul li i.fa-check,
+.header .btn .toggle-panel ul li i.fa-check {
+  float: right;
+  color: #4CAF50;
 }
 .header .page-icon {
   float: left;

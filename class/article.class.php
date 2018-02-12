@@ -91,7 +91,19 @@ class Article{
         $this->db->bind(':cover_id',$cover_id);
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
-    }    
+    }
+
+    public function hasCover($article_id){
+        $this->db->query('SELECT cover_id FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+
+        if(!empty($dataset['cover_id']) && isset($dataset['cover_id']))
+            return true;
+        else
+            return false;
+    } 
 
     // Get Article and Contents
     public function get($article_id){
