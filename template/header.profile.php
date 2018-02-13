@@ -4,6 +4,7 @@
 		<div class="toggle-panel" id="profilePanel">
 			<div class="popover-arrow"></div>
 			<ul>
+				<li><a href="article/create">เขียนบทความ</a></li>
 				<li><a href="profile">บทความของฉัน</a></li>
 				<li class="separator"></li>
 				<li><a href="#">ตั้งค่า</a></li>

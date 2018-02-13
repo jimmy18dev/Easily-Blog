@@ -1705,47 +1705,38 @@
 }
 
 .footer{
-	width: 50%;
-	padding: 5% 25%;
+	width: 80%;
+	padding: 5% 10%;
 	float: left;
 	display: inline-block;
-	text-align: center;
 	font-family: @topic_font;
 	font-size: 1.1em;
 
-	a.link{
+	a{
+		color: #BBBBBB;
+		display: inline-block;
 		text-decoration: none;
-		padding: 3px 15px;
-		line-height: 1em;
-		border-radius: 5px;
-		color: #333333;
-
-		i{
-			margin-left: 10px;
-		}
 
 		&:hover{
-			cursor: pointer;
-			background: #EEEEEE;
+			color: #333333;
 		}
 	}
 
-	p{
-		width: 100%;
+	.link{
+		width: 50%;
 		float: left;
 		display: inline-block;
-		margin-top: 3%;
-		color: #BBBBBB;
-
-		&.license{
-			font-size: 0.8em;
-			letter-spacing: 1px;
-		}
 
 		a{
-			text-decoration: none;
-			color: #BBBBBB;
-		}
+			float: left;
+			margin-right: 5%;
+		}		
+	}
+	.license{
+		width: 50%;
+		float: right;
+		display: inline-block;
+		text-align: right;
 	}
 }
 
