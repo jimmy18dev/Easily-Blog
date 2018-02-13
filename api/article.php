@@ -66,7 +66,7 @@ switch ($_SERVER['REQUEST_METHOD']){
     			break;
             case 'edit_url':
                 $article_id = $_POST['article_id'];
-                $url = $_POST['url'];
+                $url = (!empty($_POST['url'])?$_POST['url']:NULL);
                 $article_id = $article->editURL($article_id,$url);
                 
                 $returnObject['message'] = 'URL edited';

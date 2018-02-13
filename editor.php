@@ -48,15 +48,19 @@ if($article->owner_id != $user->id){
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
 			<ul>
-				<li><a href="#">ดูตัวอย่าง</a></li>
-				<li class="caption">ปรับแต่งเว็บไซต์ให้ติดอันดับ</li>
+				<li><a href="article/<?php echo $article->id;?>">ดูตัวอย่าง</a></li>
+				<li class="caption">ปรับแต่งเพิ่มเติม</li>
 				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<?php echo ($article->hasCover)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<?php echo ($article->hasInfo)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#url">เปลี่ยนลิงค์บทความ<?php echo ($article->hasURL)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#location">ตำบล อำเภอ จังหวัด<?php echo ($article->hasLocation)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#tag">คำที่เกี่ยวข้อง<?php echo ($article->hasTags)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li class="separator"></li>
+
+				<?php if($article->status=='published'){?>
 				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
+				<?php }?>
+
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>

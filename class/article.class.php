@@ -114,7 +114,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,article.amphur_id,.article.district_id,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,article.amphur_id,.article.district_id,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -152,6 +152,10 @@ class Article{
         $this->amphur_id        = $dataset['amphur_id'];
         $this->district_id      = $dataset['district_id'];
 
+        $this->create_time      = $this->db->datetimeformat($dataset['create_time'],$option = 'fulldatetime');
+        $this->edit_time        = $this->db->datetimeformat($dataset['edit_time'],$option = 'fulldatetime');
+        $this->published_time   = $this->db->datetimeformat($dataset['published_time'],$option = 'fulldatetime');
+
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];
         $this->tags             = $this->listTags($this->id);
@@ -159,11 +163,11 @@ class Article{
         $this->cover_id         = $dataset['cover_id'];
         $this->cover_img        = $dataset['cover_img'];
 
-        $this->hasCover = (!empty($this->cover_id)?true:false);
-        $this->hasURL = (!empty($this->url)?true:true);
-        $this->hasInfo = (!empty($this->description)?true:false);
-        $this->hasLocation = (!empty($this->amphur_id) || !empty($this->district_id)?true:false);
-        $this->hasTags = (count($this->tags)>0?true:false);
+        $this->hasCover         = (!empty($this->cover_id) ? true:false);
+        $this->hasURL           = (!empty($this->url) && isset($this->url) ? true:false);
+        $this->hasInfo          = (!empty($this->description) ? true:false);
+        $this->hasLocation      = (!empty($this->amphur_id) || !empty($this->district_id) ? true:false);
+        $this->hasTags          = (count($this->tags) > 0 ? true:false);
 
         return $dataset;
     }
@@ -273,6 +277,13 @@ class Article{
         $this->db->bind(':status',$status);
 		$this->db->bind(':update_time',date('Y-m-d H:i:s'));
 		$this->db->execute();
+
+        if($status == 'published'){
+            $this->db->query('UPDATE article SET published_time = :published_time WHERE id = :article_id');
+            $this->db->bind(':article_id',$article_id);
+            $this->db->bind(':published_time',date('Y-m-d H:i:s'));
+            $this->db->execute();
+        }
     }
 
     // Count articles with Owner ID

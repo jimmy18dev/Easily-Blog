@@ -41,7 +41,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<!-- Article Header -->
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
-		<div class="time"><?php echo (!empty($article->edit_time)?'Edited '.$article->edit_time:$article->create_time);?></div>
+		<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo (!empty($article->published_time)?'เผยแพร่เมื่อ '.$article->published_time:'เขียนเมื่อ '.$article->create_time);?></div>
 		<?php if(!empty($article->description)){?>
 		<p><?php echo $article->description;?></p>
 		<?php }?>
