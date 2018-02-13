@@ -297,6 +297,11 @@ body {
 .header .btn i.fa-circle {
   color: #4CAF50;
 }
+.header a.btn.icon-only i,
+.header .btn.icon-only i {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 .header a.btn.iconleft i,
 .header .btn.iconleft i {
   float: left;

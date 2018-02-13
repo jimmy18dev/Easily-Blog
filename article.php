@@ -35,7 +35,38 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<?php include_once 'header.php';?>
+<header class="header fixed">
+	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
+	
+	<div class="logo">
+		<a href="index.php">Peopleawesome</a>
+	</div>
+
+	<?php if($user_online){?>
+	<?php include 'template/header.profile.php';?>
+	<?php }else{?>
+	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	<?php }?>
+
+	<div class="btn icon-only" id="btnOption">
+		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+
+		<div class="toggle-panel" id="optionPanel">
+			<div class="popover-arrow"></div>
+			<ul>
+				<?php if($article->status=='published'){?>
+				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
+				<?php }?>
+
+				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
+			</ul>
+		</div>
+	</div>
+
+	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	<?php }?>
+</header>
 
 <article class="article">
 	<!-- Article Header -->
