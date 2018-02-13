@@ -67,7 +67,15 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 	<div class="section" id="location">
 		<h2>4. ที่อยู่</h2>
-		<div class="location">
+		<input type="text" id="findLocation" class="input-tag" placeholder="Find your location...">
+		<div class="location-list" id="locationList"></div>
+		<div class="location-current" id="locationCurrent">
+			<span><?php echo $article->district_name;?></span>
+			<span><?php echo $article->amphur_name;?></span>
+			<span><?php echo $article->province_name;?></span>
+		</div>
+
+		<!-- <div class="location">
 			<h3>อำเภอ:</h3>
 			<div class="address-list" id="amphur-list"></div>
 		</div>
@@ -75,6 +83,10 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			<h3>ตำบล:</h3>
 			<div class="address-list" id="district-list"></div>
 		</div>
+
+		<input type="text" id="province_id" value="<?php echo $article->province_id;?>">
+		<input type="text" id="amphur_id" value="<?php echo $article->amphur_id;?>">
+		<input type="text" id="district_id" value="<?php echo $article->district_id;?>"> -->
 
 		<div class="btn" id="btnClearLocation">ลบที่อยู่ออก</div>
 	</div>
@@ -96,9 +108,6 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </div>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
-<input type="text" id="province_id" value="<?php echo $article->province_id;?>">
-<input type="text" id="amphur_id" value="<?php echo $article->amphur_id;?>">
-<input type="text" id="district_id" value="<?php echo $article->district_id;?>">
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>

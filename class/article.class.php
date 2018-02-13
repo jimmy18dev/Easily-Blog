@@ -24,6 +24,10 @@ class Article{
     public $amphur_id;
     public $district_id;
 
+    public $province_name;
+    public $amphur_name;
+    public $district_name;
+
     public $cover_id;
     public $cover_img;
 
@@ -114,7 +118,15 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,article.amphur_id,.article.district_id,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON Article.cover_id = content.id WHERE article.id = :article_id');
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            LEFT JOIN province AS province ON article.province_id = province.province_id 
+            LEFT JOIN amphur AS amphur ON article.amphur_id = amphur.amphur_id 
+            LEFT JOIN district AS district ON article.district_id = district.district_id 
+            WHERE article.id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -151,6 +163,9 @@ class Article{
         $this->province_id      = $dataset['province_id'];
         $this->amphur_id        = $dataset['amphur_id'];
         $this->district_id      = $dataset['district_id'];
+        $this->province_name      = $dataset['province_name'];
+        $this->amphur_name        = $dataset['amphur_name'];
+        $this->district_name      = $dataset['district_name'];
 
         $this->create_time      = $this->db->datetimeformat($dataset['create_time'],$option = 'fulldatetime');
         $this->edit_time        = $this->db->datetimeformat($dataset['edit_time'],$option = 'fulldatetime');

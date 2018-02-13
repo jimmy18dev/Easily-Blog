@@ -6,6 +6,63 @@ class Location{
         global $wpdb;
         $this->db = $wpdb;
     }
+
+    public function findLocation($keyword){
+        $datasets = [];
+        // Find District
+        $this->db->query('SELECT district_name,amphur_name,province_name,district_id,amphur_id,province_id FROM district LEFT JOIN amphur ON district_amphur_id = amphur_id LEFT JOIN province ON district_province_id = province_id WHERE district_name LIKE :keyword LIMIT 4');
+        $this->db->bind(':keyword','%'.$keyword.'%');
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $var) {
+            array_push($datasets,array(
+                'district_name'     => trim($var['district_name']),
+                'amphur_name'       => trim($var['amphur_name']),
+                'province_name'     => trim($var['province_name']),
+                'district_id'       => floatval($var['district_id']),
+                'amphur_id'         => floatval($var['amphur_id']),
+                'province_id'       => floatval($var['province_id']),
+            ));
+        }
+
+        // Find Amphur
+        $this->db->query('SELECT province_name,amphur_name,amphur_id,province_id FROM amphur LEFT JOIN province ON amphur_province_id = province_id WHERE amphur_name LIKE :keyword LIMIT 2');
+        $this->db->bind(':keyword','%'.$keyword.'%');
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $var) {
+            array_push($datasets,array(
+                'district_name'     => trim($var['district_name']),
+                'amphur_name'       => trim($var['amphur_name']),
+                'province_name'     => trim($var['province_name']),
+                'district_id'       => floatval($var['district_id']),
+                'amphur_id'         => floatval($var['amphur_id']),
+                'province_id'       => floatval($var['province_id']),
+            ));
+        }
+
+        // Find Province
+        $this->db->query('SELECT province_id,province_name FROM province WHERE province_name LIKE :keyword LIMIT 2');
+        $this->db->bind(':keyword','%'.$keyword.'%');
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $var) {
+            array_push($datasets,array(
+                'district_name'     => trim($var['district_name']),
+                'amphur_name'       => trim($var['amphur_name']),
+                'province_name'     => trim($var['province_name']),
+                'district_id'       => floatval($var['district_id']),
+                'amphur_id'         => floatval($var['amphur_id']),
+                'province_id'       => floatval($var['province_id']),
+            ));
+        }
+
+        return $datasets;
+    }
+
     public function listGeography(){
     	$this->db->query('SELECT * FROM geography');
         $this->db->execute();

@@ -14,6 +14,12 @@ $location 	= new Location();
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		switch ($_GET['request']){
+			case 'find':
+				$keyword = $_GET['keyword'];
+				$dataset = $location->findLocation($keyword);
+				$returnObject['dataset'] = $dataset;
+				$returnObject['message'] = 'Find location with "'.$keyword.'"';
+				break;
 			case 'list_geography':
 				$dataset = $location->listGeography();
 				$returnObject['dataset'] = $dataset;
