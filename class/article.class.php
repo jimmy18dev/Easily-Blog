@@ -265,6 +265,21 @@ class Article{
 		return $dataset;
     }
 
+    public function listWithTag($tag_id){
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article_tags AS article_tags LEFT JOIN article AS article ON article_tags.article_id = article.id LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id WHERE tag_id = :tag_id AND article.status = "published" ORDER BY article.published_time DESC,article.create_time DESC');
+        
+        $this->db->bind(':tag_id',$tag_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+        return $dataset;
+    }
+
     public function delete($article_id){
     	$this->db->query('DELETE FROM article WHERE id = :article_id');
 		$this->db->bind(':article_id',$article_id);
@@ -524,6 +539,14 @@ class Article{
             // $dataset[$k]['file_type']   = $this->docType($var['file_type']);
             // $dataset[$k]['file_size']   = $this->db->formatBytes($var['file_size']);
         }
+        return $dataset;
+    }
+
+    public function getTags($tag){
+        $this->db->query('SELECT id,name FROM tag WHERE name = :tag');
+        $this->db->bind(':tag',$tag);
+        $this->db->execute();
+        $dataset = $this->db->single();
         return $dataset;
     }
 }

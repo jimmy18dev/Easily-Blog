@@ -69,6 +69,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 </header>
 
 <article class="article">
+	
 	<!-- Article Header -->
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
@@ -133,7 +134,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php if(count($article->tags)>0){?>
 	<div class="tag">
 		<?php foreach ($article->tags as $var){ ?>
-		<a href="#">#<?php echo $var['name'];?></a>
+		<a href="tag/<?php echo $var['name'];?>">#<?php echo $var['name'];?></a>
 		<?php } ?>
 	</div>
 	<?php }?>

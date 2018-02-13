@@ -16,6 +16,9 @@ RewriteRule ^article/([0-9]+)/option$ 	/editor-option.php?article_id=$1 [L]
 RewriteRule ^article/([0-9]+)/([^_]*)$ 	/article.php?article_id=$1&title=$2 [L]
 RewriteRule ^article/create$ 			/choose-category.php [L]
 
+### TAG
+RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
+
 ### PROFILE
 RewriteRule ^profile$ 					/profile.php [L]
 RewriteRule ^profile/article/([^_]*)$ 	/profile?status=$1 [L]
