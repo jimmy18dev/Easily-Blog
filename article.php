@@ -48,6 +48,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>
 
+	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
 	<div class="btn icon-only" id="btnOption">
 		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 
@@ -62,8 +63,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			</ul>
 		</div>
 	</div>
-
-	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+	
 	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-pencil" aria-hidden="true"></i></a>
 	<?php }?>
 </header>

@@ -1310,19 +1310,18 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 .editor .option-control {
-  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  margin: 0 25%;
   float: left;
   display: inline-block;
-  margin-bottom: 5%;
-  margin-top: 5%;
-  border: 1px solid #EEEEEE;
-  box-sizing: border-box;
-  border-radius: 5px;
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.85);
 }
 .editor .option-control .btnAction {
   width: 12%;
-  padding: 2% 0%;
+  padding: 1.5% 0%;
   float: left;
   display: inline-block;
   border: 0px;
@@ -1330,25 +1329,24 @@ body {
   line-height: 1em;
   margin: 0px;
   background: transparent;
-  color: #666666;
+  color: #999999;
   text-align: center;
 }
 .editor .option-control .btnAction:hover {
   cursor: pointer;
   color: #111111;
-  background: #EEEEEE;
 }
 .editor .option-control .btnAction.right {
   float: right;
 }
 .editor .option-control .btnAction i {
   display: block;
-  font-size: 1.4em;
+  font-size: 1.3em;
   margin-bottom: 3px;
 }
 .editor .option-control .btnAction span {
   display: block;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 .editor .between-option {
   width: 100%;
