@@ -503,6 +503,11 @@ class Article{
     // Add article tag.
     public function addTag($article_id,$tag){
 
+        // Tag name validate
+        $tag = trim(preg_replace('#[^-ก-๙a-zA-Z0-9]#u','', $tag));
+
+        if(strlen($tag) < 3) return false;
+
         $tag_id = $this->getTagID($tag);
 
         $this->db->query('SELECT id FROM article_tags WHERE article_id = :article_id AND tag_id = :tag_id');
