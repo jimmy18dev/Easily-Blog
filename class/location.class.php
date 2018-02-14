@@ -10,7 +10,7 @@ class Location{
     public function findLocation($keyword){
         $datasets = [];
         // Find District
-        $this->db->query('SELECT district_name,amphur_name,province_name,district_id,amphur_id,province_id FROM district LEFT JOIN amphur ON district_amphur_id = amphur_id LEFT JOIN province ON district_province_id = province_id WHERE district_name LIKE :keyword LIMIT 4');
+        $this->db->query('SELECT district_name,amphur_name,province_name,district_id,amphur_id,province_id FROM district LEFT JOIN amphur ON district_amphur_id = amphur_id LEFT JOIN province ON district_province_id = province_id WHERE district_name LIKE :keyword LIMIT 15');
         $this->db->bind(':keyword','%'.$keyword.'%');
         $this->db->execute();
         $dataset = $this->db->resultset();
@@ -27,7 +27,7 @@ class Location{
         }
 
         // Find Amphur
-        $this->db->query('SELECT province_name,amphur_name,amphur_id,province_id FROM amphur LEFT JOIN province ON amphur_province_id = province_id WHERE amphur_name LIKE :keyword LIMIT 2');
+        $this->db->query('SELECT province_name,amphur_name,amphur_id,province_id FROM amphur LEFT JOIN province ON amphur_province_id = province_id WHERE amphur_name LIKE :keyword LIMIT 10');
         $this->db->bind(':keyword','%'.$keyword.'%');
         $this->db->execute();
         $dataset = $this->db->resultset();
@@ -44,7 +44,7 @@ class Location{
         }
 
         // Find Province
-        $this->db->query('SELECT province_id,province_name FROM province WHERE province_name LIKE :keyword LIMIT 2');
+        $this->db->query('SELECT province_id,province_name FROM province WHERE province_name LIKE :keyword LIMIT 10');
         $this->db->bind(':keyword','%'.$keyword.'%');
         $this->db->execute();
         $dataset = $this->db->resultset();

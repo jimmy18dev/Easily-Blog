@@ -88,6 +88,9 @@ class Article{
 
     // Edit Article URL.
     public function editURL($article_id,$url){
+
+        $url = $this->db->urlFriendly($url);
+
         $this->db->query('UPDATE article SET url = :url, edit_time = :edit_time WHERE id = :article_id');
         $this->db->bind(':article_id',$article_id);
         $this->db->bind(':url',$url);

@@ -97,6 +97,23 @@ class Database{
         return $ip;
     }
 
+    // Text, Message to URL Friendly
+    public function urlFriendly($data){
+        $data       = preg_replace('#[^-ก-๙a-zA-Z0-9]#u','-', $data);
+        if(substr($data,0,1) == '-'){
+            $data   = substr($data,1);
+        }
+        if(substr($data,-1) == '-'){
+          $data     = substr($data,0,-1);
+        }
+        $data       = urldecode($data);
+        $data       = str_replace(array('   ','  ',' '),array('-','-','-'),$data);
+        $data       = str_replace(array('---','--'),array('-','-'),$data);
+        
+        //return rawurlencode($data);
+        return ($data);
+    }
+
     public function formatBytes($size,$precision = 1){
         $base = log($size, 1024);
         $suffixes = array('', 'K', 'M', 'G', 'T');   

@@ -32,7 +32,7 @@ $(function(){
             var html = '';
             $.each(data.dataset,function(k,v){
                 // console.table(v);
-                // console.log(v.district_name+' '+v.amphur_name+' '+v.province_name);
+                console.log(v.district_name+' '+v.amphur_name+' '+v.province_name);
 
                 html += '<div class="location-items" data-district="'+v.district_id+'" data-amphur="'+v.amphur_id+'" data-province="'+v.province_id+'"><i class="fa fa-map-pin" aria-hidden="true"></i>'+v.district_name+' '+v.amphur_name+' '+v.province_name+'</div>';
                 
