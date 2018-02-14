@@ -40,7 +40,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <div class="seo">
 	<div class="section" id="cover">
-		<h2>1. ภาพหน้าปก (Cover)</h2>
+		<h2>ภาพหน้าปก (Cover)</h2>
 		<div class="list">
 			<?php foreach ($article->contents as $var) {?>
 			<?php if($var['type'] == 'image'){?>
@@ -53,12 +53,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section" id="info">
-		<h2>2. รายละเอียดอย่างย่อ</h2>
-		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตั่วอักษร"><?php echo $article->description;?></textarea>
+		<h2>รายละเอียดอย่างย่อ</h2>
+		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตัวอักษร"><?php echo $article->description;?></textarea>
 	</div>
 
 	<div class="section" id="url">
-		<h2>3. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
+		<h2>ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
 		<div class="inputWrapper">
 			<span class="domain"><?php echo $article_url;?></span>
 			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
@@ -66,7 +66,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section" id="location">
-		<h2>4. ที่อยู่</h2>
+		<h2>ที่อยู่</h2>
 		<input type="text" id="findLocation" class="input-tag" placeholder="Find your location...">
 		<div class="location-list" id="locationList"></div>
 		<div class="location-current" id="locationCurrent">
@@ -92,7 +92,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 
 	<div class="section" id="tag">
-		<h2>5. คำที่เกี่ยวข้อง</h2>
+		<h2>คำที่เกี่ยวข้อง</h2>
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>
 			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">
