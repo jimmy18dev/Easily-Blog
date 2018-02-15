@@ -786,7 +786,13 @@ body {
   float: left;
   display: inline-block;
 }
-.seo .section .list .cover-items {
+.seo .section .list input[type="file"] {
+  display: none;
+}
+.seo .section .list form {
+  display: none;
+}
+.seo .section .list .items {
   width: 18.4%;
   float: left;
   display: inline-block;
@@ -796,31 +802,31 @@ body {
   border: 3px solid transparent;
   border-radius: 5px;
   overflow: hidden;
-  background: #EEEEEE;
 }
-.seo .section .list .cover-items:nth-child(5n+0) {
+.seo .section .list .items:nth-child(5n+0) {
   margin-right: 0;
 }
-.seo .section .list .cover-items img {
+.seo .section .list .items img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.seo .section .list .cover-items.active {
+.seo .section .list .items.active {
   border: 3px solid #4CAF50;
 }
-.seo .section .list .cover-items.btn-add {
-  padding: 6.9% 0%;
+.seo .section .list .items.btn-add-cover {
+  padding: 6.8% 0%;
   text-align: center;
+  background: #EEEEEE;
 }
-.seo .section .list .cover-items.btn-add i {
+.seo .section .list .items.btn-add-cover i {
   font-size: 1.4em;
   color: #999999;
 }
-.seo .section .list .cover-items.btn-add:hover {
+.seo .section .list .items.btn-add-cover:hover {
   background: #DDDDDD;
 }
-.seo .section .list .cover-items:hover {
+.seo .section .list .items:hover {
   cursor: pointer;
 }
 .choose {

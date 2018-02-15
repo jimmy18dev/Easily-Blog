@@ -439,6 +439,7 @@ class Article{
         $this->db->bind(':create_time',date('Y-m-d H:i:s'));
         $this->db->bind(':type',$type);
         $this->db->execute();
+        
         return $this->db->lastInsertId();
     }
 

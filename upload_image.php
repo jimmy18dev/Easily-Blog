@@ -7,6 +7,7 @@ $article    = new Article();
 
 $content_id = $_POST['content_id'];
 $article_id = $_POST['article_id'];
+$type       = $_POST['type'];
 
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     if(isset($_FILES['image']) && is_uploaded_file($_FILES['image']['tmp_name'])){
@@ -46,6 +47,15 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                 $image->resize($image_res,$save_as['large'],$im_type,$size['large'],$im_width,$im_height,$quality['large']);
                 $image->square($image_res,$save_as['square'],$im_type,$size['square'],$im_width,$im_height,$quality['square']);
                 $image->square($image_res,$save_as['thumbnail'],$im_type,$size['thumbnail'],$im_width,$im_height,$quality['thumbnail']);
+
+                // Content type "Cover" only!
+                if(empty($content_id) && $type == 'cover'){
+                    // Create new Content ID
+                    $content_id = $article->createContent($user->id,$article_id,'cover',NULL);
+
+                    // Set this content to Cover photo
+                    $article->setCover($article_id,$content_id);
+                }
 
                 // DELETE OLD IMAGE
                 $content_data = $article->getContent($content_id);

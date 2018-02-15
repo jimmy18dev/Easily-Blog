@@ -44,6 +44,7 @@ $(document).ready(function(){
                 break;
         }
     }
+    
     $(document).click(function(e){
         if(!$(e.target).is('.between-option')){
             $('.more-option').fadeOut(100);

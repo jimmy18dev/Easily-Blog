@@ -42,17 +42,22 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section" id="cover">
 		<h2>ภาพหน้าปก (Cover)</h2>
 		<div class="list">
-			<div class="cover-items btn-add">
-				<i class="fa fa-plus" aria-hidden="true"></i>
-			</div>
-
 			<?php foreach ($article->contents as $var) {?>
-			<?php if($var['type'] == 'image' && !empty($var['img_location'])){?>
-			<div class="cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>">
+			<?php if(($var['type'] == 'image' || $var['type'] == 'cover') && !empty($var['img_location'])){?>
+			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>">
 				<img src="image/upload/square/<?php echo $var['img_location'];?>">
 			</div>
 			<?php }?>
 			<?php }?>
+			<div class="items btn-add-cover">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</div>
+
+			<form action="upload_image.php" id="coverForm" method="POST" enctype="multipart/form-data">
+				<input type="file" name="image" id="coverImageFiles">
+				<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
+				<input type="hidden" name="type" value="cover">
+			</form>
 		</div>
 	</div>
 
@@ -119,6 +124,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/location.js"></script>
 <script type="text/javascript" src="js/seo.js"></script>

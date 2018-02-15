@@ -665,7 +665,10 @@
 			float: left;
 			display: inline-block;
 
-			.cover-items{
+			input[type="file"]{ display: none; }
+			form{ display: none; }
+
+			.items{
 				width: 18.4%;
 				float: left;
 				display: inline-block;
@@ -675,7 +678,6 @@
 				border: 3px solid transparent;
 				border-radius: 5px;
 				overflow: hidden;
-				background: #EEEEEE;
 
 				&:nth-child(5n+0){ margin-right: 0; }
 
@@ -685,13 +687,12 @@
 					display: inline-block;
 				}
 
-				&.active{
-					border: 3px solid #4CAF50;
-				}
+				&.active{ border: 3px solid #4CAF50; }
 
-				&.btn-add{
-					padding: 6.9% 0%;
+				&.btn-add-cover{
+					padding: 6.8% 0%;
 					text-align: center;
+					background: #EEEEEE;
 
 					i{
 						font-size: 1.4em;
