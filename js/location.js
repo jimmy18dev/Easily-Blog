@@ -57,7 +57,7 @@ $(function(){
                 // console.table(v);
                 console.log(v.district_name+' '+v.amphur_name+' '+v.province_name);
 
-                html += '<li class="location-items" data-district="'+v.district_id+'" data-amphur="'+v.amphur_id+'" data-province="'+v.province_id+'"><i class="fa fa-map-marker" aria-hidden="true"></i>'+(v.district_name?'ต.'+v.district_name+' ':'')+(v.amphur_name?'อ.'+v.amphur_name+' ':'')+(v.province_name?'จ.'+v.province_name:'')+'</li>';
+                html += '<li class="location-items" data-district="'+v.district_id+'" data-amphur="'+v.amphur_id+'" data-province="'+v.province_id+'"><i class="fa fa-map-marker" aria-hidden="true"></i><span>'+(v.district_name?'ต.'+v.district_name+' ':'')+(v.amphur_name?'อ.'+v.amphur_name+' ':'')+(v.province_name?'จ.'+v.province_name:'')+'</span></li>';
                 
             });
 

@@ -60,6 +60,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section" id="url">
 		<h2>ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
 		<div class="inputWrapper">
+			<i class="fa fa-link" aria-hidden="true"></i>
 			<span class="domain"><?php echo $article_url;?></span>
 			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
 		</div>
@@ -70,15 +71,18 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 		<div class="location-current" id="locationCurrent">
 			<div class="location-items">
 				<i class="fa fa-map-marker" aria-hidden="true"></i>
-				<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
-				<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
-				<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
+				<span>
+					<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
+					<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
+					<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
+				</span>
 				<div class="btn" id="btnClearLocation"><i class="fa fa-close" aria-hidden="true"></i></div>
 			</div>
 		</div>
 		<div class="locationInputWrapper">
 			<i class="fa fa-search" aria-hidden="true"></i>
 			<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด..." autocomplete="off">
+
 			<ul id="locationList"></ul>
 		</div>
 	</div>
@@ -93,8 +97,10 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			</div>
 			<?php }?>
 		</div>
-		<form id="tagForm">
-			<input type="text" id="tag-input" class="input-tag" placeholder="Enter tag...">
+		<form class="locationInputWrapper" id="tagForm">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ...">
+			<div class="tip">กด Enter เพิ่มบันทึก</div>
 		</form>
 	</div>
 </div>
