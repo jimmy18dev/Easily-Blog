@@ -67,28 +67,20 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 	<div class="section" id="location">
 		<h2>ที่อยู่</h2>
-		<input type="text" id="findLocation" class="input-tag" placeholder="Find your location...">
-		<div class="location-list" id="locationList"></div>
 		<div class="location-current" id="locationCurrent">
-			<span><?php echo $article->district_name;?></span>
-			<span><?php echo $article->amphur_name;?></span>
-			<span><?php echo $article->province_name;?></span>
+			<div class="location-items">
+				<i class="fa fa-map-marker" aria-hidden="true"></i>
+				<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
+				<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
+				<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
+				<div class="btn" id="btnClearLocation"><i class="fa fa-close" aria-hidden="true"></i></div>
+			</div>
 		</div>
-
-		<!-- <div class="location">
-			<h3>อำเภอ:</h3>
-			<div class="address-list" id="amphur-list"></div>
+		<div class="locationInputWrapper">
+			<i class="fa fa-search" aria-hidden="true"></i>
+			<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด..." autocomplete="off">
+			<ul id="locationList"></ul>
 		</div>
-		<div class="location">
-			<h3>ตำบล:</h3>
-			<div class="address-list" id="district-list"></div>
-		</div>
-
-		<input type="text" id="province_id" value="<?php echo $article->province_id;?>">
-		<input type="text" id="amphur_id" value="<?php echo $article->amphur_id;?>">
-		<input type="text" id="district_id" value="<?php echo $article->district_id;?>"> -->
-
-		<div class="btn" id="btnClearLocation">ลบที่อยู่ออก</div>
 	</div>
 
 	<div class="section" id="tag">
