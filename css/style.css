@@ -681,7 +681,7 @@ body {
 .seo .section .tag {
   width: 100%;
   float: left;
-  display: run-in;
+  display: inline-block;
 }
 .seo .section .tag .tag-items {
   float: left;
@@ -693,7 +693,6 @@ body {
   line-height: 1.2em;
   border-radius: 5px;
   color: #FFFFFF;
-  line-height: 1em;
 }
 .seo .section .tag .tag-items i {
   margin-left: 5px;
@@ -797,6 +796,7 @@ body {
   border: 3px solid transparent;
   border-radius: 5px;
   overflow: hidden;
+  background: #EEEEEE;
 }
 .seo .section .list .cover-items:nth-child(5n+0) {
   margin-right: 0;
@@ -808,6 +808,17 @@ body {
 }
 .seo .section .list .cover-items.active {
   border: 3px solid #4CAF50;
+}
+.seo .section .list .cover-items.btn-add {
+  padding: 6.9% 0%;
+  text-align: center;
+}
+.seo .section .list .cover-items.btn-add i {
+  font-size: 1.4em;
+  color: #999999;
+}
+.seo .section .list .cover-items.btn-add:hover {
+  background: #DDDDDD;
 }
 .seo .section .list .cover-items:hover {
   cursor: pointer;
@@ -1075,8 +1086,8 @@ body {
   margin-right: 2%;
   margin-bottom: 2%;
   line-height: 1em;
-  color: #999999;
-  font-size: 0.8em;
+  color: #BBBBBB;
+  font-size: 1.2em;
 }
 .article .tag a:hover {
   text-decoration: underline;

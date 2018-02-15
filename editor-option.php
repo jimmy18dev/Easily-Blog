@@ -32,9 +32,9 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <body>
 
 <div class="header">
-	<a href="article/<?php echo $article->id;?>/editor" class="btn left">
-		<i class="fa fa-arrow-left" aria-hidden="true"></i>
-		<span>แก้ไขบทความ</span>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn">
+		<i class="fa fa-angle-right" aria-hidden="true"></i>
+		<span>บันทึก</span>
 	</a>
 </div>
 
@@ -42,8 +42,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section" id="cover">
 		<h2>ภาพหน้าปก (Cover)</h2>
 		<div class="list">
+			<div class="cover-items btn-add">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</div>
+
 			<?php foreach ($article->contents as $var) {?>
-			<?php if($var['type'] == 'image'){?>
+			<?php if($var['type'] == 'image' && !empty($var['img_location'])){?>
 			<div class="cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>">
 				<img src="image/upload/square/<?php echo $var['img_location'];?>">
 			</div>
@@ -68,7 +72,9 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 	<div class="section" id="location">
 		<h2>ที่อยู่</h2>
-		<div class="location-current" id="locationCurrent">
+
+		<?php if(!empty($article->district_id) || !empty($article->amphur_id) || !empty($article->province_id)){?>
+		<div class="location-current">
 			<div class="location-items">
 				<i class="fa fa-map-marker" aria-hidden="true"></i>
 				<span>
@@ -79,6 +85,8 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 				<div class="btn" id="btnClearLocation"><i class="fa fa-close" aria-hidden="true"></i></div>
 			</div>
 		</div>
+		<?php }?>
+
 		<div class="locationInputWrapper">
 			<i class="fa fa-search" aria-hidden="true"></i>
 			<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด..." autocomplete="off">

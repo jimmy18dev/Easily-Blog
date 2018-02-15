@@ -554,7 +554,7 @@
 		.tag{
 			width: 100%;
 			float: left;
-			display: run-in;
+			display: inline-block;
 
 			.tag-items{
 				float: left;
@@ -566,7 +566,6 @@
 				line-height: 1.2em;
 				border-radius: 5px;
 				color: #FFFFFF;
-				line-height: 1em;
 
 				i{
 					margin-left: 5px;
@@ -676,6 +675,7 @@
 				border: 3px solid transparent;
 				border-radius: 5px;
 				overflow: hidden;
+				background: #EEEEEE;
 
 				&:nth-child(5n+0){ margin-right: 0; }
 
@@ -687,6 +687,20 @@
 
 				&.active{
 					border: 3px solid #4CAF50;
+				}
+
+				&.btn-add{
+					padding: 6.9% 0%;
+					text-align: center;
+
+					i{
+						font-size: 1.4em;
+						color: #999999;
+					}
+
+					&:hover{
+						background: #DDDDDD;
+					}
 				}
 
 				&:hover{ cursor: pointer; }
@@ -979,8 +993,8 @@
 			margin-right: 2%;
 			margin-bottom: 2%;
 			line-height: 1em;
-			color: #999999;
-			font-size: 0.8em;
+			color: #BBBBBB;
+			font-size: 1.2em;
 
 			&:hover{
 				text-decoration: underline;
