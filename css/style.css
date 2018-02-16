@@ -462,6 +462,20 @@ body {
   display: inline-block;
   margin-bottom: 3%;
 }
+.pagehead.margin-zero {
+  margin-top: 60px;
+}
+.pagehead input[type="text"] {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 3em;
+  line-height: 1.5em;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #EEEEEE;
+  font-family: "maledpan", sans-serif;
+}
 .pagehead.center {
   text-align: center;
   margin-top: 60px;
