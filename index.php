@@ -51,6 +51,9 @@ $categories = $category->listAll();
 <?php if(count($articles)>0){
 	include_once 'footer.php';
 }?>
+
+<div id="progressbar"></div>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </body>

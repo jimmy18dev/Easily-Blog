@@ -65,5 +65,5 @@ $user->facebookLogin($user_id);
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
-header('Location: '.DOMAIN.'#'.$msg);
+header('Location: '.DOMAIN.'/profile#'.$msg);
 ?>

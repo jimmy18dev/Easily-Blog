@@ -32,9 +32,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <body>
 
 <div class="header">
-	<a href="article/<?php echo $article->id;?>/editor" class="btn">
+	<a href="article/<?php echo $article->id;?>" class="btn">
 		<i class="fa fa-angle-right" aria-hidden="true"></i>
 		<span>บันทึก</span>
+	</a>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn">
+		<span>แก้ไขบทความ</span>
 	</a>
 </div>
 
@@ -44,12 +47,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 		<div class="list">
 			<?php foreach ($article->contents as $var) {?>
 			<?php if(($var['type'] == 'image' || $var['type'] == 'cover') && !empty($var['img_location'])){?>
-			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>">
+			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>" title="เลือกเป็นภาพปก">
 				<img src="image/upload/square/<?php echo $var['img_location'];?>">
 			</div>
 			<?php }?>
 			<?php }?>
-			<div class="items btn-add-cover">
+			<div class="items btn-add-cover" title="เลือกภ่าพใหม่">
 				<i class="fa fa-plus" aria-hidden="true"></i>
 			</div>
 
@@ -87,7 +90,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 					<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
 					<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
 				</span>
-				<div class="btn" id="btnClearLocation"><i class="fa fa-close" aria-hidden="true"></i></div>
+				<div class="btn" id="btnClearLocation" title="ลบที่อยู่ปันจุบัน"><i class="fa fa-close" aria-hidden="true"></i></div>
 			</div>
 		</div>
 		<?php }?>
@@ -125,7 +128,10 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
+<!-- <script type="text/javascript" src="js/init.js"></script> -->
+<script type="text/javascript" src="js/lib/progressbar.js"></script>
+<script type="text/javascript" src="js/article.lib.js"></script>
 <script type="text/javascript" src="js/location.js"></script>
 <script type="text/javascript" src="js/seo.js"></script>
 </body>
