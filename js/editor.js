@@ -2,11 +2,8 @@ var article_api = 'api/article';
 var youtube_key = 'AIzaSyB5KfCVIK9XviNJ9fNYWwAGhZfRskjGQ_M';
 // Allowed file size is less than 15 MB (15728640)
 var max_filesize        = $('#maximumSize').val();
-var api_document        = 'api/document';
-var current_article_id;
 
 $(document).ready(function(){
-    current_article_id = $('#article_id').val();
     $('.autosize').autosize({append: "\n"});
     tippy('[title]',{arrow: true});
 
@@ -190,24 +187,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_topic',
-                article_id  :article_id,
-                content_id  :content_id,
-                topic       :new_topic
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editTopic(content_id,new_topic);
     });
 
     // Google Map location Upload
@@ -218,25 +198,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_map_location',
-                article_id  :article_id,
-                content_id  :content_id,
-                lat         :parseFloat(lat),
-                lng         :parseFloat(lng)
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editLocation(content_id,lat,lng)
     });
 
     // Change Body of Content.
@@ -257,24 +219,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_body',
-                article_id  :article_id,
-                content_id  :content_id,
-                body        :news_body
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editBody(content_id,news_body)
     });
 
     // Edit Image Alt
@@ -295,24 +240,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_img_alt',
-                article_id  :article_id,
-                content_id  :content_id,
-                img_alt     :new_alt
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editAlt(content_id,new_alt)
     });
 
     // Youtube Content
@@ -383,24 +311,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_video_id',
-                article_id  :article_id,
-                content_id  :content_id,
-                video_id    :youtube_id
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editVideo(content_id,youtube_id)
     });
 
     ////////////////////////////
@@ -495,23 +406,9 @@ $(document).ready(function(){
         var content_id = $(this).parent().parent().attr('data-content');
         if(!confirm('Delete this Content #'+content_id+' ?')){ return false; }
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'delete_content',
-                article_id  :article_id,
-                content_id  :content_id
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $('#content'+content_id).fadeOut(500);
-        });
+        article.deleteContent(content_id)
+
+        $('#content'+content_id).fadeOut(500);
     });
 
     $('.between-option').click(function(){
@@ -528,23 +425,9 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'rotate_image',
-                content_id  :content_id,
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
-            inprogress('complete');
-        });
+        article.imageRotate(content_id)
+
+        $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
     });
 
     $('.btn-swap').click(function(){
@@ -597,22 +480,7 @@ $(document).ready(function(){
 
         if(content_id == target_id) return false;
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'swap_content',
-                current_id  :content_id,
-                target_id   :target_id,
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            location.reload();
-        });
+        article.swapContent(content_id,target_id)
     });
 
     $documentForm       = $('#documentForm');
@@ -711,23 +579,7 @@ $(document).ready(function(){
 
         inprogress('progress');
 
-        $.ajax({
-            url         :api_document,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_title',
-                file_id  :file_id,
-                title     :doc_title
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
+        article.editDocTitle(file_id,doc_title);
     });
 
     // Delete Delete!
@@ -737,22 +589,9 @@ $(document).ready(function(){
         $thisItems = $(this).parent();
         if(!confirm('คุณต้องการลบ "'+file_name+'" ใช่หรือไม่ ?')){ return false; }
 
-        $.ajax({
-            url         :api_document,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request :'delete',
-                file_id :file_id
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $thisItems.fadeOut(300);
-        });
+        article.deleteDoc(file_id)
+
+        $thisItems.fadeOut(300);
     });
 });
 

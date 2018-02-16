@@ -3,8 +3,233 @@ var Article = function (article_id){
 
     //private properties
     var article_api = 'api/article';
+    var api_document = 'api/document';
     var progressbar = $('#progressbar');
     var article_id 	= article_id;
+
+    this.deleteDoc = function(file_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :api_document,
+            cache       :false,
+            async 		:false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request :'delete',
+                file_id :file_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit document title
+    this.editDocTitle = function(file_id,title){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :api_document,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_title',
+                file_id  :file_id,
+                title     :title
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // CONTENT
+    this.imageRotate = function(content_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'rotate_image',
+                content_id  :content_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+    // Swap between content box
+    this.swapContent = function(content_id,target_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'swap_content',
+                current_id  :content_id,
+                target_id   :target_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            location.reload();
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Delete Content Box
+    this.deleteContent = function(content_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            async 		:false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'delete_content',
+                article_id  :article_id,
+                content_id  :content_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data); 
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit Video ID (YouTube)
+    this.editVideo = function(content_id,video_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_video_id',
+                article_id  :article_id,
+                content_id  :content_id,
+                video_id    :video_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit Alt
+    this.editAlt = function(content_id,alt){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_img_alt',
+                article_id  :article_id,
+                content_id  :content_id,
+                img_alt     :alt
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit location (Google Map)
+    this.editLocation = function(content_id,lat,lng){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_map_location',
+                article_id  :article_id,
+                content_id  :content_id,
+                lat         :parseFloat(lat),
+                lng         :parseFloat(lng)
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit content body.
+    this.editBody = function(content_id,body){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_body',
+                article_id  :article_id,
+                content_id  :content_id,
+                body        :body
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Edit content topic.
+    this.editTopic = function(content_id,topic){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_topic',
+                article_id  :article_id,
+                content_id  :content_id,
+                topic       :topic
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
 
     // Create new Article
     this.create = function(category_id){
@@ -26,7 +251,7 @@ var Article = function (article_id){
 
             var article_id = data.article_id;
             progressbar.Progressbar('100%');
-            
+
             setTimeout(function(){
                 window.location = 'article/'+article_id+'/editor';
             },1000);
