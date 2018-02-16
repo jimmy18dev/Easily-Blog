@@ -6,6 +6,97 @@ var Article = function (article_id){
     var progressbar = $('#progressbar');
     var article_id 	= article_id;
 
+    // Article Remove (set status to deleted)
+    this.remove = function(){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            async 		:false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'change_status',
+                article_id  :article_id,
+                status      :'deleted'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Article status to draft!
+    this.draft = function(){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            async 		:false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'change_status',
+                article_id  :article_id,
+                status      :'draft'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
+    // Article status to publish.
+    this.publish = function(){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            async 		:false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'change_status',
+                article_id  :article_id,
+                status      :'published'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%')
+        });
+    }
+
+    // Edit article title.
+    this.editTitle = function(title){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_title',
+                article_id  :article_id,
+                title       :title
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+        });
+    }
+
     // Edit article link (URL)
     this.editURL = function(url){
     	progressbar.Progressbar('70%');

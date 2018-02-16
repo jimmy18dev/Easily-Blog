@@ -7,9 +7,14 @@ var current_article_id;
 
 $(document).ready(function(){
     current_article_id = $('#article_id').val();
-
     $('.autosize').autosize({append: "\n"});
     tippy('[title]',{arrow: true});
+
+    // Get article id
+    var article_id  = $('#article_id').val();
+
+    // Create Class
+    var article = new Article(article_id);
 
     function inprogress(action){
         $title  = $('#editorTitle');
@@ -63,9 +68,6 @@ $(document).ready(function(){
     /**
     * Content events listening
     */
-    var article_id  = $('#article_id').val(); // Current Article ID
-    var title;
-
     // Edit Article Title.
     $title = $('#title');
     setTimeout(function(){
@@ -78,51 +80,28 @@ $(document).ready(function(){
             document.title = title;
     },0);
 
-    $title.focus(function(){
-        title = $(this).val();
-        inprogress('editing');
-    });
-    $title.on('input',function(event) {
-        var t = $(this).val();
-
-        if(t.length == 0)
-            document.title = 'ตั้งชื่อบทความ';
-        else
-            document.title = $(this).val();
-    });
-
-    $title.blur(function(){
-        var now_value = $(this).val();
-
-        console.log('Title '+title);
-
-        if(title == now_value){
-            inprogress();
-            return false;
-        }
-
-        document.title = now_value;
-
-        inprogress('progress');
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_title',
-                article_id  :article_id,
-                title       :now_value
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
+    var oldTitle
+    $title.on({
+        'input': function(e){
+            var t = $(this).val()
+            if(t.length == 0)
+                document.title = 'ตั้งชื่อบทความ'
+            else
+                document.title = $(this).val()
+        },
+        focus: function(e) {
+            oldTitle = $(this).val()
+        },
+        blur: function(e) {
+            var now = $(this).val()
+            if(oldTitle == now)
+                return false
+            else{
+                article.editTitle(now)
+                document.title = now
             }
-        }).done(function(data){
-            console.log(data);
-            inprogress('complete');
-        });
-    });
+        }
+    })
 
     // Add Content Box.
     $btnAction = $('.btnAction');
@@ -159,98 +138,31 @@ $(document).ready(function(){
     
     // Publish Article
     $('#btn-publish').click(function(){
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
-
         $(this).html('<span>กำลังเผยแพร่</span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'published'
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
-
-            setTimeout(function(){
-                window.location = 'article/'+article_id;
-            },1000);
-        });
+        article.publish();
+        setTimeout(function(){
+            window.location = 'article/'+article_id;
+        },1000);
     });
 
     $('#btn-remove').click(function(){
-
         if(!confirm('คุณต้องการลบบทความใช่หรือไม่ ?')){ return false; }
+
+        article.remove();
         
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'deleted'
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
-
-            setTimeout(function(){
-                window.location = 'profile';
-            },1000);
-        });
+        setTimeout(function(){
+            window.location = 'profile';
+        },1000);
     });
 
     $('#btn-draft').click(function(){
-
         if(!confirm('คุณต้องการยกเลิกเผยแพร่บทความนี้ ใช่หรือไม่ ?')){ return false; }
-        
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'draft'
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $progressbar.animate({width:'100%'},500);
-            $progressbar.fadeOut();
+        article.draft();
 
-            setTimeout(function(){
-                location.reload();
-            },1000);
-        });
+        setTimeout(function(){
+            location.reload();
+        },1000);
     });
 
     /**

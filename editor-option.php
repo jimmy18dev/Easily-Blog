@@ -129,10 +129,9 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
-<!-- <script type="text/javascript" src="js/init.js"></script> -->
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript" src="js/article.lib.js"></script>
 <script type="text/javascript" src="js/location.js"></script>
-<script type="text/javascript" src="js/seo.js"></script>
+<script type="text/javascript" src="js/editor.option.js"></script>
 </body>
 </html>

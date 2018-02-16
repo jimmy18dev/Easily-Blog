@@ -255,6 +255,8 @@ if($article->owner_id != $user->id){
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
+<script type="text/javascript" src="js/lib/progressbar.js"></script>
+<script type="text/javascript" src="js/article.lib.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>
 <script type="text/javascript" src="js/google-map.js"></script>
