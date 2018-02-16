@@ -6,6 +6,33 @@ var Article = function (article_id){
     var progressbar = $('#progressbar');
     var article_id 	= article_id;
 
+    // Create new Article
+    this.create = function(category_id){
+    	progressbar.Progressbar('70%');
+    	$.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'create',
+                category_id :category_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+
+            var article_id = data.article_id;
+            progressbar.Progressbar('100%');
+            
+            setTimeout(function(){
+                window.location = 'article/'+article_id+'/editor';
+            },1000);
+        });
+    }
+
     // Article Remove (set status to deleted)
     this.remove = function(){
     	progressbar.Progressbar('70%');

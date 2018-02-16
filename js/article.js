@@ -2,38 +2,39 @@ var article_api = 'api/article';
 var category_id;
 
 $(document).ready(function(){
-    $btnStartWrite = $('#btnStartWrite');
-    $btnStartWrite.click(function(){   
+    // Get article id
+    var article_id  = $('#article_id').val();
 
-        if(!category_id) return false;
+    // Create Class
+    var article = new Article(article_id);
 
-        $btnStartWrite.removeClass('active');
-        $btnStartWrite.html('รอสักครู่<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
-        $progressbar.fadeIn(300);
-        $progressbar.width('0%');
-        $progressbar.animate({width:'70%'},500);
+    // Publish Article
+    $('#btn-publish').click(function(){
+        $(this).html('<span>กำลังเผยแพร่</span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+        article.publish();
+        setTimeout(function(){
+            window.location = 'article/'+article_id;
+        },1000);
+    });
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'create',
-                category_id :category_id
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
+    $('#btn-remove').click(function(){
+        if(!confirm('คุณต้องการลบบทความใช่หรือไม่ ?')){ return false; }
 
-            var article_id = data.article_id;
-            setTimeout(function(){
-                $progressbar.animate({width:'100%'},500);
-                window.location = 'article/'+article_id+'/editor';
-            },1000);
-        });
+        article.remove();
+        
+        setTimeout(function(){
+            window.location = 'profile';
+        },1000);
+    });
+
+    $('#btn-draft').click(function(){
+        if(!confirm('คุณต้องการยกเลิกเผยแพร่บทความนี้ ใช่หรือไม่ ?')){ return false; }
+
+        article.draft();
+
+        setTimeout(function(){
+            location.reload();
+        },1000);
     });
 
     $chooseCategory = $('.choose-category');
@@ -42,5 +43,17 @@ $(document).ready(function(){
         $btnStartWrite.addClass('active');
         $('.choose-category').removeClass('active');
         $(this).addClass('active');
+    });
+
+    $btnStartWrite = $('#btnStartWrite');
+    $btnStartWrite.click(function(){   
+
+        if(!category_id) return false;
+
+        $btnStartWrite.removeClass('active');
+        $btnStartWrite.html('รอสักครู่<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+
+        // Create new Article.
+        article.create(category_id)
     });
 });

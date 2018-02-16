@@ -139,9 +139,17 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	</div>
 	<?php }?>
 </article>
+
+<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
+<div id="progressbar"></div>
+
 <?php include_once 'footer.php';?>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
+<script type="text/javascript" src="js/lib/progressbar.js"></script>
+<script type="text/javascript" src="js/article.lib.js"></script>
+<script type="text/javascript" src="js/article.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script>
 $(function(){
