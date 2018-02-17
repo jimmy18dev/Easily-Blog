@@ -57,6 +57,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			<ul>
 				<?php if($article->status=='published'){?>
 				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
+				<?php }else{?>
+				<li id="btn-publish"><span class="">เผยแพร่บทความ</span></li>
 				<?php }?>
 
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
@@ -73,7 +75,13 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<!-- Article Header -->
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
-		<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo (!empty($article->published_time)?'เผยแพร่เมื่อ '.$article->published_time:'เขียนเมื่อ '.$article->create_time);?></div>
+
+		<?php if($article->status == 'published'){?>
+		<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>เผยแพร่ <?php echo $article->published_time;?></div>
+		<?php }else{?>
+		<div class="time"><i class="fa fa-pencil" aria-hidden="true"></i>แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+		<?php }?>
+
 		<?php if(!empty($article->description)){?>
 		<p><?php echo $article->description;?></p>
 		<?php }?>

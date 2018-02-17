@@ -10,7 +10,6 @@ $(document).ready(function(){
 
     // Publish Article
     $('#btn-publish').click(function(){
-        $(this).html('<span>กำลังเผยแพร่</span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
         article.publish();
         setTimeout(function(){
             window.location = 'article/'+article_id;
