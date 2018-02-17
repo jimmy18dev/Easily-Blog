@@ -399,6 +399,29 @@
 			margin-bottom: 2%;
 		}
 
+		p{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 1em;
+			text-align: right;
+			margin-top: 2%;
+			color: #666666;
+
+			a{
+				color: #333333;
+				text-decoration: none;
+
+				&:hover{ text-decoration: underline; }
+
+				i{
+					margin-left: 5px;
+					font-size: 0.8em;
+					color: @primary_color;
+				}
+			}
+		}
+
 		.location-current{
 			width: 100%;
 			float: left;
@@ -1783,6 +1806,12 @@
 					cursor: pointer;
 					text-decoration: underline;
 				}
+			}
+
+			a.btn-edit{
+				float: right;
+				margin-right: 0;
+				color: #999999;
 			}
 		}
 	}

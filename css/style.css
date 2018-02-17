@@ -541,6 +541,27 @@ body {
   font-weight: normal;
   margin-bottom: 2%;
 }
+.seo .section p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  text-align: right;
+  margin-top: 2%;
+  color: #666666;
+}
+.seo .section p a {
+  color: #333333;
+  text-decoration: none;
+}
+.seo .section p a:hover {
+  text-decoration: underline;
+}
+.seo .section p a i {
+  margin-left: 5px;
+  font-size: 0.8em;
+  color: #004d40;
+}
 .seo .section .location-current {
   width: 100%;
   float: left;
@@ -1812,6 +1833,11 @@ body {
   color: #333333;
   cursor: pointer;
   text-decoration: underline;
+}
+.article-list .items .info a.btn-edit {
+  float: right;
+  margin-right: 0;
+  color: #999999;
 }
 .swap {
   position: fixed;

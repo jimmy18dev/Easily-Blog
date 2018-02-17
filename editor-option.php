@@ -67,6 +67,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section" id="info">
 		<h2>รายละเอียดอย่างย่อ</h2>
 		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตัวอักษร"><?php echo $article->description;?></textarea>
+		<p>ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger<i class="fa fa-external-link" aria-hidden="true"></i></a></p>
 	</div>
 
 	<div class="section" id="url">
