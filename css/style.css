@@ -780,6 +780,9 @@ body {
   box-sizing: border-box;
   background: transparent;
 }
+.seo .section .inputWrapper .url-input:hover {
+  cursor: pointer;
+}
 .seo .section .inputWrapper .url-input::-webkit-input-placeholder {
   color: #333333;
 }
@@ -972,6 +975,9 @@ body {
   font-size: 0.8em;
   padding-top: 3%;
   color: #BBBBBB;
+}
+.article .article-header .time:hover {
+  cursor: default;
 }
 .article .article-header .time i {
   margin-right: 7px;
@@ -1712,11 +1718,6 @@ body {
 .article-list .items:nth-child(3n+0) {
   margin-right: 0;
 }
-.article-list .items.gradient {
-  background: #3bed8d;
-  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
-  background: linear-gradient(to right, #3bed8d, #38acc5);
-}
 .article-list .items.gradient .wrapper header {
   padding: 10% 5%;
 }
@@ -1735,6 +1736,56 @@ body {
 .article-list .items.gradient .info {
   margin: 0;
   padding: 5%;
+}
+.article-list .items.gradient-1 {
+  background: #3bed8d;
+  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
+  background: linear-gradient(to right, #3bed8d, #38acc5);
+}
+.article-list .items.gradient-2 {
+  background: #283593;
+  background: -webkit-linear-gradient(to right, #283593, #1a237e);
+  background: linear-gradient(to right, #283593, #1a237e);
+}
+.article-list .items.gradient-3 {
+  background: #311b92;
+  background: -webkit-linear-gradient(to right, #311b92, #283593);
+  background: linear-gradient(to right, #311b92, #283593);
+}
+.article-list .items.gradient-4 {
+  background: #bf360c;
+  background: -webkit-linear-gradient(to right, #bf360c, #f57c00);
+  background: linear-gradient(to right, #bf360c, #f57c00);
+}
+.article-list .items.gradient-5 {
+  background: #263238;
+  background: -webkit-linear-gradient(to right, #263238, #37474f);
+  background: linear-gradient(to right, #263238, #37474f);
+}
+.article-list .items.gradient-6 {
+  background: #3e2723;
+  background: -webkit-linear-gradient(to right, #3e2723, #4e342e);
+  background: linear-gradient(to right, #3e2723, #4e342e);
+}
+.article-list .items.gradient-7 {
+  background: #004d40;
+  background: -webkit-linear-gradient(to right, #004d40, #00695c);
+  background: linear-gradient(to right, #004d40, #00695c);
+}
+.article-list .items.gradient-8 {
+  background: #880e4f;
+  background: -webkit-linear-gradient(to right, #880e4f, #c2185b);
+  background: linear-gradient(to right, #880e4f, #c2185b);
+}
+.article-list .items.gradient-9 {
+  background: #c2185b;
+  background: -webkit-linear-gradient(to right, #c2185b, #4527a0);
+  background: linear-gradient(to right, #c2185b, #4527a0);
+}
+.article-list .items.gradient-0 {
+  background: #33691e;
+  background: -webkit-linear-gradient(to right, #33691e, #ef6c00);
+  background: linear-gradient(to right, #33691e, #ef6c00);
 }
 .article-list .items.highlight .wrapper {
   position: relative;

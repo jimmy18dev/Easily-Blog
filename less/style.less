@@ -667,6 +667,10 @@
 				box-sizing: border-box;
 				background: transparent;
 
+				&:hover{
+					cursor: pointer;
+				}
+
 				&::-webkit-input-placeholder { color: #333333; }
 				&::-moz-placeholder { color: #333333; }
 				&:-ms-input-placeholder { color: #333333; }
@@ -867,6 +871,10 @@
 			font-size: 0.8em;
 			padding-top: 3%;
 			color: #BBBBBB;
+
+			&:hover{
+				cursor: default;
+			}
 
 			i{
 				margin-right: 7px;
@@ -1673,8 +1681,6 @@
 		}
 
 		&.gradient{
-			.bgGradient(#3BED8D,#38ACC5);
-
 			.wrapper header{
 				padding: 10% 5%;
 
@@ -1698,6 +1704,16 @@
 				padding: 5%;
 			}
 		}
+		&.gradient-1{ .bgGradient(#3BED8D,#38ACC5); }
+		&.gradient-2{ .bgGradient(#283593,#1A237E); }
+		&.gradient-3{ .bgGradient(#311B92,#283593); }
+		&.gradient-4{ .bgGradient(#BF360C,#F57C00); }
+		&.gradient-5{ .bgGradient(#263238,#37474F); }
+		&.gradient-6{ .bgGradient(#3E2723,#4E342E); }
+		&.gradient-7{ .bgGradient(#004D40,#00695C); }
+		&.gradient-8{ .bgGradient(#880E4F,#C2185B); }
+		&.gradient-9{ .bgGradient(#C2185B,#4527A0); }
+		&.gradient-0{ .bgGradient(#33691E,#EF6C00); }
 
 		&.highlight{
 			.wrapper{

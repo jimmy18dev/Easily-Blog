@@ -37,7 +37,7 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header fixed">
-	<a href="article/<?php echo $article->id;?>" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+	<a href="index.php" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="page-title" id="editorTitle">เขียนบทความ</div>
 
 	<?php include 'template/header.profile.php';?>

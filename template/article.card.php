@@ -19,7 +19,7 @@
 	</div>
 </article>
 <?php }else{?>
-<article class="items <?php echo (empty($var['cover_id'])?'gradient':'');?>">
+<article class="items <?php echo (empty($var['cover_id'])?'gradient gradient-'.substr(strlen($var['title']),-1,1):'');?>">
 	<div class="wrapper">
 		<?php if(!empty($var['cover_id'])){?>
 		<figure class="thumbnail">
@@ -34,7 +34,7 @@
 		</header>
 	</div>
 	<div class="info">
-		<a href="#"><?php echo $var['category_title'];?></a>
+		<a href="topic/<?php echo $var['category_id'];?>/<?php echo $var['category_title'];?>"><?php echo $var['category_title'];?></a>
 		<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
 
 		<?php if($var['owner_id'] == $user->id){?>
