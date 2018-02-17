@@ -31,13 +31,15 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </head>
 <body>
 
-<div class="header">
-	<a href="article/<?php echo $article->id;?>" class="btn">
-		<i class="fa fa-angle-right" aria-hidden="true"></i>
-		<span>บันทึก</span>
-	</a>
-	<a href="article/<?php echo $article->id;?>/editor" class="btn">
+<div class="header fixed">
+	<a href="article/<?php echo $article->id;?>/editor" class="btn active">
+		<i class="fa fa-pencil" aria-hidden="true"></i>
 		<span>แก้ไขบทความ</span>
+	</a>
+
+	<a href="article/<?php echo $article->id;?>" class="btn left">
+		<i class="fa fa-angle-left" aria-hidden="true"></i>
+		<span>ดูตัวอย่าง</span>
 	</a>
 </div>
 
@@ -67,7 +69,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section" id="info">
 		<h2>รายละเอียดอย่างย่อ</h2>
 		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตัวอักษร"><?php echo $article->description;?></textarea>
-		<p>ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger<i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+		<p>ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>
 	</div>
 
 	<div class="section" id="url">
@@ -106,6 +108,11 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 	<div class="section" id="tag">
 		<h2>คำที่เกี่ยวข้อง</h2>
+		<form class="locationInputWrapper" id="tagForm">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ...">
+			<div class="tip">กด Enter เพิ่มบันทึก</div>
+		</form>
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>
 			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">
@@ -114,11 +121,22 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			</div>
 			<?php }?>
 		</div>
-		<form class="locationInputWrapper" id="tagForm">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ...">
-			<div class="tip">กด Enter เพิ่มบันทึก</div>
-		</form>
+	</div>
+
+	<div class="section" id="guide">
+		<h2>SEO On-Page อย่างถูกต้อง</h2>
+		<p>Title Tag ควรมี keyword อยู่ด้วย
+ส่วนนี้ถือว่าเป็นส่วนที่สำคัญมากของการทำ On-Page SEO และเป็นส่วนที่ควรจะต้องมี keyword ที่เราต้องการทำ SEO อยู่ในส่วนนี้ ถ้าเป็นไปได้ keyword ควรจะเป็นคำแรกของ Title Tag ได้ยิ่งดี สำหรับ CMS ทั่วไปโดยเฉพาะ wordpress ส่วนนี้จะเป็นส่วนเดียวกันกับการตั้งชื่อบทความ (Headline) ดังนั้นการตั้งชื่อบทความจึงเป็นที่ต้องให้ความใส่ใจอย่างมากในการทำ SEO</p>
+<p>อย่าลืมคิดถึง Long Tail keyword 
+Long tail keywords คือกลุ่มคำหรือวลีที่มี keyword หลักรวมอยู่กับคำอื่นๆ ซึ่งจะช่วยสร้างความหลากหลายให้กับคีย์เวิร์ด และจะทำให้คีย์เวิร์ดเหล่านี้มีโอกาสติดอันดับสูงๆ ได้ง่ายกว่าคำหลัก เช่น การเพิ่มเติมความว่า “รีวิว” “2016” หรือ “ราคา” รวมกับคีย์เวิร์ดหลักในตอนที่เขียน Title Tag เป็นต้น อ่านเพิ่มเติม Keyword Research ขั้นตอนสำคัญในการทำ SEO</p>
+<p>สร้าง URL ให้ Search Engines และ Users เข้าใจได้ง่าย
+ควรหลีกเลี่ยง URL ที่เต็มไปด้วยอักขระที่มีแต่โปรแกรมเมอร์เท่านั้นที่อ่านเข้าใจ URL ที่ดีควรจะมีความหมายซึ่งก็หมายถึงควรจะมีคีย์เวิร์ดรวมอยู่ใน URL ด้วยจะดีมาก เพราะนอกจากจะเป็นการทำ SEO-Friendly URLs แล้วยังถือว่าเป็นการทำ User-Friendly URLs ด้วย</p>
+<p>ให้ความสำคัญกับ Paragraph แรกของเนื้อหา
+ในย่อหน้าแรกนั้นโดยเฉพาะ 160 ตัวอักษรแรกควรที่จะมีคีย์เวิร์ดหลักรวมอยู่ด้วย เรื่องนี้ถือว่าเป็นเรื่องที่ควรจำต้องทำให้เป็นประจำสม่ำเสมอเวลาที่เขียนบทความเนื้อหาอะไรก็ตาม เนื่องจากโดยปกติถ้าหาก Google ไม่พบ Meta description แล้ว Google มักจะดึงข้อความในย่อหน้าแรกไปแสดงบนผลการค้นหา ซึ่งการมีคีย์เวิร์ดอยู่ในผลการค้นหาย่อมเป็นสิ่งที่ดี</p>
+<p>ใช้แท็ก alt ในการอธิบายภาพ
+Alt แท็กเป็นอีกส่วนหนึ่งที่จะช่วยบอก Google ให้เข้าใจความหมายของรูปภาพได้ดียิ่งขึ้น ดังนั้นควรที่จะต้องใส่คีย์เวิร์ดในส่วนนี้ด้วยเช่นกัน</p>
+<p>เขียนบทความให้มีความยาว
+มีผลสำรวจจากเว็บไซต์ต่างประเทศพบว่าเนื้อหาที่มีความยาวมักจะมีอันดับที่ดีกว่าเนื้อหาสั้นๆ ในบทความระบุว่าอันดับหนึ่งถึงสามในผลการค้นหามักจะมีความยาวประมาณ 1,900 – 2000 คำ แต่อย่างไรก็ตามให้ต้องคำนึงถึงคุณภาพของเนื้อหาด้วย ไม่ใช่เน้นที่ความยาวแต่เพียงอย่างเดียว เพราะถ้าเนื้อหาไม่มีคุณภาพแล้ว ความยาวก็ไม่ได้ช่วยอะไร</p>
 	</div>
 </div>
 
@@ -132,7 +150,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript" src="js/article.lib.js"></script>
-<script type="text/javascript" src="js/location.js"></script>
 <script type="text/javascript" src="js/editor.option.js"></script>
+<script type="text/javascript" src="js/location.js"></script>
 </body>
 </html>

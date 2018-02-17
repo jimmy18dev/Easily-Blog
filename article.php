@@ -38,9 +38,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <header class="header fixed">
 	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
 	
-	<div class="logo">
-		<a href="index.php">Peopleawesome</a>
-	</div>
+	<div class="logo"><a href="index.php">Peopleawesome</a></div>
 
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
@@ -66,7 +64,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</div>
 	</div>
 	
-	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn active iconleft"><span>แก้ไขบทความ</span><i class="fa fa-pencil" aria-hidden="true"></i></a>
 	<?php }?>
 </header>
 

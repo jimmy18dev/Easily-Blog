@@ -161,6 +161,35 @@ var Article = function (article_id){
         });
     }
 
+    // Edit Article address.
+    this.editAddress = function(district_id,amphur_id,province_id){
+        progressbar.Progressbar('70%');
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            async       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_address',
+                article_id  :article_id,
+                province_id :province_id,
+                amphur_id   :amphur_id,
+                district_id :district_id
+            },
+            error: function (request, status, error) {
+                console.log("Request Error");
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+
+            setTimeout(function(){
+                location.reload();
+            },1000);
+        });
+    }
+
     // Edit location (Google Map)
     this.editLocation = function(content_id,lat,lng){
     	progressbar.Progressbar('70%');

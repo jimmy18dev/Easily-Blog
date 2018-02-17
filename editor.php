@@ -56,18 +56,19 @@ if($article->owner_id != $user->id){
 				<li><a href="article/<?php echo $article->id;?>/option#location">ตำบล อำเภอ จังหวัด<?php echo ($article->hasLocation)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#tag">คำที่เกี่ยวข้อง<?php echo ($article->hasTags)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li class="separator"></li>
+				<li><a href="article/<?php echo $article->id;?>/option#guide">คำแนะนำ</a></li>
+				<li class="separator"></li>
 
 				<?php if($article->status=='published'){?>
 				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
 				<?php }?>
-
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>
 	</div>
 
 	<?php if($article->status!='published'){?>
-	<div class="btn publish iconleft" id="btn-publish">
+	<div class="btn active iconleft" id="btn-publish">
 		<span>เผยแพร่</span><i class="fa fa-paper-plane" aria-hidden="true"></i>
 	</div>
 	<?php }?>

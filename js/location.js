@@ -3,14 +3,26 @@ var article_api     = 'api/article';
 
 $(function(){
     $locationList = $('#locationList');
+    // Get article id
+    var article_id  = $('#article_id').val();
+
+    // Create Class
+    var article = new Article(article_id);
+
     $('#findLocation').keydown(function(e){
+
+        console.log('Find location clicked! and KeyCode: '+e.keyCode)
+
         if (e.keyCode == 13) { // Enter
             $selected           = $("#locationList .selected");
             var district_id     = $selected.attr('data-district');
             var amphur_id       = $selected.attr('data-amphur');
             var province_id     = $selected.attr('data-province');
 
-            saveAddress(district_id,amphur_id,province_id);
+            console.log(article_id,district_id,amphur_id,province_id);
+
+            article.editAddress(district_id,amphur_id,province_id);
+
         }else if (e.keyCode == 38) { // Up
             var selected = $(".selected");
             $("#locationList .location-items").removeClass("selected");
@@ -71,29 +83,6 @@ $(function(){
         var amphur_id = $(this).attr('data-amphur');
         var province_id = $(this).attr('data-province');
 
-        saveAddress(district_id,amphur_id,province_id);
+        article.editAddress(district_id,amphur_id,province_id);
     });
-
-    function saveAddress(district_id,amphur_id,province_id){
-
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'edit_address',
-                article_id  :article_id,
-                province_id :province_id,
-                amphur_id   :amphur_id,
-                district_id :district_id
-            },
-            error: function (request, status, error) {
-                console.log("Request Error");
-            }
-        }).done(function(data){
-            console.log(data);
-            location.reload();
-        });
-    }
 });
