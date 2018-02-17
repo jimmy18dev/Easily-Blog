@@ -254,11 +254,14 @@ class Article{
     	if(!empty($owner_id)){
     		$where_owner = 'AND article.user_id = :owner_id ';
     	}
+        if(!empty($keyword)){
+            $where_search = 'AND (article.title LIKE :keyword OR article.description LIKE :keyword) ';
+        }
     	
     	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
         $limit = 'LIMIT '.$start.','.$perpage;
 
-    	$query_string = $select.$where.$where_category.$where_status.$where_owner.$order.$limit;
+    	$query_string = $select.$where.$where_category.$where_status.$where_owner.$where_search.$order.$limit;
 
     	// echo $query_string;
 
@@ -271,6 +274,9 @@ class Article{
     	if(!empty($owner_id)){
     		$this->db->bind(':owner_id',$owner_id);
     	}
+        if(!empty($keyword)){
+            $this->db->bind(':keyword','%'.$keyword.'%');
+        }
 		$this->db->execute();
 		$dataset = $this->db->resultset();
 

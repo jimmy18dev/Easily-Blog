@@ -1,10 +1,10 @@
 <?php
 include_once'autoload.php';
+
+$keyword = trim($_GET['q']);
+
 $article = new Article();
-$category = new Category();
-$category_id = $_GET['category_id'];
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
-$categories = $category->listAll();
+$articles = $article->listAll(NULL,NULL,$keyword,'published',NULL);
 ?>
 
 <!doctype html>
@@ -23,7 +23,7 @@ $categories = $category->listAll();
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>Easily Blog</title>
+<title>ค้นหา<?php echo (!empty($keyword)?' "'.$keyword.'"':'');?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -35,21 +35,17 @@ $categories = $category->listAll();
 	<a href="index.php" class="btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
 </header>
 
-<nav class="pagehead margin-zero">
-	<input type="text" placeholder="ค้นหาบทความ...">
-</nav>
+<form action="search" method="GET" class="pagehead margin-zero">
+	<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
+</form>
 
 <div class="article-list">
-	<?php if(count($articles) > 0){?>
+	<?php if(count($articles) > 0 && !empty($keyword)){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
-
-<?php if(count($articles)>0){
-	include_once 'footer.php';
-}?>
 
 <div id="progressbar"></div>
 
