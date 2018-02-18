@@ -237,6 +237,29 @@ var Article = function (article_id){
         });
     }
 
+    this.removeHeadCover = function(){
+        progressbar.Progressbar('70%');
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'remove_head_cover',
+                article_id  :article_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+            setTimeout(function(){
+                location.reload();
+            },1000);
+        });
+    }
+
     // Edit content topic.
     this.editTopic = function(content_id,topic){
     	progressbar.Progressbar('70%');

@@ -131,6 +131,13 @@ class Article{
         $this->db->execute();
     }
 
+    public function removeHeadCover($article_id){
+        $this->db->query('UPDATE article SET head_cover_id = NULL, edit_time = :edit_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
     // Get Article and Contents
     public function get($article_id){
     	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 

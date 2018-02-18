@@ -47,8 +47,12 @@ $(document).ready(function(){
         }
     }
 
-    $('.btn-add-cover').click(function(){
+    $('#btnChooseCover').click(function(){
         $('#coverImageFiles').focus().click();
+    });
+    $('#btnRemoveCover').click(function(){
+        if(!confirm('คุณต้องการลบภาพหน้าปก ใช่หรือไม่ ?')){ return false; }
+        article.removeHeadCover()
     });
     $('#coverImageFiles').change(function(){
         $('#coverForm').submit();

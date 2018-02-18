@@ -72,7 +72,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php if(!empty($article->head_cover_img)){?>
 	<div class="article-cover">
 		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
-
+		
 		<!-- Article Header -->
 		<header class="article-header">
 			<h1><?php echo $article->title;?></h1>

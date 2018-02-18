@@ -78,6 +78,11 @@ switch ($_SERVER['REQUEST_METHOD']){
                 
                 $returnObject['message'] = 'Article Cover updated';
                 break;
+            case 'remove_head_cover':
+                $article_id = $_POST['article_id'];
+                $article->removeHeadCover($article_id);
+                $returnObject['message'] = 'Article Head Cover Removed';
+                break;
             case 'change_status':
                 $article_id = $_POST['article_id'];
                 $status     = $_POST['status'];
