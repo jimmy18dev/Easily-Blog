@@ -11,16 +11,16 @@
 	background: @font_color_topic;
 	position: relative;
 
-	&.fixed{
-		position: fixed;
-		top: 0;
-	}
+	&.fixed{ position: fixed; top: 0; }
 	&.transparent{
-		background: -moz-linear-gradient(top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
-		background: -webkit-linear-gradient(top, rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 100%);
-		background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+		background: transparent;
+		// background: -moz-linear-gradient(top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+		// background: -webkit-linear-gradient(top, rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 100%);
+		// background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 100%);
+		// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
 	}
+
+	&.editor-bar{ background: rgba(255,255,255,0.85); }
 
 	.logo{
 		position: absolute;
@@ -894,11 +894,12 @@
 			padding: 0;
 			position: relative;
 			height: 650px;
+			height: 100vh;
 			overflow: hidden;
 
 			img{
 				width: 100%;
-				margin-top: -150px;
+				// margin-top: -150px;
 				float: left;
 				display: inline-block;
 			}
@@ -1508,43 +1509,30 @@
 		left: 0;
 		bottom: 0;
 		width: 50%;
-		margin: 0 25%;
+		padding: 0 25%;
+		height: 56px;
 		float: left;
 		display: inline-block;
-		background: rgba(255,255,255,0.85);
+		background: rgba(247,247,247,0.9);
 
 		.btnAction{
-			width: 12%;
-			padding: 1.5% 0%;
+			height: 20px;
+			padding: 18px 24px;
 			float: left;
 			display: inline-block;
-			border: 0px;
 			font-family: @topic_font;
 			line-height: 1em;
-			margin: 0px;
+			font-size: 1.4em;
 			background: transparent;
-			color: #999999;
+			color: @font_color_body;
 			text-align: center;
 
 			&:hover{
 				cursor: pointer;
-				color: #111111;
+				color: @font_color_topic;
 			}
 
-			&.right{
-				float: right;
-			}
-
-			i{
-				display: block;
-				font-size: 1.3em;
-				margin-bottom: 3px;
-			}
-
-			span{
-				display: block;
-				font-size: 0.8em;
-			}
+			&.right{ float: right; }
 		}
 	}
 

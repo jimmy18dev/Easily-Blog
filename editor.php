@@ -36,7 +36,7 @@ if($article->owner_id != $user->id){
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<div class="header fixed">
+<div class="header fixed editor-bar">
 	<a href="index.php" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
 	<div class="page-title" id="editorTitle">เขียนบทความ</div>
 
@@ -210,13 +210,23 @@ if($article->owner_id != $user->id){
 	<?php $loop++; }?>
 
 	<div class="option-control" id="optionControl">
-		<div class="btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ"><i class="fa fa-font" aria-hidden="true"></i><span>ข้อความ</span></div>
-		<div class="btnAction" data-action="image" title="อัพโหลดรูปภาพ"><i class="fa fa-picture-o" aria-hidden="true"></i><span>รูปภาพ</span></div>
-		<div class="btnAction" data-action="quote" title="กล่องคำพูด"><i class="fa fa-quote-right" aria-hidden="true"></i><span>คำพูด</span></div>
-		<div class="btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YouTube</span></div>
-		<div class="btnAction" data-action="map" title="แผนที่จาก Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i><span>แผนที่</span></div>
+		<div class="btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
+			<i class="fa fa-font" aria-hidden="true"></i>
+		</div>
+		<div class="btnAction" data-action="image" title="อัพโหลดรูปภาพ">
+			<i class="fa fa-picture-o" aria-hidden="true"></i>
+		</div>
+		<div class="btnAction" data-action="quote" title="กล่องคำพูด">
+			<i class="fa fa-quote-right" aria-hidden="true"></i>
+		</div>
+		<div class="btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
+			<i class="fa fa-youtube-play" aria-hidden="true"></i>
+		</div>
+		<div class="btnAction" data-action="map" title="แผนที่จาก Google Map">
+			<i class="fa fa-map-marker" aria-hidden="true"></i>
+		</div>
 
-		<div class="btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip" aria-hidden="true"></i><span>แนบไฟล์</span></div>
+		<div class="btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip" aria-hidden="true"></i></div>
 	</div>
 
 	<div class="documents">
