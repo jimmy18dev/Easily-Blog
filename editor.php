@@ -37,19 +37,37 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header fixed editor-bar">
-	<a href="index.php" class="page-icon" id="editorIcon"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-	<div class="page-title" id="editorTitle">เขียนบทความ</div>
+
+	<a href="index.php" class="btn left title" title="กลับไปหน้าแรก">เขียนบทความ</a>
+
+	<div class="btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
+		<i class="fa fa-font" aria-hidden="true"></i>
+	</div>
+	<div class="btnAction" data-action="image" title="อัพโหลดรูปภาพ">
+		<i class="fa fa-picture-o" aria-hidden="true"></i>
+	</div>
+	<div class="btnAction" data-action="quote" title="กล่องคำพูด">
+		<i class="fa fa-quote-right" aria-hidden="true"></i>
+	</div>
+	<div class="btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
+		<i class="fa fa-youtube-play" aria-hidden="true"></i>
+	</div>
+	<div class="btnAction" data-action="map" title="แผนที่จาก Google Map">
+		<i class="fa fa-map-marker" aria-hidden="true"></i>
+	</div>
+	<div class="btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
+		<i class="fa fa-paperclip" aria-hidden="true"></i>
+	</div>
 
 	<?php include 'template/header.profile.php';?>
 	
 	<div class="btn" id="btnOption">
-		<span>ตัวเลือก</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+		<span>ตัวเลือก</span><i class="fa fa-caret-down" aria-hidden="true"></i>
 
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
 			<ul>
 				<li><a href="article/<?php echo $article->id;?>">ดูตัวอย่าง</a></li>
-				<li class="caption">ปรับแต่งเพิ่มเติม</li>
 				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<?php echo ($article->hasCover)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<?php echo ($article->hasInfo)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#url">เปลี่ยนลิงค์บทความ<?php echo ($article->hasURL)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
@@ -60,17 +78,15 @@ if($article->owner_id != $user->id){
 				<li class="separator"></li>
 
 				<?php if($article->status=='published'){?>
-				<li id="btn-draft"><span class="">ยกเลิกเผยแพร่</span></li>
+				<li id="btn-draft"><span>ยกเลิกเผยแพร่</span></li>
 				<?php }?>
-				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
+				<li id="btn-remove"><span class="delete">ลบบทความ</span></li>
 			</ul>
 		</div>
 	</div>
 
 	<?php if($article->status!='published'){?>
-	<div class="btn active iconleft" id="btn-publish">
-		<span>เผยแพร่</span><i class="fa fa-paper-plane" aria-hidden="true"></i>
-	</div>
+	<div class="btn active iconleft" id="btn-publish">เผยแพร่</div>
 	<?php }?>
 </div>
 
@@ -223,26 +239,6 @@ if($article->owner_id != $user->id){
 	</div>
 	<?php }?>
 	<?php $loop++; }?>
-
-	<div class="option-control" id="optionControl">
-		<div class="btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
-			<i class="fa fa-font" aria-hidden="true"></i>
-		</div>
-		<div class="btnAction" data-action="image" title="อัพโหลดรูปภาพ">
-			<i class="fa fa-picture-o" aria-hidden="true"></i>
-		</div>
-		<div class="btnAction" data-action="quote" title="กล่องคำพูด">
-			<i class="fa fa-quote-right" aria-hidden="true"></i>
-		</div>
-		<div class="btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
-			<i class="fa fa-youtube-play" aria-hidden="true"></i>
-		</div>
-		<div class="btnAction" data-action="map" title="แผนที่จาก Google Map">
-			<i class="fa fa-map-marker" aria-hidden="true"></i>
-		</div>
-
-		<div class="btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip" aria-hidden="true"></i></div>
-	</div>
 
 	<div class="documents">
 		<form action="upload_document.php" class="document-items form" id="documentForm" method="POST" enctype="multipart/form-data">

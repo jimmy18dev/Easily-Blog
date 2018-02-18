@@ -7,30 +7,22 @@
 	float: left;
 	display: inline-block;
 	height: 56px;
-	z-index: 999;
 	background: @font_color_topic;
 	position: relative;
+	z-index: 999;
 
 	&.fixed{ position: fixed; top: 0; }
-	&.transparent{
-		background: transparent;
-
-		.logo a{ text-shadow: 0px 1px 15px rgba(0,0,0,0.3); }
+	&.transparent{ background: transparent; }
+	&.editor-bar{
+		background: rgba(240,240,240,0.9);
+		.btn{ color: @font_color_topic; }
 	}
 
-	&.editor-bar{ background: rgba(255,255,255,0.85); }
-
 	.logo{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 50%;
-		margin: 0 25%;
-		height: 30px;
-		padding: 13px 0;
 		float: left;
 		display: inline-block;
-		text-align: center;
+		height: 30px;
+		padding: 13px 0;
 
 		a{
 			font-family: @logo_font;
@@ -41,162 +33,53 @@
 		}
 	}
 
-	.btn-profile{
-		float: right;
-		display: inline-block;
-		height: 30px;
-		padding: 13px;
-		position: relative;
-
-		img{
-			width: 30px;
-			height: 30px;
-			float: left;
-			display: inline-block;
-			border-radius: 50%;
-			background: #EEEEEE;
-
-			&:hover{
-				cursor: pointer;
-				opacity: 0.8;
-			}
-		}
-
-		.toggle-panel{
-			position: absolute;
-			width: 200px;
-			padding: 8px 0;
-			top: 95%;
-			right: 15%;
-			background: #FFFFFF;
-			border-radius: 5px;
-			z-index: 999;
-			box-shadow: 0 0 1px 1px rgba(0,0,0,0.15);
-			display: none;
-
-			&.open{ display: block; }
-
-			.popover-arrow{
-				position: absolute;
-				right: 7%;
-				bottom: 100%;
-				transform: rotate(45deg) translate(6px, 6px);
-				box-shadow: -1px -1px 1px -1px rgba(0,0,0,.54);
-				content: '';
-				display: block;
-				width: 14px;
-				height: 14px;
-				background: #FFFFFF;
-			}
-
-			ul{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				list-style-type: none;
-				font-size: 1em;
-				font-family: @topic_font;
-
-				li{
-					display: block;
-
-					i{
-						width: 20%;
-					}
-
-					&.caption{
-						padding: 1% 12%;
-						font-size: 0.8em;
-
-						&:hover{
-							cursor: default;
-							background: #FFFFFF;
-						}
-					}
-
-					&.separator{
-						border-top: 1px solid #EEEEEE;
-						padding: 0;
-						margin: 2.5% 0%;
-					}
-
-					a{
-						padding: 5% 12%;
-						display: block;
-						text-decoration: none;
-						color: #666666;
-
-						&.logout{ color: #F44336; }
-						&.create{ color: @primary_color; }
-					}
-
-					&:hover{
-						background: #FAFAFA;
-					}
-				}
-			}
-		}
-	}
-
 	a.btn , .btn{
 		float: right;
 		display: inline-block;
 		height: 20px;
 		padding: 18px;
-		line-height: 1.2em;
+		line-height: 1em;
 		font-family: @topic_font;
 		background: transparent;
 		position: relative;
-		font-size: 1em;
+		font-size: 1.1em;
 		text-decoration: none;
-		color: #EEEEEE;
+		color: #FFFFFF;
 		margin: 0;
 
-		i{
-			font-size: 1.2em;
-			float: right;
-			display: inline-block;
-			margin-left: 10px;
-			margin-top: 1px;
+		&.btn-profile{
+			height: 30px;
+			padding: 13px;
 
-			&.fa-circle{ color: #4CAF50; }
-		}
-
-		&.icon-only{
-			i{
-				margin-left: 0px;
-				margin-right: 0px;
+			img{
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
 			}
 		}
 
-		&.iconleft{
-			i{
-				float: left;
-				margin-left: 0px;
-				margin-right: 10px;
-			}
-		}
-
+		i{ margin-left: 10px; }
+		&.title{ color: @font_color_light; }
+		&.icon-only i{ margin: 0; }
 		&.left{
 			float: left;
 
 			i{
 				float: left;
-				margin-left: 0px;
+				margin: 0px;
 				margin-right: 10px;
 			}
 		}
 
 		&.active{ color: @primary_color; }
-		&:hover{ cursor: pointer; color: #FFFFFF; }
-		// &:active{ background: #EEEEEE; }
+		&:hover{ cursor: pointer; }
 
 		.toggle-panel{
 			position: absolute;
-			width: 240px;
-			padding: 8px 0;
+			width: 200px;
+			padding: 10px 0;
 			top: 95%;
-			right: 15%;
+			right: 0%;
 			background: #FFFFFF;
 			border-radius: 5px;
 			z-index: 999;
@@ -204,17 +87,16 @@
 			display: none;
 
 			&.open{ display: block; }
-
 			.popover-arrow{
 				position: absolute;
-				right: 7%;
+				right: 10%;
 				bottom: 100%;
 				transform: rotate(45deg) translate(6px, 6px);
 				box-shadow: -1px -1px 1px -1px rgba(0,0,0,.54);
 				content: '';
 				display: block;
-				width: 14px;
-				height: 14px;
+				width: 12px;
+				height: 12px;
 				background: #FFFFFF;
 			}
 
@@ -228,16 +110,6 @@
 
 				li{
 					display: block;
-
-					&.caption{
-						padding: 1% 12%;
-						font-size: 0.8em;
-
-						&:hover{
-							cursor: default;
-							background: #FFFFFF;
-						}
-					}
 
 					&.separator{
 						border-top: 1px solid #EEEEEE;
@@ -246,62 +118,38 @@
 					}
 
 					a , span{
-						padding: 5% 12%;
+						padding: 7% 12%;
 						display: block;
 						text-decoration: none;
 						color: #666666;
 
-						&.logout{ color: #F44336; }
-						&.create{ color: #4CAF50; }
+						&.create{ color: @primary_color; }
+						&.delete{ color: #F44336; }
 					}
 
-					&:hover{
-						background: #FAFAFA;
-					}
-
-					i.fa-check{
-						float: right;
-						color: #4CAF50;
-					}
+					&:hover{ background: #EAEAEA; }
+					i.fa-check{ float: right; color: @primary_color; }
 				}
 			}
 		}
 	}
 
-	.page-icon{
+	.btnAction{
 		float: left;
 		display: inline-block;
-		padding: 15px;
-		padding-right: 0;
-		height: 30px;
-		font-size: 1.5em;
-		color: #BBBBBB;
-		text-decoration: none;
-		line-height: 1.2em;
-
-		&:hover{
-			color: #666666;
-			cursor: pointer;
-		}
-
-		i.fa-check-circle{ color: #4CAF50; }
-	}
-
-	.page-title{
-		float: left;
-		display: inline-block;
-		height: 30px;
-		padding: 15px;
-		line-height: 1.6em;
-		font-family: @topic_font;
-		background: transparent;
-		position: relative;
+		width: 1.5%;
+		height: 18px 0px;
+		padding: 10px 13px;
+		margin: 9px 0;
+		margin-right: 9px;
 		font-size: 1.1em;
-		text-decoration: none;
-		color: #999999;
-		margin: 0;
+		line-height: 1em;
+		background: transparent;
+		text-align: center;
+		border-radius: 5px;
+		color: @font_color_topic;
 
-		&:hover{ cursor: default; }
+		&:hover{ cursor: pointer; background: #FFFFFF; }
 	}
 }
 
@@ -313,15 +161,16 @@
 	float: left;
 	display: inline-block;
 	background: @font_color_topic;
-	text-align: center;
 
 	a{
+		float: left;
 		display: inline-block;
 		font-family: @topic_font;
 		font-size: 1.2em;
 		line-height: 1em;
 		height: 18px;
-		padding: 18px;
+		padding: 18px 0px;
+		margin-right: 2%;
 		text-decoration: none;
 		color: @font_color_light;
 		border-bottom: 2px solid transparent;
@@ -884,6 +733,7 @@
 		height: 101vh;
 		overflow: hidden;
 		position: relative;
+		margin-bottom: 5%;
 
 		img{
 			width: 100%;
@@ -897,7 +747,7 @@
 			bottom: 0;
 			width: 50%;
 			margin: 0;
-			padding: 5% 25%;
+			padding: 10% 25%;
 			float: left;
 			display: inline-block;
 			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
@@ -927,24 +777,17 @@
 		}
 
 		.time{
-			width: 100%;
 			float: left;
 			display: inline-block;
-			font-size: 0.8em;
-			padding-top: 3%;
-			color: @font_color_light;
+			font-size: 0.75em;
+			margin-top: 4%;
+			color: @font_color_body;
+			background: rgba(255,255,255,0.8);
+			line-height: 1em;
+			padding: 5px 10px;
+			border-radius: 5px;
 
 			&:hover{ cursor: default; }
-
-			i{
-				margin-right: 7px;
-				margin-top: 0px;
-				float: left;
-				display: inline-block;
-				font-size: 1.4em;
-
-				&.fa-clock-o{ color: @primary_color; }
-			}
 		}
 
 		p{
@@ -1574,7 +1417,7 @@
 		height: 56px;
 		float: left;
 		display: inline-block;
-		background: rgba(247,247,247,0.9);
+		background: rgba(255,255,255,0.9);
 		z-index: 9;
 
 		.btnAction{
@@ -1593,8 +1436,6 @@
 				cursor: pointer;
 				color: @font_color_topic;
 			}
-
-			&.right{ float: right; }
 		}
 	}
 

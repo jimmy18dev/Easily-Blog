@@ -253,7 +253,7 @@ class Article{
         return $icon;
     }
 
-    public function listAll($category_id,$page,$keyword,$status,$owner_id){
+    public function listAll($category_id,$page,$keyword,$status,$owner_id,$limit = NULL){
         $perpage = 50; // Total items per page.
     	
         if(empty($page) || $page < 0)
@@ -282,7 +282,12 @@ class Article{
         }
     	
     	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
-        $limit = 'LIMIT '.$start.','.$perpage;
+
+        if($limit > 0){
+            $limit = 'LIMIT 3';
+        }else{
+            $limit = 'LIMIT '.$start.','.$perpage;
+        }
 
     	$query_string = $select.$where.$where_category.$where_status.$where_owner.$where_search.$order.$limit;
 

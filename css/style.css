@@ -144,7 +144,7 @@ button {
   /* IE11 */
 }
 body {
-  background: #f7f7f7;
+  background: #ffffff;
   overflow-x: hidden;
 }
 .autosize {
@@ -158,9 +158,9 @@ body {
   float: left;
   display: inline-block;
   height: 56px;
-  z-index: 999;
   background: #222222;
   position: relative;
+  z-index: 999;
 }
 .header.fixed {
   position: fixed;
@@ -169,23 +169,17 @@ body {
 .header.transparent {
   background: transparent;
 }
-.header.transparent .logo a {
-  text-shadow: 0px 1px 15px rgba(0, 0, 0, 0.3);
-}
 .header.editor-bar {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(240, 240, 240, 0.9);
+}
+.header.editor-bar .btn {
+  color: #222222;
 }
 .header .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  margin: 0 25%;
-  height: 30px;
-  padding: 13px 0;
   float: left;
   display: inline-block;
-  text-align: center;
+  height: 30px;
+  padding: 13px 0;
 }
 .header .logo a {
   font-family: 'Oleo Script', sans-serif;
@@ -194,131 +188,43 @@ body {
   text-decoration: none;
   color: #FFFFFF;
 }
-.header .btn-profile {
-  float: right;
-  display: inline-block;
-  height: 30px;
-  padding: 13px;
-  position: relative;
-}
-.header .btn-profile img {
-  width: 30px;
-  height: 30px;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
-  background: #EEEEEE;
-}
-.header .btn-profile img:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.header .btn-profile .toggle-panel {
-  position: absolute;
-  width: 200px;
-  padding: 8px 0;
-  top: 95%;
-  right: 15%;
-  background: #FFFFFF;
-  border-radius: 5px;
-  z-index: 999;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
-  display: none;
-}
-.header .btn-profile .toggle-panel.open {
-  display: block;
-}
-.header .btn-profile .toggle-panel .popover-arrow {
-  position: absolute;
-  right: 7%;
-  bottom: 100%;
-  transform: rotate(45deg) translate(6px, 6px);
-  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
-  content: '';
-  display: block;
-  width: 14px;
-  height: 14px;
-  background: #FFFFFF;
-}
-.header .btn-profile .toggle-panel ul {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  list-style-type: none;
-  font-size: 1em;
-  font-family: "maledpan", sans-serif;
-}
-.header .btn-profile .toggle-panel ul li {
-  display: block;
-}
-.header .btn-profile .toggle-panel ul li i {
-  width: 20%;
-}
-.header .btn-profile .toggle-panel ul li.caption {
-  padding: 1% 12%;
-  font-size: 0.8em;
-}
-.header .btn-profile .toggle-panel ul li.caption:hover {
-  cursor: default;
-  background: #FFFFFF;
-}
-.header .btn-profile .toggle-panel ul li.separator {
-  border-top: 1px solid #EEEEEE;
-  padding: 0;
-  margin: 2.5% 0%;
-}
-.header .btn-profile .toggle-panel ul li a {
-  padding: 5% 12%;
-  display: block;
-  text-decoration: none;
-  color: #666666;
-}
-.header .btn-profile .toggle-panel ul li a.logout {
-  color: #F44336;
-}
-.header .btn-profile .toggle-panel ul li a.create {
-  color: #55ce63;
-}
-.header .btn-profile .toggle-panel ul li:hover {
-  background: #FAFAFA;
-}
 .header a.btn,
 .header .btn {
   float: right;
   display: inline-block;
   height: 20px;
   padding: 18px;
-  line-height: 1.2em;
+  line-height: 1em;
   font-family: "maledpan", sans-serif;
   background: transparent;
   position: relative;
-  font-size: 1em;
+  font-size: 1.1em;
   text-decoration: none;
-  color: #EEEEEE;
+  color: #FFFFFF;
   margin: 0;
+}
+.header a.btn.btn-profile,
+.header .btn.btn-profile {
+  height: 30px;
+  padding: 13px;
+}
+.header a.btn.btn-profile img,
+.header .btn.btn-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 .header a.btn i,
 .header .btn i {
-  font-size: 1.2em;
-  float: right;
-  display: inline-block;
   margin-left: 10px;
-  margin-top: 1px;
 }
-.header a.btn i.fa-circle,
-.header .btn i.fa-circle {
-  color: #4CAF50;
+.header a.btn.title,
+.header .btn.title {
+  color: #bbbbbb;
 }
 .header a.btn.icon-only i,
 .header .btn.icon-only i {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-.header a.btn.iconleft i,
-.header .btn.iconleft i {
-  float: left;
-  margin-left: 0px;
-  margin-right: 10px;
+  margin: 0;
 }
 .header a.btn.left,
 .header .btn.left {
@@ -327,7 +233,7 @@ body {
 .header a.btn.left i,
 .header .btn.left i {
   float: left;
-  margin-left: 0px;
+  margin: 0px;
   margin-right: 10px;
 }
 .header a.btn.active,
@@ -337,15 +243,14 @@ body {
 .header a.btn:hover,
 .header .btn:hover {
   cursor: pointer;
-  color: #FFFFFF;
 }
 .header a.btn .toggle-panel,
 .header .btn .toggle-panel {
   position: absolute;
-  width: 240px;
-  padding: 8px 0;
+  width: 200px;
+  padding: 10px 0;
   top: 95%;
-  right: 15%;
+  right: 0%;
   background: #FFFFFF;
   border-radius: 5px;
   z-index: 999;
@@ -359,14 +264,14 @@ body {
 .header a.btn .toggle-panel .popover-arrow,
 .header .btn .toggle-panel .popover-arrow {
   position: absolute;
-  right: 7%;
+  right: 10%;
   bottom: 100%;
   transform: rotate(45deg) translate(6px, 6px);
   box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
   content: '';
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   background: #FFFFFF;
 }
 .header a.btn .toggle-panel ul,
@@ -382,16 +287,6 @@ body {
 .header .btn .toggle-panel ul li {
   display: block;
 }
-.header a.btn .toggle-panel ul li.caption,
-.header .btn .toggle-panel ul li.caption {
-  padding: 1% 12%;
-  font-size: 0.8em;
-}
-.header a.btn .toggle-panel ul li.caption:hover,
-.header .btn .toggle-panel ul li.caption:hover {
-  cursor: default;
-  background: #FFFFFF;
-}
 .header a.btn .toggle-panel ul li.separator,
 .header .btn .toggle-panel ul li.separator {
   border-top: 1px solid #EEEEEE;
@@ -402,66 +297,50 @@ body {
 .header .btn .toggle-panel ul li a,
 .header a.btn .toggle-panel ul li span,
 .header .btn .toggle-panel ul li span {
-  padding: 5% 12%;
+  padding: 7% 12%;
   display: block;
   text-decoration: none;
   color: #666666;
-}
-.header a.btn .toggle-panel ul li a.logout,
-.header .btn .toggle-panel ul li a.logout,
-.header a.btn .toggle-panel ul li span.logout,
-.header .btn .toggle-panel ul li span.logout {
-  color: #F44336;
 }
 .header a.btn .toggle-panel ul li a.create,
 .header .btn .toggle-panel ul li a.create,
 .header a.btn .toggle-panel ul li span.create,
 .header .btn .toggle-panel ul li span.create {
-  color: #4CAF50;
+  color: #55ce63;
+}
+.header a.btn .toggle-panel ul li a.delete,
+.header .btn .toggle-panel ul li a.delete,
+.header a.btn .toggle-panel ul li span.delete,
+.header .btn .toggle-panel ul li span.delete {
+  color: #F44336;
 }
 .header a.btn .toggle-panel ul li:hover,
 .header .btn .toggle-panel ul li:hover {
-  background: #FAFAFA;
+  background: #EAEAEA;
 }
 .header a.btn .toggle-panel ul li i.fa-check,
 .header .btn .toggle-panel ul li i.fa-check {
   float: right;
-  color: #4CAF50;
+  color: #55ce63;
 }
-.header .page-icon {
+.header .btnAction {
   float: left;
   display: inline-block;
-  padding: 15px;
-  padding-right: 0;
-  height: 30px;
-  font-size: 1.5em;
-  color: #BBBBBB;
-  text-decoration: none;
-  line-height: 1.2em;
-}
-.header .page-icon:hover {
-  color: #666666;
-  cursor: pointer;
-}
-.header .page-icon i.fa-check-circle {
-  color: #4CAF50;
-}
-.header .page-title {
-  float: left;
-  display: inline-block;
-  height: 30px;
-  padding: 15px;
-  line-height: 1.6em;
-  font-family: "maledpan", sans-serif;
-  background: transparent;
-  position: relative;
+  width: 1.5%;
+  height: 18px 0px;
+  padding: 10px 13px;
+  margin: 9px 0;
+  margin-right: 9px;
   font-size: 1.1em;
-  text-decoration: none;
-  color: #999999;
-  margin: 0;
+  line-height: 1em;
+  background: transparent;
+  text-align: center;
+  border-radius: 5px;
+  color: #222222;
 }
-.header .page-title:hover {
-  cursor: default;
+.header .btnAction:hover {
+  cursor: pointer;
+  background: #FFFFFF;
 }
 .navigation {
   width: 80%;
@@ -471,15 +350,16 @@ body {
   float: left;
   display: inline-block;
   background: #222222;
-  text-align: center;
 }
 .navigation a {
+  float: left;
   display: inline-block;
   font-family: "maledpan", sans-serif;
   font-size: 1.2em;
   line-height: 1em;
   height: 18px;
-  padding: 18px;
+  padding: 18px 0px;
+  margin-right: 2%;
   text-decoration: none;
   color: #bbbbbb;
   border-bottom: 2px solid transparent;
@@ -999,6 +879,7 @@ body {
   height: 101vh;
   overflow: hidden;
   position: relative;
+  margin-bottom: 5%;
 }
 .article .article-cover img {
   width: 100%;
@@ -1011,7 +892,7 @@ body {
   bottom: 0;
   width: 50%;
   margin: 0;
-  padding: 5% 25%;
+  padding: 10% 25%;
   float: left;
   display: inline-block;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
@@ -1039,25 +920,18 @@ body {
   color: #222222;
 }
 .article .article-header .time {
-  width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
-  padding-top: 3%;
-  color: #bbbbbb;
+  font-size: 0.75em;
+  margin-top: 4%;
+  color: #666666;
+  background: rgba(255, 255, 255, 0.8);
+  line-height: 1em;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 .article .article-header .time:hover {
   cursor: default;
-}
-.article .article-header .time i {
-  margin-right: 7px;
-  margin-top: 0px;
-  float: left;
-  display: inline-block;
-  font-size: 1.4em;
-}
-.article .article-header .time i.fa-clock-o {
-  color: #55ce63;
 }
 .article .article-header p {
   width: 100%;
@@ -1639,7 +1513,7 @@ body {
   height: 56px;
   float: left;
   display: inline-block;
-  background: rgba(247, 247, 247, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   z-index: 9;
 }
 .editor .option-control .btnAction {
@@ -1657,9 +1531,6 @@ body {
 .editor .option-control .btnAction:hover {
   cursor: pointer;
   color: #222222;
-}
-.editor .option-control .btnAction.right {
-  float: right;
 }
 .editor .between-option {
   width: 100%;

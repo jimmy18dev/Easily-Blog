@@ -1,10 +1,6 @@
 <header class="header fixed">
-	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
+	<div class="logo"><a href="index.php">Peopleawesome</a></div>
 	
-	<div class="logo">
-		<a href="index.php">Peopleawesome</a>
-	</div>
-
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
 	<?php }else{?>

@@ -4,6 +4,7 @@ $article = new Article();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
+$articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
 
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
@@ -36,14 +37,13 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 </head>
 <body>
 <header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
-	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
-	
+
 	<div class="logo"><a href="index.php">Peopleawesome</a></div>
 
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
 	<?php }else{?>
-	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	<a class="btn" href="signin"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>
 
 	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
@@ -64,11 +64,12 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</div>
 	</div>
 	
-	<a href="article/<?php echo $article->id;?>/editor" class="btn active iconleft"><span>แก้ไขบทความ</span><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	<a class="btn" href="article/<?php echo $article->id;?>/editor">แก้ไขบทความ</a>
 	<?php }?>
 </header>
 
 <article class="article">
+
 	<?php if(!empty($article->head_cover_img)){?>
 	<div class="article-cover">
 		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
@@ -77,9 +78,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<header class="article-header">
 			<h1><?php echo $article->title;?></h1>
 			<?php if($article->status == 'published'){?>
-			<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>เผยแพร่ <?php echo $article->published_time;?></div>
+			<div class="time">เผยแพร่ <?php echo $article->published_time;?></div>
 			<?php }else{?>
-			<div class="time"><i class="fa fa-pencil" aria-hidden="true"></i>แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+			<div class="time">แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
 			<?php }?>
 		</header>
 	</div>
@@ -88,9 +89,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<header class="article-header">
 		<h1><?php echo $article->title;?></h1>
 		<?php if($article->status == 'published'){?>
-		<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>เผยแพร่ <?php echo $article->published_time;?></div>
+		<div class="time">เผยแพร่ <?php echo $article->published_time;?></div>
 		<?php }else{?>
-		<div class="time"><i class="fa fa-pencil" aria-hidden="true"></i>แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+		<div class="time">แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
 		<?php }?>
 
 		<?php if(!empty($article->description)){?>
@@ -159,6 +160,12 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	</div>
 	<?php }?>
 </article>
+
+<div class="article-list">
+	<?php if(count($articles) > 0){?>
+	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php }?>
+</div>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 <div id="progressbar"></div>
