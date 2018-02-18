@@ -69,26 +69,35 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 </header>
 
 <article class="article">
-	<!-- Article Header -->
-	<header class="article-header <?php echo (!empty($article->head_cover_img)?'with-cover':'');?>">
-
-		<?php if(!empty($article->head_cover_img)){?>
+	<?php if(!empty($article->head_cover_img)){?>
+	<div class="article-cover">
 		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
-		<?php }?>
 
-		<span>
+		<!-- Article Header -->
+		<header class="article-header">
 			<h1><?php echo $article->title;?></h1>
 			<?php if($article->status == 'published'){?>
 			<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>เผยแพร่ <?php echo $article->published_time;?></div>
 			<?php }else{?>
 			<div class="time"><i class="fa fa-pencil" aria-hidden="true"></i>แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
 			<?php }?>
+		</header>
+	</div>
+	<?php }else{?>
+	<!-- Article Header -->
+	<header class="article-header">
+		<h1><?php echo $article->title;?></h1>
+		<?php if($article->status == 'published'){?>
+		<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>เผยแพร่ <?php echo $article->published_time;?></div>
+		<?php }else{?>
+		<div class="time"><i class="fa fa-pencil" aria-hidden="true"></i>แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+		<?php }?>
 
-			<?php if(!empty($article->description)){?>
-			<p><?php echo $article->description;?></p>
-			<?php }?>
-		</span>
+		<?php if(!empty($article->description)){?>
+		<p><?php echo $article->description;?></p>
+		<?php }?>
 	</header>
+	<?php }?>
 
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
