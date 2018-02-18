@@ -863,26 +863,71 @@
 	}
 }
 
+// .article-cover{
+// 	width: 100%;
+// 	float: left;
+// 	display: inline-block;
+
+// 	img{
+// 		width: 100%;
+// 	float: left;
+// 	display: inline-block;
+// 	}
+// }
+
 .article{
-	width: 50%;
-	margin: 10% 25%;
-	margin-top: 120px;
+	width: 100%;
+	margin: 0;
 	float: left;
 	display: inline-block;
 
 	.article-header{
-		width: 100%;
+		width: 50%;
+		margin: 5% 25%;
+		margin-top: 100px;
+		padding-bottom: 5%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 5%;
-		padding-bottom: 5%;
-		border-bottom: 1px solid #EEEEEE;
+		border-bottom: 2px solid #EEEEEE;
+
+		&.with-cover{
+			width: 100%;
+			margin: 0;
+			margin-bottom: 5%;
+			padding: 0;
+			position: relative;
+			height: 650px;
+			overflow: hidden;
+
+			img{
+				width: 100%;
+				margin-top: -100px;
+				float: left;
+				display: inline-block;
+			}
+
+			span{
+				width: 50%;
+				padding: 5% 25%;
+				position: absolute;
+				bottom: 0%;
+				left: 0;
+				background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+			}
+
+			h1{ color: #FFFFFF; text-shadow: 1px 1px 10px rgba(0,0,0,0.5); }
+			.time, p{ color: #DDDDDD; }
+		}
 
 		h1{
 			font-size: 3em;
 			font-family: @topic_font;
 			line-height: 1.2em;
 			font-weight: normal;
+			color: @font_color_topic;
 		}
 
 		.time{
@@ -891,7 +936,7 @@
 			display: inline-block;
 			font-size: 0.8em;
 			padding-top: 3%;
-			color: #BBBBBB;
+			color: @font_color_light;
 
 			&:hover{ cursor: default; }
 
@@ -912,16 +957,17 @@
 			display: inline-block;
 			font-size: 1.1em;
 			padding-top: 3%;
-			color: #999999;
+			color: @font_color_body;
 			font-style: italic;
 		}
 	}
 
 	blockquote{
-		width: 100%;
+		width: 50%;
+		margin: 0 25%;
+		margin-bottom: 5%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 5%;
 
 		i.fa-quote-left, i.fa-quote-right{
 			width: 100%;
@@ -961,10 +1007,11 @@
 	}
 
 	.content{
-		width: 100%;
+		width: 50%;
+		margin: 0 25%;
+		margin-bottom: 5%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 5%;
 		position: relative;
 
 		h2{
@@ -1051,11 +1098,13 @@
 	}
 
 	.tag{
-		width: 100%;
+		width: 50%;
+		margin: 0 25%;
+		margin-bottom: 5%;
+		padding-top: 3%;
 		float: left;
 		display: inline-block;
-		border-top: 1px dotted #EEEEEE;
-		padding-top: 3%;
+		border-top: 1px dotted #CCCCCC;
 
 		a{
 			float: left;
@@ -1692,12 +1741,13 @@
 
 		&.gradient{
 			.wrapper header{
-				width: 88%;
-				padding: 5% 6%;
+				width: 80%;
+				padding: 9% 10%;
 
 				h2{
 					font-size: 1.8em;
 					a{ color: #FFFFFF; &:hover{ text-decoration: underline; } }
+					margin-bottom: 8%;
 				}
 
 				p{
@@ -1937,16 +1987,21 @@
 
 .footer{
 	width: 80%;
-	padding: 5% 10%;
+	padding: 0% 10%;
+	height: 50px;
+	background: #EEEEEE;
 	float: left;
 	display: inline-block;
 	font-family: @topic_font;
-	font-size: 1.1em;
+	font-size: 1em;
 
 	a{
+		height: 20px;
+		padding: 15px 0;
 		color: @font_color_body;
 		display: inline-block;
 		text-decoration: none;
+		line-height: 1.2em;
 
 		&:hover{ text-decoration: underline; }
 	}

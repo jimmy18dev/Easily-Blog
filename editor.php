@@ -77,6 +77,11 @@ if($article->owner_id != $user->id){
 <div class="editor">
 	<!-- Article Header -->
 	<header class="article-header">
+		<form action="upload_image.php" id="coverForm" method="POST" enctype="multipart/form-data">
+			<input type="file" name="image" id="coverImageFiles">
+			<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
+			<input type="hidden" name="type" value="head_cover">
+		</form>
 		<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
 		<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
 	</header>

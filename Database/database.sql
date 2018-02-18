@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 09:25 AM
+-- Generation Time: Feb 18, 2018 at 09:09 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -1048,6 +1048,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
   `category_id` int(3) DEFAULT NULL,
+  `head_cover_id` mediumint(8) DEFAULT NULL,
   `cover_id` mediumint(8) DEFAULT NULL,
   `title` text,
   `description` text,
@@ -1063,44 +1064,37 @@ CREATE TABLE IF NOT EXISTS `article` (
   `count_read` int(8) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT 'draft',
   `verified` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `article`
 --
 
-INSERT INTO `article` (`id`, `user_id`, `category_id`, `cover_id`, `title`, `description`, `url`, `highlight`, `province_id`, `amphur_id`, `district_id`, `create_time`, `update_time`, `edit_time`, `published_time`, `count_read`, `status`, `verified`) VALUES
-(1, 1, NULL, 42, 'นี่คือคำพูดที่ผมพูดกับเพื่อนในช่วง 1 - 2 ปีมานี้ คือ ผมเคยชอบเกมแนว', NULL, NULL, 0, NULL, NULL, NULL, '2018-01-24 19:33:28', '2018-02-04 17:01:03', '2018-02-04 17:00:36', NULL, 0, 'published', NULL),
-(2, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-01-24 19:35:09', NULL, NULL, NULL, 0, 'draft', NULL),
-(3, 1, NULL, 52, '19 อุตสาหกรรมได้รับผลกระทบจาก Blockchain', 'เนื้อหามีมาตั่งแต่กลางปีที่แล้ว มาทวนกันอีกรอบในปี 2018 ดีไม่น้อย พอเข้าใจมากขึ้น ดูซ้ำได้ความคิดใหม่ๆเพิ่มเติม', NULL, 0, NULL, NULL, NULL, '2018-01-25 11:09:11', NULL, '2018-02-04 16:47:30', NULL, 0, 'draft', NULL),
-(4, 1, NULL, 22, 'จากความรู้สึกของคุณตอนนี้ คุณว่า ระหว่าง 2 อาชีพนี้ ใครสร้างความกังวลให้คุณมากกว่ากัน...', 'งานของเราช่วงหลัง ทำให้มีโอกาสได้รู้จักคนเก่งเพิ่มขึ้นมากมาย ได้ฟังได้คุยด้วย ยิ่งเปิดโลกเรามากขึ้น โลกใบเดิมเราเริ่มมองอะไรที่ต่างออกไป', 'people-awesome', 0, 0, 190, 1524, '2018-01-25 14:17:01', '2018-02-04 16:19:09', '2018-02-09 20:00:08', NULL, 0, 'published', NULL),
-(5, 1, NULL, NULL, 'ครอบครัวลุคมาจากนิวยอร์ก', 'ผมลองเอาคำว่า “Perfectionism” ไปแปลใส่ Google translate จะได้ความหมายว่า “ลัทธิพอใจ แต่สิ่งดีเลิศ”', NULL, 0, NULL, NULL, NULL, '2018-01-25 15:12:53', NULL, '2018-01-29 10:31:12', NULL, 0, 'draft', NULL),
-(6, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-01-25 15:48:23', NULL, NULL, NULL, 0, 'draft', NULL),
-(7, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2017-01-01 07:07:29', NULL, NULL, NULL, 0, 'draft', NULL),
-(8, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-01-25 19:49:02', NULL, NULL, NULL, 0, 'draft', NULL),
-(9, 1, NULL, NULL, '', NULL, NULL, 0, NULL, NULL, NULL, '2018-01-26 14:57:12', NULL, '2018-02-02 20:13:13', NULL, 0, 'draft', NULL),
-(10, 1, NULL, 37, 'อินเทลเตรียมปล่อยชิปที่ป้องกัน Meltdown/Spectre', 'หลังจากใช้แล้ว รู้สึกว่า สมองเป็นระเบียบขึ้นเยอะครับ ... เอาไปลองใช้กันดูนะครับ ได้ผลยังงัย เอามาอับเดทกันมั่งนะครับ', NULL, 0, NULL, NULL, NULL, '2018-01-26 14:57:57', NULL, '2018-02-04 16:46:54', NULL, 0, 'draft', NULL),
-(11, 1, 3, 69, '''Top Gear'' Unveils Its Explosive New Trailer For Its 25th Season', NULL, 'ทสอบอีกครั้ง', 0, NULL, NULL, NULL, '2018-01-31 11:51:36', '2018-02-04 15:23:56', '2018-02-04 15:19:56', NULL, 0, 'published', NULL),
-(12, 1, 3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-01 19:03:57', NULL, NULL, NULL, 0, 'draft', NULL),
-(13, 2, 3, 84, 'If Birds Left Tracks in the Sky, They’d Look Like This', 'อยากชวนดู ซีรีย์เรื่องใหม่จาก Netflix เรื่อง Altered-Carbon', 'Birds-Left-Tracks', 1, NULL, NULL, NULL, '2018-02-04 17:12:14', '2018-02-04 17:32:20', '2018-02-04 17:16:55', NULL, 0, 'published', NULL),
-(14, 2, 4, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-04 17:36:01', NULL, NULL, NULL, 0, 'draft', NULL),
-(15, 2, 3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-04 17:36:44', NULL, NULL, NULL, 0, 'draft', NULL),
-(16, 2, 4, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-04 17:36:47', NULL, NULL, NULL, 0, 'draft', NULL),
-(17, 2, 2, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2018-02-04 17:37:26', NULL, NULL, NULL, 0, 'draft', NULL),
-(18, 2, 3, 94, 'บางคนทำตาใส พยักหน้ารับทราบ แต่', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-05 17:55:50', '2018-02-09 11:41:52', '2018-02-05 17:56:28', NULL, 0, 'deleted', NULL),
-(19, 2, 1, 96, 'Introducing React Scope Visualize Your React Components as You Interact With Your App', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-05 17:57:45', '2018-02-09 11:41:08', '2018-02-05 17:58:35', NULL, 0, 'deleted', NULL),
-(20, 2, 4, 98, 'input were to trigger an unexpected state change, for example', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-05 17:59:03', '2018-02-09 11:39:05', '2018-02-09 11:20:57', NULL, 0, 'deleted', NULL),
-(21, 2, 4, 101, 'Amazon Web Services is an exploding IT beast… so learn to tame it for less than $9 per course', 'These include navigation bar, notifications, action sheets, alerts, keyboards, and more.', NULL, 0, 0, 189, 1523, '2018-02-05 19:05:15', '2018-02-10 17:24:24', '2018-02-10 17:16:41', NULL, 0, 'published', NULL),
-(22, 2, 4, NULL, 'Today I launched my first mobile app. Here’s what I learned...', 'By Jeff Smith, Product Designer, Grace Jackson, User Experience Researcher, and Seetha Raj, Content Strategist', NULL, 0, NULL, NULL, NULL, '2018-02-05 19:47:17', '2018-02-09 11:41:37', '2018-02-08 18:05:53', NULL, 0, 'deleted', NULL),
-(23, 2, 4, 116, 'Misinformation comes in many different forms and can cover a wide range of topics.', NULL, 'ทดสอบอีกครั้ง', 0, 16, 197, 1604, '2018-02-07 15:16:13', '2018-02-10 17:55:00', '2018-02-09 19:49:44', NULL, 0, 'published', NULL),
-(24, 2, 3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-08 19:26:54', '2018-02-11 16:22:40', NULL, NULL, 0, 'deleted', NULL),
-(25, 2, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-08 20:22:19', NULL, NULL, NULL, 0, 'draft', NULL),
-(26, 2, 2, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-08 20:22:20', NULL, NULL, NULL, 0, 'draft', NULL),
-(27, 2, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-08 20:22:31', NULL, NULL, NULL, 0, 'draft', NULL),
-(28, 2, 3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-08 20:23:15', NULL, NULL, NULL, 0, 'draft', NULL),
-(29, 2, 3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-09 10:29:25', '2018-02-11 16:22:13', NULL, NULL, 0, 'deleted', NULL),
-(30, 2, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-09 11:42:12', '2018-02-11 16:22:23', NULL, NULL, 0, 'deleted', NULL),
-(31, 2, 2, 142, 'Tinder สร้างแบรนด์ผ่านความต้องการความรัก หรือ Facebook สร้างแบรนด์ผ่านความต้องการการเจอเพื่อน', NULL, '', 0, NULL, NULL, NULL, '2018-02-09 11:53:40', NULL, '2018-02-09 12:19:40', NULL, 0, 'draft', NULL);
+INSERT INTO `article` (`id`, `user_id`, `category_id`, `head_cover_id`, `cover_id`, `title`, `description`, `url`, `highlight`, `province_id`, `amphur_id`, `district_id`, `create_time`, `update_time`, `edit_time`, `published_time`, `count_read`, `status`, `verified`) VALUES
+(1, 2, 5, NULL, 1, 'Companies are now placing more focus on how people interact with their products and services.', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:28:28', '2018-02-11 16:29:58', '2018-02-11 16:29:55', NULL, 0, 'published', NULL),
+(2, 2, 2, NULL, NULL, 'ตึกสูงที่สุดในประเทศไทยจะถูกเปลี่ยนมือจาก “มหานคร” เป็น “แมกโนเลียส์ วอเตอร์ฟรอนท์ เรสซิเดนซ์”', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:30:08', '2018-02-11 16:30:32', '2018-02-11 16:30:25', NULL, 0, 'published', NULL),
+(3, 2, 1, NULL, 5, 'ฝันสลาย! “ญี่ปุ่น” ปฏิเสธร่วมทุน “รถไฟความเร็วสูง” กรุงเทพฯ-เชียงใหม่', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:31:05', '2018-02-11 16:31:25', '2018-02-11 16:31:23', NULL, 0, 'published', NULL),
+(4, 1, 2, NULL, 7, 'You Can Now Pre-Order The ULX Ultra-Slim Leather Card Holder', 'It''s available to pre-order now, we''re expecting a release date of April...', NULL, 0, 5, 77, 479, '2018-02-11 16:43:22', '2018-02-13 18:32:35', '2018-02-15 18:49:38', '2018-02-13 18:32:35', 0, 'published', NULL),
+(5, 1, 3, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:43:33', '2018-02-13 11:20:04', NULL, NULL, 0, 'deleted', NULL),
+(6, 1, 2, NULL, 26, 'MAYASEVEN รู้สึกยินดีที่ได้ร่วมบรรยาย Cyber Security...', 'Are you looking for quiet coworking space around Onnut or Sukhumvit area?', 'working-space', 0, 16, 189, 1523, '2018-02-11 16:44:00', '2018-02-16 19:49:53', '2018-02-17 19:05:46', '2018-02-14 11:32:37', 0, 'draft', NULL),
+(7, 1, 6, NULL, 21, '‘I’m Not A Graphic Designer'': A Beautifully Minimal Graphic Design Portfolio', NULL, 'เอายังไงดี-พ่อหนุ่ม', 0, 0, 189, 1517, '2018-02-11 16:45:01', '2018-02-12 17:42:56', '2018-02-16 13:56:16', NULL, 0, 'published', NULL),
+(8, 1, 2, NULL, 33, 'I''m Web Developer with over 5 Years experience working', NULL, 'ข้าวมันไก่น่ากินมากกก', 0, NULL, NULL, NULL, '2018-02-11 16:53:56', '2018-02-16 19:26:13', '2018-02-17 15:13:23', '2018-02-16 19:26:13', 0, 'published', NULL),
+(9, 1, 3, NULL, 39, 'These Infrared Photos of Chernobyl Are As Stunning As They Are Creepy', 'ทดสอบ', 'ข้าวมันไก่-เมืองปราจีนบุรี', 0, 1, 45, 225, '2018-02-11 16:55:54', '2018-02-11 16:56:47', '2018-02-16 13:56:59', NULL, 0, 'published', NULL),
+(10, 1, 2, NULL, 40, 'You Can Now Pre-Order The ULX Ultra-Slim Leather Card Holder...', 'Find new ways to go About it by Exploring our Topical UX Literature', 'ทดสอบ', 0, 32, 477, 4249, '2018-02-13 11:18:11', '2018-02-16 19:32:09', '2018-02-17 15:53:32', '2018-02-16 19:32:09', 0, 'published', NULL),
+(11, 1, 4, NULL, 67, 'Zohaib Anjum Takes Stunning Photos  Of The World’s Most Luxurious Skyscrapers', 'The world''s BEST-SELLING TRAVEL JACKET just got a serious upgrade.', 'Zohaib-Anjum', 0, NULL, NULL, NULL, '2018-02-15 18:35:59', '2018-02-17 17:18:55', '2018-02-17 16:22:43', '2018-02-17 16:21:12', 0, 'draft', NULL),
+(12, 1, 6, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:08', '2018-02-16 19:39:36', NULL, NULL, 0, 'deleted', NULL),
+(13, 1, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:41', '2018-02-16 19:50:23', NULL, NULL, 0, 'deleted', NULL),
+(14, 1, 6, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:58', '2018-02-16 19:50:16', NULL, NULL, 0, 'deleted', NULL),
+(15, 1, 2, NULL, NULL, 'This German Penthouse Has Some Serious Bachelor Pad Vibes', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:18:09', NULL, '2018-02-17 15:18:25', NULL, 0, 'draft', NULL),
+(16, 1, 1, NULL, NULL, 'This Stunning Belgian Bachelor Pad Has an Awesome Underground Lair', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:18:50', NULL, '2018-02-17 15:18:53', NULL, 0, 'draft', NULL),
+(17, 1, 2, NULL, NULL, 'This Stunning Structure Made From Shipping Containers Is Absolutely Absurd...', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:19:18', NULL, '2018-02-17 15:40:49', NULL, 0, 'draft', NULL),
+(18, 1, 6, NULL, NULL, 'This 6-Foot-Wide Japanese House Is Minimally Luxurious', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:19:57', NULL, '2018-02-17 15:20:01', NULL, 0, 'draft', NULL),
+(19, 1, 4, NULL, NULL, 'If Minimalism Is Your Thing, This All-Black Home Is For You', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:32', NULL, '2018-02-17 15:20:36', NULL, 0, 'draft', NULL),
+(20, 1, 3, NULL, NULL, 'If Mechanical Keyboards Are Your Thing, Then This Calculator Is Definitely For You', 'A Course For You: Unlock the full potential of Google''s Go (golang) to build rich and powerful applications.', NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:54', '2018-02-17 15:48:05', '2018-02-17 16:19:18', '2018-02-17 15:48:05', 0, 'published', NULL),
+(21, 1, 1, NULL, NULL, 'Airbus Is Teaming Up With Pagani To Make A Plane Featuring A See-Through Ceiling', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:38:52', NULL, '2018-02-17 15:39:20', NULL, 0, 'draft', NULL),
+(22, 1, 5, NULL, NULL, 'Elon Musk''s ''Failure Résumé'' Proves Why You Should Never Give Up', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:39:47', NULL, '2018-02-17 15:39:51', NULL, 0, 'draft', NULL),
+(23, 1, 6, NULL, NULL, 'This Designer Combined Structures With Typography and the Results Are Brilliant', NULL, NULL, 0, 16, 196, 1587, '2018-02-17 15:40:16', '2018-02-17 15:52:09', '2018-02-17 17:11:18', '2018-02-17 15:52:09', 0, 'published', NULL),
+(24, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 17:41:32', NULL, NULL, NULL, 0, 'draft', NULL);
 
 -- --------------------------------------------------------
 
@@ -1113,7 +1107,86 @@ CREATE TABLE IF NOT EXISTS `article_tags` (
   `article_id` mediumint(8) NOT NULL,
   `tag_id` mediumint(8) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `article_tags`
+--
+
+INSERT INTO `article_tags` (`id`, `article_id`, `tag_id`, `created`) VALUES
+(1, 8, 1, '2018-02-11 16:54:46'),
+(2, 8, 2, '2018-02-11 16:54:46'),
+(3, 8, 3, '2018-02-11 16:54:46'),
+(4, 8, 4, '2018-02-11 16:54:46'),
+(5, 9, 5, '2018-02-12 18:13:50'),
+(6, 7, 6, '2018-02-13 14:38:34'),
+(8, 7, 8, '2018-02-13 14:38:34'),
+(9, 9, 9, '2018-02-14 10:57:26'),
+(10, 9, 10, '2018-02-14 10:57:27'),
+(11, 9, 11, '2018-02-14 10:57:27'),
+(12, 9, 12, '2018-02-14 10:57:27'),
+(13, 9, 13, '2018-02-14 10:57:27'),
+(14, 9, 1, '2018-02-14 10:57:46'),
+(15, 9, 14, '2018-02-14 10:57:46'),
+(16, 9, 15, '2018-02-14 10:57:46'),
+(17, 9, 16, '2018-02-14 10:57:46'),
+(18, 9, 17, '2018-02-14 10:57:46'),
+(19, 9, 18, '2018-02-14 10:57:46'),
+(20, 9, 19, '2018-02-14 10:59:30'),
+(21, 9, 20, '2018-02-14 10:59:30'),
+(22, 9, 21, '2018-02-14 10:59:30'),
+(23, 9, 22, '2018-02-14 10:59:30'),
+(24, 9, 23, '2018-02-14 10:59:30'),
+(25, 9, 24, '2018-02-14 10:59:30'),
+(26, 9, 25, '2018-02-14 10:59:30'),
+(27, 9, 26, '2018-02-14 10:59:30'),
+(28, 9, 27, '2018-02-14 10:59:30'),
+(29, 9, 28, '2018-02-14 11:00:08'),
+(30, 9, 29, '2018-02-14 11:00:08'),
+(31, 9, 30, '2018-02-14 11:00:08'),
+(32, 9, 31, '2018-02-14 11:00:08'),
+(33, 9, 32, '2018-02-14 11:00:08'),
+(34, 9, 33, '2018-02-14 11:00:08'),
+(35, 9, 34, '2018-02-14 11:00:08'),
+(36, 9, 35, '2018-02-14 11:00:08'),
+(37, 9, 36, '2018-02-14 11:00:08'),
+(38, 9, 37, '2018-02-14 11:00:08'),
+(39, 9, 38, '2018-02-14 11:00:08'),
+(40, 10, 39, '2018-02-14 11:18:52'),
+(41, 10, 40, '2018-02-14 11:18:52'),
+(42, 10, 41, '2018-02-14 11:18:52'),
+(46, 10, 45, '2018-02-14 11:18:52'),
+(47, 10, 1, '2018-02-14 11:18:52'),
+(48, 10, 46, '2018-02-14 11:18:52'),
+(49, 10, 47, '2018-02-14 11:18:52'),
+(50, 10, 48, '2018-02-14 11:18:52'),
+(51, 10, 49, '2018-02-14 11:18:52'),
+(52, 10, 50, '2018-02-14 11:18:52'),
+(54, 10, 52, '2018-02-14 11:18:52'),
+(55, 10, 53, '2018-02-14 11:18:52'),
+(56, 10, 54, '2018-02-14 11:18:52'),
+(57, 6, 55, '2018-02-14 11:37:49'),
+(58, 6, 56, '2018-02-14 11:37:49'),
+(59, 6, 57, '2018-02-14 11:37:49'),
+(60, 6, 58, '2018-02-14 11:37:49'),
+(61, 6, 59, '2018-02-14 11:37:49'),
+(63, 6, 61, '2018-02-14 11:37:49'),
+(64, 6, 62, '2018-02-14 11:37:49'),
+(65, 6, 63, '2018-02-14 11:37:49'),
+(66, 6, 64, '2018-02-14 11:37:49'),
+(67, 6, 65, '2018-02-14 11:37:49'),
+(68, 6, 66, '2018-02-14 11:37:49'),
+(69, 10, 67, '2018-02-16 18:47:45'),
+(70, 10, 68, '2018-02-16 18:47:45'),
+(71, 10, 69, '2018-02-16 18:47:45'),
+(72, 10, 70, '2018-02-16 18:47:45'),
+(73, 10, 71, '2018-02-16 18:47:45'),
+(74, 23, 72, '2018-02-17 17:13:10'),
+(75, 23, 73, '2018-02-17 17:13:10'),
+(76, 23, 74, '2018-02-17 17:13:10'),
+(77, 23, 75, '2018-02-17 17:13:10'),
+(78, 23, 76, '2018-02-17 17:13:10'),
+(79, 23, 77, '2018-02-17 17:13:10');
 
 -- --------------------------------------------------------
 
@@ -1164,7 +1237,82 @@ CREATE TABLE IF NOT EXISTS `content` (
   `edit_time` datetime DEFAULT NULL,
   `type` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `content`
+--
+
+INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id`, `img_location`, `img_type`, `alt`, `lat`, `lng`, `position`, `create_time`, `edit_time`, `type`, `status`) VALUES
+(1, 2, 1, NULL, NULL, NULL, 'content_32e8d96c925cdf0ae0378111ba1ff952.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:28:28', '2018-02-11 16:29:21', 'image', 'active'),
+(2, 2, 1, NULL, 'Companies are now placing more focus on how people interact with their products and services. This means that the user-centered mindset of a UX designer is becoming increasingly valuable across a wide range of industries.\n\nMake sure you''re tapping into this lucrative market by upskilling yourself in the art of User Experience (UX) design - something that an IDF membership can help you with.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:28:28', '2018-02-11 16:28:35', 'textbox', 'active'),
+(3, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-11 16:30:08', NULL, 'image', 'active'),
+(4, 2, 2, NULL, 'ปี 2019 นี้แล้วนะครับที่ตำแหน่งตึกสูงที่สุดในประเทศไทยจะถูกเปลี่ยนมือจาก “มหานคร” เป็น “แมกโนเลียส์ วอเตอร์ฟรอนท์ เรสซิเดนซ์” หรือที่รู้จักกันดีในชื่อโครงการ #ICONSIAM ด้วยความสูง 315 เมตร (ตึกมหานครสูง 314.2 เมตร) โดยขณะนี้การก่อสร้างคืบหน้าไปแล้วกว่า 60% (ข้อมูลล่าสุดเดือน ธ.ค.60) งานก่อสร้างโครงสร้างหลักของอาคารก็ดำเนินการเสร็จจนถึงชั้น 71 แล้ว\n\nโครงการนี้นอกจากจะเป็นว่าที่ตึกสูงที่สุดในไทยแล้ว ยังมาพร้อมกับตึกแฝดอีกหนึ่งตึก คือ “เดอะ เรสซิเดนซ์ แมนดาริน โอเรียนทอล กรุงเทพฯ” ความสูง 269 เมตร 52 ชั้น ซึ่งเป็นคอนโดนิเนียมและยูนิตพักอาศัยระดับ Luxury ที่ราคาสูงที่สุดโครงการหนึ่งในไทยในปัจจุบัน ตั้งอยู่บนทำเลที่ดีที่สุดริมแม่น้ำเจ้าพระยาติดรถไฟฟ้าสายสีทอง', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:30:08', '2018-02-11 16:30:13', 'textbox', 'active'),
+(5, 2, 3, NULL, NULL, NULL, 'content_c45b86b51a8f9ffc3e0aa66a2203afa2.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:31:05', '2018-02-11 16:31:10', 'image', 'active'),
+(6, 2, 3, NULL, 'รถไฟความเร็วสูงสายเหนือเส้นทาง "กรุงเทพฯ-เชียงใหม่" ส่อแววล่ม หลังญี่ปุ่นได้ออกมาปฏิเสธที่จะร่วมลงทุนโครงการตามข้อเสนอของทางไทยเพื่อลดวงเงินการลงทุน ซึ่งทางญี่ปุ่นยื่นข้อเสนอให้ทางการไทยลงทุนเองทั้งหมด 100% มูลค่าการลงทุนอยู่ที่ 4.2 แสนล้านบาท โดยจะเสนอเงินกู้ดอกเบี้ยต่ำให้หากไทยมีเงินลงทุนไม่พอ \n\nก่อนหน้านี้ทางไทยเล็งที่จะลดสเปคของโครงการนี้จากรถไฟความเร็วสูงเป็นรถไฟความเร็วปานกลาง เหลือความเร็วเพียง 180-200 กม./ชม. และลดจำนวนสถานีกลางทางเพื่อลดต้นทุนการก่อสร้าง โดยล่าสุดสำนักข่าว Straits Times ของสิงคโปร์รายงานว่าทางการไทยได้เข้าเจรจากับทางญี่ปุ่นแล้วเพื่อขอความช่วยเหลือ แต่ทางญี่ปุ่นก็ยังยืนยันให้ไทยลงทุนเองทั้งหมด 100% และโครงการนี้จะต้องเป็นรถไฟความเร็วสูงเท่านั้น\n\nโดยขณะนี้ทางกระทรวงคมนาคมก็ยังคงไม่มีคำตอบที่ชัดเจนเกี่ยวกับรูปแบบการลงทุนโครงการรถไฟความเร็วสูง กรุงเทพฯ-เชียงใหม่ ว่าจะเป็นอย่างไร อีกทั้งแผนที่จะเข้าไปเจรจาการเงินกับกระทรวงการคลังก็ถูกเลื่อนออกไปแบบไม่มีกำหนด', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:31:05', '2018-02-11 16:31:18', 'textbox', 'active'),
+(7, 1, 4, NULL, NULL, NULL, 'content_5be325567f8ccb1f43490c0e27146f1f.jpg', 'square', NULL, NULL, NULL, 1, '2018-02-11 16:43:22', '2018-02-12 13:51:47', 'image', 'active'),
+(8, 1, 4, NULL, 'If you''ve been following our Instagram and have been keeping up with the UltraLinx Store, you may have noticed a few photos of our leather card holder.\n\nMade from genuine leather, and embossed with our ULX logo, the minimalist cardholder has 5 different slots for you to store your cards.\n\nIt''s available to pre-order now, we''re expecting a release date of April.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:43:22', '2018-02-12 13:51:37', 'textbox', 'active'),
+(9, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-11 16:43:33', NULL, 'image', 'active'),
+(10, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:43:33', NULL, 'textbox', 'active'),
+(11, 1, 6, NULL, NULL, NULL, 'content_8a0ff0e110f92fd98007c68a51e1e7bd.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:44:00', '2018-02-11 17:12:48', 'image', 'active'),
+(12, 1, 6, NULL, 'MAYASEVEN รู้สึกยินดีที่ได้ร่วมบรรยาย Cyber Security เพื่อหาเงินช่วยเหลือผู้ป่วยจิตเวชที่ยากไร้ ไม่มีหักค่าใช้จ่าย ซึ่งได้ยอดบริจาคทั้งสิ้น 145,849 บาท ทางเราอยากจะขอบคุณผู้ร่วมจัดงานที่มีส่วนร่วมทุกท่าน ร่วมถึงผู้เข้าฟังบรรยาย ผู้ร่วมบริจาค ขออนุโมทนาสาธุกับบุญกุศลในครั้งนี้ด้วยครับ เงินจำนวนนี้คงได้ช่วยเหลือผู้ป่วยที่ยากไร้ได้หลายท่านทีเดียว', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:44:00', '2018-02-11 17:12:56', 'textbox', 'active'),
+(13, 1, 7, NULL, NULL, NULL, 'content_5f51ef80adef864c69f42d0980603c4a.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:45:01', '2018-02-11 16:45:31', 'image', 'active'),
+(14, 1, 7, NULL, 'A lot of online portfolios we see nowadays, although impressive, do look very similar, you need to do something that completely stands out from the rest if you want to be noticed. That''s exactly what Robert Gray did with his "I''m Not A Graphic Designer"-titled portfolio.\n\nThe tongue-in-cheek title and the sleek, minimalist design grabs attention in all the right ways - if you''re a designer that''s looking to update your portfolio then make sure to take a leaf out of Robert''s book. Head here to see the whole thing.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:45:01', '2018-02-11 16:45:34', 'textbox', 'active'),
+(15, 1, 8, NULL, NULL, NULL, 'content_c6e964ac1ffa40ff10410321cb068123.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:53:56', '2018-02-11 16:54:27', 'image', 'active'),
+(16, 1, 8, 'the city of gold', 'We''ve seen Dubai look spectacular through a lot of photographers lenses, but real-estate photographer Zohaib Anjum captures ''the city of gold'' from the clouds like we''ve never seen before. Check out his work below.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:53:56', '2018-02-11 16:54:36', 'textbox', 'active'),
+(17, 1, 9, NULL, NULL, NULL, 'content_16d903a197e09ce383a0e2cae402ba88.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-11 16:55:54', '2018-02-11 16:56:25', 'image', 'active'),
+(18, 1, 9, NULL, 'Vladimir Migutin is a photographer specializing in infrared photography, he recently completed a project where he took a 2-day trip to the Chernobyl exclusion zone in Pripyat, Ukraine to take some intriguing, yet eerie photos. Check out the collection below and head here for more of Vladimir''s work.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-11 16:55:54', '2018-02-11 16:56:41', 'textbox', 'active'),
+(19, 2, 3, NULL, NULL, NULL, 'content_b30ff700b4e650a9b24f349bbd8c6afe.jpg', 'square', NULL, NULL, NULL, 3, '2018-02-12 16:37:58', '2018-02-12 16:38:11', 'image', 'active'),
+(20, 1, 7, NULL, NULL, NULL, 'content_d538cd3231a15ec497e402a9136499af.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-12 17:22:15', '2018-02-12 17:22:22', 'image', 'active'),
+(21, 1, 7, NULL, NULL, NULL, 'content_6724d7eec70511cde011468893d0094b.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-12 17:22:42', '2018-02-12 17:22:50', 'image', 'active'),
+(22, 1, 10, NULL, NULL, NULL, 'content_15d44e5007d93e6eb92d5905b7d38a93.jpg', 'square', NULL, NULL, NULL, 1, '2018-02-13 11:18:11', '2018-02-13 11:18:30', 'image', 'active'),
+(23, 1, 10, NULL, 'If you''ve been following our Instagram and have been keeping up with the UltraLinx Store, you may have noticed a few photos of our leather card holder.\n\nMade from genuine leather, and embossed with our ULX logo, the minimalist cardholder has 5 different slots for you to store your cards.\n\nIt''s available to pre-order now, we''re expecting a release date of April.\n\nIf you haven''t check out the UltraLinx Store in the past couple days you may have missed the end-of-year sale we currently have on. Head to the site to see some of the deals and check some of the discounts out below. The sale won''t last for long so make sure to get in there quick.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-13 11:18:11', '2018-02-13 11:19:32', 'textbox', 'active'),
+(24, 1, 6, NULL, NULL, NULL, 'content_cd14db1f183f22346c461dba44739472.png', 'vertical', NULL, NULL, NULL, 3, '2018-02-14 11:30:00', '2018-02-14 11:30:12', 'image', 'active'),
+(25, 1, 6, NULL, NULL, NULL, 'content_b6e30ad7b70a53dcccd911ec2bb624ca.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-14 11:30:02', '2018-02-14 11:32:20', 'image', 'active'),
+(26, 1, 6, NULL, NULL, NULL, 'content_d8b68d15badafcf08a467700cdd05cb3.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-14 11:30:03', '2018-02-14 11:32:35', 'image', 'active'),
+(27, 1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-15 18:35:59', NULL, 'image', 'active'),
+(28, 1, 11, 'Ludwig Favre is a French...', 'We''ve seen Dubai look spectacular through a lot of photographers lenses, but real-estate photographer Zohaib Anjum captures ''the city of gold'' from the clouds like we''ve never seen before. Check out his work below.\n\nLudwig Favre is a French photographer who specializes in architecture and landscape photography of American cities. His series ''California'' captures the stunning landscapes of Los Angeles, Santa Cruz, and San Francisco in the most soothingly minimal way. Check out the collection of photos below, and head to Ludwig''s Behance page for more of his work.', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-15 18:35:59', '2018-02-16 20:00:29', 'textbox', 'active'),
+(29, 1, 8, NULL, NULL, NULL, 'content_af26a7d43cd7527b670f3aad5ede31fe.jpg', NULL, NULL, NULL, NULL, 3, '2018-02-16 01:52:16', NULL, 'cover', 'active'),
+(30, 1, 8, NULL, NULL, NULL, 'content_30ff3099e8013ef4bf49a19925a2180d.jpg', 'square', NULL, NULL, NULL, 4, '2018-02-16 01:57:49', '2018-02-16 01:57:49', 'cover', 'active'),
+(31, 1, 8, NULL, NULL, NULL, 'content_eb2bc56bfd9681373a34729846117acc.jpg', 'horizontal', NULL, NULL, NULL, 5, '2018-02-16 01:59:39', '2018-02-16 01:59:39', 'cover', 'active'),
+(32, 1, 8, NULL, NULL, NULL, 'content_76251dd069823e9460d08816ba0c0d98.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-16 02:07:08', '2018-02-16 02:07:08', 'cover', 'active'),
+(33, 1, 8, NULL, NULL, NULL, 'content_d9b18d93f1ead82bca2924f136f43e5c.jpg', 'vertical', NULL, NULL, NULL, 7, '2018-02-16 02:07:16', '2018-02-16 02:07:16', 'cover', 'active'),
+(34, 1, 8, NULL, NULL, NULL, 'content_ca0079f8b8cf9b9e0f5c50a8515face4.jpg', 'vertical', NULL, NULL, NULL, 8, '2018-02-16 02:08:21', '2018-02-16 02:08:21', 'cover', 'active'),
+(35, 1, 8, NULL, NULL, NULL, 'content_955aad6efbee663f37214452a7481803.jpg', 'vertical', NULL, NULL, NULL, 9, '2018-02-16 02:08:27', '2018-02-16 02:08:27', 'cover', 'active'),
+(36, 1, 8, NULL, NULL, NULL, 'content_4eeed66a42f00350d6766c5f5b79e8d1.jpg', 'vertical', NULL, NULL, NULL, 10, '2018-02-16 02:08:31', '2018-02-16 02:08:31', 'cover', 'active'),
+(37, 1, 8, NULL, NULL, NULL, 'content_30ba36029c117ba9c1e08b32ccc371e7.jpg', 'vertical', NULL, NULL, NULL, 11, '2018-02-16 02:09:48', '2018-02-16 02:09:48', 'cover', 'active'),
+(38, 1, 8, NULL, NULL, NULL, 'content_437b571c453b8391ede6b1feecb2eb6a.jpg', 'square', NULL, NULL, NULL, 12, '2018-02-16 02:11:08', '2018-02-16 02:11:08', 'cover', 'active'),
+(39, 1, 9, NULL, NULL, NULL, 'content_af4fb997ce95dfecd38746b45be614aa.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-16 13:56:59', '2018-02-16 13:56:59', 'cover', 'active'),
+(40, 1, 10, NULL, NULL, NULL, 'content_7de11df609de253de28ad0f870803b8f.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-16 16:32:46', '2018-02-16 16:32:46', 'cover', 'active'),
+(41, 1, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-16 19:39:08', NULL, 'image', 'active'),
+(42, 1, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-16 19:39:08', NULL, 'textbox', 'active'),
+(43, 1, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-16 19:39:41', NULL, 'image', 'active'),
+(44, 1, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-16 19:39:41', NULL, 'textbox', 'active'),
+(45, 1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-16 19:39:58', NULL, 'image', 'active'),
+(46, 1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-16 19:39:58', NULL, 'textbox', 'active'),
+(48, 1, 11, NULL, NULL, 'QaXyjxn3Kt0', NULL, NULL, NULL, NULL, NULL, 4, '2018-02-16 20:07:58', '2018-02-16 20:08:09', 'youtube', 'active'),
+(49, 1, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:18:09', NULL, 'image', 'active'),
+(50, 1, 15, NULL, 'The Hamburg Bunker was originally a shelter for a neighbouring hospital and has now been turned into a penthouse any bachelor would be proud to live in. Made at the beginning of WWII it''s now been turned into a beautiful minimalist space with marble accents, a glass-encased bedroom, and beautiful modern furniture, yet all with its original handmade concrete frame. Check the tour below.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:18:09', '2018-02-17 15:18:33', 'textbox', 'active'),
+(51, 1, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:18:50', NULL, 'image', 'active'),
+(52, 1, 16, NULL, 'An underground lair, nightclub, built-in wine and cigar storage, a car lift, and a swimming pool, this Belgian bachelor pad quite literally has it all, and as if that wasn''t good enough, you could take all that away and still have one of the most beautiful-looking houses you''re likely to see.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:18:50', '2018-02-17 15:19:00', 'textbox', 'active'),
+(53, 1, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:19:18', NULL, 'image', 'active'),
+(54, 1, 17, NULL, 'If someone said to you that they''re living in the middle of the desert in a shipping container, you''d probably be a little bit worried about their mental state, but you''d certainly be taking that back when you see London-based designer James Whitaker''s stunning creation.\n\nThe 200-square meter house features a kitchen, living room, three bedrooms all with en-suites, and is remarkably made from several conjoined shipping containers set at different angles.\n\nUnfortunately, at the moment these designs are, well, just designs. The home, called The Joshua Tree Residence, will be built on the client’s 90-acre plot of land in California, and construction is scheduled to begin next year.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:19:18', '2018-02-17 15:19:31', 'textbox', 'active'),
+(55, 1, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:19:57', NULL, 'image', 'active'),
+(56, 1, 18, NULL, 'This Tokyo-based house by YUUA Architects measures just 1.8 meters (about 6 foot) wide, which is a feat by itself, but when you factor in just how livable the interiors seem to be, then you''ll realise what a truly great house it is.\n\nYou''re not exactly going to be running marathons inside it, but for its size it seems like it could be adequate. The steel-frame house has a glazed facade, so light abounds inside and helps make the narrow living room, combined kitchen-dining room and sleeping area feel more spacious than they are, despite gorgeous dark walls and wide-plank timber floors.\n\nCheck out the photo tour below.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:19:57', '2018-02-17 15:20:10', 'textbox', 'active'),
+(57, 1, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:20:32', NULL, 'image', 'active'),
+(58, 1, 19, NULL, 'We know a lot of you guys are fans of minimalism, and because of this, we thought it only right to show you ''House A'' by the Australian architects Walter&Walter. Using light tones on the inside while keeping an all-black wooden clad exterior is a gorgeous contrast, head down for the full tour.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:20:32', '2018-02-17 15:20:42', 'textbox', 'active'),
+(59, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:20:54', NULL, 'image', 'active'),
+(60, 1, 20, NULL, 'Manufactured by IDEA, Japan, this ultra-minimalist calculator is any mechanical keyboard fans dream. The 10 Key Calculator, according to Yanko Design, is an “honest pleasure to use”, with the keys travelling around three to four millimetres when pressed, which apparently is the “golden number”, and making that satisfying clack-clack sound that mechanical keyboard fans adore.\n\nYou may think at this point that calculators are obsolete what with the ease of use on our phones, however, to make it more relevant for today’s users, it even doubles as a number pad for computers easily connecting to any computer.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:20:54', '2018-02-17 15:21:11', 'textbox', 'active'),
+(61, 1, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:38:52', NULL, 'image', 'active'),
+(62, 1, 21, NULL, 'As if first-class air travel wasn''t lavish enough, Airbus is now teaming up with luxury car maker Pagani to create the extravagant ''Infinito Jet Cabin'' which brings the pleasures of a top hotel to the skies.\n\nBy far the most jaw-dropping feature of the new cabin is its glass sky ceiling, which offers flyers a stunning view of the sky above the aircraft. The cabin also features a lounge, conference areas, and a dining space. \n\nWatch the video below to find out more about the Infinito Jet Cabin.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:38:52', '2018-02-17 15:39:29', 'textbox', 'active'),
+(63, 1, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:39:47', NULL, 'image', 'active'),
+(64, 1, 22, NULL, 'When it comes to successful billionaires like Elon Musk, their failures are never really put into the limelight, at least not half as much as their successes. That''s why when you see how much Musk has failed, it proves to everyone that no matter how many times you''re knocked down, you can still make a success of yourself.\n\nKickresume has put together a graphic that highlights all the times it has gone wrong for the multi-billionaire, while also highlighting the fact his net worth is still $14.8 billion, despite these so-called failures.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:39:47', '2018-02-17 15:40:00', 'textbox', 'active'),
+(65, 1, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:40:16', NULL, 'image', 'active'),
+(66, 1, 23, NULL, 'Not long ago we showed you a project called ''Around The World In Type'' by India-based student Rigved Sathe in which he designed every letter of the alphabet to correspond with a certain landmark around the world, and you guys absolutely loved it. Well, Rigved is back with a similar project in which he now combines structural design with different letters.\n\nThe project, titled STRUCTURE x Type aims to explore form, anatomy, texture and composition while creating 26 unique and interesting letters. Check out the series below and let us know what you think.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:40:16', '2018-02-17 15:40:27', 'textbox', 'active'),
+(67, 1, 11, NULL, NULL, NULL, 'content_1fad6d06994f0026365487915069e004.jpg', 'horizontal', NULL, NULL, NULL, 5, '2018-02-17 16:20:45', '2018-02-17 16:20:45', 'cover', 'active'),
+(68, 1, 8, NULL, NULL, NULL, NULL, NULL, NULL, 14.05670111268598, 101.38608455657959, 13, '2018-02-17 17:28:12', '2018-02-17 17:28:15', 'map', 'active'),
+(69, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 17:41:32', NULL, 'image', 'active'),
+(70, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 17:41:32', NULL, 'textbox', 'active');
 
 -- --------------------------------------------------------
 
@@ -10210,7 +10358,14 @@ CREATE TABLE IF NOT EXISTS `signature` (
   `create_time` datetime NOT NULL,
   `active_time` datetime DEFAULT NULL,
   `form` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `signature`
+--
+
+INSERT INTO `signature` (`id`, `sign`, `expire`, `create_time`, `active_time`, `form`) VALUES
+(46, '6f4c40e5b519d2ea477fc7595ee90738961597c6561e5beb1957686bcfc8d60f', 1518944394, '2018-02-18 15:58:54', NULL, 'login');
 
 -- --------------------------------------------------------
 
@@ -10222,7 +10377,90 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `id` mediumint(8) NOT NULL,
   `name` varchar(50) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tag`
+--
+
+INSERT INTO `tag` (`id`, `name`, `created`) VALUES
+(1, 'the', '2018-02-11 16:54:46'),
+(2, 'city', '2018-02-11 16:54:46'),
+(3, 'of', '2018-02-11 16:54:46'),
+(4, 'gold', '2018-02-11 16:54:46'),
+(5, 'จินตนาการ', '2018-02-12 18:13:50'),
+(6, 'เอายังไงดี', '2018-02-13 14:38:34'),
+(7, 'พ่อหนุ่ม', '2018-02-13 14:38:34'),
+(8, 'วันนี้ไปไหนบ้าง', '2018-02-13 14:38:34'),
+(9, 'เพลงสากล', '2018-02-14 10:57:26'),
+(10, 'EDM', '2018-02-14 10:57:27'),
+(11, '2018', '2018-02-14 10:57:27'),
+(12, 'TOP', '2018-02-14 10:57:27'),
+(13, 'เพลงดัง+ฟังสบาย', '2018-02-14 10:57:27'),
+(14, 'length', '2018-02-14 10:57:46'),
+(15, 'string', '2018-02-14 10:57:46'),
+(16, 'success,', '2018-02-14 10:57:46'),
+(17, 'and', '2018-02-14 10:57:46'),
+(18, 'empty.', '2018-02-14 10:57:46'),
+(19, 'NONSTOP', '2018-02-14 10:59:30'),
+(20, 'Happy', '2018-02-14 10:59:30'),
+(21, 'New', '2018-02-14 10:59:30'),
+(22, 'Year', '2018-02-14 10:59:30'),
+(23, '2017', '2018-02-14 10:59:30'),
+(24, 'ชั่วโมงเต็ม', '2018-02-14 10:59:30'),
+(25, 'Remix', '2018-02-14 10:59:30'),
+(26, '130', '2018-02-14 10:59:30'),
+(27, 'BPM', '2018-02-14 10:59:30'),
+(28, 'Prior', '2018-02-14 11:00:08'),
+(29, 'versions', '2018-02-14 11:00:08'),
+(30, 'treated', '2018-02-14 11:00:08'),
+(31, 'arrays', '2018-02-14 11:00:08'),
+(32, 'Array', '2018-02-14 11:00:08'),
+(33, 'thus', '2018-02-14 11:00:08'),
+(34, 'returning', '2018-02-14 11:00:08'),
+(35, 'emitting', '2018-02-14 11:00:08'),
+(36, 'ENOTICE', '2018-02-14 11:00:08'),
+(37, 'level', '2018-02-14 11:00:08'),
+(38, 'error', '2018-02-14 11:00:08'),
+(39, 'มีคนมาถามว่าทำไมใช้คำสั่ง', '2018-02-14 11:18:52'),
+(40, 'apt-get', '2018-02-14 11:18:52'),
+(41, 'update', '2018-02-14 11:18:52'),
+(42, 'ใน', '2018-02-14 11:18:52'),
+(43, 'Kali', '2018-02-14 11:18:52'),
+(44, 'ไม่ได้', '2018-02-14 11:18:52'),
+(45, 'แล้วขึ้น', '2018-02-14 11:18:52'),
+(46, 'following', '2018-02-14 11:18:52'),
+(47, 'signatures', '2018-02-14 11:18:52'),
+(48, 'were', '2018-02-14 11:18:52'),
+(49, 'invalid', '2018-02-14 11:18:52'),
+(50, 'คือถ้าพูดง่ายๆก็คือ', '2018-02-14 11:18:52'),
+(51, 'key', '2018-02-14 11:18:52'),
+(52, 'มันหมดอายุน่ะครับ', '2018-02-14 11:18:52'),
+(53, 'วิธีแก้คือเปลี่ยน', '2018-02-14 11:18:52'),
+(54, 'ครับ', '2018-02-14 11:18:52'),
+(55, 'NGINX', '2018-02-14 11:37:49'),
+(56, 'PHP56', '2018-02-14 11:37:49'),
+(57, 'phpMyAdmin', '2018-02-14 11:37:49'),
+(58, 'MariaDB', '2018-02-14 11:37:49'),
+(59, 'PHP', '2018-02-14 11:37:49'),
+(60, 'development', '2018-02-14 11:37:49'),
+(61, 'environment', '2018-02-14 11:37:49'),
+(62, 'generator', '2018-02-14 11:37:49'),
+(63, 'built', '2018-02-14 11:37:49'),
+(64, 'with', '2018-02-14 11:37:49'),
+(65, 'Docker', '2018-02-14 11:37:49'),
+(66, 'containers', '2018-02-14 11:37:49'),
+(67, 'What', '2018-02-16 18:47:45'),
+(68, 'does', '2018-02-16 18:47:45'),
+(69, 'async', '2018-02-16 18:47:45'),
+(70, 'false', '2018-02-16 18:47:45'),
+(71, 'jQueryajax', '2018-02-16 18:47:45'),
+(72, 'Internet', '2018-02-17 17:13:10'),
+(73, 'Things', '2018-02-17 17:13:10'),
+(74, 'IoT', '2018-02-17 17:13:10'),
+(75, 'Monitoring', '2018-02-17 17:13:10'),
+(76, 'Project', '2018-02-17 17:13:10'),
+(77, 'โรงพยาบาลเจ้าพระยาอภัยภูเบศร', '2018-02-17 17:13:10');
 
 -- --------------------------------------------------------
 
@@ -10259,8 +10497,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `phone`, `email`, `fname`, `lname`, `bio`, `password`, `salt`, `ip`, `register_time`, `edit_time`, `visit_time`, `verified`, `type`, `status`, `fb_id`, `fb_fname`, `fb_lname`, `fb_link`, `fb_verified`, `gender`) VALUES
-(1, NULL, 'mrjimmy18@gmail.com', '', '', NULL, 'fbb14df497e1250295282f022e19b128e6ad2868f4b9dbbd8120ec2d5a8cf3f1cee1e0c1e6a55904db27a0e089bcebae1417c700d4040841670ca975dbd1a430', '7a8d717dc526b28f758a1dd7f559635b669c9d456b3b1cde9294c2070328d559684b93e715da2cb34233aaef83d091f526bae928ff372fecdd253bfcdd1867bc', '127.0.0.1', '2018-02-04 15:47:10', NULL, '2018-02-11 16:21:44', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, '0359450', 'jimmy@gmail.com', 'Dinsorser', '', NULL, 'b8f7e816db42b9a66036e444ccabc6a9b3dab11b7363bc0f58d6056fdad0d8d1889519d81521ea4b809bb240273e3aaa567acb41d5e7b7d6fe80c99f36ce4abe', '98ed6f35f815e61eca7ccbda085a0c672a4da0cf6368a63c01e0a9ba502e0d2c00861fa9447848365061d10c128fcc623b42a4fb0a812e5c326a929dd9de953c', '127.0.0.1', '2018-02-04 17:08:08', NULL, '2018-02-11 16:24:43', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, NULL, 'mrjimmy18@gmail.com', '', NULL, NULL, 'df610a709955faac3414580511066bcf5ba2c2621c0a445248e9209f2883530d88a68e0f42340bae5a6020c3d27c7a0faf277e13dfdfefd377a1c72a57429f07', 'fc6e6b11dc0292f12fc6dd406863d0366507821f0888a59fc0e9cbb0782499f546c9e66b9ddfc68b64732fbcfaeb41a3114198a2e1c44b2657e33b1d094afad9', '127.0.0.1', '2018-02-12 13:49:28', '2018-02-18 15:59:00', '2018-02-18 16:04:15', 'non-verified', 'member', 'pending', '10208805409052059', 'Puwadon', 'Sricharoen', 'https://www.facebook.com/app_scoped_user_id/10208805409052059/', 1, 'male'),
+(2, '0801051930', 'jimmy@gmail.com', 'Wonchai', 'Toomtam', NULL, 'ec329dbf48ee8d01f7ee2394c4eace0269f35d05481ef0d1f6589a6fdb1518916a06a112844de98f46101fa48757487986f75f9ffb00cbae6619c5d27b14cf0a', 'e8d6b57c3379909458898c6d2dba47564d0d65474c60a4f568bd23c455dc9d88345cb973d188593582c44efaa5c61d838f63844e5dd0f4cdc8e716848af4dc33', '127.0.0.1', '2018-02-12 15:47:33', NULL, '2018-02-13 14:50:20', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -10351,12 +10589,12 @@ ALTER TABLE `amphur`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `article_tags`
 --
 ALTER TABLE `article_tags`
-  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -10366,7 +10604,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `district`
 --
@@ -10391,12 +10629,12 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `signature`
 --
 ALTER TABLE `signature`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `user`
 --

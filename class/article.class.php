@@ -31,6 +31,9 @@ class Article{
     public $cover_id;
     public $cover_img;
 
+    public $head_cover_id;
+    public $head_cover_img;
+
     // Options Checking
     public $hasTags;
     public $hasCover;
@@ -117,19 +120,30 @@ class Article{
             return true;
         else
             return false;
-    } 
+    }
+
+    // Set Head Cover
+    public function setHeadCover($article_id,$head_cover_id){
+        $this->db->query('UPDATE article SET head_cover_id = :head_cover_id, edit_time = :edit_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':head_cover_id',$head_cover_id);
+        $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img 
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
             LEFT JOIN content AS content ON article.cover_id = content.id 
+            LEFT JOIN content AS head_cover ON article.head_cover_id = head_cover.id 
             LEFT JOIN province AS province ON article.province_id = province.province_id 
             LEFT JOIN amphur AS amphur ON article.amphur_id = amphur.amphur_id 
             LEFT JOIN district AS district ON article.district_id = district.district_id 
             WHERE article.id = :article_id');
+
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -166,9 +180,9 @@ class Article{
         $this->province_id      = $dataset['province_id'];
         $this->amphur_id        = $dataset['amphur_id'];
         $this->district_id      = $dataset['district_id'];
-        $this->province_name      = $dataset['province_name'];
-        $this->amphur_name        = $dataset['amphur_name'];
-        $this->district_name      = $dataset['district_name'];
+        $this->province_name    = $dataset['province_name'];
+        $this->amphur_name      = $dataset['amphur_name'];
+        $this->district_name    = $dataset['district_name'];
 
         $this->create_time      = $this->db->datetimeformat($dataset['create_time'],$option = 'fulldatetime');
         $this->edit_time        = $this->db->datetimeformat($dataset['edit_time'],$option = 'fulldatetime');
@@ -180,6 +194,8 @@ class Article{
 
         $this->cover_id         = $dataset['cover_id'];
         $this->cover_img        = $dataset['cover_img'];
+        $this->head_cover_id    = $dataset['head_cover_id'];
+        $this->head_cover_img   = $dataset['head_cover_img'];
 
         $this->hasCover         = (!empty($this->cover_id) ? true:false);
         $this->hasURL           = (!empty($this->url) && isset($this->url) ? true:false);

@@ -49,12 +49,15 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                 $image->square($image_res,$save_as['thumbnail'],$im_type,$size['thumbnail'],$im_width,$im_height,$quality['thumbnail']);
 
                 // Content type "Cover" only!
-                if(empty($content_id) && $type == 'cover'){
+                if(empty($content_id) && ($type == 'cover' || $type == 'head_cover')){
+                    
                     // Create new Content ID
-                    $content_id = $article->createContent($user->id,$article_id,'cover',NULL);
+                    $content_id = $article->createContent($user->id,$article_id,$type,NULL);
 
-                    // Set this content to Cover photo
-                    $article->setCover($article_id,$content_id);
+                    if($type == 'cover')
+                        $article->setCover($article_id,$content_id); // Set this content to Cover photo
+                    else if($type == 'head_cover')
+                        $article->setHeadCover($article_id,$content_id);
                 }
 
                 // DELETE OLD IMAGE
