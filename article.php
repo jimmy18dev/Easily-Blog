@@ -35,7 +35,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header fixed">
+<header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
 	<a href="search.php" class="btn left"><i class="fa fa-search" aria-hidden="true"></i><span>ค้นหา</span></a>
 	
 	<div class="logo"><a href="index.php">Peopleawesome</a></div>

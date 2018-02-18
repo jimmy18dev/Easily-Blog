@@ -157,13 +157,20 @@ body {
   padding: 0% 10%;
   float: left;
   display: inline-block;
-  height: 50px;
-  top: 0;
+  height: 56px;
   z-index: 999;
+  background: #222222;
+  position: relative;
 }
 .header.fixed {
   position: fixed;
-  background: #222222;
+  top: 0;
+}
+.header.transparent {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
 }
 .header .logo {
   position: absolute;
@@ -172,7 +179,7 @@ body {
   width: 50%;
   margin: 0 25%;
   height: 30px;
-  padding: 10px 0;
+  padding: 13px 0;
   float: left;
   display: inline-block;
   text-align: center;
@@ -188,7 +195,7 @@ body {
   float: right;
   display: inline-block;
   height: 30px;
-  padding: 10px;
+  padding: 13px;
   position: relative;
 }
 .header .btn-profile img {
@@ -277,7 +284,7 @@ body {
   float: right;
   display: inline-block;
   height: 20px;
-  padding: 15px;
+  padding: 18px;
   line-height: 1.2em;
   font-family: "maledpan", sans-serif;
   background: transparent;
@@ -456,11 +463,11 @@ body {
 .navigation {
   width: 80%;
   padding: 0 10%;
-  height: 50px;
-  margin: 50px 0%;
+  height: 56px;
+  margin: 56px 0%;
   float: left;
   display: inline-block;
-  background: #FFFFFF;
+  background: #222222;
   text-align: center;
 }
 .navigation a {
@@ -468,13 +475,15 @@ body {
   font-family: "maledpan", sans-serif;
   font-size: 1.2em;
   line-height: 1em;
-  height: 20px;
-  padding: 15px;
+  height: 18px;
+  padding: 18px;
   text-decoration: none;
-  color: #222222;
+  color: #bbbbbb;
+  border-bottom: 2px solid transparent;
 }
 .navigation a.active {
-  color: #55ce63;
+  color: #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
 }
 .pagehead {
   width: 80%;
@@ -982,7 +991,7 @@ body {
 .article .article-header {
   width: 50%;
   margin: 5% 25%;
-  margin-top: 100px;
+  margin-top: 56px;
   padding-bottom: 5%;
   float: left;
   display: inline-block;
@@ -991,7 +1000,7 @@ body {
 .article .article-header.with-cover {
   width: 100%;
   margin: 0;
-  margin-bottom: 5%;
+  margin-top: -56px;
   padding: 0;
   position: relative;
   height: 650px;
@@ -999,7 +1008,7 @@ body {
 }
 .article .article-header.with-cover img {
   width: 100%;
-  margin-top: -100px;
+  margin-top: -150px;
   float: left;
   display: inline-block;
 }
