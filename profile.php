@@ -36,14 +36,24 @@ $c_article 	= $article->counter($user->id);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<?php include_once 'header.php';?>
+<header class="header fixed editor-bar">
+	<a class="btn left" href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
+	
+	<?php if($user_online){?>
+	<?php include 'template/header.profile.php';?>
+	<?php }else{?>
+	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	<?php }?>
+
+	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
+	<?php }?>
+</header>
 
 <div class="pagehead">
 	<h2><?php echo $user->fullname;?></h2>
 	<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['published']>0?' ('.$c_article['draft'].')':'');?></a>
 	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
-	
-	<a href="article/create" class="btn-create">เขียนบทความ</a>
 </div>
 
 <div class="article-list">
