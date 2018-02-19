@@ -47,6 +47,7 @@ $(document).ready(function(){
         }
     }
 
+    // Choose cover image.
     $('#btnChooseCover').click(function(){
         $('#coverImageFiles').focus().click();
     });
@@ -59,13 +60,42 @@ $(document).ready(function(){
     });
     $('#coverForm').ajaxForm({
         beforeSubmit: function(formData, jqForm, options){
-            $('.btn-add-cover').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+            $('#btnChooseCover').html('กำลังอัพโหลด...')
         },
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
             percent = (percent * 80) / 100;
             
             console.log('Upload: '+percentComplete+' %');
+            $progressbar.Progressbar(percentComplete+'%');
+        },
+        success: function() {
+            // $photoLoadingBar.animate({width:'100%'},300);
+        },
+        complete: function(xhr) {
+            $progressbar.Progressbar('70%');
+            console.log(xhr.responseJSON);
+            location.reload();
+        }
+    });
+
+    // Upload multiple image files
+    $('#btnMultipleImages').click(function(){
+        $('#multipleImageFiles').focus().click()
+    });
+    $('#multipleImageFiles').change(function(){
+        $('#multipleImagesForm').submit()
+    });
+    $('#multipleImagesForm').ajaxForm({
+        beforeSubmit: function(formData, jqForm, options){
+            // $('.btn-add-cover').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+        },
+        uploadProgress: function(event,position,total,percentComplete) {
+            var percent = percentComplete;
+            percent = (percent * 80) / 100;
+            
+            console.log('Upload: '+percentComplete+' %');
+            $progressbar.Progressbar(percentComplete+'%');
         },
         success: function() {
             // $photoLoadingBar.animate({width:'100%'},300);
@@ -86,8 +116,6 @@ $(document).ready(function(){
         if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
             $('#swap').removeClass('-toggle');
         }
-
-        // console.log(e.target);
     });
 
 
@@ -96,15 +124,15 @@ $(document).ready(function(){
     * Content events listening
     */
     // Edit Article Title.
-    $title = $('#title');
+    $title = $('#title')
     setTimeout(function(){
         var title = $('#original_title').val();
-        $title.val(title).trigger("input");
+        $title.val(title).trigger("input")
 
         if(title.length == 0)
-            document.title = 'ตั้งชื่อบทความ';
+            document.title = 'ตั้งชื่อบทความ'
         else
-            document.title = title;
+            document.title = title
     },0);
 
     var oldTitle

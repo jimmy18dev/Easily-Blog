@@ -40,22 +40,22 @@ if($article->owner_id != $user->id){
 
 	<a href="index.php" class="btn left title" title="กลับไปหน้าแรก">เขียนบทความ</a>
 
-	<div class="btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
+	<div class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
 		<i class="fa fa-font" aria-hidden="true"></i>
 	</div>
-	<div class="btnAction" data-action="image" title="อัพโหลดรูปภาพ">
+	<div class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ">
 		<i class="fa fa-picture-o" aria-hidden="true"></i>
 	</div>
-	<div class="btnAction" data-action="quote" title="กล่องคำพูด">
+	<div class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด">
 		<i class="fa fa-quote-right" aria-hidden="true"></i>
 	</div>
-	<div class="btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
+	<div class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
 		<i class="fa fa-youtube-play" aria-hidden="true"></i>
 	</div>
-	<div class="btnAction" data-action="map" title="แผนที่จาก Google Map">
+	<div class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map">
 		<i class="fa fa-map-marker" aria-hidden="true"></i>
 	</div>
-	<div class="btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
+	<div class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
 		<i class="fa fa-paperclip" aria-hidden="true"></i>
 	</div>
 
@@ -86,7 +86,7 @@ if($article->owner_id != $user->id){
 	</div>
 
 	<?php if($article->status!='published'){?>
-	<div class="btn active iconleft" id="btn-publish">เผยแพร่</div>
+	<div class="btn active underline" id="btn-publish">เผยแพร่</div>
 	<?php }?>
 </div>
 
@@ -270,6 +270,12 @@ if($article->owner_id != $user->id){
 
 	<input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 	<input type="hidden" id="maximumSize" value="<?php echo $document->return_bytes(ini_get('post_max_size'));?>">
+
+	<form action="upload_images.php" id="multipleImagesForm" method="POST" enctype="multipart/form-data">
+		<input type="file" name="images[]" id="multipleImageFiles" multiple>
+		<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
+		<input type="hidden" name="type" value="image">
+	</form>
 </div>
 
 <div class="swap" id="swap"></div>
@@ -283,6 +289,7 @@ if($article->owner_id != $user->id){
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/lib/smoothscroll.min.js"></script>
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
+
 <script type="text/javascript" src="js/article.lib.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/editor.js"></script>

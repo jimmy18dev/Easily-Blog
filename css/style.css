@@ -170,7 +170,7 @@ body {
   background: transparent;
 }
 .header.editor-bar {
-  background: rgba(240, 240, 240, 0.9);
+  background: #FFFFFF;
 }
 .header.editor-bar .btn {
   color: #222222;
@@ -221,6 +221,10 @@ body {
 .header a.btn.title,
 .header .btn.title {
   color: #bbbbbb;
+}
+.header a.btn.underline:hover,
+.header .btn.underline:hover {
+  text-decoration: underline;
 }
 .header a.btn.icon-only i,
 .header .btn.icon-only i {
@@ -323,7 +327,7 @@ body {
   float: right;
   color: #55ce63;
 }
-.header .btnAction {
+.header .btn-tool {
   float: left;
   display: inline-block;
   width: 1.5%;
@@ -338,7 +342,7 @@ body {
   border-radius: 5px;
   color: #222222;
 }
-.header .btnAction:hover {
+.header .btn-tool:hover {
   cursor: pointer;
   background: #FFFFFF;
 }
@@ -1099,6 +1103,9 @@ body {
 .editor.editor {
   margin-bottom: 10%;
 }
+.editor form {
+  display: none;
+}
 .editor .article-header {
   width: 50%;
   margin: 0 25%;
@@ -1136,14 +1143,11 @@ body {
   display: inline-block;
 }
 .editor .article-header.with-cover .btn {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #FFFFFF;
-  color: #666666;
+  background: rgba(255, 255, 255, 0.5);
+  color: #333333;
 }
 .editor .article-header.with-cover .btn:hover {
   background: #FFFFFF;
-  color: #666666;
-  border: 1px solid #FFFFFF;
 }
 .editor .article-header.with-cover textarea {
   color: #FFFFFF;
@@ -1151,27 +1155,18 @@ body {
 .editor .article-header .btn {
   float: right;
   display: inline-block;
-  border: 1px solid #CCCCCC;
-  color: #999999;
+  color: #666666;
   line-height: 1em;
   font-family: "maledpan", sans-serif;
   font-size: 1em;
-  padding: 5px 20px;
-  padding-bottom: 6px;
-  border-radius: 20px;
+  padding: 7px 10px;
+  border-radius: 5px;
   margin-bottom: 2%;
-}
-.editor .article-header .btn.btn-remove {
-  border: 1px solid transparent;
+  margin-left: 1%;
+  background: #EAEAEA;
 }
 .editor .article-header .btn:hover {
   cursor: pointer;
-  background: #666666;
-  border: 1px solid #666666;
-  color: #FFFFFF;
-}
-.editor .article-header form {
-  display: none;
 }
 .editor .article-header textarea {
   width: 100%;
@@ -1504,38 +1499,10 @@ body {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
 }
-.editor .option-control {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 50%;
-  padding: 0 25%;
-  height: 56px;
-  float: left;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 9;
-}
-.editor .option-control .btnAction {
-  height: 20px;
-  padding: 18px 24px;
-  float: left;
-  display: inline-block;
-  font-family: "maledpan", sans-serif;
-  line-height: 1em;
-  font-size: 1.4em;
-  background: transparent;
-  color: #666666;
-  text-align: center;
-}
-.editor .option-control .btnAction:hover {
-  cursor: pointer;
-  color: #222222;
-}
 .editor .between-option {
-  width: 100%;
-  padding: 1% 0%;
-  margin: 2% 0%;
+  width: 50%;
+  padding: 0.5% 0%;
+  margin: 0.5% 25%;
   float: left;
   display: inline-block;
   position: relative;
@@ -1687,9 +1654,13 @@ body {
 }
 .article-list {
   width: 80%;
-  margin: 0% 10%;
+  padding: 0% 10%;
   float: left;
   display: inline-block;
+}
+.article-list.related {
+  padding: 5% 10%;
+  background: #EEEEEE;
 }
 .article-list .items {
   width: 31.33%;

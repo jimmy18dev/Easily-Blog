@@ -12,7 +12,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 }
 ?>
 
-
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
 <head>
@@ -64,7 +63,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		</div>
 	</div>
 	
-	<a class="btn" href="article/<?php echo $article->id;?>/editor">แก้ไขบทความ</a>
+	<a class="btn underline" href="article/<?php echo $article->id;?>/editor">แก้ไขบทความ</a>
 	<?php }?>
 </header>
 
@@ -161,7 +160,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </article>
 
-<div class="article-list">
+<div class="article-list related">
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
 	<?php }?>
@@ -169,8 +168,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 <div id="progressbar"></div>
-
-<?php include_once 'footer.php';?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>

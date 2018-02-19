@@ -14,7 +14,7 @@
 	&.fixed{ position: fixed; top: 0; }
 	&.transparent{ background: transparent; }
 	&.editor-bar{
-		background: rgba(240,240,240,0.9);
+		background: #FFFFFF;
 		.btn{ color: @font_color_topic; }
 	}
 
@@ -60,6 +60,7 @@
 
 		i{ margin-left: 10px; }
 		&.title{ color: @font_color_light; }
+		&.underline:hover{ text-decoration: underline; }
 		&.icon-only i{ margin: 0; }
 		&.left{
 			float: left;
@@ -134,7 +135,7 @@
 		}
 	}
 
-	.btnAction{
+	.btn-tool{
 		float: left;
 		display: inline-block;
 		width: 1.5%;
@@ -970,6 +971,7 @@
 	display: inline-block;
 
 	&.editor{ margin-bottom: 10%; }
+	form{ display: none; }
 
 	.article-header{
 		width: 50%;
@@ -1011,15 +1013,10 @@
 			}
 
 			.btn{
-				background: rgba(255,255,255,0.8);
-				border: 1px solid #FFFFFF;
-				color: #666666;
+				background: rgba(255,255,255,0.5);
+				color: #333333;
 
-				&:hover{
-					background: #FFFFFF;
-					color: #666666;
-					border: 1px solid #FFFFFF;
-				}
+				&:hover{ background: #FFFFFF; }
 			}
 
 			textarea{ color: #FFFFFF; }
@@ -1028,29 +1025,18 @@
 		.btn{
 			float: right;
 			display: inline-block;
-			border: 1px solid #CCCCCC;
-			color: #999999;
+			color: #666666;
 			line-height: 1em;
 			font-family: @topic_font;
 			font-size: 1em;
-			padding: 5px 20px;
-			padding-bottom: 6px;
-			border-radius: 20px;
+			padding: 7px 10px;
+			border-radius: 5px;
 			margin-bottom: 2%;
+			margin-left: 1%;
+			background: #EAEAEA;
 
-			&.btn-remove{
-				border: 1px solid transparent;
-			}
-
-			&:hover{
-				cursor: pointer;
-				background: #666666;
-				border: 1px solid #666666;
-				color: #FFFFFF;
-			}
+			&:hover{ cursor: pointer; }
 		}
-
-		form{ display: none; }
 
 		textarea{
 			width: 100%;
@@ -1408,41 +1394,10 @@
 		}
 	}
 
-	.option-control{
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		width: 50%;
-		padding: 0 25%;
-		height: 56px;
-		float: left;
-		display: inline-block;
-		background: rgba(255,255,255,0.9);
-		z-index: 9;
-
-		.btnAction{
-			height: 20px;
-			padding: 18px 24px;
-			float: left;
-			display: inline-block;
-			font-family: @topic_font;
-			line-height: 1em;
-			font-size: 1.4em;
-			background: transparent;
-			color: @font_color_body;
-			text-align: center;
-
-			&:hover{
-				cursor: pointer;
-				color: @font_color_topic;
-			}
-		}
-	}
-
 	.between-option{
-		width: 100%;
-		padding: 1% 0%;
-		margin: 2% 0%;
+		width: 50%;
+		padding: 0.5% 0%;
+		margin: 0.5% 25%;
 		float: left;
 		display: inline-block;
 		position: relative;
@@ -1609,9 +1564,14 @@
 // Article Container
 .article-list{
 	width: 80%;
-	margin: 0% 10%;
+	padding: 0% 10%;
 	float: left;
 	display: inline-block;
+
+	&.related{
+		padding: 5% 10%;
+		background: #EEEEEE;
+	}
 
 	// Article Card Style.
 	.items{
