@@ -25,7 +25,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <!-- Viewport (Responsive) -->
 <meta name="viewport" content="width=device-width">
-<meta name="viewport" content="user-scalable=no">
+<meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <title><?php echo $article->title;?></title>
@@ -68,6 +68,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <!-- Article Content -->
 <article class="article">
+
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
@@ -110,13 +111,13 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 				echo (!empty($var['bodytext'])?'<p>'.$var['bodytext'].'</p>':'');
 				echo '</section>';
 			}else{
-				echo (!empty($var['bodytext'])?'<p>'.$var['bodytext'].'</p>':'');
+				echo (!empty($var['bodytext'])?'<p class="content">'.$var['bodytext'].'</p>':'');
 			}
 		}else if($var['type'] == 'image'){?>
 
 		<figure class="content image">
 			<?php if(!empty($var['img_location']) && file_exists('image/upload/normal/'.$var['img_location'])){?>
-			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="">
+			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="<?php echo (!$var['alt']?$var['alt']:$article->title);?>">
 			<?php }else{?>
 			<div class="image-not-found">ไม่พบรูปภาพ</div>
 			<?php }?>
@@ -128,7 +129,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<?php }else if($var['type'] == 'youtube'){?>
 		<figure class="content youtube">
 			<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
-				<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" allowfullscreen></iframe>
 			</div>
 			<?php if(!empty($var['alt'])){?>
 			<figcaption><?php echo $var['alt'];?></figcaption>

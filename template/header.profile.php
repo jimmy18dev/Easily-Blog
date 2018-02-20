@@ -1,5 +1,5 @@
 <div class="btn btn-profile" id="btnProfile">
-	<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>">
+	<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
 
 	<div class="toggle-panel" id="profilePanel">
 		<div class="popover-arrow"></div>
