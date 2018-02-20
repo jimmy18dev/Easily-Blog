@@ -1002,7 +1002,7 @@ body {
   float: left;
   display: inline-block;
   font-size: 2.4em;
-  color: #EEEEEE;
+  color: #bbbbbb;
 }
 .article blockquote i.fa-quote-right {
   text-align: right;
@@ -1029,11 +1029,11 @@ body {
   font-size: 1.2em;
   margin: 0px;
   border: 0px;
-  color: #333333;
+  color: #222222;
   background: transparent;
   text-align: right;
 }
-.article .content {
+.article figure.content {
   width: 50%;
   margin: 0 25%;
   margin-bottom: 5%;
@@ -1041,18 +1041,12 @@ body {
   display: inline-block;
   position: relative;
 }
-.article .content h2 {
-  font-size: 1.8em;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 1%;
-  color: #333333;
-}
-.article .content img {
+.article figure.content img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.article .content .image-not-found {
+.article figure.content .image-not-found {
   width: 100%;
   padding: 25% 0%;
   float: left;
@@ -1064,7 +1058,7 @@ body {
   color: #CCCCCC;
   letter-spacing: 2px;
 }
-.article .content a.btn-open-map {
+.article figure.content a.btn-open-map {
   position: absolute;
   top: 82%;
   right: 7%;
@@ -1077,11 +1071,11 @@ body {
   border-radius: 50%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
-.article .content a.btn-open-map:hover {
+.article figure.content a.btn-open-map:hover {
   cursor: pointer;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
 }
-.article .content figcaption {
+.article figure.content figcaption {
   width: 98%;
   float: left;
   display: inline-block;
@@ -1093,7 +1087,7 @@ body {
   font-style: italic;
   color: #999999;
 }
-.article .content .videoWrapper {
+.article figure.content .videoWrapper {
   width: 100%;
   float: left;
   display: inline-block;
@@ -1102,7 +1096,7 @@ body {
   margin-top: 2%;
   height: 0;
 }
-.article .content .videoWrapper iframe {
+.article figure.content .videoWrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -1138,21 +1132,16 @@ body {
   float: left;
   display: inline-block;
 }
-.editor.editor {
-  margin-bottom: 10%;
-}
 .editor form {
   display: none;
 }
 .editor .article-header {
   width: 50%;
   margin: 0 25%;
+  margin-bottom: 0%;
   margin-top: 112px;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-  padding-bottom: 2%;
-  margin-bottom: 2%;
 }
 .editor .article-header.with-cover {
   width: 100%;
@@ -1167,7 +1156,7 @@ body {
   bottom: 0px;
   left: 0px;
   width: 50%;
-  padding: 5% 25%;
+  padding: 10% 25%;
   float: left;
   display: inline-block;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
@@ -1181,27 +1170,23 @@ body {
   display: inline-block;
 }
 .editor .article-header.with-cover .btn {
-  background: rgba(255, 255, 255, 0.5);
-  color: #333333;
-}
-.editor .article-header.with-cover .btn:hover {
   background: #FFFFFF;
+  border: 2px solid #FFFFFF;
 }
 .editor .article-header.with-cover textarea {
   color: #FFFFFF;
 }
 .editor .article-header .btn {
   float: right;
-  display: inline-block;
-  color: #666666;
-  line-height: 1em;
+  border: 2px solid #666666;
+  color: #333333;
+  text-decoration: none;
   font-family: "maledpan", sans-serif;
-  font-size: 1em;
-  padding: 7px 10px;
+  line-height: 1em;
+  padding: 5px 10px;
   border-radius: 5px;
   margin-bottom: 2%;
   margin-left: 1%;
-  background: #EAEAEA;
 }
 .editor .article-header .btn:hover {
   cursor: pointer;
@@ -1215,8 +1200,6 @@ body {
   resize: none;
   border: 0px;
   background: transparent;
-}
-.editor .article-header textarea.article-title {
   font-size: 3em;
   font-family: "maledpan", sans-serif;
   line-height: 1.2em;
@@ -1229,8 +1212,8 @@ body {
 }
 .editor .content {
   width: 50%;
-  margin: 0 25%;
-  margin-bottom: 5%;
+  margin: 0% 25%;
+  margin-bottom: 2%;
   float: left;
   display: inline-block;
   position: relative;
@@ -1240,17 +1223,6 @@ body {
 }
 .editor .content:hover .control .btn {
   color: #BBBBBB;
-}
-.editor .content .embed-map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 450px;
-  float: left;
-  background: #EEEEEE;
-  color: #BBBBBB;
-  font-size: 1.2em;
 }
 .editor .content .control {
   width: 100%;
@@ -1375,19 +1347,20 @@ body {
 }
 .editor .content.textbox .textbox-topic {
   width: 100%;
-  padding: 1% 0%;
+  padding: 1.2% 0%;
   float: left;
   display: inline-block;
-  font-size: 1.8em;
+  font-size: 2em;
   font-family: "maledpan", sans-serif;
   margin: 0px;
   border: 0px;
-  color: #333333;
+  color: #222222;
   background: transparent;
-  border-bottom: 1px solid transparent;
+  font-weight: bold;
+  line-height: 1.3em;
 }
-.editor .content.textbox .textbox-topic:focus {
-  border-bottom: 1px solid #DDDDDD;
+.editor .content.textbox .textbox-topic:hover {
+  cursor: pointer;
 }
 .editor .content.textbox .textbox-body {
   width: 100%;
@@ -1402,22 +1375,21 @@ body {
   background: transparent;
   resize: none;
 }
-.editor .content.photoForm {
-  margin-top: 2%;
+.editor .content .embed-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  float: left;
+  background: #EEEEEE;
+  color: #BBBBBB;
+  font-size: 1.2em;
 }
 .editor .content.photoForm img {
   width: 100%;
   float: left;
   display: inline-block;
-}
-.editor .content h2 {
-  font-size: 1.6em;
-  font-family: "maledpan", sans-serif;
-  color: #333333;
-}
-.editor .content p {
-  font-size: 0.9em;
-  color: #666666;
 }
 .editor .content .uploading {
   position: absolute;
@@ -1540,10 +1512,12 @@ body {
 .editor .between-option {
   width: 50%;
   padding: 0.5% 0%;
-  margin: 0.5% 25%;
+  margin: 0% 25%;
+  margin-bottom: 2%;
   float: left;
   display: inline-block;
   position: relative;
+  border-radius: 20px;
 }
 .editor .between-option:hover {
   cursor: pointer;
@@ -1587,7 +1561,8 @@ body {
   background: #444444;
 }
 .editor .documents {
-  width: 100%;
+  width: 50%;
+  margin: 0 25%;
   float: left;
   display: inline-block;
 }

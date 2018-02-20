@@ -852,7 +852,7 @@
 			float: left;
 			display: inline-block;
 			font-size: 2.4em;
-			color: #EEEEEE;
+			color: @font_color_light;
 		}
 		i.fa-quote-right{ text-align: right; }
 
@@ -863,7 +863,7 @@
 			display: inline-block;
 			font-size: 2.2em;
 			line-height: 1.3em;
-			color: #666666;
+			color: @font_color_body;
 			border: 0;
 			margin: 0;
 			background: transparent;
@@ -878,26 +878,19 @@
 			font-size: 1.2em;
 			margin: 0px;
 			border: 0px;
-			color: #333333;
+			color: @font_color_topic;
 			background: transparent;
 			text-align: right;
 		}
 	}
 
-	.content{
+	figure.content{
 		width: 50%;
 		margin: 0 25%;
 		margin-bottom: 5%;
 		float: left;
 		display: inline-block;
 		position: relative;
-
-		h2{
-			font-size: 1.8em;
-			font-family: @topic_font;
-			margin-bottom: 1%;
-			color: #333333;
-		}
 
 		img{
 			width: 100%;
@@ -1002,18 +995,15 @@
 	float: left;
 	display: inline-block;
 
-	&.editor{ margin-bottom: 10%; }
 	form{ display: none; }
 
 	.article-header{
 		width: 50%;
 		margin: 0 25%;
+		margin-bottom: 0%;
 		margin-top: 112px;
 		float: left;
 		display: inline-block;
-		border-bottom: 1px solid #EEEEEE;
-		padding-bottom: 2%;
-		margin-bottom: 2%;
 
 		&.with-cover{
 			width: 100%;
@@ -1028,7 +1018,7 @@
 				bottom: 0px;
 				left: 0px;
 				width: 50%;
-				padding: 5% 25%;
+				padding: 10% 25%;
 				float: left;
 				display: inline-block;
 
@@ -1045,10 +1035,8 @@
 			}
 
 			.btn{
-				background: rgba(255,255,255,0.5);
-				color: #333333;
-
-				&:hover{ background: #FFFFFF; }
+				background: #FFFFFF;
+				border: 2px solid #FFFFFF;
 			}
 
 			textarea{ color: #FFFFFF; }
@@ -1056,16 +1044,15 @@
 
 		.btn{
 			float: right;
-			display: inline-block;
-			color: #666666;
-			line-height: 1em;
+			border: 2px solid #666666;
+			color: #333333;
+			text-decoration: none;
 			font-family: @topic_font;
-			font-size: 1em;
-			padding: 7px 10px;
+			line-height: 1em;
+			padding: 5px 10px;
 			border-radius: 5px;
 			margin-bottom: 2%;
 			margin-left: 1%;
-			background: #EAEAEA;
 
 			&:hover{ cursor: pointer; }
 		}
@@ -1079,15 +1066,12 @@
 			resize: none;
 			border: 0px;
 			background: transparent;
-
-			&.article-title{
-				font-size: 3em;
-				font-family: @topic_font;
-				line-height: 1.2em;
-				min-height: 50px;
-				word-wrap: break-word;
-				white-space: pre-wrap;
-			}
+			font-size: 3em;
+			font-family: @topic_font;
+			line-height: 1.2em;
+			min-height: 50px;
+			word-wrap: break-word;
+			white-space: pre-wrap;
 
 			&:hover{ cursor: pointer; }
 		}
@@ -1095,8 +1079,8 @@
 
 	.content{
 		width: 50%;
-		margin: 0 25%;
-		margin-bottom: 5%;
+		margin: 0% 25%;
+		margin-bottom: 2%;
 		float: left;
 		display: inline-block;
 		position: relative;
@@ -1106,18 +1090,7 @@
 			.control .btn{ color: #BBBBBB; }
 		}
 
-		.embed-map{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 450px;
-			float: left;
-			background: #EEEEEE;
-			color: #BBBBBB;
-			font-size: 1.2em;
-		}
-
+		// Content Controller
 		.control{
 			width: 100%;
 			float: left;
@@ -1245,20 +1218,19 @@
 		&.textbox{
 			.textbox-topic{
 				width: 100%;
-				padding: 1% 0%;
+				padding: 1.2% 0%;
 				float: left;
 				display: inline-block;
-				font-size: 1.8em;
+				font-size: 2em;
 				font-family: @topic_font;
 				margin: 0px;
 				border: 0px;
-				color: #333333;
+				color: @font_color_topic;
 				background: transparent;
-				border-bottom: 1px solid transparent;
+				font-weight: bold;
+				line-height: 1.3em;
 
-				&:focus{
-					border-bottom: 1px solid #DDDDDD;
-				}
+				&:hover{ cursor: pointer; }
 			}
 			.textbox-body{
 				width: 100%;
@@ -1275,24 +1247,25 @@
 			}
 		}
 
+		// Google Map Embed
+		.embed-map{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 450px;
+			float: left;
+			background: #EEEEEE;
+			color: #BBBBBB;
+			font-size: 1.2em;
+		}
+
 		&.photoForm{
 			img{
 				width: 100%;
 				float: left;
 				display: inline-block;
 			}
-			margin-top: 2%;
-		}
-
-		h2{
-			font-size: 1.6em;
-			font-family: @topic_font;
-			color: #333333;
-		}
-
-		p{
-			font-size: 0.9em;
-			color: #666666;
 		}
 
 		.uploading{
@@ -1429,10 +1402,12 @@
 	.between-option{
 		width: 50%;
 		padding: 0.5% 0%;
-		margin: 0.5% 25%;
+		margin: 0% 25%;
+		margin-bottom: 2%;
 		float: left;
 		display: inline-block;
 		position: relative;
+		border-radius: 20px;
 
 		&:hover{
 			cursor: pointer;
@@ -1482,7 +1457,8 @@
 	}
 
 	.documents{
-		width: 100%;
+		width: 50%;
+		margin: 0 25%;
 		float: left;
 		display: inline-block;
 

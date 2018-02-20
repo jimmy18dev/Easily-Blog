@@ -106,7 +106,7 @@ if($article->owner_id != $user->id){
 			<div class="btn" id="btnChooseCover">เลือกภาพหน้าปก</div>
 			<?php }?>
 
-			<textarea class="article-title autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
+			<textarea class="autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
 			<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
 
 			<form action="upload_image.php" id="coverForm" method="POST" enctype="multipart/form-data">

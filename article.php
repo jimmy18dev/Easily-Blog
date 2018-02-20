@@ -115,6 +115,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			}
 		}else if($var['type'] == 'image'){?>
 
+		<!-- Image or Photo -->
 		<figure class="content image">
 			<?php if(!empty($var['img_location']) && file_exists('image/upload/normal/'.$var['img_location'])){?>
 			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="<?php echo (!$var['alt']?$var['alt']:$article->title);?>">
@@ -126,7 +127,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			<figcaption><?php echo $var['alt'];?></figcaption>
 			<?php }?>
 		</figure>
+
 		<?php }else if($var['type'] == 'youtube'){?>
+		<!-- YouTube Embed -->
 		<figure class="content youtube">
 			<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
 				<iframe src="https://www.youtube.com/embed/<?php echo $var['video_id'];?>" allowfullscreen></iframe>
@@ -135,16 +138,20 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 			<figcaption><?php echo $var['alt'];?></figcaption>
 			<?php }?>
 		</figure>
+
 		<?php }else if($var['type'] == 'quote'){?>
+		<!-- Quote Block -->
 		<blockquote class="content">
 			<i class="fa fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
 			<footer>–<cite><?php echo $var['topic'];?></cite></footer>
 			<i class="fa fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
+
 		<?php }else if($var['type'] == 'map'){?>
+		<!-- Google Map Embed -->
 		<figure class="content image">
-			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x500&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="">
+			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x500&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="Google Map">
 			<?php if(!empty($var['alt'])){?>
 			<figcaption><?php echo $var['alt'];?></figcaption>
 			<?php }?>
