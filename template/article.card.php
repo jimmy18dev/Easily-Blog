@@ -1,5 +1,5 @@
 <?php if($var['cover_type'] == 'horizontal'){?>
-<article class="items highlight">
+<article class="article-items highlight">
 	<div class="wrapper">
 		<?php if(!empty($var['cover_id'])){?>
 		<figure class="thumbnail">
@@ -18,7 +18,7 @@
 	</div>
 </article>
 <?php }else{?>
-<article class="items <?php echo (empty($var['cover_id'])?'gradient gradient-'.substr(strlen($var['title']),-1,1):'');?>">
+<article class="article-items <?php echo (empty($var['cover_id'])?'gradient gradient-'.substr(strlen($var['title']),-1,1):'');?>">
 	<div class="wrapper">
 		<?php if(!empty($var['cover_id'])){?>
 		<figure class="thumbnail">

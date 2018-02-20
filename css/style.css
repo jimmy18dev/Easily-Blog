@@ -1129,6 +1129,7 @@ body {
 }
 .editor {
   width: 100%;
+  padding-bottom: 5%;
   float: left;
   display: inline-block;
 }
@@ -1675,7 +1676,7 @@ body {
   padding: 5% 10%;
   background: #EEEEEE;
 }
-.article-list .items {
+.article-list .article-items {
   width: 31.33%;
   float: left;
   display: inline-block;
@@ -1686,91 +1687,91 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-.article-list .items:nth-child(3n+0) {
+.article-list .article-items:nth-child(3n+0) {
   margin-right: 0;
 }
-.article-list .items.gradient .wrapper header {
+.article-list .article-items.gradient .wrapper header {
   width: 80%;
   padding: 9% 10%;
 }
-.article-list .items.gradient .wrapper header h2 {
+.article-list .article-items.gradient .wrapper header h2 {
   font-size: 1.8em;
   margin-bottom: 8%;
 }
-.article-list .items.gradient .wrapper header h2 a {
+.article-list .article-items.gradient .wrapper header h2 a {
   color: #FFFFFF;
 }
-.article-list .items.gradient .wrapper header h2 a:hover {
+.article-list .article-items.gradient .wrapper header h2 a:hover {
   text-decoration: underline;
 }
-.article-list .items.gradient .wrapper header p {
+.article-list .article-items.gradient .wrapper header p {
   color: #bbbbbb;
   text-overflow: inherit;
   white-space: inherit;
   overflow: inherit;
 }
-.article-list .items.gradient .info {
+.article-list .article-items.gradient .info {
   margin: 0;
   padding: 5% 6%;
   border-top: 0px;
 }
-.article-list .items.gradient-1 {
+.article-list .article-items.gradient-1 {
   background: #3bed8d;
   background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
   background: linear-gradient(to right, #3bed8d, #38acc5);
 }
-.article-list .items.gradient-2 {
+.article-list .article-items.gradient-2 {
   background: #283593;
   background: -webkit-linear-gradient(to right, #283593, #1a237e);
   background: linear-gradient(to right, #283593, #1a237e);
 }
-.article-list .items.gradient-3 {
+.article-list .article-items.gradient-3 {
   background: #311b92;
   background: -webkit-linear-gradient(to right, #311b92, #283593);
   background: linear-gradient(to right, #311b92, #283593);
 }
-.article-list .items.gradient-4 {
+.article-list .article-items.gradient-4 {
   background: #bf360c;
   background: -webkit-linear-gradient(to right, #bf360c, #f57c00);
   background: linear-gradient(to right, #bf360c, #f57c00);
 }
-.article-list .items.gradient-5 {
+.article-list .article-items.gradient-5 {
   background: #263238;
   background: -webkit-linear-gradient(to right, #263238, #37474f);
   background: linear-gradient(to right, #263238, #37474f);
 }
-.article-list .items.gradient-6 {
+.article-list .article-items.gradient-6 {
   background: #3e2723;
   background: -webkit-linear-gradient(to right, #3e2723, #4e342e);
   background: linear-gradient(to right, #3e2723, #4e342e);
 }
-.article-list .items.gradient-7 {
+.article-list .article-items.gradient-7 {
   background: #004d40;
   background: -webkit-linear-gradient(to right, #004d40, #00695c);
   background: linear-gradient(to right, #004d40, #00695c);
 }
-.article-list .items.gradient-8 {
+.article-list .article-items.gradient-8 {
   background: #880e4f;
   background: -webkit-linear-gradient(to right, #880e4f, #c2185b);
   background: linear-gradient(to right, #880e4f, #c2185b);
 }
-.article-list .items.gradient-9 {
+.article-list .article-items.gradient-9 {
   background: #c2185b;
   background: -webkit-linear-gradient(to right, #c2185b, #4527a0);
   background: linear-gradient(to right, #c2185b, #4527a0);
 }
-.article-list .items.gradient-0 {
+.article-list .article-items.gradient-0 {
   background: #33691e;
   background: -webkit-linear-gradient(to right, #33691e, #ef6c00);
   background: linear-gradient(to right, #33691e, #ef6c00);
 }
-.article-list .items.highlight .wrapper {
+.article-list .article-items.highlight .wrapper {
   position: relative;
 }
-.article-list .items.highlight .wrapper .thumbnail img {
+.article-list .article-items.highlight .wrapper .thumbnail img {
   transform: scale(1.3);
 }
-.article-list .items.highlight .wrapper header {
+.article-list .article-items.highlight .wrapper header {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1779,48 +1780,48 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 }
-.article-list .items.highlight .wrapper header h2 a {
+.article-list .article-items.highlight .wrapper header h2 a {
   color: #FFFFFF;
 }
-.article-list .items.highlight .info {
-  margin: 0;
-  padding: 5%;
+.article-list .article-items.highlight .info {
+  padding: 5% 6%;
+  margin: 0%;
   border-top: 0px;
 }
-.article-list .items .wrapper {
+.article-list .article-items .wrapper {
   width: 100%;
   float: left;
   display: inline-block;
   height: 505px;
 }
-.article-list .items .wrapper .thumbnail {
+.article-list .article-items .wrapper .thumbnail {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.article-list .items .wrapper .thumbnail img {
+.article-list .article-items .wrapper .thumbnail img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.article-list .items .wrapper header {
+.article-list .article-items .wrapper header {
   width: 88%;
   padding: 5% 6%;
   float: left;
   display: inline-block;
 }
-.article-list .items .wrapper header h2 {
+.article-list .article-items .wrapper header h2 {
   font-size: 1.4em;
   font-family: "maledpan", sans-serif;
   line-height: 1.3em;
   font-weight: normal;
   margin-bottom: 2%;
 }
-.article-list .items .wrapper header h2 a {
+.article-list .article-items .wrapper header h2 a {
   text-decoration: none;
   color: #222222;
 }
-.article-list .items .wrapper header p {
+.article-list .article-items .wrapper header p {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1828,7 +1829,7 @@ body {
   font-size: 0.85em;
   color: #666666;
 }
-.article-list .items .info {
+.article-list .article-items .info {
   width: 88%;
   padding: 5% 0%;
   margin: 0% 6%;
@@ -1840,24 +1841,24 @@ body {
   border-top: 1px solid #EEEEEE;
   position: relative;
 }
-.article-list .items .info i {
+.article-list .article-items .info i {
   margin-right: 5px;
 }
-.article-list .items .info span {
+.article-list .article-items .info span {
   float: left;
   display: inline-block;
   margin-right: 5%;
   color: #bbbbbb;
 }
-.article-list .items .info span:hover {
+.article-list .article-items .info span:hover {
   cursor: default;
 }
-.article-list .items .info a.btn-edit {
+.article-list .article-items .info a.btn-edit {
   float: right;
   color: #bbbbbb;
   text-decoration: none;
 }
-.article-list .items .info a.btn-edit:hover {
+.article-list .article-items .info a.btn-edit:hover {
   text-decoration: underline;
 }
 .article-list .empty {
