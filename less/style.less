@@ -708,6 +708,56 @@
 	float: left;
 	display: inline-block;
 
+	.article-header{
+		width: 50%;
+		margin: 5% 25%;
+		margin-top: 56px;
+		float: left;
+		display: inline-block;
+
+		a{
+			display: inline-block;
+			border: 2px solid #666666;
+			color: #333333;
+			text-decoration: none;
+			font-family: @topic_font;
+			line-height: 1em;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-bottom: 2%;
+
+			&:active{ background: #666666; color: #FFFFFF; }
+		}
+
+		h1{
+			font-size: 3em;
+			font-family: @topic_font;
+			line-height: 1.2em;
+			font-weight: normal;
+			color: @font_color_topic;
+			display: block;
+			margin-bottom: 2%;
+		}
+
+		p.time{
+			display: block;
+			text-align: left;
+			font-size: 1em;
+			font-family: @topic_font;
+			line-height: 1.4em;
+			color: @font_color_body;
+		}
+		p.desc{
+			display: block;
+			text-align: left;
+			font-size: 1.2em;
+			line-height: 1.4em;
+			margin-top: 2%;
+			color: @font_color_light;
+			font-style: italic;
+		}
+	}
+
 	.article-cover{
 		width: 100%;
 		float: left;
@@ -739,49 +789,36 @@
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 
 			h1{ color: #FFFFFF; }
+			a{
+				border: 2px solid #FFFFFF;
+				color: #333333;
+				background: #FFFFFF;
+
+				&:active{ background: #FFFFFF; color: #333333; }
+			}
+			p.time{ color: #DDDDDD; }
 		}
 	}
 
-	.article-header{
+	h2{
 		width: 50%;
-		margin: 5% 25%;
-		margin-top: 56px;
-		padding-bottom: 5%;
+		margin: 0 25%;
 		float: left;
 		display: inline-block;
-		border-bottom: 2px solid #EEEEEE;
+		color: @font_color_topic;
+		font-size: 1.8em;
+		margin-bottom: 0.5%;
+	}
 
-		h1{
-			font-size: 3em;
-			font-family: @topic_font;
-			line-height: 1.2em;
-			font-weight: normal;
-			color: @font_color_topic;
-		}
-
-		.time{
-			float: left;
-			display: inline-block;
-			font-size: 0.75em;
-			margin-top: 4%;
-			color: @font_color_body;
-			background: rgba(255,255,255,0.8);
-			line-height: 1em;
-			padding: 5px 10px;
-			border-radius: 5px;
-
-			&:hover{ cursor: default; }
-		}
-
-		p{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-size: 1.1em;
-			padding-top: 3%;
-			color: @font_color_body;
-			font-style: italic;
-		}
+	p.content{
+		width: 50%;
+		margin: 0 25%;
+		margin-bottom: 5%;
+		float: left;
+		display: inline-block;
+		font-size: 1.2em;
+		line-height: 1.6em;
+		color: @font_color_body;
 	}
 
 	blockquote{
@@ -840,12 +877,6 @@
 			font-size: 1.8em;
 			font-family: @topic_font;
 			margin-bottom: 1%;
-			color: #333333;
-		}
-
-		.body{
-			font-size: 1.2em;
-			line-height: 1.6em;
 			color: #333333;
 		}
 

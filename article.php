@@ -36,7 +36,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 </head>
 <body>
 <header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
-
 	<div class="logo"><a href="index.php">Peopleawesome</a></div>
 
 	<?php if($user_online){?>
@@ -57,7 +56,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 				<?php }else{?>
 				<li id="btn-publish"><span class="">เผยแพร่บทความ</span></li>
 				<?php }?>
-
 				<li id="btn-remove"><span class="logout">ลบบทความ</span></li>
 			</ul>
 		</div>
@@ -67,51 +65,55 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </header>
 
-<article class="article">
 
+<!-- Article Content -->
+<article class="article">
 	<?php if(!empty($article->head_cover_img)){?>
+	<!-- Article Header With Cover image -->
 	<div class="article-cover">
 		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
-		
-		<!-- Article Header -->
 		<header class="article-header">
+			<a href="topic/<?php echo $article->category_id;?>/<?php echo $article->category_title;?>"><?php echo $article->category_title;?></a>
 			<h1><?php echo $article->title;?></h1>
+
 			<?php if($article->status == 'published'){?>
-			<div class="time">เผยแพร่ <?php echo $article->published_time;?></div>
+			<p class="time">เผยแพร่ <time datetime="2008-02-14 20:00"><?php echo $article->published_time;?></time></p>
 			<?php }else{?>
-			<div class="time">แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+			<p class="time">แก้ไขล่าสุด <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></p>
 			<?php }?>
 		</header>
 	</div>
 	<?php }else{?>
 	<!-- Article Header -->
 	<header class="article-header">
+		<a href="topic/<?php echo $article->category_id;?>/<?php echo $article->category_title;?>"><?php echo $article->category_title;?></a>
 		<h1><?php echo $article->title;?></h1>
+		
 		<?php if($article->status == 'published'){?>
-		<div class="time">เผยแพร่ <?php echo $article->published_time;?></div>
+		<p class="time">เผยแพร่ <time datetime="2008-02-14 20:00"><?php echo $article->published_time;?></time></p>
 		<?php }else{?>
-		<div class="time">แก้ไขล่าสุด <?php echo $article->edit_time;?></div>
+		<p class="time">แก้ไขล่าสุด <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></p>
 		<?php }?>
 
 		<?php if(!empty($article->description)){?>
-		<p><?php echo $article->description;?></p>
+		<p class="desc"><?php echo $article->description;?></p>
 		<?php }?>
 	</header>
 	<?php }?>
 
 	<!-- Contents rendering -->
 	<?php foreach ($article->contents as $var) {?>
-		<?php if($var['type'] == 'textbox'){?>
-		<article class="content">
-			<?php if(!empty($var['topic'])){?>
-			<h2><?php echo $var['topic'];?></h2>
-			<?php }?>
+		<?php if($var['type'] == 'textbox'){
+			if(!empty($var['topic'])){
+				echo '<section>';
+				echo '<h2>'.$var['topic'].'</h2>';
+				echo (!empty($var['bodytext'])?'<p>'.$var['bodytext'].'</p>':'');
+				echo '</section>';
+			}else{
+				echo (!empty($var['bodytext'])?'<p>'.$var['bodytext'].'</p>':'');
+			}
+		}else if($var['type'] == 'image'){?>
 
-			<?php if(!empty($var['body'])){?>
-			<div class="body"><?php echo $var['bodytext'];?></div>
-			<?php }?>
-		</article>
-		<?php }else if($var['type'] == 'image'){?>
 		<figure class="content image">
 			<?php if(!empty($var['img_location']) && file_exists('image/upload/normal/'.$var['img_location'])){?>
 			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="">

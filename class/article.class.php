@@ -385,13 +385,24 @@ class Article{
 
         foreach ($dataset as $k => $var) {
             $dataset[$k]['id']          = floatval($var['id']);
-            $dataset[$k]['bodytext']        = $this->nl2br($var['body']);
+            $dataset[$k]['bodytext']    = $this->nl2br($var['body']);
             $dataset[$k]['owner_id']    = floatval($var['owner_id']);
             $dataset[$k]['position']    = floatval($var['position']);
             $dataset[$k]['created']     = $this->db->datetimeformat($var['create_time'],'facebook');
             $dataset[$k]['edited']      = $this->db->datetimeformat($var['edit_time'],'facebook');
         }
         return $dataset;
+    }
+
+    public function paragraphs($text){
+        $result = '';
+        
+        $newarr = explode("\n",$text);
+        foreach($newarr as $str) {
+            if(!empty(trim($str)))
+                $result.= '<p>'.trim($str).'</p>';
+        }
+        return $result;
     }
 
     // Edit Content Topic
