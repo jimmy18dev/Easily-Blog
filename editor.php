@@ -59,8 +59,8 @@ if($article->owner_id != $user->id){
 
 	<?php include 'template/header.profile.php';?>
 	
-	<div class="btn" id="btnOption">
-		<span>ตัวเลือก</span><i class="fa fa-caret-down" aria-hidden="true"></i>
+	<div class="btn icon-only" id="btnOption">
+		<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
@@ -82,10 +82,10 @@ if($article->owner_id != $user->id){
 		</div>
 	</div>
 
-	<a href="article/<?php echo $article->id;?>" class="btn" title="เปิดตัวอย่างบทความ">ดูตัวอย่าง</a>
+	<a class="btn underline" href="article/<?php echo $article->id;?>">ดูตัวอย่าง</a>
 
 	<?php if($article->status!='published'){?>
-	<div class="btn active underline" id="btn-publish">เผยแพร่</div>
+	<div class="btn active" id="btn-publish">เผยแพร่</div>
 	<?php }?>
 </div>
 
