@@ -37,9 +37,7 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header fixed editor-bar">
-
-	<a href="index.php" class="btn left title" title="กลับไปหน้าแรก">เขียนบทความ</a>
-
+	<a href="profile" class="btn left title">เขียนบทความ</a>
 	<div class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
 		<i class="fa fa-font" aria-hidden="true"></i>
 	</div>
@@ -67,7 +65,6 @@ if($article->owner_id != $user->id){
 		<div class="toggle-panel" id="optionPanel">
 			<div class="popover-arrow"></div>
 			<ul>
-				<li><a href="article/<?php echo $article->id;?>">ตัวอย่างบทความ</a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#cover">เลือกภาพหน้าปก<?php echo ($article->hasCover)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#info">รายละเอียดอย่างย่อ<?php echo ($article->hasInfo)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
 				<li><a href="article/<?php echo $article->id;?>/option#url">ลิงค์บทความ<?php echo ($article->hasURL)?'<i class="fa fa-check" aria-hidden="true"></i>':'';?></a></li>
@@ -85,6 +82,8 @@ if($article->owner_id != $user->id){
 		</div>
 	</div>
 
+	<a href="article/<?php echo $article->id;?>" class="btn" title="เปิดตัวอย่างบทความ">ดูตัวอย่าง</a>
+
 	<?php if($article->status!='published'){?>
 	<div class="btn active underline" id="btn-publish">เผยแพร่</div>
 	<?php }?>
@@ -101,9 +100,9 @@ if($article->owner_id != $user->id){
 		<span>
 			<?php if(!empty($article->head_cover_img)){?>
 			<div class="btn btn-remove" id="btnRemoveCover">ลบภาพ</div>
-			<div class="btn" id="btnChooseCover">เปลี่ยนภาพหน้าปก</div>
+			<div class="btn" id="btnChooseCover"><i class="fa fa-image" aria-hidden="true"></i>เปลี่ยนภาพหน้าปก</div>
 			<?php }else{?>
-			<div class="btn" id="btnChooseCover">เลือกภาพหน้าปก</div>
+			<div class="btn" id="btnChooseCover"><i class="fa fa-image" aria-hidden="true"></i>เลือกภาพหน้าปก</div>
 			<?php }?>
 
 			<textarea class="autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>

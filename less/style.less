@@ -724,7 +724,7 @@
 			line-height: 1em;
 			padding: 5px 10px;
 			border-radius: 5px;
-			margin-bottom: 2%;
+			margin-bottom: 3%;
 
 			&:active{ background: #666666; color: #FFFFFF; }
 		}
@@ -736,7 +736,7 @@
 			font-weight: normal;
 			color: @font_color_topic;
 			display: block;
-			margin-bottom: 2%;
+			margin-bottom: 3%;
 
 			&:hover{ cursor: default; }
 		}
@@ -1036,8 +1036,10 @@
 			}
 
 			.btn{
-				background: #FFFFFF;
-				border: 2px solid #FFFFFF;
+				color: #FFFFFF;
+				background: transparent;
+
+				&:hover{ text-decoration: underline; }
 			}
 
 			textarea{ color: #FFFFFF; }
@@ -1045,16 +1047,17 @@
 
 		.btn{
 			float: right;
-			border: 2px solid #666666;
 			color: #333333;
+			background: #DDDDDD;
 			text-decoration: none;
 			font-family: @topic_font;
 			line-height: 1em;
-			padding: 5px 10px;
+			padding: 7px 10px;
 			border-radius: 5px;
 			margin-bottom: 2%;
 			margin-left: 1%;
 
+			i{ margin-right: 10px; }
 			&:hover{ cursor: pointer; }
 		}
 

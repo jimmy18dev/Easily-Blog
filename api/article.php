@@ -119,7 +119,7 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $article_id     = $_POST['article_id'];
                 $content_id     = $_POST['content_id'];
                 $img_alt        = $_POST['img_alt'];
-                $content_id     = $article->editImageAlt($content_id,$article_id,$img_alt);
+                $content_id     = $article->editAlt($content_id,$article_id,$img_alt);
                 $returnObject['message'] = 'Image Alt edited';
                 break;
             case 'edit_video_id':

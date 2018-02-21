@@ -439,11 +439,11 @@ class Article{
     }
 
     // Edit Image Alt
-    public function editImageAlt($content_id,$article_id,$alt){
+    public function editAlt($content_id,$article_id,$alt){
         $this->db->query('UPDATE content SET alt = :alt,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':alt',$alt);
+        $this->db->bind(':alt',$this->db->string_cleaner($alt));
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
