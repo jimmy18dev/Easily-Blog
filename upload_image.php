@@ -38,10 +38,24 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                 $image_extension        = strtolower($image_info["extension"]);
                 $new_file_name          = 'content_'.md5(time().rand(0,9999999999)).'.'.$image_extension;
 
-                $save_as['thumbnail']   = $destination_folder['thumbnail'].$new_file_name;
-                $save_as['square']      = $destination_folder['square'].$new_file_name;
-                $save_as['normal']      = $destination_folder['normal'].$new_file_name;
-                $save_as['large']       = $destination_folder['large'].$new_file_name;
+                // Folder Creating
+                $img_folder = 'image/upload/'.$article_id.'/';
+
+                if (!is_dir($img_folder)) {
+                    // Article Folder
+                    mkdir($img_folder, 0777, true);
+
+                    // All images size
+                    mkdir($img_folder.'large/', 0777, true);
+                    mkdir($img_folder.'normal/', 0777, true);
+                    mkdir($img_folder.'square/', 0777, true);
+                    mkdir($img_folder.'thumbnail/', 0777, true);
+                }
+
+                $save_as['thumbnail']   = $img_folder.'thumbnail/'.$new_file_name;
+                $save_as['square']      = $img_folder.'square/'.$new_file_name;
+                $save_as['normal']      = $img_folder.'normal/'.$new_file_name;
+                $save_as['large']       = $img_folder.'large/'.$new_file_name;
 
                 $image->resize($image_res,$save_as['normal'],$im_type,$size['normal'],$im_width,$im_height,$quality['normal']);
                 $image->resize($image_res,$save_as['large'],$im_type,$size['large'],$im_width,$im_height,$quality['large']);

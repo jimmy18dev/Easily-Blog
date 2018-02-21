@@ -72,7 +72,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
-		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
+		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
 		<header class="article-header">
 			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 			<h1><?php echo $article->title;?></h1>
@@ -117,8 +117,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 		<!-- Image or Photo -->
 		<figure class="content image">
-			<?php if(!empty($var['img_location']) && file_exists('image/upload/normal/'.$var['img_location'])){?>
-			<img src="image/upload/normal/<?php echo $var['img_location'];?>" alt="<?php echo (!$var['alt']?$var['alt']:$article->title);?>">
+			<?php if(!empty($var['img_location']) && file_exists('image/upload/'.$article->id.'/normal/'.$var['img_location'])){?>
+			<img src="image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>" alt="<?php echo (!$var['alt']?$var['alt']:$article->title);?>">
 			<?php }else{?>
 			<div class="image-not-found">ไม่พบรูปภาพ</div>
 			<?php }?>

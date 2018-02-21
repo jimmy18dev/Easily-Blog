@@ -4,7 +4,7 @@
 		<?php if(!empty($var['cover_id'])){?>
 		<figure class="thumbnail">
 			<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-				<img src="image/upload/normal/<?php echo $var['cover_img'];?>" alt="">
+				<img src="image/upload/<?php echo $var['id'];?>/normal/<?php echo $var['cover_img'];?>" alt="">
 			</a>
 		</figure>
 		<?php }?>
@@ -23,7 +23,7 @@
 		<?php if(!empty($var['cover_id'])){?>
 		<figure class="thumbnail">
 			<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-				<img src="image/upload/square/<?php echo $var['cover_img'];?>" alt="">
+				<img src="image/upload/<?php echo $var['id'];?>/square/<?php echo $var['cover_img'];?>" alt="">
 			</a>
 		</figure>
 		<?php }?>

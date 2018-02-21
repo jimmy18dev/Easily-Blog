@@ -94,7 +94,7 @@ if($article->owner_id != $user->id){
 	<header class="article-header <?php echo (!empty($article->head_cover_img)?'with-cover':'');?>">
 		
 		<?php if(!empty($article->head_cover_img)){?>
-		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
+		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
 		<?php }?>
 
 		<span>
@@ -187,7 +187,7 @@ if($article->owner_id != $user->id){
 		<div class="preview">
 			<div class="imgpreview" id="imagePreview<?php echo $var['id'];?>">
 				<?php if(!empty($var['img_location'])){?>
-				<img src="image/upload/normal/<?php echo $var['img_location'];?>">
+				<img src="image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>">
 				<?php }else{?>
 				<div class="btn-choose-image">
 					<i class="fa fa-picture-o" aria-hidden="true"></i>
