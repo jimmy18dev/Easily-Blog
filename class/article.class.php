@@ -66,7 +66,7 @@ class Article{
     public function editTitle($article_id,$title){
         $this->db->query('UPDATE article SET title = :title, edit_time = :edit_time WHERE id = :article_id');
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':title',$title);
+        $this->db->bind(':title',$this->db->string_cleaner($title));
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
@@ -74,7 +74,7 @@ class Article{
     public function editDescription($article_id,$description){
         $this->db->query('UPDATE article SET description = :description, edit_time = :edit_time WHERE id = :article_id');
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':description',$description);
+        $this->db->bind(':description',$this->db->string_cleaner($description));
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
@@ -412,7 +412,7 @@ class Article{
         $this->db->query('UPDATE content SET topic = :topic,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':topic',$topic);
+        $this->db->bind(':topic',$this->db->string_cleaner($topic));
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }
@@ -422,7 +422,7 @@ class Article{
         $this->db->query('UPDATE content SET body = :body,edit_time = :edit_time WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
         $this->db->bind(':article_id',$article_id);
-        $this->db->bind(':body',$body);
+        $this->db->bind(':body',$this->db->string_cleaner($body,'body'));
         $this->db->bind(':edit_time',date('Y-m-d H:i:s'));
         $this->db->execute();
     }

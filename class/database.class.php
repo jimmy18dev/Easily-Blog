@@ -96,19 +96,30 @@ class Database{
         }
         return $ip;
     }
+    public function string_cleaner($string,$option = NULL){
+        if($option == 'body'){
+            $string = trim(preg_replace('/\h+/',' ',$string));
+        }else{
+            $string = str_replace("\n","", $string);
+            $string = trim(preg_replace('/\s\s+/',' ',$string));
+        }
+
+        $string = filter_var($string, FILTER_SANITIZE_STRING);
+        return $string;
+    }
 
     // Text, Message to URL Friendly
     public function urlFriendly($data){
-        $data       = preg_replace('#[^-ก-๙a-zA-Z0-9]#u','-', $data);
-        if(substr($data,0,1) == '-'){
-            $data   = substr($data,1);
-        }
-        if(substr($data,-1) == '-'){
-          $data     = substr($data,0,-1);
-        }
-        $data       = urldecode($data);
-        $data       = str_replace(array('   ','  ',' '),array('-','-','-'),$data);
-        $data       = str_replace(array('---','--'),array('-','-'),$data);
+        $data = preg_replace('#[^-ก-๙a-zA-Z0-9]#u','-', $data);
+
+        if(substr($data,0,1) == '-')
+            $data = substr($data,1);
+        if(substr($data,-1) == '-')
+            $data = substr($data,0,-1);
+
+        $data = urldecode($data);
+        $data = str_replace(array('   ','  ',' '),array('-','-','-'),$data);
+        $data = str_replace(array('---','--'),array('-','-'),$data);
         
         //return rawurlencode($data);
         return ($data);
