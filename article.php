@@ -74,7 +74,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<div class="article-cover">
 		<img src="image/upload/large/<?php echo $article->head_cover_img;?>" alt="">
 		<header class="article-header">
-			<a href="topic/<?php echo $article->category_id;?>/<?php echo $article->category_title;?>"><?php echo $article->category_title;?></a>
+			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 			<h1><?php echo $article->title;?></h1>
 
 			<?php if($article->status == 'published'){?>
@@ -87,7 +87,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }else{?>
 	<!-- Article Header -->
 	<header class="article-header">
-		<a href="topic/<?php echo $article->category_id;?>/<?php echo $article->category_title;?>"><?php echo $article->category_title;?></a>
+		<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 		<h1><?php echo $article->title;?></h1>
 		
 		<?php if($article->status == 'published'){?>

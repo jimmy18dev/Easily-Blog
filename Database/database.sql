@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2018 at 09:09 AM
+-- Generation Time: Feb 21, 2018 at 04:31 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -1064,7 +1064,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `count_read` int(8) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT 'draft',
   `verified` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `article`
@@ -1076,12 +1076,12 @@ INSERT INTO `article` (`id`, `user_id`, `category_id`, `head_cover_id`, `cover_i
 (3, 2, 1, NULL, 5, 'ฝันสลาย! “ญี่ปุ่น” ปฏิเสธร่วมทุน “รถไฟความเร็วสูง” กรุงเทพฯ-เชียงใหม่', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:31:05', '2018-02-11 16:31:25', '2018-02-11 16:31:23', NULL, 0, 'published', NULL),
 (4, 1, 2, NULL, 7, 'You Can Now Pre-Order The ULX Ultra-Slim Leather Card Holder', 'It''s available to pre-order now, we''re expecting a release date of April...', NULL, 0, 5, 77, 479, '2018-02-11 16:43:22', '2018-02-13 18:32:35', '2018-02-15 18:49:38', '2018-02-13 18:32:35', 0, 'published', NULL),
 (5, 1, 3, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-11 16:43:33', '2018-02-13 11:20:04', NULL, NULL, 0, 'deleted', NULL),
-(6, 1, 2, NULL, 26, 'MAYASEVEN รู้สึกยินดีที่ได้ร่วมบรรยาย Cyber Security...', 'Are you looking for quiet coworking space around Onnut or Sukhumvit area?', 'working-space', 0, 16, 189, 1523, '2018-02-11 16:44:00', '2018-02-16 19:49:53', '2018-02-17 19:05:46', '2018-02-14 11:32:37', 0, 'draft', NULL),
-(7, 1, 6, NULL, 21, '‘I’m Not A Graphic Designer'': A Beautifully Minimal Graphic Design Portfolio', NULL, 'เอายังไงดี-พ่อหนุ่ม', 0, 0, 189, 1517, '2018-02-11 16:45:01', '2018-02-12 17:42:56', '2018-02-16 13:56:16', NULL, 0, 'published', NULL),
-(8, 1, 2, NULL, 33, 'I''m Web Developer with over 5 Years experience working', NULL, 'ข้าวมันไก่น่ากินมากกก', 0, NULL, NULL, NULL, '2018-02-11 16:53:56', '2018-02-16 19:26:13', '2018-02-17 15:13:23', '2018-02-16 19:26:13', 0, 'published', NULL),
+(6, 1, 2, NULL, 26, 'MAYASEVEN รู้สึกยินดีที่ได้ร่วมบรรยาย Cyber Security...', 'Are you looking for quiet coworking space around Onnut or Sukhumvit area?', 'working-space', 0, 16, 189, 1523, '2018-02-11 16:44:00', '2018-02-18 19:50:21', '2018-02-17 19:05:46', '2018-02-18 19:50:21', 0, 'published', NULL),
+(7, 1, 6, 74, 21, '‘I’m Not A Graphic Designer'': A Beautifully Minimal Graphic Design Portfolio', NULL, 'เอายังไงดี-พ่อหนุ่ม', 0, 0, 189, 1517, '2018-02-11 16:45:01', '2018-02-12 17:42:56', '2018-02-18 17:02:51', NULL, 0, 'published', NULL),
+(8, 1, 2, 86, 33, 'I''m Web Developer with over 5 Years experience working', NULL, 'ข้าวมันไก่น่ากินมากกก', 0, NULL, NULL, NULL, '2018-02-11 16:53:56', '2018-02-16 19:26:13', '2018-02-19 01:39:14', '2018-02-16 19:26:13', 0, 'published', NULL),
 (9, 1, 3, NULL, 39, 'These Infrared Photos of Chernobyl Are As Stunning As They Are Creepy', 'ทดสอบ', 'ข้าวมันไก่-เมืองปราจีนบุรี', 0, 1, 45, 225, '2018-02-11 16:55:54', '2018-02-11 16:56:47', '2018-02-16 13:56:59', NULL, 0, 'published', NULL),
-(10, 1, 2, NULL, 40, 'You Can Now Pre-Order The ULX Ultra-Slim Leather Card Holder...', 'Find new ways to go About it by Exploring our Topical UX Literature', 'ทดสอบ', 0, 32, 477, 4249, '2018-02-13 11:18:11', '2018-02-16 19:32:09', '2018-02-17 15:53:32', '2018-02-16 19:32:09', 0, 'published', NULL),
-(11, 1, 4, NULL, 67, 'Zohaib Anjum Takes Stunning Photos  Of The World’s Most Luxurious Skyscrapers', 'The world''s BEST-SELLING TRAVEL JACKET just got a serious upgrade.', 'Zohaib-Anjum', 0, NULL, NULL, NULL, '2018-02-15 18:35:59', '2018-02-17 17:18:55', '2018-02-17 16:22:43', '2018-02-17 16:21:12', 0, 'draft', NULL),
+(10, 1, 2, NULL, 40, 'You Can Now Pre-Order The ULX Ultra-Slim Leather Card Holder', 'Made from genuine leather, and embossed with our ULX logo, the minimalist cardholder has 5 different slots for you to store your cards.', 'ทดสอบ', 0, 32, 477, 4249, '2018-02-13 11:18:11', '2018-02-16 19:32:09', '2018-02-20 19:03:15', '2018-02-16 19:32:09', 0, 'published', NULL),
+(11, 1, 4, 87, 67, 'Zohaib Anjum Takes Stunning Photos  Of The World’s Most Luxurious Skyscrapers', 'The world''s BEST-SELLING TRAVEL JACKET just got a serious upgrade.', 'Zohaib-Anjum', 0, NULL, NULL, NULL, '2018-02-15 18:35:59', '2018-02-19 12:13:50', '2018-02-19 12:14:06', '2018-02-19 12:13:50', 0, 'published', NULL),
 (12, 1, 6, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:08', '2018-02-16 19:39:36', NULL, NULL, 0, 'deleted', NULL),
 (13, 1, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:41', '2018-02-16 19:50:23', NULL, NULL, 0, 'deleted', NULL),
 (14, 1, 6, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-16 19:39:58', '2018-02-16 19:50:16', NULL, NULL, 0, 'deleted', NULL),
@@ -1089,12 +1089,15 @@ INSERT INTO `article` (`id`, `user_id`, `category_id`, `head_cover_id`, `cover_i
 (16, 1, 1, NULL, NULL, 'This Stunning Belgian Bachelor Pad Has an Awesome Underground Lair', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:18:50', NULL, '2018-02-17 15:18:53', NULL, 0, 'draft', NULL),
 (17, 1, 2, NULL, NULL, 'This Stunning Structure Made From Shipping Containers Is Absolutely Absurd...', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:19:18', NULL, '2018-02-17 15:40:49', NULL, 0, 'draft', NULL),
 (18, 1, 6, NULL, NULL, 'This 6-Foot-Wide Japanese House Is Minimally Luxurious', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:19:57', NULL, '2018-02-17 15:20:01', NULL, 0, 'draft', NULL),
-(19, 1, 4, NULL, NULL, 'If Minimalism Is Your Thing, This All-Black Home Is For You', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:32', NULL, '2018-02-17 15:20:36', NULL, 0, 'draft', NULL),
-(20, 1, 3, NULL, NULL, 'If Mechanical Keyboards Are Your Thing, Then This Calculator Is Definitely For You', 'A Course For You: Unlock the full potential of Google''s Go (golang) to build rich and powerful applications.', NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:54', '2018-02-17 15:48:05', '2018-02-17 16:19:18', '2018-02-17 15:48:05', 0, 'published', NULL),
-(21, 1, 1, NULL, NULL, 'Airbus Is Teaming Up With Pagani To Make A Plane Featuring A See-Through Ceiling', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:38:52', NULL, '2018-02-17 15:39:20', NULL, 0, 'draft', NULL),
+(19, 1, 4, 83, 83, 'If Minimalism Is Your Thing, This All-Black Home Is For You', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:32', NULL, '2018-02-18 19:15:11', NULL, 0, 'draft', NULL),
+(20, 1, 3, 115, 71, 'If Mechanical Keyboards Are Your Thing, Then This Calculator Is Definitely For You', 'A Course For You: Unlock the full potential of Google''s Go (golang) to build rich and powerful applications.', NULL, 0, NULL, NULL, NULL, '2018-02-17 15:20:54', '2018-02-17 15:48:05', '2018-02-20 19:56:12', '2018-02-17 15:48:05', 0, 'published', NULL),
+(21, 1, 1, NULL, 111, 'Airbus Is Teaming Up With Pagani To Make A Plane Featuring A See-Through Ceiling', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:38:52', '2018-02-20 01:54:22', '2018-02-20 19:43:27', '2018-02-20 01:54:15', 0, 'draft', NULL),
 (22, 1, 5, NULL, NULL, 'Elon Musk''s ''Failure Résumé'' Proves Why You Should Never Give Up', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 15:39:47', NULL, '2018-02-17 15:39:51', NULL, 0, 'draft', NULL),
-(23, 1, 6, NULL, NULL, 'This Designer Combined Structures With Typography and the Results Are Brilliant', NULL, NULL, 0, 16, 196, 1587, '2018-02-17 15:40:16', '2018-02-17 15:52:09', '2018-02-17 17:11:18', '2018-02-17 15:52:09', 0, 'published', NULL),
-(24, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 17:41:32', NULL, NULL, NULL, 0, 'draft', NULL);
+(23, 1, 6, NULL, 88, 'This Designer Combined Structures With Typography and the Results Are Brilliant', NULL, NULL, 0, 16, 196, 1587, '2018-02-17 15:40:16', '2018-02-17 15:52:09', '2018-02-19 19:44:08', '2018-02-17 15:52:09', 0, 'published', NULL),
+(24, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-17 17:41:32', '2018-02-19 12:16:24', NULL, NULL, 0, 'deleted', NULL),
+(25, 1, 5, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-18 17:28:05', '2018-02-19 12:16:30', NULL, NULL, 0, 'deleted', NULL),
+(26, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-18 18:57:10', '2018-02-19 12:16:18', NULL, NULL, 0, 'deleted', NULL),
+(27, 1, 1, 100, 92, 'Read 300 books a year as you whiz through volumes like The Flash', NULL, NULL, 0, NULL, NULL, NULL, '2018-02-19 19:48:28', NULL, '2018-02-20 01:29:45', NULL, 0, 'draft', NULL);
 
 -- --------------------------------------------------------
 
@@ -1197,6 +1200,7 @@ INSERT INTO `article_tags` (`id`, `article_id`, `tag_id`, `created`) VALUES
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(5) NOT NULL,
   `title` text NOT NULL,
+  `link` varchar(100) DEFAULT NULL,
   `description` text,
   `icon` varchar(20) DEFAULT NULL,
   `edit_time` datetime DEFAULT NULL
@@ -1206,13 +1210,13 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `title`, `description`, `icon`, `edit_time`) VALUES
-(1, 'Technology', NULL, NULL, NULL),
-(2, 'Reviews', NULL, NULL, NULL),
-(3, 'Art & Design', NULL, NULL, NULL),
-(4, 'Wallpapers', NULL, NULL, NULL),
-(5, 'Online Courses', NULL, NULL, NULL),
-(6, 'Web Services', NULL, NULL, NULL);
+INSERT INTO `category` (`id`, `title`, `link`, `description`, `icon`, `edit_time`) VALUES
+(1, 'Technology', NULL, NULL, NULL, NULL),
+(2, 'Reviews', NULL, NULL, NULL, NULL),
+(3, 'Art & Design', NULL, NULL, NULL, NULL),
+(4, 'Wallpapers', NULL, NULL, NULL, NULL),
+(5, 'Online Courses', NULL, NULL, NULL, NULL),
+(6, 'Web Services', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1237,7 +1241,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `edit_time` datetime DEFAULT NULL,
   `type` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `content`
@@ -1267,11 +1271,11 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (21, 1, 7, NULL, NULL, NULL, 'content_6724d7eec70511cde011468893d0094b.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-12 17:22:42', '2018-02-12 17:22:50', 'image', 'active'),
 (22, 1, 10, NULL, NULL, NULL, 'content_15d44e5007d93e6eb92d5905b7d38a93.jpg', 'square', NULL, NULL, NULL, 1, '2018-02-13 11:18:11', '2018-02-13 11:18:30', 'image', 'active'),
 (23, 1, 10, NULL, 'If you''ve been following our Instagram and have been keeping up with the UltraLinx Store, you may have noticed a few photos of our leather card holder.\n\nMade from genuine leather, and embossed with our ULX logo, the minimalist cardholder has 5 different slots for you to store your cards.\n\nIt''s available to pre-order now, we''re expecting a release date of April.\n\nIf you haven''t check out the UltraLinx Store in the past couple days you may have missed the end-of-year sale we currently have on. Head to the site to see some of the deals and check some of the discounts out below. The sale won''t last for long so make sure to get in there quick.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-13 11:18:11', '2018-02-13 11:19:32', 'textbox', 'active'),
-(24, 1, 6, NULL, NULL, NULL, 'content_cd14db1f183f22346c461dba44739472.png', 'vertical', NULL, NULL, NULL, 3, '2018-02-14 11:30:00', '2018-02-14 11:30:12', 'image', 'active'),
+(24, 1, 6, NULL, NULL, NULL, 'content_cd14db1f183f22346c461dba44739472.png', 'vertical', ' Cyber Security เพื่อหาเงินช่วยเหลือผู้ป่วยจิตเวช', NULL, NULL, 3, '2018-02-14 11:30:00', '2018-02-20 19:20:54', 'image', 'active'),
 (25, 1, 6, NULL, NULL, NULL, 'content_b6e30ad7b70a53dcccd911ec2bb624ca.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-14 11:30:02', '2018-02-14 11:32:20', 'image', 'active'),
-(26, 1, 6, NULL, NULL, NULL, 'content_d8b68d15badafcf08a467700cdd05cb3.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-14 11:30:03', '2018-02-14 11:32:35', 'image', 'active'),
-(27, 1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-15 18:35:59', NULL, 'image', 'active'),
-(28, 1, 11, 'Ludwig Favre is a French...', 'We''ve seen Dubai look spectacular through a lot of photographers lenses, but real-estate photographer Zohaib Anjum captures ''the city of gold'' from the clouds like we''ve never seen before. Check out his work below.\n\nLudwig Favre is a French photographer who specializes in architecture and landscape photography of American cities. His series ''California'' captures the stunning landscapes of Los Angeles, Santa Cruz, and San Francisco in the most soothingly minimal way. Check out the collection of photos below, and head to Ludwig''s Behance page for more of his work.', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-15 18:35:59', '2018-02-16 20:00:29', 'textbox', 'active'),
+(26, 1, 6, NULL, NULL, NULL, 'content_d8b68d15badafcf08a467700cdd05cb3.jpg', 'vertical', 'UX Design ประกอบด้วยอะไรบ้าง? (UXR, ID, VSD)', NULL, NULL, 5, '2018-02-14 11:30:03', '2018-02-20 19:21:12', 'image', 'active'),
+(27, 1, 11, NULL, NULL, NULL, 'content_0e289ecfd7b685a3cc8fad1fdc9d02ac.jpg', 'vertical', 'page for more of his work.', NULL, NULL, 2, '2018-02-15 18:35:59', '2018-02-20 10:51:40', 'image', 'active'),
+(28, 1, 11, 'Ludwig Favre is a French...', 'We''ve seen Dubai look spectacular through a lot of photographers lenses, but real-estate photographer Zohaib Anjum captures ''the city of gold'' from the clouds like we''ve never seen before. Check out his work below.\n\nLudwig Favre is a French photographer who specializes in architecture and landscape photography of American cities. His series ''California'' captures the stunning landscapes of Los Angeles, Santa Cruz, and San Francisco in the most soothingly minimal way. Check out the collection of photos below, and head to Ludwig''s Behance page for more of his work.\n\n5.3.4	strip_tags() ignora las etiquetas de autocierre de XHTML en allowable_tags.\n5.0.0	strip_tags() ahora es segura a nivel binario.\n\nI have a form that has a textarea in it. How would I make new lines in the textarea appear as new paragraphs when I echo out the submitted textarea value?', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-15 18:35:59', '2018-02-20 11:21:53', 'textbox', 'active'),
 (29, 1, 8, NULL, NULL, NULL, 'content_af26a7d43cd7527b670f3aad5ede31fe.jpg', NULL, NULL, NULL, NULL, 3, '2018-02-16 01:52:16', NULL, 'cover', 'active'),
 (30, 1, 8, NULL, NULL, NULL, 'content_30ff3099e8013ef4bf49a19925a2180d.jpg', 'square', NULL, NULL, NULL, 4, '2018-02-16 01:57:49', '2018-02-16 01:57:49', 'cover', 'active'),
 (31, 1, 8, NULL, NULL, NULL, 'content_eb2bc56bfd9681373a34729846117acc.jpg', 'horizontal', NULL, NULL, NULL, 5, '2018-02-16 01:59:39', '2018-02-16 01:59:39', 'cover', 'active'),
@@ -1290,7 +1294,7 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (44, 1, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-16 19:39:41', NULL, 'textbox', 'active'),
 (45, 1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-16 19:39:58', NULL, 'image', 'active'),
 (46, 1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-16 19:39:58', NULL, 'textbox', 'active'),
-(48, 1, 11, NULL, NULL, 'QaXyjxn3Kt0', NULL, NULL, NULL, NULL, NULL, 4, '2018-02-16 20:07:58', '2018-02-16 20:08:09', 'youtube', 'active'),
+(48, 1, 11, NULL, NULL, 'QaXyjxn3Kt0', NULL, NULL, 'Not long ago we showed you a project called ''Around The World In Type''', NULL, NULL, 5, '2018-02-16 20:07:58', '2018-02-20 19:25:52', 'youtube', 'active'),
 (49, 1, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:18:09', NULL, 'image', 'active'),
 (50, 1, 15, NULL, 'The Hamburg Bunker was originally a shelter for a neighbouring hospital and has now been turned into a penthouse any bachelor would be proud to live in. Made at the beginning of WWII it''s now been turned into a beautiful minimalist space with marble accents, a glass-encased bedroom, and beautiful modern furniture, yet all with its original handmade concrete frame. Check the tour below.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:18:09', '2018-02-17 15:18:33', 'textbox', 'active'),
 (51, 1, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:18:50', NULL, 'image', 'active'),
@@ -1302,17 +1306,62 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (57, 1, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:20:32', NULL, 'image', 'active'),
 (58, 1, 19, NULL, 'We know a lot of you guys are fans of minimalism, and because of this, we thought it only right to show you ''House A'' by the Australian architects Walter&Walter. Using light tones on the inside while keeping an all-black wooden clad exterior is a gorgeous contrast, head down for the full tour.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:20:32', '2018-02-17 15:20:42', 'textbox', 'active'),
 (59, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:20:54', NULL, 'image', 'active'),
-(60, 1, 20, NULL, 'Manufactured by IDEA, Japan, this ultra-minimalist calculator is any mechanical keyboard fans dream. The 10 Key Calculator, according to Yanko Design, is an “honest pleasure to use”, with the keys travelling around three to four millimetres when pressed, which apparently is the “golden number”, and making that satisfying clack-clack sound that mechanical keyboard fans adore.\n\nYou may think at this point that calculators are obsolete what with the ease of use on our phones, however, to make it more relevant for today’s users, it even doubles as a number pad for computers easily connecting to any computer.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:20:54', '2018-02-17 15:21:11', 'textbox', 'active'),
-(61, 1, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:38:52', NULL, 'image', 'active'),
+(60, 1, 20, 'Connecting To any Computer.', 'Manufactured by IDEA, Japan, this ultra-minimalist calculator is any mechanical keyboard fans dream. The 10 Key Calculator, according to Yanko Design, is an “honest pleasure to use”, with the keys travelling around three to four millimetres when pressed, which apparently is the “golden number”, and making that satisfying clack-clack sound that mechanical keyboard fans adore.\n\nYou may think at this point that calculators are obsolete what with the ease of use on our phones, however, to make it more relevant for today’s users, it even doubles as a number pad for computers easily connecting to any computer', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:20:54', '2018-02-20 19:58:45', 'textbox', 'active'),
 (62, 1, 21, NULL, 'As if first-class air travel wasn''t lavish enough, Airbus is now teaming up with luxury car maker Pagani to create the extravagant ''Infinito Jet Cabin'' which brings the pleasures of a top hotel to the skies.\n\nBy far the most jaw-dropping feature of the new cabin is its glass sky ceiling, which offers flyers a stunning view of the sky above the aircraft. The cabin also features a lounge, conference areas, and a dining space. \n\nWatch the video below to find out more about the Infinito Jet Cabin.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:38:52', '2018-02-17 15:39:29', 'textbox', 'active'),
 (63, 1, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:39:47', NULL, 'image', 'active'),
 (64, 1, 22, NULL, 'When it comes to successful billionaires like Elon Musk, their failures are never really put into the limelight, at least not half as much as their successes. That''s why when you see how much Musk has failed, it proves to everyone that no matter how many times you''re knocked down, you can still make a success of yourself.\n\nKickresume has put together a graphic that highlights all the times it has gone wrong for the multi-billionaire, while also highlighting the fact his net worth is still $14.8 billion, despite these so-called failures.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:39:47', '2018-02-17 15:40:00', 'textbox', 'active'),
-(65, 1, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 15:40:16', NULL, 'image', 'active'),
-(66, 1, 23, NULL, 'Not long ago we showed you a project called ''Around The World In Type'' by India-based student Rigved Sathe in which he designed every letter of the alphabet to correspond with a certain landmark around the world, and you guys absolutely loved it. Well, Rigved is back with a similar project in which he now combines structural design with different letters.\n\nThe project, titled STRUCTURE x Type aims to explore form, anatomy, texture and composition while creating 26 unique and interesting letters. Check out the series below and let us know what you think.', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 15:40:16', '2018-02-17 15:40:27', 'textbox', 'active'),
-(67, 1, 11, NULL, NULL, NULL, 'content_1fad6d06994f0026365487915069e004.jpg', 'horizontal', NULL, NULL, NULL, 5, '2018-02-17 16:20:45', '2018-02-17 16:20:45', 'cover', 'active'),
+(65, 1, 23, NULL, NULL, NULL, 'content_e2317474fa09a72a5c72e3437303d6a5.jpg', 'vertical', NULL, NULL, NULL, 1, '2018-02-17 15:40:16', '2018-02-20 19:22:12', 'image', 'active'),
+(66, 1, 23, 'ขอบคุณทางฝ่ายการแพทย์', 'Not long ago we showed you a project called ''Around The World In Type'' by India-based student Rigved Sathe in which he designed every letter of the alphabet to correspond with a certain landmark around the world, and you guys absolutely loved it. Well, Rigved is back with a similar project in which he now combines structural design with different letters.\n\nThe project, titled STRUCTURE x Type aims to explore form, anatomy, texture and composition while creating 26 unique and interesting letters. Check out the series below and let us know what you think.\n\nขอบคุณทางฝ่ายการแพทย์ การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย และโรงไฟฟ้าพระนครเหนือที่ให้โอกาสนักศึกษาแพทย์เข้าไปศึกษาระบบงานอาชีวอนามัยในภาครัฐวิสาหกิจให้ความรู้และดูแลน้องๆอย่างดีนะคะ', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-02-17 15:40:16', '2018-02-20 19:23:01', 'textbox', 'active'),
+(67, 1, 11, NULL, NULL, NULL, 'content_1fad6d06994f0026365487915069e004.jpg', 'horizontal', NULL, NULL, NULL, 6, '2018-02-17 16:20:45', '2018-02-17 16:20:45', 'cover', 'active'),
 (68, 1, 8, NULL, NULL, NULL, NULL, NULL, NULL, 14.05670111268598, 101.38608455657959, 13, '2018-02-17 17:28:12', '2018-02-17 17:28:15', 'map', 'active'),
 (69, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-17 17:41:32', NULL, 'image', 'active'),
-(70, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 17:41:32', NULL, 'textbox', 'active');
+(70, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-17 17:41:32', NULL, 'textbox', 'active'),
+(71, 1, 20, NULL, NULL, NULL, 'content_d379d56b5d6a7a39d9c86ac3fab4f1c4.png', 'vertical', NULL, NULL, NULL, 3, '2018-02-18 16:16:31', '2018-02-18 16:16:31', 'head_cover', 'active'),
+(72, 1, 20, NULL, NULL, NULL, 'content_488268f8eb022276ca6b2e2dd8a71deb.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-18 16:24:20', '2018-02-18 16:24:20', 'head_cover', 'active'),
+(73, 1, 20, NULL, NULL, NULL, 'content_1c687f7465ade50726b33fe7159353b0.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-18 16:36:04', '2018-02-18 16:36:04', 'head_cover', 'active'),
+(74, 1, 7, NULL, NULL, NULL, 'content_03188561c2746a9432a5426d431b6cb5.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-18 17:02:51', '2018-02-18 17:02:51', 'head_cover', 'active'),
+(75, 1, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-18 17:28:05', NULL, 'image', 'active'),
+(76, 1, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-18 17:28:05', NULL, 'textbox', 'active'),
+(77, 1, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-02-18 17:28:15', NULL, 'textbox', 'active'),
+(78, 1, 20, NULL, NULL, NULL, 'content_d658bd284d496d6d9420c5b48d030259.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-18 18:19:46', '2018-02-18 18:19:46', 'head_cover', 'active'),
+(79, 1, 20, NULL, NULL, NULL, 'content_3784b0b1b98149ea3a1056ceeb466676.jpeg', 'vertical', NULL, NULL, NULL, 7, '2018-02-18 18:35:27', '2018-02-18 18:35:27', 'head_cover', 'active'),
+(80, 1, 20, NULL, NULL, NULL, 'content_6f90f022c734038122107a4ded865573.png', 'vertical', NULL, NULL, NULL, 8, '2018-02-18 18:49:28', '2018-02-18 18:49:28', 'head_cover', 'active'),
+(81, 1, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-18 18:57:10', NULL, 'image', 'active'),
+(82, 1, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-18 18:57:10', NULL, 'textbox', 'active'),
+(83, 1, 19, NULL, NULL, NULL, 'content_3ca3904bab7651adbf9254ec94c10ac6.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-18 19:15:11', '2018-02-18 19:15:11', 'head_cover', 'active'),
+(84, 1, 11, NULL, NULL, NULL, 'content_d1fd97734ccedce2b4273b17fc991e39.jpg', 'vertical', 'Interaction-Design.org', NULL, NULL, 7, '2018-02-19 00:58:00', '2018-02-20 19:40:18', 'image', 'active'),
+(85, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, 14.05665948240189, 101.38621330261230, 9, '2018-02-19 01:16:21', '2018-02-19 01:16:24', 'map', 'active'),
+(86, 1, 8, NULL, NULL, NULL, 'content_86bec35be1eb29fe8b4568c51af9c91f.jpg', 'vertical', NULL, NULL, NULL, 14, '2018-02-19 01:39:14', '2018-02-19 01:39:14', 'head_cover', 'active'),
+(87, 1, 11, NULL, NULL, NULL, 'content_38a3419becc5a7b98f0314de66dda3aa.jpg', 'vertical', NULL, NULL, NULL, 8, '2018-02-19 12:14:06', '2018-02-19 12:14:06', 'head_cover', 'active'),
+(88, 1, 23, NULL, NULL, NULL, 'content_ee39b026fe60e8438d2e5fc23535c1b6.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-19 19:44:08', '2018-02-19 19:44:08', 'image', 'active'),
+(89, 1, 23, NULL, NULL, NULL, 'content_88c1ebcdbf5c2401a44c95103a8c479c.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-19 19:44:09', '2018-02-19 19:44:09', 'image', 'active'),
+(90, 1, 23, NULL, NULL, NULL, 'content_c3fa382a479e867d05ad5ccd13e41f73.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-19 19:44:09', '2018-02-19 19:44:09', 'image', 'active'),
+(91, 1, 27, NULL, 'Brandon Hakim got ticked off when he realized the knowledge he got from books was far more useful than what he learned from the thousands of dollars spent on his college education. So Brandon dedicated himself to reading — and understanding — more. In fact, he figured out a way to read over 300 books a year and, just as importantly, retain and use all that new-found knowledge.\n\nNow, the fruits of Brandon Hakim’s pursuit can be shared by you with a course dedicated to helping you Become a Speed Reading Machine. And with a recent price drop, all this life-changing training available for less than the price of a decent lunch: only $9 from TNW Deals.', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-02-19 19:55:14', '2018-02-19 19:55:16', 'textbox', 'active'),
+(92, 1, 27, NULL, NULL, NULL, 'content_7ce243938eb5f1fff8df5ff864a67b3e.jpg', 'vertical', NULL, NULL, NULL, 2, '2018-02-19 19:55:25', '2018-02-19 19:55:25', 'image', 'active'),
+(93, 1, 27, NULL, NULL, NULL, 'content_bd887087b72b0a6c355d0edb7dde02fd.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-19 19:55:25', '2018-02-19 19:55:25', 'image', 'active'),
+(94, 1, 27, NULL, NULL, NULL, 'content_d2d4db150611cbf9cfa82c336037965b.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-19 19:55:26', '2018-02-19 19:55:26', 'image', 'active'),
+(95, 1, 27, NULL, 'Brandon Hakim himself leads your training as you go back to the roots of your learning and understand how the methods you learned in school may be just what’s also holding your knowledge intake back today.\n\nThen, you’ll break through those walls as Hakim outlines how to retrain your brain to enjoy reading more, instantly double your reading speed, and more. This instruction shows you how to size up a book, thinking and taking notes as you go, while also permanently retaining everything you read.', NULL, NULL, NULL, NULL, NULL, NULL, 5, '2018-02-19 19:55:52', '2018-02-19 19:55:57', 'textbox', 'active'),
+(96, 1, 27, NULL, NULL, NULL, 'content_dc7c972e090334ad8509742f73f40561.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-19 19:58:11', '2018-02-19 19:58:11', 'image', 'active'),
+(97, 1, 27, NULL, NULL, NULL, 'content_cd56bd4ba6380c90c35d42dd42d47457.jpg', 'horizontal', NULL, NULL, NULL, 7, '2018-02-19 19:58:11', '2018-02-19 19:58:11', 'image', 'active'),
+(98, 1, 27, NULL, NULL, NULL, 'content_33be915e2de6271959dc482c80993a5e.jpg', 'vertical', NULL, NULL, NULL, 8, '2018-02-19 19:58:11', '2018-02-19 19:58:11', 'image', 'active'),
+(99, 1, 27, NULL, NULL, NULL, 'content_bc56e7abae15493d55c1596dd72d4a7b.jpg', 'vertical', NULL, NULL, NULL, 9, '2018-02-20 01:29:34', '2018-02-20 01:29:34', 'head_cover', 'active'),
+(100, 1, 27, NULL, NULL, NULL, 'content_a9d612e8be4e9209503ad4b78a8bc7bf.jpg', 'vertical', NULL, NULL, NULL, 10, '2018-02-20 01:29:45', '2018-02-20 01:29:45', 'head_cover', 'active'),
+(101, 1, 20, NULL, NULL, NULL, 'content_793848e1b518f927172b634acf206e8f.jpg', 'vertical', NULL, NULL, NULL, 10, '2018-02-20 01:45:31', '2018-02-20 01:45:31', 'head_cover', 'active'),
+(102, 1, 20, NULL, NULL, NULL, 'content_6c03e306d1041b81768d920ada920193.jpg', 'vertical', NULL, NULL, NULL, 11, '2018-02-20 01:47:01', '2018-02-20 01:47:01', 'head_cover', 'active'),
+(103, 1, 20, NULL, NULL, NULL, 'content_5ae01bc5b9c6c8605e82061297dc1efc.jpg', 'vertical', NULL, NULL, NULL, 12, '2018-02-20 01:47:38', '2018-02-20 01:47:38', 'head_cover', 'active'),
+(104, 1, 19, NULL, NULL, NULL, 'content_083c439a189eb1bcd97f786a7f47c18d.jpg', 'vertical', NULL, NULL, NULL, 4, '2018-02-20 01:51:16', '2018-02-20 01:51:16', 'image', 'active'),
+(105, 1, 19, NULL, NULL, NULL, 'content_67a3c26706a60f415a533a87fa1207bf.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-20 01:51:16', '2018-02-20 01:51:16', 'image', 'active'),
+(106, 1, 19, NULL, NULL, NULL, 'content_a0ac8c31b53bc5a43a2decc8a20943b3.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-20 01:51:17', '2018-02-20 01:51:17', 'image', 'active'),
+(107, 1, 11, NULL, '“ตกมาปีนี้แม่ผมก็แก่กว่าเดิม แกยังทำนาคนเดียว เพราะพ่อนั้นด่วนจากไป ด้วยความที่เป็นลูกชาวนาก็คิดอยู่เสมอว่ามันพอจะมีทางไหมที่เริ่มเปลี่ยนแปลงบางอย่างในแปลงนาของพ่อและแม่ให้มันดีและยั่งยืนกว่านี้ จะทำยังไงจะลดการใช้ปุ๋ยเคมี ยาฆ่าแมลง ผมเคยคิดไว้ว่าจะลองไม่ใช้ปุ๋ยเคมี ยาฆ่าแมลงในแปลงนาของแม่ดูสักปีแล้วหันไปใช้ปุ๋ยชีวะภาพแทน แล้วมาดูผลผลิตที่ออกมาจะเป็นยังไง หากข้าวไม่พอกินผมก็พร้อมที่จะซื้อข้าวกิน คำนวณคร่าวๆ ค่าซื้อข้าวก็น่าจะพอๆกับค่าซื้อปุ๋ยเคมีกับยาฆ่าแมลง”\n\nเติ้ง ณ หนองปลาซิว กล่าวไว้ในบล็อกส่วนตัวของเขา \nการได้บันทึกแนวคิดของตัวเองลงในบล็อก ก็เปรียบเหมือนเรากำลังเขียนหนังสือของตัวเอง เวลาผ่านไปเราย้อนกลับมาอ่านบทความตัวเอง จะเห็นว่ามีทัศนคติอย่างไร ทั้งด้านการทำงาน ชีวิต มุมมองต่อสาธารณะ การเมือง ศาสนา', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-02-20 10:43:46', '2018-02-20 10:51:22', 'textbox', 'active'),
+(108, 1, 11, 'Interaction-Design.org', 'Companies are now placing more focus on how people interact with their products and services. This means that the user-centered mindset of a UX designer is becoming increasingly valuable across a wide range of industries.\n\nMake sure you''re tapping into this lucrative market by upskilling yourself in the art of User Experience (UX) design - something that an IDF membership can help you with.\n\nสร้างบรรยากาศยามค่ำคืนสุดโรแมนติคให้กับคนพิเศษ ไปกับ Solar Tank จาก Home Studio ที่ไม่ต้องเสียบปลั๊กใดๆ เพราะใช้ไฟจากพลังงานแสงอาทิตย์ล้วนๆ พร้อมสีให้เลือกถึง 2 แบบ คือ สีส้มทอง และสีฟ้า (ที่จะสลับไปเรื่อยๆระหว่าง ฟ้า เขียว แดง เหลือง ม่วงหรือจะเอาไว้แต่งห้องก็ดีงามสุดๆไปเลยค่าาา', NULL, NULL, NULL, NULL, NULL, NULL, 9, '2018-02-20 10:44:40', '2018-02-20 10:45:17', 'textbox', 'active'),
+(109, 1, 23, 'Puwadon Sricharoen', 'This Designer Combined Structures With Typography and the Results Are Brilliant', NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-02-20 19:22:22', '2018-02-20 19:22:34', 'quote', 'active'),
+(110, 1, 20, NULL, NULL, NULL, 'content_a93667a1eacb4eb7452aa5894f44e4ac.jpg', 'vertical', NULL, NULL, NULL, 13, '2018-02-20 19:30:48', '2018-02-20 19:30:48', 'head_cover', 'active'),
+(111, 1, 21, NULL, NULL, NULL, 'content_3e5e2fd75d348c5a8540f5ccd48785c7.jpg', 'vertical', NULL, NULL, NULL, 3, '2018-02-20 19:43:27', '2018-02-20 19:43:27', 'image', 'active'),
+(112, 1, 21, NULL, NULL, NULL, 'content_443dfefb155eb7d30c2b62d10898b1c9.jpg', 'vertical', NULL, NULL, NULL, 5, '2018-02-20 19:43:27', '2018-02-20 19:43:27', 'image', 'active'),
+(113, 1, 21, NULL, NULL, NULL, 'content_db25d89e7c8ad736a4bd8a17cc46b257.jpg', 'vertical', NULL, NULL, NULL, 6, '2018-02-20 19:43:27', '2018-02-20 19:43:27', 'image', 'active'),
+(114, 1, 21, NULL, NULL, NULL, 'content_ef6b8fb88da23edc6c04c86169a98774.jpg', 'vertical', NULL, NULL, NULL, 7, '2018-02-20 19:43:27', '2018-02-20 19:43:27', 'image', 'active'),
+(115, 1, 20, NULL, NULL, NULL, 'content_e94a2198ae44cc47ec820918ee65b5a6.jpg', 'vertical', NULL, NULL, NULL, 14, '2018-02-20 19:53:34', '2018-02-20 19:53:34', 'head_cover', 'active'),
+(116, 1, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, '2018-02-20 20:30:25', NULL, 'image', 'active');
 
 -- --------------------------------------------------------
 
@@ -10224,7 +10273,15 @@ CREATE TABLE IF NOT EXISTS `document` (
   `secret` varchar(50) DEFAULT NULL,
   `privacy` varchar(20) DEFAULT 'member',
   `status` varchar(20) NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `document`
+--
+
+INSERT INTO `document` (`id`, `article_id`, `user_id`, `title`, `description`, `file_name`, `file_type`, `file_size`, `create_time`, `edit_time`, `view`, `download`, `secret`, `privacy`, `status`) VALUES
+(1, 21, 1, 'DATALINK-CONCEPT-001', NULL, 'DATALINK-CONCEPT-001-f7e55b.pdf', 'Array', 4324290, '2018-02-20 19:44:52', '2018-02-20 19:44:52', 0, 0, 'c59561d0e3606b759e8b7dbb1aab6c4e', 'public', 'active'),
+(2, 21, 1, '20170124-02-Digital-Transformation', NULL, '20170124-02-Digital-Transformation-c083a4.pdf', 'Array', 7465410, '2018-02-20 19:45:08', '2018-02-20 19:45:08', 0, 0, 'c9b93b07c4875699c64647d2922c3b64', 'public', 'active');
 
 -- --------------------------------------------------------
 
@@ -10358,14 +10415,14 @@ CREATE TABLE IF NOT EXISTS `signature` (
   `create_time` datetime NOT NULL,
   `active_time` datetime DEFAULT NULL,
   `form` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `signature`
 --
 
 INSERT INTO `signature` (`id`, `sign`, `expire`, `create_time`, `active_time`, `form`) VALUES
-(46, '6f4c40e5b519d2ea477fc7595ee90738961597c6561e5beb1957686bcfc8d60f', 1518944394, '2018-02-18 15:58:54', NULL, 'login');
+(53, 'beab1e752be5aa3d6e03ffd78d12da5c95b078a7d00f5fee229bf268ff373d85', 1519128230, '2018-02-20 19:02:50', NULL, 'login');
 
 -- --------------------------------------------------------
 
@@ -10497,7 +10554,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `phone`, `email`, `fname`, `lname`, `bio`, `password`, `salt`, `ip`, `register_time`, `edit_time`, `visit_time`, `verified`, `type`, `status`, `fb_id`, `fb_fname`, `fb_lname`, `fb_link`, `fb_verified`, `gender`) VALUES
-(1, NULL, 'mrjimmy18@gmail.com', '', NULL, NULL, 'df610a709955faac3414580511066bcf5ba2c2621c0a445248e9209f2883530d88a68e0f42340bae5a6020c3d27c7a0faf277e13dfdfefd377a1c72a57429f07', 'fc6e6b11dc0292f12fc6dd406863d0366507821f0888a59fc0e9cbb0782499f546c9e66b9ddfc68b64732fbcfaeb41a3114198a2e1c44b2657e33b1d094afad9', '127.0.0.1', '2018-02-12 13:49:28', '2018-02-18 15:59:00', '2018-02-18 16:04:15', 'non-verified', 'member', 'pending', '10208805409052059', 'Puwadon', 'Sricharoen', 'https://www.facebook.com/app_scoped_user_id/10208805409052059/', 1, 'male'),
+(1, NULL, 'mrjimmy18@gmail.com', '', NULL, NULL, 'df610a709955faac3414580511066bcf5ba2c2621c0a445248e9209f2883530d88a68e0f42340bae5a6020c3d27c7a0faf277e13dfdfefd377a1c72a57429f07', 'fc6e6b11dc0292f12fc6dd406863d0366507821f0888a59fc0e9cbb0782499f546c9e66b9ddfc68b64732fbcfaeb41a3114198a2e1c44b2657e33b1d094afad9', '127.0.0.1', '2018-02-12 13:49:28', '2018-02-20 19:02:55', '2018-02-20 20:39:15', 'non-verified', 'member', 'pending', '10208805409052059', 'Puwadon', 'Sricharoen', 'https://www.facebook.com/app_scoped_user_id/10208805409052059/', 1, 'male'),
 (2, '0801051930', 'jimmy@gmail.com', 'Wonchai', 'Toomtam', NULL, 'ec329dbf48ee8d01f7ee2394c4eace0269f35d05481ef0d1f6589a6fdb1518916a06a112844de98f46101fa48757487986f75f9ffb00cbae6619c5d27b14cf0a', 'e8d6b57c3379909458898c6d2dba47564d0d65474c60a4f568bd23c455dc9d88345cb973d188593582c44efaa5c61d838f63844e5dd0f4cdc8e716848af4dc33', '127.0.0.1', '2018-02-12 15:47:33', NULL, '2018-02-13 14:50:20', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
@@ -10589,7 +10646,7 @@ ALTER TABLE `amphur`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `article_tags`
 --
@@ -10604,7 +10661,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=117;
 --
 -- AUTO_INCREMENT for table `district`
 --
@@ -10614,7 +10671,7 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `geography`
 --
@@ -10629,7 +10686,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `signature`
 --
 ALTER TABLE `signature`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `tag`
 --
