@@ -481,7 +481,7 @@ $(document).ready(function(){
                 if(v.type == 'textbox')
                     var html = $('<div class="swap-items text '+current+'" data-id="'+v.id+'">'+v.body+'</div>');
                 else if(v.type == 'image')
-                    var html = $('<div class="swap-items '+current+'" data-id="'+v.id+'"><img src="image/upload/thumbnail/'+v.img_location+'"></div>');
+                    var html = $('<div class="swap-items '+current+'" data-id="'+v.id+'"><img src="image/upload/'+article_id+'/thumbnail/'+v.img_location+'"></div>');
                 else if(v.type == 'youtube')
                     var html = $('<div class="swap-items '+current+'" data-id="'+v.id+'"><img src="http://img.youtube.com/vi/'+v.message+'/mqdefault.jpg"></div>');
 

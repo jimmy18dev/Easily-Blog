@@ -458,7 +458,7 @@ body {
 .seo {
   width: 50%;
   margin: 10% 25%;
-  margin-top: 0;
+  margin-top: 56px;
   float: left;
   display: inline-block;
 }
@@ -480,9 +480,8 @@ body {
   float: left;
   display: inline-block;
   font-size: 1em;
-  text-align: right;
   margin-top: 2%;
-  color: #bbbbbb;
+  color: #666666;
 }
 .seo .section p a {
   color: #bbbbbb;
@@ -768,7 +767,7 @@ body {
   margin-bottom: 2%;
   margin-right: 2%;
   border: 3px solid transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .seo .section .list .items:nth-child(5n+0) {
@@ -781,6 +780,7 @@ body {
 }
 .seo .section .list .items.active {
   border: 3px solid #4CAF50;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
 }
 .seo .section .list .items.btn-add-cover {
   padding: 6.8% 0%;
@@ -802,6 +802,7 @@ body {
   margin: 0% 25%;
   float: left;
   display: inline-block;
+  margin-top: 56px;
 }
 .choose h2 {
   display: block;
@@ -878,7 +879,7 @@ body {
   font-family: "maledpan", sans-serif;
   line-height: 1em;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-bottom: 3%;
 }
 .article .article-header a:active {
@@ -1199,8 +1200,8 @@ body {
   text-decoration: none;
   font-family: "maledpan", sans-serif;
   line-height: 1em;
-  padding: 7px 10px;
-  border-radius: 5px;
+  padding: 7px 14px;
+  border-radius: 20px;
   margin-bottom: 2%;
   margin-left: 1%;
 }
@@ -1892,13 +1893,13 @@ body {
 .swap {
   position: fixed;
   top: 0;
-  right: -8%;
-  width: 8%;
+  right: -12%;
+  width: 12%;
   height: 100%;
   float: left;
   display: inline-block;
   background: #EEEEEE;
-  z-index: 120;
+  z-index: 999;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -1916,27 +1917,29 @@ body {
   display: inline-block;
   background: #EEEEEE;
   color: #BBBBBB;
-  border-radius: 3px;
+  border-radius: 10px;
   font-size: 5px;
   line-height: 1.1em;
-  border: 3px solid transparent;
   position: relative;
   max-height: 100px;
   overflow: hidden;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  opacity: 0.6;
 }
 .swap .swap-items.text {
-  width: 70%;
   padding: 5%;
 }
 .swap .swap-items.text a {
   display: none;
 }
 .swap .swap-items.-active {
-  border: 3px solid #000000;
+  border: 3px solid #55ce63;
 }
 .swap .swap-items:hover {
   cursor: pointer;
-  border: 3px solid #000000;
+  border: 3px solid #55ce63;
+  opacity: 1;
 }
 .swap .swap-items:first-child {
   margin-top: 60px;

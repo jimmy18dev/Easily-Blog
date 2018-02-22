@@ -31,16 +31,9 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </head>
 <body>
 
-<div class="header fixed">
-	<a href="article/<?php echo $article->id;?>/editor" class="btn active">
-		<i class="fa fa-pencil" aria-hidden="true"></i>
-		<span>แก้ไขบทความ</span>
-	</a>
-
-	<a href="article/<?php echo $article->id;?>" class="btn left">
-		<i class="fa fa-angle-left" aria-hidden="true"></i>
-		<span>ดูตัวอย่าง</span>
-	</a>
+<div class="header fixed editor-bar">
+	<a href="article/<?php echo $article->id;?>" class="btn active">บันทึก</a>
+	<a href="article/<?php echo $article->id;?>/editor" class="btn underline">แก้ไขบทความ</a>
 </div>
 
 <div class="seo">

@@ -154,7 +154,7 @@ if($article->owner_id != $user->id){
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-sort" aria-hidden="true"></i></div>
 			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>" title="หมุนรูปภาพ"><i class="fa fa-repeat" aria-hidden="true"></i></div>
-			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><i class="fa fa-upload" aria-hidden="true"></i><span>เลือกภาพใหม่</span></div>
+			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><span>เลือกภาพใหม่</span></div>
 		</div>
 
 		<div class="preview">

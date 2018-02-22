@@ -28,7 +28,7 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header editor-bar">
+<header class="header fixed editor-bar">
 	<a href="index.php" class="btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
 	<div class="btn" id="btnStartWrite">เขียนบทความ</div>
 </header>
