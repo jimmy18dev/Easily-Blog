@@ -28,24 +28,22 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header">
+<header class="header editor-bar">
 	<a href="index.php" class="btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
+	<div class="btn" id="btnStartWrite">เขียนบทความ</div>
 </header>
 
-<div class="pagehead center">
-	<h2>เลือกประเภทบทความ...</h2>
-</div>
 <div class="choose">
+	<h2>เลือกประเภทบทความ...</h2>
 	<div class="list">
 		<?php foreach ($categories as $var) {?>
 		<div class="choose-category" data-id="<?php echo $var['id'];?>">
-			<div class="icon"><i class="fa fa-folder-o" aria-hidden="true"></i></div>
+			<div class="icon">
+				<?php echo(!empty($var['icon'])?'<i class="fa fa-'.$var['icon'].'" aria-hidden="true"></i>':'<i class="fa fa-folder" aria-hidden="true"></i>')?>
+			</div>
 			<div class="name"><?php echo $var['title'];?></div>
 		</div>
 		<?php } ?>
-	</div>
-	<div class="control">
-		<div class="btn" id="btnStartWrite">เริ่มเขียน<i class="fa fa-arrow-right" aria-hidden="true"></i></div>
 	</div>
 </div>
 

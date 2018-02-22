@@ -1,5 +1,5 @@
 <div class="btn icon-only" id="btnOption">
-	<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+	<i class="fa fa-cog" aria-hidden="true"></i>
 
 	<div class="toggle-panel" id="optionPanel">
 		<div class="popover-arrow"></div>
