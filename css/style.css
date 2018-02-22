@@ -188,6 +188,19 @@ body {
   text-decoration: none;
   color: #FFFFFF;
 }
+.header .status {
+  float: left;
+  display: inline-block;
+  height: 20px;
+  padding: 18px;
+  line-height: 1em;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
+  color: #bbbbbb;
+}
+.header .status:hover {
+  cursor: default;
+}
 .header a.btn,
 .header .btn {
   float: right;

@@ -7,56 +7,30 @@ $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});
     tippy('[title]',{arrow: true});
 
+    // Editor saved status
+    function saveStatus(m){
+        if(m == 'saved')
+            $('#editor-status').html('บันทึกแล้ว');
+        else
+            $('#editor-status').html('');
+    }
+
     // Get article id
     var article_id  = $('#article_id').val();
 
     // Create Class
     var article = new Article(article_id);
 
-    function inprogress(action){
-        $title  = $('#editorTitle');
-        $icon   = $('#editorIcon');
-
-        switch (action){
-            case 'editing':
-                $title.html('แก้ไข');
-                $icon.html('<i class="fa fa-keyboard-o" aria-hidden="true"></i>');
-                break;
-            case 'fail':
-                $title.html('ลองอีกครั้ง!');
-                $progressbar.animate({width:'0%'},500);
-                $progressbar.fadeOut();
-                break;
-            case 'progress':
-                $title.html('กำลังบันทึก...');
-                $icon.html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
-                $progressbar.fadeIn(300);
-                $progressbar.width('0%');
-                $progressbar.animate({width:'70%'},500);
-                break;
-            case 'complete':
-                $progressbar.animate({width:'100%'},500);
-                $progressbar.fadeOut(function(){
-                    $title.html('บันทึกแล้ว');
-                    $icon.html('<i class="fa fa-check-circle" aria-hidden="true"></i>');
-                });
-                break;
-            default:
-                $title.html('เขียนบทความ');
-                break;
-        }
-    }
-
     // Choose cover image.
     $('#btnChooseCover').click(function(){
         $('#coverImageFiles').focus().click();
     });
     $('#btnRemoveCover').click(function(){
-        if(!confirm('คุณต้องการลบภาพหน้าปก ใช่หรือไม่ ?')){ return false; }
+        if(!confirm('คุณต้องการลบภาพหน้าปก ใช่หรือไม่ ?')) return false
         article.removeHeadCover()
     });
     $('#coverImageFiles').change(function(){
-        $('#coverForm').submit();
+        $('#coverForm').submit()
     });
     $('#coverForm').ajaxForm({
         beforeSubmit: function(formData, jqForm, options){
@@ -66,16 +40,16 @@ $(document).ready(function(){
             var percent = percentComplete;
             percent = (percent * 80) / 100;
             
-            console.log('Upload: '+percentComplete+' %');
-            $progressbar.Progressbar(percentComplete+'%');
+            console.log('Upload: '+percentComplete+' %')
+            $progressbar.Progressbar(percentComplete+'%')
         },
         success: function() {
             // $photoLoadingBar.animate({width:'100%'},300);
         },
         complete: function(xhr) {
-            $progressbar.Progressbar('70%');
-            console.log(xhr.responseJSON);
-            location.reload();
+            $progressbar.Progressbar('70%')
+            console.log(xhr.responseJSON)
+            location.reload()
         }
     });
 
@@ -116,9 +90,7 @@ $(document).ready(function(){
         if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
             $('#swap').removeClass('-toggle');
         }
-    });
-
-
+    })
 
     /**
     * Content events listening
@@ -146,6 +118,7 @@ $(document).ready(function(){
         },
         focus: function(e) {
             oldTitle = $(this).val()
+            saveStatus()
         },
         blur: function(e) {
             var now = $(this).val()
@@ -154,6 +127,7 @@ $(document).ready(function(){
             else{
                 article.editTitle(now)
                 document.title = now
+                saveStatus('saved')
             }
         }
     })
@@ -228,78 +202,68 @@ $(document).ready(function(){
     var alt;
 
     // Change topic of Content.
-    $topic = $('.topic');
+    $topic = $('.topic')
     $topic.focus(function(){
-        topic = $(this).val();
-        inprogress('editing');
-    });
+        topic = $(this).val()
+        saveStatus()
+    })
 
     $topic.blur(function(){
-        var content_id = $(this).parent().attr('data-content');
-        var new_topic = $(this).val();
+        var content_id  = $(this).parent().attr('data-content')
+        var new_topic   = $(this).val()
 
-        if(topic == new_topic){
-            inprogress();
-            return false;
-        }
+        if(topic == new_topic) return false
 
-        inprogress('progress');
-
-        article.editTopic(content_id,new_topic);
+        article.editTopic(content_id,new_topic)
+        saveStatus('saved')
     });
 
     // Google Map location Upload
     $('.lat').on('input',function(event) {
-        var content_id  = $(this).parent().attr('data-content');
-        var lat         = $(this).val();
-        var lng         = $(this).parent().children('.lng').val();
+        var content_id  = $(this).parent().attr('data-content')
+        var lat         = $(this).val()
+        var lng         = $(this).parent().children('.lng').val()
 
-        inprogress('progress');
-
+        saveStatus('save')
         article.editLocation(content_id,lat,lng)
-    });
+    })
 
     // Change Body of Content.
-    $body = $('.body');
+    $body = $('.body')
     $body.focus(function(){
         body = $(this).val();
-        inprogress('editing');
-    });
+        saveStatus()
+    })
 
     $body.blur(function(){
-        var content_id  = $(this).parent().attr('data-content');
-        var news_body = $(this).val();
+        var content_id  = $(this).parent().attr('data-content')
+        var news_body   = $(this).val()
 
-        if(body == news_body){
-            inprogress();
-            return false;
-        }
+        if(body == news_body)
+            return false
 
-        inprogress('progress');
-
+        saveStatus('saved')
         article.editBody(content_id,news_body)
     });
 
     // Edit Image Alt
-    $alt = $('.alt');
+    $alt = $('.alt')
     $alt.focus(function(){
         alt = $(this).val();
-        inprogress('editing');
-    });
+        saveStatus()
+    })
 
     $alt.blur(function(){
-        var content_id  = $(this).parent().attr('data-content');
-        var new_alt = $(this).val();
+        var content_id  = $(this).parent().attr('data-content')
+        var new_alt     = $(this).val()
 
-        if(alt == new_alt){
-            inprogress();
-            return false;
-        }
+        if(alt == new_alt)
+            return false
 
-        inprogress('progress');
+        saveStatus('saved')
 
         article.editAlt(content_id,new_alt)
-    });
+    })
 
     // Youtube Content
     var own_youtube_id;
@@ -308,6 +272,8 @@ $(document).ready(function(){
         var content_id  = $(this).parent().attr('data-content');
             $YouTubeID  = $('#content'+content_id).children('.youtube_id');
         own_youtube_id  = $YouTubeID.val();
+
+        saveStatus()
 
         console.log(own_youtube_id);
     });
@@ -364,12 +330,11 @@ $(document).ready(function(){
         var youtube_id  = YouTubeParser(youtube_url);
 
         if(youtube_id == 0 || youtube_id.length != 11){
-            return false;
+            return false
         }
 
-        inprogress('progress');
-
         article.editVideo(content_id,youtube_id)
+        saveStatus('saved')
     });
 
     ////////////////////////////
@@ -480,12 +445,10 @@ $(document).ready(function(){
         $img = $('#imagePreview'+content_id).children('img');
 
         document.querySelector('#imagePreview'+content_id).scrollIntoView({behavior: 'smooth'});
-
-        inprogress('progress');
-
+        
         article.imageRotate(content_id)
-
         $img.attr('src',$img.attr('src')+'?'+Math.random()*100);
+        saveStatus('saved')
     });
 
     $('.btn-swap').click(function(){
@@ -619,25 +582,21 @@ $(document).ready(function(){
     });
 
     // Edit Image Alt
-    var own_doc_title;
-    $document = $('.file_title');
+    var own_doc_title
+    $document = $('.file_title')
     $document.focus(function(){
-        own_doc_title = $(this).val();
-        inprogress('editing');
+        own_doc_title = $(this).val()
+        saveStatus()
     });
 
     $document.blur(function(){
-        var file_id  = $(this).parent().parent().attr('data-file');
-        var doc_title = $(this).val();
+        var file_id     = $(this).parent().parent().attr('data-file')
+        var doc_title   = $(this).val()
 
-        if(own_doc_title == doc_title){
-            inprogress();
-            return false;
-        }
+        if(own_doc_title == doc_title) return false
+        article.editDocTitle(file_id,doc_title)
 
-        inprogress('progress');
-
-        article.editDocTitle(file_id,doc_title);
+        saveStatus('saved')
     });
 
     // Delete Delete!
@@ -648,8 +607,7 @@ $(document).ready(function(){
         if(!confirm('คุณต้องการลบ "'+file_name+'" ใช่หรือไม่ ?')){ return false; }
 
         article.deleteDoc(file_id)
-
-        $thisItems.fadeOut(300);
+        $thisItems.fadeOut(300)
     });
 });
 
