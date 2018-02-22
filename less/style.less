@@ -85,6 +85,14 @@
 				margin: 0;
 				font-size: 1.2em;
 			}
+
+			.notif{
+				position: absolute;
+				top: 22%;
+				right: 28%;
+				font-size: 0.6em;
+				color: #F44336;
+			}
 		}
 		&.left{
 			float: left;
@@ -161,7 +169,16 @@
 					}
 
 					&:hover{ background: #EAEAEA; }
-					i.fa-check{ float: right; color: @primary_color; }
+					i.fa-check{
+						color: @primary_color;
+						font-size: 0.7em;
+						margin-left: 5px;
+					}
+					i.fa-circle{
+						color: #F44336;
+						font-size: 0.5em;
+						margin-left: 5px;
+					}
 				}
 			}
 		}

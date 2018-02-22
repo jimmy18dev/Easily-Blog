@@ -252,6 +252,14 @@ body {
   margin: 0;
   font-size: 1.2em;
 }
+.header a.btn.icon-only .notif,
+.header .btn.icon-only .notif {
+  position: absolute;
+  top: 22%;
+  right: 28%;
+  font-size: 0.6em;
+  color: #F44336;
+}
 .header a.btn.left,
 .header .btn.left {
   float: left;
@@ -350,8 +358,15 @@ body {
 }
 .header a.btn .toggle-panel ul li i.fa-check,
 .header .btn .toggle-panel ul li i.fa-check {
-  float: right;
   color: #55ce63;
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+.header a.btn .toggle-panel ul li i.fa-circle,
+.header .btn .toggle-panel ul li i.fa-circle {
+  color: #F44336;
+  font-size: 0.5em;
+  margin-left: 5px;
 }
 .header .btn-tool {
   float: left;
