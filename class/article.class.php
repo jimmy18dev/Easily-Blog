@@ -22,11 +22,10 @@ class Article{
     public $tags;
 
     public $province_id;
-    public $amphur_id;
-    public $district_id;
-
     public $province_name;
+    public $amphur_id;
     public $amphur_name;
+    public $district_id;
     public $district_name;
 
     public $cover_id;
@@ -193,9 +192,9 @@ class Article{
         $this->amphur_name      = $dataset['amphur_name'];
         $this->district_name    = $dataset['district_name'];
 
-        $this->create_time      = $this->db->datetimeformat($dataset['create_time'],$option = 'fulldatetime');
-        $this->edit_time        = $this->db->datetimeformat($dataset['edit_time'],$option = 'fulldatetime');
-        $this->published_time   = $this->db->datetimeformat($dataset['published_time'],$option = 'fulldatetime');
+        $this->create_time      = $this->db->datetimeformat($dataset['create_time'],$option = 'fulldate');
+        $this->edit_time        = $this->db->datetimeformat($dataset['edit_time'],$option = 'fulldate');
+        $this->published_time   = $this->db->datetimeformat($dataset['published_time'],$option = 'fulldate');
 
         $this->contents         = $dataset['contents'];
         $this->documents        = $dataset['documents'];

@@ -50,7 +50,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			<?php foreach ($article->contents as $var) {?>
 			<?php if(($var['type'] == 'image' || $var['type'] == 'cover') && !empty($var['img_location'])){?>
 			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>" title="เลือกเป็นภาพปก">
-				<img src="image/upload/square/<?php echo $var['img_location'];?>">
+				<img src="image/upload/<?php echo $article->id;?>/square/<?php echo $var['img_location'];?>">
 			</div>
 			<?php }?>
 			<?php }?>

@@ -906,6 +906,12 @@ body {
 .article .article-header p.time:hover {
   cursor: default;
 }
+.article .article-header p.time i {
+  margin-right: 7px;
+}
+.article .article-header p.time i.fa-map-marker {
+  margin-left: 14px;
+}
 .article .article-header p.desc {
   display: block;
   text-align: left;
