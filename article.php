@@ -33,6 +33,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 <header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
@@ -61,7 +62,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<header class="article-header">
 			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 			<h1><?php echo $article->title;?></h1>
-			<p class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
+			<p class="time"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
 		</header>
 	</div>
 	<?php }else{?>
@@ -69,7 +70,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<header class="article-header">
 		<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 		<h1><?php echo $article->title;?></h1>
-		<p class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
+		<p class="info"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
 
 		<?php if(!empty($article->description)){?>
 		<p class="desc"><?php echo $article->description;?></p>

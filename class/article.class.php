@@ -360,10 +360,13 @@ class Article{
         $this->db->bind(':owner_id',$owner_id);
         $this->db->execute();
         $dataset = $this->db->resultset();
+        
         $dataset = array_map(function($var){
             return $var['status'];
         },$dataset);
+
         $dataset = array_count_values($dataset);
+        
         return $dataset;
     }
 

@@ -24,22 +24,21 @@ $categories = $category->listAll();
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header fixed editor-bar">
-	<a href="index.php" class="btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
-	<div class="btn" id="btnStartWrite">เขียนบทความ</div>
+<header class="header">
+	<a href="index.php" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
+	<div class="btn" id="btnStartWrite">เขียนบทความ<i class="fal fa-spinner fa-pulse"></i></div>
 </header>
 
 <div class="choose">
-	<h2>เลือกประเภทบทความ...</h2>
+	<h2>เลือกประเภทบทความ</h2>
 	<div class="list">
 		<?php foreach ($categories as $var) {?>
 		<div class="choose-category" data-id="<?php echo $var['id'];?>">
 			<div class="icon">
-				<?php echo(!empty($var['icon'])?'<i class="fa fa-'.$var['icon'].'" aria-hidden="true"></i>':'<i class="fa fa-folder" aria-hidden="true"></i>')?>
+				<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'" aria-hidden="true"></i>':'<i class="fa fa-folder" aria-hidden="true"></i>')?>
 			</div>
 			<div class="name"><?php echo $var['title'];?></div>
 		</div>

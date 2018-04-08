@@ -60,25 +60,24 @@ $p_url 		= DOMAIN.'/signin';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header fixed">
-	<div class="logo">
-		<a href="index.php">Peopleawesome</a>
-	</div>
-</header>
-
+<div class="loginhead">
+	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
+	<p>Occupational and Environmental medicine</p>
+</div>
 <div class="login">
 	<div class="content">
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
 		<form action="javascript:login();">
-			<input type="phone" class="inputtext" id="username" placeholder="ที่อยู่อีเมลหรือเบอร์โทรศัพท์" required autofocus>
+			<input type="phone" class="inputtext" id="username" placeholder="อีเมลหรือเบอร์โทรศัพท์" required autofocus>
 			<input type="password" class="inputtext" id="password" placeholder="รหัสผ่าน" required>
 			<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">
 			<button type="btn" class="btn btn-submit" id="btnSubmit">ลงชื่อเข้าใช้งาน</button>
 		</form>
 		<div class="message">
-			ใช้งานเป็นครั้งแรก <a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a> · 
+<a href="#">ลืมรหัสผ่าน</a>
 		</div>
 	</div>
 </div>

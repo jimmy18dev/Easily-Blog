@@ -48,11 +48,10 @@ $p_url 		= DOMAIN.'/signup';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header fixed">
-	<div class="logo">
-		<a href="index.php">Peopleawesome</a>
-	</div>
-</header>
+<div class="loginhead">
+	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
+	<p>Occupational and Environmental medicine</p>
+</div>
 <div class="login">
 	<div class="content">
 		<form action="javascript:register();">
@@ -65,7 +64,7 @@ $p_url 		= DOMAIN.'/signup';
 			<button type="btn" class="btn btn-register" id="btnSubmit">ลงทะเบียน</button>
 
 			<div class="message">
-				เคยลงทะเบียนแล้ว <a class="<?php echo ($currentPage=='login'?'active':'');?>" href="signin?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงชื่อเข้าใช้<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+				เคยลงทะเบียนแล้ว <a class="<?php echo ($currentPage=='login'?'active':'');?>" href="signin?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงชื่อเข้าใช้</a>
 			</div>
 		</form>
 	</div>

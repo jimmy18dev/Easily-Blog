@@ -1,5 +1,5 @@
 <div class="btn icon-only" id="btnOption">
-	<i class="fa fa-cog" aria-hidden="true"></i>
+	<i class="fal fa-ellipsis-h"></i>
 
 	<?php if(!$article->hasCover || !$article->hasInfo || !$article->hasURL || !$article->hasLocation || !$article->hasTags){?>
 	<span class="notif"><i class="fa fa-circle" aria-hidden="true"></i></span>

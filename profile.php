@@ -34,11 +34,12 @@ $c_article 	= $article->counter($user->id);
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header fixed editor-bar">
-	<a class="btn left" href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
-	
+<header class="header editor-bar">
+	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
+
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
 	<?php }else{?>
@@ -50,23 +51,24 @@ $c_article 	= $article->counter($user->id);
 	<?php }?>
 </header>
 
-<div class="pagehead">
+<div class="profilehead">
 	<h2><?php echo $user->fullname;?></h2>
-	<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
-	<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+	<div class="control">
+		<a href="article/create" class="btn create">เขียนบทความ</a>
+	</div>
+	<div class="navi">
+		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
+		<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+	</div>
 </div>
 
 <div class="article-list">
 	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
-
-<?php if(count($articles)>0){
-	include_once 'footer.php';
-}?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
