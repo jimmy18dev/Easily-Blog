@@ -5,11 +5,37 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-### ARTICLE ####
-RewriteRule ^article/([0-9]+)$ 	/article.php?article_id=$1 [L]
-RewriteRule ^article/editor/([0-9]+)$ /editor.php?article_id=$1 [L]
-RewriteRule ^article/create$ 	/choose-category.php [L]
+### CATEGORY
+RewriteRule ^topic/([0-9]+)$ 			/index.php?category_id=$1 [L]
+RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/index.php?category_id=$1&title=$2 [L]
+
+### ARTICLE
+RewriteRule ^article/([0-9]+)$ 			/article.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/editor$ 	/editor.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/option$ 	/editor-option.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/([^_]*)$ 	/article.php?article_id=$1&title=$2 [L]
+RewriteRule ^article/create$ 			/choose-category.php [L]
+
+### TAG
+RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
+
+### PROFILE
+RewriteRule ^profile$ 					/profile.php [L]
+RewriteRule ^profile/article/([^_]*)$ 	/profile.php?status=$1 [L]
+RewriteRule ^profile/category$ 			/category.php [L]
+
+### ERROR PAGE
+RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
+
+### SEARCH
+RewriteRule ^search$ 					/search.php [QSA,L]
+
+RewriteRule ^signin$ /login.php [L]
+RewriteRule ^signup$ /register.php [L]
+RewriteRule ^signout$ /logout.php [L]
 
 ### API ###
 RewriteRule ^api/article$ 		/api/article.php [L]
 RewriteRule ^api/user$ 			/api/user.php [L]
+RewriteRule ^api/document$ 		/api/document.php [L]
+RewriteRule ^api/location$ 		/api/location.php [L]

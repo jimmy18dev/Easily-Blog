@@ -1,28 +1,58 @@
 var article_api = 'api/article';
+var category_id;
 
 $(document).ready(function(){
+    // Get article id
+    var article_id  = $('#article_id').val();
+
+    // Create Class
+    var article = new Article(article_id);
+
+    // Publish Article
+    $('#btn-publish').click(function(){
+        article.publish();
+        setTimeout(function(){
+            window.location = 'article/'+article_id;
+        },1000);
+    });
+
+    $('#btn-remove').click(function(){
+        if(!confirm('คุณต้องการลบบทความใช่หรือไม่ ?')){ return false; }
+
+        article.remove();
+        
+        setTimeout(function(){
+            window.location = 'profile';
+        },1000);
+    });
+
+    $('#btn-draft').click(function(){
+        if(!confirm('คุณต้องการยกเลิกเผยแพร่บทความนี้ ใช่หรือไม่ ?')){ return false; }
+
+        article.draft();
+
+        setTimeout(function(){
+            location.reload();
+        },1000);
+    });
+
     $chooseCategory = $('.choose-category');
     $chooseCategory.click(function(){
+        category_id = $(this).attr('data-id');
+        $btnStartWrite.addClass('active');
+        $('.choose-category').removeClass('active');
+        $(this).addClass('active');
+    });
 
-        var category_id = $(this).attr('data-id');
+    $btnStartWrite = $('#btnStartWrite');
+    $btnStartWrite.click(function(){   
 
-        $.ajax({
-            url         :article_api,
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'create'
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            var article_id = data.article_id;
-            setTimeout(function(){
-                window.location = 'article/editor/'+article_id;
-            },1000);
-        });
+        if(!category_id) return false;
+
+        $btnStartWrite.removeClass('active');
+        $btnStartWrite.html('รอสักครู่<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+
+        // Create new Article.
+        article.create(category_id)
     });
 });

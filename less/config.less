@@ -9,6 +9,9 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
+
+@logo_font          :'Oleo Script',sans-serif;
 @FontStylePrimary   :sans-serif;
 @topic_font         :"maledpan",sans-serif; 
 // @topic_font         :"Sukhumvit Set",sans-serif; 
@@ -17,20 +20,14 @@
 // http://www.color-hex.com/color/040d14
 @bg_color           :#FFFFFF;
 @bg_gray            :#EEEEEE;
-@fontcolor_dark     :#333333;
-@fontcolor_normal   :#666666;
-@fontcolor_light    :#BBBBBB;
-@alertcolor         :#c0392b;
 
-@primary_color      :#004D40;
-@primary_color_dark :#002E26;
-@primary_color_light:#1abc9c;
+@font_color_topic   :#222222;
+@font_color_body    :#666666;
+@font_color_light   :#BBBBBB;
 
-@green_color        :#28A646;
-@green_color_dark   :#24953f;
-
-@border_color       :#E8E8E9;
-@border_color_focus :#E2E2E3;
+@primary_color      :#55CE63; // http://www.color-hex.com/color/55ce63
+@primary_color_dark :#3b9045;
+@primary_color_light:#ddf5df;
 
 html {
     -ms-touch-action: manipulation;
@@ -45,6 +42,13 @@ a[href], button {
 body{
     background: @bg_color;
     overflow-x:hidden;
+}
+
+// Animation of Textarea
+.autosize{
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
 }
 
 .bgGradient(@primary,@second){

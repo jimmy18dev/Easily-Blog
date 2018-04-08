@@ -1,7 +1,10 @@
 <?php
 include_once'autoload.php';
 $article = new Article();
-$articles = $article->listAll(NULL,NULL,NULL,NULL,NULL);
+$category = new Category();
+$category_id = $_GET['category_id'];
+$articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
+$categories = $category->listAll();
 ?>
 
 <!doctype html>
@@ -28,22 +31,29 @@ $articles = $article->listAll(NULL,NULL,NULL,NULL,NULL);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-	
-<div class="header">
-	<h1>Easily Blog</h1>
-	<a href="article/create">New Article</a>
-</div>
+<?php include_once 'header.php';?>
+
+<nav class="navigation">
+	<?php foreach ($categories as $var) {?>
+	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
+	<?php } ?>
+</nav>
 
 <div class="article-list">
-	<?php foreach ($articles as $var) {?>
-	<div class="items">
-		<h2><a href="article/<?php echo $var['id'];?>">[<?php echo $var['id'];?>] <?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-		<p><?php echo (!empty($var['edit_time'])?'Edited '.$var['edit_time']:$var['create_time']);?></p>
-		<p><?php echo $var['description'];?></p>
-	</div>
-	<?php } ?>
+	<?php if(count($articles) > 0){?>
+	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php }else{?>
+	<div class="empty">ไม่พบบทความ</div>
+	<?php }?>
 </div>
 
+<?php if(count($articles)>0){
+	include_once 'footer.php';
+}?>
+
+<div id="progressbar"></div>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>
