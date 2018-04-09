@@ -32,16 +32,15 @@ $c_article 	= $article->counter($user->id);
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header editor-bar">
+<header class="profile-header">
 	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
-
 	<?php if($user_online){?>
-	<?php include 'template/header.profile.php';?>
+	<a class="btn-profile" href="profile">
+		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+	</a>
 	<?php }else{?>
 	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>

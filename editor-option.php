@@ -27,13 +27,12 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 
-<div class="header fixed editor-bar">
-	<a href="article/<?php echo $article->id;?>" class="btn active">บันทึก</a>
-	<a href="article/<?php echo $article->id;?>/editor" class="btn underline">แก้ไขบทความ</a>
+<div class="profile-header">
+	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
 </div>
 
 <div class="seo">

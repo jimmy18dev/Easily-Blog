@@ -390,62 +390,89 @@ body {
   color: #FFFFFF;
   border-bottom: 2px solid #FFFFFF;
 }
-.editorbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.profile-header {
+  width: 70%;
+  padding: 0 15%;
   float: left;
   display: inline-block;
   height: 56px;
   background: rgba(255, 255, 255, 0.95);
   z-index: 999;
+  border-bottom: 1px solid #EEEEEE;
 }
-.editorbar .status {
+.profile-header .btn-submit {
+  float: right;
+  display: inline-block;
+  height: 16px;
+  padding: 20px;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
+  line-height: 0.9em;
+  text-decoration: none;
+  color: #999999;
+}
+.profile-header .btn-submit.active {
+  color: #4CAF50;
+}
+.profile-header .btn-submit i {
+  margin-left: 10px;
+}
+.profile-header .btn-submit:hover {
+  cursor: pointer;
+  background: #FAFAFA;
+}
+.profile-header a.btn {
   float: left;
   display: inline-block;
-  height: 20px;
-  padding: 18px 0;
+  height: 18px;
+  padding: 20px 0px;
   font-family: "maledpan", sans-serif;
   font-size: 1.1em;
   line-height: 1em;
+  text-decoration: none;
   color: #999999;
 }
-.editorbar .btn {
-  float: right;
-  display: inline-block;
-  height: 18px;
-  padding: 6px 14px;
-  margin: 12px 20px;
-  font-family: "maledpan", sans-serif;
-  font-size: 1em;
-  line-height: 1.1em;
-  border: 1px solid #ACACAC;
-  border-radius: 20px;
-}
-.editorbar .btn.active {
+.profile-header a.btn.active {
   color: #4CAF50;
   border: 1px solid #4CAF50;
 }
-.editorbar .btn:hover {
+.profile-header a.btn:hover {
   cursor: pointer;
+  color: #333333;
 }
-.editorbar a.btn-icon {
+.profile-header a.btn span {
+  margin-left: 15px;
+}
+.profile-header a.btn-profile {
+  float: right;
+  display: inline-block;
+  height: 40px;
+  padding: 8px;
+}
+.profile-header a.btn-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.profile-header a.btn-profile:hover {
+  background: #FAFAFA;
+}
+.profile-header a.btn-icon {
   float: right;
   display: inline-block;
   height: 20px;
   padding: 18px 20px;
-  line-height: 1em;
+  line-height: 1.2em;
   font-size: 1.2em;
   color: #999999;
 }
-.editorbar a.btn-icon.left {
+.profile-header a.btn-icon.left {
   float: left;
 }
-.editorbar a.btn-icon:hover {
+.profile-header a.btn-icon:hover {
   color: #000000;
 }
-.editorbar a.btn-icon:active {
+.profile-header a.btn-icon:active {
   background: #EFEFEF;
 }
 .navigation {

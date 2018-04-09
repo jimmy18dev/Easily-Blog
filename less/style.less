@@ -215,39 +215,51 @@
 	}
 }
 
-.editorbar{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+.profile-header{
+	width: 70%;
+	padding: 0 15%;
 	float: left;
 	display: inline-block;
 	height: 56px;
 	background: rgba(255,255,255,0.95);
 	z-index: 999;
+	border-bottom: 1px solid #EEEEEE;
 
-	.status{
+	.btn-submit{
+		float: right;
+		display: inline-block;
+		height: 16px;
+		padding: 20px;
+		font-family: @topic_font;
+		font-size: 1.1em;
+		line-height: 0.9em;
+		text-decoration: none;
+		color: #999999;
+
+		&.active{
+			color: #4CAF50;
+		}
+
+		i{
+			margin-left: 10px;
+		}
+
+		&:hover{
+			cursor: pointer;
+			background: #FAFAFA;
+		}
+	}
+
+	a.btn{
 		float: left;
 		display: inline-block;
-		height: 20px;
-		padding: 18px 0;
+		height: 18px;
+		padding: 20px 0px;
 		font-family: @topic_font;
 		font-size: 1.1em;
 		line-height: 1em;
+		text-decoration: none;
 		color: #999999;
-	}
-
-	.btn{
-		float: right;
-		display: inline-block;
-		height: 18px;
-		padding: 6px 14px;
-		margin: 12px 20px;
-		font-family: @topic_font;
-		font-size: 1em;
-		line-height: 1.1em;
-		border: 1px solid #ACACAC;
-		border-radius: 20px;
 
 		&.active{
 			color: #4CAF50;
@@ -256,6 +268,28 @@
 
 		&:hover{
 			cursor: pointer;
+			color: #333333;
+		}
+
+		span{
+			margin-left: 15px;
+		}
+	}
+
+	a.btn-profile{
+		float: right;
+		display: inline-block;
+		height: 40px;
+		padding: 8px;
+
+		img{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+		}
+
+		&:hover{
+			background: #FAFAFA;
 		}
 	}
 
@@ -264,7 +298,7 @@
 		display: inline-block;
 		height: 20px;
 		padding: 18px 20px;
-		line-height: 1em;
+		line-height: 1.2em;
 		font-size: 1.2em;
 		color: #999999;
 

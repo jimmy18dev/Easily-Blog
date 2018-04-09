@@ -37,15 +37,14 @@ if($article->owner_id != $user->id){
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<div class="editorbar">
-	<a class="btn-icon left" href="index.php"><i class="fal fa-pen"></i></a>
-	<div class="status" id="editor-status">เขียนบทความ</div>
+<div class="profile-header">
+	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
 
-	<a class="btn-icon" href="article/<?php echo $article->id;?>"><i class="fal fa-times"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>"><i class="fal fa-ellipsis-h"></i></a>
 	<?php if($article->status!='published'){?>
-	<div class="btn active" id="btn-publish">เผยแพร่บทความ</div>
+	<div class="btn-submit active" id="btn-publish">เผยแพร่<i class="fal fa-check"></i></div>
 	<?php }?>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-tasks"></i></a>
 </div>
 
 <div class="editor">
