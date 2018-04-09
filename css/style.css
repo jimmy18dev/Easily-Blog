@@ -1875,19 +1875,63 @@ body {
   display: inline-block;
   border-bottom: 1px solid #EFEFEF;
 }
-.article-list .article-items h2 {
-  font-size: 1.5em;
+.article-list .article-items .thumbnail {
+  width: 5%;
+  float: left;
+  display: inline-block;
+  margin-right: 3%;
+  margin-top: 0.5%;
 }
-.article-list .article-items h2 a {
+.article-list .article-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+}
+.article-list .article-items .thumbnail i {
+  margin-left: 20%;
+  font-size: 2.6em;
+  color: #EEEEEE;
+}
+.article-list .article-items .content {
+  width: 75%;
+  float: left;
+  display: inline-block;
+}
+.article-list .article-items .content h2 {
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+.article-list .article-items .content h2 a {
   text-decoration: none;
   color: #333333;
 }
-.article-list .article-items h2 a:hover {
+.article-list .article-items .content h2 a:hover {
   text-decoration: underline;
 }
-.article-list .article-items p {
+.article-list .article-items .content p {
   font-size: 0.9em;
   color: #999999;
+}
+.article-list .article-items .content .fa-check-circle {
+  color: #4CAF50;
+}
+.article-list .article-items .stat {
+  width: 15%;
+  margin-left: 2%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.article-list .article-items .stat .v {
+  display: block;
+  font-size: 1.5em;
+  color: #BBBBBB;
+}
+.article-list .article-items .stat .c {
+  display: block;
+  font-size: 0.9em;
+  color: #BBBBBB;
 }
 .article-list .article-card {
   width: 31.33%;

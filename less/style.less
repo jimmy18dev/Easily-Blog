@@ -1816,22 +1816,71 @@
 		display: inline-block;
 		border-bottom: 1px solid #EFEFEF;
 
-		h2{
-			font-size: 1.5em;
+		.thumbnail{
+			width: 5%;
+			float: left;
+			display: inline-block;
+			margin-right: 3%;
+			margin-top: 0.5%;
 
-			a{
-				text-decoration: none;
-				color: #333333;
+			img{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				border-radius: 5px;
+			}
 
-				&:hover{
-					text-decoration: underline;
-				}
+			i{
+				margin-left: 20%;
+				font-size: 2.6em;
+				color: #EEEEEE;
 			}
 		}
 
-		p{
-			font-size: 0.9em;
-			color: #999999;
+		.content{
+			width: 75%;
+			float: left;
+			display: inline-block;
+
+			h2{
+				font-size: 1.5em;
+				line-height: 1.4em;
+
+				a{
+					text-decoration: none;
+					color: #333333;
+
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+
+			p{
+				font-size: 0.9em;
+				color: #999999;
+			}
+
+			.fa-check-circle{ color: #4CAF50; }
+		}
+
+		.stat{
+			width: 15%;
+			margin-left: 2%;
+			float: left;
+			display: inline-block;
+			text-align: right;
+
+			.v{
+				display: block;
+				font-size: 1.5em;
+				color: #BBBBBB;
+			}
+			.c{
+				display: block;
+				font-size: 0.9em;
+				color: #BBBBBB;
+			}
 		}
 	}
 
