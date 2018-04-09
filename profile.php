@@ -51,9 +51,9 @@ $c_article 	= $article->counter($user->id);
 </header>
 
 <div class="profilehead">
-	<h2><?php echo $user->fullname;?></h2>
-	<div class="control">
-		<a href="article/create" class="btn create">เขียนบทความ</a>
+	<div class="content">
+		<h2>บทความ</h2>
+		<a href="article/create" class="btn create"><i class="fal fa-plus"></i>เขียนบทความ</a>
 	</div>
 	<div class="navi">
 		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
