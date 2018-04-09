@@ -173,7 +173,7 @@ body {
   float: right;
   display: inline-block;
   height: 36px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 .header a.btn-profile img {
   width: 36px;
@@ -210,9 +210,6 @@ body {
 }
 .header a.btn-icon:hover {
   color: #FFFFFF;
-}
-.header a.btn-icon:active {
-  background: #EFEFEF;
 }
 .navigation {
   width: 70%;
@@ -1747,6 +1744,60 @@ body {
   cursor: pointer;
   color: #666666;
 }
+.profile-article-list {
+  width: 70%;
+  padding: 0% 15%;
+  float: left;
+  display: inline-block;
+}
+.profile-article-list .article-items {
+  width: 100%;
+  padding: 2% 0;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EFEFEF;
+}
+.profile-article-list .article-items .thumbnail {
+  width: 5%;
+  float: left;
+  display: inline-block;
+  margin-left: 3%;
+  margin-top: 0.5%;
+}
+.profile-article-list .article-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+}
+.profile-article-list .article-items .thumbnail i {
+  margin-left: 20%;
+  font-size: 2.6em;
+  color: #EEEEEE;
+}
+.profile-article-list .article-items .content {
+  width: 92%;
+  float: left;
+  display: inline-block;
+}
+.profile-article-list .article-items .content h2 {
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+.profile-article-list .article-items .content h2 a {
+  text-decoration: none;
+  color: #333333;
+}
+.profile-article-list .article-items .content h2 a:hover {
+  text-decoration: underline;
+}
+.profile-article-list .article-items .content p {
+  font-size: 0.9em;
+  color: #999999;
+}
+.profile-article-list .article-items .content .fa-check-circle {
+  color: #4CAF50;
+}
 .article-list {
   width: 70%;
   padding: 0% 15%;
@@ -1756,54 +1807,6 @@ body {
 .article-list.related {
   padding: 10% 15%;
   background: #EEEEEE;
-}
-.article-list .article-items {
-  width: 100%;
-  padding: 2% 0;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EFEFEF;
-}
-.article-list .article-items .thumbnail {
-  width: 5%;
-  float: left;
-  display: inline-block;
-  margin-left: 3%;
-  margin-top: 0.5%;
-}
-.article-list .article-items .thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 5px;
-}
-.article-list .article-items .thumbnail i {
-  margin-left: 20%;
-  font-size: 2.6em;
-  color: #EEEEEE;
-}
-.article-list .article-items .content {
-  width: 92%;
-  float: left;
-  display: inline-block;
-}
-.article-list .article-items .content h2 {
-  font-size: 1.5em;
-  line-height: 1.4em;
-}
-.article-list .article-items .content h2 a {
-  text-decoration: none;
-  color: #333333;
-}
-.article-list .article-items .content h2 a:hover {
-  text-decoration: underline;
-}
-.article-list .article-items .content p {
-  font-size: 0.9em;
-  color: #999999;
-}
-.article-list .article-items .content .fa-check-circle {
-  color: #4CAF50;
 }
 .article-list .article-card {
   width: 31.33%;

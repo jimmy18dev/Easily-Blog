@@ -18,7 +18,7 @@
 		float: right;
 		display: inline-block;
 		height: 36px;
-		padding: 10px;
+		padding: 10px 15px;
 
 		img{
 			width: 36px;
@@ -56,14 +56,7 @@
 		color: #DDDDDD;
 
 		&.left{ float: left; }
-
-		&:hover{
-			color: #FFFFFF;
-		}
-
-		&:active{
-			background: #EFEFEF;
-		}
+		&:hover{ color: #FFFFFF; }
 	}
 }
 
@@ -1718,17 +1711,11 @@
 	}
 }
 
-// Article Container
-.article-list{
+.profile-article-list{
 	width: 70%;
 	padding: 0% 15%;
 	float: left;
 	display: inline-block;
-
-	&.related{
-		padding: 10% 15%;
-		background: #EEEEEE;
-	}
 
 	.article-items{
 		width: 100%;
@@ -1784,6 +1771,19 @@
 
 			.fa-check-circle{ color: #4CAF50; }
 		}
+	}
+}
+
+// Article Container
+.article-list{
+	width: 70%;
+	padding: 0% 15%;
+	float: left;
+	display: inline-block;
+
+	&.related{
+		padding: 10% 15%;
+		background: #EEEEEE;
 	}
 
 	// Article Card Style.

@@ -61,7 +61,7 @@ $c_article 	= $article->counter($user->id);
 	</div>
 </div>
 
-<div class="article-list">
+<div class="profile-article-list">
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
