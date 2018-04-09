@@ -25,7 +25,6 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <title><?php echo $article->title;?></title>
 
-<base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
@@ -33,7 +32,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <body>
 
 <div class="profile-header">
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
+	<a class="btn-icon" href="editor.php?article_id=<?php echo $article->id;?>"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="seo">

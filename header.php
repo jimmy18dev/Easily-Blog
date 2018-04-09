@@ -8,6 +8,6 @@
 	<?php }?>
 
 	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
+	<a href="admin/article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
 	<?php }?>
 </header>

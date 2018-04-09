@@ -542,8 +542,8 @@ body {
   padding: 11px 15px;
   padding-bottom: 12px;
   border-radius: 7px;
-  border: 1px solid #4CAF50;
-  color: #4CAF50;
+  background: #4CAF50;
+  color: #FFFFFF;
 }
 .profilehead .control a.btn:active {
   background: #4CAF50;

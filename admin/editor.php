@@ -31,17 +31,16 @@ if($article->owner_id != $user->id){
 
 <title>Edit Article</title>
 
-<base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 <div class="profile-header">
-	<a class="btn left" href="article/<?php echo $article->id;?>"><i class="fal fa-pen"></i><span id="editor-status">เขียนบทความ</span></a>
+	<a class="btn left" href="../article/<?php echo $article->id;?>"><i class="fal fa-pen"></i><span id="editor-status">เขียนบทความ</span></a>
 
-	<a class="btn-icon" href="profile"><i class="fal fa-times"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option"><i class="fal fa-tasks"></i></a>
+	<a class="btn-icon" href="index.php"><i class="fal fa-times"></i></a>
+	<a class="btn-icon" href="editor-option.php?article_id=<?php echo $article->id;?>"><i class="fal fa-tasks"></i></a>
 	<?php if($article->status!='published'){?>
 	<div class="btn-submit active" id="btn-publish"><i class="fal fa-check-circle"></i>เผยแพร่</div>
 	<?php }?>
@@ -52,7 +51,7 @@ if($article->owner_id != $user->id){
 	<header class="article-header <?php echo (!empty($article->head_cover_img)?'with-cover':'');?>">
 		
 		<?php if(!empty($article->head_cover_img)){?>
-		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
+		<img src="../image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
 		<?php }?>
 
 		<span>
@@ -145,7 +144,7 @@ if($article->owner_id != $user->id){
 		<div class="preview">
 			<div class="imgpreview" id="imagePreview<?php echo $var['id'];?>">
 				<?php if(!empty($var['img_location'])){?>
-				<img src="image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>">
+				<img src="../image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>">
 				<?php }else{?>
 				<div class="btn-choose-image">
 					<i class="fa fa-picture-o" aria-hidden="true"></i>

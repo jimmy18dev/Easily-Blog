@@ -22,13 +22,12 @@ $categories = $category->listAll();
 
 <title>เลือกประเภทบทความ</title>
 
-<base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 <header class="profile-header">
-	<a class="btn" href="profile"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
+	<a class="btn" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
 </header>
 
 <div class="choose">

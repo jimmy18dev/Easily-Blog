@@ -2,8 +2,8 @@
 var Article = function (article_id){
 
     //private properties
-    var article_api = 'api/article';
-    var api_document = 'api/document';
+    var article_api = 'api/article.php';
+    var api_document = 'api/document.php';
     var progressbar = $('#progressbar');
     var article_id 	= article_id;
 

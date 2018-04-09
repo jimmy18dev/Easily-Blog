@@ -1,7 +1,7 @@
-var article_api = 'api/article';
+var article_api = 'api/article.php';
 var youtube_key = 'AIzaSyB5KfCVIK9XviNJ9fNYWwAGhZfRskjGQ_M';
 // Allowed file size is less than 15 MB (15728640)
-var max_filesize        = $('#maximumSize').val();
+var max_filesize = $('#maximumSize').val();
 
 $(document).ready(function(){
     $('.autosize').autosize({append: "\n"});

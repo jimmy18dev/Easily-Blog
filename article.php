@@ -36,6 +36,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
+
 <header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
 	<div class="logo"><a href="index.php">Peopleawesome</a></div>
 
@@ -46,8 +47,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 
 	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-	<?php include 'template/header.article.option.php' ?>
-	<a class="btn underline" href="article/<?php echo $article->id;?>/editor">แก้ไขบทความ</a>
+	<a class="btn underline" href="admin/editor.php?article_id=<?php echo $article->id;?>">แก้ไขบทความ</a>
 	<?php }?>
 </header>
 

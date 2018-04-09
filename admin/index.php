@@ -1,10 +1,15 @@
 <?php
 include_once'autoload.php';
 $article = new Article();
-$category = new Category();
-$category_id = $_GET['category_id'];
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
-$categories = $category->listAll();
+
+if(!empty($_GET['status'])){
+	$status = $_GET['status'];
+}else{
+	$status = 'draft';
+}
+
+$articles 	= $article->listAll(NULL,NULL,NULL,$status,$user->id);
+$c_article 	= $article->counter($user->id);
 ?>
 
 <!doctype html>
@@ -23,35 +28,37 @@ $categories = $category->listAll();
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>Easily Blog</title>
+<title><?php echo $user->fullname;?></title>
 
-<base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<?php include_once 'header.php';?>
+<header class="profile-header">
+	<a class="btn" href="../index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
+	<a class="btn-profile" href="index.php"><img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar"></a>
+</header>
 
-<nav class="navigation">
-	<?php foreach ($categories as $var) {?>
-	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
-	<?php } ?>
-</nav>
+<div class="profilehead">
+	<h2><?php echo $user->fullname;?></h2>
+	<div class="control">
+		<a href="choose-category.php" class="btn create">เขียนบทความ</a>
+	</div>
+	<div class="navi">
+		<a href="index.php?status=draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
+		<a href="index.php?status=published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+	</div>
+</div>
 
 <div class="article-list">
 	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
-
-<?php if(count($articles)>0){
-	include_once 'footer.php';
-}?>
-
-<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>

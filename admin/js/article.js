@@ -1,4 +1,4 @@
-var article_api = 'api/article';
+var article_api = 'api/article.php';
 var category_id;
 
 $(document).ready(function(){
