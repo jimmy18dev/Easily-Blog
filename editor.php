@@ -44,7 +44,7 @@ if($article->owner_id != $user->id){
 	<div class="btn-submit active" id="btn-publish">เผยแพร่<i class="fal fa-check"></i></div>
 	<?php }?>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-tasks"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
 </div>
 
 <div class="editor">

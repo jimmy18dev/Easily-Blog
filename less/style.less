@@ -13,11 +13,22 @@
 
 	&.fixed{ position: fixed; top: 0; }
 	&.transparent{ background: transparent; }
-	&.editor-bar{
-		width: 100%;
-		padding: 0%;
-		background: #FFFFFF;
-		.btn{ color: @font_color_topic; }
+
+	a.btn-profile{
+		float: right;
+		display: inline-block;
+		height: 36px;
+		padding: 10px;
+
+		img{
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+		}
+
+		&:hover{
+			cursor: pointer;
+		}
 	}
 
 	.logo{
@@ -35,153 +46,23 @@
 		}
 	}
 
-	.status{
-		float: left;
-		display: inline-block;
-		height: 20px;
-		padding: 18px;
-		line-height: 1em;
-		font-family: @topic_font;
-		font-size: 1.1em;
-		color: @font_color_light;
-
-		&:hover{ cursor: default; }
-	}
-
-	a.btn , .btn{
+	a.btn-icon{
 		float: right;
 		display: inline-block;
 		height: 20px;
-		padding: 18px 24px;
-		line-height: 1em;
-		font-family: @topic_font;
-		background: transparent;
-		position: relative;
-		font-size: 1.1em;
-		text-decoration: none;
-		color: #FFFFFF;
-		margin: 0;
+		padding: 18px 20px;
+		line-height: 1.2em;
+		font-size: 1.2em;
+		color: #DDDDDD;
 
-		&.btn-profile{
-			height: 30px;
-			padding: 13px 0;
+		&.left{ float: left; }
 
-			img{
-				width: 30px;
-				height: 30px;
-				border-radius: 50%;
-			}
-
-			.toggle-panel{
-				right: -50%;
-				.popover-arrow{ right: 12%; }
-			}
-		}
-
-		i{ margin-left: 10px; }
-
-		&.title{ color: @font_color_light; }
-		&.underline:hover{ text-decoration: underline; }
-		&.icon-only{
-			i{
-				margin: 0;
-				font-size: 1.2em;
-			}
-
-			.notif{
-				position: absolute;
-				top: 22%;
-				right: 28%;
-				font-size: 0.6em;
-				color: #F44336;
-			}
-		}
-		&.left{
-			float: left;
-			padding: 18px 0;
-
-			i{
-				float: left;
-				margin: 0px;
-				margin-right: 10px;
-			}
-		}
-
-		&.active{
-			background: @primary_color;
+		&:hover{
 			color: #FFFFFF;
-			border-radius: 20px;
-			padding: 7px 24px;
-			margin: 11px 0;
 		}
 
-		&:hover{ cursor: pointer; }
-
-		.toggle-panel{
-			position: absolute;
-			width: 200px;
-			padding: 10px 0;
-			top: 92%;
-			right: 0%;
-			background: #FFFFFF;
-			border-radius: 5px;
-			z-index: 999;
-			box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-			display: none;
-
-			&.open{ display: block; }
-
-			.popover-arrow{
-				position: absolute;
-				right: 13%;
-				bottom: 100%;
-				transform: rotate(45deg) translate(6px, 6px);
-				content: '';
-				display: block;
-				width: 14px;
-				height: 14px;
-				background: #FFFFFF;
-			}
-
-			ul{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				list-style-type: none;
-				font-size: 1em;
-				font-family: @topic_font;
-
-				li{
-					display: block;
-
-					&.separator{
-						border-top: 1px solid #EEEEEE;
-						padding: 0;
-						margin: 2.5% 0%;
-					}
-
-					a , span{
-						padding: 7% 12%;
-						display: block;
-						text-decoration: none;
-						color: #666666;
-
-						&.delete{ color: #F44336; }
-					}
-
-					&:hover{ background: #EAEAEA; }
-					i.fa-check{
-						color: @primary_color;
-						font-size: 0.7em;
-						margin-left: 5px;
-					}
-					i.fa-circle{
-						color: #F44336;
-						font-size: 0.5em;
-						margin-left: 5px;
-					}
-				}
-			}
+		&:active{
+			background: #EFEFEF;
 		}
 	}
 }
@@ -279,18 +160,16 @@
 	a.btn-profile{
 		float: right;
 		display: inline-block;
-		height: 40px;
-		padding: 8px;
+		height: 36px;
+		padding: 10px;
 
 		img{
-			width: 40px;
-			height: 40px;
+			width: 36px;
+			height: 36px;
 			border-radius: 50%;
 		}
 
-		&:hover{
-			background: #FAFAFA;
-		}
+		&:hover{ background: #FAFAFA; }
 	}
 
 	a.btn-icon{

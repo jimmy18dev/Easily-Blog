@@ -169,13 +169,19 @@ body {
 .header.transparent {
   background: transparent;
 }
-.header.editor-bar {
-  width: 100%;
-  padding: 0%;
-  background: #FFFFFF;
+.header a.btn-profile {
+  float: right;
+  display: inline-block;
+  height: 36px;
+  padding: 10px;
 }
-.header.editor-bar .btn {
-  color: #222222;
+.header a.btn-profile img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+.header a.btn-profile:hover {
+  cursor: pointer;
 }
 .header .logo {
   float: left;
@@ -190,179 +196,23 @@ body {
   text-decoration: none;
   color: #FFFFFF;
 }
-.header .status {
-  float: left;
-  display: inline-block;
-  height: 20px;
-  padding: 18px;
-  line-height: 1em;
-  font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
-  color: #bbbbbb;
-}
-.header .status:hover {
-  cursor: default;
-}
-.header a.btn,
-.header .btn {
+.header a.btn-icon {
   float: right;
   display: inline-block;
   height: 20px;
-  padding: 18px 24px;
-  line-height: 1em;
-  font-family: "maledpan", sans-serif;
-  background: transparent;
-  position: relative;
-  font-size: 1.1em;
-  text-decoration: none;
-  color: #FFFFFF;
-  margin: 0;
-}
-.header a.btn.btn-profile,
-.header .btn.btn-profile {
-  height: 30px;
-  padding: 13px 0;
-}
-.header a.btn.btn-profile img,
-.header .btn.btn-profile img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-.header a.btn.btn-profile .toggle-panel,
-.header .btn.btn-profile .toggle-panel {
-  right: -50%;
-}
-.header a.btn.btn-profile .toggle-panel .popover-arrow,
-.header .btn.btn-profile .toggle-panel .popover-arrow {
-  right: 12%;
-}
-.header a.btn i,
-.header .btn i {
-  margin-left: 10px;
-}
-.header a.btn.title,
-.header .btn.title {
-  color: #bbbbbb;
-}
-.header a.btn.underline:hover,
-.header .btn.underline:hover {
-  text-decoration: underline;
-}
-.header a.btn.icon-only i,
-.header .btn.icon-only i {
-  margin: 0;
+  padding: 18px 20px;
+  line-height: 1.2em;
   font-size: 1.2em;
+  color: #DDDDDD;
 }
-.header a.btn.icon-only .notif,
-.header .btn.icon-only .notif {
-  position: absolute;
-  top: 22%;
-  right: 28%;
-  font-size: 0.6em;
-  color: #F44336;
-}
-.header a.btn.left,
-.header .btn.left {
+.header a.btn-icon.left {
   float: left;
-  padding: 18px 0;
 }
-.header a.btn.left i,
-.header .btn.left i {
-  float: left;
-  margin: 0px;
-  margin-right: 10px;
-}
-.header a.btn.active,
-.header .btn.active {
-  background: #55ce63;
+.header a.btn-icon:hover {
   color: #FFFFFF;
-  border-radius: 20px;
-  padding: 7px 24px;
-  margin: 11px 0;
 }
-.header a.btn:hover,
-.header .btn:hover {
-  cursor: pointer;
-}
-.header a.btn .toggle-panel,
-.header .btn .toggle-panel {
-  position: absolute;
-  width: 200px;
-  padding: 10px 0;
-  top: 92%;
-  right: 0%;
-  background: #FFFFFF;
-  border-radius: 5px;
-  z-index: 999;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  display: none;
-}
-.header a.btn .toggle-panel.open,
-.header .btn .toggle-panel.open {
-  display: block;
-}
-.header a.btn .toggle-panel .popover-arrow,
-.header .btn .toggle-panel .popover-arrow {
-  position: absolute;
-  right: 13%;
-  bottom: 100%;
-  transform: rotate(45deg) translate(6px, 6px);
-  content: '';
-  display: block;
-  width: 14px;
-  height: 14px;
-  background: #FFFFFF;
-}
-.header a.btn .toggle-panel ul,
-.header .btn .toggle-panel ul {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  list-style-type: none;
-  font-size: 1em;
-  font-family: "maledpan", sans-serif;
-}
-.header a.btn .toggle-panel ul li,
-.header .btn .toggle-panel ul li {
-  display: block;
-}
-.header a.btn .toggle-panel ul li.separator,
-.header .btn .toggle-panel ul li.separator {
-  border-top: 1px solid #EEEEEE;
-  padding: 0;
-  margin: 2.5% 0%;
-}
-.header a.btn .toggle-panel ul li a,
-.header .btn .toggle-panel ul li a,
-.header a.btn .toggle-panel ul li span,
-.header .btn .toggle-panel ul li span {
-  padding: 7% 12%;
-  display: block;
-  text-decoration: none;
-  color: #666666;
-}
-.header a.btn .toggle-panel ul li a.delete,
-.header .btn .toggle-panel ul li a.delete,
-.header a.btn .toggle-panel ul li span.delete,
-.header .btn .toggle-panel ul li span.delete {
-  color: #F44336;
-}
-.header a.btn .toggle-panel ul li:hover,
-.header .btn .toggle-panel ul li:hover {
-  background: #EAEAEA;
-}
-.header a.btn .toggle-panel ul li i.fa-check,
-.header .btn .toggle-panel ul li i.fa-check {
-  color: #55ce63;
-  font-size: 0.7em;
-  margin-left: 5px;
-}
-.header a.btn .toggle-panel ul li i.fa-circle,
-.header .btn .toggle-panel ul li i.fa-circle {
-  color: #F44336;
-  font-size: 0.5em;
-  margin-left: 5px;
+.header a.btn-icon:active {
+  background: #EFEFEF;
 }
 .navigation {
   width: 70%;
@@ -446,12 +296,12 @@ body {
 .profile-header a.btn-profile {
   float: right;
   display: inline-block;
-  height: 40px;
-  padding: 8px;
+  height: 36px;
+  padding: 10px;
 }
 .profile-header a.btn-profile img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 .profile-header a.btn-profile:hover {
