@@ -50,7 +50,7 @@ $(document).ready(function(){
         if(!category_id) return false;
 
         $btnStartWrite.removeClass('active');
-        $btnStartWrite.html('กำลังสร้าง<i class="fal fa-spinner fa-pulse"></i>');
+        $btnStartWrite.html('รอสักครู่<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
 
         // Create new Article.
         article.create(category_id)
