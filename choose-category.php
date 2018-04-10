@@ -28,7 +28,7 @@ $categories = $category->listAll();
 </head>
 <body>
 <header class="profile-header">
-	<a href="index.php" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
+	<a href="profile" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
 </header>
 
 <div class="choose">

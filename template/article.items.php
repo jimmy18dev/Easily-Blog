@@ -1,7 +1,7 @@
 <article class="article-items">
 	<div class="content">
 		<header>
-			<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
+			<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
 		</header>
 		<p class="info">
 			<?php if($var['status'] == 'published'){?>
@@ -13,7 +13,7 @@
 	</div>
 	<?php if(!empty($var['cover_id'])){?>
 	<figure class="thumbnail">
-		<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
+		<a href="article/<?php echo $var['id'];?>/editor">
 			<img src="image/upload/<?php echo $var['id'];?>/square/<?php echo $var['cover_img'];?>" alt="">
 		</a>
 	</figure>
