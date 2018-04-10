@@ -4,7 +4,7 @@
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
 	<?php }else{?>
-	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right"></i></a>
 	<?php }?>
 
 	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
