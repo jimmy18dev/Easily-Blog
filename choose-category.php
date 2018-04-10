@@ -34,6 +34,7 @@ $categories = $category->listAll();
 <div class="pagehead">
 	<div class="content">
 		<h2>เลือกประเภทบทความ</h2>
+		<p>คลิกเลือกที่คุณต้องการ</p>
 	</div>
 </div>
 

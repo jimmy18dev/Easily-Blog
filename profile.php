@@ -52,12 +52,13 @@ $c_article 	= $article->counter($user->id);
 
 <div class="pagehead">
 	<div class="content">
-		<h2>บทความ</h2>
-		<a href="article/create" class="btn create">เขียนบทความ</a>
+		<h2>คลังบทความ</h2>
 	</div>
 	<div class="navi">
 		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
 		<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
+
+		<a href="article/create" class="btn-create"><i class="fal fa-plus"></i>เขียนบทความใหม่</a>
 	</div>
 </div>
 

@@ -37,13 +37,13 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header">
-	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
+	<a class="btn" href="profile" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
 
 	<?php if($article->status!='published'){?>
-	<div class="btn-submit active" id="btn-publish">เผยแพร่<i class="fal fa-paper-plane"></i></div>
+	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>
 	<?php }?>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-cog"></i></a>
 	<a class="btn-icon delete" id="btn-remove" href="#" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
 </div>
 
@@ -111,10 +111,10 @@ if($article->owner_id != $user->id){
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
 		</div>
 
-		<i class="fa fa-quote-left" aria-hidden="true"></i>
+		<i class="fal fa-quote-left" aria-hidden="true"></i>
 		<textarea class="body quote-body autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
 		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" title="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
-		<i class="fa fa-quote-right" aria-hidden="true"></i>
+		<i class="fal fa-quote-right" aria-hidden="true"></i>
 	</div>
 	<?php }else if($var['type'] == 'map'){?>
 	<div class="content google-map" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">

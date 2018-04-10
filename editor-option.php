@@ -35,6 +35,13 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
 </div>
 
+<div class="pagehead">
+	<div class="content">
+		<h2>เพิ่มประสิทธิภาพ</h2>
+		<p><strong>บทความ:</strong> <?php echo $article->title;?></p>
+	</div>
+</div>
+
 <div class="seo">
 	<div class="section" id="cover">
 		<h2>1. ภาพหน้าปก (Cover)</h2>
