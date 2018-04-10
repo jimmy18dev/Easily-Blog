@@ -31,7 +31,7 @@ $c_article 	= $article->counter($user->id);
 <title><?php echo $user->fullname;?></title>
 
 <base href="<?php echo DOMAIN;?>">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>

@@ -26,7 +26,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <title><?php echo $article->title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
