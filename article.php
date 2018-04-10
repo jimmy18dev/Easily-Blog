@@ -32,7 +32,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
@@ -46,8 +45,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 
 	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-	<?php include 'template/header.article.option.php' ?>
-	<a class="btn underline" href="article/<?php echo $article->id;?>/editor">แก้ไขบทความ</a>
+	<?php // include 'template/header.article.option.php' ?>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ"><i class="fal fa-edit"></i></a>
 	<?php }?>
 </header>
 

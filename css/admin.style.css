@@ -152,65 +152,6 @@ body {
   -moz-transition: height 0.2s;
   transition: height 0.2s;
 }
-.header {
-  width: 70%;
-  padding: 0% 15%;
-  float: left;
-  display: inline-block;
-  height: 56px;
-  background: #222222;
-  position: relative;
-  z-index: 999;
-}
-.header.fixed {
-  position: fixed;
-  top: 0;
-}
-.header.transparent {
-  background: transparent;
-}
-.header a.btn-profile {
-  float: right;
-  display: inline-block;
-  height: 36px;
-  padding: 10px 15px;
-}
-.header a.btn-profile img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-.header a.btn-profile:hover {
-  cursor: pointer;
-}
-.header .logo {
-  float: left;
-  display: inline-block;
-  height: 30px;
-  padding: 13px 0;
-}
-.header .logo a {
-  font-family: 'Oleo Script', sans-serif;
-  font-size: 1.5em;
-  line-height: 1.2em;
-  text-decoration: none;
-  color: #FFFFFF;
-}
-.header a.btn-icon {
-  float: right;
-  display: inline-block;
-  height: 20px;
-  padding: 18px 20px;
-  line-height: 1.2em;
-  font-size: 1.2em;
-  color: #DDDDDD;
-}
-.header a.btn-icon.left {
-  float: left;
-}
-.header a.btn-icon:hover {
-  color: #FFFFFF;
-}
 .navigation {
   width: 70%;
   padding: 0 15%;
@@ -324,6 +265,9 @@ body {
 .profile-header a.btn-icon:active {
   background: #EFEFEF;
 }
+.profile-header a.btn-icon.delete {
+  color: #F44336;
+}
 .navigation {
   width: 70%;
   padding: 0 15%;
@@ -382,7 +326,7 @@ body {
   line-height: 1em;
   padding: 14px;
   border-radius: 5px;
-  background: #4CAF50;
+  background: #2962FF;
   color: #FFFFFF;
   box-shadow: 0px 2px 5px rgba(120, 120, 120, 0.2);
 }
@@ -873,17 +817,17 @@ body {
   background: #FFFFFF;
   font-size: 1.4em;
   color: #666666;
-  border-bottom: 1px solid #FAFAFA;
+  border-bottom: 2px solid #FAFAFA;
 }
 .choose .list .choose-category.active {
-  color: #4CAF50;
-  border-bottom: 1px solid #4CAF50;
+  color: #2962FF;
+  border-bottom: 2px solid #2962FF;
 }
 .choose .list .choose-category.active:hover {
-  color: #4CAF50;
+  color: #2962FF;
 }
 .choose .list .choose-category.active .selected {
-  color: #4CAF50;
+  color: #2962FF;
 }
 .choose .list .choose-category:hover {
   cursor: pointer;
@@ -928,7 +872,7 @@ body {
   cursor: default;
 }
 .choose .btn-submit.active {
-  background: #4CAF50;
+  background: #2962FF;
   color: #FFFFFF;
   box-shadow: 0px 2px 5px rgba(120, 120, 120, 0.2);
 }
@@ -1803,11 +1747,6 @@ body {
   display: inline-block;
   border-radius: 5px;
 }
-.profile-article-list .article-items .thumbnail i {
-  margin-left: 20%;
-  font-size: 2.6em;
-  color: #EEEEEE;
-}
 .profile-article-list .article-items .content {
   width: 92%;
   float: left;
@@ -1826,7 +1765,7 @@ body {
 }
 .profile-article-list .article-items .content p {
   font-size: 0.9em;
-  color: #999999;
+  color: #666666;
   margin-top: 0.5%;
 }
 .profile-article-list .article-items .content p:hover {
@@ -1839,6 +1778,7 @@ body {
 }
 .profile-article-list .article-items .content p span i {
   margin-right: 5px;
+  color: #2962FF;
 }
 .article-list {
   width: 70%;

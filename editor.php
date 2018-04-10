@@ -32,20 +32,19 @@ if($article->owner_id != $user->id){
 <title>Edit Article</title>
 
 <base href="<?php echo DOMAIN;?>">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<div class="editorbar">
-	<a class="btn-icon left" href="index.php"><i class="fal fa-pen"></i></a>
-	<div class="status" id="editor-status">เขียนบทความ</div>
+<div class="profile-header">
+	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
 
-	<a class="btn-icon" href="article/<?php echo $article->id;?>"><i class="fal fa-times"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>"><i class="fal fa-ellipsis-h"></i></a>
 	<?php if($article->status!='published'){?>
-	<div class="btn active" id="btn-publish">เผยแพร่บทความ</div>
+	<div class="btn-submit active" id="btn-publish">เผยแพร่<i class="fal fa-paper-plane"></i></div>
 	<?php }?>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
+	<a class="btn-icon delete" href="article/<?php echo $article->id;?>/option" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
 </div>
 
 <div class="editor">
@@ -139,7 +138,7 @@ if($article->owner_id != $user->id){
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
-			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>" title="หมุนรูปภาพ"><i class="fa fa-repeat" aria-hidden="true"></i></div>
+			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>" title="หมุนรูปภาพ"><i class="fa fa-redo" aria-hidden="true"></i></div>
 			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><span>เลือกภาพใหม่</span></div>
 		</div>
 
