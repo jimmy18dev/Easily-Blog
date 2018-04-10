@@ -35,7 +35,7 @@ $c_article 	= $article->counter($user->id);
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="profile-header">
+<header class="header">
 	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
 	<?php if($user_online){?>
 	<a class="btn-profile" href="profile">
@@ -50,10 +50,10 @@ $c_article 	= $article->counter($user->id);
 	<?php }?>
 </header>
 
-<div class="profilehead">
+<div class="pagehead">
 	<div class="content">
 		<h2>บทความ</h2>
-		<a href="article/create" class="btn create"><i class="fal fa-plus"></i>เขียนบทความ</a>
+		<a href="article/create" class="btn create">เขียนบทความ</a>
 	</div>
 	<div class="navi">
 		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
@@ -61,7 +61,7 @@ $c_article 	= $article->counter($user->id);
 	</div>
 </div>
 
-<div class="profile-article-list">
+<div class="article-list">
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>

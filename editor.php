@@ -36,7 +36,7 @@ if($article->owner_id != $user->id){
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<div class="profile-header">
+<div class="header">
 	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
 
 	<?php if($article->status!='published'){?>
@@ -44,7 +44,7 @@ if($article->owner_id != $user->id){
 	<?php }?>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
-	<a class="btn-icon delete" href="article/<?php echo $article->id;?>/option" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
+	<a class="btn-icon delete" id="btn-remove" href="#" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
 </div>
 
 <div class="editor">

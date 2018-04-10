@@ -31,7 +31,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </head>
 <body>
 
-<div class="profile-header">
+<div class="header">
 	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
 </div>
 

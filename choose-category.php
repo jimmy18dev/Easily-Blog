@@ -27,12 +27,17 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="profile-header">
+<header class="header">
 	<a href="profile" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
 </header>
 
+<div class="pagehead">
+	<div class="content">
+		<h2>เลือกประเภทบทความ</h2>
+	</div>
+</div>
+
 <div class="choose">
-	<h2>เลือกประเภทบทความ</h2>
 	<div class="list">
 		<?php foreach ($categories as $var) {?>
 		<div class="choose-category" data-id="<?php echo $var['id'];?>">
