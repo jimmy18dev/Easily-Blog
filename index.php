@@ -28,7 +28,7 @@ $categories = $category->listAll();
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 <?php include_once 'header.php';?>
@@ -39,7 +39,28 @@ $categories = $category->listAll();
 	<?php } ?>
 </nav>
 
+<div class="cover">
+	<img src="image/cover.jpg" alt="">
+
+	<header>
+		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
+		<p>Occupational and Environmental medicine</p>
+	</header>
+</div>
+
 <div class="article-list">
+	<h3><i class="fal fa-jack-o-lantern"></i>Art & Design</h3>
+
+	<?php if(count($articles) > 0){?>
+	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php }else{?>
+	<div class="empty">ไม่พบบทความ</div>
+	<?php }?>
+</div>
+
+<div class="article-list">
+	<h3><i class="fal fa-alarm-clock"></i>Design Inspiration</h3>
+
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
 	<?php }else{?>

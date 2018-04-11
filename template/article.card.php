@@ -35,10 +35,6 @@
 	<div class="info">
 		<span><?php echo $var['category_title'];?></span>
 		<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
-
-		<?php if($var['owner_id'] == $user->id){?>
-		<a href="article/<?php echo $var['id'];?>/editor" class="btn-edit">แก้ไข</a>
-		<?php }?>
 	</div>
 </article>
 <?php }?>
