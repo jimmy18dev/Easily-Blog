@@ -33,23 +33,22 @@ $categories = $category->listAll();
 <body>
 <?php include_once 'header.php';?>
 
+<div class="cover">
+	<img src="image/cover.jpg" alt="">
+	<div class="content">
+		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
+		<p>Occupational and Environmental medicine</p>
+	</div>
+	<div class="filter"></div>
+</div>
 <nav class="navigation">
 	<?php foreach ($categories as $var) {?>
 	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
 	<?php } ?>
 </nav>
 
-<div class="cover">
-	<img src="image/cover.jpg" alt="">
-
-	<header>
-		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-		<p>Occupational and Environmental medicine</p>
-	</header>
-</div>
-
 <div class="article-list">
-	<h3><i class="fal fa-jack-o-lantern"></i>Art & Design</h3>
+	<h3>Art & Design</h3>
 
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
@@ -59,7 +58,7 @@ $categories = $category->listAll();
 </div>
 
 <div class="article-list">
-	<h3><i class="fal fa-alarm-clock"></i>Design Inspiration</h3>
+	<h3>Design Inspiration</h3>
 
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>

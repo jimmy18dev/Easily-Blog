@@ -158,7 +158,7 @@ body {
   float: left;
   display: inline-block;
   height: 56px;
-  background: #222222;
+  background: #ff6d00;
   position: relative;
   z-index: 999;
 }
@@ -211,46 +211,14 @@ body {
 .header a.btn-icon:hover {
   color: #FFFFFF;
 }
-.cover {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  position: relative;
-}
-.cover img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.cover header {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: 20%;
-  text-align: center;
-  font-family: "maledpan", sans-serif;
-  color: #FFFFFF;
-}
-.cover header h1 {
-  font-size: 5em;
-  line-height: 1.2em;
-  text-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
-}
-.cover header p {
-  font-size: 2em;
-  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-}
 .navigation {
   width: 70%;
   padding: 0 15%;
   height: 56px;
-  margin-top: 56px;
   float: left;
   display: inline-block;
-  background: #222222;
+  background: #FFFFFF;
+  border-bottom: 2px solid #EEEEEE;
 }
 .navigation a {
   float: left;
@@ -258,16 +226,62 @@ body {
   font-family: "maledpan", sans-serif;
   font-size: 1.2em;
   line-height: 1em;
-  height: 18px;
+  height: 20px;
   padding: 18px 0px;
-  margin-right: 2%;
+  margin-right: 3%;
   text-decoration: none;
-  color: #bbbbbb;
+  color: #333333;
   border-bottom: 2px solid transparent;
 }
 .navigation a.active {
+  color: #FF6D00;
+  border-bottom: 2px solid #FF6D00;
+}
+.cover {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  margin-top: 56px;
+}
+.cover img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.cover .filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ff6d00 30%, rgba(255, 109, 0, 0.65) 100%);
+  background: -webkit-linear-gradient(top, #ff6d00 30%, rgba(255, 109, 0, 0.65) 100%);
+  background: linear-gradient(to bottom, #ff6d00 30%, rgba(255, 109, 0, 0.65) 100%);
+  z-index: 1;
+}
+.cover .content {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 10%;
+  text-align: center;
+  font-family: "maledpan", sans-serif;
   color: #FFFFFF;
-  border-bottom: 2px solid #FFFFFF;
+  z-index: 2;
+}
+.cover .content h1 {
+  font-size: 3em;
+  line-height: 1.2em;
+}
+.cover .content p {
+  font-size: 2em;
 }
 .pagehead {
   width: 80%;
