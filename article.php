@@ -60,17 +60,23 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<div class="article-cover">
 		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
 		<header class="article-header">
-			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 			<h1><?php echo $article->title;?></h1>
-			<p class="time"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
+			<p class="info">
+				<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
+				<span><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+				<span><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></span>
+			</p>
 		</header>
 	</div>
 	<?php }else{?>
 	<!-- Article Header -->
 	<header class="article-header">
-		<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
 		<h1><?php echo $article->title;?></h1>
-		<p class="info"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
+		<p class="info">
+			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
+			<span><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+			<span><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></span>
+		</p>
 
 		<?php if(!empty($article->description)){?>
 		<p class="desc"><?php echo $article->description;?></p>
@@ -146,9 +152,9 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </article>
 
-<div class="article-list related">
+<div class="article-related">
 	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+	<?php foreach ($articles as $var) { include 'template/article.related.php'; } ?>
 	<?php }?>
 </div>
 
