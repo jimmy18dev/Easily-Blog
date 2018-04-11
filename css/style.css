@@ -162,10 +162,6 @@ body {
   position: relative;
   z-index: 999;
 }
-.header.fixed {
-  position: fixed;
-  top: 0;
-}
 .header.transparent {
   background: transparent;
 }
@@ -196,19 +192,27 @@ body {
   text-decoration: none;
   color: #FFFFFF;
 }
-.header a.btn-icon {
+.header .logo span {
+  margin-left: 15px;
+}
+.header a.btn {
   float: right;
   display: inline-block;
   height: 20px;
   padding: 18px 20px;
-  line-height: 1.2em;
-  font-size: 1.2em;
-  color: #DDDDDD;
+  line-height: 1em;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-family: "maledpan", sans-serif;
+  text-decoration: none;
 }
-.header a.btn-icon.left {
-  float: left;
+.header a.btn.btn-phone i {
+  margin-right: 10px;
 }
-.header a.btn-icon:hover {
+.header a.btn.btn-login i {
+  margin-left: 10px;
+}
+.header a.btn:hover {
   color: #FFFFFF;
 }
 .navigation {
@@ -218,7 +222,7 @@ body {
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-bottom: 2px solid #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
 }
 .navigation a {
   float: left;
@@ -231,11 +235,14 @@ body {
   margin-right: 3%;
   text-decoration: none;
   color: #333333;
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 .navigation a.active {
   color: #FF6D00;
-  border-bottom: 2px solid #FF6D00;
+  border-bottom: 1px solid #FF6D00;
+}
+.navigation a.right {
+  float: right;
 }
 .cover {
   width: 100%;
@@ -243,8 +250,7 @@ body {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  height: 500px;
-  margin-top: 56px;
+  height: 550px;
 }
 .cover img {
   width: 100%;
@@ -270,7 +276,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 10%;
+  margin-top: 9%;
   text-align: center;
   font-family: "maledpan", sans-serif;
   color: #FFFFFF;
@@ -282,6 +288,28 @@ body {
 }
 .cover .content p {
   font-size: 2em;
+}
+.cover .content a {
+  width: 10%;
+  display: inline-block;
+  background: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 20px;
+  line-height: 1em;
+  font-size: 1.4em;
+  border-radius: 5px;
+  color: #F55704;
+  margin: 0 10px;
+  margin-top: 5%;
+  border: 2px solid #FFFFFF;
+}
+.cover .content a i {
+  margin-left: 15px;
+}
+.cover .content a.btn-ghost {
+  background: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
 }
 .pagehead {
   width: 80%;
