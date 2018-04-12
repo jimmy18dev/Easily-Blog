@@ -168,7 +168,7 @@ body {
 .header a.btn-profile {
   float: right;
   display: inline-block;
-  padding: 10px;
+  padding: 10px 0;
   height: 36px;
   color: #FFFFFF;
 }
@@ -205,7 +205,7 @@ body {
 .header .logo span {
   margin-left: 15px;
 }
-.header a.btn {
+.header a.btn-icon {
   float: right;
   display: inline-block;
   height: 20px;
@@ -216,13 +216,13 @@ body {
   font-family: "maledpan", sans-serif;
   text-decoration: none;
 }
-.header a.btn.btn-phone i {
+.header a.btn-icon.btn-phone i {
   margin-right: 10px;
 }
-.header a.btn.btn-login i {
+.header a.btn-icon.btn-login i {
   margin-left: 10px;
 }
-.header a.btn:hover {
+.header a.btn-icon:hover {
   color: #FFFFFF;
 }
 .navigation {
@@ -250,9 +250,6 @@ body {
 .navigation a.active {
   color: #FF6D00;
   border-bottom: 1px solid #FF6D00;
-}
-.navigation a.right {
-  float: right;
 }
 .cover {
   width: 100%;
@@ -436,6 +433,32 @@ body {
   float: left;
   display: inline-block;
 }
+.article .article-header .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+}
+.article .article-header .control a.btn-icon {
+  float: right;
+  display: inline-block;
+  color: #999999;
+  background: #F5F5F5;
+  padding: 10px 12px;
+  line-height: 1em;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: "maledpan", sans-serif;
+  text-decoration: none;
+  margin-left: 10px;
+  border: 1px solid #EEEEEE;
+}
+.article .article-header .control a.btn-icon span {
+  margin-left: 5px;
+}
+.article .article-header .control a.btn-icon:hover {
+  background: #EEEEEE;
+}
 .article .article-header h1 {
   font-size: 3em;
   font-family: "maledpan", sans-serif;
@@ -515,6 +538,20 @@ body {
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+}
+.article .article-cover .article-header .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+}
+.article .article-cover .article-header .control a.btn-icon {
+  color: #FFFFFF;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+}
+.article .article-cover .article-header .control a.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 .article .article-cover .article-header h1 {
   color: #FFFFFF;

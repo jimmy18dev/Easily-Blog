@@ -18,7 +18,7 @@
 	a.btn-profile{
 		float: right;
 		display: inline-block;
-		padding: 10px;
+		padding: 10px 0;
 		height: 36px;
 		color: #FFFFFF;
 
@@ -61,7 +61,7 @@
 		}
 	}
 
-	a.btn{
+	a.btn-icon{
 		float: right;
 		display: inline-block;
 		height: 20px;
@@ -114,7 +114,8 @@
 		}
 
 		&.right{
-			float: right;
+			// float: right;
+			// margin-right: 0;
 		}
 	}
 }
@@ -320,6 +321,36 @@
 		float: left;
 		display: inline-block;
 
+		.control{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-bottom: 2%;
+
+			a.btn-icon{
+				float: right;
+				display: inline-block;
+				color: #999999;
+				background: #F5F5F5;
+				padding: 10px 12px;
+				line-height: 1em;
+				border-radius: 5px;
+				font-size: 1em;
+				font-family: @topic_font;
+				text-decoration: none;
+				margin-left: 10px;
+				border: 1px solid #EEEEEE;
+
+				span{
+					margin-left: 5px;
+				}
+
+				&:hover{
+					background: #EEEEEE;
+				}
+			}
+		}
+
 		h1{
 			font-size: 3em;
 			font-family: @topic_font;
@@ -400,6 +431,21 @@
 			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
 			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+
+			.control{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				margin-bottom: 2%;
+
+				a.btn-icon{
+					color: #FFFFFF;
+					background: transparent;
+					border: 1px solid #FFFFFF;
+
+					&:hover{ background: rgba(255,255,255,0.3); }
+				}
+			}
 
 			h1{ color: #FFFFFF; text-shadow: 0px 5px 20px rgba(0,0,0,0.3); }
 
