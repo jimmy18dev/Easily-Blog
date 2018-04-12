@@ -33,18 +33,6 @@ $categories = $category->listAll();
 <body>
 <?php include_once 'header.php';?>
 
-<?php if(empty($category_id)){?>
-<div class="cover">
-	<img src="image/cover.jpg" alt="">
-	<div class="content">
-		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-		<p>Occupational and Environmental medicine</p>
-		<a href="#" class="btn">บทความล่าสุด</a>
-		<a href="#" class="btn btn-ghost">ติดต่อเรา</a>
-	</div>
-	<div class="filter"></div>
-</div>
-<?php }?>
 <nav class="navigation">
 	<?php foreach ($categories as $var) {?>
 	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
@@ -54,27 +42,6 @@ $categories = $category->listAll();
 </nav>
 
 <div class="section">
-	<h3>บทความล่าสุด</h3>
-	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-		<?php }else{?>
-		<div class="empty">ไม่พบบทความ</div>
-		<?php }?>
-	</div>
-</div>
-<div class="section">
-	<h3>บทความล่าสุด</h3>
-	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-		<?php }else{?>
-		<div class="empty">ไม่พบบทความ</div>
-		<?php }?>
-	</div>
-</div>
-<div class="section">
-	<h3>บทความล่าสุด</h3>
 	<div class="lists">
 		<?php if(count($articles) > 0){?>
 		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
