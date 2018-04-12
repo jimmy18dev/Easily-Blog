@@ -168,16 +168,26 @@ body {
 .header a.btn-profile {
   float: right;
   display: inline-block;
+  padding: 10px;
   height: 36px;
-  padding: 10px 15px;
+  color: #FFFFFF;
 }
 .header a.btn-profile img {
+  float: left;
+  display: inline-block;
   width: 36px;
   height: 36px;
   border-radius: 50%;
 }
+.header a.btn-profile span {
+  float: left;
+  display: inline-block;
+  margin-top: 6px;
+  margin-left: 10px;
+}
 .header a.btn-profile:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 .header .logo {
   float: left;
