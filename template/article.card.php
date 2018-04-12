@@ -13,8 +13,8 @@
 		</header>
 	</div>
 	<div class="info">
-		<span><?php echo $var['category_title'];?></span>
-		<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
+		<span><i class="fal fa-archive"></i><?php echo $var['category_title'];?></span>
+		<span><i class="fal fa-clock"></i><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
 	</div>
 </article>
 <?php }else{?>
@@ -33,8 +33,8 @@
 		</header>
 	</div>
 	<div class="info">
-		<span><?php echo $var['category_title'];?></span>
-		<span><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
+		<span><i class="fal fa-archive"></i><?php echo $var['category_title'];?></span>
+		<span><i class="fal fa-clock"></i><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
 	</div>
 </article>
 <?php }?>

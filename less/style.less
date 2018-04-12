@@ -126,7 +126,7 @@
 	display: inline-block;
 	position: relative;
 	overflow: hidden;
-	height: 550px;
+	height: 600px;
 	// margin-top: 56px;
 
 	img{
@@ -166,7 +166,7 @@
 			line-height: 1.2em;
 		}
 		p{
-			font-size: 2em;
+			font-size: 1.6em;
 		}
 		a{
 			width: 10%;
@@ -846,13 +846,17 @@
 			border-top: 1px solid #EEEEEE;
 			position: relative;
 
-			i{ margin-right: 5px; }
+			i{ margin-right: 5px; color: #F55704; }
 
 			span{
 				float: left;
 				display: inline-block;
 				margin-right: 5%;
 				color: @font_color_light;
+				max-width: 45%;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 
 				&:hover{ cursor: default; }
 			}
@@ -975,8 +979,7 @@
 
 .footer{
 	width: 70%;
-	padding: 3% 15%;
-	padding-top: 5%;
+	padding: 1% 15%;
 	float: left;
 	display: inline-block;
 	font-family: @topic_font;

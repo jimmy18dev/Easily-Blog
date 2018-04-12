@@ -165,6 +165,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </div>
 
+<?php include_once 'footer.php';?>
+
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 <div id="progressbar"></div>
 

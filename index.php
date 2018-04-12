@@ -55,22 +55,13 @@ $categories = $category->listAll();
 
 <div class="article-list">
 	<h3>บทความ</h3>
-
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
-	<?php }?>
-</div>
-
-<div class="article-list">
-	<h3>Design Inspiration</h3>
-
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
-	<?php }?>
+	<div>
+		<?php if(count($articles) > 0){?>
+		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php }else{?>
+		<div class="empty">ไม่พบบทความ</div>
+		<?php }?>
+	</div>
 </div>
 
 <?php if(count($articles)>0){

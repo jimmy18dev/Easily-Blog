@@ -257,7 +257,7 @@ body {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  height: 550px;
+  height: 600px;
 }
 .cover img {
   width: 100%;
@@ -291,7 +291,7 @@ body {
   line-height: 1.2em;
 }
 .cover .content p {
-  font-size: 2em;
+  font-size: 1.6em;
 }
 .cover .content a {
   width: 10%;
@@ -962,12 +962,17 @@ body {
 }
 .article-list .article-card .info i {
   margin-right: 5px;
+  color: #F55704;
 }
 .article-list .article-card .info span {
   float: left;
   display: inline-block;
   margin-right: 5%;
   color: #bbbbbb;
+  max-width: 45%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .article-list .article-card .info span:hover {
   cursor: default;
@@ -1087,8 +1092,7 @@ body {
 }
 .footer {
   width: 70%;
-  padding: 3% 15%;
-  padding-top: 5%;
+  padding: 1% 15%;
   float: left;
   display: inline-block;
   font-family: "maledpan", sans-serif;
