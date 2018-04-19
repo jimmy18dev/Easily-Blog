@@ -8,6 +8,6 @@
 	<?php if($user_online){?>
 	<?php include 'template/header.profile.php';?>
 	<?php }else{?>
-	<a href="signin" class="btn btn-login"><span>สำหรับเจ้าหน้าที่</span><i class="fal fa-angle-right"></i></a>
+	<a href="signin" class="btn"><span>สำหรับเจ้าหน้าที่</span><i class="fal fa-angle-right"></i></a>
 	<?php }?>
 </header>

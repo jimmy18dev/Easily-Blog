@@ -205,6 +205,20 @@ body {
 .header .logo span {
   margin-left: 15px;
 }
+.header a.btn {
+  float: right;
+  display: inline-block;
+  height: 20px;
+  padding: 18px 20px;
+  line-height: 1em;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-family: "maledpan", sans-serif;
+  text-decoration: none;
+}
+.header a.btn i {
+  margin-left: 10px;
+}
 .header a.btn-icon {
   float: right;
   display: inline-block;
@@ -1077,6 +1091,129 @@ body {
   float: right;
   display: inline-block;
   text-align: right;
+}
+.page-nav {
+  position: fixed;
+  top: 112px;
+  right: 15%;
+  width: 10%;
+  padding: 0% 3%;
+  margin-top: 2.8%;
+  border-left: 1px solid #EEEEEE;
+}
+.page-nav a {
+  width: 100%;
+  padding: 3% 0;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.2em;
+  color: #666666;
+}
+.page-nav a.active {
+  color: #F55704;
+}
+.about {
+  width: 50%;
+  margin-left: 15%;
+  float: left;
+  display: inline-block;
+}
+.about .content {
+  width: 100%;
+  padding: 5% 0%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.about .content h1 {
+  font-size: 2em;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+.about .content p {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+.about .content figure {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.about .content figure img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.about .content iframe {
+  width: 100%;
+  height: 500px;
+  float: left;
+  display: inline-block;
+}
+.about .content .contact {
+  width: 90%;
+  padding: 3% 5%;
+  float: left;
+  display: inline-block;
+  background: #FAFAFA;
+  margin-bottom: 1%;
+  border-radius: 5px;
+  font-family: "maledpan", sans-serif;
+}
+.about .content .contact .c {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+}
+.about .content .contact .v {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+}
+.about .content .contact a {
+  color: #F55704;
+}
+.about .person {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.about .person .thumbnail {
+  width: 20%;
+  margin-right: 10%;
+  float: left;
+  display: inline-block;
+}
+.about .person .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+}
+.about .person .info {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.about .person .info h2 {
+  font-size: 1.6em;
+}
+.about .person .info .position {
+  font-size: 0.9em;
+  color: #FF6D00;
+}
+.about .person .info .bio {
+  width: 100%;
+  display: inline-block;
+  font-size: 1em;
 }
 .loginhead {
   width: 100%;

@@ -32,8 +32,6 @@ $categories = $category->listAll();
 </head>
 <body>
 <?php include_once 'header.php';?>
-
-<?php if(empty($category_id)){?>
 <div class="cover">
 	<img src="image/cover.jpg" alt="">
 	<div class="content">
@@ -44,14 +42,8 @@ $categories = $category->listAll();
 	</div>
 	<div class="filter"></div>
 </div>
-<?php }?>
-<nav class="navigation">
-	<?php foreach ($categories as $var) {?>
-	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
-	<?php } ?>
 
-	<a class="right" href="#">เกี่ยวกับเรา</a>
-</nav>
+<?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
 	<h3>บทความล่าสุด</h3>

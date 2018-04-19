@@ -32,14 +32,7 @@ $categories = $category->listAll();
 </head>
 <body>
 <?php include_once 'header.php';?>
-
-<nav class="navigation">
-	<?php foreach ($categories as $var) {?>
-	<a class="<?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
-	<?php } ?>
-
-	<a class="right" href="#">เกี่ยวกับเรา</a>
-</nav>
+<?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
 	<div class="lists">
@@ -54,9 +47,6 @@ $categories = $category->listAll();
 <?php if(count($articles)>0){
 	include_once 'footer.php';
 }?>
-
-<div id="progressbar"></div>
-
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </body>

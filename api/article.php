@@ -35,7 +35,7 @@ switch ($_SERVER['REQUEST_METHOD']){
     			$article_id = $article->create($user->id,$category_id);
 
                 // $article->createContent($user->id,$article_id,'image',NULL);
-                // $article->createContent($user->id,$article_id,'textbox',NULL);
+                $article->createContent($user->id,$article_id,'textbox',NULL);
 
     			$returnObject['article_id'] = floatval($article_id);
     			$returnObject['message'] 	= 'New Article created';

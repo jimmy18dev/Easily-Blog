@@ -159,7 +159,7 @@ body {
   display: inline-block;
   height: 56px;
   z-index: 999;
-  background: #FAFAFA;
+  background: #EEEEEE;
 }
 .header .btn-submit {
   float: right;
@@ -234,6 +234,7 @@ body {
 }
 .header a.btn-icon:hover {
   color: #000000;
+  cursor: pointer;
 }
 .header a.btn-icon:active {
   background: #EFEFEF;
@@ -246,7 +247,7 @@ body {
   padding: 0 20%;
   float: left;
   display: inline-block;
-  background: #FAFAFA;
+  background: #EEEEEE;
 }
 .pagehead .content {
   width: 100%;

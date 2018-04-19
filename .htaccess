@@ -30,12 +30,13 @@ RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
 ### SEARCH
 RewriteRule ^search$ 					/search.php [QSA,L]
 
-RewriteRule ^signin$ /login.php [L]
-RewriteRule ^signup$ /register.php [L]
-RewriteRule ^signout$ /logout.php [L]
+RewriteRule ^signin$ 					/login.php [L]
+RewriteRule ^signup$ 					/register.php [L]
+RewriteRule ^signout$ 					/logout.php [L]
+RewriteRule ^about$ 					/about-us.php [L]
 
 ### API ###
-RewriteRule ^api/article$ 		/api/article.php [L]
-RewriteRule ^api/user$ 			/api/user.php [L]
-RewriteRule ^api/document$ 		/api/document.php [L]
-RewriteRule ^api/location$ 		/api/location.php [L]
+RewriteRule ^api/article$ 				/api/article.php [L]
+RewriteRule ^api/user$ 					/api/user.php [L]
+RewriteRule ^api/document$ 				/api/document.php [L]
+RewriteRule ^api/location$ 				/api/location.php [L]

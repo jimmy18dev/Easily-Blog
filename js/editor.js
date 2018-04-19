@@ -178,6 +178,7 @@ $(document).ready(function(){
         if(!confirm('คุณต้องการลบบทความใช่หรือไม่ ?')){ return false; }
 
         article.remove();
+        alert('Article Removed!');
         
         setTimeout(function(){
             window.location = 'profile';

@@ -61,6 +61,22 @@
 		}
 	}
 
+	a.btn{
+		float: right;
+		display: inline-block;
+		height: 20px;
+		padding: 18px 20px;
+		line-height: 1em;
+		font-size: 1.1em;
+		color: #FFFFFF;
+		font-family: @topic_font;
+		text-decoration: none;
+
+		i{
+			margin-left: 10px;
+		}
+	}
+
 	a.btn-icon{
 		float: right;
 		display: inline-block;
@@ -960,6 +976,139 @@
 		float: right;
 		display: inline-block;
 		text-align: right;
+	}
+}
+.page-nav{
+	position: fixed;
+	top: 112px;
+	right: 15%;
+	width: 10%;
+	padding: 0% 3%;
+	margin-top: 2.8%;
+	border-left: 1px solid #EEEEEE;
+
+	a{
+		width: 100%;
+		padding: 3% 0;
+		float: left;
+		display: inline-block;
+		text-decoration: none;
+		font-family: @topic_font;
+		font-size: 1.2em;
+		color: #666666;
+
+		&.active{ color: #F55704; }
+	}
+}
+.about{
+	width: 50%;
+	margin-left: 15%;
+	float: left;
+	display: inline-block;
+
+	.content{
+		width: 100%;
+		padding: 5% 0%;
+		float: left;
+		display: inline-block;
+		border-bottom: 1px solid #EEEEEE;
+
+		h1{
+			font-size: 2em;
+			font-family: @topic_font;
+			margin-bottom: 1em;
+			line-height: 1em;
+		}
+		p{
+			font-size: 1.1em;
+			margin-bottom: 1em;
+		}
+		figure{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-bottom: 1em;
+
+			img{
+				width: 100%;
+				float: left;
+				display: inline-block;
+			}
+		}
+		
+		iframe{
+			width: 100%;
+			height: 500px;
+			float: left;
+			display: inline-block;
+		}
+		.contact{
+			width: 90%;
+			padding: 3% 5%;
+			float: left;
+			display: inline-block;
+			background: #FAFAFA;
+			margin-bottom: 1%;
+			border-radius: 5px;
+			font-family: @topic_font;
+
+			.c{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 0.9em;
+			}
+			.v{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 1.2em;
+			}
+
+			a{
+				color: #F55704;
+			}
+		}
+	}
+
+	.person{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		margin-bottom: 5%;
+
+		.thumbnail{
+			width: 20%;
+			margin-right: 10%;
+			float: left;
+			display: inline-block;
+
+			img{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				border-radius: 5px;
+			}
+		}
+		.info{
+			width: 70%;
+			float: left;
+			display: inline-block;
+			margin-top: 2%;
+
+			h2{
+				font-size: 1.6em;
+			}
+			.position{
+				font-size: 0.9em;
+				color: #FF6D00;
+			}
+			.bio{
+				width: 100%;
+				display: inline-block;
+				font-size: 1em;
+			}
+		}
 	}
 }
 
