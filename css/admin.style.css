@@ -1438,6 +1438,13 @@ body {
   display: inline-block;
   margin-right: 2%;
 }
+.article-list .article-items .content p .btn-sticky:hover {
+  cursor: pointer;
+  color: #FFAB00;
+}
+.article-list .article-items .content p i.fa.fa-star {
+  color: #FFAB00;
+}
 .article-list .article-items .btn {
   width: 10%;
   padding: 1% 0%;
@@ -1458,6 +1465,16 @@ body {
 }
 .article-list .article-items .btn:hover {
   cursor: pointer;
+}
+.article-list .empty {
+  width: 100%;
+  padding: 10% 0;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.2em;
+  color: #DDDDDD;
 }
 .swap {
   position: fixed;

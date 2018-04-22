@@ -1,4 +1,4 @@
-<article class="article-items">
+<article class="article-items" id="<?php echo $var['id'];?>">
 	<?php if(!empty($var['cover_id'])){?>
 	<figure class="thumbnail">
 		<a href="article/<?php echo $var['id'];?>">
@@ -12,11 +12,8 @@
 		<header>
 			<p>
 				<span><?php echo $var['category_title'];?></span>
-
-				<?php if($var['sticky'] == 1){?>
-				<span class="btn-sticky" data-id="<?php echo $var['id'];?>" title="ปักหมุด"><i class="fal fa-star"></i></span>
-				<?php }else{?>
-				<span class="btn-sticky" data-id="<?php echo $var['id'];?>" title="ปักหมุด"><i class="fa fa-star"></i></span>
+				<?php if($var['status'] == 'published'){?>
+				<span class="btn-sticky" data-id="<?php echo $var['id'];?>" title="ปักหมุด"><?php echo ($var['sticky'] == 1?'<i class="fa fa-star"></i>':'<i class="fal fa-star"></i>');?></span>
 				<?php }?>
 			</p>
 			<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'ไม่มีชื่อบทความ');?></a></h2>

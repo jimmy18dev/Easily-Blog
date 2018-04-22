@@ -23,6 +23,7 @@ RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
 RewriteRule ^profile$ 					/profile.php [L]
 RewriteRule ^profile/article/([^_]*)$ 	/profile.php?status=$1 [L]
 RewriteRule ^profile/category$ 			/category.php [L]
+RewriteRule ^profile/edit$ 				/profile-edit.php [L]
 
 ### ERROR PAGE
 RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
