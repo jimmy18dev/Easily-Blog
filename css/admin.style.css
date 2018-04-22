@@ -1405,11 +1405,15 @@ body {
   font-size: 3.5em;
 }
 .article-list .article-items .content {
-  width: 87%;
+  width: 75%;
+  margin-right: 2%;
   float: left;
   display: inline-block;
 }
 .article-list .article-items .content h2 {
+  width: 100%;
+  float: left;
+  display: inline-block;
   font-size: 1.6em;
   line-height: 1.3em;
   margin-bottom: 1%;
@@ -1434,22 +1438,26 @@ body {
   display: inline-block;
   margin-right: 2%;
 }
-.article-list .article-items .content p span i {
-  margin-left: 5px;
+.article-list .article-items .btn {
+  width: 10%;
+  padding: 1% 0%;
+  float: right;
+  display: inline-block;
+  background: #EEEEEE;
+  color: #DDDDDD;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 3%;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
 }
-.article-list .article-items .content p span.btn-publish {
-  color: #2962FF;
+.article-list .article-items .btn.active {
+  background: #2962FF;
+  color: #FFFFFF;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
-.article-list .article-items .content p span.btn-publish:hover {
+.article-list .article-items .btn:hover {
   cursor: pointer;
-  text-decoration: underline;
-}
-.article-list .article-items .content p span.btn-sticky.active {
-  color: #FFAB00;
-}
-.article-list .article-items .content p span.btn-sticky:hover {
-  cursor: pointer;
-  text-decoration: underline;
 }
 .swap {
   position: fixed;
