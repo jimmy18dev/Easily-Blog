@@ -331,7 +331,7 @@ class Article{
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
             LEFT JOIN content AS content ON article.cover_id = content.id 
-            WHERE article.category_id = :category_id AND article.status = "published" 
+            WHERE article.category_id = :category_id AND article.status = "published" AND article.sticky = 0 
             ORDER BY article.published_time DESC,article.create_time DESC 
             LIMIT 6');
         
