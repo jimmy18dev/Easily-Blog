@@ -15,7 +15,7 @@
 		</header>
 		<p class="info">
 			<?php if($var['status'] == 'published'){?>
-			<span>เผยแพร่เมื่อ <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><i class="fal fa-check"></i></span>
+			<span class="btn-publish" data-id="<?php echo $var['id'];?>">เผยแพร่เมื่อ <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><i class="fal fa-check"></i></span>
 
 			<?php if($var['sticky'] == 1){?>
 			<span class="btn-sticky" data-id="<?php echo $var['id'];?>">ปักหมุดแล้ว<i class="fal fa-check"></i></span>
@@ -24,7 +24,7 @@
 			<?php }?>
 
 			<?php }else{?>
-			<span class="btn-publish">เผยแพร่<i class="fal fa-cloud-upload"></i></span>
+			<span class="btn-publish" data-id="<?php echo $var['id'];?>">เผยแพร่<i class="fal fa-cloud-upload"></i></span>
 			<?php }?>
 		</p>
 	</div>

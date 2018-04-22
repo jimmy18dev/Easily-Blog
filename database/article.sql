@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2018 at 10:45 AM
+-- Generation Time: Apr 22, 2018 at 10:57 AM
 -- Server version: 5.6.37
 -- PHP Version: 7.1.8
 
@@ -1065,7 +1065,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `sticky` int(1) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT 'draft',
   `verified` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `article`
@@ -1073,7 +1073,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 
 INSERT INTO `article` (`id`, `user_id`, `category_id`, `head_cover_id`, `cover_id`, `title`, `description`, `url`, `highlight`, `province_id`, `amphur_id`, `district_id`, `create_time`, `update_time`, `edit_time`, `published_time`, `count_read`, `sticky`, `status`, `verified`) VALUES
 (1, 1, 2, 1, 4, 'Looking for the Best Surf Photography? Hold Your Breath', NULL, NULL, 0, 16, 189, 1522, '2018-02-21 18:19:38', '2018-04-03 18:32:28', '2018-02-22 20:05:37', '2018-04-03 18:32:28', 0, 0, 'published', NULL),
-(2, 1, 4, NULL, 6, 'I was surfing Cardiff yesterday and I snapped my longboard in half', 'ปกติวงชีวิตของหมอเราเมื่อจบหมอซึ่งเรียน 6 ปีอายุที่จบประมาณ 23-25 ปี, ใช้ทุนอีก 3 ปี,เรียนต่อแพทย์เฉพาะทางอีก 3 ปี ดังนั้นกว่าจะเป็นครูแพทย์', 'ใช้ทุนอีก-3-ปี', 0, 16, 189, 0, '2018-02-21 18:28:17', '2018-04-08 16:30:19', '2018-02-22 20:29:36', '2018-04-08 16:30:19', 0, 0, 'published', NULL),
+(2, 1, 4, NULL, 6, 'I was surfing Cardiff yesterday and I snapped my longboard in half', 'ปกติวงชีวิตของหมอเราเมื่อจบหมอซึ่งเรียน 6 ปีอายุที่จบประมาณ 23-25 ปี, ใช้ทุนอีก 3 ปี,เรียนต่อแพทย์เฉพาะทางอีก 3 ปี ดังนั้นกว่าจะเป็นครูแพทย์', 'ใช้ทุนอีก-3-ปี', 0, 16, 189, 0, '2018-02-21 18:28:17', '2018-04-08 16:30:19', '2018-02-22 20:29:36', '2018-04-08 16:30:19', 0, 1, 'published', NULL),
 (3, 1, 6, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-22 19:35:31', '2018-02-22 19:43:39', NULL, NULL, 0, 0, 'deleted', NULL),
 (4, 1, 5, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-02-22 20:01:20', '2018-04-09 01:21:54', NULL, NULL, 0, 0, 'deleted', NULL),
 (5, 2, 1, 16, 13, 'You&#39;re Going To Want A Minimalist Weekender Bag From ULX Store', NULL, NULL, 0, NULL, NULL, NULL, '2018-04-02 17:16:59', '2018-04-02 17:21:43', '2018-04-02 17:23:56', '2018-04-02 17:21:43', 0, 0, 'published', NULL),
@@ -1100,8 +1100,9 @@ INSERT INTO `article` (`id`, `user_id`, `category_id`, `head_cover_id`, `cover_i
 (26, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-04-19 16:04:51', '2018-04-19 16:05:01', NULL, NULL, 0, 0, 'deleted', NULL),
 (27, 1, 4, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-04-19 16:06:49', '2018-04-19 16:06:53', NULL, NULL, 0, 0, 'deleted', NULL),
 (28, 1, 4, NULL, NULL, 'เพิ่งลอง Flutter Codelab ไป สนุกกว่าที่คิดเยอะเลยฮะ ตอนนี้พูดได้ตรงๆ ว่า I&#39;m so impressed! เดี๋ยวจะลองสร้างอะไรดูครับ', NULL, NULL, 0, NULL, NULL, NULL, '2018-04-19 16:07:04', '2018-04-21 16:26:50', '2018-04-21 16:26:32', '2018-04-21 16:26:50', 0, 0, 'published', NULL),
-(29, 1, 2, NULL, 52, 'โอกาสมาถึงแล้ว! หากคุณสนใจที่จะพูดในงาน React Bangkok 3.0.0', NULL, NULL, 0, NULL, NULL, NULL, '2018-04-19 16:07:11', '2018-04-21 16:29:42', '2018-04-21 16:29:39', '2018-04-21 16:29:42', 0, 0, 'published', NULL),
-(30, 1, 2, NULL, 54, 'กว่าจะเป็น &#39;ค็อกเทลเฝอ&#39; เครื่องดื่มฟิวชั่นสุดฮิปในเวียดนาม', NULL, NULL, 0, NULL, NULL, NULL, '2018-04-21 16:38:45', '2018-04-21 16:39:22', '2018-04-21 16:39:02', '2018-04-21 16:39:22', 0, 0, 'published', NULL);
+(29, 1, 2, NULL, 52, 'โอกาสมาถึงแล้ว! หากคุณสนใจที่จะพูดในงาน React Bangkok 3.0.0', NULL, NULL, 0, NULL, NULL, NULL, '2018-04-19 16:07:11', '2018-04-21 16:29:42', '2018-04-21 16:29:39', '2018-04-21 16:29:42', 0, 1, 'published', NULL),
+(30, 1, 2, NULL, 56, 'กว่าจะเป็น &#39;ค็อกเทลเฝอ&#39; เครื่องดื่มฟิวชั่นสุดฮิปในเวียดนาม..', 'การแข่งขันฟุตบอลถ้วยประจำปีของสโมสรฟุตบอลสเปน ใช้ชื่อเต็มว่า Campeonato de España – Copa de Su Majestad El Rey Don Juan Carlos I (Championship of Spain – His Majesty King Juan Carlos I&#39;s Cup)', NULL, 0, NULL, NULL, NULL, '2018-04-21 16:38:45', '2018-04-21 16:39:22', '2018-04-22 17:50:57', '2018-04-21 16:39:22', 0, 1, 'published', NULL),
+(31, 1, 3, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2018-04-22 16:43:05', NULL, NULL, NULL, 0, 0, 'draft', NULL);
 
 -- --------------------------------------------------------
 
@@ -1252,7 +1253,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `edit_time` datetime DEFAULT NULL,
   `type` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `content`
@@ -1310,7 +1311,10 @@ INSERT INTO `content` (`id`, `user_id`, `article_id`, `topic`, `body`, `video_id
 (51, 1, 2, NULL, NULL, 'gl7O4Z3gXFk', NULL, NULL, NULL, NULL, NULL, 8, '2018-04-19 16:08:23', '2018-04-19 16:08:50', 'youtube', 'active'),
 (52, 1, 29, NULL, NULL, NULL, 'content_89174744172ddb5108cb278e960a986d.jpg', 'horizontal', NULL, NULL, NULL, 2, '2018-04-21 16:29:39', '2018-04-21 16:29:39', 'image', 'active'),
 (53, 1, 30, NULL, 'ดูเหมือนว่ายิ่งดึกขึ้นเท่าไหร่ &#39;Ne&#39; บาร์เล็ก ๆ ซึ่งตั้งอยู่ในย่านที่พักนักท่องเที่ยวใจกลางกรุงฮานอย ก็ยิ่งคึกคักมากขึ้นเท่านั้น หลังเปิดให้บริการเมื่อ 10 เดือนก่อน\n\nทุกคืนนักดื่มนานาชาติต่างเดินทางมาที่นี่เพื่อลิ้มรส &#39;ค็อกเทลเฝอ&#39; เมนูดังประจำฮานอย ที่นอกจากจะมีจุดขายคือความแปลกใหม่แล้ว ยังมีเรื่องราวทางสังคมผสมปนเปกันอยู่ด้วย\nบาร์เทนเดอร์หนุ่มกำลังเสิร์ฟเครื่องดื่มอย่างขะมักเขม้น ในมือถือถาดไม้ไผ่ที่ข้างในมีแก้วเอียง 45 องศาวางอยู่ ซึ่งเห็นชัดแต่ไกลว่า มันคือเครื่องดื่มสีใสที่โรยหน้าด้วยผักชีเขียว ข้างๆ มีจานเครื่องเคียงเล็กๆ ใส่พริกและเกลือวางอยู่ ทั้งหมดมาพร้อมกับตะเกียบคู่หนึ่ง ให้บรรยากาศราวกับว่าคุณกำลังสั่งเฝอชามใหญ่ที่ร้านข้างถนนที่ไหนสักแห่ง ทว่าเฝอแก้วนี้ไม่มีเนื้อสัตว์ แต่ยังอัดแน่นไปด้วยน้ำแข็ง', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-04-21 16:38:45', '2018-04-21 16:39:20', 'textbox', 'active'),
-(54, 1, 30, NULL, NULL, NULL, 'content_3dc725e31ee3c22b97f87133aff23321.jpg', 'horizontal', NULL, NULL, NULL, 2, '2018-04-21 16:39:02', '2018-04-21 16:39:02', 'image', 'active');
+(54, 1, 30, NULL, NULL, NULL, 'content_3dc725e31ee3c22b97f87133aff23321.jpg', 'horizontal', NULL, NULL, NULL, 4, '2018-04-21 16:39:02', '2018-04-21 16:39:02', 'image', 'active'),
+(55, 1, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-04-22 16:43:05', NULL, 'textbox', 'active'),
+(56, 1, 30, NULL, NULL, NULL, 'content_82584418ea561c7dbd0ef820a6726fa1.jpg', 'vertical', NULL, NULL, NULL, 2, '2018-04-22 17:49:59', '2018-04-22 17:50:09', 'image', 'active'),
+(57, 1, 30, NULL, 'โกปาเดลเรย์ (สเปน: Copa del Rey) เป็นการแข่งขันฟุตบอลถ้วยประจำปีของสโมสรฟุตบอลสเปน ใช้ชื่อเต็มว่า Campeonato de España – Copa de Su Majestad El Rey Don Juan Carlos I (Championship of Spain – His Majesty King Juan Carlos I&#39;s Cup) อันหมายถึงถ้วยพระราชทานโดยพระมหากษัตริย์สเปน จัดขึ้นครั้งแรกในปี ค.ศ. 1902', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-04-22 17:50:43', '2018-04-22 17:50:53', 'textbox', 'active');
 
 -- --------------------------------------------------------
 
@@ -10356,14 +10360,14 @@ CREATE TABLE IF NOT EXISTS `signature` (
   `create_time` datetime NOT NULL,
   `active_time` datetime DEFAULT NULL,
   `form` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=345 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `signature`
 --
 
 INSERT INTO `signature` (`id`, `sign`, `expire`, `create_time`, `active_time`, `form`) VALUES
-(344, '7a3149064f3aeae1be6c5fb4356a67fa1be34ef7d1f6d3d8e41b5b879cefd3cb', 1524302808, '2018-04-21 16:25:48', NULL, 'login');
+(345, '8e3d3c4d72815e10be25dca48fb931b4c5f3c82af3a602e28be4b51e6b3caaed', 1524386573, '2018-04-22 15:41:53', NULL, 'login');
 
 -- --------------------------------------------------------
 
@@ -10480,6 +10484,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` text,
   `fname` text NOT NULL,
   `lname` text,
+  `display` varchar(90) DEFAULT NULL,
   `bio` text,
   `password` text NOT NULL,
   `salt` text,
@@ -10502,9 +10507,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `phone`, `email`, `fname`, `lname`, `bio`, `password`, `salt`, `ip`, `register_time`, `edit_time`, `visit_time`, `verified`, `type`, `status`, `fb_id`, `fb_fname`, `fb_lname`, `fb_link`, `fb_verified`, `gender`) VALUES
-(1, NULL, 'mrjimmy18@gmail.com', '', NULL, NULL, 'df610a709955faac3414580511066bcf5ba2c2621c0a445248e9209f2883530d88a68e0f42340bae5a6020c3d27c7a0faf277e13dfdfefd377a1c72a57429f07', 'fc6e6b11dc0292f12fc6dd406863d0366507821f0888a59fc0e9cbb0782499f546c9e66b9ddfc68b64732fbcfaeb41a3114198a2e1c44b2657e33b1d094afad9', '127.0.0.1', '2018-02-12 13:49:28', '2018-04-21 16:25:52', '2018-04-21 17:43:23', 'non-verified', 'member', 'pending', '10208805409052059', 'Puwadon', 'Sricharoen', 'https://www.facebook.com/app_scoped_user_id/10208805409052059/', 1, 'male'),
-(2, '0801051930', 'jimmy@gmail.com', 'Wonchai', 'Toomtam', NULL, 'ec329dbf48ee8d01f7ee2394c4eace0269f35d05481ef0d1f6589a6fdb1518916a06a112844de98f46101fa48757487986f75f9ffb00cbae6619c5d27b14cf0a', 'e8d6b57c3379909458898c6d2dba47564d0d65474c60a4f568bd23c455dc9d88345cb973d188593582c44efaa5c61d838f63844e5dd0f4cdc8e716848af4dc33', '127.0.0.1', '2018-02-12 15:47:33', NULL, '2018-04-11 16:45:35', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `phone`, `email`, `fname`, `lname`, `display`, `bio`, `password`, `salt`, `ip`, `register_time`, `edit_time`, `visit_time`, `verified`, `type`, `status`, `fb_id`, `fb_fname`, `fb_lname`, `fb_link`, `fb_verified`, `gender`) VALUES
+(1, NULL, 'mrjimmy18@gmail.com', '', NULL, NULL, NULL, 'df610a709955faac3414580511066bcf5ba2c2621c0a445248e9209f2883530d88a68e0f42340bae5a6020c3d27c7a0faf277e13dfdfefd377a1c72a57429f07', 'fc6e6b11dc0292f12fc6dd406863d0366507821f0888a59fc0e9cbb0782499f546c9e66b9ddfc68b64732fbcfaeb41a3114198a2e1c44b2657e33b1d094afad9', '127.0.0.1', '2018-02-12 13:49:28', '2018-04-22 15:42:18', '2018-04-22 17:55:28', 'non-verified', 'member', 'pending', '10208805409052059', 'Puwadon', 'Sricharoen', 'https://www.facebook.com/app_scoped_user_id/10208805409052059/', 1, 'male'),
+(2, '0801051930', 'jimmy@gmail.com', 'Wonchai', 'Toomtam', NULL, NULL, 'ec329dbf48ee8d01f7ee2394c4eace0269f35d05481ef0d1f6589a6fdb1518916a06a112844de98f46101fa48757487986f75f9ffb00cbae6619c5d27b14cf0a', 'e8d6b57c3379909458898c6d2dba47564d0d65474c60a4f568bd23c455dc9d88345cb973d188593582c44efaa5c61d838f63844e5dd0f4cdc8e716848af4dc33', '127.0.0.1', '2018-02-12 15:47:33', NULL, '2018-04-11 16:45:35', 'non-verified', 'member', 'pending', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -10595,7 +10600,7 @@ ALTER TABLE `amphur`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `article_tags`
 --
@@ -10610,7 +10615,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `district`
 --
@@ -10635,7 +10640,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `signature`
 --
 ALTER TABLE `signature`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=345;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=346;
 --
 -- AUTO_INCREMENT for table `tag`
 --

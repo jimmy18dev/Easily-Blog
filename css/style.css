@@ -759,26 +759,47 @@ body {
   font-weight: normal;
   margin-bottom: 2%;
 }
-.section .article-pinned {
+.section .article-sticky {
   width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 3%;
 }
-.section .article-pinned .image {
+.section .article-sticky .image {
   width: 66%;
   float: left;
   display: inline-block;
 }
-.section .article-pinned .image img {
+.section .article-sticky .image img {
   width: 100%;
   float: left;
   display: inline-block;
+  border-radius: 5px;
 }
-.section .article-pinned header {
+.section .article-sticky header {
   width: 31.33%;
+  padding-top: 2%;
   float: right;
   display: inline-block;
-  background: #AADDAA;
+}
+.section .article-sticky header .category {
+  font-size: 1em;
+  color: #ff6d00;
+}
+.section .article-sticky header h2 {
+  font-family: "maledpan", sans-serif;
+  font-size: 2em;
+  margin-bottom: 5%;
+  line-height: 1.3em;
+  font-weight: normal;
+}
+.section .article-sticky header h2 a {
+  color: #333333;
+  text-decoration: none;
+}
+.section .article-sticky header p {
+  font-size: 1em;
+  color: #666666;
 }
 .section .lists {
   width: 100%;

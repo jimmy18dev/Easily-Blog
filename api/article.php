@@ -90,6 +90,19 @@ switch ($_SERVER['REQUEST_METHOD']){
                 
                 $returnObject['message'] = 'Status changed';
                 break;
+            // case 'change_status':
+            //     $article_id = $_POST['article_id'];
+            //     $status     = $_POST['status'];
+            //     $article_id = $article->changeStatus($article_id,$status);
+                
+            //     $returnObject['message'] = 'Status changed';
+            //     break;
+            case 'published':
+                $article_id = $_POST['article_id'];
+                $article_id = $article->published($article_id);
+                
+                $returnObject['message'] = 'Article published';
+                break;
             case 'sticky':
                 $article_id = $_POST['article_id'];
                 $article_id = $article->sticky($article_id);

@@ -669,10 +669,11 @@
 		margin-bottom: 2%;
 	}
 
-	.article-pinned{
+	.article-sticky{
 		width: 100%;
 		float: left;
 		display: inline-block;
+		margin-bottom: 3%;
 
 		.image{
 			width: 66%;
@@ -683,13 +684,35 @@
 				width: 100%;
 				float: left;
 				display: inline-block;
+				border-radius: 5px;
 			}
 		}
 		header{
 			width: 31.33%;
+			padding-top: 2%;
 			float: right;
 			display: inline-block;
-			background: #AADDAA;
+
+			.category{
+				font-size: 1em;
+				color: @primary_color;
+			}
+			h2{
+				font-family: @topic_font;
+				font-size: 2em;
+				margin-bottom: 5%;
+				line-height: 1.3em;
+				font-weight: normal;
+
+				a{
+					color: #333333;
+					text-decoration: none;
+				}
+			}
+			p{
+				font-size: 1em;
+				color: #666666;
+			}
 		}
 	}
 

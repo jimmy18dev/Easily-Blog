@@ -100,6 +100,30 @@ $(function(){
 	        },1000);
         });
     });
+
+    $('.btn-publish').click(function(){
+    	
+        var article_id = $(this).attr('data-id');
+
+        $.ajax({
+            url         :'api/article',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'published',
+                article_id  :article_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            setTimeout(function(){
+	            location.reload();
+	        },1000);
+        });
+    });
 });
 </script>
 </body>

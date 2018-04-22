@@ -387,9 +387,8 @@ var Article = function (article_id){
             dataType    :"json",
             type        :"POST",
             data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'published'
+                request     :'published',
+                article_id  :article_id
             },
             error: function (request, status, error){
                 console.log(request.responseText);

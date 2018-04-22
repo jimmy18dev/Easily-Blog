@@ -379,9 +379,24 @@ class Article{
         return $dataset;
     }
 
+    public function published($article_id){
+        $this->db->query('SELECT status FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $status = ($data['status'] == 'published' ? 'draft' : 'published');
+
+        // Enable sticky content with article id.
+        $this->db->query('UPDATE article SET status = :status,published_time = :published_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':status',$status);
+        $this->db->bind(':published_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
     // Article Sticky Toggle.
     public function sticky($article_id){
-        // Disable all sticky content.
         $this->db->query('SELECT sticky FROM article WHERE id = :article_id');
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();
@@ -417,20 +432,20 @@ class Article{
 		$this->db->execute();
     }
 
-    public function changeStatus($article_id,$status){
-    	$this->db->query('UPDATE article SET status = :status, update_time = :update_time WHERE id = :article_id');
-		$this->db->bind(':article_id',$article_id);
-        $this->db->bind(':status',$status);
-		$this->db->bind(':update_time',date('Y-m-d H:i:s'));
-		$this->db->execute();
+  //   public function changeStatus($article_id,$status){
+  //   	$this->db->query('UPDATE article SET status = :status, update_time = :update_time WHERE id = :article_id');
+		// $this->db->bind(':article_id',$article_id);
+  //       $this->db->bind(':status',$status);
+		// $this->db->bind(':update_time',date('Y-m-d H:i:s'));
+		// $this->db->execute();
 
-        if($status == 'published'){
-            $this->db->query('UPDATE article SET published_time = :published_time WHERE id = :article_id');
-            $this->db->bind(':article_id',$article_id);
-            $this->db->bind(':published_time',date('Y-m-d H:i:s'));
-            $this->db->execute();
-        }
-    }
+  //       if($status == 'published'){
+  //           $this->db->query('UPDATE article SET published_time = :published_time WHERE id = :article_id');
+  //           $this->db->bind(':article_id',$article_id);
+  //           $this->db->bind(':published_time',date('Y-m-d H:i:s'));
+  //           $this->db->execute();
+  //       }
+  //   }
 
     // Count articles with Owner ID
     public function counter($owner_id){
