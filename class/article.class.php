@@ -379,14 +379,20 @@ class Article{
         return $dataset;
     }
 
+    // Article Sticky Toggle.
     public function sticky($article_id){
         // Disable all sticky content.
-        $this->db->query('UPDATE article SET sticky = 0');
+        $this->db->query('SELECT sticky FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
         $this->db->execute();
+        $data = $this->db->single();
+
+        $sticky = ($data['sticky']==1 ? 0 : 1);
 
         // Enable sticky content with article id.
-        $this->db->query('UPDATE article SET sticky = 1 WHERE id = :article_id');
+        $this->db->query('UPDATE article SET sticky = :sticky WHERE id = :article_id');
         $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':sticky',$sticky);
         $this->db->execute();
     }
 
