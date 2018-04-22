@@ -157,10 +157,10 @@ class Database{
                 $str = $date.' '.$monthFullText[$month-1].' '.($year+543);
                 break;
             case 'shortdatetime':
-                $str = $date.' '.$monthText[$month-1].' '.($year+543).' เวลา '.$hour.':'.$minute.' น.';
+                $str = $date.' '.$monthText[$month-1].' '.($year+543-2500).' เวลา '.$hour.':'.$minute.' น.';
                 break;
             case 'shortdate':
-                $str = $date.' '.$monthText[$month-1].' '.($year+543);
+                $str = $date.' '.$monthText[$month-1].' '.($year+543-2500);
                 break;
             case 'topicdate':
                 $diff = time() - $timestamp;

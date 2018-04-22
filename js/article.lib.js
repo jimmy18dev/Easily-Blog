@@ -7,6 +7,27 @@ var Article = function (article_id){
     var progressbar = $('#progressbar');
     var article_id 	= article_id;
 
+    // Edit document title
+    // this.sticky = function(article_id){
+    //     progressbar.Progressbar('70%');
+    //     $.ajax({
+    //         url         :article_api,
+    //         cache       :false,
+    //         dataType    :"json",
+    //         type        :"POST",
+    //         data:{
+    //             request     :'sticky',
+    //             article_id  :article_id,
+    //         },
+    //         error: function (request, status, error){
+    //             console.log(request.responseText);
+    //         }
+    //     }).done(function(data){
+    //         console.log(data);
+    //         progressbar.Progressbar('100%');
+    //     });
+    // }
+
     this.deleteDoc = function(file_id){
     	progressbar.Progressbar('70%');
     	$.ajax({

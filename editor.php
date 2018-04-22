@@ -37,7 +37,7 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header">
-	<a class="btn" href="profile" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
+	<a class="btn" href="profile" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status"></span></a>
 
 	<?php if($article->status!='published'){?>
 	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>

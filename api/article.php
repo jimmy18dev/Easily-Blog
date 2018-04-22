@@ -90,6 +90,12 @@ switch ($_SERVER['REQUEST_METHOD']){
                 
                 $returnObject['message'] = 'Status changed';
                 break;
+            case 'sticky':
+                $article_id = $_POST['article_id'];
+                $article_id = $article->sticky($article_id);
+                
+                $returnObject['message'] = 'Article sticky success.';
+                break;
 
     		// Content Actions
     		case 'create_content':

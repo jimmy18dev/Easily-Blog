@@ -262,7 +262,7 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
 
     	if(!empty($category_id)){
@@ -316,6 +316,78 @@ class Article{
 		}
 
 		return $dataset;
+    }
+
+    public function listCategory($category_id){
+        // Get category info
+        $this->db->query('SELECT * FROM category WHERE id = :category_id');
+        $this->db->bind(':category_id',$category_id);
+        $this->db->execute();
+        $category = $this->db->single();
+
+        // List articles in category.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.category_id = :category_id AND article.status = "published" 
+            ORDER BY article.published_time DESC,article.create_time DESC 
+            LIMIT 6');
+        
+        $this->db->bind(':category_id',$category_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        // Count Total Artlces in Category.
+        $this->db->query('SELECT COUNT(id) total FROM article WHERE category_id = :category_id AND status = "published"');
+        $this->db->bind(':category_id',$category_id);
+        $this->db->execute();
+        $data = $this->db->single();
+        $category['total'] = $data['total'];
+
+        return array(
+            'category'  => $category,
+            'articles'  => $dataset
+        );
+    }
+
+    public function listSticky(){
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.sticky = 1 
+            ORDER BY article.published_time DESC,article.create_time DESC');
+
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        return $dataset;
+    }
+
+    public function sticky($article_id){
+        // Disable all sticky content.
+        $this->db->query('UPDATE article SET sticky = 0');
+        $this->db->execute();
+
+        // Enable sticky content with article id.
+        $this->db->query('UPDATE article SET sticky = 1 WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
     }
 
     public function listWithTag($tag_id){

@@ -31,8 +31,8 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
+
 <?php include_once 'header.php';?>
-<?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
 	<div class="lists">

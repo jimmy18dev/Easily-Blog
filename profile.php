@@ -36,11 +36,9 @@ $c_article 	= $article->counter($user->id);
 </head>
 <body>
 <header class="header">
-	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
+	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
 	<?php if($user_online){?>
-	<a class="btn-profile" href="profile">
-		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
-	</a>
+	<a class="btn right" href="article/create"><i class="fal fa-plus"></i><span>เขียนบทความ</span></a>
 	<?php }else{?>
 	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<?php }?>
@@ -51,14 +49,18 @@ $c_article 	= $article->counter($user->id);
 </header>
 
 <div class="pagehead">
-	<div class="content">
-		<h2>คลังบทความ</h2>
+	<div class="profile">
+		<figure class="avatar">
+			<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=large');?>" alt="Profile avatar">
+		</figure>
+		<div class="info">
+			<h1><?php echo $user->fullname;?></h1>
+			<p>Web developer and Web Designer at Abhaibhubejhr Hospital · <a href="#">แก้ไข<i class="fal fa-angle-right"></i></a></p>
+		</div>
 	</div>
 	<div class="navi">
 		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
 		<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
-
-		<a href="article/create" class="btn-create"><i class="fal fa-plus"></i>เขียนบทความใหม่</a>
 	</div>
 </div>
 
@@ -72,5 +74,33 @@ $c_article 	= $article->counter($user->id);
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript">
+$(function(){
+	// Article Sticky
+    $('.btn-sticky').click(function(){
+    	console.log('Article Sticky!');
+        var article_id = $(this).attr('data-id');
+
+        $.ajax({
+            url         :'api/article',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'sticky',
+                article_id  :article_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            setTimeout(function(){
+	            location.reload();
+	        },1000);
+        });
+    });
+});
+</script>
 </body>
 </html>

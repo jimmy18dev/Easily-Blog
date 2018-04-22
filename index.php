@@ -4,6 +4,7 @@ $article = new Article();
 $category = new Category();
 $category_id = $_GET['category_id'];
 $articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
+$article_sticky = $article->listSticky();
 $categories = $category->listAll();
 ?>
 
@@ -37,43 +38,61 @@ $categories = $category->listAll();
 	<div class="content">
 		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
 		<p>Occupational and Environmental medicine</p>
-		<a href="#" class="btn">บทความล่าสุด</a>
-		<a href="#" class="btn btn-ghost">ติดต่อเรา</a>
 	</div>
 	<div class="filter"></div>
 </div>
 
-<?php include_once 'template/navigation.php'; ?>
+<?php if(count($article_sticky) > 0){?>
+<div class="section">
+	<h3>ปักหมุด</h3>
+	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
+</div>
+<?php }?>
 
 <div class="section">
-	<h3>บทความล่าสุด</h3>
+	<?php $dataset = $article->listCategory(2); ?>
+	<h3><?php echo $dataset['category']['title'];?></h3>
 	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($dataset['articles']) > 0){?>
+		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+
+	<?php if($dataset['category']['total'] > 6){?>
+	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
+	<?php }?>
 </div>
+
 <div class="section">
-	<h3>บทความล่าสุด</h3>
+	<?php $dataset = $article->listCategory(4); ?>
+	<h3><?php echo $dataset['category']['title'];?></h3>
 	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($dataset['articles']) > 0){?>
+		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+	<?php if($dataset['category']['total'] > 6){?>
+	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
+	<?php }?>
 </div>
+
 <div class="section">
-	<h3>บทความล่าสุด</h3>
+	<?php $dataset = $article->listCategory(1); ?>
+	<h3><?php echo $dataset['category']['title'];?></h3>
 	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($dataset['articles']) > 0){?>
+		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+	<?php if($dataset['category']['total'] > 6){?>
+	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
+	<?php }?>
 </div>
 
 <?php if(count($articles)>0){

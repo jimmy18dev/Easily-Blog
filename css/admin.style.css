@@ -159,7 +159,6 @@ body {
   display: inline-block;
   height: 56px;
   z-index: 999;
-  background: #EEEEEE;
 }
 .header .btn-submit {
   float: right;
@@ -197,6 +196,11 @@ body {
   color: #4CAF50;
   border: 1px solid #4CAF50;
 }
+.header a.btn.right {
+  float: right;
+  padding: 20px 1%;
+  color: #2962FF;
+}
 .header a.btn:hover {
   cursor: pointer;
 }
@@ -204,7 +208,7 @@ body {
   color: #333333;
 }
 .header a.btn span {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .header a.btn-profile {
   float: right;
@@ -247,7 +251,48 @@ body {
   padding: 0 20%;
   float: left;
   display: inline-block;
-  background: #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
+}
+.pagehead .profile {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+}
+.pagehead .profile .avatar {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  margin-right: 3%;
+}
+.pagehead .profile .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
+.pagehead .profile .info {
+  width: 87%;
+  float: left;
+  display: inline-block;
+  margin-top: 1%;
+}
+.pagehead .profile .info h1 {
+  font-size: 2em;
+  line-height: 1em;
+  font-family: "maledpan", sans-serif;
+  color: #333333;
+  margin-bottom: 1%;
+}
+.pagehead .profile .info p {
+  font-size: 1em;
+  color: #666666;
+}
+.pagehead .profile .info p a {
+  color: #BBBBBB;
+}
+.pagehead .profile .info p a i {
+  margin-left: 5px;
 }
 .pagehead .content {
   width: 100%;
@@ -282,7 +327,6 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  height: 56px;
 }
 .pagehead .navi a {
   float: left;
@@ -290,31 +334,20 @@ body {
   text-decoration: none;
   color: #666666;
   font-family: "maledpan", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1em;
-  padding: 18px 0;
-  margin-right: 27px;
-  height: 18px;
+  padding: 2% 0%;
+  margin-right: 2%;
+  margin-bottom: -1px;
 }
 .pagehead .navi a:hover {
   cursor: pointer;
   color: #333333;
-  border-bottom: 2px solid #BBBBBB;
+  border-bottom: 1px solid #BBBBBB;
 }
 .pagehead .navi a.active {
   color: #2962FF;
-  border-bottom: 2px solid #2962FF;
-}
-.pagehead .navi a.btn-create {
-  float: right;
-  color: #4CAF50;
-  margin-right: 0;
-}
-.pagehead .navi a.btn-create i {
-  margin-right: 10px;
-}
-.pagehead .navi a.btn-create:hover {
-  border-bottom: 2px solid #4CAF50;
+  border-bottom: 1px solid #2962FF;
 }
 .seo {
   width: 50%;
@@ -1348,7 +1381,7 @@ body {
   border-bottom: 1px solid #EFEFEF;
 }
 .article-list .article-items .thumbnail {
-  width: 7%;
+  width: 10%;
   float: left;
   display: inline-block;
   margin-right: 3%;
@@ -1361,14 +1394,26 @@ body {
   border-radius: 5px;
   box-shadow: 0px 1px 10px rgba(100, 100, 100, 0.2);
 }
+.article-list .article-items .icon {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  margin-right: 3%;
+  margin-top: 0%;
+  text-align: center;
+  color: #EEEEEE;
+  font-size: 3.5em;
+}
 .article-list .article-items .content {
-  width: 90%;
+  width: 87%;
   float: left;
   display: inline-block;
 }
 .article-list .article-items .content h2 {
-  font-size: 1.5em;
-  line-height: 1.4em;
+  font-size: 1.6em;
+  line-height: 1.3em;
+  margin-bottom: 1%;
+  font-family: "maledpan", sans-serif;
 }
 .article-list .article-items .content h2 a {
   text-decoration: none;
@@ -1379,8 +1424,7 @@ body {
 }
 .article-list .article-items .content p {
   font-size: 0.9em;
-  color: #666666;
-  margin-top: 0.5%;
+  color: #999999;
 }
 .article-list .article-items .content p:hover {
   cursor: default;
@@ -1388,10 +1432,24 @@ body {
 .article-list .article-items .content p span {
   float: left;
   display: inline-block;
-  margin-right: 1%;
+  margin-right: 2%;
 }
-.article-list .article-items .content p span i.fa-circle {
+.article-list .article-items .content p span i {
+  margin-left: 5px;
+}
+.article-list .article-items .content p span.btn-publish {
   color: #2962FF;
+}
+.article-list .article-items .content p span.btn-publish:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.article-list .article-items .content p span.btn-sticky.active {
+  color: #FFAB00;
+}
+.article-list .article-items .content p span.btn-sticky:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .swap {
   position: fixed;
@@ -1437,11 +1495,11 @@ body {
   display: none;
 }
 .swap .swap-items.-active {
-  border: 3px solid #55ce63;
+  border: 3px solid #ff6d00;
 }
 .swap .swap-items:hover {
   cursor: pointer;
-  border: 3px solid #55ce63;
+  border: 3px solid #ff6d00;
   opacity: 1;
 }
 .swap .swap-items:first-child {
