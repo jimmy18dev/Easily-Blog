@@ -8,7 +8,7 @@ if(!empty($_GET['status'])){
 	$status = 'draft';
 }
 
-$articles 	= $article->listAll(NULL,NULL,NULL,$status,$user->id);
+$articles 	= $article->listAll(NULL,NULL,NULL,NULL,$user->id);
 $c_article 	= $article->counter($user->id);
 ?>
 
@@ -59,8 +59,7 @@ $c_article 	= $article->counter($user->id);
 		</div>
 	</div>
 	<div class="navi">
-		<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
-        <a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
+		<a href="profile/article" class="active">บทความ</a>
 	</div>
 </div>
 
@@ -102,7 +101,7 @@ $(function(){
     });
 
     $('.btn-publish').click(function(){
-    	
+    	$this = $(this);
         var article_id = $(this).attr('data-id');
 
         $.ajax({
@@ -119,9 +118,10 @@ $(function(){
             }
         }).done(function(data){
             console.log(data);
-            setTimeout(function(){
-	            location.reload();
-	        },1000);
+            $this.toggleClass('active');
+         //    setTimeout(function(){
+	        //     location.reload();
+	        // },1000);
         });
     });
 });

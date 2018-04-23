@@ -41,18 +41,23 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	</div>
 </div>
 
-<div class="seo">
-	<div class="section">
-		<h2>ชื่อที่ใช้แสดง</h2>
-		<form class="locationInputWrapper" id="tagForm">
-			<i class="fal fa-user" aria-hidden="true"></i>
-			<input type="text" id="tag-input" placeholder="ชื่อ-นามสกุล">
-		</form>
+<div class="page-form">
+	<div class="items">
+		<div class="caption">ชื่อที่ใช้แสดง</div>
+		<div class="content">
+			<input type="text" id="display" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
+		</div>
 	</div>
 
-	<div class="section">
-		<h2>เกี่ยวกับ</h2>
-		<textarea id="bio" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
+	<div class="items">
+		<div class="caption">เกี่ยวกับ</div>
+		<div class="content">
+			<textarea id="bio" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
+		</div>
+	</div>
+
+	<div class="items">
+		<button id="btnSaveProfile">บันทึกโปรไฟล์</button>
 	</div>
 </div>
 
@@ -60,11 +65,36 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
-<script type="text/javascript" src="js/article.lib.js"></script>
-<script type="text/javascript" src="js/editor.option.js"></script>
-<script type="text/javascript" src="js/location.js"></script>
+<script type="text/javascript">
+$(function(){
+	// Article Sticky
+    $('#btnSaveProfile').click(function(){
+        var display = $('#display').val();
+        var bio = $('#bio').val();
+
+        $.ajax({
+            url         :'api/user',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_info',
+                display  	:display,
+                bio 		:bio
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+         //    setTimeout(function(){
+	        //     location.reload();
+	        // },1000);
+        });
+    });
+});
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@ class User{
     public $fullname;
     public $fname;
     public $lname;
+    public $display;
     public $bio;
     public $verified;
     public $type;
@@ -222,7 +223,7 @@ class User{
     }
 
     public function getUser($user_id){
-        $this->db->query('SELECT id,phone,email,fname,lname,bio,password,salt,verified,type,status,ip,register_time,edit_time,visit_time,fb_id,fb_fname,fb_lname,fb_link,gender FROM user WHERE id = :user_id');
+        $this->db->query('SELECT id,phone,email,fname,lname,display,bio,password,salt,verified,type,status,ip,register_time,edit_time,visit_time,fb_id,fb_fname,fb_lname,fb_link,gender FROM user WHERE id = :user_id');
         $this->db->bind(':user_id',$user_id);
         $this->db->execute();
         $dataset = $this->db->single();
@@ -233,6 +234,7 @@ class User{
         $this->fname           = $dataset['fname'];
         $this->lname           = $dataset['lname'];
         $this->bio             = $dataset['bio'];
+        $this->display          = $dataset['display'];
         $this->password       = $dataset['password'];
         $this->salt           = $dataset['salt'];
         $this->ip             = $dataset['ip'];
@@ -365,6 +367,15 @@ class User{
     private function clearAttempt(){
         $this->db->query('DELETE FROM login_attempts WHERE time < :limittime');
         $this->db->bind(':limittime', time() - 60);
+        $this->db->execute();
+    }
+
+    public function editInfo($user_id,$display,$bio){
+        $this->db->query('UPDATE user SET display = :display, bio = :bio, edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':display' ,$display);
+        $this->db->bind(':bio' ,$bio);
+        $this->db->bind(':user_id' ,$user_id);
+        $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
         $this->db->execute();
     }
     
