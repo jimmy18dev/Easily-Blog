@@ -8,6 +8,24 @@
 	display: inline-block;
 	height: 56px;
 	z-index: 999;
+	position: relative;
+
+	.center{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30%;
+		margin: 0 35%;
+		height: 16px 0;
+		padding: 20px;
+		float: left;
+		display: inline-block;
+		font-family: @topic_font;
+		font-size: 1.1em;
+		line-height: 0.9em;
+		color: #DDDDDD;
+		text-align: center;
+	}
 
 	.btn-submit{
 		float: right;
@@ -1291,23 +1309,10 @@
 }
 
 .page-form{
-	width: 40%;
-	padding: 0% 30%;
+	width: 30%;
+	padding: 0% 35%;
 	float: left;
 	display: inline-block;
-
-	h1{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		font-size: 2em;
-		font-family: @topic_font;
-		border-bottom: 1px solid #EEEEEE;
-		color: #333333;
-		margin: 5% 0;
-		padding-bottom: 1%;
-		font-weight: normal;
-	}
 
 	.items{
 		width: 100%;
@@ -1330,8 +1335,8 @@
 			display: inline-block;
 
 			input[type="text"] , textarea{
-				width: 94%;
-				padding: 3%;
+				width: 92%;
+				padding: 4%;
 				float: left;
 				display: inline-block;
 				font-size: 1em;
@@ -1357,15 +1362,21 @@
 		button{
 			float: right;
 			display: inline-block;
-			background: #2962FF;
-			color: #FFFFFF;
+			background: #EEEEEE;
+			color: #DDDDDD;
 			font-size: 1em;
 			font-weight: bold;
 			border-radius: 5px;
 			border: 0px;
-			padding: 2.5% 6%;
+			padding: 3% 5%;
 			line-height: 1em;
-			box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+			
+
+			&.active{
+				background: #2962FF;
+				color: #FFFFFF;
+				box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+			}
 		}
 	}
 }
@@ -1591,7 +1602,7 @@
 	float: left;
 	display: inline-block;
 	z-index: 9999;
-	.bgGradient(#3BED8D,#38ACC5);
+	background: #2962FF;
 }
 
 /* Other Device and Screen */

@@ -1419,17 +1419,4 @@ body {
 .announce .control a:active {
   background: #EEEEEE;
 }
-#progressbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 5px;
-  float: left;
-  display: inline-block;
-  z-index: 9999;
-  background: #3bed8d;
-  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
-  background: linear-gradient(to right, #3bed8d, #38acc5);
-}
 /* Other Device and Screen */

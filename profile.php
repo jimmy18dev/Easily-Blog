@@ -37,6 +37,9 @@ $c_article 	= $article->counter($user->id);
 <body>
 <header class="header">
 	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
+
+    <span class="center">โปรไฟล์</span>
+
 	<?php if($user_online){?>
 	<a class="btn right" href="article/create"><i class="fal fa-plus"></i><span>เขียนบทความ</span></a>
 	<?php }else{?>

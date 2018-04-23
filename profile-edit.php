@@ -33,10 +33,10 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <div class="header">
 	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i></a>
+	<div class="center">แกไขโปรไฟล์</div>
 </div>
 
 <div class="page-form">
-	<h1>โปรไฟล์</h1>
 	<div class="items">
 		<div class="caption">ชื่อที่ใช้แสดง</div>
 		<div class="content">
@@ -64,8 +64,11 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript">
 $(function(){
-	// Article Sticky
-    $('#btnSaveProfile').click(function(){
+	$btnSaveProfile = $('#btnSaveProfile');
+	var progressbar = $('#progressbar');
+
+    $btnSaveProfile.click(function(){
+    	progressbar.Progressbar('70%');
         var display = $('#display').val();
         var bio = $('#bio').val();
 
@@ -84,11 +87,14 @@ $(function(){
             }
         }).done(function(data){
             console.log(data);
-         //    setTimeout(function(){
-	        //     location.reload();
-	        // },1000);
+            progressbar.Progressbar('100%');
+            $btnSaveProfile.removeClass('active');
         });
     });
+
+    $('input,textarea').on('input',function(event) {
+    	$btnSaveProfile.addClass('active');
+    })
 });
 </script>
 </body>
