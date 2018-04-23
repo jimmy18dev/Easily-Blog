@@ -55,7 +55,7 @@ $c_article 	= $article->counter($user->id);
 		</figure>
 		<div class="info">
 			<h1><?php echo $user->fullname;?></h1>
-			<p>Web developer and Web Designer at Abhaibhubejhr Hospital · <a href="profile/edit">แก้ไข<i class="fal fa-angle-right"></i></a></p>
+			<p><?php echo $user->bio;?> · <a href="profile/edit">แก้ไข<i class="fal fa-angle-right"></i></a></p>
 		</div>
 	</div>
 	<div class="navi">
