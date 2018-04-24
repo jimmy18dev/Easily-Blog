@@ -58,12 +58,16 @@ $c_article 	= $article->counter($user->id);
 		</figure>
 		<div class="info">
 			<h1><?php echo $user->fullname;?></h1>
+            <?php if(!empty($user->display)){ ?>
+            <p class="fullname"><strong>ชื่อที่แสดง:</strong> <?php echo $user->display;?></p>
+            <?php }?>
 			<p><?php echo $user->bio;?> · <a href="profile/edit">แก้ไข<i class="fal fa-angle-right"></i></a></p>
 		</div>
 	</div>
-	<div class="navi">
-		<a href="profile/article" class="active">บทความ</a>
-	</div>
+</div>
+<div class="navi">
+    <a href="profile" class="active">บทความ</a>
+    <a href="signout" class="right">ออกจากระบบ</a>
 </div>
 
 <div class="article-list">
@@ -74,13 +78,20 @@ $c_article 	= $article->counter($user->id);
 	<?php }?>
 </div>
 
+<div id="progressbar"></div>
+<div id="overlay" class="overlay"></div>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript">
 $(function(){
+    var progressbar = $('#progressbar');
+
 	// Article Sticky
     $('.btn-sticky').click(function(){
-    	console.log('Article Sticky!');
+        progressbar.Progressbar('60%');
+        $this = $(this);
         var article_id = $(this).attr('data-id');
 
         $.ajax({
@@ -97,15 +108,15 @@ $(function(){
             }
         }).done(function(data){
             console.log(data);
-            setTimeout(function(){
-	            location.reload();
-	        },1000);
+            $this.toggleClass('active');
+            progressbar.Progressbar('100%');
         });
     });
 
     $('.btn-publish').click(function(){
     	$this = $(this);
         var article_id = $(this).attr('data-id');
+        progressbar.Progressbar('70%');
 
         $.ajax({
             url         :'api/article',
@@ -122,6 +133,7 @@ $(function(){
         }).done(function(data){
             console.log(data);
             $this.toggleClass('active');
+            progressbar.Progressbar('100%');
          //    setTimeout(function(){
 	        //     location.reload();
 	        // },1000);

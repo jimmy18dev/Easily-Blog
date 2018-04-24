@@ -12,15 +12,13 @@
 		<header>
 			<p>
 				<span><?php echo $var['category_title'];?></span>
-				<?php if($var['status'] == 'published'){?>
-				<span class="btn-sticky" data-id="<?php echo $var['id'];?>" title="ปักหมุด"><?php echo ($var['sticky'] == 1?'<i class="fa fa-star"></i>':'<i class="fal fa-star"></i>');?></span>
-				<?php }?>
+				<span class="btn btn-publish <?php echo ($var['status'] == 'published'?'active':'');?>" data-id="<?php echo $var['id'];?>" title="เผยแพร่บทความ"><i class="fa fa-circle"></i></span>
+				<span class="btn btn-sticky <?php echo ($var['sticky'] == 1?'active':'');?>" data-id="<?php echo $var['id'];?>" title="ปักหมุด"><i class="fa fa-thumbtack"></i></span>
 			</p>
 			<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'ไม่มีชื่อบทความ');?></a></h2>
 		</header>
 		<p class="info">
-			<span>เผยแพร่เมื่อ <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
+			<span>เผยแพร่ <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
 		</p>
 	</div>
-	<div class="btn btn-publish <?php echo ($var['status'] == 'published'?'':'active');?>" data-id="<?php echo $var['id'];?>">เผยแพร่</div>
 </article>

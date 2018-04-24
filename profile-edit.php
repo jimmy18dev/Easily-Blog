@@ -1,11 +1,6 @@
 <?php
 include_once'autoload.php';
-$article 	= new Article();
-$article_id = $_GET['article_id'];
-$article->get($article_id);
-$article_url = DOMAIN.'/article/'.$article->id.'/';
 ?>
-
 
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -33,21 +28,21 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <div class="header">
 	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i></a>
-	<div class="center">แกไขโปรไฟล์</div>
+	<div class="center">แก้ไขโปรไฟล์</div>
 </div>
 
 <div class="page-form">
 	<div class="items">
 		<div class="caption">ชื่อที่ใช้แสดง</div>
 		<div class="content">
-			<input type="text" id="display" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
+			<input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
 		</div>
 	</div>
 
 	<div class="items">
 		<div class="caption">เกี่ยวกับ</div>
 		<div class="content">
-			<textarea id="bio" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
+			<textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
 		</div>
 	</div>
 
