@@ -267,20 +267,20 @@ body {
   color: #F44336;
 }
 .pagehead {
-  width: 60%;
-  padding: 0 20%;
+  width: 56%;
+  padding: 0 22%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
 }
 .pagehead .profile {
   width: 100%;
-  padding: 3% 0%;
+  padding: 4% 0%;
   float: left;
   display: inline-block;
 }
 .pagehead .profile .avatar {
   width: 10%;
+  min-width: 10%;
   float: left;
   display: inline-block;
   margin-right: 3%;
@@ -290,33 +290,50 @@ body {
   float: left;
   display: inline-block;
   border-radius: 50%;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .pagehead .profile .info {
-  width: 87%;
-  float: left;
+  width: 57%;
+  float: right;
   display: inline-block;
-  margin-top: 0.5%;
+  font-family: "maledpan", sans-serif;
 }
 .pagehead .profile .info h1 {
-  font-size: 1.8em;
+  display: block;
+  font-size: 2.4em;
   line-height: 1em;
-  font-family: "maledpan", sans-serif;
   color: #333333;
-  margin-bottom: 1%;
 }
 .pagehead .profile .info p {
-  font-size: 1em;
+  display: block;
+  font-size: 1.2em;
   color: #666666;
+  padding: 2% 0;
 }
-.pagehead .profile .info p a {
+.pagehead .profile .control {
+  width: 30%;
+  float: right;
+  display: inline-block;
+  margin-top: 1%;
+}
+.pagehead .profile .control a {
+  float: right;
+  display: inline-block;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  padding-bottom: 12px;
+  margin-right: 5px;
   color: #2962FF;
   text-decoration: none;
+  border-radius: 3px;
+  line-height: 1em;
+  font-family: "maledpan", sans-serif;
+  background: #EEEEEE;
+  color: #999999;
 }
-.pagehead .profile .info p a i {
-  margin-left: 5px;
-}
-.pagehead .profile .info p a:hover {
-  text-decoration: underline;
+.pagehead .profile .control a:hover {
+  cursor: pointer;
+  background: #DDDDDD;
 }
 .pagehead .content {
   width: 100%;
@@ -346,8 +363,8 @@ body {
   color: #666666;
 }
 .navi {
-  width: 60%;
-  padding: 0 20%;
+  width: 56%;
+  padding: 0 22%;
   float: left;
   display: inline-block;
   border-bottom: 1px solid #EEEEEE;
@@ -360,16 +377,18 @@ body {
   font-family: "maledpan", sans-serif;
   font-size: 1.2em;
   line-height: 1em;
-  padding: 2% 0%;
-  margin-right: 3%;
+  padding: 2% 1%;
+  margin-right: 2%;
   margin-bottom: -1px;
 }
 .navi a:hover {
   cursor: pointer;
   color: #666666;
+  border-bottom: 1px solid #BBBBBB;
 }
 .navi a.active {
-  color: #333333;
+  color: #000000;
+  border-bottom: 1px solid #333333;
 }
 .navi a.right {
   float: right;
@@ -1462,9 +1481,31 @@ body {
 .page-form .items button:hover {
   cursor: pointer;
 }
+.filter {
+  width: 56%;
+  margin: 0% 22%;
+  padding: 2% 0;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.filter a.btn-create {
+  float: right;
+  display: inline-block;
+  background: #2962ff;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
+  line-height: 1em;
+  padding: 12px 20px;
+  padding-bottom: 15px;
+  border-radius: 3px;
+}
 .article-list {
-  width: 60%;
-  padding: 0% 20%;
+  width: 56%;
+  padding: 0% 22%;
+  margin-bottom: 10%;
   float: left;
   display: inline-block;
 }
@@ -1486,8 +1527,11 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0px 1px 10px rgba(100, 100, 100, 0.2);
+}
+.article-list .article-items .thumbnail img:hover {
+  opacity: 0.8;
 }
 .article-list .article-items .icon {
   width: 13%;
@@ -1510,7 +1554,8 @@ body {
   display: inline-block;
   font-size: 1.6em;
   line-height: 1.3em;
-  margin: 0.5% 0;
+  margin-top: 0.5%;
+  margin-bottom: 1%;
   font-family: "maledpan", sans-serif;
 }
 .article-list .article-items .content h2 a {
@@ -1602,11 +1647,11 @@ body {
   display: none;
 }
 .swap .swap-items.-active {
-  border: 3px solid #ff6d00;
+  border: 3px solid #2962ff;
 }
 .swap .swap-items:hover {
   cursor: pointer;
-  border: 3px solid #ff6d00;
+  border: 3px solid #2962ff;
   opacity: 1;
 }
 .swap .swap-items:first-child {
