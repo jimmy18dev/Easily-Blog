@@ -1,4 +1,8 @@
 <article class="related-items">
+	<header class="<?php echo (empty($var['cover_img'])?'fullsize':'');?>">
+		<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
+		<p><?php echo $var['description'];?></p>
+	</header>
 	<?php if(!empty($var['cover_id'])){?>
 	<figure class="thumbnail">
 		<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
@@ -6,8 +10,4 @@
 		</a>
 	</figure>
 	<?php }?>
-	<header>
-		<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
-		<p><?php echo $var['description'];?></p>
-	</header>
 </article>

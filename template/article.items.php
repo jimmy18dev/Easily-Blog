@@ -18,7 +18,7 @@
 			<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'ไม่มีชื่อบทความ');?></a></h2>
 		</header>
 		<p class="info">
-			<span>เผยแพร่ <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
+			<span>อัพเดท <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></span>
 		</p>
 	</div>
 </article>

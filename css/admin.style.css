@@ -1509,6 +1509,33 @@ body {
   float: left;
   display: inline-block;
 }
+.article-list .category-items {
+  width: 100%;
+  padding: 4% 0;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EFEFEF;
+}
+.article-list .category-items .icon {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.6em;
+}
+.article-list .category-items .detail {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.article-list .category-items .btns {
+  width: 10%;
+  float: right;
+  display: inline-block;
+  background: #CAADDA;
+  text-align: center;
+  font-size: 1.6em;
+}
 .article-list .article-items {
   width: 100%;
   padding: 4% 0;
@@ -1575,14 +1602,13 @@ body {
 .article-list .article-items .content p span {
   float: left;
   display: inline-block;
-  line-height: 1em;
 }
 .article-list .article-items .content p span.btn {
   float: right;
   color: #DDDDDD;
-  font-size: 1.1em;
-  border-radius: 50%;
+  font-size: 1.2em;
   padding: 0 1%;
+  line-height: 1.25em;
 }
 .article-list .article-items .content p span.btn.active {
   color: #2962FF;

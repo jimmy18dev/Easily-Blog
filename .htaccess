@@ -23,6 +23,8 @@ RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
 RewriteRule ^profile$ 					/profile.php [L]
 RewriteRule ^profile/article/([^_]*)$ 	/profile.php?status=$1 [L]
 RewriteRule ^profile/category$ 			/category.php [L]
+RewriteRule ^profile/category/create$ 	/category-edit.php [L]
+RewriteRule ^profile/category/edit/([0-9]+)$ /category-edit.php?category_id=$1 [L]
 RewriteRule ^profile/edit$ 				/profile-edit.php [L]
 
 ### ERROR PAGE
@@ -41,3 +43,4 @@ RewriteRule ^api/article$ 				/api/article.php [L]
 RewriteRule ^api/user$ 					/api/user.php [L]
 RewriteRule ^api/document$ 				/api/document.php [L]
 RewriteRule ^api/location$ 				/api/location.php [L]
+RewriteRule ^api/category$ 				/api/category.php [L]

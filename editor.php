@@ -43,7 +43,7 @@ if($article->owner_id != $user->id){
 	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>
 	<?php }?>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-cog"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-clipboard-check"></i></a>
 	<a class="btn-icon delete" id="btn-remove" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
 </div>
 

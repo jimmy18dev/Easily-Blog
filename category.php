@@ -1,15 +1,7 @@
 <?php
 include_once'autoload.php';
-$article = new Article();
-
-if(!empty($_GET['status'])){
-	$status = $_GET['status'];
-}else{
-	$status = 'draft';
-}
-
-$articles 	= $article->listAll(NULL,NULL,NULL,NULL,$user->id);
-$c_article 	= $article->counter($user->id);
+$category = new Category();
+$categories = $category->listAll();
 ?>
 
 <!doctype html>
@@ -28,7 +20,7 @@ $c_article 	= $article->counter($user->id);
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $user->fullname;?></title>
+<title>Category</title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -58,18 +50,18 @@ $c_article 	= $article->counter($user->id);
 
 <div class="navi">
     <a href="profile" class="active">บทความ</a>
-    <a href="profile/category">หมวดหมู่</a>
+    <a href="profile">หมวดหมู่</a>
 </div>
 
 <div class="filter">
-    <a class="btn-create" href="article/create">เขียนบทความ</a>
+    <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
 </div>
 
 <div class="article-list">
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
+	<?php if(count($categories) > 0){?>
+	<?php foreach ($categories as $var) { include 'template/category.items.php'; } ?>
 	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
+	<div class="empty">ไม่พบหมวดหมู่</div>
 	<?php }?>
 </div>
 

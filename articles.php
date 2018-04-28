@@ -33,6 +33,7 @@ $categories = $category->listAll();
 <body>
 
 <?php include_once 'header.php';?>
+<?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
 	<div class="lists">

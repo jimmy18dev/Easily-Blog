@@ -35,17 +35,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-
-<header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
-	<div class="logo"><a href="index.php"><i class="fal fa-user-md"></i><span>Occmed Prachinburi</span></a></div>
-
-	<?php if($user_online){?>
-	<?php include 'template/header.profile.php';?>
-	<?php }else{?>
-	<a class="btn" href="signin"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-	<?php }?>
-</header>
-
+<?php include_once 'header.php';?>
 
 <!-- Article Content -->
 <article class="article">
@@ -55,12 +45,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<div class="article-cover">
 		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
 		<header class="article-header">
-			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<div class="control">
-				<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i><span>เพิ่มเติม</span></a>
-				<a class="btn-icon" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ"><i class="fal fa-edit"></i><span>แก้ไข</span></a>
-			</div>
-			<?php }?>
 			<h1><?php echo $article->title;?></h1>
 			<p class="info">
 				<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
@@ -72,12 +56,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }else{?>
 	<!-- Article Header -->
 	<header class="article-header">
-		<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-		<div class="control">
-			<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i><span>เพิ่มเติม</span></a>
-			<a class="btn-icon" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ"><i class="fal fa-edit"></i><span>แก้ไข</span></a>
-		</div>
-		<?php }?>
 		<h1><?php echo $article->title;?></h1>
 		<p class="info">
 			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
@@ -152,14 +130,25 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 	<?php if(count($article->tags)>0){?>
 	<div class="tag">
+		<strong>TAG:</strong>
 		<?php foreach ($article->tags as $var){ ?>
 		<a href="tag/<?php echo $var['name'];?>">#<?php echo $var['name'];?></a>
 		<?php } ?>
 	</div>
 	<?php }?>
+
+	<div class="author">
+		<h4>บทความโดย</h4>
+		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+		<div class="detail">
+			<div class="name"><?php echo $article->owner_displayname;?></div>
+			<div class="desc">Web Developer and Web Designer</div>
+		</div>
+	</div>
 </article>
 
 <div class="article-related">
+	<h2>บทความแนะนำ</h2>
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.related.php'; } ?>
 	<?php }?>

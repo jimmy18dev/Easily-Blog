@@ -32,19 +32,23 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
+
 <?php include_once 'header.php';?>
+<?php include_once 'template/navigation.php'; ?>
+
 <div class="cover">
 	<img src="image/cover.jpg" alt="">
 	<div class="content">
 		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
 		<p>Occupational and Environmental medicine</p>
+		<!-- <p>โรงพยาบาลเจ้าพระยาอภัยภูเบศร ปราจีนบุรี</p> -->
 	</div>
 	<div class="filter"></div>
 </div>
 
 <?php if(count($article_sticky) > 0){?>
 <div class="section">
-	<h3>ปักหมุด</h3>
+	<h3><i class="fal fa-star"></i>บทความแนะนำ</h3>
 	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
 </div>
 <?php }?>
