@@ -2,7 +2,7 @@
 include_once'autoload.php';
 $article = new Article();
 
-$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id);
+$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id,0);
 $c_article 	= $article->counter($user->id);
 ?>
 
@@ -60,6 +60,7 @@ $c_article 	= $article->counter($user->id);
 </div>
 
 <div class="article-list">
+    <pre><?php print_r($articles); ?></pre>
 	<?php if(count($articles) > 0){?>
 	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>

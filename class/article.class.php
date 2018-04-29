@@ -256,7 +256,7 @@ class Article{
         return $icon;
     }
 
-    public function listAll($category_id,$page,$keyword,$status,$owner_id,$limit = NULL){
+    public function listAll($category_id,$page,$keyword,$status,$owner_id,$limit){
         $perpage = 50; // Total items per page.
     	
         if(empty($page) || $page < 0)
@@ -264,7 +264,7 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display owner_displayname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
 
     	if(!empty($category_id)){
@@ -280,9 +280,12 @@ class Article{
             $where_status = 'AND (article.status = "published" OR article.status = "draft") ';
         }
 
+        // With Owner
     	if(!empty($owner_id)){
     		$where_owner = 'AND article.user_id = :owner_id ';
     	}
+
+        // Searching
         if(!empty($keyword)){
             $where_search = 'AND (article.title LIKE :keyword OR article.description LIKE :keyword) ';
         }
@@ -290,7 +293,7 @@ class Article{
     	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
 
         if($limit > 0){
-            $limit = 'LIMIT 3';
+            $limit = 'LIMIT '.$limit;
         }else{
             $limit = 'LIMIT '.$start.','.$perpage;
         }
@@ -323,45 +326,45 @@ class Article{
 		return $dataset;
     }
 
-    public function listWithCategory($category_id,$total_items){
-        // Get category info
-        $this->db->query('SELECT * FROM category WHERE id = :category_id');
-        $this->db->bind(':category_id',$category_id);
-        $this->db->execute();
-        $category = $this->db->single();
+    // public function listWithCategory($category_id,$total_items){
+    //     // Get category info
+    //     $this->db->query('SELECT * FROM category WHERE id = :category_id');
+    //     $this->db->bind(':category_id',$category_id);
+    //     $this->db->execute();
+    //     $category = $this->db->single();
 
-        // List articles in category.
-        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id author_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type 
-            FROM article AS article 
-            LEFT JOIN category AS category ON article.category_id = category.id 
-            LEFT JOIN user AS user ON article.user_id = user.id 
-            LEFT JOIN content AS content ON article.cover_id = content.id 
-            WHERE article.category_id = :category_id AND article.status = "published" AND article.sticky = 0 
-            ORDER BY article.published_time DESC,article.create_time DESC 
-            LIMIT '.$total_items);
+    //     // List articles in category.
+    //     $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id author_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+    //         FROM article AS article 
+    //         LEFT JOIN category AS category ON article.category_id = category.id 
+    //         LEFT JOIN user AS user ON article.user_id = user.id 
+    //         LEFT JOIN content AS content ON article.cover_id = content.id 
+    //         WHERE article.category_id = :category_id AND article.status = "published" AND article.sticky = 0 
+    //         ORDER BY article.published_time DESC,article.create_time DESC 
+    //         LIMIT '.$total_items);
         
-        $this->db->bind(':category_id',$category_id);
-        $this->db->execute();
-        $dataset = $this->db->resultset();
+    //     $this->db->bind(':category_id',$category_id);
+    //     $this->db->execute();
+    //     $dataset = $this->db->resultset();
 
-        foreach ($dataset as $k => $var) {
-            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
-            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
-            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
-        }
+    //     foreach ($dataset as $k => $var) {
+    //         $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+    //         $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+    //         $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+    //     }
 
-        // Count Total Artlces in Category.
-        $this->db->query('SELECT COUNT(id) total FROM article WHERE category_id = :category_id AND status = "published"');
-        $this->db->bind(':category_id',$category_id);
-        $this->db->execute();
-        $data = $this->db->single();
-        $category['total'] = $data['total'];
+    //     // Count Total Artlces in Category.
+    //     $this->db->query('SELECT COUNT(id) total FROM article WHERE category_id = :category_id AND status = "published"');
+    //     $this->db->bind(':category_id',$category_id);
+    //     $this->db->execute();
+    //     $data = $this->db->single();
+    //     $category['total'] = $data['total'];
 
-        return array(
-            'category'  => $category,
-            'articles'  => $dataset
-        );
-    }
+    //     return array(
+    //         'category'  => $category,
+    //         'articles'  => $dataset
+    //     );
+    // }
 
     public function listSticky(){
         $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
@@ -436,21 +439,6 @@ class Article{
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
     }
-
-  //   public function changeStatus($article_id,$status){
-  //   	$this->db->query('UPDATE article SET status = :status, update_time = :update_time WHERE id = :article_id');
-		// $this->db->bind(':article_id',$article_id);
-  //       $this->db->bind(':status',$status);
-		// $this->db->bind(':update_time',date('Y-m-d H:i:s'));
-		// $this->db->execute();
-
-  //       if($status == 'published'){
-  //           $this->db->query('UPDATE article SET published_time = :published_time WHERE id = :article_id');
-  //           $this->db->bind(':article_id',$article_id);
-  //           $this->db->bind(':published_time',date('Y-m-d H:i:s'));
-  //           $this->db->execute();
-  //       }
-  //   }
 
     // Count articles with Owner ID
     public function counter($owner_id){

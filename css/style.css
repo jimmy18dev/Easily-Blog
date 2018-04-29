@@ -698,9 +698,12 @@ body {
   float: left;
   display: inline-block;
   font-size: 1.35em;
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid #EEEEEE;
   font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
+  padding-bottom: 2%;
+  color: #333333;
+  font-weight: normal;
 }
 .article .author img {
   width: 8%;
@@ -721,7 +724,7 @@ body {
 }
 .article .author .detail .desc {
   font-size: 0.85em;
-  color: #999999;
+  color: #ff6d00;
 }
 .section {
   width: 70%;

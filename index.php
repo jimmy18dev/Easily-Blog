@@ -4,8 +4,6 @@ $article = new Article();
 $category = new Category();
 $homesection = new HomeSection();
 $sectionitems = $homesection->list();
-$category_id = $_GET['category_id'];
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
 $article_sticky = $article->listSticky();
 $categories = $category->listAll();
 ?>
@@ -50,7 +48,7 @@ $categories = $category->listAll();
 
 <?php if(count($article_sticky) > 0){?>
 <div class="section">
-	<h3><i class="fal fa-star"></i>บทความแนะนำ</h3>
+	<h3><i class="fa fa-star"></i>บทความแนะนำ</h3>
 	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
 </div>
 <?php }?>
@@ -58,13 +56,13 @@ $categories = $category->listAll();
 <?php foreach ($sectionitems as $key) {?>
 <div class="section">
 	<?php
-	$dataset = $article->listWithCategory($key['category_id'],$key['total_items']);
+	$dataset = $article->listAll($key['category_id'],NULL,NULL,'published',NULL,$key['total_items']);
 	$category_data = $category->get($key['category_id']);
 	?>
 	<h3><?php echo $category_data['title'];?></h3>
 	<div class="lists">
-		<?php if(count($dataset['articles']) > 0){?>
-		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($dataset) > 0){?>
+		<?php foreach ($dataset as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
@@ -76,11 +74,7 @@ $categories = $category->listAll();
 </div>
 <?php }?>
 
-<?php if(count($articles)>0){
-	include_once 'footer.php';
-}?>
-
-<div id="progressbar"></div>
+<?php include_once 'footer.php'; ?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
