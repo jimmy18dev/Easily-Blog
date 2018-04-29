@@ -2,13 +2,7 @@
 include_once'autoload.php';
 $article = new Article();
 
-if(!empty($_GET['status'])){
-	$status = $_GET['status'];
-}else{
-	$status = 'draft';
-}
-
-$articles 	= $article->listAll(NULL,NULL,NULL,NULL,$user->id);
+$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id);
 $c_article 	= $article->counter($user->id);
 ?>
 

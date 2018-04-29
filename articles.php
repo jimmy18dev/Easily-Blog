@@ -3,7 +3,9 @@ include_once'autoload.php';
 $article = new Article();
 $category = new Category();
 $category_id = $_GET['category_id'];
+
 $articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
+
 $categories = $category->listAll();
 ?>
 

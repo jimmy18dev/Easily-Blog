@@ -2,6 +2,8 @@
 include_once'autoload.php';
 $article = new Article();
 $category = new Category();
+$homesection = new HomeSection();
+$sectionitems = $homesection->list();
 $category_id = $_GET['category_id'];
 $articles = $article->listAll($category_id,NULL,NULL,'published',NULL);
 $article_sticky = $article->listSticky();
@@ -53,8 +55,9 @@ $categories = $category->listAll();
 </div>
 <?php }?>
 
+<?php foreach ($sectionitems as $key) {?>
 <div class="section">
-	<?php $dataset = $article->listCategory(2); ?>
+	<?php $dataset = $article->listWithCategory($key['category_id'],$key['total_items']); ?>
 	<h3><?php echo $dataset['category']['title'];?></h3>
 	<div class="lists">
 		<?php if(count($dataset['articles']) > 0){?>
@@ -64,40 +67,11 @@ $categories = $category->listAll();
 		<?php }?>
 	</div>
 
-	<?php if($dataset['category']['total'] > 6){?>
+	<?php if($dataset['category']['total'] > $key['total_items']){?>
 	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
 	<?php }?>
 </div>
-
-<div class="section">
-	<?php $dataset = $article->listCategory(4); ?>
-	<h3><?php echo $dataset['category']['title'];?></h3>
-	<div class="lists">
-		<?php if(count($dataset['articles']) > 0){?>
-		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
-		<?php }else{?>
-		<div class="empty">ไม่พบบทความ</div>
-		<?php }?>
-	</div>
-	<?php if($dataset['category']['total'] > 6){?>
-	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
-	<?php }?>
-</div>
-
-<div class="section">
-	<?php $dataset = $article->listCategory(1); ?>
-	<h3><?php echo $dataset['category']['title'];?></h3>
-	<div class="lists">
-		<?php if(count($dataset['articles']) > 0){?>
-		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
-		<?php }else{?>
-		<div class="empty">ไม่พบบทความ</div>
-		<?php }?>
-	</div>
-	<?php if($dataset['category']['total'] > 6){?>
-	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
-	<?php }?>
-</div>
+<?php }?>
 
 <?php if(count($articles)>0){
 	include_once 'footer.php';

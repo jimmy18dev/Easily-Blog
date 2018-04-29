@@ -270,11 +270,14 @@ class Article{
     	if(!empty($category_id)){
     		$where_category = 'AND article.category_id = :category_id ';
     	}
-    	
+
+        // Article Status
     	if($status == 'published'){
     		$where_status = 'AND article.status = "published" ';
     	}else if($status == 'draft'){
             $where_status = 'AND article.status = "draft" ';
+        }else if($status == 'author'){
+            $where_status = 'AND (article.status = "published" OR article.status = "draft") ';
         }
 
     	if(!empty($owner_id)){
@@ -320,7 +323,7 @@ class Article{
 		return $dataset;
     }
 
-    public function listCategory($category_id){
+    public function listWithCategory($category_id,$total_items){
         // Get category info
         $this->db->query('SELECT * FROM category WHERE id = :category_id');
         $this->db->bind(':category_id',$category_id);
@@ -335,7 +338,7 @@ class Article{
             LEFT JOIN content AS content ON article.cover_id = content.id 
             WHERE article.category_id = :category_id AND article.status = "published" AND article.sticky = 0 
             ORDER BY article.published_time DESC,article.create_time DESC 
-            LIMIT 6');
+            LIMIT '.$total_items);
         
         $this->db->bind(':category_id',$category_id);
         $this->db->execute();

@@ -1143,6 +1143,7 @@ body {
   display: inline-block;
   font-family: "maledpan", sans-serif;
   font-size: 1em;
+  background: #EEEEEE;
 }
 .footer .link {
   width: 100%;
