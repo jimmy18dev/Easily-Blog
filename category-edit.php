@@ -73,6 +73,7 @@ if(!empty($category_id)){
 		<button id="btnSave">บันทึก</button>
 	</div>
 
+    <?php if(!empty($category->id)){?>
     <div class="delete">
         <h2>ลบหมวดหมู่นี้</h2>
         <p>บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
@@ -85,9 +86,10 @@ if(!empty($category_id)){
 
         <button id="btn-delete">Delete</button>
     </div>
+    <?php }?>
 </div>
 
-<input type="text" id="category_id" value="<?php echo $category->id;?>">
+<input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
@@ -152,6 +154,7 @@ $(function(){
         }).done(function(data){
             console.log(data);
             progressbar.Progressbar('100%');
+            window.location = 'profile/category';
         });
     });
 
