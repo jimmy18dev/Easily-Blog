@@ -40,8 +40,19 @@ switch ($_SERVER['REQUEST_METHOD']){
 					$category->create($title,$desc,$link,$icon);
 					$returnObject['message'] 	= 'Category created';
 				}
-				
-				
+				break;
+			case 'delete':
+				$category_id = $_POST['category_id'];
+				$new_target = $_POST['new_target'];
+
+				$category->delete($category_id,$new_target);
+				$returnObject['message'] = 'Category deleted';
+				break;
+			case 'swap':
+				$current 	= $_POST['current'];
+				$target 	= $_POST['target'];
+
+				$category->swap($current,$target);
 				break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';

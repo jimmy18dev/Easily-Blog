@@ -77,56 +77,55 @@ $(function(){
     var progressbar = $('#progressbar');
     tippy('[title]',{arrow: true});
 
+    var current;
+    var target;
+
 	// Article Sticky
-    $('.btn-sticky').click(function(){
-        progressbar.Progressbar('60%');
+    $('.btn-swap').click(function(){
+        // progressbar.Progressbar('60%');
         $this = $(this);
-        var article_id = $(this).attr('data-id');
 
-        $.ajax({
-            url         :'api/article',
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'sticky',
-                article_id  :article_id,
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
+        if(!current)
+            current = $(this).attr('data-id');
+        else{
+            target = $(this).attr('data-id');
+
+            if(current == target){
+                current = null;
+                target = null;
+
+                return false;
             }
-        }).done(function(data){
-            console.log(data);
-            $this.toggleClass('active');
-            progressbar.Progressbar('100%');
-        });
-    });
+        }
 
-    $('.btn-publish').click(function(){
-    	$this = $(this);
-        var article_id = $(this).attr('data-id');
-        progressbar.Progressbar('70%');
+        console.log(current,target);
 
-        $.ajax({
-            url         :'api/article',
-            cache       :false,
-            dataType    :"json",
-            type        :"POST",
-            data:{
-                request     :'published',
-                article_id  :article_id,
-            },
-            error: function (request, status, error){
-                console.log(request.responseText);
-            }
-        }).done(function(data){
-            console.log(data);
-            $this.toggleClass('active');
-            progressbar.Progressbar('100%');
-         //    setTimeout(function(){
-	        //     location.reload();
-	        // },1000);
-        });
+        if(current && target){
+            console.log('Swap betweet: '+current+','+target);
+
+            $.ajax({
+                url         :'api/category',
+                cache       :false,
+                dataType    :"json",
+                type        :"POST",
+                data:{
+                    request     :'swap',
+                    current  :current,
+                    target:target
+                },
+                error: function (request, status, error){
+                    console.log(request.responseText);
+                }
+            }).done(function(data){
+                console.log(data);
+                progressbar.Progressbar('100%');
+
+                current = null;
+                target = null;
+
+                location.reload();
+            });
+        }
     });
 });
 </script>
