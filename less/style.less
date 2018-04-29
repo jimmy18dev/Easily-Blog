@@ -1,6 +1,12 @@
 @import "reset";
 @import "config";
 
+@navi_fontsize 	:1.1em;
+@title_fontsize :1.35em;
+@desc_fontsize 	:0.85em;
+@topic_fontsize	:3em;
+@body_fontsize: 1.2em;
+
 .header{
 	position: relative;
 	width: 70%;
@@ -83,7 +89,7 @@
 	a{
 		display: inline-block;
 		font-family: @topic_font;
-		font-size: 1.1em;
+		font-size: @navi_fontsize;
 		line-height: 1.1em;
 		height: 22px;
 		padding: 7px 14px;
@@ -153,11 +159,11 @@
 		font-family: @topic_font;
 
 		h1{
-			font-size: 3.6em;
+			font-size: @topic_fontsize;
 			line-height: 1.5em;
 		}
 		p{
-			font-size: 1.8em;
+			font-size: @title_fontsize;
 			color: rgba(255,255,255,0.5);
 		}
 	}
@@ -257,7 +263,7 @@
 			&.fullsize{ width: 100%; }
 
 			h2{
-				font-size: 1.6em;
+				font-size: @title_fontsize;
 				font-family: @topic_font;
 				line-height: 1.3em;
 
@@ -267,7 +273,7 @@
 				}
 			}
 			p{
-				font-size: 0.9em;
+				font-size: @desc_fontsize;
 				margin-top: 1%;
 				color: #666666;
 			}
@@ -303,10 +309,10 @@
 		display: inline-block;
 
 		h1{
-			font-size: 3em;
+			font-size: @topic_fontsize;
 			font-family: @topic_font;
 			line-height: 1.2em;
-			font-weight: normal;
+			// font-weight: normal;
 			color: @font_color_topic;
 			display: block;
 			margin-bottom: 3%;
@@ -319,8 +325,7 @@
 			display: block;
 			float: left;
 			text-align: left;
-			font-size: 1em;
-			font-family: @topic_font;
+			font-size: @desc_fontsize;
 			line-height: 1.4em;
 
 			&:hover{ cursor: default; }
@@ -328,7 +333,7 @@
 			span , a{
 				float: left;
 				display: inline-block;
-				margin-right: 3%;
+				margin-right: 2%;
 				color: #333333;
 				text-decoration: none;
 
@@ -343,7 +348,7 @@
 			float: left;
 			display: block;
 			text-align: left;
-			font-size: 1.2em;
+			font-size: @body_fontsize;
 			line-height: 1.4em;
 			margin-top: 2%;
 			color: @font_color_light;
@@ -383,21 +388,6 @@
 			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 
-			.control{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				margin-bottom: 2%;
-
-				a.btn-icon{
-					color: #FFFFFF;
-					background: transparent;
-					border: 1px solid #FFFFFF;
-
-					&:hover{ background: rgba(255,255,255,0.3); }
-				}
-			}
-
 			h1{ color: #FFFFFF; text-shadow: 0px 5px 20px rgba(0,0,0,0.3); }
 
 			p.info{
@@ -415,13 +405,13 @@
 
 		h2{
 			color: @font_color_topic;
-			font-size: 2em;
+			font-size: @title_fontsize;
 			margin-bottom: 2%;
 			line-height: 1.3em;
 		}
 
 		p{
-			font-size: 1.2em;
+			font-size: @body_fontsize;
 			color: @font_color_body;
 			line-height: 1.6em;
 		}
@@ -433,7 +423,7 @@
 		margin-bottom: 5%;
 		float: left;
 		display: inline-block;
-		font-size: 1.2em;
+		font-size: @body_fontsize;
 		line-height: 1.6em;
 		color: @font_color_body;
 	}
@@ -516,9 +506,9 @@
 			background: @primary_color;
 			color: #FFFFFF;
 			text-decoration: none;
-			padding: 2.5% 2.8%;
+			padding: 15px;
 			line-height: 1em;
-			font-size: 1.6em;
+			font-size: @title_fontsize;
 			border-radius: 50%;
 			box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
 
@@ -533,7 +523,7 @@
 			float: left;
 			display: inline-block;
 			text-align: center;
-			font-size: 1em;
+			font-size: @desc_fontsize;
 			border: 0px;
 			padding: 2% 1%;
 			background: transparent;
@@ -577,7 +567,7 @@
 			margin-bottom: 2%;
 			line-height: 1em;
 			color: #BBBBBB;
-			font-size: 1.2em;
+			font-size: @body_fontsize;
 
 			&:hover{
 				text-decoration: underline;
@@ -599,7 +589,7 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			font-size: 1.6em;
+			font-size: @title_fontsize;
 			border-bottom: 1px solid #999999;
 			font-family: @topic_font;
 			margin-bottom: 3%;
@@ -619,12 +609,12 @@
 				display: inline-block;
 
 				.name{
-					font-size: 1.4em;
+					font-size: @title_fontsize;
 					color: #333333;
 					font-family: @topic_font;
 				}
 				.desc{
-					font-size: 0.8em;
+					font-size: @desc_fontsize;
 					color: #999999;
 				}
 			}
@@ -644,7 +634,7 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-		font-size: 2em;
+		font-size: @title_fontsize;
 		font-family: @topic_font;
 		font-weight: normal;
 		margin-bottom: 3%;
@@ -688,13 +678,13 @@
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 0.9em;
+				font-size: @desc_fontsize;
 				color: @primary_color;
 				margin-bottom: 3%;
 			}
 			h2{
 				font-family: @topic_font;
-				font-size: 1.6em;
+				font-size: @title_fontsize;
 				margin-bottom: 5%;
 				line-height: 1.25em;
 				font-weight: normal;
@@ -708,7 +698,7 @@
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 0.9em;
+				font-size: @desc_fontsize;
 				color: #666666;
 
 				&.info{
@@ -768,7 +758,7 @@
 						width: 100%;
 						float: left;
 						display: inline-block;
-						font-size: 0.8em;
+						font-size: @desc_fontsize;
 						color: @primary_color;
 
 						&:hover{ cursor: default; }
@@ -778,7 +768,7 @@
 						width: 100%;
 						float: left;
 						display: inline-block;
-						font-size: 1.35em;
+						font-size: @title_fontsize;
 						font-family: @topic_font;
 						line-height: 1.3em;
 						font-weight: normal;
@@ -794,7 +784,7 @@
 						text-overflow: ellipsis;
 						white-space: nowrap;
 						overflow: hidden;
-						font-size: 0.8em;
+						font-size: @desc_fontsize;
 						color: #666666;
 					}
 				}
@@ -806,7 +796,7 @@
 				margin: 0% 6%;
 				float: left;
 				display: inline-block;
-				font-size: 0.8em;
+				font-size: @desc_fontsize;
 				line-height: 1em;
 				position: relative;
 				color: #999999;
@@ -826,7 +816,7 @@
 					.category{ color: #EEEEEE; }
 
 					h2{
-						font-size: 1.6em;
+						font-size: @title_fontsize;
 						a{ color: #FFFFFF; }
 						margin: 10% 0;
 					}
@@ -884,21 +874,21 @@
 			display: inline-block;
 			text-align: center;
 			font-family: @topic_font;
-			font-size: 1.6em;
+			font-size: @title_fontsize;
 			color: #DDDDDD;
 			font-style: italic;
 		}
 	}
 
 	a.read-more{
-		width: 13%;
-		margin: 0 40%;
+		width: 15%;
+		margin: 0 39%;
 		display: inline-block;
 		background: transparent;
 		text-decoration: none;
 		color: #999999;
 		font-family: @topic_font;
-		font-size: 1.2em;
+		font-size: @title_fontsize;
 		line-height: 1em;
 		padding: 1.5% 2%;
 		text-align: center;
@@ -1014,7 +1004,7 @@
 	float: left;
 	display: inline-block;
 	font-family: @topic_font;
-	font-size: 1em;
+	font-size: @navi_fontsize;
 	background: #EEEEEE;
 
 	.link{
@@ -1055,6 +1045,7 @@
 		color: #BBBBBB;
 	}
 }
+
 .page-nav{
 	position: fixed;
 	top: 112px;

@@ -31,6 +31,7 @@ class Category{
         $this->description  = $dataset['description'];
         $this->icon         = $dataset['icon'];
         $this->link         = $dataset['link'];
+        
         return $dataset;
     }
 

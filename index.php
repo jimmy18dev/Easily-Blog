@@ -57,8 +57,11 @@ $categories = $category->listAll();
 
 <?php foreach ($sectionitems as $key) {?>
 <div class="section">
-	<?php $dataset = $article->listWithCategory($key['category_id'],$key['total_items']); ?>
-	<h3><?php echo $dataset['category']['title'];?></h3>
+	<?php
+	$dataset = $article->listWithCategory($key['category_id'],$key['total_items']);
+	$category_data = $category->get($key['category_id']);
+	?>
+	<h3><?php echo $category_data['title'];?></h3>
 	<div class="lists">
 		<?php if(count($dataset['articles']) > 0){?>
 		<?php foreach ($dataset['articles'] as $var) { include 'template/article.card.php'; } ?>
