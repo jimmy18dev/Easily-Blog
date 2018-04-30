@@ -39,12 +39,14 @@ $categories = $category->listAll();
 
 <div class="section">
 	<div class="lists">
-		<?php if(count($articles) > 0){?>
-		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($articles['items']) > 0){?>
+		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+
+	<?php echo $articles['total_items'];?>
 </div>
 
 <?php if(count($articles)>0){

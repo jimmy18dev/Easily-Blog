@@ -61,12 +61,13 @@ $c_article 	= $article->counter($user->id);
 
 <div class="article-list">
     <pre><?php print_r($articles); ?></pre>
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
+	<?php if(count($articles['items']) > 0){?>
+	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
+<p>total_items <?php echo $articles['total_items'];?></p>
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>

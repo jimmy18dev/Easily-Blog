@@ -264,7 +264,11 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        FROM article AS article 
+        LEFT JOIN category AS category ON article.category_id = category.id 
+        LEFT JOIN user AS user ON article.user_id = user.id 
+        LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
 
     	if(!empty($category_id)){
@@ -303,17 +307,11 @@ class Article{
     	// echo $query_string;
 
     	$this->db->query($query_string);
-		// $this->db->bind(':article_id',$article_id);
 
-		if(!empty($category_id)){
-			$this->db->bind(':category_id',$category_id);
-    	}
-    	if(!empty($owner_id)){
-    		$this->db->bind(':owner_id',$owner_id);
-    	}
-        if(!empty($keyword)){
-            $this->db->bind(':keyword','%'.$keyword.'%');
-        }
+		if(!empty($category_id)) $this->db->bind(':category_id',$category_id);
+    	if(!empty($owner_id)) $this->db->bind(':owner_id',$owner_id);
+        if(!empty($keyword)) $this->db->bind(':keyword','%'.$keyword.'%');
+
 		$this->db->execute();
 		$dataset = $this->db->resultset();
 
@@ -323,7 +321,22 @@ class Article{
 			$dataset[$k]['published_time'] 	= $this->db->datetimeformat($var['published_time']);
 		}
 
-		return $dataset;
+        // Get Total Articles
+        $select = 'SELECT COUNT(article.id) total FROM article AS article ';
+        echo $query_counter = $select.$where.$where_category.$where_status.$where_owner.$where_search;
+        
+        $this->db->query($query_counter);
+        if(!empty($category_id)) $this->db->bind(':category_id',$category_id);
+        if(!empty($owner_id)) $this->db->bind(':owner_id',$owner_id);
+        if(!empty($keyword)) $this->db->bind(':keyword','%'.$keyword.'%');
+        
+        $this->db->execute();
+        $counter = $this->db->single();
+
+		return array(
+            'total_items' => $counter['total'],
+            'items' => $dataset,
+        );
     }
 
     // public function listWithCategory($category_id,$total_items){

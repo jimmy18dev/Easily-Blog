@@ -61,12 +61,13 @@ $categories = $category->listAll();
 	?>
 	<h3><?php echo $category_data['title'];?></h3>
 	<div class="lists">
-		<?php if(count($dataset) > 0){?>
-		<?php foreach ($dataset as $var) { include 'template/article.card.php'; } ?>
+		<?php if(count($dataset['items']) > 0){?>
+		<?php foreach ($dataset['items'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+	<p>Total items <?php echo $dataset['total_items'];?></p>
 
 	<?php if($dataset['category']['total'] > $key['total_items']){?>
 	<a class="read-more" href="topic/<?php echo $dataset['category']['id'];?><?php echo (!empty($dataset['category']['link'])?'/'.$dataset['category']['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
