@@ -1,4 +1,4 @@
-<header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>"">
+<header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
 	<?php if(!empty($article->id)){?>
 	<a href="index.php" class="btn-icon"><i class="fal fa-arrow-left"></i></a>
 	<?php }?>

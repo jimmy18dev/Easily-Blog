@@ -1,3 +1,4 @@
+<?php $categories = $category->listAll();?>
 <nav class="navigation">
 	<a class="nav <?php echo (empty($category_id)?'active':'');?>" href="index.php">หน้าแรก</a>
 	<?php foreach ($categories as $var) {?>

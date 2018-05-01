@@ -7,6 +7,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 ### CATEGORY
 RewriteRule ^topic/([0-9]+)$ 			/articles.php?category_id=$1 [L]
+# RewriteRule ^topic/([0-9]+)/page/([^_]*)$ /articles.php?category_id=$1&page=$2 [L]
 RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/articles.php?category_id=$1&title=$2 [L]
 
 ### ARTICLE

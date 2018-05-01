@@ -3,10 +3,11 @@ include_once'autoload.php';
 $article = new Article();
 $category = new Category();
 $category_id = $_GET['category_id'];
+$category->get($category_id);
+$page = $_GET['page'];
+$perpage = 3;
 
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL,0,true);
-
-$categories = $category->listAll();
+$articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$perpage);
 ?>
 
 <!doctype html>
@@ -45,8 +46,13 @@ $categories = $category->listAll();
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
+</div>
 
-	<?php echo $articles['total_items'];?>
+<div class="pagination">
+	<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
+	<?php for($i=1;$i<=$total_page;$i++){ ?>
+	<a href="topic/<?php echo $category->id;?>/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+	<?php }?>
 </div>
 
 <?php if(count($articles)>0){

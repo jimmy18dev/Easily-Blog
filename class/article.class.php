@@ -256,9 +256,7 @@ class Article{
         return $icon;
     }
 
-    public function listAll($category_id,$page,$keyword,$status,$owner_id,$limit,$sticky){
-        $perpage = 50; // Total items per page.
-    	
+    public function listAll($category_id,$keyword,$status,$owner_id,$limit,$sticky,$page,$perpage){    	
         if(empty($page) || $page < 0)
             $page = 1; // Default Page Number.
     	
@@ -329,7 +327,7 @@ class Article{
 
         // Get Total Articles
         $select = 'SELECT COUNT(article.id) total FROM article AS article ';
-        echo $query_counter = $select.$where.$where_category.$where_status.$where_owner.$where_search;
+        $query_counter = $select.$where.$where_category.$where_status.$where_owner.$where_search;
         
         $this->db->query($query_counter);
         if(!empty($category_id)) $this->db->bind(':category_id',$category_id);
