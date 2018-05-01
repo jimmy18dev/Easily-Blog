@@ -737,17 +737,24 @@ body {
 .pagination a {
   float: left;
   display: inline-block;
-  background: #EEEEEE;
   color: #999999;
   text-decoration: none;
-  padding: 14px 16px;
+  padding: 10px 20px;
   border-radius: 5px;
-  line-height: 1em;
-  margin-right: 10px;
+  font-size: 1.1em;
+  font-family: "maledpan", sans-serif;
+  margin-right: 5px;
 }
 .pagination a.active {
-  background: #ff6d00;
-  color: #FFFFFF;
+  color: #FF6D00;
+  background: #EEEEEE;
+}
+.pagination a.active:hover {
+  background: #EEEEEE;
+}
+.pagination a:hover {
+  cursor: pointer;
+  background: #FAFAFA;
 }
 .section {
   width: 70%;

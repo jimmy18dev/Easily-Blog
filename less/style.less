@@ -635,17 +635,24 @@
 	a{
 		float: left;
 		display: inline-block;
-		background: #EEEEEE;
 		color: #999999;
 		text-decoration: none;
-		padding: 14px 16px;
+		padding: 10px 20px;
 		border-radius: 5px;
-		line-height: 1em;
-		margin-right: 10px;
+		font-size: @navi_fontsize;
+		font-family: @topic_font;
+		margin-right: 5px;
 
 		&.active{
-			background: @primary_color;
-			color: #FFFFFF;
+			color: #FF6D00;
+			background: #EEEEEE;
+
+			&:hover{ background: #EEEEEE; }
+		}
+
+		&:hover{
+			cursor: pointer;
+			background: #FAFAFA;
 		}
 	}
 }

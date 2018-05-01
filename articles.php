@@ -4,7 +4,7 @@ $article = new Article();
 $category = new Category();
 $category_id = $_GET['category_id'];
 $category->get($category_id);
-$page = $_GET['page'];
+$page = (!empty($_GET['page'])?$_GET['page']:1);
 $perpage = 3;
 
 $articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$perpage);
@@ -48,14 +48,16 @@ $articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$
 	</div>
 </div>
 
+<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
+<?php if($total_page > 1){?>
 <div class="pagination">
-	<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
 	<?php for($i=1;$i<=$total_page;$i++){ ?>
 	<a href="topic/<?php echo $category->id;?>/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
 	<?php }?>
 </div>
+<?php }?>
 
-<?php if(count($articles)>0){
+<?php if($articles['total_items'] > 0){
 	include_once 'footer.php';
 }?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
