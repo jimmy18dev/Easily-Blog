@@ -162,7 +162,7 @@ body {
   background: #FFFFFF;
   z-index: 999;
   top: 0;
-  border-bottom: 1px solid #F9F9F9;
+  border-bottom: 1px solid #EEEEEE;
 }
 .header.fixed {
   position: absolute;

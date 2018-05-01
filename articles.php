@@ -4,7 +4,7 @@ $article = new Article();
 $category = new Category();
 $category_id = $_GET['category_id'];
 
-$articles = $article->listAll($category_id,NULL,NULL,'published',NULL,0);
+$articles = $article->listAll($category_id,NULL,NULL,'published',NULL,0,true);
 
 $categories = $category->listAll();
 ?>

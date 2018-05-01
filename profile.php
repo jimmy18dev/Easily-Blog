@@ -2,7 +2,7 @@
 include_once'autoload.php';
 $article = new Article();
 
-$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id,0);
+$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id,0,true);
 $c_article 	= $article->counter($user->id);
 ?>
 

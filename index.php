@@ -56,7 +56,7 @@ $categories = $category->listAll();
 <?php foreach ($sectionitems as $key) {?>
 <div class="section">
 	<?php
-	$dataset = $article->listAll($key['category_id'],NULL,NULL,'published',NULL,$key['total_items']);
+	$dataset = $article->listAll($key['category_id'],NULL,NULL,'published',NULL,$key['total_items'],false);
 	$category_data = $category->get($key['category_id']);
 	?>
 	<h3><?php echo $category_data['title'];?></h3>
