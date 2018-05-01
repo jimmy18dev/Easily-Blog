@@ -4,7 +4,7 @@ $article = new Article();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
-$articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
+// $articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
 
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);

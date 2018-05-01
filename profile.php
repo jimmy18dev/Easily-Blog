@@ -2,7 +2,10 @@
 include_once'autoload.php';
 $article = new Article();
 
-$articles 	= $article->listAll(NULL,NULL,NULL,'author',$user->id,0,true);
+$page = (!empty($_GET['page'])?$_GET['page']:1);
+$perpage = 3;
+
+$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
 $c_article 	= $article->counter($user->id);
 ?>
 
@@ -60,14 +63,21 @@ $c_article 	= $article->counter($user->id);
 </div>
 
 <div class="article-list">
-    <pre><?php print_r($articles); ?></pre>
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
-<p>total_items <?php echo $articles['total_items'];?></p>
+
+<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
+<?php if($total_page > 1){?>
+<div class="pagination">
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+    <a href="topic/<?php echo $category->id;?>/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+    <?php }?>
+</div>
+<?php }?>
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
