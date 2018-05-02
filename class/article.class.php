@@ -343,16 +343,7 @@ class Article{
         );
     }
 
-    public function related($article_id){
-        $response = [];
-        // Get category_id
-        $this->db->query('SELECT category_id FROM article WHERE id = :article_id');
-        $this->db->bind(':article_id',$article_id);
-        $this->db->execute();
-        $data = $this->db->single();
-
-        $category_id = $data['category_id'];
-
+    public function next($article_id,$category_id){
         // Next Content.
         $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
@@ -373,10 +364,10 @@ class Article{
             $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
         }
 
-        foreach ($dataset as $var) {
-            array_push($response,$var);
-        }
+        return $dataset;
+    }
 
+    public function prev($article_id,$category_id){
         // Prev Content.
         $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
@@ -397,9 +388,53 @@ class Article{
             $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
         }
 
-        foreach ($dataset as $var) {
-            array_push($response,$var);
+        return $dataset;
+    }
+
+    public function relatedSticky($article_id){
+        // Sticky Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.sticky = 1 AND article.id NOT IN (:article_id) 
+            ORDER BY article.id DESC LIMIT 1');
+
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
         }
+
+        return $dataset;
+    }
+
+    public function related($article_id){
+        $response = [];
+        
+        // Get category_id
+        $this->db->query('SELECT category_id FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+        $category_id = $data['category_id'];
+
+        // Next Contents
+        foreach ($this->next($article_id,$category_id) as $var)
+            array_push($response,$var);
+
+        // Prev Contents
+        foreach ($this->prev($article_id,$category_id) as $var)
+            array_push($response,$var);
+
+        // Sticky Contents
+        foreach ($this->relatedSticky($article_id) as $var)
+            array_push($response,$var);
 
         return $response;
     }
