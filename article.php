@@ -5,6 +5,7 @@ $article = new Article();
 $article_id = $_GET['article_id'];
 $article->get($article_id);
 // $articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
+$related_content = $article->related($article->id);
 
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
@@ -39,7 +40,6 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <!-- Article Content -->
 <article class="article">
-
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
@@ -149,8 +149,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 
 <div class="article-related">
 	<h2>บทความแนะนำ</h2>
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.related.php'; } ?>
+	<?php if(count($related_content) > 0){?>
+	<?php foreach ($related_content as $var) { include 'template/article.related.php'; } ?>
 	<?php }?>
 </div>
 

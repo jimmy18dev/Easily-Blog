@@ -298,7 +298,7 @@ class Article{
             $where_sticky = 'AND sticky = 0 ';
         }
     	
-    	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
+    	$order = 'ORDER BY article.id DESC ';
 
         if($limit > 0){
             $limit = 'LIMIT '.$limit;
@@ -341,6 +341,67 @@ class Article{
             'total_items' => $counter['total'],
             'items' => $dataset,
         );
+    }
+
+    public function related($article_id){
+        $response = [];
+        // Get category_id
+        $this->db->query('SELECT category_id FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $category_id = $data['category_id'];
+
+        // Next Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.category_id = :category_id AND article.id > :article_id 
+            ORDER BY article.id ASC LIMIT 1');
+
+        $this->db->bind(':category_id',$category_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        foreach ($dataset as $var) {
+            array_push($response,$var);
+        }
+
+        // Prev Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.category_id = :category_id AND article.id < :article_id 
+            ORDER BY article.id DESC LIMIT 1');
+
+        $this->db->bind(':category_id',$category_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        foreach ($dataset as $var) {
+            array_push($response,$var);
+        }
+
+        return $response;
     }
 
     public function listSticky(){
