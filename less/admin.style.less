@@ -1441,6 +1441,38 @@
 	}
 }
 
+.pagination{
+	width: 56%;
+	margin: 0 22%;
+	float: left;
+	display: inline-block;
+	margin-bottom: 3%;
+
+	a{
+		float: left;
+		display: inline-block;
+		color: #999999;
+		text-decoration: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 1.2em;
+		font-family: @topic_font;
+		margin-right: 5px;
+
+		&.active{
+			color: #FFFFFF;
+			background: @primary_color;
+
+			&:hover{ background: @primary_color; }
+		}
+
+		&:hover{
+			cursor: pointer;
+			background: #FAFAFA;
+		}
+	}
+}
+
 .article-list{
 	width: 56%;
 	padding: 0% 22%;

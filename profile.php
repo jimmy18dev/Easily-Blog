@@ -3,7 +3,7 @@ include_once'autoload.php';
 $article = new Article();
 
 $page = (!empty($_GET['page'])?$_GET['page']:1);
-$perpage = 3;
+$perpage = 30;
 
 $articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
 $c_article 	= $article->counter($user->id);
@@ -62,7 +62,7 @@ $c_article 	= $article->counter($user->id);
     <a class="btn-create" href="article/create">เขียนบทความ</a>
 </div>
 
-<div class="article-list">
+<div class="article-list" id="content">
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
@@ -74,7 +74,7 @@ $c_article 	= $article->counter($user->id);
 <?php if($total_page > 1){?>
 <div class="pagination">
     <?php for($i=1;$i<=$total_page;$i++){ ?>
-    <a href="topic/<?php echo $category->id;?>/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+    <a href="profile/article/page/<?php echo $i;?>#content" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
     <?php }?>
 </div>
 <?php }?>

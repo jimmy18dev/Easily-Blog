@@ -22,6 +22,7 @@ RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
 
 ### PROFILE
 RewriteRule ^profile$ 					/profile.php [L]
+RewriteRule ^profile/article/page/([^_]*)$ 	/profile.php?page=$1 [L]
 RewriteRule ^profile/article/([^_]*)$ 	/profile.php?page=$1 [L]
 RewriteRule ^profile/category$ 			/category.php [L]
 RewriteRule ^profile/category/create$ 	/category-edit.php [L]

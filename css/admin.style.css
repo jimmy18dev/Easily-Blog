@@ -1502,6 +1502,35 @@ body {
   padding-bottom: 15px;
   border-radius: 3px;
 }
+.pagination {
+  width: 56%;
+  margin: 0 22%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+.pagination a {
+  float: left;
+  display: inline-block;
+  color: #999999;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-family: "maledpan", sans-serif;
+  margin-right: 5px;
+}
+.pagination a.active {
+  color: #FFFFFF;
+  background: #2962ff;
+}
+.pagination a.active:hover {
+  background: #2962ff;
+}
+.pagination a:hover {
+  cursor: pointer;
+  background: #FAFAFA;
+}
 .article-list {
   width: 56%;
   padding: 0% 22%;
