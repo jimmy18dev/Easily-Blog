@@ -29,7 +29,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $article->title;?></title>
+<title><?php echo $article->title;?> - <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -138,7 +138,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 
 	<div class="author">
-		<h4>บทความโดย</h4>
+		<h4>เขียนโดย</h4>
 		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
 		<div class="detail">
 			<div class="name"><?php echo $article->owner_displayname;?></div>
@@ -148,7 +148,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 </article>
 
 <div class="article-related">
-	<h2>บทความแนะนำ</h2>
+	<h2>แนะนำ</h2>
 	<?php if(count($related_content) > 0){?>
 	<?php foreach ($related_content as $var) { include 'template/article.related.php'; } ?>
 	<?php }?>

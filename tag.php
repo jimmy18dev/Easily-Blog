@@ -1,6 +1,7 @@
 <?php
 include_once'autoload.php';
 $article 	= new Article();
+
 $tags 		= $article->getTags($_GET['name']);
 $articles 	= $article->listWithTag($tags['id']);
 $c_article 	= $article->counter($user->id);
@@ -27,26 +28,22 @@ $c_article 	= $article->counter($user->id);
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
 <?php include_once 'header.php';?>
 
-<div class="pagehead">
-	<h2>#<?php echo $tags['name'];?></h2>
-</div>
+<div class="pagehead">#<?php echo $tags['name'];?></div>
 
-<div class="article-list">
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
-	<?php }?>
+<div class="section">
+	<div class="lists">
+		<?php if(count($articles) > 0){?>
+		<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
+		<?php }else{?>
+		<div class="empty">ไม่พบบทความ</div>
+		<?php }?>
+	</div>
 </div>
-
-<?php if(count($articles)>0){
-	include_once 'footer.php';
-}?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>

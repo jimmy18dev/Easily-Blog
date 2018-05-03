@@ -24,7 +24,7 @@ $categories = $category->listAll();
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>Easily Blog</title>
+<title><?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
