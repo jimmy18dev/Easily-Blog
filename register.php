@@ -48,10 +48,11 @@ $p_url 		= DOMAIN.'/signup';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<div class="loginhead">
-	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-	<p>Occupational and Environmental medicine</p>
-</div>
+<header class="header">
+	<div class="logo">
+		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
+	</div>
+</header>
 <div class="login">
 	<div class="content">
 		<form action="javascript:register();">

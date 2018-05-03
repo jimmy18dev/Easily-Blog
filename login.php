@@ -57,13 +57,14 @@ $p_url 		= DOMAIN.'/signin';
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<div class="loginhead">
-	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-	<p>Occupational and Environmental medicine</p>
-</div>
+<header class="header">
+	<div class="logo">
+		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
+	</div>
+</header>
 <div class="login">
 	<div class="content">
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>

@@ -69,7 +69,7 @@ $categories = $category->listAll();
 	</div>
 	
 	<?php if($dataset['total_items'] > $key['total_items']){?>
-	<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
+	<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>#navi">บทความเพิ่มเติม<i class="fal fa-angle-right"></i></a>
 	<?php }?>
 </div>
 <?php }?>

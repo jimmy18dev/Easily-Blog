@@ -13,7 +13,10 @@
 			<h2><a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>"><?php echo (!empty($var['title'])?$var['title']:'Untitle');?></a></h2>
 		</header>
 	</div>
-	<p class="info"><?php echo $var['author_name'];?> · <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></p>
+	<div class="info">
+		<span><i class="fal fa-user"></i><?php echo $var['author_name'];?></span>
+		<span><i class="fal fa-clock"></i><?php echo $var['create_time'];?></span>
+	</div>
 </article>
 <?php }else{?>
 <article class="article-card <?php echo (empty($var['cover_id'])?'gradient gradient-'.substr(strlen($var['title']),-1,1):'');?>">
@@ -33,6 +36,9 @@
 			<?php }?>
 		</header>
 	</div>
-	<p class="info"><?php echo $var['author_name'];?> · <?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?></p>
+	<div class="info">
+		<span><i class="fal fa-user"></i><?php echo $var['author_name'];?></span>
+		<span><i class="fal fa-clock"></i><?php echo $var['create_time'];?></span>
+	</div>
 </article>
 <?php }?>

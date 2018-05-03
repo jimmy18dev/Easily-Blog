@@ -1,8 +1,8 @@
 <?php $categories = $category->listAll();?>
-<nav class="navigation">
-	<a class="nav <?php echo (empty($category_id)?'active':'');?>" href="index.php">หน้าแรก</a>
+<nav class="navigation" id="navi">
+	<a class="nav <?php echo (empty($category_id)?'active':'');?>" href="index.php#navi">หน้าแรก</a>
 	<?php foreach ($categories as $var) {?>
-	<a class="nav <?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>"><?php echo $var['title'];?></a>
+	<a class="nav <?php echo ($var['id'] == $category_id?'active':''); ?>" href="topic/<?php echo $var['id'];?><?php echo (!empty($var['link'])?'/'.$var['link']:'');?>#navi"><?php echo $var['title'];?></a>
 	<?php } ?>
 	<a class="nav" href="about">เกี่ยวกับเรา</a>
 	<!-- <span>Occmed Prachinburi</span> -->
