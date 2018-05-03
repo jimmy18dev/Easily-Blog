@@ -136,19 +136,19 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<?php } ?>
 	</div>
 	<?php }?>
-
-	<div class="author">
-		<h4>เขียนโดย</h4>
-		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
-		<div class="detail">
-			<div class="name"><?php echo $article->owner_displayname;?></div>
-			<div class="desc">Web Developer and Web Designer</div>
-		</div>
-	</div>
 </article>
 
-<div class="article-related">
-	<h2>แนะนำ</h2>
+<div class="author">
+	<h3>เขียนโดย</h3>
+	<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+	<div class="detail">
+		<div class="name"><?php echo $article->owner_displayname;?></div>
+		<div class="desc">Web Developer and Web Designer</div>
+	</div>
+</div>
+
+<div class="related">
+	<h3>บทความแนะนำ</h3>
 	<?php if(count($related_content) > 0){?>
 	<?php foreach ($related_content as $var) { include 'template/article.related.php'; } ?>
 	<?php }?>

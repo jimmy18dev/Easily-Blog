@@ -288,7 +288,7 @@ body {
   line-height: 1.5em;
 }
 .cover .content p {
-  font-size: 1.35em;
+  font-size: 1.3em;
   color: rgba(255, 255, 255, 0.5);
 }
 .pagehead {
@@ -296,59 +296,136 @@ body {
   padding: 1.5% 15%;
   float: left;
   display: inline-block;
-  font-size: 1.35em;
+  font-size: 1.3em;
   font-family: "maledpan", sans-serif;
   background: #EEEEEE;
   color: #ff6d00;
   font-weight: normal;
 }
-.article-related {
+.tag {
   width: 50%;
-  padding: 3% 25%;
+  margin: 0 25%;
+  margin-bottom: 5%;
+  padding-top: 3%;
   float: left;
   display: inline-block;
-  background: #FAFAFA;
 }
-.article-related h2 {
+.tag strong,
+.tag a {
+  float: left;
+  display: inline-block;
+  font-style: italic;
+  text-decoration: none;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  line-height: 1em;
+  color: #BBBBBB;
+  font-size: 1.2em;
+}
+.tag strong:hover,
+.tag a:hover {
+  text-decoration: underline;
+  color: #333333;
+}
+.tag strong {
+  color: #333333;
+}
+.author {
+  width: 50%;
+  float: left;
+  display: inline-block;
+  margin: 0 25%;
+  margin-bottom: 5%;
+}
+.author h3 {
   width: 100%;
   float: left;
   display: inline-block;
+  font-size: 1.3em;
+  border-bottom: 1px solid #EAEAEA;
   font-family: "maledpan", sans-serif;
-  font-size: 1.4em;
-  color: #BBBBBB;
+  margin-bottom: 3%;
+  padding-bottom: 2%;
+  color: #333333;
   font-weight: normal;
 }
-.article-related .related-items {
-  width: 100%;
-  padding: 4% 0%;
+.author img {
+  width: 8%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
+  margin-right: 3%;
+  border-radius: 5px;
 }
-.article-related .related-items:last-child {
-  border: 0;
+.author .detail {
+  width: 89%;
+  float: left;
+  display: inline-block;
 }
-.article-related .related-items header {
+.author .detail .name {
+  font-size: 1.3em;
+  color: #333333;
+  font-family: "maledpan", sans-serif;
+}
+.author .detail .desc {
+  font-size: 0.8em;
+  color: #ff6d00;
+}
+.related {
+  width: 50%;
+  margin: 0 25%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.related h3 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.3em;
+  border-bottom: 1px solid #EAEAEA;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 3%;
+  padding-bottom: 2%;
+  color: #333333;
+  font-weight: normal;
+}
+.related .related-items {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  margin-bottom: 3%;
+  border-radius: 5px;
+}
+.related .related-items:last-child {
+  margin-bottom: 0;
+}
+.related .related-items header {
   width: 80%;
   float: left;
   display: inline-block;
 }
-.article-related .related-items header.fullsize {
+.related .related-items header.fullsize {
   width: 100%;
 }
-.article-related .related-items header .category {
+.related .related-items header .category {
+  font-size: 0.8em;
   color: #ff6d00;
 }
-.article-related .related-items header h2 {
-  font-size: 1.35em;
+.related .related-items header .category:hover {
+  cursor: default;
+}
+.related .related-items header h2 {
+  font-size: 1.3em;
   font-family: "maledpan", sans-serif;
   line-height: 1.3em;
 }
-.article-related .related-items header h2 a {
+.related .related-items header h2 a {
   text-decoration: none;
-  color: #333333;
+  color: #000000;
 }
-.article-related .related-items header p {
+.related .related-items header p {
   width: 100%;
   float: left;
   display: inline-block;
@@ -358,18 +435,21 @@ body {
   font-size: 0.8em;
   margin-top: 1%;
   color: #666666;
+  font-style: italic;
 }
-.article-related .related-items .thumbnail {
+.related .related-items header p:hover {
+  cursor: default;
+}
+.related .related-items .thumbnail {
   width: 15%;
   margin-left: 5%;
   float: right;
   display: inline-block;
 }
-.article-related .related-items .thumbnail img {
+.related .related-items .thumbnail img {
   width: 100%;
   float: left;
   display: inline-block;
-  border-radius: 5px;
 }
 .article {
   width: 100%;
@@ -479,7 +559,7 @@ body {
 }
 .article section h2 {
   color: #222222;
-  font-size: 1.35em;
+  font-size: 1.3em;
   margin-bottom: 2%;
   line-height: 1.3em;
 }
@@ -576,7 +656,7 @@ body {
   text-decoration: none;
   padding: 15px;
   line-height: 1em;
-  font-size: 1.35em;
+  font-size: 1.3em;
   border-radius: 50%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
@@ -611,74 +691,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-}
-.article .tag {
-  width: 50%;
-  margin: 0 25%;
-  margin-bottom: 5%;
-  padding-top: 3%;
-  float: left;
-  display: inline-block;
-}
-.article .tag strong,
-.article .tag a {
-  float: left;
-  display: inline-block;
-  font-style: italic;
-  text-decoration: none;
-  margin-right: 2%;
-  margin-bottom: 2%;
-  line-height: 1em;
-  color: #BBBBBB;
-  font-size: 1.2em;
-}
-.article .tag strong:hover,
-.article .tag a:hover {
-  text-decoration: underline;
-  color: #333333;
-}
-.article .tag strong {
-  color: #333333;
-}
-.article .author {
-  width: 50%;
-  float: left;
-  display: inline-block;
-  margin: 0 25%;
-  margin-bottom: 5%;
-}
-.article .author h4 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.35em;
-  border-bottom: 1px solid #EEEEEE;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
-  padding-bottom: 2%;
-  color: #333333;
-  font-weight: normal;
-}
-.article .author img {
-  width: 8%;
-  float: left;
-  display: inline-block;
-  margin-right: 3%;
-  border-radius: 50%;
-}
-.article .author .detail {
-  width: 89%;
-  float: left;
-  display: inline-block;
-}
-.article .author .detail .name {
-  font-size: 1.35em;
-  color: #333333;
-  font-family: "maledpan", sans-serif;
-}
-.article .author .detail .desc {
-  font-size: 0.8em;
-  color: #ff6d00;
 }
 .pagination {
   width: 70%;
@@ -722,7 +734,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.35em;
+  font-size: 1.3em;
   font-family: "maledpan", sans-serif;
   font-weight: normal;
   margin-bottom: 3%;
@@ -737,7 +749,7 @@ body {
   display: inline-block;
   margin-bottom: 3%;
   background: #EEEEEE;
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
 }
 .section .article-sticky .image {
@@ -767,7 +779,7 @@ body {
 }
 .section .article-sticky header h2 {
   font-family: "maledpan", sans-serif;
-  font-size: 1.35em;
+  font-size: 1.3em;
   margin-bottom: 5%;
   line-height: 1.25em;
   font-weight: normal;
@@ -800,7 +812,7 @@ body {
   margin-right: 3%;
   margin-bottom: 3%;
   background: #EAEAEA;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
 }
 .section .lists .article-card:nth-child(3n+0) {
@@ -845,7 +857,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.35em;
+  font-size: 1.3em;
   font-family: "maledpan", sans-serif;
   line-height: 1.3em;
   font-weight: normal;
@@ -877,7 +889,6 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-align: right;
 }
 .section .lists .article-card .info:hover {
   cursor: default;
@@ -890,7 +901,7 @@ body {
   color: #EEEEEE;
 }
 .section .lists .article-card.gradient .wrapper header h2 {
-  font-size: 1.35em;
+  font-size: 1.3em;
   margin: 10% 0;
 }
 .section .lists .article-card.gradient .wrapper header h2 a {
@@ -986,7 +997,7 @@ body {
   display: inline-block;
   text-align: center;
   font-family: "maledpan", sans-serif;
-  font-size: 1.35em;
+  font-size: 1.3em;
   color: #DDDDDD;
   font-style: italic;
 }
@@ -1123,7 +1134,7 @@ body {
 .footer .link a {
   float: left;
   margin-right: 2%;
-  color: #111111;
+  color: #FFFFFF;
   text-decoration: none;
 }
 .footer .link a.right {
@@ -1141,7 +1152,7 @@ body {
   margin-top: 2px;
 }
 .footer .link a:hover {
-  color: #000000;
+  text-decoration: underline;
 }
 .footer .license {
   width: 100%;
