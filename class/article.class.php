@@ -256,7 +256,7 @@ class Article{
         return $icon;
     }
 
-    public function listAll($category_id,$keyword,$status,$owner_id,$limit,$sticky,$page,$perpage){    	
+    public function listAll($category_id,$keyword,$status,$owner_id,$limit,$sticky,$page,$perpage){   	
         if(empty($page) || $page < 0)
             $page = 1; // Default Page Number.
     	
@@ -268,6 +268,12 @@ class Article{
         LEFT JOIN user AS user ON article.user_id = user.id 
         LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
+
+        $where_category = '';
+        $where_status   = '';
+        $where_owner    = '';
+        $where_search   = '';
+        $where_sticky   = '';
 
     	if(!empty($category_id)){
     		$where_category = 'AND article.category_id = :category_id ';

@@ -8,7 +8,7 @@ class HomeSection{
         $this->db = $wpdb;
     }
 
-    public function list(){
+    public function lists(){
         $this->db->query('SELECT * FROM home_section ORDER BY position ASC');
         $this->db->execute();
         $dataset = $this->db->resultset();

@@ -3,7 +3,7 @@ include_once'autoload.php';
 $article = new Article();
 $category = new Category();
 $homesection = new HomeSection();
-$sectionitems = $homesection->list();
+$sectionitems = $homesection->lists();
 $article_sticky = $article->listSticky();
 $categories = $category->listAll();
 ?>
