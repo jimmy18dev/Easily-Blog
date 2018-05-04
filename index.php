@@ -78,9 +78,12 @@ $categories = $category->listAll();
 </div>
 <?php }?>
 
+<div class="overlay"></div>
+
 <?php include_once 'footer.php'; ?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
 </body>
 </html>

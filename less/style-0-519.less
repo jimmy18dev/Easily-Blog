@@ -6,16 +6,8 @@
 
 .header{
 	width: 100%;
-	padding: 0%;
+	padding: 0;
 
-	&.fixed{
-		position: absolute;
-		top: 0;
-		background: -moz-linear-gradient(bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
-		background: -webkit-linear-gradient(bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
-		background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
-	}
 	&.transparent{
 		background: transparent;
 		border-bottom: 0;
@@ -28,48 +20,65 @@
 	}
 
 	.logo{
-		width: 50%;
-		margin: 0 25%;
+		height: 30px;
+		padding: 13px 5%;
 
 		a{
-			font-family: @topic_font;
-			font-size: 1.4em;
-			line-height: 1.3em;
-			text-decoration: none;
-			color: #111111;
+			font-size: 1.25em;
+			line-height: 1.4em;
 		}
-
-		i{ color: @primary_color; }
-
-		span{ margin-left: 10px; }
 	}
 
-	a.btn-icon{
+	.btn-icon{
 		float: left;
 		display: inline-block;
 		height: 20px;
 		padding: 18px 20px;
 		line-height: 1em;
 		font-size: 1.1em;
-		color: #111111;
+		color: #FFFFFF;
 		font-family: @topic_font;
 		text-decoration: none;
 
 		&.right{ float: right; }
+		&:hover{ cursor: pointer; }
+		span{ margin-right: 10px; }
 	}
+
+	#btn-category{ display: inline-block; }
 }
 
 .navigation{
-	width: 90%;
-	padding: 0% 5%;
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
+	position: fixed;
+	top: 0;
+	right: -80%;
+	height: 100%;
+	width: 80%;
+	padding: 0;
+	background: #FFFFFF;
+	z-index: 9999;
+	.transitionAnimation(0.3s);
 
 	a{
+		width: 80%;
+		float: left;
+		display: inline-block;
+		font-family: @topic_font;
 		font-size: @navi_fontsize;
-		padding: 7px 5%;
+		line-height: 1em;
+		height: 20px;
+		padding: 18px 10%;
+		margin: 0;
+		text-decoration: none;
+		color: #111111;
+		border-bottom: 1px solid #EEEEEE;
+		// &.active{ color: @primary_color; }
+	}
+
+	&.active{
+		box-shadow: -2px 0px 10px rgba(0,0,0,0.2);
+		transform: translate3d( -100%, 0, 0 );
+		-webkit-transform: translate3d(-100%, 0, 0 );
 	}
 }
 

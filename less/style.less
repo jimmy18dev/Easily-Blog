@@ -14,10 +14,9 @@
 	float: left;
 	display: inline-block;
 	height: 56px;
-	background: #FFFFFF;
+	background: @primary_color;
 	z-index: 999;
 	top: 0;
-	border-bottom: 1px solid #EEEEEE;
 
 	&.fixed{
 		position: absolute;
@@ -39,71 +38,71 @@
 	}
 
 	.logo{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 30%;
 		float: left;
 		display: inline-block;
 		height: 30px;
 		padding: 13px 0%;
-		margin: 0 35%;
-		text-align: center;
 
 		a{
 			font-family: @topic_font;
 			font-size: 1.4em;
 			line-height: 1.3em;
 			text-decoration: none;
-			color: #111111;
+			color: #FFFFFF;
 		}
 
-		i{ color: @primary_color; }
+		i{ color: #222222; }
 
 		span{ margin-left: 10px; }
 	}
 
-	a.btn-icon{
+	.btn-icon{
 		float: left;
 		display: inline-block;
 		height: 20px;
 		padding: 18px 20px;
 		line-height: 1em;
 		font-size: 1.1em;
-		color: #111111;
+		color: #FFFFFF;
 		font-family: @topic_font;
 		text-decoration: none;
 
 		&.right{ float: right; }
+		&:hover{ cursor: pointer; }
+		span{ margin-right: 10px; }
 	}
+
+	#btn-category{ display: none; }
 }
 
 .navigation{
-	width: 90%;
-	padding: 0 5%;
+	width: 70%;
+	padding: 0 15%;
 	height: 56px;
 	float: left;
 	display: inline-block;
 	background: #FFFFFF;
-	text-align: center;
 	position: relative;
 
 	a{
+		float: left;
 		display: inline-block;
 		font-family: @topic_font;
 		font-size: @navi_fontsize;
 		line-height: 1em;
 		height: 20px;
-		padding: 7px 16px;
-		margin: 11px 0;
+		padding: 18px 0px;
+		margin-right: 3%;
 		text-decoration: none;
 		color: #111111;
-		border-radius: 20px;
+		.transitionAnimation(0.5s);
 
-		&.active{
-			background: #FF6D00;
-			color: #FFFFFF;
-		}
+		&.active{ color: @primary_color; }
+	}
+
+	&.active{
+		transform: translate3d( -50%, 0, 0 );
+		-webkit-transform: translate3d(-50%, 0, 0 );
 	}
 }
 
@@ -1199,34 +1198,18 @@
 	}
 }
 
-/*
-ul{
-        white-space: nowrap;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
+.overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.75);
+	z-index: 999;
+	display: none;
 
-        li{
-            list-style-type: none;
-            float: none;
-            display: inline-block;
-            padding: 4% 1%;
-            margin-right: 1%;
-            font-family: @topic_font;
-            font-size: 1em;
-            line-height: 1em;
-            text-align: center;
-
-            &:first-child{ margin-left: 4%; }
-
-            .icon{
-                font-size: 0.9em;
-                display: block;
-                margin-bottom: 3px;
-            }
-        }
-    }
-*/
+	&:hover{ cursor: pointer; }
+}
 
 /* Other Device and Screen */
 @media only screen and (min-width:1910px) {@import "style-1920";}
