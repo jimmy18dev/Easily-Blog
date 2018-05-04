@@ -43,7 +43,11 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
-		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
+		<picture>
+			<source srcset="image/upload/<?php echo $article->id;?>/square/<?php echo $article->head_cover_img;?>" media="(min-width:0px) and (max-width :519px)">
+			<source srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>">
+			<img srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="My default image">
+		</picture>
 		<header class="article-header">
 			<h1><?php echo $article->title;?></h1>
 			<p class="info">

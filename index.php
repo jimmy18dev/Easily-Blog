@@ -6,6 +6,8 @@ $homesection = new HomeSection();
 $sectionitems = $homesection->lists();
 $article_sticky = $article->listSticky();
 $categories = $category->listAll();
+
+$current_page = 'home';
 ?>
 
 <!doctype html>
