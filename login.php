@@ -77,8 +77,7 @@ $p_url 		= DOMAIN.'/signin';
 			<button type="btn" class="btn btn-submit" id="btnSubmit">ลงชื่อเข้าใช้งาน</button>
 		</form>
 		<div class="message">
-			<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a> · 
-<a href="#">ลืมรหัสผ่าน</a>
+			<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
 		</div>
 	</div>
 </div>
