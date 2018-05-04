@@ -37,17 +37,12 @@ session_destroy();
 <title>กำลังออกจากระบบ...</title>
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 
 </head>
 <body>
 <div class="announce">
-	<h2>กำลังออกจากระบบ</h2>
-	<p>หากคุณรอนานกว่า 5 วินาที สามารถกดที่ปุ่ม "กลับไปหน้าแรก"</p>
-	
-	<div class="control">
-		<a href="signin"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>ไปหน้าแรก</a>
-	</div>
+	<h2><i class="fas fa-spinner fa-pulse"></i>กำลังออกจากระบบ...</h2>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
