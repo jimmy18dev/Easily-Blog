@@ -21,7 +21,7 @@ $currentPage = 'register';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php
-$p_title 	= 'ลงทะเบียนใหม่ '.TITLE;
+$p_title 	= 'ลงทะเบียนใหม่';
 $p_desc 	= DESCRIPTION;
 $p_url 		= DOMAIN.'/signup';
 ?>
@@ -41,7 +41,7 @@ $p_url 		= DOMAIN.'/signup';
 <meta itemprop="description" content="<?php echo $p_desc;?>">
 <meta itemprop="image" content="<?php echo OGIMAGE;?>">
 
-<title><?php echo $p_title;?></title>
+<title><?php echo $p_title;?> | <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>

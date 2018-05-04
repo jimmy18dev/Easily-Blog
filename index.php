@@ -37,7 +37,11 @@ $categories = $category->listAll();
 <?php include_once 'template/navigation.php'; ?>
 
 <div class="cover">
-	<img src="image/cover.jpg" alt="">
+	<picture>
+		<source srcset="image/cover_sq.jpg" media="(min-width:0px) and (max-width :519px)">
+		<source srcset="image/cover.jpg">
+		<img srcset="image/cover.jpg" alt="My default image">
+	</picture>
 	<div class="content">
 		<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
 		<p>Occupational and Environmental medicine</p>

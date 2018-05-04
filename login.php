@@ -33,7 +33,7 @@ $currentPage = 'login';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php
-$p_title 	= 'ลงชื่อเข้าใช้ '.TITLE;
+$p_title 	= 'ลงชื่อเข้าใช้';
 $p_desc 	= DESCRIPTION;
 $p_url 		= DOMAIN.'/signin';
 ?>
@@ -53,7 +53,7 @@ $p_url 		= DOMAIN.'/signin';
 <meta itemprop="description" content="<?php echo $p_desc;?>">
 <meta itemprop="image" content="<?php echo OGIMAGE;?>">
 
-<title><?php echo $p_title;?></title>
+<title><?php echo $p_title;?> | <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
