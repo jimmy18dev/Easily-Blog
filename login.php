@@ -59,13 +59,11 @@ $p_url 		= DOMAIN.'/signin';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
-<header class="header">
+<body class="fillcolor">
+<div class="login">
 	<div class="logo">
 		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
 	</div>
-</header>
-<div class="login">
 	<div class="content">
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
@@ -76,9 +74,9 @@ $p_url 		= DOMAIN.'/signin';
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">
 			<button type="btn" class="btn btn-submit" id="btnSubmit">ลงชื่อเข้าใช้งาน</button>
 		</form>
-		<div class="message">
-			<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
-		</div>
+	</div>
+	<div class="message">
+		<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
 	</div>
 </div>
 
