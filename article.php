@@ -4,7 +4,6 @@ $article = new Article();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
-// $articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
 $related_content = $article->related($article->id);
 
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
@@ -51,24 +50,37 @@ $current_page = '';
 			<img srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="My default image">
 		</picture>
 		<header class="article-header">
+			<div class="author">
+				<div class="avatar">
+					<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+				</div>
+				<div class="detail">
+					<div class="name"><?php echo $article->owner_displayname;?></div>
+					<div class="desc">Web Developer and Web Designer</div>
+					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+					</div>
+				</div>
+			</div>
 			<h1><?php echo $article->title;?></h1>
-			<p class="info">
-				<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
-				<span><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-				<span><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></span>
-			</p>
 		</header>
 	</div>
 	<?php }else{?>
+	
 	<!-- Article Header -->
 	<header class="article-header">
-		<h1><?php echo $article->title;?></h1>
-		<p class="info">
-			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><i class="fal fa-archive"></i><?php echo $article->category_title;?></a>
-			<span><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-			<span><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></span>
-		</p>
+		<div class="author">
+			<div class="avatar">
+				<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+			</div>
+			<div class="detail">
+				<div class="name"><?php echo $article->owner_displayname;?></div>
+				<div class="desc">Web Developer and Web Designer</div>
+				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+				</div>
+			</div>
+		</div>
 
+		<h1><?php echo $article->title;?></h1>
 		<?php if(!empty($article->description)){?>
 		<p class="desc"><?php echo $article->description;?></p>
 		<?php }?>
@@ -136,7 +148,6 @@ $current_page = '';
 
 	<?php if(count($article->tags)>0){?>
 	<div class="tag">
-		<strong>TAG:</strong>
 		<?php foreach ($article->tags as $var){ ?>
 		<a href="tag/<?php echo $var['name'];?>">#<?php echo $var['name'];?></a>
 		<?php } ?>
@@ -144,21 +155,14 @@ $current_page = '';
 	<?php }?>
 </article>
 
-<div class="author">
-	<h3>เขียนโดย</h3>
-	<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
-	<div class="detail">
-		<div class="name"><?php echo $article->owner_displayname;?></div>
-		<div class="desc">Web Developer and Web Designer</div>
+<?php if(count($related_content) > 0){?>
+<div class="section">
+	<h3>บทความแนะนำ</h3>
+	<div class="lists">
+		<?php foreach ($related_content as $var) { include 'template/article.card.php'; } ?>
 	</div>
 </div>
-
-<div class="related">
-	<h3>บทความแนะนำ</h3>
-	<?php if(count($related_content) > 0){?>
-	<?php foreach ($related_content as $var) { include 'template/article.related.php'; } ?>
-	<?php }?>
-</div>
+<?php }?>
 
 <?php include_once 'footer.php';?>
 

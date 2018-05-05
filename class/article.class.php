@@ -430,7 +430,7 @@ class Article{
             LEFT JOIN user AS user ON article.user_id = user.id 
             LEFT JOIN content AS content ON article.cover_id = content.id 
             WHERE article.status = "published" AND article.sticky = 1 AND article.id NOT IN (:article_id) 
-            ORDER BY article.id DESC LIMIT 1');
+            ORDER BY article.id DESC LIMIT 2');
 
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();

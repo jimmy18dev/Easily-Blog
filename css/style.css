@@ -163,14 +163,6 @@ body {
   z-index: 999;
   top: 0;
 }
-.header.fixed {
-  position: absolute;
-  top: 0;
-  background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
-}
 .header.transparent {
   background: transparent;
   border-bottom: 0;
@@ -178,6 +170,9 @@ body {
 .header.transparent .logo a {
   color: #FFFFFF;
   text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.header.transparent .logo i {
+  color: #ff6d00;
 }
 .header.transparent a.btn-icon {
   color: #FFFFFF;
@@ -282,14 +277,14 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 12%;
+  margin-top: 14%;
   text-align: center;
   color: #FFFFFF;
   z-index: 2;
   font-family: "maledpan", sans-serif;
 }
 .cover .content h1 {
-  font-size: 2.8em;
+  font-size: 3.3800000000000003em;
   line-height: 1.5em;
 }
 .cover .content p {
@@ -307,123 +302,6 @@ body {
   color: #ff6d00;
   font-weight: normal;
 }
-.author {
-  width: 50%;
-  float: left;
-  display: inline-block;
-  margin: 0 25%;
-  margin-bottom: 5%;
-}
-.author h3 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
-  color: #999999;
-  font-weight: normal;
-}
-.author img {
-  width: 8%;
-  float: left;
-  display: inline-block;
-  margin-right: 3%;
-  border-radius: 5px;
-  box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
-}
-.author .detail {
-  width: 89%;
-  float: left;
-  display: inline-block;
-  padding-top: 0.3%;
-}
-.author .detail .name {
-  font-size: 1.2em;
-  color: #111111;
-  font-family: "maledpan", sans-serif;
-}
-.author .detail .desc {
-  font-size: 0.75em;
-  color: #ff6d00;
-}
-.related {
-  width: 50%;
-  margin: 0 25%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 5%;
-}
-.related h3 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
-  color: #999999;
-  font-weight: normal;
-}
-.related .related-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  margin-bottom: 3%;
-  border-radius: 5px;
-  box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
-  overflow: hidden;
-}
-.related .related-items:last-child {
-  margin-bottom: 0;
-}
-.related .related-items header {
-  width: 77%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-}
-.related .related-items header.fullsize {
-  width: 100%;
-}
-.related .related-items header h2 {
-  font-size: 1.2em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1.3em;
-  font-weight: normal;
-}
-.related .related-items header h2 a {
-  text-decoration: none;
-  color: #000000;
-}
-.related .related-items header p {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 0.75em;
-  margin-top: 1%;
-  color: #666666;
-  font-style: italic;
-}
-.related .related-items header p:hover {
-  cursor: default;
-}
-.related .related-items header p .owner {
-  color: #ff6d00;
-}
-.related .related-items .thumbnail {
-  width: 17%;
-  float: right;
-  display: inline-block;
-}
-.related .related-items .thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
 .article {
   width: 100%;
   margin: 0;
@@ -437,40 +315,51 @@ body {
   float: left;
   display: inline-block;
 }
+.article .article-header .author {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.article .article-header .author .avatar {
+  width: 8%;
+  float: left;
+  display: inline-block;
+  margin-right: 3%;
+}
+.article .article-header .author .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
+}
+.article .article-header .author .detail {
+  width: 89%;
+  float: left;
+  display: inline-block;
+  margin-top: -1%;
+}
+.article .article-header .author .detail .name {
+  font-size: 1.2em;
+  font-family: "maledpan", sans-serif;
+  line-height: 1.8em;
+  color: #ff6d00;
+}
+.article .article-header .author .detail .desc {
+  font-size: 0.75em;
+  color: #333333;
+  line-height: 1.3em;
+}
 .article .article-header h1 {
-  font-size: 2.8em;
+  font-size: 2.6em;
   font-family: "maledpan", sans-serif;
   line-height: 1.2em;
   color: #111111;
   display: block;
-  margin-bottom: 3%;
 }
 .article .article-header h1:hover {
   cursor: default;
-}
-.article .article-header p.info {
-  width: 100%;
-  display: block;
-  float: left;
-  text-align: left;
-  font-size: 0.75em;
-  line-height: 1.4em;
-}
-.article .article-header p.info:hover {
-  cursor: default;
-}
-.article .article-header p.info span,
-.article .article-header p.info a {
-  float: left;
-  display: inline-block;
-  margin-right: 2%;
-  color: #111111;
-  text-decoration: none;
-}
-.article .article-header p.info span i,
-.article .article-header p.info a i {
-  margin-right: 7px;
-  color: #F55704;
 }
 .article .article-header p.desc {
   width: 100%;
@@ -479,7 +368,7 @@ body {
   text-align: left;
   font-size: 1.2em;
   line-height: 1.4em;
-  margin-top: 2%;
+  margin-top: 3%;
   color: #999999;
   font-style: italic;
 }
@@ -496,10 +385,11 @@ body {
   position: relative;
   margin-bottom: 5%;
 }
-.article .article-cover img {
+.article .article-cover picture img {
   width: 100%;
   float: left;
   display: inline-block;
+  transform: scale(1.1);
 }
 .article .article-cover .article-header {
   position: absolute;
@@ -515,13 +405,15 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 }
+.article .article-cover .article-header .author .detail .name {
+  color: #FFFFFF;
+}
+.article .article-cover .article-header .author .detail .desc {
+  color: rgba(255, 255, 255, 0.6);
+}
 .article .article-cover .article-header h1 {
   color: #FFFFFF;
   text-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-}
-.article .article-cover .article-header p.info span,
-.article .article-cover .article-header p.info a {
-  color: #FFFFFF;
 }
 .article section {
   width: 50%;
@@ -673,7 +565,6 @@ body {
   float: left;
   display: inline-block;
 }
-.article .tag strong,
 .article .tag a {
   float: left;
   display: inline-block;
@@ -685,12 +576,7 @@ body {
   color: #BBBBBB;
   font-size: 1.2em;
 }
-.article .tag strong:hover,
 .article .tag a:hover {
-  text-decoration: underline;
-  color: #111111;
-}
-.article .tag strong {
   color: #111111;
 }
 .pagination {
@@ -698,8 +584,6 @@ body {
   margin: 0 15%;
   float: left;
   display: inline-block;
-  margin-top: 2%;
-  margin-bottom: 3%;
 }
 .pagination a {
   float: left;
@@ -713,15 +597,11 @@ body {
   margin-right: 5px;
 }
 .pagination a.active {
-  color: #FF6D00;
-  background: #EEEEEE;
-}
-.pagination a.active:hover {
-  background: #EEEEEE;
+  color: #FFFFFF;
+  background: #ff6d00;
 }
 .pagination a:hover {
   cursor: pointer;
-  background: #FAFAFA;
 }
 .section {
   width: 70%;
@@ -735,7 +615,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.7999999999999998em;
+  font-size: 1.56em;
   font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
   color: #333333;
@@ -909,11 +789,11 @@ body {
   border-radius: 5px;
 }
 .section a.read-more i {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .section a.read-more:hover {
-  background: #FFFFFF;
-  color: #333333;
+  background: #ff6d00;
+  color: #FFFFFF;
 }
 .footer {
   width: 70%;
@@ -921,6 +801,7 @@ body {
   float: left;
   display: inline-block;
   text-align: center;
+  margin-top: 5%;
 }
 .footer .link {
   width: 100%;
@@ -928,7 +809,7 @@ body {
   display: inline;
   font-size: 1.2em;
   font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 .footer .link a {
   padding: 1%;
