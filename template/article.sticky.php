@@ -12,9 +12,6 @@
 		<p><?php echo $var['description'];?></p>
 		<?php }?>
 
-		<p class="info">
-			<span><i class="fal fa-user"></i><?php echo $var['author_name'];?></span>
-			<span><i class="fal fa-clock"></i><?php echo $var['create_time'];?></span>
-		</p>
+		<p class="info"><span class="owner"><?php echo $var['author_name'];?></span> · <?php echo $var['create_time'];?></p>
 	</header>
 </div>

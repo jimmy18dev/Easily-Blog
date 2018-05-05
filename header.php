@@ -6,6 +6,6 @@
 	<?php }?>
 
 	<?php if($current_page == 'home' || $current_page == 'articles'){?>
-	<div class="btn-icon right" id="btn-category"><span>หมวดหมู่</span><i class="fal fa-ellipsis-h-alt"></i></div>
+	<div class="btn-icon right" id="btn-category"><i class="fal fa-bars"></i></div>
 	<?php }?>
 </header>

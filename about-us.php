@@ -56,39 +56,25 @@ $current_page = 'about';
 		<h1>Officer</h1>
 		<p>All of our banner advertising is handled by SAYMedia. If you are interested in other forms of advertising please email tips@theultralinx.com.</p>
 
-		<?php for($i=0;$i<5;$i++){ ?>
-		<div class="person">
-			<div class="thumbnail">
-				<img src="https://scontent.fbkk8-2.fna.fbcdn.net/v/t1.0-9/21765071_10207981921745391_1604082323197881074_n.jpg?_nc_cat=0&oh=49460ff9c7f9e4264b150f7932340b25&oe=5B5B4ED8" alt="">
+		<div class="profile">
+			<?php for($i=0;$i<5;$i++){ ?>
+			<div class="profile-items">
+				<div class="thumbnail">
+					<img src="https://scontent.fbkk8-2.fna.fbcdn.net/v/t1.0-9/21765071_10207981921745391_1604082323197881074_n.jpg?_nc_cat=0&oh=49460ff9c7f9e4264b150f7932340b25&oe=5B5B4ED8" alt="">
+				</div>
+				<div class="info">
+					<h2>Puwadon Sricharoen</h2>
+					<p>Web Design and Developer</p>
+				</div>
 			</div>
-			<div class="info">
-				<h2>Puwadon Sricharoen</h2>
-				<div class="position">Web Design and Developer</div>
-				<div class="bio">Life isn't about finding yourself. Life is about creating yourself.</div>
-			</div>
+			<?php }?>
 		</div>
-		<?php }?>
 	</div>
 
 	<div class="content">
 		<h1>ติดต่อเรา</h1>
-		<div class="contact">
-			<div class="c">ที่อยู่</div>
-			<div class="v">138 ถ.สุขุมวิท ต.ท่าประดู่  อ.เมือง จ.ระยอง 21000</div>
-		</div>
-		<div class="contact">
-			<div class="c">โทรศัพท์</div>
-			<div class="v"><a href="#" class="phone">0-3861-1104</a> ต่อ 2134,2128</div>
-		</div>
-		<div class="contact">
-			<div class="c">โทรสาร</div>
-			<div class="v"><a href="#" class="phone">0-3861-1104</a> ต่อ 2127</div>
-		</div>
-		<div class="contact">
-			<div class="c">E-Mail</div>
-			<div class="v"><a href="#" class="email">occhealth_ryh@gmail.com</a></div>
-		</div>
-
+		<p>ที่อยู่: 138 ถ.สุขุมวิท ต.ท่าประดู่  อ.เมือง จ.ระยอง 21000 โทรศัพท์ <a href="#" class="phone">0-3861-1104</a> ต่อ 2134,2128 โทรสาร <a href="#" class="phone">0-3861-1104</a> ต่อ 2127 E-Mail <a href="#" class="email">occhealth_ryh@gmail.com</a></p>
+		
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30962.434048802155!2d101.3957069!3d14.059202299999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe83b55b50e8608b4!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4LmA4LiI4LmJ4Liy4Lie4Lij4Liw4Lii4Liy4Lit4Lig4Lix4Lii4Lig4Li54LmA4Lia4Lio4Lij!5e0!3m2!1sth!2sth!4v1523533692951" frameborder="0" allowfullscreen></iframe>
 	</div>
 </div>
