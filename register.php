@@ -53,6 +53,7 @@ $p_url 		= DOMAIN.'/signup';
 		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
 	</div>
 	<div class="content">
+		<h1>ลงทะเบียน</h1>
 		<form action="javascript:register();">
 			<input type="text" class="inputtext" id="fullname" placeholder="ชื่อ-นามสกุล" autofocus>
 			<input type="phone" class="inputtext" id="phone" placeholder="เบอร์โทรศัพท์">

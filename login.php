@@ -65,6 +65,7 @@ $p_url 		= DOMAIN.'/signin';
 		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
 	</div>
 	<div class="content">
+		<h1>เข้าระบบ</h1>
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
 		<form action="javascript:login();">
