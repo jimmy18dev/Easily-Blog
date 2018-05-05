@@ -1,6 +1,7 @@
 <?php
 include_once'autoload.php';
 $category = new Category();
+$current_page = 'about';
 ?>
 
 <!doctype html>

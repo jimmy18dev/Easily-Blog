@@ -440,116 +440,41 @@
 
 		// Article Card Style.
 		.article-card{
-			width: 90%;
-			margin: 0 5%;
+			width: 100%;
+			margin: 0;
+			min-height: initial;
 			margin-bottom: 5%;
+			border-radius: 0;
 
-			.wrapper{
-				height: auto;
+			&:nth-child(even){ margin-right: 0; }
 
-				.thumbnail{
+			.thumbnail{
+				width: 30%;
+				float: left;
+				display: inline-block;
+
+				img{
 					width: 100%;
 					float: left;
 					display: inline-block;
+					transform: scale(1);
 
-					img{
-						width: 100%;
-						float: left;
-						display: inline-block;
-
-						&:hover{ opacity: 0.9; }
-					}
-				}
-
-				header{
-					width: 90%;
-					padding: 5%;
-
-					.category{
-						width: 100%;
-						float: left;
-						display: inline-block;
-						font-size: @desc_fontsize;
-						color: @primary_color;
-
-						&:hover{ cursor: default; }
-					}
-
-					h2{
-						width: 100%;
-						float: left;
-						display: inline-block;
-						font-size: @title_fontsize;
-						font-family: @topic_font;
-						line-height: 1.3em;
-						// font-weight: normal;
-						margin: 3% 0;
-
-						a{
-							text-decoration: none;
-							color: @font_color_topic;
-						}
-					}
-					p{
-						width: 100%;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						overflow: hidden;
-						font-size: @desc_fontsize;
-						color: #666666;
-					}
+					&:hover{ opacity: 0.9; }
 				}
 			}
 
-			.info{
-				width: 90%;
-				padding: 5% 0%;
-				margin: 0% 5%;
-				font-size: @desc_fontsize;
+			header{
+				width: 60%;
+				padding: 5%;
 
-				span{
-					max-width: 60%;
-					float: left;
-					display: inline-block;
-					margin-right: 6%;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
+				&.fullsize{ width: 90%; }
 
-					&:last-child{ margin-right: 0; }
-					i{ margin-right: 5px; }
+				h2{
+					font-size: @title_fontsize;
+					line-height: 1.25em;
+					margin-bottom: 2%;
 				}
-			}
-
-			&.gradient{
-				.wrapper header{
-					width: 90%;
-					padding: 5%;
-
-					h2{
-						font-size: @title_fontsize;
-						a{ color: #FFFFFF; }
-						margin: 10% 0;
-					}
-
-					p{
-						color: #EEEEEE;
-						text-overflow: inherit;
-						white-space: inherit;
-						overflow: inherit;
-					}
-				}
-			}
-
-			&.highlight{
-				.wrapper{
-					.thumbnail img{ transform: scale(1.4); }
-				}
-
-				.info{
-					padding: 5%;
-					margin: 0%;
-				}
+				p{ font-size: @desc_fontsize; }
 			}
 		}
 

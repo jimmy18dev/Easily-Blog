@@ -196,7 +196,7 @@ body {
   color: #FFFFFF;
 }
 .header .logo i {
-  color: #FFEA00;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .header .logo span {
   margin-left: 10px;
@@ -349,7 +349,7 @@ body {
   font-family: "maledpan", sans-serif;
 }
 .author .detail .desc {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #ff6d00;
 }
 .related {
@@ -393,7 +393,7 @@ body {
   width: 100%;
 }
 .related .related-items header .category {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #ff6d00;
 }
 .related .related-items header .category:hover {
@@ -415,7 +415,7 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 0.8em;
+  font-size: 0.75em;
   margin-top: 1%;
   color: #666666;
   font-style: italic;
@@ -463,7 +463,7 @@ body {
   display: block;
   float: left;
   text-align: left;
-  font-size: 0.8em;
+  font-size: 0.75em;
   line-height: 1.4em;
 }
 .article .article-header p.info:hover {
@@ -652,7 +652,7 @@ body {
   float: left;
   display: inline-block;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.75em;
   border: 0px;
   padding: 2% 1%;
   background: transparent;
@@ -785,7 +785,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #ff6d00;
   margin-bottom: 3%;
 }
@@ -803,7 +803,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666666;
 }
 .section .article-sticky header p.info {
@@ -828,203 +828,66 @@ body {
   display: inline-block;
 }
 .section .lists .article-card {
-  width: 31.33%;
+  width: 48.5%;
+  margin-bottom: 3%;
+  margin-right: 3%;
+  min-height: 144px;
   float: left;
   display: inline-block;
-  margin-right: 3%;
-  margin-bottom: 3%;
   background: #FFFFFF;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
 }
-.section .lists .article-card:nth-child(3n+0) {
+.section .lists .article-card:nth-child(even) {
   margin-right: 0;
 }
-.section .lists .article-card .wrapper {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  height: 505px;
-}
-.section .lists .article-card .wrapper .thumbnail {
-  width: 100%;
+.section .lists .article-card .thumbnail {
+  width: 30%;
   float: left;
   display: inline-block;
 }
-.section .lists .article-card .wrapper .thumbnail img {
+.section .lists .article-card .thumbnail img {
   width: 100%;
   float: left;
   display: inline-block;
+  transform: scale(1);
 }
-.section .lists .article-card .wrapper .thumbnail img:hover {
+.section .lists .article-card .thumbnail img:hover {
   opacity: 0.9;
 }
-.section .lists .article-card .wrapper header {
-  width: 84%;
-  padding: 8%;
+.section .lists .article-card header {
+  width: 62%;
+  padding: 4%;
   float: left;
   display: inline-block;
 }
-.section .lists .article-card .wrapper header .category {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  color: #ff6d00;
+.section .lists .article-card header.fullsize {
+  width: 92%;
 }
-.section .lists .article-card .wrapper header .category:hover {
-  cursor: default;
-}
-.section .lists .article-card .wrapper header h2 {
+.section .lists .article-card header h2 {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 1.25em;
   font-family: "maledpan", sans-serif;
-  line-height: 1.3em;
-  margin: 3% 0;
+  line-height: 1.25em;
+  font-weight: normal;
+  margin-bottom: 2%;
 }
-.section .lists .article-card .wrapper header h2 a {
+.section .lists .article-card header h2 a {
   text-decoration: none;
   color: #111111;
 }
-.section .lists .article-card .wrapper header p {
+.section .lists .article-card header p {
   width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 0.8em;
-  color: #666666;
-}
-.section .lists .article-card .info {
-  width: 84%;
-  padding: 5% 0%;
-  margin: 0% 8%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
-  line-height: 1em;
-  position: relative;
-  color: #999999;
-  font-style: italic;
+  font-size: 0.75em;
+  color: #BBBBBB;
 }
-.section .lists .article-card .info:hover {
-  cursor: default;
-}
-.section .lists .article-card .info span {
-  max-width: 60%;
-  float: left;
-  display: inline-block;
-  margin-right: 6%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.section .lists .article-card .info span:last-child {
-  margin-right: 0;
-}
-.section .lists .article-card .info span i {
-  margin-right: 5px;
-}
-.section .lists .article-card.gradient .wrapper header {
-  width: 80%;
-  padding: 9% 10%;
-}
-.section .lists .article-card.gradient .wrapper header .category {
-  color: #EEEEEE;
-}
-.section .lists .article-card.gradient .wrapper header h2 {
-  font-size: 1.25em;
-  margin: 10% 0;
-}
-.section .lists .article-card.gradient .wrapper header h2 a {
-  color: #FFFFFF;
-}
-.section .lists .article-card.gradient .wrapper header p {
-  color: #EEEEEE;
-  text-overflow: inherit;
-  white-space: inherit;
-  overflow: inherit;
-}
-.section .lists .article-card.gradient .info {
-  color: #EEEEEE;
-}
-.section .lists .article-card.gradient-1 {
-  background: #3bed8d;
-  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
-  background: linear-gradient(to right, #3bed8d, #38acc5);
-}
-.section .lists .article-card.gradient-2 {
-  background: #283593;
-  background: -webkit-linear-gradient(to right, #283593, #1a237e);
-  background: linear-gradient(to right, #283593, #1a237e);
-}
-.section .lists .article-card.gradient-3 {
-  background: #311b92;
-  background: -webkit-linear-gradient(to right, #311b92, #283593);
-  background: linear-gradient(to right, #311b92, #283593);
-}
-.section .lists .article-card.gradient-4 {
-  background: #bf360c;
-  background: -webkit-linear-gradient(to right, #bf360c, #f57c00);
-  background: linear-gradient(to right, #bf360c, #f57c00);
-}
-.section .lists .article-card.gradient-5 {
-  background: #263238;
-  background: -webkit-linear-gradient(to right, #263238, #37474f);
-  background: linear-gradient(to right, #263238, #37474f);
-}
-.section .lists .article-card.gradient-6 {
-  background: #3e2723;
-  background: -webkit-linear-gradient(to right, #3e2723, #4e342e);
-  background: linear-gradient(to right, #3e2723, #4e342e);
-}
-.section .lists .article-card.gradient-7 {
-  background: #004d40;
-  background: -webkit-linear-gradient(to right, #004d40, #00695c);
-  background: linear-gradient(to right, #004d40, #00695c);
-}
-.section .lists .article-card.gradient-8 {
-  background: #880e4f;
-  background: -webkit-linear-gradient(to right, #880e4f, #c2185b);
-  background: linear-gradient(to right, #880e4f, #c2185b);
-}
-.section .lists .article-card.gradient-9 {
-  background: #c2185b;
-  background: -webkit-linear-gradient(to right, #c2185b, #4527a0);
-  background: linear-gradient(to right, #c2185b, #4527a0);
-}
-.section .lists .article-card.gradient-0 {
-  background: #33691e;
-  background: -webkit-linear-gradient(to right, #33691e, #ef6c00);
-  background: linear-gradient(to right, #33691e, #ef6c00);
-}
-.section .lists .article-card.highlight .wrapper {
-  position: relative;
-}
-.section .lists .article-card.highlight .wrapper .thumbnail img {
-  transform: scale(1.4);
-}
-.section .lists .article-card.highlight .wrapper header {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
-}
-.section .lists .article-card.highlight .wrapper header .category {
-  color: #DDDDDD;
-}
-.section .lists .article-card.highlight .wrapper header h2 a {
-  color: #FFFFFF;
-}
-.section .lists .article-card.highlight .info {
-  background: #FFFFFF;
-  padding: 5% 8%;
-  margin: 0%;
+.section .lists .article-card header p .owner {
+  color: #ff6d00;
 }
 .section .lists .empty {
   width: 100%;
@@ -1081,13 +944,13 @@ body {
   margin-left: 2%;
 }
 .footer a img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   float: left;
   display: inline-block;
   margin-right: 10px;
   border-radius: 50%;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 .footer a:hover {
   text-decoration: underline;
@@ -1724,105 +1587,43 @@ body {
     display: inline-block;
   }
   .section .lists .article-card {
-    width: 90%;
-    margin: 0 5%;
+    width: 100%;
+    margin: 0;
+    min-height: initial;
     margin-bottom: 5%;
+    border-radius: 0;
   }
-  .section .lists .article-card .wrapper {
-    height: auto;
-  }
-  .section .lists .article-card .wrapper .thumbnail {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .section .lists .article-card .wrapper .thumbnail img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .section .lists .article-card .wrapper .thumbnail img:hover {
-    opacity: 0.9;
-  }
-  .section .lists .article-card .wrapper header {
-    width: 90%;
-    padding: 5%;
-  }
-  .section .lists .article-card .wrapper header .category {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 0.8em;
-    color: #ff6d00;
-  }
-  .section .lists .article-card .wrapper header .category:hover {
-    cursor: default;
-  }
-  .section .lists .article-card .wrapper header h2 {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1.2em;
-    font-family: "maledpan", sans-serif;
-    line-height: 1.3em;
-    margin: 3% 0;
-  }
-  .section .lists .article-card .wrapper header h2 a {
-    text-decoration: none;
-    color: #111111;
-  }
-  .section .lists .article-card .wrapper header p {
-    width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: 0.8em;
-    color: #666666;
-  }
-  .section .lists .article-card .info {
-    width: 90%;
-    padding: 5% 0%;
-    margin: 0% 5%;
-    font-size: 0.8em;
-  }
-  .section .lists .article-card .info span {
-    max-width: 60%;
-    float: left;
-    display: inline-block;
-    margin-right: 6%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .section .lists .article-card .info span:last-child {
+  .section .lists .article-card:nth-child(even) {
     margin-right: 0;
   }
-  .section .lists .article-card .info span i {
-    margin-right: 5px;
+  .section .lists .article-card .thumbnail {
+    width: 30%;
+    float: left;
+    display: inline-block;
   }
-  .section .lists .article-card.gradient .wrapper header {
+  .section .lists .article-card .thumbnail img {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    transform: scale(1);
+  }
+  .section .lists .article-card .thumbnail img:hover {
+    opacity: 0.9;
+  }
+  .section .lists .article-card header {
+    width: 60%;
+    padding: 5%;
+  }
+  .section .lists .article-card header.fullsize {
     width: 90%;
-    padding: 5%;
   }
-  .section .lists .article-card.gradient .wrapper header h2 {
+  .section .lists .article-card header h2 {
     font-size: 1.2em;
-    margin: 10% 0;
+    line-height: 1.25em;
+    margin-bottom: 2%;
   }
-  .section .lists .article-card.gradient .wrapper header h2 a {
-    color: #FFFFFF;
-  }
-  .section .lists .article-card.gradient .wrapper header p {
-    color: #EEEEEE;
-    text-overflow: inherit;
-    white-space: inherit;
-    overflow: inherit;
-  }
-  .section .lists .article-card.highlight .wrapper .thumbnail img {
-    transform: scale(1.4);
-  }
-  .section .lists .article-card.highlight .info {
-    padding: 5%;
-    margin: 0%;
+  .section .lists .article-card header p {
+    font-size: 0.8em;
   }
   .section .lists .empty {
     width: 100%;

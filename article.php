@@ -11,6 +11,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
+
+$current_page = '';
 ?>
 
 <!doctype html>
