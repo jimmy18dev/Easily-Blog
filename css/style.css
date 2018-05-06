@@ -823,14 +823,15 @@ body.fillcolor {
 }
 .pagehead {
   width: 70%;
-  padding: 1.5% 15%;
+  padding: 1% 15%;
   float: left;
   display: inline-block;
   font-size: 1.2em;
   font-family: "maledpan", sans-serif;
-  background: #EEEEEE;
+  background: #FFFFFF;
   color: #ff6d00;
   font-weight: normal;
+  text-align: center;
 }
 form.search {
   width: 34%;
