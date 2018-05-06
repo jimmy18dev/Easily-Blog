@@ -81,6 +81,7 @@
 	display: inline-block;
 	background: #FFFFFF;
 	position: relative;
+	.transitionAnimation(0.3s);
 
 	a{
 		float: left;
@@ -93,7 +94,6 @@
 		margin-right: 3%;
 		text-decoration: none;
 		color: #111111;
-		.transitionAnimation(0.5s);
 
 		&.active{ color: @primary_color; }
 	}
@@ -273,7 +273,6 @@
 					width: 100%;
 					float: left;
 					display: inline-block;
-					transform: scale(1);
 
 					&:hover{ opacity: 0.9; }
 				}
@@ -383,7 +382,6 @@
 
 .article{
 	width: 100%;
-	margin: 0;
 	float: left;
 	display: inline-block;
 
@@ -434,7 +432,7 @@
 				}
 			}
 
-			a.btn{
+			a.btn-edit{
 				width: 10%;
 				float: right;
 				display: inline-block;
@@ -774,7 +772,7 @@ form.search{
 	.link{
 		width: 100%;
 		float: left;
-		display: inline;
+		display: inline-block;
 		font-size: @title_fontsize;
 		font-family: @topic_font;
 		margin-bottom: 2%;
@@ -921,30 +919,6 @@ form.search{
 			float: left;
 			display: inline-block;
 			margin-bottom: 5%;
-		}
-
-		.contact{
-			width: 90%;
-			padding: 3% 5%;
-			float: left;
-			display: inline-block;
-			background: #FAFAFA;
-			margin-bottom: 1%;
-			border-radius: 5px;
-			font-family: @topic_font;
-
-			.c{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-size: 0.9em;
-			}
-			.v{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-size: 1.2em;
-			}
 		}
 	}
 }

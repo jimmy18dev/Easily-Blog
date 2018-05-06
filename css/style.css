@@ -233,6 +233,10 @@ body.fillcolor {
   display: inline-block;
   background: #FFFFFF;
   position: relative;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 .navigation a {
   float: left;
@@ -245,10 +249,6 @@ body.fillcolor {
   margin-right: 3%;
   text-decoration: none;
   color: #111111;
-  transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
 }
 .navigation a.active {
   color: #ff6d00;
@@ -414,7 +414,6 @@ body.fillcolor {
   width: 100%;
   float: left;
   display: inline-block;
-  transform: scale(1);
 }
 .section .lists .article-card .thumbnail img:hover {
   opacity: 0.9;
@@ -515,7 +514,6 @@ body.fillcolor {
 }
 .article {
   width: 100%;
-  margin: 0;
   float: left;
   display: inline-block;
 }
@@ -562,7 +560,7 @@ body.fillcolor {
   color: #333333;
   line-height: 1.3em;
 }
-.article .article-header .author a.btn {
+.article .article-header .author a.btn-edit {
   width: 10%;
   float: right;
   display: inline-block;
@@ -576,7 +574,7 @@ body.fillcolor {
   line-height: 1em;
   text-decoration: none;
 }
-.article .article-header .author a.btn:hover {
+.article .article-header .author a.btn-edit:hover {
   cursor: pointer;
   background: #CCCCCC;
 }
@@ -877,7 +875,7 @@ form.search input[type="text"] {
 .footer .link {
   width: 100%;
   float: left;
-  display: inline;
+  display: inline-block;
   font-size: 1.2em;
   font-family: "maledpan", sans-serif;
   margin-bottom: 2%;
@@ -1016,28 +1014,6 @@ form.search input[type="text"] {
   float: left;
   display: inline-block;
   margin-bottom: 5%;
-}
-.about .content .contact {
-  width: 90%;
-  padding: 3% 5%;
-  float: left;
-  display: inline-block;
-  background: #FAFAFA;
-  margin-bottom: 1%;
-  border-radius: 5px;
-  font-family: "maledpan", sans-serif;
-}
-.about .content .contact .c {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-}
-.about .content .contact .v {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
 }
 .login {
   width: 100%;
@@ -1184,25 +1160,17 @@ form.search input[type="text"] {
 @media only screen and (min-width: 0px) and (max-width: 519px) {
   .header {
     width: 100%;
-    padding: 0;
+    padding: 0%;
   }
   .header .logo {
-    height: 30px;
     padding: 13px 5%;
-  }
-  .header .logo a {
-    font-size: 1.25em;
-    line-height: 1.4em;
   }
   .header .btn-icon {
     padding: 18px 5%;
-    font-size: 1.1em;
-  }
-  .header .btn-icon span {
-    margin-right: 10px;
+    font-size: 1.2em;
   }
   .header #btn-category {
-    display: inline-block;
+    display: block;
   }
   .navigation {
     position: fixed;
@@ -1211,19 +1179,11 @@ form.search input[type="text"] {
     height: 100%;
     width: 80%;
     padding: 0;
-    background: #FFFFFF;
     z-index: 9999;
-    transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
   }
   .navigation a {
     width: 80%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
     line-height: 1em;
     height: 20px;
     padding: 18px 10%;
@@ -1243,105 +1203,140 @@ form.search input[type="text"] {
   }
   .cover .content {
     width: 90%;
-    padding: 0 5%;
-    margin-top: 55%;
+    padding: 5%;
+    margin-top: 14%;
     text-align: left;
   }
   .cover .content h1 {
-    font-size: 2.1em;
-    line-height: 1.15em;
-    margin-bottom: 2%;
+    font-size: 2.2em;
+    line-height: 1.2em;
+    margin-bottom: 3%;
   }
   .cover .content p {
-    font-size: 1em;
+    font-size: 1.1em;
   }
-  .pagehead {
+  .section {
+    width: 100%;
+    margin: 5% 0%;
+    padding-bottom: 5%;
+  }
+  .section h3 {
+    width: 90%;
+    font-size: 1.2100000000000002em;
+    margin: 0 5%;
+    margin-bottom: 5%;
+    line-height: 1em;
+  }
+  .section .article-sticky {
+    margin-bottom: 3%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .section .article-sticky .image {
+    width: 100%;
+  }
+  .section .article-sticky header {
     width: 90%;
     padding: 5%;
-    font-size: 1.2em;
-    text-align: center;
   }
-  .author {
-    width: 90%;
-    margin: 0 5%;
-    margin-bottom: 10%;
-  }
-  .author h3 {
-    font-size: 1.2em;
+  .section .article-sticky header .category {
+    font-size: 0.7em;
     margin-bottom: 5%;
   }
-  .author img {
-    width: 16%;
-    margin-right: 5%;
+  .section .article-sticky header h2 {
+    font-size: 1.1em;
+    margin-bottom: 5%;
+    line-height: 1.25em;
   }
-  .author .detail {
-    width: 79%;
-    padding-top: 0%;
-  }
-  .author .detail .name {
-    font-size: 1.2em;
-  }
-  .author .detail .desc {
+  .section .article-sticky header p {
     font-size: 0.7em;
   }
-  .related {
+  .section .lists .article-card {
     width: 100%;
-    margin: 0%;
-    margin-bottom: 5%;
-  }
-  .related h3 {
-    width: 90%;
-    font-size: 1.2em;
-    margin: 0 5%;
-    margin-bottom: 5%;
-  }
-  .related .related-items {
-    margin-bottom: 2%;
+    margin: 0;
+    margin-bottom: 3%;
+    min-height: initial;
     border-radius: 0px;
+    box-shadow: none;
   }
-  .related .related-items header {
+  .section .lists .article-card .thumbnail {
+    width: 30%;
+  }
+  .section .lists .article-card header {
     width: 60%;
     padding: 5%;
+  }
+  .section .lists .article-card header h2 {
+    font-size: 1.1em;
+    line-height: 1.3em;
+    margin-bottom: 2%;
+    letter-spacing: 0.01em;
+  }
+  .section .lists .article-card header p {
+    font-size: 0.7em;
+  }
+  .section .lists .empty {
+    padding: 15% 0;
+    font-size: 1.1em;
+  }
+  .section a.read-more {
+    width: 90%;
+    margin: 0%;
+    font-size: 1.1em;
+    padding: 5%;
+    border-radius: 0px;
+  }
+  .pagination {
+    width: 90%;
+    margin: 0% 5%;
+  }
+  .pagination a {
+    font-size: 1.1em;
+  }
+  .article {
+    width: 100%;
     float: left;
     display: inline-block;
-  }
-  .related .related-items header.fullsize {
-    width: 100%;
-  }
-  .related .related-items header h2 {
-    font-size: 1.2em;
-    line-height: 1.3em;
-  }
-  .related .related-items header p {
-    font-size: 0.7em;
-    margin-top: 2%;
-  }
-  .related .related-items header p .owner {
-    color: #ff6d00;
-  }
-  .related .related-items .thumbnail {
-    width: 30%;
   }
   .article .article-header {
     width: 90%;
     margin: 5%;
   }
-  .article .article-header h1 {
-    font-size: 1.8em;
-    line-height: 1.2em;
+  .article .article-header .author {
     margin-bottom: 5%;
   }
-  .article .article-header p.info {
+  .article .article-header .author .avatar {
+    width: 20%;
+    margin-right: 5%;
+  }
+  .article .article-header .author .avatar img {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
+  }
+  .article .article-header .author .detail {
+    width: 75%;
+    margin-top: -2%;
+  }
+  .article .article-header .author .detail .name {
+    font-size: 1.1em;
+    line-height: 1.8em;
+  }
+  .article .article-header .author .detail .desc {
     font-size: 0.7em;
-    line-height: 1.4em;
+    line-height: 1.3em;
   }
-  .article .article-header p.info span,
-  .article .article-header p.info a {
-    margin-right: 2%;
+  .article .article-header .author a.btn-edit {
+    width: 100%;
+    padding: 2% 0%;
+    font-size: 1.1em;
+    margin-top: 5%;
   }
-  .article .article-header p.info span i,
-  .article .article-header p.info a i {
-    margin-right: 7px;
+  .article .article-header h1 {
+    font-size: 2.2em;
+    line-height: 1.2em;
   }
   .article .article-header p.desc {
     font-size: 1.1em;
@@ -1352,18 +1347,21 @@ form.search input[type="text"] {
     height: auto;
     margin-bottom: 5%;
   }
+  .article .article-cover picture img {
+    transform: scale(1);
+  }
   .article .article-cover .article-header {
     width: 90%;
     padding: 5%;
   }
   .article section {
     width: 90%;
-    margin: 0% 5%;
+    margin: 0 5%;
     margin-bottom: 5%;
   }
   .article section h2 {
     color: #111111;
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-bottom: 2%;
     line-height: 1.3em;
   }
@@ -1380,9 +1378,11 @@ form.search input[type="text"] {
     line-height: 1.6em;
   }
   .article blockquote {
-    width: 90%;
-    margin: 0 5%;
+    width: 50%;
+    margin: 0 25%;
     margin-bottom: 5%;
+    float: left;
+    display: inline-block;
   }
   .article blockquote i.fa-quote-left,
   .article blockquote i.fa-quote-right {
@@ -1447,7 +1447,7 @@ form.search input[type="text"] {
     text-decoration: none;
     padding: 15px;
     line-height: 1em;
-    font-size: 1.2em;
+    font-size: 1.1em;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   }
@@ -1456,32 +1456,12 @@ form.search input[type="text"] {
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
   }
   .article figure.content figcaption {
-    width: 98%;
-    float: left;
-    display: inline-block;
-    text-align: center;
+    width: 90%;
     font-size: 0.7em;
-    border: 0px;
-    padding: 2% 1%;
-    background: transparent;
-    font-style: italic;
-    color: #999999;
+    padding: 2% 5%;
   }
   .article figure.content .videoWrapper {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    position: relative;
-    padding-bottom: 56.25%;
     margin-top: 2%;
-    height: 0;
-  }
-  .article figure.content .videoWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
   .article .tag {
     width: 90%;
@@ -1489,131 +1469,46 @@ form.search input[type="text"] {
     margin-bottom: 5%;
     padding-top: 5%;
   }
-  .article .tag strong,
   .article .tag a {
-    margin-right: 2%;
-    margin-bottom: 2%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
+  .pagehead {
+    width: 90%;
+    padding: 5%;
     font-size: 1.1em;
   }
-  .pagination {
-    width: 70%;
-    margin: 0 15%;
-    float: left;
-    display: inline-block;
-    margin-top: 2%;
-    margin-bottom: 3%;
-  }
-  .pagination a {
-    float: left;
-    display: inline-block;
-    color: #999999;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: "maledpan", sans-serif;
-    margin-right: 5px;
-  }
-  .pagination a.active {
-    color: #FF6D00;
-    background: #EEEEEE;
-  }
-  .pagination a.active:hover {
-    background: #EEEEEE;
-  }
-  .pagination a:hover {
-    cursor: pointer;
-    background: #FAFAFA;
-  }
-  .section {
-    width: 100%;
-    margin: 0%;
-    margin-top: 5%;
-    padding-bottom: 5%;
-  }
-  .section h3 {
+  form.search {
     width: 90%;
     padding: 0 5%;
-    margin-bottom: 5%;
+    font-size: 1.1em;
   }
-  .section .article-sticky {
-    width: 100%;
-    margin-bottom: 5%;
-    border-radius: 0;
+  form.search i {
+    width: 5%;
+    left: 5%;
+    font-size: 1.1em;
+    padding: 2% 0;
+    line-height: 2em;
   }
-  .section .article-sticky .image {
-    width: 100%;
-  }
-  .section .article-sticky header {
+  form.search input[type="text"] {
     width: 90%;
-    padding: 5%;
-  }
-  .section .article-sticky header .category {
-    font-size: 0.7em;
-  }
-  .section .article-sticky header h2 {
-    font-size: 1.2em;
-    margin-bottom: 5%;
-    line-height: 1.25em;
-  }
-  .section .article-sticky header p {
-    font-size: 0.7em;
-  }
-  .section .lists .article-card {
-    width: 100%;
-    margin: 0;
-    min-height: initial;
-    margin-bottom: 2%;
-    border-radius: 0;
-  }
-  .section .lists .article-card:nth-child(even) {
-    margin-right: 0;
-  }
-  .section .lists .article-card .thumbnail {
-    width: 30%;
-  }
-  .section .lists .article-card header {
-    width: 60%;
-    padding: 5%;
-  }
-  .section .lists .article-card header.fullsize {
-    width: 90%;
-  }
-  .section .lists .article-card header h2 {
-    font-size: 1.2em;
-    line-height: 1.25em;
-    margin-bottom: 2%;
-  }
-  .section .lists .article-card header p {
-    font-size: 0.7em;
-  }
-  .section .lists .empty {
-    width: 100%;
-    padding: 10% 0;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.2em;
-    color: #DDDDDD;
-    font-style: italic;
-  }
-  .section a.read-more {
-    width: 80%;
-    margin: 0 5%;
-    padding: 5%;
-    font-size: 1em;
+    padding: 2% 0%;
+    padding-left: 10%;
+    font-size: 1.1em;
   }
   .footer {
     width: 90%;
     padding: 5%;
+    margin-top: 5%;
     text-align: left;
   }
   .footer .link {
+    font-size: 1.1em;
     margin-bottom: 5%;
   }
   .footer .link a {
     padding: 2%;
+    line-height: 1em;
   }
   .footer .license {
     font-size: 0.7em;
@@ -1622,141 +1517,107 @@ form.search input[type="text"] {
     display: none;
   }
   .about {
-    width: 90%;
-    padding: 0 5%;
-    margin: 0;
-  }
-  .about .content {
     width: 100%;
-    padding: 5% 0%;
+    margin: 0%;
     float: left;
     display: inline-block;
-    border-bottom: 1px solid #EEEEEE;
+  }
+  .about .content {
+    width: 90%;
+    padding: 5%;
   }
   .about .content h1 {
     font-size: 2em;
-    font-family: "maledpan", sans-serif;
-    margin-bottom: 1em;
-    line-height: 1em;
+    margin-bottom: 5%;
   }
   .about .content p {
     font-size: 1.1em;
-    margin-bottom: 1em;
+    margin-bottom: 5%;
   }
   .about .content figure {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: 5%;
   }
-  .about .content figure img {
+  .about .content .profile .profile-items {
     width: 100%;
-    float: left;
-    display: inline-block;
+    margin-bottom: 5%;
+    margin-right: 0%;
+    box-shadow: none;
+  }
+  .about .content .profile .profile-items .thumbnail {
+    width: 25%;
+    margin-right: 5%;
+  }
+  .about .content .profile .profile-items .info {
+    width: 70%;
+    padding-top: 3%;
+  }
+  .about .content .profile .profile-items .info h2 {
+    font-size: 1.1em;
+  }
+  .about .content .profile .profile-items .info p {
+    font-size: 0.7em;
   }
   .about .content iframe {
-    width: 100%;
-    height: 500px;
-    float: left;
-    display: inline-block;
+    height: 300px;
+    margin-bottom: 5%;
   }
-  .about .content .contact {
+  .login .logo {
     width: 90%;
-    padding: 3% 5%;
-    float: left;
-    display: inline-block;
-    background: #FAFAFA;
-    margin-bottom: 1%;
-    border-radius: 5px;
+    padding: 5%;
+    margin-top: 0%;
+  }
+  .login .logo a {
+    font-size: 1.4em;
+  }
+  .login .logo a i {
+    margin-right: 15px;
+  }
+  .login .content {
+    width: 90%;
+    margin: 0%;
+    padding: 5%;
+    border-radius: 0px;
+    margin-bottom: 5%;
+    box-shadow: none;
+  }
+  .login .content h1 {
     font-family: "maledpan", sans-serif;
-  }
-  .about .content .contact .c {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 0.9em;
-  }
-  .about .content .contact .v {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1.2em;
-  }
-  .about .content .contact a {
-    color: #F55704;
-  }
-  .about .person {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 10%;
-  }
-  .about .person .thumbnail {
-    width: 15%;
-    margin-right: 5%;
-    float: left;
-    display: inline-block;
-  }
-  .about .person .thumbnail img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-radius: 5px;
-  }
-  .about .person .info {
-    width: 70%;
-    float: left;
-    display: inline-block;
-    margin-top: 2%;
-  }
-  .about .person .info h2 {
     font-size: 1.6em;
+    color: #666666;
+    font-weight: normal;
+    margin-bottom: 7%;
+    text-align: center;
+    line-height: 1em;
   }
-  .about .person .info .position {
-    font-size: 0.9em;
-    color: #FF6D00;
-  }
-  .about .person .info .bio {
-    width: 100%;
-    display: inline-block;
-    font-size: 1em;
-  }
-  .login {
-    width: 90%;
-    margin: 0% 5%;
-    margin-top: 8%;
-  }
-  .login .btn {
+  .login .content .btn {
     width: 100%;
     padding: 5.6% 0%;
     float: left;
     display: inline-block;
     text-align: center;
     font-size: 1.2em;
-    background: #ff6d00;
+    background: #4CAF50;
     color: #FFFFFF;
     border: 0px;
     border-radius: 5px;
     font-family: "maledpan", sans-serif;
     line-height: 1em;
     text-decoration: none;
-    box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.2);
   }
-  .login .btn i {
+  .login .content .btn i {
     margin-left: 15px;
   }
-  .login .btn.btn-facebook {
+  .login .content .btn.btn-facebook {
     background: #3b5998;
   }
-  .login .btn.btn-facebook i {
+  .login .content .btn.btn-facebook i {
     margin-left: 0;
     margin-right: 15px;
   }
-  .login .btn:hover {
+  .login .content .btn:hover {
     cursor: pointer;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
   }
-  .login .separator {
+  .login .content .separator {
     width: 100%;
     padding: 5% 0%;
     float: left;
@@ -1765,7 +1626,7 @@ form.search input[type="text"] {
     font-style: italic;
     color: #999999;
   }
-  .login .inputtext {
+  .login .content .inputtext {
     width: 88%;
     float: left;
     display: inline-block;
@@ -1773,44 +1634,37 @@ form.search input[type="text"] {
     padding: 6%;
     margin: 0;
     border: 0;
-    background: #CCCCCC;
+    background: #DDDDDD;
     border-radius: 5px;
     margin-bottom: 5%;
   }
-  .login .inputtext:hover {
+  .login .content .inputtext:hover {
     cursor: pointer;
   }
-  .login .inputtext:focus {
+  .login .content .inputtext:focus {
     background: #DADADA;
   }
   .login .message {
     width: 100%;
-    padding: 10% 0%;
     float: left;
     display: inline-block;
     text-align: center;
-    color: #333333;
+    color: #EEEEEE;
     font-size: 1em;
   }
   .login .message a {
-    color: #ff6d00;
+    color: #FFFFFF;
+    text-decoration: underline;
   }
   .announce {
-    width: 50%;
-    margin: 0% 25%;
-    margin-top: 24%;
-    float: left;
-    display: inline-block;
-    text-align: center;
+    width: 90%;
+    margin: 0% 5%;
+    margin-top: 50%;
   }
   .announce h2 {
-    font-family: "maledpan", sans-serif;
-    font-weight: normal;
-    color: #333333;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   .announce h2 i {
-    margin-right: 15px;
-    color: #ff6d00;
+    margin-right: 10px;
   }
 }

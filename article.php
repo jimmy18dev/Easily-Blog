@@ -61,7 +61,7 @@ $current_page = '';
 					</div>
 				</div>
 				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-				<a class="btn" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
 				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
@@ -83,7 +83,7 @@ $current_page = '';
 			</div>
 
 			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<a class="btn" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
 			<?php }?>
 		</div>
 
