@@ -39,7 +39,7 @@ $current_page = 'search';
 <?php include_once 'header.php';?>
 
 <form class="search" action="search" method="GET">
-	<i class="fal fa-search"></i>
+	<span><i class="fal fa-search"></i></span>
 	<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
 </form>
 

@@ -171,6 +171,8 @@
 			margin-right: 10px;
 			color: @primary_color;
 		}
+
+		&.category_name{ display: none; }
 	}
 
 	.article-sticky{
@@ -441,7 +443,7 @@
 				font-family: @topic_font;
 				color: #333333;
 				border-radius: 5px;
-				padding: 2% 0%;
+				padding: 1% 0%;
 				font-size: @title_fontsize;
 				line-height: 1em;
 				text-decoration: none;
@@ -514,7 +516,7 @@
 					.name{ color: #FFFFFF; }
 					.desc{ color: rgba(255,255,255,0.7); }
 				}
-				a.btn{
+				a.btn-edit{
 					color: rgba(255,255,255,0.7);
 					background: transparent;
 					border: 1px solid rgba(255,255,255,0.7);
@@ -722,41 +724,46 @@
 }
 
 form.search{
-	width: 70%;
-	padding: 0 15%;
+	width: 34%;
+	margin: 0% 15%;
+	margin-top: 56px;
 	float: left;
 	display: inline-block;
-	font-size: @title_fontsize;
 	font-family: @topic_font;
-	background: #EEEEEE;
-	color: @primary_color;
-	font-weight: normal;
 	position: relative;
 
-	i{
-		width: 2%;
-		float: left;
-		display: inline-block;
+	span{
 		position: absolute;
 		top: 0;
-		left: 15%;
+		left: 0;
+		width: 12%;
+		float: left;
+		display: inline-block;
+		text-align: center;
 		font-size: @title_fontsize;
+		line-height: 1.8em;
 		padding: 2% 0;
-		line-height: 2em;
-		color: #999999;
+		color: #666666;
 	}
 
 	input[type="text"]{
-		width: 92%;
-		padding: 2% 4%;
+		width: 100%;
+		padding: 2% 0;
+		padding-left: 12%;
 		float: left;
 		display: inline-block;
 		font-family: @topic_font;
 		font-size: @title_fontsize;
 		border: 0;
 		margin: 0;
-		background: transparent;
+		background: #FFFFFF;
 		color: #333333;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 1px solid transparent;
+
+		&:hover{ cursor: pointer; }
+		&:focus{ border: 1px solid @primary_color; }
 	}
 }
 

@@ -39,6 +39,7 @@ $current_page = 'articles';
 <?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
+	<h3 class="category_name"><?php echo $category->title;?></h3>
 	<div class="lists">
 		<?php if(count($articles['items']) > 0){?>
 		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>

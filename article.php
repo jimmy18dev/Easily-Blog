@@ -56,7 +56,7 @@ $current_page = '';
 				</div>
 				<div class="detail">
 					<div class="name"><?php echo $article->owner_displayname;?></div>
-					<div class="desc">Web Developer and Web Designer</div>
+					<div class="desc position">Web Developer and Web Designer</div>
 					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 					</div>
 				</div>
@@ -77,7 +77,7 @@ $current_page = '';
 			</div>
 			<div class="detail">
 				<div class="name"><?php echo $article->owner_displayname;?></div>
-				<div class="desc">Web Developer and Web Designer</div>
+				<div class="desc position">Web Developer and Web Designer</div>
 				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 				</div>
 			</div>
