@@ -575,7 +575,7 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			font-size: 2.4em;
+			font-size: @body_fontsize * 1.5;
 			color: @font_color_light;
 		}
 		i.fa-quote-right{ text-align: right; }
@@ -585,8 +585,8 @@
 			padding: 1% 5%;
 			float: left;
 			display: inline-block;
-			font-size: 2.2em;
-			line-height: 1.3em;
+			font-size: @body_fontsize * 1.2;
+			line-height: 1.5em;
 			color: @font_color_body;
 			border: 0;
 			margin: 0;
@@ -599,10 +599,10 @@
 			padding: 1% 10%;
 			float: left;
 			display: inline-block;
-			font-size: 1.2em;
+			font-size: @body_fontsize;
 			margin: 0px;
 			border: 0px;
-			color: @font_color_topic;
+			color: @primary_color;
 			background: transparent;
 			text-align: right;
 		}
@@ -629,10 +629,9 @@
 			display: inline-block;
 			background: #EEEEEE;
 			text-align: center;
-			font-size: 1.2em;
+			font-size: @body_fontsize;
 			font-style: italic;
 			color: #CCCCCC;
-			letter-spacing: 2px;
 		}
 
 		a.btn-open-map{
