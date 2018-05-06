@@ -50,7 +50,7 @@ $p_url 		= DOMAIN.'/signup';
 <body class="fillcolor">
 <div class="login">
 	<div class="logo">
-		<a href="index.php"><i class="fa fa-user-md"></i><span><?php echo $config['settings']['sitename_th'];?></span></a>
+		<a href="index.php"><img src="image/logo.png" alt=""></a>
 	</div>
 	<div class="content">
 		<form action="javascript:register();">

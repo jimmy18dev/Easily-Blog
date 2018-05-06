@@ -192,12 +192,14 @@ body.fillcolor {
 .header .logo a {
   font-family: "maledpan", sans-serif;
   font-size: 1.4em;
-  line-height: 1.3em;
+  line-height: 1.2em;
   text-decoration: none;
   color: #FFFFFF;
 }
-.header .logo i {
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+.header .logo img {
+  float: left;
+  display: inline-block;
+  height: 30px;
 }
 .header .logo span {
   margin-left: 10px;
@@ -1039,14 +1041,8 @@ form.search input[type="text"]:focus {
   text-align: center;
   margin-top: 4%;
 }
-.login .logo a {
-  color: #FFFFFF;
-  font-size: 2em;
-  font-family: "maledpan", sans-serif;
-  text-decoration: none;
-}
-.login .logo a i {
-  margin-right: 15px;
+.login .logo a img {
+  height: 60px;
 }
 .login .content {
   width: 24%;
@@ -1529,8 +1525,8 @@ form.search input[type="text"]:focus {
     margin-top: 0%;
     margin-bottom: 5%;
   }
-  .login .logo a {
-    font-size: 1.4em;
+  .login .logo a img {
+    height: 50px;
   }
   .login .content {
     width: 90%;
