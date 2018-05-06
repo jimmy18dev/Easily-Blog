@@ -446,104 +446,32 @@ form.search{
 
 .login{
 	.logo{
-		width: 90%;
-		padding: 5%;
+		padding: 5% 0%;
 		margin-top: 0%;
+		margin-bottom: 5%;
 
-		a{
-			font-size: 1.4em;
-
-			i{ margin-right: 15px; }
-		}
+		a{ font-size: 1.4em; }
 	}
 
 	.content{
 		width: 90%;
-		margin: 0%;
-		padding: 5%;
-		border-radius: 0px;
+		margin: 0 5%;
 		margin-bottom: 5%;
-		box-shadow: none;
-
-		h1{
-			font-family: @topic_font;
-			font-size: 1.6em;
-			color: #666666;
-			font-weight: normal;
-			margin-bottom: 7%;
-			text-align: center;
-			line-height: 1em;
-		}
 
 		.btn{
-			width: 100%;
 			padding: 5.6% 0%;
-			float: left;
-			display: inline-block;
-			text-align: center;
-			font-size: 1.2em;
-			background: #4CAF50;
-			color: #FFFFFF;
-			border: 0px;
-			border-radius: 5px;
-			font-family: @topic_font;
-			line-height: 1em;
-			text-decoration: none;
-
-			i{ margin-left: 15px; }
-
-			&.btn-facebook{
-				background: #3b5998;
-
-				i{
-					margin-left: 0;
-					margin-right: 15px;
-				}
-			}
-
-			&:hover{ cursor: pointer; }
+			font-size: @title_fontsize;
 		}
 
-		.separator{
-			width: 100%;
-			padding: 5% 0%;
-			float: left;
-			display: block;
-			text-align: center;
-			font-style: italic;
-			color: #999999;
-		}
-
+		.separator{ font-size: @title_fontsize; }
 		.inputtext{
-			width: 88%;
-			float: left;
-			display: inline-block;
-			font-size: 1.1em;
-			padding: 6%;
-			margin: 0;
-			border: 0;
-			background: #DDDDDD;
-			border-radius: 5px;
+			font-size: @title_fontsize;
+			padding: 5%;
 			margin-bottom: 5%;
-
-			&:hover{ cursor: pointer; }
-			&:focus{ background: #DADADA; }
 		}
 	}
 
-	.message{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		text-align: center;
-		color: #EEEEEE;
-		font-size: 1em;
-
-		a{
-			color: #FFFFFF;
-			text-decoration: underline;
-		}
-	}
+	.message{ font-size: @title_fontsize; }
 }
 
 .announce{
