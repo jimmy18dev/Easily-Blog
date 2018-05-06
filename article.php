@@ -60,6 +60,9 @@ $current_page = '';
 					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 					</div>
 				</div>
+				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+				<a class="btn" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
 		</header>
@@ -78,6 +81,10 @@ $current_page = '';
 				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 				</div>
 			</div>
+
+			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+			<a class="btn" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+			<?php }?>
 		</div>
 
 		<h1><?php echo $article->title;?></h1>

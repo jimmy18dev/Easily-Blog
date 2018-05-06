@@ -413,7 +413,7 @@
 			}
 
 			.detail{
-				width: 89%;
+				width: 79%;
 				float: left;
 				display: inline-block;
 				margin-top: -1%;
@@ -428,6 +428,26 @@
 					font-size: @desc_fontsize;
 					color: #333333;
 					line-height: 1.3em;
+				}
+			}
+
+			a.btn{
+				width: 10%;
+				float: right;
+				display: inline-block;
+				background: #DADADA;
+				text-align: center;
+				font-family: @topic_font;
+				color: #333333;
+				border-radius: 5px;
+				padding: 2% 0%;
+				font-size: @title_fontsize;
+				line-height: 1em;
+				text-decoration: none;
+
+				&:hover{
+					cursor: pointer;
+					background: #CCCCCC;
 				}
 			}
 		}
@@ -491,7 +511,19 @@
 			.author{
 				.detail{
 					.name{ color: #FFFFFF; }
-					.desc{ color: rgba(255,255,255,0.6); }
+					.desc{ color: rgba(255,255,255,0.7); }
+				}
+				a.btn{
+					color: rgba(255,255,255,0.7);
+					background: transparent;
+					border: 1px solid rgba(255,255,255,0.7);
+					box-sizing: border-box;
+
+					&:hover{
+						color: #FFFFFF;
+						cursor: pointer;
+						border: 1px solid #FFFFFF;
+					}
 				}
 			}
 
