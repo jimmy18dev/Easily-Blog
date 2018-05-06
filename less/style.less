@@ -18,7 +18,10 @@
 	top: 0;
 
 	&.transparent{
-		background: transparent;
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
 		border-bottom: 0;
 
 		.logo{
@@ -719,6 +722,46 @@
 	background: #EEEEEE;
 	color: @primary_color;
 	font-weight: normal;
+}
+
+form.search{
+	width: 70%;
+	padding: 0 15%;
+	float: left;
+	display: inline-block;
+	font-size: @title_fontsize;
+	font-family: @topic_font;
+	background: #EEEEEE;
+	color: @primary_color;
+	font-weight: normal;
+	position: relative;
+
+	i{
+		width: 3%;
+		float: left;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 15%;
+		font-size: 1em;
+		padding: 2% 0;
+		line-height: 2.2em;
+		color: #999999;
+	}
+
+	input[type="text"]{
+		width: 96%;
+		padding: 2% 0%;
+		float: right;
+		display: inline-block;
+		font-family: @topic_font;
+		font-size: 1.25em;
+		line-height: 1.5em;
+		border: 0;
+		margin: 0;
+		background: transparent;
+		color: #333333;
+	}
 }
 
 .footer{

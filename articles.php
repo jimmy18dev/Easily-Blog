@@ -6,9 +6,7 @@ $category_id = $_GET['category_id'];
 $category->get($category_id);
 $page = (!empty($_GET['page'])?$_GET['page']:1);
 $perpage = 6;
-
 $articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$perpage);
-
 $current_page = 'articles';
 ?>
 

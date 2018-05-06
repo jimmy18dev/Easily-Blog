@@ -4,7 +4,11 @@ include_once'autoload.php';
 $keyword = trim($_GET['q']);
 
 $article = new Article();
-$articles = $article->listAll(NULL,NULL,$keyword,'published',NULL);
+
+if(!empty($keyword)){
+	$articles = $article->listAll(NULL,$keyword,'published',NULL,20,true,NULL,NULL);
+}
+$current_page = 'search';
 ?>
 
 <!doctype html>
@@ -28,23 +32,27 @@ $articles = $article->listAll(NULL,NULL,$keyword,'published',NULL);
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a href="index.php" class="btn left"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
-</header>
 
-<form action="search" method="GET" class="pagehead margin-zero">
+<?php include_once 'header.php';?>
+
+<form class="search" action="search" method="GET">
+	<i class="fal fa-search"></i>
 	<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
 </form>
 
-<div class="article-list">
-	<?php if(count($articles) > 0 && !empty($keyword)){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
-	<?php }?>
+<div class="section">
+	<div class="lists">
+		<?php if(count($articles['items']) > 0){?>
+		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>
+		<?php }else{?>
+		<?php if(!empty($keyword)){?>
+		<div class="empty">ไม่พบบทความเกี่ยวกับ "<?php echo $keyword;?>"</div>
+		<?php }?>
+		<?php }?>
+	</div>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
