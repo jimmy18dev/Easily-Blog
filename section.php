@@ -1,12 +1,10 @@
 <?php
 include_once'autoload.php';
-$article = new Article();
+$homesection = new HomeSection;
+$sections = $homesection->lists();
 
-$page = (!empty($_GET['page'])?$_GET['page']:1);
-$perpage = 30;
-
-$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
-$c_article 	= $article->counter($user->id);
+$category = new Category();
+$categories = $category->listAll();
 ?>
 
 <!doctype html>
@@ -25,7 +23,7 @@ $c_article 	= $article->counter($user->id);
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $user->fullname;?></title>
+<title>Section</title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -55,30 +53,29 @@ $c_article 	= $article->counter($user->id);
 
 <div class="navi">
     <a href="profile" class="active">บทความ</a>
-    <a href="profile/category">หมวดหมู่</a>
-    <a href="profile/section">แก้ไขหน้าแรก</a>
+    <a href="profile">หมวดหมู่</a>
 </div>
 
 <div class="filter">
-    <a class="btn-create" href="article/create">เขียนบทความ</a>
+    <select id="category_id">
+        <?php foreach ($categories as $var) {?>
+        <?php if(!in_array($var['id'],$sections)){?>
+        <option value="<?php echo $var['id'];?>"><?php echo $var['title'];?></option>
+        <?php }?>
+        <?php }?>
+    </select>
+
+    <input type="text" value="4" id="total_items" placeholder="Total items">
+    <button class="btn-create" id="btn-add">เพิ่ม</button>
 </div>
 
-<div class="article-list" id="content">
-	<?php if(count($articles['items']) > 0){?>
-	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
+<div class="article-list">
+	<?php if(count($sections) > 0){?>
+	<?php foreach ($sections as $var) { include 'template/section.items.php'; } ?>
 	<?php }else{?>
-	<div class="empty">ไม่พบบทความ</div>
+	<div class="empty">ไม่พบหมวดหมู่</div>
 	<?php }?>
 </div>
-
-<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
-<?php if($total_page > 1){?>
-<div class="pagination">
-    <?php for($i=1;$i<=$total_page;$i++){ ?>
-    <a href="profile/article/page/<?php echo $i;?>#content" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
-    <?php }?>
-</div>
-<?php }?>
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
@@ -93,55 +90,104 @@ $(function(){
     tippy('[title]',{arrow: true});
 
 	// Article Sticky
-    $('.btn-sticky').click(function(){
-        progressbar.Progressbar('60%');
+    $('#btn-add').click(function(){
         $this = $(this);
-        var article_id = $(this).attr('data-id');
+
+        var category_id = $('#category_id').val();
+        var total_items = $('#total_items').val();
 
         $.ajax({
-            url         :'api/article',
+            url         :'api/homesection',
             cache       :false,
             dataType    :"json",
             type        :"POST",
             data:{
-                request     :'sticky',
-                article_id  :article_id,
+                request     :'create',
+                category_id :category_id,
+                total_items :total_items
             },
             error: function (request, status, error){
                 console.log(request.responseText);
             }
         }).done(function(data){
             console.log(data);
-            $this.toggleClass('active');
             progressbar.Progressbar('100%');
+            location.reload();
         });
     });
 
-    $('.btn-publish').click(function(){
-    	$this = $(this);
-        var article_id = $(this).attr('data-id');
-        progressbar.Progressbar('70%');
+    // Delete
+    $('.btn-delete').click(function(){
+        var section_id = $(this).attr('data-id');
 
         $.ajax({
-            url         :'api/article',
+            url         :'api/homesection',
             cache       :false,
             dataType    :"json",
             type        :"POST",
             data:{
-                request     :'published',
-                article_id  :article_id,
+                request     :'delete',
+                section_id :section_id,
             },
             error: function (request, status, error){
                 console.log(request.responseText);
             }
         }).done(function(data){
             console.log(data);
-            $this.toggleClass('active');
             progressbar.Progressbar('100%');
-         //    setTimeout(function(){
-	        //     location.reload();
-	        // },1000);
+            location.reload();
         });
+    });
+
+    var current;
+    var target;
+
+    // Article Sticky
+    $('.btn-swap').click(function(){
+        // progressbar.Progressbar('60%');
+        $this = $(this);
+
+        if(!current)
+            current = $(this).attr('data-id');
+        else{
+            target = $(this).attr('data-id');
+
+            if(current == target){
+                current = null;
+                target = null;
+
+                return false;
+            }
+        }
+
+        console.log(current,target);
+
+        if(current && target){
+            console.log('Swap betweet: '+current+','+target);
+
+            $.ajax({
+                url         :'api/homesection',
+                cache       :false,
+                dataType    :"json",
+                type        :"POST",
+                data:{
+                    request     :'swap',
+                    current  :current,
+                    target:target
+                },
+                error: function (request, status, error){
+                    console.log(request.responseText);
+                }
+            }).done(function(data){
+                console.log(data);
+                progressbar.Progressbar('100%');
+
+                current = null;
+                target = null;
+
+                location.reload();
+            });
+        }
     });
 });
 </script>
