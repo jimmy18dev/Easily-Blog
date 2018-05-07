@@ -1,5 +1,6 @@
 <?php
 include_once'autoload.php';
+$current_page = 'edit';
 ?>
 
 <!doctype html>
@@ -25,30 +26,27 @@ include_once'autoload.php';
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-
-<div class="header">
-	<a class="btn" href="profile"><i class="fal fa-arrow-left"></i></a>
-	<div class="center">แก้ไขโปรไฟล์</div>
-</div>
+<?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="page-form">
-	<div class="items">
-		<div class="caption">ชื่อที่ใช้แสดง</div>
-		<div class="content">
-			<input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
-		</div>
-	</div>
+    <div class="items">
+        <div class="caption">ชื่อ-นามสกุล</div>
+        <div class="content">
+            <input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
+            <div class="message">ชื่อผู้เขียนบทความและแสดงบนหน้าเว็บ</div>
+        </div>
+    </div>
+    <div class="items">
+        <div class="caption">เกี่ยวกับ</div>
+        <div class="content">
+            <textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
+            <div class="message">ตำแหน่งงานที่รับผิดชอบ</div>
+        </div>
+    </div>
 
-	<div class="items">
-		<div class="caption">เกี่ยวกับ</div>
-		<div class="content">
-			<textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
-		</div>
-	</div>
-
-	<div class="items">
-		<button id="btnSaveProfile">บันทึก</button>
-	</div>
+    <div class="items">
+        <button id="btnSaveProfile">บันทึก</button>
+    </div>
 </div>
 
 <div id="progressbar"></div>

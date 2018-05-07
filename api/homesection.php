@@ -29,7 +29,9 @@ switch ($_SERVER['REQUEST_METHOD']){
     		case 'create':
     			$category_id 	= $_POST['category_id'];
     			$total_items 	= $_POST['total_items'];
-    			$homesection->create($category_id,$total_items);
+    			if($category_id > 0){
+    				$homesection->create($category_id,$total_items);
+    			}
     			break;
     		case 'swap':
 				$current 	= $_POST['current'];

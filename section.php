@@ -31,14 +31,14 @@ $current_page = 'section';
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<?php include_once 'template/admin.header.php'; ?>
+<?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="filter">
     <button class="btn-create" id="btn-add">เพิ่ม</button>
 
     <div class="select number" title="จำนวนบทความที่แสดง">
         <select id="total_items">
-            <?php for($i=4;$i<12;$i++){?>
+            <?php for($i=2;$i<=12;$i+=2){?>
             <option value="<?php echo $i;?>"><?php echo $i;?></option>
             <?php }?>
         </select>
@@ -131,23 +131,26 @@ $(function(){
 
     // Article Sticky
     $('.btn-swap').click(function(){
-        // progressbar.Progressbar('60%');
         $this = $(this);
+        $items = $(this).parent();
 
-        if(!current)
+        if(!current){
             current = $(this).attr('data-id');
-        else{
+            $items.addClass('selected');
+        }else{
             target = $(this).attr('data-id');
 
             if(current == target){
                 current = null;
                 target = null;
+                $items.removeClass('selected');
+                $(this).html('<i class="fal fa-sort"></i>');
 
                 return false;
             }
         }
 
-        console.log(current,target);
+        $(this).html('<i class="fal fa-check"></i>');
 
         if(current && target){
             console.log('Swap betweet: '+current+','+target);

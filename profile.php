@@ -7,7 +7,7 @@ $perpage = 30;
 
 $articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
 $c_article 	= $article->counter($user->id);
-$current_page = 'profile';
+$current_page = 'article';
 ?>
 
 <!doctype html>
@@ -33,7 +33,7 @@ $current_page = 'profile';
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<?php include_once 'template/admin.header.php'; ?>
+<?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="filter">
     <a class="btn-create" href="article/create">เขียนบทความ</a>

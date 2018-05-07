@@ -33,30 +33,33 @@ if(!empty($category_id)){
 </head>
 <body>
 
-<div class="header">
-	<a class="btn" href="profile/category"><i class="fal fa-arrow-left"></i></a>
-	<div class="center">หมวดหมู่</div>
+<div class="navigation">
+    <div class="title"><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่ใหม่');?></div>
+	<a class="btn right" href="profile/category"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="page-form">
 	<div class="items">
-		<div class="caption">ชื่อที่ใช้แสดง</div>
+		<div class="caption">ชื่อหมวดหมู่</div>
 		<div class="content">
-			<input type="text" id="title" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $category->title;?>">
+			<input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>">
+            <div class="message">ไม่เกิน 20 ตัวอักษร</div>
 		</div>
 	</div>
 
     <div class="items">
         <div class="caption">ลิ้งค์</div>
         <div class="content">
-            <input type="text" id="link" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $category->link;?>">
+            <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
+            <div class="message">ตัวอย่าง: Technology , Food-Review</div>
         </div>
     </div>
 
     <div class="items">
-        <div class="caption">ไอคอน</div>
+        <div class="caption">ไอคอน <a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน"><i class="fal fa-info-circle"></i></a></div>
         <div class="content">
-            <input type="text" id="icon" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $category->icon;?>">
+            <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
+            <div class="message">ตัวอย่าง: archive , bus , calendar</div>
         </div>
     </div>
 

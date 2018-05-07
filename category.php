@@ -28,7 +28,7 @@ $current_page = 'category';
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<?php include_once 'template/admin.header.php'; ?>
+<?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="filter">
     <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
@@ -59,17 +59,20 @@ $(function(){
 
 	// Article Sticky
     $('.btn-swap').click(function(){
-        // progressbar.Progressbar('60%');
         $this = $(this);
+        $items = $(this).parent();
 
-        if(!current)
+        if(!current){
             current = $(this).attr('data-id');
-        else{
+            $items.addClass('selected');
+        }else{
             target = $(this).attr('data-id');
 
             if(current == target){
                 current = null;
                 target = null;
+                $items.removeClass('selected');
+                $(this).html('<i class="fal fa-sort"></i>');
 
                 return false;
             }

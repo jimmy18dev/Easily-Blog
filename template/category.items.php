@@ -4,6 +4,6 @@
 		<div class="title"><?php echo $var['title'];?></div>
 		<div class="desc">Not sure how to use these or having trouble? Check out getting started!<?php echo $var['description'];?></div>
 	</div>
-	<a class="btns" href="profile/category/edit/<?php echo $var['id'];?>"><i class="fal fa-cog"></i></a>
-	<div class="btns btn-swap" data-id="<?php echo $var['id'];?>"><i class="fal fa-sort"></i></div>
+	<div class="btns btn-swap" data-id="<?php echo $var['id'];?>" title="สลับตำแหน่ง"><i class="fal fa-sort"></i></div>
+	<a class="btns" href="profile/category/edit/<?php echo $var['id'];?>" title="แก้ไข"><i class="fal fa-cog"></i></a>
 </div>
