@@ -77,17 +77,17 @@ if(!empty($category_id)){
 	</div>
 
     <?php if(!empty($category->id)){?>
-    <div class="delete">
-        <h2>ลบหมวดหมู่นี้</h2>
-        <p>บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
+    <div class="delete-zone">
+        <p><strong>ลบหมวดหมู่!</strong> บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
+        <div class="select">
+            <select id="new_target">
+                <?php foreach ($categories as $var) { if($category_id != $var['id']){?>
+                <option value="<?php echo $var['id'];?>"><?php echo $var['title'];?></option>
+                <?php }}?>
+            </select>
+        </div>
 
-        <select id="new_target">
-            <?php foreach ($categories as $var) { if($category_id != $var['id']){?>
-            <option value="<?php echo $var['id'];?>"><?php echo $var['title'];?></option>
-            <?php }}?>
-        </select>
-
-        <button id="btn-delete">Delete</button>
+        <button class="btn" id="btn-delete">ลบหมวดหมู่</button>
     </div>
     <?php }?>
 </div>

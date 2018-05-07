@@ -249,6 +249,8 @@
 		line-height: 1em;
 		text-decoration: none;
 		color: #BBBBBB;
+
+		&:hover{ cursor: default; }
 	}
 
 	a{
@@ -1448,6 +1450,94 @@
 			&:hover{ cursor: pointer; }
 		}
 	}
+
+	.delete-zone{
+		width: 60%;
+		float: left;
+		display: inline-block;
+		margin-bottom: 15%;
+		margin-top: 3%;
+		padding-top: 3%;
+		border-top: 1px solid #DDDDDD;
+
+		p{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 1.1em;
+			font-family: @topic_font;
+			margin-bottom: 3%;
+			color: #666666;
+		}
+
+		.select{
+			width: 67%;
+			float: left;
+			display: inline-block;
+			position: relative;
+			margin-right: 15px;
+
+			&.number{ width: 10%; }
+			&:after{
+				content: '';
+				border-top: 8px solid #BBBBBB;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				position: absolute;
+				z-index: 2;
+				top: 20px;
+				right: 18px;
+				pointer-events: none;
+			}
+
+			select{
+				width: 100%;
+				margin: 0%;
+				float: left;
+				display: inline-block;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				font-size: 1em;
+				border: 1px solid #DDDDDD;
+				line-height: 1em;
+				padding: 15px;
+				background: #FFFFFF;
+				font-family: @topic_font;
+				color: #333333;
+
+				&:hover{
+					cursor: pointer;
+					border: 1px solid #999999;
+				}
+
+				&:focus{
+					border: 1px solid @primary_color;
+					color: @primary_color;
+				}
+			}
+		}
+
+		.btn{
+			float: right;
+			display: inline-block;
+			background: #EF9A9A;
+			color: #F44336;
+			text-decoration: none;
+			font-family: @topic_font;
+			font-size: 1.1em;
+			line-height: 1em;
+			padding: 15px 25px;
+			border-radius: 3px;
+			border: 0;
+			margin: 0;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 .filter{
@@ -1607,6 +1697,14 @@
 			.desc{
 				font-size: 0.7em;
 				color: #999999;
+				font-style: italic;
+
+				a{
+					color: @primary_color;
+					text-decoration: none;
+
+					&:hover{ text-decoration: underline; }
+				}
 			}
 		}
 		.btns{
