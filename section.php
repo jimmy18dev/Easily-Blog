@@ -5,6 +5,7 @@ $sections = $homesection->lists();
 
 $category = new Category();
 $categories = $category->listAll();
+$current_page = 'section';
 ?>
 
 <!doctype html>
@@ -30,43 +31,29 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
-</header>
-
-<div class="pagehead">
-	<div class="profile">
-		<figure class="avatar">
-			<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=large');?>" alt="Profile avatar">
-		</figure>
-
-        <div class="control">
-            <a href="signout" title="ออกจากระบบ"><i class="fal fa-sign-out"></i></a>
-            <a href="profile/edit">แก้ไขโปรไฟล์</a>
-        </div>
-		<div class="info">
-			<h1><?php echo ((!empty($user->display))?$user->display:$user->fullname);?></h1>
-			<p><?php echo $user->bio;?></p>
-		</div>
-	</div>
-</div>
-
-<div class="navi">
-    <a href="profile" class="active">บทความ</a>
-    <a href="profile">หมวดหมู่</a>
-</div>
+<?php include_once 'template/admin.header.php'; ?>
 
 <div class="filter">
-    <select id="category_id">
-        <?php foreach ($categories as $var) {?>
-        <?php if(!in_array($var['id'],$sections)){?>
-        <option value="<?php echo $var['id'];?>"><?php echo $var['title'];?></option>
-        <?php }?>
-        <?php }?>
-    </select>
-
-    <input type="text" value="4" id="total_items" placeholder="Total items">
     <button class="btn-create" id="btn-add">เพิ่ม</button>
+
+    <div class="select number" title="จำนวนบทความที่แสดง">
+        <select id="total_items">
+            <?php for($i=4;$i<12;$i++){?>
+            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div>
+
+    <div class="select">
+        <select id="category_id">
+            <option value="0" selected disabled hidden>เลือกหมวด</option>
+            <?php foreach ($categories as $var) {?>
+            <?php if(!in_array($var['id'],array_column($sections,'category_id'))){?>
+            <option value="<?php echo $var['id'];?>"><?php echo $var['title'];?></option>
+            <?php }?>
+            <?php }?>
+        </select>
+    </div>
 </div>
 
 <div class="article-list">

@@ -2,6 +2,7 @@
 include_once'autoload.php';
 $category = new Category();
 $categories = $category->listAll();
+$current_page = 'category';
 ?>
 
 <!doctype html>
@@ -27,31 +28,7 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>หน้าแรก</span></a>
-</header>
-
-<div class="pagehead">
-	<div class="profile">
-		<figure class="avatar">
-			<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=large');?>" alt="Profile avatar">
-		</figure>
-
-        <div class="control">
-            <a href="signout" title="ออกจากระบบ"><i class="fal fa-sign-out"></i></a>
-            <a href="profile/edit">แก้ไขโปรไฟล์</a>
-        </div>
-		<div class="info">
-			<h1><?php echo ((!empty($user->display))?$user->display:$user->fullname);?></h1>
-			<p><?php echo $user->bio;?></p>
-		</div>
-	</div>
-</div>
-
-<div class="navi">
-    <a href="profile" class="active">บทความ</a>
-    <a href="profile">หมวดหมู่</a>
-</div>
+<?php include_once 'template/admin.header.php'; ?>
 
 <div class="filter">
     <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
@@ -97,6 +74,8 @@ $(function(){
                 return false;
             }
         }
+
+        $(this).html('<i class="fal fa-check"></i>');
 
         console.log(current,target);
 

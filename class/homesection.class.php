@@ -13,7 +13,7 @@ class HomeSection{
         $this->db->query('INSERT INTO home_section(category_id,total_items,position) VALUE(:category_id,:total_items,:position)');
         $this->db->bind(':total_items',$total_items);
         $this->db->bind(':category_id',$category_id);
-        $this->db->bind(':position',$position);
+        $this->db->bind(':position',++$position);
         $this->db->execute();
         return $this->db->lastInsertId();
     }
