@@ -1615,7 +1615,7 @@ body.fillcolor {
   display: inline-block;
 }
 .filter.bottom {
-  padding-top: 2%;
+  padding-top: 3%;
   padding-bottom: 0;
   border-top: 1px solid #DDDDDD;
 }
@@ -1730,7 +1730,6 @@ body.fillcolor {
 }
 .article-list .category-items {
   width: 100%;
-  padding: 2% 0;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -1738,12 +1737,16 @@ body.fillcolor {
   border-radius: 3px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 }
+.article-list .category-items:last-child {
+  margin-bottom: 0;
+}
 .article-list .category-items.selected {
   box-shadow: none;
   opacity: 0.7;
 }
 .article-list .category-items .icon {
-  width: 10%;
+  width: 9%;
+  padding: 1.5% 0;
   float: left;
   display: inline-block;
   text-align: center;
@@ -1753,6 +1756,7 @@ body.fillcolor {
 }
 .article-list .category-items .detail {
   width: 70%;
+  padding: 1.5% 0;
   float: left;
   display: inline-block;
 }
@@ -1777,7 +1781,8 @@ body.fillcolor {
   text-decoration: underline;
 }
 .article-list .category-items .btns {
-  width: 10%;
+  width: 9%;
+  padding: 1.5% 0;
   float: right;
   display: inline-block;
   text-align: center;
@@ -1791,6 +1796,7 @@ body.fillcolor {
 .article-list .category-items .btns:hover {
   color: #666666;
   cursor: pointer;
+  background: #FAFAFA;
 }
 .article-list .article-items {
   width: 100%;
