@@ -125,7 +125,8 @@ $(function(){
         }).done(function(data){
             console.log(data);
             progressbar.Progressbar('100%');
-            $items.fadeOut(300);
+            // $items.fadeOut(300);
+            location.reload();
         });
     });
 

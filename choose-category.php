@@ -27,9 +27,9 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a href="profile" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
-</header>
+<div class="navigation">
+	<a class="btn-icon" href="profile"><i class="fal fa-times"></i></a>
+</div>
 
 <div class="pagehead">
 	<div class="content">
@@ -45,7 +45,12 @@ $categories = $category->listAll();
 			<div class="icon">
 				<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 			</div>
-			<div class="name"><?php echo $var['title'];?></div>
+			<div class="detail">
+				<div class="title"><?php echo $var['title'];?></div>
+				<?php if(!empty($var['description'])){?>
+				<div class="desc"><?php echo $var['description'];?></div>
+				<?php }?>
+			</div>
 			<div class="selected"><i class="fal fa-check"></i></div>
 		</div>
 		<?php } ?>

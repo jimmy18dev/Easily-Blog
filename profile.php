@@ -5,7 +5,12 @@ $article = new Article();
 $page = (!empty($_GET['page'])?$_GET['page']:1);
 $perpage = 30;
 
-$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
+$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
+
+if($page == 1){
+    $article_sticky = $article->listSticky();
+}
+
 $c_article 	= $article->counter($user->id);
 $current_page = 'article';
 ?>
@@ -39,7 +44,19 @@ $current_page = 'article';
     <a class="btn-create" href="article/create">เขียนบทความ</a>
 </div>
 
-<div class="article-list" id="content">
+<?php if($page == 1){?>
+<div class="article-list">
+    <h1>ปักหมุด</h1>
+    <?php if(count($article_sticky) > 0){?>
+    <?php foreach ($article_sticky as $var) { include 'template/article.items.php'; } ?>
+    <?php }else{?>
+    <div class="empty">ไม่พบบทความ</div>
+    <?php }?>
+</div>
+<?php }?>
+
+<div class="article-list">
+    <h1>บทความของคุณ</h1>
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
@@ -51,7 +68,7 @@ $current_page = 'article';
 <?php if($total_page > 1){?>
 <div class="pagination">
     <?php for($i=1;$i<=$total_page;$i++){ ?>
-    <a href="profile/article/page/<?php echo $i;?>#content" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+    <a href="profile/article/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
     <?php }?>
 </div>
 <?php }?>
@@ -88,8 +105,11 @@ $(function(){
             }
         }).done(function(data){
             console.log(data);
-            $this.toggleClass('active');
             progressbar.Progressbar('100%');
+
+            setTimeout(function(){
+                location.reload();
+            },1000);
         });
     });
 
@@ -112,11 +132,12 @@ $(function(){
             }
         }).done(function(data){
             console.log(data);
-            $this.toggleClass('active');
+            $this.html('<i class="fas fa-spinner fa-pulse"></i>');
             progressbar.Progressbar('100%');
-         //    setTimeout(function(){
-	        //     location.reload();
-	        // },1000);
+
+            setTimeout(function(){
+	            location.reload();
+	        },1000);
         });
     });
 });

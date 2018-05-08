@@ -34,8 +34,7 @@ if(!empty($category_id)){
 <body>
 
 <div class="navigation">
-    <div class="title"><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่ใหม่');?></div>
-	<a class="btn right" href="profile/category"><i class="fal fa-times"></i></a>
+	<a class="btn-icon" href="profile/category"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="page-form">
@@ -73,7 +72,7 @@ if(!empty($category_id)){
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
 	<div class="items">
-		<button id="btnSave">บันทึก</button>
+		<button id="btnSave"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
 	</div>
 
     <?php if(!empty($category->id)){?>
