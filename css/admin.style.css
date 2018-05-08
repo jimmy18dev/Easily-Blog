@@ -1608,11 +1608,26 @@ body.fillcolor {
 .filter {
   width: 56%;
   margin: 0% 22%;
-  padding: 2% 0;
   margin-top: 56px;
+  padding-top: 4%;
+  padding-bottom: 2%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #DDDDDD;
+}
+.filter.bottom {
+  padding-top: 2%;
+  padding-bottom: 0;
+  border-top: 1px solid #DDDDDD;
+}
+.filter .title {
+  max-width: 60%;
+  float: left;
+  display: inline-block;
+  font-size: 1.1em;
+  line-height: 1em;
+  padding: 15px 0px;
+  font-family: "maledpan", sans-serif;
+  color: #999999;
 }
 .filter .select {
   width: 30%;
@@ -1668,7 +1683,8 @@ body.fillcolor {
   font-family: "maledpan", sans-serif;
   font-size: 1.1em;
   line-height: 1em;
-  padding: 15px 25px;
+  padding: 13px 25px;
+  padding-bottom: 17px;
   border-radius: 3px;
   border: 0;
   margin: 0;
@@ -1709,7 +1725,6 @@ body.fillcolor {
 .article-list {
   width: 56%;
   padding: 0% 22%;
-  margin-bottom: 10%;
   float: left;
   display: inline-block;
 }
@@ -1743,9 +1758,8 @@ body.fillcolor {
 }
 .article-list .category-items .detail .title {
   font-family: "maledpan", sans-serif;
-  font-size: 1.4em;
+  font-size: 1.1em;
   color: #333333;
-  line-height: 1.25em;
 }
 .article-list .category-items .detail .title:hover {
   cursor: default;
@@ -1769,7 +1783,7 @@ body.fillcolor {
   text-align: center;
   font-size: 1.4em;
   line-height: 2em;
-  color: #999999;
+  color: #BBBBBB;
 }
 .article-list .category-items .btns i.fa-check {
   color: #2962ff;

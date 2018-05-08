@@ -1543,11 +1543,28 @@
 .filter{
 	width: 56%;
 	margin: 0% 22%;
-	padding: 2% 0;
 	margin-top: 56px;
+	padding-top: 4%;
+	padding-bottom: 2%;
 	float: left;
 	display: inline-block;
-	border-bottom: 1px solid #DDDDDD;
+
+	&.bottom{
+		padding-top: 2%;
+		padding-bottom: 0;
+		border-top: 1px solid #DDDDDD;
+	}
+
+	.title{
+		max-width: 60%;
+		float: left;
+		display: inline-block;
+		font-size: 1.1em;
+		line-height: 1em;
+		padding: 15px 0px;
+		font-family: @topic_font;
+		color: #999999;
+	}
 
 	.select{
 		width: 30%;
@@ -1606,7 +1623,8 @@
 		font-family: @topic_font;
 		font-size: 1.1em;
 		line-height: 1em;
-		padding: 15px 25px;
+		padding: 13px 25px;
+		padding-bottom: 17px; 
 		border-radius: 3px;
 		border: 0;
 		margin: 0;
@@ -1653,7 +1671,6 @@
 .article-list{
 	width: 56%;
 	padding: 0% 22%;
-	margin-bottom: 10%;
 	float: left;
 	display: inline-block;
 
@@ -1688,9 +1705,8 @@
 
 			.title{
 				font-family: @topic_font;
-				font-size: 1.4em;
+				font-size: 1.1em;
 				color: #333333;
-				line-height: 1.25em;
 
 				&:hover{ cursor: default; }
 			}
@@ -1714,7 +1730,7 @@
 			text-align: center;
 			font-size: 1.4em;
 			line-height: 2em;
-			color: #999999;
+			color: #BBBBBB;
 
 			i.fa-check{ color: @primary_color; }
 

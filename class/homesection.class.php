@@ -25,7 +25,7 @@ class HomeSection{
     }
 
     public function lists(){
-        $this->db->query('SELECT section.id,section.category_id,category.title category_title,section.total_items FROM home_section AS section LEFT JOIN category AS category ON section.category_id = category.id ORDER BY section.position ASC');
+        $this->db->query('SELECT section.id,section.category_id,category.title category_title,category.icon,section.total_items FROM home_section AS section LEFT JOIN category AS category ON section.category_id = category.id ORDER BY section.position ASC');
         $this->db->execute();
         $dataset = $this->db->resultset();
         return $dataset;

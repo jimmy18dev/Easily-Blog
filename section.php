@@ -34,8 +34,18 @@ $current_page = 'section';
 <?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="filter">
-    <button class="btn-create" id="btn-add">เพิ่ม</button>
+    <div class="title">เลือกหมวดหมู่ที่แสดงบนหน้าแรกเว็บไซต์</div>
+</div>
+<div class="article-list">
+	<?php if(count($sections) > 0){?>
+	<?php foreach ($sections as $var) { include 'template/section.items.php'; } ?>
+	<?php }else{?>
+	<div class="empty">ไม่พบหมวดหมู่</div>
+	<?php }?>
+</div>
 
+<div class="filter bottom">
+    <button class="btn-create" id="btn-add">เพิ่ม</button>
     <div class="select number" title="จำนวนบทความที่แสดง">
         <select id="total_items">
             <?php for($i=2;$i<=12;$i+=2){?>
@@ -54,14 +64,6 @@ $current_page = 'section';
             <?php }?>
         </select>
     </div>
-</div>
-
-<div class="article-list">
-	<?php if(count($sections) > 0){?>
-	<?php foreach ($sections as $var) { include 'template/section.items.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบหมวดหมู่</div>
-	<?php }?>
 </div>
 
 <div id="progressbar"></div>
@@ -106,6 +108,7 @@ $(function(){
     // Delete
     $('.btn-delete').click(function(){
         var section_id = $(this).attr('data-id');
+        $items = $(this).parent();
 
         $.ajax({
             url         :'api/homesection',
@@ -122,7 +125,7 @@ $(function(){
         }).done(function(data){
             console.log(data);
             progressbar.Progressbar('100%');
-            location.reload();
+            $items.fadeOut(300);
         });
     });
 
