@@ -1,0 +1,436 @@
+@title_fontsize : 1.1em;
+@desc_fontsize 	: 0.7em;
+@topic_fontsize	: 2.2em;
+@body_fontsize 	: 1.1em;
+
+.header{
+	width: 100%;
+	padding: 0%;
+
+	.logo{ padding: 13px 5%; }
+	.btn-icon{
+		padding: 18px 5%;
+		font-size: 1.2em;
+	}
+
+	#btn-category{ display: block; }
+}
+
+.navigation{
+	position: fixed;
+	top: 0;
+	right: -80%;
+	height: 100%;
+	width: 80%;
+	padding: 0;
+	z-index: 9999;
+
+	a{
+		width: 80%;
+		font-size: @title_fontsize;
+		line-height: 1em;
+		height: 20px;
+		padding: 18px 10%;
+		margin: 0;
+		border-bottom: 1px solid #EEEEEE;
+	}
+
+	&.active{
+		box-shadow: -2px 0px 10px rgba(0,0,0,0.2);
+		transform: translate3d( -100%, 0, 0 );
+		-webkit-transform: translate3d(-100%, 0, 0 );
+	}
+}
+
+.cover{
+	height: auto;
+	img{ margin-top: 0px; }
+
+	.content{
+		width: 90%;
+		padding: 5%;
+		margin-top: 14%;
+		text-align: left;
+
+		h1{
+			font-size: @topic_fontsize;
+			line-height: 1.2em;
+			margin-bottom: 3%;
+		}
+		p{ font-size: @title_fontsize; }
+	}
+}
+
+// Article Container
+.section{
+	width: 100%;
+	margin: 5% 0%;
+	padding-bottom: 5%;
+
+	h3{
+		width: 90%;
+		font-size: @title_fontsize * 1.1;
+		margin: 0 5%;
+		margin-bottom: 5%;
+		line-height: 1em;
+
+		&.category_name{ display: block; }
+	}
+
+	.article-sticky{
+		margin-bottom: 3%;
+		border-radius: 0;
+		box-shadow: none;
+
+		.image{ width: 100%; }
+		header{
+			width: 90%;
+			padding: 5%;
+
+			.category{
+				font-size: @desc_fontsize;
+				margin-bottom: 5%;
+			}
+			h2{
+				font-size: @title_fontsize;
+				margin-bottom: 5%;
+				line-height: 1.25em;
+			}
+			p{ font-size: @desc_fontsize; }
+		}
+	}
+
+	.lists{
+		// Article Card Style.
+		.article-card{
+			width: 100%;
+			margin: 0;
+			margin-bottom: 3%;
+			min-height: initial;
+			border-radius: 0px;
+			box-shadow: none;
+
+			.thumbnail{ width: 30%; }
+
+			header{
+				width: 60%;
+				padding: 5%;
+
+				h2{
+					font-size: @title_fontsize;
+					line-height: 1.3em;
+					margin-bottom: 2%;
+					letter-spacing: 0.01em;
+				}
+				p{ font-size: @desc_fontsize; }
+			}
+		}
+		
+		.empty{
+			padding: 15% 0;
+			font-size: @title_fontsize;
+		}
+	}
+
+	a.read-more{
+		width: 90%;
+		margin: 0%;
+		font-size: @title_fontsize;
+		padding: 5%;
+		border-radius: 0px;
+	}
+}
+
+.pagination{
+	width: 90%;
+	margin: 0% 5%;
+
+	a{ font-size: @title_fontsize; }
+}
+
+.article{
+	width: 100%;
+	float: left;
+	display: inline-block;
+
+	.article-header{
+		width: 90%;
+		margin: 5%;
+
+		.author{
+			margin-bottom: 5%;
+
+			.avatar{
+				width: 10%;
+				margin-right: 5%;
+			}
+
+			.detail{
+				width: 60%;
+				margin-top: -3%;
+
+				.name{
+					font-size: @title_fontsize;
+					line-height: 1.5em;
+				}
+				.desc{
+					font-size: @desc_fontsize;
+					line-height: 1.3em;
+
+					&.position{ display: none; }
+				}
+			}
+
+			a.btn-edit{
+				width: 20%;
+				padding: 2% 0%;
+				font-size: @title_fontsize;
+			}
+		}
+
+		h1{
+			font-size: @topic_fontsize;
+			line-height: 1.2em;
+		}
+
+		p.desc{
+			font-size: @body_fontsize;
+			line-height: 1.4em;
+			margin-top: 5%;
+		}
+	}
+
+	.article-cover{
+		height: auto;
+		margin-bottom: 5%;
+
+		picture img{ transform: scale(1); }
+
+		.article-header{
+			width: 90%;
+			padding: 5%;
+		}
+	}
+
+	section{
+		width: 90%;
+		margin: 0 5%;
+		margin-bottom: 5%;
+
+		h2{
+			color: @font_color_topic;
+			font-size: @title_fontsize;
+			margin-bottom: 2%;
+			line-height: 1.3em;
+		}
+
+		p{
+			font-size: @body_fontsize;
+			color: @font_color_body;
+			line-height: 1.6em;
+		}
+	}
+
+	p.content{
+		width: 90%;
+		margin: 0 5%;
+		margin-bottom: 5%;
+		font-size: @body_fontsize;
+		line-height: 1.6em;
+	}
+
+	blockquote{
+		width: 90%;
+		margin: 0 5%;
+		margin-bottom: 5%;
+
+		i.fa-quote-left, i.fa-quote-right{ font-size: @body_fontsize * 1.5; }
+
+		p{
+			width: 90%;
+			padding: 2% 5%;
+			font-size: @body_fontsize * 1.2;
+			line-height: 1.5em;
+		}
+		footer{
+			width: 80%;
+			padding: 2% 10%;
+			font-size: @body_fontsize;
+		}
+	}
+
+	figure.content{
+		width: 100%;
+		margin: 0%;
+		margin-bottom: 5%;
+
+		.image-not-found{
+			padding: 30% 0%;
+			font-size: @body_fontsize;
+		}
+
+		a.btn-open-map{
+			top: 70%;
+			right: 5%;
+			background: @primary_color;
+			padding: 15px;
+			font-size: @title_fontsize;
+		}
+
+		figcaption{
+			width: 90%;
+			font-size: @desc_fontsize;
+			padding: 2% 5%;
+		}
+
+		.videoWrapper{ margin-top: 2%; }
+	}
+
+	.tag{
+		width: 90%;
+		margin: 0 5%;
+		margin-bottom: 5%;
+		padding-top: 5%;
+
+		a{
+			margin-right: 5%;
+			margin-bottom: 5%;
+		}
+	}
+}
+
+.pagehead{
+	width: 90%;
+	padding: 5%;
+	font-size: @title_fontsize;
+}
+
+form.search{
+	width: 90%;
+	margin: 0% 5%;
+	margin-top: 5%;
+
+	span{
+		width: 17%;
+		font-size: @title_fontsize;
+		line-height: 1.9em;
+		padding: 2% 0;
+	}
+
+	input[type="text"]{
+		width: 100%;
+		padding: 2% 0;
+		padding-left: 17%;
+		font-size: @title_fontsize;
+	}
+}
+
+.footer{
+	width: 90%;
+	padding: 5%;
+	margin-top: 5%;
+	text-align: left;
+
+	.link{
+		font-size: @title_fontsize;
+		margin-bottom: 5%;
+
+		a{
+			padding: 2%;
+			line-height: 1em;
+		}
+	}
+
+	.license{ font-size: @desc_fontsize; }
+}
+
+.page-nav{ display: none;  }
+.about{
+	width: 100%;
+	margin: 0%;
+	float: left;
+	display: inline-block;
+
+	.content{
+		width: 90%;
+		padding: 5%;
+
+		h1{
+			font-size: 2em;
+			margin-bottom: 5%;
+		}
+		p{
+			font-size: 1.1em;
+			margin-bottom: 5%;
+		}
+
+		figure{ margin-bottom: 5%; }
+
+		.profile{
+			.profile-items{
+				width: 100%;
+				margin-bottom: 5%;
+				margin-right: 0%;
+				box-shadow: none;
+
+				.thumbnail{
+					width: 25%;
+					margin-right: 5%;
+				}
+				.info{
+					width: 70%;
+					padding-top: 3%;
+
+					h2{ font-size: @title_fontsize; }
+					p{ font-size: @desc_fontsize; }
+				}
+			}
+		}
+		
+		iframe{
+			height: 300px;
+			margin-bottom: 5%;
+		}
+	}
+}
+
+.login{
+	.logo{
+		padding: 5% 0%;
+		margin-top: 0%;
+		margin-bottom: 5%;
+
+		a img{ height: 50px; }
+	}
+
+	.content{
+		width: 90%;
+		margin: 0 5%;
+		margin-bottom: 5%;
+
+		.btn{
+			padding: 5.6% 0%;
+			font-size: @title_fontsize;
+		}
+
+		.separator{ font-size: @title_fontsize; }
+		.inputtext{
+			font-size: @title_fontsize;
+			padding: 5%;
+			margin-bottom: 5%;
+		}
+	}
+
+	.message{ font-size: @title_fontsize; }
+}
+
+.announce{
+	width: 90%;
+	margin: 0% 5%;
+	margin-top: 50%;
+
+	h2{
+		font-size: @title_fontsize;
+		i{ margin-right: 10px; }
+	}
+}

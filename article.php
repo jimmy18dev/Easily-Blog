@@ -4,12 +4,14 @@ $article = new Article();
 
 $article_id = $_GET['article_id'];
 $article->get($article_id);
-$articles = $article->listAll(NULL,NULL,NULL,'published',NULL,3);
+$related_content = $article->related($article->id);
 
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
+
+$current_page = '';
 ?>
 
 <!doctype html>
@@ -28,50 +30,64 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $article->title;?></title>
+<title><?php echo $article->title;?> - <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header <?php echo (!empty($article->head_cover_img)?'transparent':'');?>">
-	<div class="logo"><a href="index.php">Peopleawesome</a></div>
-
-	<?php if($user_online){?>
-	<?php include 'template/header.profile.php';?>
-	<?php }else{?>
-	<a class="btn" href="signin"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-	<?php }?>
-
-	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-	<?php // include 'template/header.article.option.php' ?>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="ตัวเลือกเพิ่มเติม"><i class="fal fa-cog"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ"><i class="fal fa-edit"></i></a>
-	<?php }?>
-</header>
-
+<?php include_once 'header.php';?>
 
 <!-- Article Content -->
 <article class="article">
-
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
-		<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="">
+		<picture>
+			<source srcset="image/upload/<?php echo $article->id;?>/square/<?php echo $article->head_cover_img;?>" media="(min-width:0px) and (max-width :519px)">
+			<source srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>">
+			<img srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="My default image">
+		</picture>
 		<header class="article-header">
-			<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
+			<div class="author">
+				<div class="avatar">
+					<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+				</div>
+				<div class="detail">
+					<div class="name"><?php echo $article->owner_displayname;?></div>
+					<div class="desc position">Web Developer and Web Designer</div>
+					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+					</div>
+				</div>
+				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+				<?php }?>
+			</div>
 			<h1><?php echo $article->title;?></h1>
-			<p class="time"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
 		</header>
 	</div>
 	<?php }else{?>
+	
 	<!-- Article Header -->
 	<header class="article-header">
-		<a href="topic/<?php echo $article->category_id;?><?php echo (!empty($article->category_link)?'/'.$article->category_link:'');?>"><?php echo $article->category_title;?></a>
-		<h1><?php echo $article->title;?></h1>
-		<p class="info"><i class="fal fa-clock" aria-hidden="true"></i><time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time><?php echo (!empty($article->province_name)?'<i class="fa fa-map-marker" aria-hidden="true"></i>':'');?><?php echo (!empty($article->district_name)?$article->district_name.' ':'');?><?php echo (!empty($article->amphur_name)?$article->amphur_name.' ':'');?><?php echo (!empty($article->province_name)?$article->province_name:''); ?></p>
+		<div class="author">
+			<div class="avatar">
+				<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+			</div>
+			<div class="detail">
+				<div class="name"><?php echo $article->owner_displayname;?></div>
+				<div class="desc position">Web Developer and Web Designer</div>
+				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
+				</div>
+			</div>
 
+			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
+			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+			<?php }?>
+		</div>
+
+		<h1><?php echo $article->title;?></h1>
 		<?php if(!empty($article->description)){?>
 		<p class="desc"><?php echo $article->description;?></p>
 		<?php }?>
@@ -118,10 +134,10 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 		<?php }else if($var['type'] == 'quote'){?>
 		<!-- Quote Block -->
 		<blockquote class="content">
-			<i class="fa fa-quote-left" aria-hidden="true"></i>
+			<i class="fal fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
 			<footer>–<cite><?php echo $var['topic'];?></cite></footer>
-			<i class="fa fa-quote-right" aria-hidden="true"></i>
+			<i class="fal fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
 
 		<?php }else if($var['type'] == 'map'){?>
@@ -146,11 +162,16 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </article>
 
-<div class="article-list related">
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.card.php'; } ?>
-	<?php }?>
+<?php if(count($related_content) > 0){?>
+<div class="section">
+	<h3>บทความแนะนำ</h3>
+	<div class="lists">
+		<?php foreach ($related_content as $var) { include 'template/article.card.php'; } ?>
+	</div>
 </div>
+<?php }?>
+
+<?php include_once 'footer.php';?>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
 <div id="progressbar"></div>

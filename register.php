@@ -21,7 +21,7 @@ $currentPage = 'register';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php
-$p_title 	= 'ลงทะเบียนใหม่ '.TITLE;
+$p_title 	= 'ลงทะเบียนใหม่';
 $p_desc 	= DESCRIPTION;
 $p_url 		= DOMAIN.'/signup';
 ?>
@@ -41,18 +41,17 @@ $p_url 		= DOMAIN.'/signup';
 <meta itemprop="description" content="<?php echo $p_desc;?>">
 <meta itemprop="image" content="<?php echo OGIMAGE;?>">
 
-<title><?php echo $p_title;?></title>
+<title><?php echo $p_title;?> | <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
-<div class="loginhead">
-	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-	<p>Occupational and Environmental medicine</p>
-</div>
+<body class="fillcolor">
 <div class="login">
+	<div class="logo">
+		<a href="index.php"><img src="image/logo.png" alt=""></a>
+	</div>
 	<div class="content">
 		<form action="javascript:register();">
 			<input type="text" class="inputtext" id="fullname" placeholder="ชื่อ-นามสกุล" autofocus>
@@ -62,12 +61,9 @@ $p_url 		= DOMAIN.'/signup';
 			<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">
 			<button type="btn" class="btn btn-register" id="btnSubmit">ลงทะเบียน</button>
-
-			<div class="message">
-				เคยลงทะเบียนแล้ว <a class="<?php echo ($currentPage=='login'?'active':'');?>" href="signin?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงชื่อเข้าใช้</a>
-			</div>
 		</form>
 	</div>
+	<div class="message">เคยลงทะเบียนแล้ว <a class="<?php echo ($currentPage=='login'?'active':'');?>" href="signin?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงชื่อเข้าใช้</a></div>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

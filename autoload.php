@@ -20,6 +20,7 @@ require_once 'class/document.class.php';
 require_once 'class/category.class.php';
 require_once 'class/user.class.php';
 require_once 'class/signature.class.php';
+require_once 'class/homesection.class.php';
 
 $wpdb = new Database; // DATABASE CONNECT...
 $user = new User;

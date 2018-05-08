@@ -2,14 +2,12 @@
 include_once'autoload.php';
 $article = new Article();
 
-if(!empty($_GET['status'])){
-	$status = $_GET['status'];
-}else{
-	$status = 'draft';
-}
+$page = (!empty($_GET['page'])?$_GET['page']:1);
+$perpage = 30;
 
-$articles 	= $article->listAll(NULL,NULL,NULL,$status,$user->id);
+$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,true,$page,$perpage);
 $c_article 	= $article->counter($user->id);
+$current_page = 'article';
 ?>
 
 <!doctype html>
@@ -35,42 +33,93 @@ $c_article 	= $article->counter($user->id);
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a class="btn left" href="index.php"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>กลับหน้าแรก</span></a>
-	<?php if($user_online){?>
-	<a class="btn-profile" href="profile">
-		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
-	</a>
-	<?php }else{?>
-	<a href="signin" class="btn"><span>ลงชื่อเข้าใช้</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-	<?php }?>
+<?php include_once 'template/admin.navigation.php'; ?>
 
-	<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-	<a href="article/<?php echo $article->id;?>/editor" class="btn iconleft"><span>แก้ไขบทความ</span><i class="fa fa-cog" aria-hidden="true"></i></a>
-	<?php }?>
-</header>
-
-<div class="pagehead">
-	<div class="content">
-		<h2>คลังบทความ</h2>
-	</div>
-	<div class="navi">
-		<a href="profile/article/draft" class="<?php echo ($status=='draft'?'active':'');?>">ฉบับร่าง<?php echo ($c_article['draft']>0?' ('.$c_article['draft'].')':'');?></a>
-		<a href="profile/article/published" class="<?php echo ($status=='published'?'active':'');?>">แผยแพร่แล้ว<?php echo ($c_article['published']>0?' ('.$c_article['published'].')':'');?></a>
-
-		<a href="article/create" class="btn-create"><i class="fal fa-plus"></i>เขียนบทความใหม่</a>
-	</div>
+<div class="filter">
+    <a class="btn-create" href="article/create">เขียนบทความ</a>
 </div>
 
-<div class="article-list">
-	<?php if(count($articles) > 0){?>
-	<?php foreach ($articles as $var) { include 'template/article.items.php'; } ?>
+<div class="article-list" id="content">
+	<?php if(count($articles['items']) > 0){?>
+	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>
 	<div class="empty">ไม่พบบทความ</div>
 	<?php }?>
 </div>
 
+<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
+<?php if($total_page > 1){?>
+<div class="pagination">
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+    <a href="profile/article/page/<?php echo $i;?>#content" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+    <?php }?>
+</div>
+<?php }?>
+
+<div id="progressbar"></div>
+<div id="overlay" class="overlay"></div>
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
+<script type="text/javascript" src="js/lib/progressbar.js"></script>
+<script type="text/javascript">
+$(function(){
+    var progressbar = $('#progressbar');
+    tippy('[title]',{arrow: true});
+
+	// Article Sticky
+    $('.btn-sticky').click(function(){
+        progressbar.Progressbar('60%');
+        $this = $(this);
+        var article_id = $(this).attr('data-id');
+
+        $.ajax({
+            url         :'api/article',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'sticky',
+                article_id  :article_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $this.toggleClass('active');
+            progressbar.Progressbar('100%');
+        });
+    });
+
+    $('.btn-publish').click(function(){
+    	$this = $(this);
+        var article_id = $(this).attr('data-id');
+        progressbar.Progressbar('70%');
+
+        $.ajax({
+            url         :'api/article',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'published',
+                article_id  :article_id,
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            $this.toggleClass('active');
+            progressbar.Progressbar('100%');
+         //    setTimeout(function(){
+	        //     location.reload();
+	        // },1000);
+        });
+    });
+});
+</script>
 </body>
 </html>

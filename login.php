@@ -33,7 +33,7 @@ $currentPage = 'login';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php
-$p_title 	= 'ลงชื่อเข้าใช้ '.TITLE;
+$p_title 	= 'ลงชื่อเข้าใช้';
 $p_desc 	= DESCRIPTION;
 $p_url 		= DOMAIN.'/signin';
 ?>
@@ -53,18 +53,17 @@ $p_url 		= DOMAIN.'/signin';
 <meta itemprop="description" content="<?php echo $p_desc;?>">
 <meta itemprop="image" content="<?php echo OGIMAGE;?>">
 
-<title><?php echo $p_title;?></title>
+<title><?php echo $p_title;?> | <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
-<div class="loginhead">
-	<h1>อาชีวเวชกรรมและเวชกรรมสิ่งแวดล้อม</h1>
-	<p>Occupational and Environmental medicine</p>
-</div>
+<body class="fillcolor">
 <div class="login">
+	<div class="logo">
+		<a href="index.php"><img src="image/logo.png" alt=""></a>
+	</div>
 	<div class="content">
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
@@ -75,10 +74,9 @@ $p_url 		= DOMAIN.'/signin';
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">
 			<button type="btn" class="btn btn-submit" id="btnSubmit">ลงชื่อเข้าใช้งาน</button>
 		</form>
-		<div class="message">
-			<a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a> · 
-<a href="#">ลืมรหัสผ่าน</a>
-		</div>
+	</div>
+	<div class="message">
+		ใช้งานครั้งแรก ? <a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
 	</div>
 </div>
 

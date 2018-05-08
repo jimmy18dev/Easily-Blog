@@ -85,16 +85,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['state'] 		= $state;
 				
 				break;
-			case 'edit_profile':
-				$username 	= $_POST['username'];
-				$email 		= $_POST['email'];
-				$name 		= $_POST['name'];
-				$company 	= $_POST['company'];
-				$position 	= $_POST['position'];
+			case 'edit_info':
+				$display 	= $_POST['display'];
+				$bio 		= $_POST['bio'];
 
-				$user->editProfile($user->id,$username,$email,$name,$company,$position);
-
-				$returnObject['message'] 	= 'Profile edited.';
+				$user->editInfo($user->id,$display,$bio);
+				
+				$returnObject['message'] = 'Profile edited.';
 				break;
 			case 'change_password':
 				$newpassword = $_POST['newpassword'];

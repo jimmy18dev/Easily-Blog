@@ -6,8 +6,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 ### CATEGORY
-RewriteRule ^topic/([0-9]+)$ 			/index.php?category_id=$1 [L]
-RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/index.php?category_id=$1&title=$2 [L]
+RewriteRule ^topic/([0-9]+)$ 			/articles.php?category_id=$1 [L]
+RewriteRule ^topic/([0-9]+)/page/([^_]*)$ /articles.php?category_id=$1&page=$2 [L]
+RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/articles.php?category_id=$1&title=$2 [L]
 
 ### ARTICLE
 RewriteRule ^article/([0-9]+)$ 			/article.php?article_id=$1 [L]
@@ -21,8 +22,13 @@ RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
 
 ### PROFILE
 RewriteRule ^profile$ 					/profile.php [L]
-RewriteRule ^profile/article/([^_]*)$ 	/profile.php?status=$1 [L]
+RewriteRule ^profile/article/page/([^_]*)$ 	/profile.php?page=$1 [L]
+RewriteRule ^profile/article/([^_]*)$ 	/profile.php?page=$1 [L]
 RewriteRule ^profile/category$ 			/category.php [L]
+RewriteRule ^profile/section$ 			/section.php [L]
+RewriteRule ^profile/category/create$ 	/category-edit.php [L]
+RewriteRule ^profile/category/edit/([0-9]+)$ /category-edit.php?category_id=$1 [L]
+RewriteRule ^profile/edit$ 				/profile-edit.php [L]
 
 ### ERROR PAGE
 RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
@@ -30,12 +36,15 @@ RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]
 ### SEARCH
 RewriteRule ^search$ 					/search.php [QSA,L]
 
-RewriteRule ^signin$ /login.php [L]
-RewriteRule ^signup$ /register.php [L]
-RewriteRule ^signout$ /logout.php [L]
+RewriteRule ^signin$ 					/login.php [L]
+RewriteRule ^signup$ 					/register.php [L]
+RewriteRule ^signout$ 					/logout.php [L]
+RewriteRule ^about$ 					/about-us.php [L]
 
 ### API ###
-RewriteRule ^api/article$ 		/api/article.php [L]
-RewriteRule ^api/user$ 			/api/user.php [L]
-RewriteRule ^api/document$ 		/api/document.php [L]
-RewriteRule ^api/location$ 		/api/location.php [L]
+RewriteRule ^api/article$ 				/api/article.php [L]
+RewriteRule ^api/user$ 					/api/user.php [L]
+RewriteRule ^api/document$ 				/api/document.php [L]
+RewriteRule ^api/location$ 				/api/location.php [L]
+RewriteRule ^api/category$ 				/api/category.php [L]
+RewriteRule ^api/homesection$ 			/api/homesection.php [L]

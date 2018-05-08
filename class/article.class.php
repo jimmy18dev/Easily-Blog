@@ -15,6 +15,7 @@ class Article{
     public $owner_id;
     public $owner_fname;
     public $owner_lname;
+    public $owner_displayname;
     public $total_contents;
     public $contents;
     public $total_document;
@@ -140,7 +141,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,user.display owner_displayname,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -181,6 +182,7 @@ class Article{
         $this->category_title   = $dataset['category_title'];
         $this->category_link    = $dataset['category_link'];
         $this->owner_id         = $dataset['owner_id'];
+        $this->owner_displayname = $dataset['owner_displayname'];
         $this->owner_fname      = $dataset['owner_fname'];
         $this->owner_lname      = $dataset['owner_lname'];
         $this->total_contents   = $dataset['total_contents'];
@@ -254,58 +256,72 @@ class Article{
         return $icon;
     }
 
-    public function listAll($category_id,$page,$keyword,$status,$owner_id,$limit = NULL){
-        $perpage = 50; // Total items per page.
-    	
+    public function listAll($category_id,$keyword,$status,$owner_id,$limit,$sticky,$page,$perpage){   	
         if(empty($page) || $page < 0)
             $page = 1; // Default Page Number.
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,category.title category_title,category.id category_id,user.id owner_id,user.fname owner_fname,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type FROM article AS article LEFT JOIN category AS category ON article.category_id = category.id LEFT JOIN user AS user ON article.user_id = user.id LEFT JOIN content AS content ON article.cover_id = content.id ';
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        FROM article AS article 
+        LEFT JOIN category AS category ON article.category_id = category.id 
+        LEFT JOIN user AS user ON article.user_id = user.id 
+        LEFT JOIN content AS content ON article.cover_id = content.id ';
     	$where = 'WHERE 1=1 ';
+
+        $where_category = '';
+        $where_status   = '';
+        $where_owner    = '';
+        $where_search   = '';
+        $where_sticky   = '';
 
     	if(!empty($category_id)){
     		$where_category = 'AND article.category_id = :category_id ';
     	}
-    	
+
+        // Article Status
     	if($status == 'published'){
     		$where_status = 'AND article.status = "published" ';
     	}else if($status == 'draft'){
             $where_status = 'AND article.status = "draft" ';
+        }else if($status == 'author'){
+            $where_status = 'AND (article.status = "published" OR article.status = "draft") ';
+        }else if($status == 'sticky'){
+            $where_status = 'AND article.status = "published" AND article.sticky = 1 ';
         }
 
+        // With Owner
     	if(!empty($owner_id)){
     		$where_owner = 'AND article.user_id = :owner_id ';
     	}
+
+        // Searching
         if(!empty($keyword)){
             $where_search = 'AND (article.title LIKE :keyword OR article.description LIKE :keyword) ';
         }
+
+        if(!$sticky){
+            $where_sticky = 'AND sticky = 0 ';
+        }
     	
-    	$order = 'ORDER BY article.published_time DESC,article.create_time DESC ';
+    	$order = 'ORDER BY article.id DESC ';
 
         if($limit > 0){
-            $limit = 'LIMIT 3';
+            $limit = 'LIMIT '.$limit;
         }else{
             $limit = 'LIMIT '.$start.','.$perpage;
         }
 
-    	$query_string = $select.$where.$where_category.$where_status.$where_owner.$where_search.$order.$limit;
+    	$query_string = $select.$where.$where_category.$where_status.$where_owner.$where_search.$where_sticky.$order.$limit;
 
     	// echo $query_string;
 
     	$this->db->query($query_string);
-		// $this->db->bind(':article_id',$article_id);
 
-		if(!empty($category_id)){
-			$this->db->bind(':category_id',$category_id);
-    	}
-    	if(!empty($owner_id)){
-    		$this->db->bind(':owner_id',$owner_id);
-    	}
-        if(!empty($keyword)){
-            $this->db->bind(':keyword','%'.$keyword.'%');
-        }
+		if(!empty($category_id)) $this->db->bind(':category_id',$category_id);
+    	if(!empty($owner_id)) $this->db->bind(':owner_id',$owner_id);
+        if(!empty($keyword)) $this->db->bind(':keyword','%'.$keyword.'%');
+
 		$this->db->execute();
 		$dataset = $this->db->resultset();
 
@@ -315,7 +331,171 @@ class Article{
 			$dataset[$k]['published_time'] 	= $this->db->datetimeformat($var['published_time']);
 		}
 
-		return $dataset;
+        // Get Total Articles
+        $select = 'SELECT COUNT(article.id) total FROM article AS article ';
+        $query_counter = $select.$where.$where_category.$where_status.$where_owner.$where_search;
+        
+        $this->db->query($query_counter);
+        if(!empty($category_id)) $this->db->bind(':category_id',$category_id);
+        if(!empty($owner_id)) $this->db->bind(':owner_id',$owner_id);
+        if(!empty($keyword)) $this->db->bind(':keyword','%'.$keyword.'%');
+        
+        $this->db->execute();
+        $counter = $this->db->single();
+
+		return array(
+            'total_items' => $counter['total'],
+            'items' => $dataset,
+        );
+    }
+
+    public function related($article_id){
+        $response = [];
+        
+        // Get category_id
+        $this->db->query('SELECT category_id FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+        $category_id = $data['category_id'];
+
+        // Next Contents
+        foreach ($this->next($article_id,$category_id) as $var)
+            array_push($response,$var);
+
+        // Prev Contents
+        foreach ($this->prev($article_id,$category_id) as $var)
+            array_push($response,$var);
+
+        // Sticky Contents
+        foreach ($this->relatedSticky($article_id) as $var)
+            array_push($response,$var);
+
+        return $response;
+    }
+
+    public function next($article_id,$category_id){
+        // Next Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.category_id = :category_id AND article.id > :article_id 
+            ORDER BY article.id ASC LIMIT 1');
+
+        $this->db->bind(':category_id',$category_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        return $dataset;
+    }
+
+    public function prev($article_id,$category_id){
+        // Prev Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.category_id = :category_id AND article.id < :article_id 
+            ORDER BY article.id DESC LIMIT 1');
+
+        $this->db->bind(':category_id',$category_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        return $dataset;
+    }
+
+    public function relatedSticky($article_id){
+        // Sticky Content.
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.sticky = 1 AND article.id NOT IN (:article_id) 
+            ORDER BY article.id DESC LIMIT 2');
+
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        return $dataset;
+    }
+
+    public function listSticky(){
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+            FROM article AS article 
+            LEFT JOIN category AS category ON article.category_id = category.id 
+            LEFT JOIN user AS user ON article.user_id = user.id 
+            LEFT JOIN content AS content ON article.cover_id = content.id 
+            WHERE article.status = "published" AND article.sticky = 1 
+            ORDER BY article.published_time DESC,article.create_time DESC');
+
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['create_time'] = $this->db->datetimeformat($var['create_time']);
+            $dataset[$k]['edit_time']   = $this->db->datetimeformat($var['edit_time']);
+            $dataset[$k]['published_time']  = $this->db->datetimeformat($var['published_time']);
+        }
+
+        return $dataset;
+    }
+
+    public function published($article_id){
+        $this->db->query('SELECT status FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $status = ($data['status'] == 'published' ? 'draft' : 'published');
+
+        // Enable sticky content with article id.
+        $this->db->query('UPDATE article SET status = :status,published_time = :published_time WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':status',$status);
+        $this->db->bind(':published_time',date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
+    // Article Sticky Toggle.
+    public function sticky($article_id){
+        $this->db->query('SELECT sticky FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $sticky = ($data['sticky']==1 ? 0 : 1);
+
+        // Enable sticky content with article id.
+        $this->db->query('UPDATE article SET sticky = :sticky WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':sticky',$sticky);
+        $this->db->execute();
     }
 
     public function listWithTag($tag_id){
@@ -337,21 +517,6 @@ class Article{
     	$this->db->query('DELETE FROM article WHERE id = :article_id');
 		$this->db->bind(':article_id',$article_id);
 		$this->db->execute();
-    }
-
-    public function changeStatus($article_id,$status){
-    	$this->db->query('UPDATE article SET status = :status, update_time = :update_time WHERE id = :article_id');
-		$this->db->bind(':article_id',$article_id);
-        $this->db->bind(':status',$status);
-		$this->db->bind(':update_time',date('Y-m-d H:i:s'));
-		$this->db->execute();
-
-        if($status == 'published'){
-            $this->db->query('UPDATE article SET published_time = :published_time WHERE id = :article_id');
-            $this->db->bind(':article_id',$article_id);
-            $this->db->bind(':published_time',date('Y-m-d H:i:s'));
-            $this->db->execute();
-        }
     }
 
     // Count articles with Owner ID

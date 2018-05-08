@@ -1,14 +1,13 @@
 <?php
 include_once'autoload.php';
-
-$keyword = trim($_GET['q']);
-
 $article = new Article();
-
-if(!empty($keyword)){
-	$articles = $article->listAll(NULL,$keyword,'published',NULL,20,true,NULL,NULL);
-}
-$current_page = 'search';
+$category = new Category();
+$category_id = $_GET['category_id'];
+$category->get($category_id);
+$page = (!empty($_GET['page'])?$_GET['page']:1);
+$perpage = 6;
+$articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$perpage);
+$current_page = 'articles';
 ?>
 
 <!doctype html>
@@ -27,7 +26,7 @@ $current_page = 'search';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>ค้นหา<?php echo (!empty($keyword)?' "'.$keyword.'"':'');?></title>
+<title><?php echo $category->title;?> - <?php echo $config['settings']['title'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -37,25 +36,35 @@ $current_page = 'search';
 <body>
 
 <?php include_once 'header.php';?>
-
-<form class="search" action="search" method="GET">
-	<span><i class="fal fa-search"></i></span>
-	<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
-</form>
+<?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
+	<h3 class="category_name"><?php echo $category->title;?></h3>
 	<div class="lists">
 		<?php if(count($articles['items']) > 0){?>
 		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
-		<?php if(!empty($keyword)){?>
-		<div class="empty">ไม่พบบทความเกี่ยวกับ "<?php echo $keyword;?>"</div>
-		<?php }?>
+		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
 </div>
 
+<?php $total_page = ceil($articles['total_items'] / $perpage); ?>
+<?php if($total_page > 1){?>
+<div class="pagination">
+	<?php for($i=1;$i<=$total_page;$i++){ ?>
+	<a href="topic/<?php echo $category->id;?>/page/<?php echo $i;?>" class="<?php echo ($page == $i?'active':'');?>"><?php echo $i;?></a>
+	<?php }?>
+</div>
+<?php }?>
+
+<div class="overlay"></div>
+
+<?php if($articles['total_items'] > 0){
+	include_once 'footer.php';
+}?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
 </body>
 </html>

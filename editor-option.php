@@ -23,7 +23,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $article->title;?></title>
+<title>เพิ่มประสิทธิภาพ | <?php echo $article->title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -33,13 +33,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 <div class="header">
 	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
-</div>
-
-<div class="pagehead">
-	<div class="content">
-		<h2>เพิ่มประสิทธิภาพ</h2>
-		<p><strong>บทความ:</strong> <?php echo $article->title;?></p>
-	</div>
+	<div class="center">เพิ่มประสิทธิภาพ</div>
 </div>
 
 <div class="seo">

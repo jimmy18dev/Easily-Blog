@@ -37,14 +37,14 @@ if($article->owner_id != $user->id){
 </head>
 <body>
 <div class="header">
-	<a class="btn" href="profile" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status">เขียนบทความ</span></a>
+	<a class="btn" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status"></span></a>
 
 	<?php if($article->status!='published'){?>
 	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>
 	<?php }?>
 	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-cog"></i></a>
-	<a class="btn-icon delete" id="btn-remove" href="#" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
+	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-clipboard-check"></i></a>
+	<a class="btn-icon delete" id="btn-remove" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
 </div>
 
 <div class="editor">
@@ -173,23 +173,23 @@ if($article->owner_id != $user->id){
 	<div class="between-option" title="แทรกส่วนนี้">
 		<div class="more-option">
 			<div class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-font" aria-hidden="true"></i>
+				<i class="fal fa-font"></i>
 				<span>บทความ</span>
 			</div>
 			<div class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-picture-o" aria-hidden="true"></i>
+				<i class="fal fa-camera"></i>
 				<span>รูปภาพ</span>
 			</div>
 			<div class="btnAction" data-action="quote" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-quote-right" aria-hidden="true"></i>
+				<i class="fal fa-quote-right"></i>
 				<span>คำพูด</span>
 			</div>
 			<div class="btnAction" data-action="youtube" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-youtube-play" aria-hidden="true"></i>
+				<i class="fal fa-video"></i>
 				<span>YouTube</span>
 			</div>
 			<div class="btnAction" data-action="map" data-content="<?php echo $var['id'];?>">
-				<i class="fa fa-map-marker" aria-hidden="true"></i>
+				<i class="fal fa-map"></i>
 				<span>แผนที่</span>
 			</div>
 		</div>
@@ -199,22 +199,22 @@ if($article->owner_id != $user->id){
 
 	<div class="tools-bar">
 		<div class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
-			<i class="fal fa-font" aria-hidden="true"></i>
+			<i class="fal fa-font"></i>
 		</div>
 		<div class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ">
-			<i class="fal fa-camera" aria-hidden="true"></i>
+			<i class="fal fa-camera"></i>
 		</div>
 		<div class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด">
-			<i class="fal fa-quote-right" aria-hidden="true"></i>
+			<i class="fal fa-quote-right"></i>
 		</div>
 		<div class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
-			<i class="fal fa-video" aria-hidden="true"></i>
+			<i class="fal fa-video"></i>
 		</div>
 		<div class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map">
-			<i class="fal fa-map" aria-hidden="true"></i>
+			<i class="fal fa-map"></i>
 		</div>
 		<div class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
-			<i class="fal fa-paperclip" aria-hidden="true"></i>
+			<i class="fal fa-paperclip"></i>
 		</div>
 	</div>
 
