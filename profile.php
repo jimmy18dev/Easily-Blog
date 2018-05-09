@@ -45,7 +45,7 @@ $current_page = 'article';
 </div>
 
 <?php if($page == 1){?>
-<div class="article-list">
+<div class="lists">
     <h1>ปักหมุด</h1>
     <?php if(count($article_sticky) > 0){?>
     <?php foreach ($article_sticky as $var) { include 'template/article.items.php'; } ?>
@@ -55,7 +55,7 @@ $current_page = 'article';
 </div>
 <?php }?>
 
-<div class="article-list">
+<div class="lists">
     <h1>บทความของคุณ</h1>
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
@@ -135,9 +135,7 @@ $(function(){
             $this.html('<i class="fas fa-spinner fa-pulse"></i>');
             progressbar.Progressbar('100%');
 
-            setTimeout(function(){
-	            location.reload();
-	        },1000);
+            setTimeout(function(){ location.reload(); },1000);
         });
     });
 });

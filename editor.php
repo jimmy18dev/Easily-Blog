@@ -35,7 +35,7 @@ if($article->owner_id != $user->id){
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
+<body class="paper">
 <div class="header">
 	<a class="btn" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status"></span></a>
 
@@ -198,24 +198,12 @@ if($article->owner_id != $user->id){
 	<?php $loop++; }?>
 
 	<div class="tools-bar">
-		<div class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
-			<i class="fal fa-font"></i>
-		</div>
-		<div class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ">
-			<i class="fal fa-camera"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด">
-			<i class="fal fa-quote-right"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
-			<i class="fal fa-video"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map">
-			<i class="fal fa-map"></i>
-		</div>
-		<div class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
-			<i class="fal fa-paperclip"></i>
-		</div>
+		<span class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ"><i class="fal fa-font"></i></span>
+		<span class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ"><i class="fal fa-camera"></i></span>
+		<span class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด"><i class="fal fa-quote-right"></i></span>
+		<span class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube"><i class="fal fa-video"></i></span>
+		<span class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map"><i class="fal fa-map"></i></span>
+		<span class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fal fa-paperclip"></i></span>
 	</div>
 
 	<div class="documents">
@@ -236,7 +224,7 @@ if($article->owner_id != $user->id){
 		</form>
 		<?php foreach ($article->documents as $var) {?>
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
-			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
+			<div class="icon"><i class="fa fa-file"></i></div>
 			<div class="detail">
 				<input type="text" class="file_title" title="แก้ไขชื่อเอกสาร" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
 				<div class="info"><?php echo $var['file_type'];?> ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>

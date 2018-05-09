@@ -11,7 +11,7 @@
 	<div class="content <?php echo ($var['status'] == 'published'?'fullsize':'');?>">
 		<p><?php echo $var['category_title'];?></p>
 		<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'ไม่มีชื่อบทความ');?></a></h2>
-		<p class="info"><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><?php echo ($var['status'] != 'published'?' (ฉบับร่าง)':'');?></p>
+		<p><?php echo ($var['status'] == 'published'?'<i class="fas fa-check-circle" title="เผยแพร่แล้ว"></i>':'');?><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><?php echo ($var['status'] != 'published'?' (ฉบับร่าง)':'');?></p>
 	</div>
 
 	<?php if($var['status'] != 'published'){?>

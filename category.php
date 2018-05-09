@@ -34,7 +34,7 @@ $current_page = 'category';
     <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
 </div>
 
-<div class="article-list">
+<div class="lists">
 	<?php if(count($categories) > 0){?>
 	<?php foreach ($categories as $var) { include 'template/category.items.php'; } ?>
 	<?php }else{?>
@@ -76,11 +76,11 @@ $(function(){
 
                 return false;
             }
+
+            $items.addClass('selected');
         }
 
         $(this).html('<i class="fal fa-check"></i>');
-
-        console.log(current,target);
 
         if(current && target){
             console.log('Swap betweet: '+current+','+target);
@@ -105,7 +105,7 @@ $(function(){
                 current = null;
                 target = null;
 
-                location.reload();
+                setTimeout(function(){ location.reload(); },1000);
             });
         }
     });
