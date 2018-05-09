@@ -32,8 +32,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <body>
 
 <div class="header">
-	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
-	<div class="center">เพิ่มประสิทธิภาพ</div>
+	<a class="btn right" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="seo">

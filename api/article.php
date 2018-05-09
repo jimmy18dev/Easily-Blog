@@ -83,12 +83,11 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $article->removeHeadCover($article_id);
                 $returnObject['message'] = 'Article Head Cover Removed';
                 break;
-            case 'change_status':
+            case 'delete':
                 $article_id = $_POST['article_id'];
-                $status     = $_POST['status'];
-                $article_id = $article->changeStatus($article_id,$status);
+                $article_id = $article->delete($article_id);
                 
-                $returnObject['message'] = 'Status changed';
+                $returnObject['message'] = 'Article Deleted';
                 break;
             // case 'change_status':
             //     $article_id = $_POST['article_id'];
@@ -187,10 +186,10 @@ switch ($_SERVER['REQUEST_METHOD']){
 
                 // Delete content image file
                 if($content_data['type'] == 'image' && !empty($content_data['img_location'])){
-                    unlink('../'.$destination_folder['thumbnail'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['square'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['normal'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['large'].$content_data['img_location']);
+                    unlink('../'.$article_id.'/'.$destination_folder['thumbnail'].$content_data['img_location']);
+                    unlink('../'.$article_id.'/'.$destination_folder['square'].$content_data['img_location']);
+                    unlink('../'.$article_id.'/'.$destination_folder['normal'].$content_data['img_location']);
+                    unlink('../'.$article_id.'/'.$destination_folder['large'].$content_data['img_location']);
                 }
 
                 $article->deleteContent($content_id,$article_id);

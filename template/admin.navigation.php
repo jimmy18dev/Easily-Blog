@@ -1,5 +1,5 @@
 <nav class="navigation">
-	<div class="logo"><i class="fa fa-dove"></i></div>
+	<div class="logo"><i class="fa fa-dove"></i><span class="version">Ver 0.0.1</span></div>
 
 	<a href="profile" class="btn <?php echo ($current_page == 'article'?'active':'');?>"><i class="<?php echo ($current_page == 'article'?'fa':'fal');?> fa-archive"></i><span>บทความ</span></a>
     <a href="profile/category" class="btn <?php echo ($current_page == 'category'?'active':'');?>"><i class="<?php echo ($current_page == 'category'?'fa':'fal');?> fa-folder"></i><span>หมวดหมู่</span></a>

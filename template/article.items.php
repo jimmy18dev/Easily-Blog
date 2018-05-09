@@ -1,7 +1,7 @@
 <article class="article-items" id="<?php echo $var['id'];?>">
 	<?php if(!empty($var['cover_id'])){?>
 	<figure class="thumbnail">
-		<a href="article/<?php echo $var['id'];?>">
+		<a href="article/<?php echo $var['id'];?>" target="_blank">
 			<img src="image/upload/<?php echo $var['id'];?>/square/<?php echo $var['cover_img'];?>" alt="">
 		</a>
 	</figure>
@@ -11,7 +11,7 @@
 	<div class="content <?php echo ($var['status'] == 'published'?'fullsize':'');?>">
 		<p><?php echo $var['category_title'];?></p>
 		<h2><a href="article/<?php echo $var['id'];?>/editor"><?php echo (!empty($var['title'])?$var['title']:'ไม่มีชื่อบทความ');?></a></h2>
-		<p><?php echo ($var['status'] == 'published'?'<i class="fas fa-check-circle" title="เผยแพร่แล้ว"></i>':'');?><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><?php echo ($var['status'] != 'published'?' (ฉบับร่าง)':'');?></p>
+		<p><?php echo (!empty($var['edit_time'])?$var['edit_time']:$var['create_time']);?><?php echo ($var['status'] != 'published'?' (ฉบับร่าง)':'');?><?php echo ($var['status'] == 'published'?'<i class="fas fa-check-circle" title="เผยแพร่แล้ว"></i>':'');?></p>
 	</div>
 
 	<?php if($var['status'] != 'published'){?>

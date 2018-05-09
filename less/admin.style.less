@@ -6,32 +6,14 @@
 @primary_color_light 	:#2979FF;
 
 .header{
-	width: 70%;
-	padding: 0 15%;
+	width: 100%;
+	padding: 0%;
 	float: left;
 	display: inline-block;
 	height: 56px;
 	z-index: 999;
 	position: relative;
-
-	.center{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 30%;
-		margin: 0 35%;
-		height: 16px 0;
-		padding: 20px;
-		float: left;
-		display: inline-block;
-		font-family: @topic_font;
-		font-size: 1.1em;
-		line-height: 0.9em;
-		color: #DDDDDD;
-		text-align: center;
-		
-		&:hover{ cursor: default; }
-	}
+	background: #CAADAD;
 
 	.btn-submit{
 		float: right;
@@ -43,6 +25,7 @@
 		line-height: 0.9em;
 		text-decoration: none;
 		color: #999999;
+		background: #CAAADD;
 
 		&.active{ color: #2962FF; }
 
@@ -57,53 +40,35 @@
 	a.btn{
 		float: left;
 		display: inline-block;
-		height: 18px;
-		padding: 20px 0px;
+		height: 24px;
+		padding: 16px 1.5%;
 		font-family: @topic_font;
-		font-size: 1.1em;
+		font-size: 1.4em;
 		line-height: 1em;
 		text-decoration: none;
 		color: #999999;
+		background: #DADADA;
+		margin: 0;
 
 		&.active{
 			color: #4CAF50;
 			border: 1px solid #4CAF50;
 		}
 
-		&.right{
-			float: right;
-			padding: 20px 1%;
-			color: #2962FF;
-		}
-
+		&.right{ float: right; }
 		&:hover{ cursor: pointer; }
 		&:active{ color: #333333; }
-		span{ margin-left: 10px; }
-	}
-
-	a.btn-profile{
-		float: right;
-		display: inline-block;
-		height: 36px;
-		padding: 10px;
-
-		img{
-			width: 36px;
-			height: 36px;
-			border-radius: 50%;
-		}
-
-		&:hover{ background: #FAFAFA; }
 	}
 
 	a.btn-icon{
 		float: right;
 		display: inline-block;
 		height: 20px;
-		padding: 18px 20px;
+		padding: 18px 1.5%;
 		line-height: 1.2em;
-		font-size: 1.2em;
+		font-size: 1.1em;
 		color: #999999;
+		background: #CAA00A;
 
 		&.left{ float: left; }
 
@@ -255,6 +220,14 @@
 		color: #DDDDDD;
 
 		&:hover{ cursor: default; }
+
+		i{ float: left; }
+
+		.version{
+			line-height: 1em;
+			margin-left: 10px;
+			font-size: 0.6em;
+		}
 	}
 
 	a{
@@ -1915,7 +1888,7 @@
 				&:hover{ cursor: default; }
 
 				i{
-					margin-right: 5px;
+					margin-left: 7px;
 					color: @primary_color;
 				}
 

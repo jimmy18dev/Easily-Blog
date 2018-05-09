@@ -159,32 +159,14 @@ body.paper {
   transition: height 0.2s;
 }
 .header {
-  width: 70%;
-  padding: 0 15%;
+  width: 100%;
+  padding: 0%;
   float: left;
   display: inline-block;
   height: 56px;
   z-index: 999;
   position: relative;
-}
-.header .center {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
-  margin: 0 35%;
-  height: 16px 0;
-  padding: 20px;
-  float: left;
-  display: inline-block;
-  font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
-  line-height: 0.9em;
-  color: #DDDDDD;
-  text-align: center;
-}
-.header .center:hover {
-  cursor: default;
+  background: #CAADAD;
 }
 .header .btn-submit {
   float: right;
@@ -196,6 +178,7 @@ body.paper {
   line-height: 0.9em;
   text-decoration: none;
   color: #999999;
+  background: #CAAADD;
 }
 .header .btn-submit.active {
   color: #2962FF;
@@ -210,13 +193,15 @@ body.paper {
 .header a.btn {
   float: left;
   display: inline-block;
-  height: 18px;
-  padding: 20px 0px;
+  height: 24px;
+  padding: 16px 1.5%;
   font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.4em;
   line-height: 1em;
   text-decoration: none;
   color: #999999;
+  background: #DADADA;
+  margin: 0;
 }
 .header a.btn.active {
   color: #4CAF50;
@@ -224,8 +209,6 @@ body.paper {
 }
 .header a.btn.right {
   float: right;
-  padding: 20px 1%;
-  color: #2962FF;
 }
 .header a.btn:hover {
   cursor: pointer;
@@ -233,31 +216,15 @@ body.paper {
 .header a.btn:active {
   color: #333333;
 }
-.header a.btn span {
-  margin-left: 10px;
-}
-.header a.btn-profile {
-  float: right;
-  display: inline-block;
-  height: 36px;
-  padding: 10px;
-}
-.header a.btn-profile img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-.header a.btn-profile:hover {
-  background: #FAFAFA;
-}
 .header a.btn-icon {
   float: right;
   display: inline-block;
   height: 20px;
-  padding: 18px 20px;
+  padding: 18px 1.5%;
   line-height: 1.2em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #999999;
+  background: #CAA00A;
 }
 .header a.btn-icon.left {
   float: left;
@@ -397,6 +364,14 @@ body.paper {
 }
 .navigation .logo:hover {
   cursor: default;
+}
+.navigation .logo i {
+  float: left;
+}
+.navigation .logo .version {
+  line-height: 1em;
+  margin-left: 10px;
+  font-size: 0.6em;
 }
 .navigation a {
   display: inline-block;
@@ -1972,7 +1947,7 @@ body.paper {
   cursor: default;
 }
 .lists .article-items .content p i {
-  margin-right: 5px;
+  margin-left: 7px;
   color: #2962ff;
 }
 .lists .article-items .content p span {

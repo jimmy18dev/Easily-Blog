@@ -37,7 +37,7 @@ if($article->owner_id != $user->id){
 </head>
 <body class="paper">
 <div class="header">
-	<a class="btn" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status"></span></a>
+	<a class="btn right" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-times"></i><span id="editor-status"></span></a>
 
 	<?php if($article->status!='published'){?>
 	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>
@@ -245,8 +245,8 @@ if($article->owner_id != $user->id){
 </div>
 
 <div class="swap" id="swap"></div>
-<div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
+<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>

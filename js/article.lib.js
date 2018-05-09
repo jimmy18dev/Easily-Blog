@@ -331,7 +331,7 @@ var Article = function (article_id){
         });
     }
 
-    // Article Remove (set status to deleted)
+    // Article Delete
     this.remove = function(){
     	progressbar.Progressbar('70%');
     	$.ajax({
@@ -341,9 +341,8 @@ var Article = function (article_id){
             dataType    :"json",
             type        :"POST",
             data:{
-                request     :'change_status',
-                article_id  :article_id,
-                status      :'deleted'
+                request     :'delete',
+                article_id  :article_id
             },
             error: function (request, status, error){
                 console.log(request.responseText);
