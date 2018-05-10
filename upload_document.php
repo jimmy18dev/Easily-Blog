@@ -26,7 +26,7 @@ if(isset($_FILES['file'])){
     if(empty($errors) == true){
         $filename   = $document->string_cleaner($file_ext['filename']);
 
-        $new_filename   = $filename.'-'.substr(md5(time().rand(0,9999999999)),6,6);
+        $new_filename   = $filename.'-'.substr(md5(time().rand(0,2147483647)),6,6);
         $full_filename  = $new_filename.'.'.$file_ext['extension'];
         move_uploaded_file($file_tmp,'files/'.$full_filename);
 

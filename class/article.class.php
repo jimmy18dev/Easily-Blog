@@ -520,6 +520,10 @@ class Article{
     }
 
     public function deleteDir($dirPath){
+        
+        if(!is_dir($dirPath))
+            return false;
+
         $files = array_diff(scandir($dirPath), array('.','..'));
 
         foreach ($files as $file) { 

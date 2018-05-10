@@ -179,9 +179,9 @@ $(document).ready(function(){
 
         article.remove();
         
-        // setTimeout(function(){
-        //     window.location = 'profile';
-        // },1000);
+        setTimeout(function(){
+            window.location = 'profile';
+        },1000);
     });
 
     $('#btn-draft').click(function(){

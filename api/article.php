@@ -11,6 +11,7 @@ $returnObject = array(
 $signature 	= new Signature();
 $article 	= new Article();
 $image      = new Image();
+$document   = new Document();
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
@@ -86,20 +87,27 @@ switch ($_SERVER['REQUEST_METHOD']){
             case 'delete':
                 $article_id = $_POST['article_id'];
 
+                $article->get($article_id);
+
+                // Delete all Document files
+                foreach ($article->documents as $var){
+                    $file_location = '../files/'.$var['file_name'];
+                    if(file_exists($file_location))
+                        unlink($file_location);
+                }
+                $document->deleteAll($article->id);
+
+                // Delete all Image files and Folder.
                 $article->deleteDir('../image/upload/'.$_POST['article_id']);
-                // $article->deleteDir('../image/upload/'.$_POST['article_id']);
-                $article->deleteAllContent($article_id);
-                $article_id = $article->delete($article_id);
+
+                // Delete all Contents.
+                $article->deleteAllContent($article->id);
+
+                // Delete Article Record
+                $article_id = $article->delete($article->id);
                 
                 $returnObject['message'] = 'Article Deleted';
                 break;
-            // case 'change_status':
-            //     $article_id = $_POST['article_id'];
-            //     $status     = $_POST['status'];
-            //     $article_id = $article->changeStatus($article_id,$status);
-                
-            //     $returnObject['message'] = 'Status changed';
-            //     break;
             case 'published':
                 $article_id = $_POST['article_id'];
                 $article_id = $article->published($article_id);
