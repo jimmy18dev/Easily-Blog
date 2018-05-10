@@ -44,13 +44,11 @@ $current_page = 'article';
     <a class="btn-create" href="article/create">เขียนบทความ</a>
 </div>
 
-<?php if($page == 1){?>
+<?php if($page == 1 && count($article_sticky) > 0){?>
 <div class="lists">
     <h1>ปักหมุด</h1>
     <?php if(count($article_sticky) > 0){?>
     <?php foreach ($article_sticky as $var) { include 'template/article.items.php'; } ?>
-    <?php }else{?>
-    <div class="empty">ไม่พบบทความ</div>
     <?php }?>
 </div>
 <?php }?>
