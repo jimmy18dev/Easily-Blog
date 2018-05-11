@@ -34,7 +34,7 @@ if(!empty($category_id)){
 <body>
 
 <div class="navigation">
-	<a class="btn-icon" href="profile/category"><i class="fal fa-times"></i></a>
+	<a class="btn-icon right" href="profile/category"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="page-form">
