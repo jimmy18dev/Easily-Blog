@@ -35,7 +35,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
 </div>
 
-<div class="seo">
+<div class="page-form">
 	<div class="section" id="cover">
 		<h2>ภาพหน้าปก</h2>
 		<p>ภาพนี้จะถูกใช้เป็นภาพประจำบนความบนหน้าเว็บไซต์ และเมื่อแชร์บทความนบน Facebook ภาพนี้จะแสดงเป็นภาพแรก ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>

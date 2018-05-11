@@ -25,7 +25,7 @@ if(!empty($category_id)){
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>หมวดหมู่</title>
+<title><?php echo (!empty($category->id)?$category->title.' (แก้ไข)':'สร้างหมวดหมู่');?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -33,51 +33,42 @@ if(!empty($category_id)){
 </head>
 <body>
 
-<div class="navigation">
+<div class="header">
 	<a class="btn-icon right" href="profile/category"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="page-form">
-	<div class="items">
-		<div class="caption">ชื่อหมวดหมู่</div>
-		<div class="content">
-			<input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>">
-            <div class="message">ไม่เกิน 20 ตัวอักษร</div>
-		</div>
+	<div class="section">
+        <h2><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h2>
+        <p>การตั้งชื่อหมวดหมู่ที่เข้าใจง่ายและไม่ยาวจนเกินไป จะช่วยให้บทความบนเว็บไซต์น่าสนใจมากยิ่งขึ้น</p>
+        <input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>" placeholder="ชื่อหมวดหมู่">
+        <textarea id="desc" autocomplete="off" placeholder="คำอธิบาย"><?php echo $category->description;?></textarea>
 	</div>
 
-    <div class="items">
-        <div class="caption">ลิ้งค์</div>
-        <div class="content">
-            <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
-            <div class="message">ตัวอย่าง: Technology , Food-Review</div>
-        </div>
+    <div class="section">
+        <h3>URL Friendly</h3>
+        <p>เพิ่มความหมายให้กับลิงก์ของหมวดหมู่นี้ ตัวอย่างเช่น travels , Interview , รีวิวร้านอาหาร </p>
+        <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
+        <p class="note">ตัวอย่าง: Technology , Food-Review</p>
     </div>
 
-    <div class="items">
-        <div class="caption">ไอคอน <a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน"><i class="fal fa-info-circle"></i></a></div>
-        <div class="content">
-            <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
-            <div class="message">ตัวอย่าง: archive , bus , calendar</div>
-        </div>
+    <div class="section">
+        <h3>ไอคอน</h3>
+        <p>เพิ่มความน่าสนใจและช่วยให้ผู้อ่านจดจำหมวดหมู่นี้ได้ง่ายขึ้น เพียงคุณเปิด<a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน">ตารางไอคอน</a> และนำชื่อมาใส่ในช่องด้านล่าง</p>
+        <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
+        <p class="note">ตัวอย่าง: archive , bus , calendar</p>
     </div>
-
-	<div class="items">
-		<div class="caption">เกี่ยวกับ</div>
-		<div class="content">
-			<textarea id="desc" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $category->description;?></textarea>
-		</div>
-	</div>
 
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
-	<div class="items">
+	<div class="section">
 		<button id="btnSave"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
 	</div>
 
     <?php if(!empty($category->id)){?>
-    <div class="delete-zone">
-        <p><strong>ลบหมวดหมู่!</strong> บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
+    <div class="section">
+        <h2>ลบหมวดหมู่</h2>
+        <p><strong>!</strong> บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
         <div class="select">
             <select id="new_target">
                 <?php foreach ($categories as $var) { if($category_id != $var['id']){?>

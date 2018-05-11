@@ -34,7 +34,7 @@ $current_page = 'section';
 <?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="filter">
-    <div class="title">เลือกหมวดหมู่ที่แสดงบนหน้าแรกเว็บไซต์</div>
+    <div class="title">แสดงอยู่ในหน้าแรก</div>
 </div>
 <div class="lists no-margin">
 	<?php if(count($sections) > 0){?>

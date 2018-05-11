@@ -207,7 +207,7 @@ if($article->owner_id != $user->id){
 		<span class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด"><i class="fa fa-quote-right"></i></span>
 		<span class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube"><i class="fa fa-video"></i></span>
 		<span class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map"><i class="fa fa-map"></i></span>
-		<span class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip"></i></span>
+		<span class="btn-tool btnAction" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip"></i></span>
 	</div>
 
 	<div class="documents">
