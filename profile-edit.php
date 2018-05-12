@@ -31,16 +31,17 @@ $current_page = 'edit';
 <div class="pagehead">
     <div class="head">
         <h1>โปรไฟล์ผู้เขียน</h1>
-        <p>ชื่อผู้เขียนบทความและแสดงบนหน้าเว็บ</p>
+        <p>คำแนะนำ: การใส่ชื่อผู้เขียนลงในบทความ จะช่วยให้เว็บไซต์มีความน่าเชื่อถือมากยิ่งขึ้น</p>
     </div>
 </div>
 
 <div class="page-form">
     <div class="section">
-        <h2>ชื่อ-นามสกุล</h2>
+        <h2>ข้อมูลจะแสดงบนเว็บไซต์</h2>
+        <p>ชื่อ-นามสกุล (แสดงอยู่ในส่วนของผู้เขียน)</p>
         <input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
-        <textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
-        <p class="note">ตำแหน่งงานที่รับผิดชอบ</p>
+        <textarea id="bio" autocomplete="off" placeholder="คำอธิยาบเกี่ยวกับคุณ"><?php echo $user->bio;?></textarea>
+        <div class="note">ไม่เกิน 140 ตัวอักษร</div>
     </div>
     <div class="section">
         <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>

@@ -194,7 +194,7 @@ body.paper {
   padding: 20px 10px;
   line-height: 1em;
   font-size: 1.1em;
-  color: #994100;
+  color: #FFFFFF;
 }
 .header .search input[type="text"] {
   float: left;
@@ -209,13 +209,13 @@ body.paper {
   color: #FFFFFF;
 }
 .header .search input[type="text"]::-webkit-input-placeholder {
-  color: #994100;
+  color: #FFFFFF;
 }
 .header .search input[type="text"]::-moz-placeholder {
-  color: #994100;
+  color: #FFFFFF;
 }
 .header .search input[type="text"]:-ms-input-placeholder {
-  color: #994100;
+  color: #FFFFFF;
 }
 .header .logo {
   float: left;
@@ -1157,8 +1157,8 @@ form.search{
   display: inline-block;
   text-align: center;
   font-size: 1.05em;
-  background: #FFFFFF;
-  color: #ff6d00;
+  background: #ff6d00;
+  color: #FFFFFF;
   border: 0px;
   border-radius: 5px;
   font-family: "maledpan", sans-serif;
@@ -1183,7 +1183,7 @@ form.search{
   display: block;
   text-align: center;
   font-style: italic;
-  color: #FFFFFF;
+  color: #999999;
   font-size: 1.05em;
   font-family: "maledpan", sans-serif;
 }
@@ -1195,37 +1195,31 @@ form.search{
   padding: 4% 5%;
   margin: 0;
   border: 0;
-  background: transparent;
+  background: #FFFFFF;
   border-radius: 5px;
   margin-bottom: 5%;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #DDDDDD;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #333333;
   font-family: "maledpan", sans-serif;
-}
-.login .content .inputtext::-webkit-input-placeholder {
-  color: #994100;
-}
-.login .content .inputtext::-moz-placeholder {
-  color: #994100;
-}
-.login .content .inputtext:-ms-input-placeholder {
-  color: #994100;
 }
 .login .content .inputtext:hover {
   cursor: pointer;
+}
+.login .content .inputtext:focus {
+  border: 1px solid #ff6d00;
 }
 .login .message {
   width: 100%;
   float: left;
   display: inline-block;
   text-align: center;
-  color: #994100;
+  color: #999999;
   font-size: 1.05em;
   font-family: "maledpan", sans-serif;
 }
 .login .message a {
-  color: #FFFFFF;
+  color: #333333;
   text-decoration: underline;
 }
 .announce {

@@ -45,7 +45,7 @@ $categories = $category->listAll();
 	</div>
 </div>
 
-<div class="lists no-margin">
+<div class="lists">
 	<?php foreach ($categories as $var) {?>
 	<div class="list-items choose-category" data-id="<?php echo $var['id'];?>">
 		<div class="icon">

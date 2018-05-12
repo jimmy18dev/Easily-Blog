@@ -47,7 +47,7 @@
 			padding: 20px 10px;
 			line-height: 1em;
 			font-size: 1.1em;
-			color: @primary_color_dark;
+			color: #FFFFFF;
 		}
 
 		input[type="text"]{
@@ -62,9 +62,9 @@
 			background: transparent;
 			color: #FFFFFF;
 
-			&::-webkit-input-placeholder { color: @primary_color_dark; }
-			&::-moz-placeholder { color: @primary_color_dark; }
-			&:-ms-input-placeholder { color: @primary_color_dark; }
+			&::-webkit-input-placeholder { color: #FFFFFF; }
+			&::-moz-placeholder { color: #FFFFFF; }
+			&:-ms-input-placeholder { color: #FFFFFF; }
 		}
 	}
 
@@ -1069,8 +1069,8 @@ form.search{
 			display: inline-block;
 			text-align: center;
 			font-size: @title_fontsize;
-			background: #FFFFFF;
-			color: @primary_color;
+			background: @primary_color;
+			color: #FFFFFF;
 			border: 0px;
 			border-radius: 5px;
 			font-family: @topic_font;
@@ -1095,7 +1095,7 @@ form.search{
 			display: block;
 			text-align: center;
 			font-style: italic;
-			color: #FFFFFF;
+			color: #999999;
 			font-size: @title_fontsize;
 			font-family: @topic_font;
 		}
@@ -1108,19 +1108,20 @@ form.search{
 			padding: 4% 5%;
 			margin: 0;
 			border: 0;
-			background: transparent;
+			background: #FFFFFF;
 			border-radius: 5px;
 			margin-bottom: 5%;
-			border: 1px solid #FFFFFF;
+			border: 1px solid #DDDDDD;
 			box-sizing: border-box;
-			color: #FFFFFF;
+			color: #333333;
 			font-family: @topic_font;
 
-			&::-webkit-input-placeholder { color: @primary_color_dark; }
-			&::-moz-placeholder { color: @primary_color_dark; }
-			&:-ms-input-placeholder { color: @primary_color_dark; }
+			// &::-webkit-input-placeholder { color: @primary_color_dark; }
+			// &::-moz-placeholder { color: @primary_color_dark; }
+			// &:-ms-input-placeholder { color: @primary_color_dark; }
 
 			&:hover{ cursor: pointer; }
+			&:focus{ border: 1px solid @primary_color; }
 		}
 	}
 
@@ -1129,12 +1130,12 @@ form.search{
 		float: left;
 		display: inline-block;
 		text-align: center;
-		color: @primary_color_dark;
+		color: #999999;
 		font-size: @title_fontsize;
 		font-family: @topic_font;
 
 		a{
-			color: #FFFFFF;
+			color: #333333;
 			text-decoration: underline;
 		}
 	}

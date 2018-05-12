@@ -2,18 +2,46 @@
 @import "config";
 
 @primary_color 			: #2962FF;
-@primary_color_dark 	: #304FFE;
-@primary_color_light 	: #2979FF;
+@primary_color_dark 	: #204ecc;
+@primary_color_light 	: #3e71ff;
 @bg_color 				: #FFFFFF;
 
 @font-size-normal 		: 1.05em;
 @font-size-desc 		: 0.75em;
 @font-size-icon 		: 1.25em;
 
-body{
-    background: @bg_color;
-    overflow-x:hidden;
+.button(){
+	float: right;
+	display: inline-block;
+	background: #EEEEEE;
+	color: #BBBBBB;
+	text-decoration: none;
+	font-family: @topic_font;
+	font-size: @font-size-normal;
+	line-height: 1.1em;
+	padding: 15px 25px;
+	border-radius: 5px;
+	border: 0;
+	margin: 0;
+
+	&.btn-delete{
+		float: left;
+		background: #F44336;
+		color: #FFFFFF;
+		&:hover{ background: #F44336; }
+	}
+
+	&.active{
+		background: @primary_color;
+		color: #FFFFFF;
+		box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+		&:hover{ background: @primary_color_light; }
+	}
+
+	&:hover{ cursor: pointer; }
 }
+
+body{ background: @bg_color; }
 
 .header{
 	position: fixed;
@@ -99,9 +127,7 @@ body{
 		i{ font-size: 0.9em; }
 		span{ margin-left: 10px; }
 		&:hover{ cursor: pointer; }
-		&.active{
-			color: @primary_color;
-		}
+		&.active{ color: @primary_color; }
 	}
 }
 .pagehead{
@@ -137,24 +163,7 @@ body{
 		margin-top: 1%;
 
 		.btn-create{
-			float: right;
-			display: inline-block;
-			background: @primary_color;
-			color: #FFFFFF;
-			text-decoration: none;
-			font-family: @topic_font;
-			font-size: @font-size-normal;
-			line-height: 1em;
-			padding: 15px 25px;
-			border-radius: 5px;
-			border: 0;
-			margin: 0;
-			box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
-
-			&:hover{
-				cursor: pointer;
-				background: @primary_color_light;
-			}
+			.button();
 		}
 	}
 }
@@ -162,6 +171,7 @@ body{
 .page-form{
 	width: 50%;
 	margin: 0% 25%;
+	margin-bottom: 10%;
 	float: left;
 	display: inline-block;
 
@@ -236,11 +246,12 @@ body{
 		}
 
 		.select{
-			width: 50%;
+			width: 100%;
 			float: left;
 			display: inline-block;
 			position: relative;
 			margin-right: 15px;
+			margin-bottom: 3%;
 
 			&.number{ width: 10%; }
 			&:after{
@@ -257,62 +268,31 @@ body{
 
 			select{
 				width: 100%;
-				margin: 0%;
 				float: left;
 				display: inline-block;
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
-				font-size: 1em;
-				border: 1px solid #DDDDDD;
+				margin: 0;
+				font-size: @font-size-normal;
 				line-height: 1em;
-				padding: 15px;
+				padding: 15px 25px;
 				background: #FFFFFF;
 				font-family: @topic_font;
-				color: #333333;
+				color: #666666;
 				border-radius: 5px;
+				box-sizing: border-box;
+				border: 1px solid #DDDDDD;
 
 				&:hover{
 					cursor: pointer;
-					border: 1px solid #999999;
-				}
-
-				&:focus{
-					border: 1px solid @primary_color;
-					color: @primary_color;
+					border: 1px solid #BBBBBB;
 				}
 			}
 		}
 
 		button{
-			float: right;
-			display: inline-block;
-			background: @primary_color;
-			color: #FFFFFF;
-			text-decoration: none;
-			font-family: @topic_font;
-			font-size: @font-size-normal;
-			line-height: 1em;
-			padding: 15px;
-			border-radius: 5px;
-			border: 0;
-			margin: 0;
-			box-shadow: 0px 3px 7px rgba(0,0,0,0.3);
-
-			i{ margin-left: 15px; }
-
-			&:hover{
-				cursor: pointer;
-				background: @primary_color_light;
-			}
-
-			&.btn-delete{
-				float: left;
-				background: #EEEEEE;
-				color: #F44336;
-				font-weight: bold;
-				box-shadow: none;
-			}
+			.button();
 		}
 
 		// Image cover selected
@@ -334,8 +314,6 @@ body{
 				border: 2px solid transparent;
 				padding: 5px;
 				border-radius: 7px;
-
-				// &:nth-child(5n+0){ margin-right: 0; }
 
 				img{
 					width: 100%;
@@ -382,7 +360,6 @@ body{
 
 			&:hover{
 				cursor: default;
-
 				.btn{ color: #F44336; }
 			}
 
@@ -521,33 +498,33 @@ body{
 			}
 		}
 
-		.address-list{
-			width: 100%;
-			float: left;
-			display: inline-block;
+		// .address-list{
+		// 	width: 100%;
+		// 	float: left;
+		// 	display: inline-block;
 
-			.items{
-				float: left;
-				display: inline-block;
-				padding: 10px;
-				border: 1px solid transparent;
-				border-radius: 5px;
-				line-height: 1em;
-				color: #666666;
+		// 	.items{
+		// 		float: left;
+		// 		display: inline-block;
+		// 		padding: 10px;
+		// 		border: 1px solid transparent;
+		// 		border-radius: 5px;
+		// 		line-height: 1em;
+		// 		color: #666666;
 
-				&:hover{
-					cursor: pointer;
-				}
+		// 		&:hover{
+		// 			cursor: pointer;
+		// 		}
 
-				&.active{
-					color: #4CAF50;
-					border: 1px solid #4CAF50;
-				}
-				&.unselect{
-					color: #BBBBBB;
-				}
-			}
-		}
+		// 		&.active{
+		// 			color: #4CAF50;
+		// 			border: 1px solid #4CAF50;
+		// 		}
+		// 		&.unselect{
+		// 			color: #BBBBBB;
+		// 		}
+		// 	}
+		// }
 	}
 }
 
@@ -1157,27 +1134,18 @@ body{
 .filter{
 	width: 50%;
 	margin: 0% 25%;
-	margin-top: 56px;
-	padding-top: 4%;
-	padding-bottom: 2%;
 	float: left;
 	display: inline-block;
+	margin-bottom: 3%;
 
-	&.bottom{
-		padding-top: 3%;
-		padding-bottom: 0;
-		border-top: 1px solid #DDDDDD;
-	}
-
-	.title{
-		max-width: 60%;
+	p{
+		width: 100%;
 		float: left;
 		display: inline-block;
-		font-size: @font-size-normal;
-		line-height: 1em;
-		padding: 15px 0px;
 		font-family: @topic_font;
+		font-size: @font-size-normal;
 		color: #999999;
+		margin-bottom: 3%;
 	}
 
 	.select{
@@ -1188,9 +1156,10 @@ body{
 		margin-right: 15px;
 
 		&.number{ width: 10%; }
+
 		&:after{
 			content: '';
-			border-top: 8px solid @primary_color;
+			border-top: 8px solid #666666;
 			border-left: 5px solid transparent;
 			border-right: 5px solid transparent;
 			position: absolute;
@@ -1202,46 +1171,31 @@ body{
 
 		select{
 			width: 100%;
-			margin: 0%;
 			float: left;
 			display: inline-block;
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
+			margin: 0;
 			font-size: @font-size-normal;
-			border: 1px solid @primary_color;
 			line-height: 1em;
-			padding: 14px;
+			padding: 15px 25px;
 			background: #FFFFFF;
 			font-family: @topic_font;
-			color: @primary_color;
+			color: #666666;
 			border-radius: 5px;
+			box-sizing: border-box;
+			border: 1px solid #DDDDDD;
 
-			&:hover{ cursor: pointer; }
+			&:hover{
+				cursor: pointer;
+				border: 1px solid #BBBBBB;
+			}
 		}
 	}
 
 	.btn-create{
-		float: right;
-		display: inline-block;
-		background: @primary_color;
-		color: #FFFFFF;
-		text-decoration: none;
-		font-family: @topic_font;
-		font-size: @font-size-normal;
-		line-height: 1em;
-		padding: 13px 25px;
-		padding-bottom: 17px; 
-		border-radius: 5px;
-		border: 0;
-		margin: 0;
-
-		i{ margin-left: 15px; }
-
-		&:hover{
-			cursor: pointer;
-			background: @primary_color_light;
-		}
+		.button();
 	}
 }
 
@@ -1277,14 +1231,13 @@ body{
 	}
 }
 
+// Container All Items (Articles, Category, Section)
 .lists{
 	width: 50%;
 	padding: 0% 25%;
 	padding-bottom: 3%;
 	float: left;
 	display: inline-block;
-
-	&.no-margin{ padding-bottom: 0; }
 
 	h1{
 		width: 100%;
@@ -1310,8 +1263,10 @@ body{
 
 		&:last-child{ margin-bottom: 0; }
 
+		&:hover{ cursor: pointer; }
+
 		&.selected{
-			background: #FAFAFA;
+			background: #e9efff;
 			border: 2px solid @primary_color;
 			.icon-select{ color: @primary_color; }
 		}
@@ -1342,8 +1297,6 @@ body{
 				font-family: @topic_font;
 				font-size: 1.1em;
 				color: #333333;
-
-				&:hover{ cursor: default; }
 			}
 			.desc{
 				font-size: @font-size-desc;
@@ -1515,6 +1468,7 @@ body{
 	}
 }
 
+// Swap function in Editor page.
 .swap{
 	position: fixed;
 	top: 0;
