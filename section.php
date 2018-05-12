@@ -33,10 +33,13 @@ $current_page = 'section';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="filter">
-    <div class="title">เลือกหมวดหมู่ที่แสดงบนหน้าแรกเว็บไซต์</div>
+<div class="pagehead">
+    <div class="head">
+        <h1>ตั้งค่าเว็บไซต์</h1>
+        <p>คุณสามารถแก้ไขเว็บได้จากหน้านี้ </p>
+    </div>
 </div>
-<div class="article-list">
+<div class="lists no-margin">
 	<?php if(count($sections) > 0){?>
 	<?php foreach ($sections as $var) { include 'template/section.items.php'; } ?>
 	<?php }else{?>
@@ -44,6 +47,7 @@ $current_page = 'section';
 	<?php }?>
 </div>
 
+<?php if(count($categories) != count($sections)){?>
 <div class="filter bottom">
     <button class="btn-create" id="btn-add">เพิ่ม</button>
     <div class="select number" title="จำนวนบทความที่แสดง">
@@ -65,6 +69,7 @@ $current_page = 'section';
         </select>
     </div>
 </div>
+<?php }?>
 
 <div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
@@ -125,7 +130,8 @@ $(function(){
         }).done(function(data){
             console.log(data);
             progressbar.Progressbar('100%');
-            $items.fadeOut(300);
+            // $items.fadeOut(300);
+            location.reload();
         });
     });
 
@@ -151,6 +157,8 @@ $(function(){
 
                 return false;
             }
+
+            $items.addClass('selected');
         }
 
         $(this).html('<i class="fal fa-check"></i>');
@@ -178,7 +186,7 @@ $(function(){
                 current = null;
                 target = null;
 
-                location.reload();
+                setTimeout(function(){ location.reload(); },1000);
             });
         }
     });

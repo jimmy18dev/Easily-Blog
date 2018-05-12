@@ -153,6 +153,21 @@ $current_page = '';
 		<?php }?>
 	<?php } ?>
 
+	<?php if(count($article->documents) > 0){?>
+	<div class="documents">
+		<h2>ไฟล์เอกสาร</h2>
+		<?php foreach ($article->documents as $var) {?>
+		<a href="files/<?php echo $var['file_name'];?>" class="document-items" target="_blank">
+			<span class="icon"><i class="fa fa-file"></i></span>
+			<span class="detail">
+				<span class="name"><?php echo $var['title'];?></span>
+				<span class="desc">ขนาด <?php echo $var['file_size'];?> (<?php echo $var['file_type'];?>)</span>
+			</span>
+		</a>
+		<?php }?>
+	</div>
+	<?php }?>
+
 	<?php if(count($article->tags)>0){?>
 	<div class="tag">
 		<?php foreach ($article->tags as $var){ ?>

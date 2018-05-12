@@ -139,6 +139,11 @@ class Document{
         $this->db->bind(':file_id',$file_id);
         $this->db->execute();
     }
+    public function deleteAll($article_id){
+        $this->db->query('DELETE FROM document WHERE article_id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+    }
 
     public function editTitle($file_id,$title){
         $this->db->query('UPDATE document SET title = :title,edit_time = :edit_time WHERE id = :file_id');

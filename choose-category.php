@@ -27,30 +27,43 @@ $categories = $category->listAll();
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a href="profile" class="btn left"><i class="fal fa-arrow-left" aria-hidden="true"></i><span>ยกเลิก</span></a>
-</header>
+<div class="header">
+	<a class="btn-icon right" href="profile"><i class="fal fa-times"></i></a>
+</div>
 
-<div class="pagehead">
+<!-- <div class="pagehead">
 	<div class="content">
 		<h2>เลือกประเภทบทความ</h2>
 		<p>คลิกเลือกที่คุณต้องการ</p>
 	</div>
+</div> -->
+
+<div class="pagehead">
+	<div class="head">
+		<h1>เลือกประเภทบทความ</h1>
+		<p>หลังจากที่คุณสร้างบทความไปแล้ว จะไม่สามารถเปลี่ยนหมวดหมู่ได้อีก</p>
+	</div>
 </div>
 
-<div class="choose">
-	<div class="list">
-		<?php foreach ($categories as $var) {?>
-		<div class="choose-category" data-id="<?php echo $var['id'];?>">
-			<div class="icon">
-				<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
-			</div>
-			<div class="name"><?php echo $var['title'];?></div>
-			<div class="selected"><i class="fal fa-check"></i></div>
+<div class="lists no-margin">
+	<?php foreach ($categories as $var) {?>
+	<div class="list-items choose-category" data-id="<?php echo $var['id'];?>">
+		<div class="icon">
+			<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 		</div>
-		<?php } ?>
+		<div class="detail">
+			<div class="title"><?php echo $var['title'];?></div>
+			<?php if(!empty($var['description'])){?>
+			<div class="desc"><?php echo $var['description'];?></div>
+			<?php }?>
+		</div>
+		<div class="icon-select"><i class="fal fa-check"></i></div>
 	</div>
-	<div class="btn-submit" id="btnStartWrite">เขียนบทความ<i class="fal fa-arrow-right"></i></div>
+	<?php } ?>
+</div>
+
+<div class="filter bottom">
+    <button class="btn-create" id="btnStartWrite">เขียนบทความ</button>
 </div>
 
 <div id="progressbar"></div>

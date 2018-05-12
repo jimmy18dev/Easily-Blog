@@ -35,16 +35,17 @@ if($article->owner_id != $user->id){
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
+<body class="paper">
 <div class="header">
-	<a class="btn" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-arrow-left"></i><span id="editor-status"></span></a>
+	<div class="status" id="editor-status"></div>
 
+	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-times"></i></a>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>" target="_blank" title="ดูบทความแท็บใหม่"><i class="fa fa-eye"></i></a>
 	<?php if($article->status!='published'){?>
-	<div class="btn-submit active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่<i class="fal fa-paper-plane"></i></div>
+	<div class="btn right active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่</div>
 	<?php }?>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>" title="ดูตัวอย่าง"><i class="fal fa-tv"></i></a>
-	<a class="btn-icon" href="article/<?php echo $article->id;?>/option" title="เพิ่มประสิทธิภาพ"><i class="fal fa-clipboard-check"></i></a>
-	<a class="btn-icon delete" id="btn-remove" title="ลบบทความนี้"><i class="fal fa-trash-alt"></i></a>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option" title="ตั้งค่าบทความ"><i class="fa fa-cog"></i></a>
+	<a class="btn-icon right" id="btn-remove" title="ลบบทความนี้"><i class="fa fa-trash"></i></a>
 </div>
 
 <div class="editor">
@@ -58,12 +59,12 @@ if($article->owner_id != $user->id){
 		<span>
 			<?php if(!empty($article->head_cover_img)){?>
 			<div class="btn btn-remove" id="btnRemoveCover" title="ลบภาพปก"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn" id="btnChooseCover" title="เปลี่ยนภาพปก"><i class="fal fa-camera" aria-hidden="true"></i></div>
+			<div class="btn" id="btnChooseCover" title="เปลี่ยนภาพปก"><i class="fa fa-camera" aria-hidden="true"></i></div>
 			<?php }else{?>
-			<div class="btn" id="btnChooseCover" title="เลือกภาพปก"><i class="fal fa-camera" aria-hidden="true"></i></div>
+			<div class="btn" id="btnChooseCover" title="เลือกภาพปก"><i class="fa fa-camera" aria-hidden="true"></i></div>
 			<?php }?>
 
-			<textarea class="autosize" id="title" placeholder="ตั้งชื่อบทความ"></textarea>
+			<textarea class="autosize" id="title" placeholder="ชื่อบทความ"></textarea>
 			<input type="hidden" id="original_title" value="<?php echo $article->title;?>">
 
 			<form action="upload_image.php" id="coverForm" method="POST" enctype="multipart/form-data">
@@ -84,8 +85,8 @@ if($article->owner_id != $user->id){
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
 		</div>
 
-		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ..." value="<?php echo $var['topic'];?>">
-		<textarea class="body textbox-body autosize" placeholder="เขียนเนื้อหา"><?php echo $var['body'];?></textarea>
+		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ" value="<?php echo $var['topic'];?>">
+		<textarea class="body textbox-body autosize" placeholder="เขียนเนื้อหา..."><?php echo $var['body'];?></textarea>
 	</div>
 	<?php }else if($var['type'] == 'youtube'){?>
 	<div class="content youtube" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
@@ -198,24 +199,12 @@ if($article->owner_id != $user->id){
 	<?php $loop++; }?>
 
 	<div class="tools-bar">
-		<div class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ">
-			<i class="fal fa-font"></i>
-		</div>
-		<div class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ">
-			<i class="fal fa-camera"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด">
-			<i class="fal fa-quote-right"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube">
-			<i class="fal fa-video"></i>
-		</div>
-		<div class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map">
-			<i class="fal fa-map"></i>
-		</div>
-		<div class="btn-tool btnAction right" id="btnAttachFile" title="แนบไฟล์เอกสาร">
-			<i class="fal fa-paperclip"></i>
-		</div>
+		<span class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ"><i class="fa fa-font"></i></span>
+		<span class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ"><i class="fa fa-camera"></i></span>
+		<span class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด"><i class="fa fa-quote-right"></i></span>
+		<span class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube"><i class="fa fa-video"></i></span>
+		<span class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map"><i class="fa fa-map"></i></span>
+		<span class="btn-tool btnAction" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip"></i></span>
 	</div>
 
 	<div class="documents">
@@ -236,7 +225,7 @@ if($article->owner_id != $user->id){
 		</form>
 		<?php foreach ($article->documents as $var) {?>
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
-			<div class="icon"><i class="fa fa-file-excel-o" aria-hidden="true"></i></div>
+			<div class="icon"><i class="fa fa-file"></i></div>
 			<div class="detail">
 				<input type="text" class="file_title" title="แก้ไขชื่อเอกสาร" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
 				<div class="info"><?php echo $var['file_type'];?> ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
@@ -257,8 +246,8 @@ if($article->owner_id != $user->id){
 </div>
 
 <div class="swap" id="swap"></div>
-<div id="progressbar"></div>
 <div id="overlay" class="overlay"></div>
+<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-form.min.js"></script>

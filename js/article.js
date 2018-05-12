@@ -39,9 +39,12 @@ $(document).ready(function(){
     $chooseCategory = $('.choose-category');
     $chooseCategory.click(function(){
         category_id = $(this).attr('data-id');
-        $btnStartWrite.addClass('active');
-        $('.choose-category').removeClass('active');
-        $(this).addClass('active');
+
+        console.log(category_id);
+
+        $btnStartWrite.addClass('selected');
+        $('.choose-category').removeClass('selected');
+        $(this).addClass('selected');
     });
 
     $btnStartWrite = $('#btnStartWrite');
@@ -50,7 +53,7 @@ $(document).ready(function(){
         if(!category_id) return false;
 
         $btnStartWrite.removeClass('active');
-        $btnStartWrite.html('รอสักครู่<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+        $btnStartWrite.html('รอสักครู่...');
 
         // Create new Article.
         article.create(category_id)

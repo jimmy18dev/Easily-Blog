@@ -29,22 +29,28 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
+<body class="paper">
 
 <div class="header">
-	<a class="btn" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-arrow-left"></i></a>
-	<div class="center">เพิ่มประสิทธิภาพ</div>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
 </div>
 
-<div class="seo">
+<div class="pagehead">
+	<div class="head">
+		<h1>เพิ่มประสิทธิภาพ</h1>
+		<p>การทำ SEO คือ ทำเว็บไซต์ให้ตรงตามเกณฑ์การให้คะแนนของ Search Engine อย่าง Google ให้มากที่สุด เพื่อให้เว็บไซต์ติดอยู่ในผลการค้นหาลำดับแรก</p>
+	</div>
+</div>
+
+<div class="page-form">
 	<div class="section" id="cover">
-		<h2>1. ภาพหน้าปก (Cover)</h2>
+		<h2>ภาพหน้าปก</h2>
+		<p>ภาพนี้จะถูกใช้เป็นภาพประจำบนความบนหน้าเว็บไซต์ และเมื่อแชร์บทความนบน Facebook ภาพนี้จะแสดงเป็นภาพแรก ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>
 		<div class="list">
 			<?php foreach ($article->contents as $var) {?>
 			<?php if(($var['type'] == 'image' || $var['type'] == 'cover') && !empty($var['img_location'])){?>
 			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>" title="เลือกเป็นภาพปก">
 				<img src="image/upload/<?php echo $article->id;?>/square/<?php echo $var['img_location'];?>">
-				<i class="fa fa-check-circle"></i>
 			</div>
 			<?php }?>
 			<?php }?>
@@ -56,50 +62,45 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 				<input type="hidden" name="type" value="cover">
 			</form>
 		</div>
-	</div>
 
-	<div class="section" id="info">
-		<h2>2. รายละเอียดอย่างย่อ</h2>
+		<h2>รายละเอียดอย่างย่อ</h2>
+		<p>อธิบายบทความด้วยความยาวไม่เกิน 140 ตัวอักษร ช่วยเพิ่มโอกาสให้ผลการค้นหาใน Google ดียิ่งขึ้น</p>
 		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตัวอักษร"><?php echo $article->description;?></textarea>
-		<p class="right">ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>
 	</div>
 
-	<div class="section" id="url">
-		<h2>3. ลิ้งค์ที่อยู่บทความ (URL Friendly)</h2>
+	<div class="section">
+		<h2>URL Friendly</h2>
+		<p>ลิ้งค์บทความที่ดูเรียบง่ายและมีความหมาย เป็นอีกปัจจัยสำคัญช่วยให้ Google จัดอันดับบทความบนเว็บของเราในอันดับที่ดีมากยิ่งขึ้น</p>
 		<div class="inputWrapper">
-			<i class="fal fa-link" aria-hidden="true"></i>
-			<span class="domain"><?php echo $article_url;?></span>
-			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
+			<span class="prefix"><?php echo $article_url;?></span>
+			<input type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
 		</div>
+		<p class="note">* หากต้องการเว้นวรรคใช้เครื่องหมาย - หรือ _ เท่านั้น</p>
 	</div>
 
 	<div class="section" id="location">
-		<h2>4. ที่อยู่</h2>
+		<h2>ตำแหน่ง</h2>
+		<p>ระบุตำแหน่งที่อยู่ในบทความ ช่วยให้ผู้อ่านสามารถค้นหาเรื่องที่ต้องการได้รวดเร็วยิ่งขึ้น เช่น บทความรีวิวร้านอาหาร ที่พัก สถานที่ท่องเที่ยว เป็นต้น</p>
 
 		<?php if(!empty($article->district_id) || !empty($article->amphur_id) || !empty($article->province_id)){?>
 		<div class="location-current">
-			<div class="location-items">
-				<i class="fal fa-map-marker" aria-hidden="true"></i>
-				<span>
-					<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
-					<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
-					<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
-				</span>
-				<div class="btn" id="btnClearLocation" title="ลบที่อยู่ปันจุบัน"><i class="fal fa-times" aria-hidden="true"></i></div>
-			</div>
+			<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
+			<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
+			<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
+			<div class="btn" id="btnClearLocation" title="ลบที่อยู่ปันจุบัน"><i class="fal fa-times" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 
-		<div class="locationInputWrapper">
-			<i class="fal fa-search" aria-hidden="true"></i>
-			<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด..." autocomplete="off">
-
-			<ul id="locationList"></ul>
-		</div>
+		<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด" autocomplete="off">
+		<ul id="locationList"></ul>
 	</div>
 
-	<div class="section" id="tag">
-		<h2>5. คำที่เกี่ยวข้อง</h2>
+	<div class="section">
+		<h2>คำที่เกี่ยวข้อง</h2>
+		<p>กลุ่มคำที่ช่วยให้สามารถจัดกลุ่มบทความในเรื่องเดียวกัน ยกตัวอย่าง เช่น กำหนดคำว่า <strong>โรคเบาหวาน</strong> ในบทความต่างๆ เมื่อผู้อ่านค้นหาบทความเฉพาะคำที่สนใจ ระบบจะแสดงบทความที่เกี่ยวข้องกับ <strong>โรคเบาหวาน</strong> ทั้งหมด</p>
+		<form id="tagForm"><input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ..."></form>
+		<p class="note">กด Enter เพิ่มบันทึก</p>
+
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>
 			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">
@@ -108,27 +109,6 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			</div>
 			<?php }?>
 		</div>
-		<form class="locationInputWrapper" id="tagForm">
-			<i class="fal fa-hashtag" aria-hidden="true"></i>
-			<input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ...">
-			<div class="tip">กด Enter เพิ่มบันทึก</div>
-		</form>
-	</div>
-
-	<div class="section" id="guide">
-		<h2>6. SEO On-Page อย่างถูกต้อง</h2>
-		<p>Title Tag ควรมี keyword อยู่ด้วย
-ส่วนนี้ถือว่าเป็นส่วนที่สำคัญมากของการทำ On-Page SEO และเป็นส่วนที่ควรจะต้องมี keyword ที่เราต้องการทำ SEO อยู่ในส่วนนี้ ถ้าเป็นไปได้ keyword ควรจะเป็นคำแรกของ Title Tag ได้ยิ่งดี สำหรับ CMS ทั่วไปโดยเฉพาะ wordpress ส่วนนี้จะเป็นส่วนเดียวกันกับการตั้งชื่อบทความ (Headline) ดังนั้นการตั้งชื่อบทความจึงเป็นที่ต้องให้ความใส่ใจอย่างมากในการทำ SEO</p>
-		<p>อย่าลืมคิดถึง Long Tail keyword 
-Long tail keywords คือกลุ่มคำหรือวลีที่มี keyword หลักรวมอยู่กับคำอื่นๆ ซึ่งจะช่วยสร้างความหลากหลายให้กับคีย์เวิร์ด และจะทำให้คีย์เวิร์ดเหล่านี้มีโอกาสติดอันดับสูงๆ ได้ง่ายกว่าคำหลัก เช่น การเพิ่มเติมความว่า “รีวิว” “2016” หรือ “ราคา” รวมกับคีย์เวิร์ดหลักในตอนที่เขียน Title Tag เป็นต้น อ่านเพิ่มเติม Keyword Research ขั้นตอนสำคัญในการทำ SEO</p>
-		<p>สร้าง URL ให้ Search Engines และ Users เข้าใจได้ง่าย
-ควรหลีกเลี่ยง URL ที่เต็มไปด้วยอักขระที่มีแต่โปรแกรมเมอร์เท่านั้นที่อ่านเข้าใจ URL ที่ดีควรจะมีความหมายซึ่งก็หมายถึงควรจะมีคีย์เวิร์ดรวมอยู่ใน URL ด้วยจะดีมาก เพราะนอกจากจะเป็นการทำ SEO-Friendly URLs แล้วยังถือว่าเป็นการทำ User-Friendly URLs ด้วย</p>
-		<p>ให้ความสำคัญกับ Paragraph แรกของเนื้อหา
-ในย่อหน้าแรกนั้นโดยเฉพาะ 160 ตัวอักษรแรกควรที่จะมีคีย์เวิร์ดหลักรวมอยู่ด้วย เรื่องนี้ถือว่าเป็นเรื่องที่ควรจำต้องทำให้เป็นประจำสม่ำเสมอเวลาที่เขียนบทความเนื้อหาอะไรก็ตาม เนื่องจากโดยปกติถ้าหาก Google ไม่พบ Meta description แล้ว Google มักจะดึงข้อความในย่อหน้าแรกไปแสดงบนผลการค้นหา ซึ่งการมีคีย์เวิร์ดอยู่ในผลการค้นหาย่อมเป็นสิ่งที่ดี</p>
-		<p>ใช้แท็ก alt ในการอธิบายภาพ
-Alt แท็กเป็นอีกส่วนหนึ่งที่จะช่วยบอก Google ให้เข้าใจความหมายของรูปภาพได้ดียิ่งขึ้น ดังนั้นควรที่จะต้องใส่คีย์เวิร์ดในส่วนนี้ด้วยเช่นกัน</p>
-		<p>เขียนบทความให้มีความยาว
-มีผลสำรวจจากเว็บไซต์ต่างประเทศพบว่าเนื้อหาที่มีความยาวมักจะมีอันดับที่ดีกว่าเนื้อหาสั้นๆ ในบทความระบุว่าอันดับหนึ่งถึงสามในผลการค้นหามักจะมีความยาวประมาณ 1,900 – 2000 คำ แต่อย่างไรก็ตามให้ต้องคำนึงถึงคุณภาพของเนื้อหาด้วย ไม่ใช่เน้นที่ความยาวแต่เพียงอย่างเดียว เพราะถ้าเนื้อหาไม่มีคุณภาพแล้ว ความยาวก็ไม่ได้ช่วยอะไร</p>
 	</div>
 </div>
 

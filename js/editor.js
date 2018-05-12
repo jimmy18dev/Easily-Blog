@@ -81,16 +81,16 @@ $(document).ready(function(){
         }
     });
     
-    $(document).click(function(e){
-        if(!$(e.target).is('.between-option')){
-            $('.more-option').fadeOut(100);
-            $overlay.removeClass('open');
-        }
+    // $(document).click(function(e){
+    //     if(!$(e.target).is('.between-option')){
+    //         $('.more-option').fadeOut(100);
+    //         $overlay.removeClass('open');
+    //     }
         
-        if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
-            $('#swap').removeClass('-toggle');
-        }
-    })
+    //     if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
+    //         $('#swap').removeClass('-toggle');
+    //     }
+    // })
 
     /**
     * Content events listening
@@ -178,7 +178,6 @@ $(document).ready(function(){
         if(!confirm('คุณต้องการลบบทความใช่หรือไม่ ?')){ return false; }
 
         article.remove();
-        alert('Article Removed!');
         
         setTimeout(function(){
             window.location = 'profile';
@@ -454,7 +453,7 @@ $(document).ready(function(){
 
     $('.btn-swap').click(function(){
         $('#swap').addClass('-toggle');
-        $('#swapFilter').fadeIn(300);
+        $('#overlay').addClass('open');
 
         var article_id = $('#article_id').val();
         content_id = $(this).parent().parent().attr('data-content');
@@ -490,9 +489,10 @@ $(document).ready(function(){
             });
         });
 
-        $('#swapFilter').click(function(){
-            $(this).fadeOut(300);
+        $('#overlay').click(function(){
+            $(this).removeClass('open');
             $('#swap').removeClass('-toggle');
+            $('#swap').html('');
         });
     });
 

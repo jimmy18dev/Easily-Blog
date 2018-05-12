@@ -30,11 +30,17 @@ $current_page = 'category';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="filter">
-    <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
+<div class="pagehead">
+    <div class="head">
+        <h1>หมวดหมู่</h1>
+        <p>คุณมี <?php echo count($categories);?> หมวดหมู่</p>
+    </div>
+    <div class="action">
+        <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
+    </div>
 </div>
 
-<div class="article-list">
+<div class="lists">
 	<?php if(count($categories) > 0){?>
 	<?php foreach ($categories as $var) { include 'template/category.items.php'; } ?>
 	<?php }else{?>
@@ -76,11 +82,11 @@ $(function(){
 
                 return false;
             }
+
+            $items.addClass('selected');
         }
 
         $(this).html('<i class="fal fa-check"></i>');
-
-        console.log(current,target);
 
         if(current && target){
             console.log('Swap betweet: '+current+','+target);
@@ -105,7 +111,7 @@ $(function(){
                 current = null;
                 target = null;
 
-                location.reload();
+                setTimeout(function(){ location.reload(); },1000);
             });
         }
     });

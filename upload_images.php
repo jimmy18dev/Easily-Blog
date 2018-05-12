@@ -38,7 +38,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                 if($image_res){
                     $image_info             = pathinfo($image_name);
                     $image_extension        = strtolower($image_info["extension"]);
-                    $new_file_name          = 'content_'.md5(time().rand(0,9999999999)).'.'.$image_extension;
+                    $new_file_name          = 'content_'.md5(time().rand(0,2147483647)).'.'.$image_extension;
 
                     // Folder Creating
                     $img_folder = 'image/upload/'.$article_id.'/';

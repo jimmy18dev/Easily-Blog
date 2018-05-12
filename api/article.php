@@ -11,6 +11,7 @@ $returnObject = array(
 $signature 	= new Signature();
 $article 	= new Article();
 $image      = new Image();
+$document   = new Document();
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
@@ -83,20 +84,30 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $article->removeHeadCover($article_id);
                 $returnObject['message'] = 'Article Head Cover Removed';
                 break;
-            case 'change_status':
+            case 'delete':
                 $article_id = $_POST['article_id'];
-                $status     = $_POST['status'];
-                $article_id = $article->changeStatus($article_id,$status);
+
+                $article->get($article_id);
+
+                // Delete all Document files
+                foreach ($article->documents as $var){
+                    $file_location = '../files/'.$var['file_name'];
+                    if(file_exists($file_location))
+                        unlink($file_location);
+                }
+                $document->deleteAll($article->id);
+
+                // Delete all Image files and Folder.
+                $article->deleteDir('../image/upload/'.$_POST['article_id']);
+
+                // Delete all Contents.
+                $article->deleteAllContent($article->id);
+
+                // Delete Article Record
+                $article_id = $article->delete($article->id);
                 
-                $returnObject['message'] = 'Status changed';
+                $returnObject['message'] = 'Article Deleted';
                 break;
-            // case 'change_status':
-            //     $article_id = $_POST['article_id'];
-            //     $status     = $_POST['status'];
-            //     $article_id = $article->changeStatus($article_id,$status);
-                
-            //     $returnObject['message'] = 'Status changed';
-            //     break;
             case 'published':
                 $article_id = $_POST['article_id'];
                 $article_id = $article->published($article_id);
@@ -168,12 +179,13 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $content_id     = $_POST['content_id'];
                 $content_data   = $article->getContent($content_id);
                 $filename       = $content_data['img_location'];
+                $article_id     = $content_data['article_id'];
 
                 if(!empty($filename)){
-                    $image->rotate('../'.$destination_folder['thumbnail'].$filename);
-                    $image->rotate('../'.$destination_folder['square'].$filename);
-                    $image->rotate('../'.$destination_folder['normal'].$filename);
-                    $image->rotate('../'.$destination_folder['large'].$filename);
+                    $image->rotate('../image/upload/'.$article_id.'/thumbnail/'.$filename);
+                    $image->rotate('../image/upload/'.$article_id.'/square/'.$filename);
+                    $image->rotate('../image/upload/'.$article_id.'/normal/'.$filename);
+                    $image->rotate('../image/upload/'.$article_id.'/large/'.$filename);
 
                     $returnObject['message'] = 'Image Rotete Done';
                 }else{
@@ -187,10 +199,20 @@ switch ($_SERVER['REQUEST_METHOD']){
 
                 // Delete content image file
                 if($content_data['type'] == 'image' && !empty($content_data['img_location'])){
-                    unlink('../'.$destination_folder['thumbnail'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['square'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['normal'].$content_data['img_location']);
-                    unlink('../'.$destination_folder['large'].$content_data['img_location']);
+
+                    $img_location['thumbnail']  = '../image/upload/'.$article_id.'/thumbnail/'.$content_data['img_location'];
+                    $img_location['square']     = '../image/upload/'.$article_id.'/square/'.$content_data['img_location'];
+                    $img_location['normal']     = '../image/upload/'.$article_id.'/normal/'.$content_data['img_location'];
+                    $img_location['large']      = '../image/upload/'.$article_id.'/large/'.$content_data['img_location'];
+
+                    if(file_exists($img_location['thumbnail']))
+                        unlink($img_location['thumbnail']);
+                    if(file_exists($img_location['square']))
+                        unlink($img_location['square']);
+                    if(file_exists($img_location['normal']))
+                        unlink($img_location['normal']);
+                    if(file_exists($img_location['large']))
+                        unlink($img_location['large']);
                 }
 
                 $article->deleteContent($content_id,$article_id);

@@ -7,6 +7,8 @@ $categories = $category->listAll();
 if(!empty($category_id)){
     $category->get($category_id);
 }
+
+$category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 ?>
 
 <!doctype html>
@@ -25,7 +27,7 @@ if(!empty($category_id)){
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>หมวดหมู่</title>
+<title><?php echo (!empty($category->id)?$category->title.' (แก้ไข)':'สร้างหมวดหมู่');?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -33,52 +35,50 @@ if(!empty($category_id)){
 </head>
 <body>
 
-<div class="navigation">
-    <div class="title"><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่ใหม่');?></div>
-	<a class="btn right" href="profile/category"><i class="fal fa-times"></i></a>
+<div class="header">
+	<a class="btn-icon right" href="profile/category"><i class="fal fa-times"></i></a>
+</div>
+
+<div class="pagehead">
+    <div class="head">
+        <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
+    </div>
 </div>
 
 <div class="page-form">
-	<div class="items">
-		<div class="caption">ชื่อหมวดหมู่</div>
-		<div class="content">
-			<input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>">
-            <div class="message">ไม่เกิน 20 ตัวอักษร</div>
-		</div>
+	<div class="section">
+        <h2>ชื่อและคำอธิบาย</h2>
+        <p>การตั้งชื่อหมวดหมู่ที่เข้าใจง่ายและไม่ยาวจนเกินไป จะช่วยให้บทความบนเว็บไซต์น่าสนใจมากยิ่งขึ้น</p>
+        <input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>" placeholder="ชื่อหมวดหมู่">
+        <textarea id="desc" autocomplete="off" placeholder="คำอธิบาย"><?php echo $category->description;?></textarea>
 	</div>
 
-    <div class="items">
-        <div class="caption">ลิ้งค์</div>
-        <div class="content">
-            <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
-            <div class="message">ตัวอย่าง: Technology , Food-Review</div>
+    <div class="section">
+        <h2>URL Friendly</h2>
+        <p>เพิ่มความหมายให้กับลิงก์ของหมวดหมู่นี้ ตัวอย่างเช่น travels , Interview , รีวิวร้านอาหาร </p>
+
+        <div class="inputWrapper">
+            <span class="prefix"><?php echo $category_url;?></span>
+            <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>" placeholder="ตัวอย่าง: Technology , Food-Review">
         </div>
     </div>
 
-    <div class="items">
-        <div class="caption">ไอคอน <a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน"><i class="fal fa-info-circle"></i></a></div>
-        <div class="content">
-            <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
-            <div class="message">ตัวอย่าง: archive , bus , calendar</div>
-        </div>
+    <div class="section">
+        <h2>ไอคอน</h2>
+        <p>เพิ่มความน่าสนใจและช่วยให้ผู้อ่านจดจำหมวดหมู่นี้ได้ง่ายขึ้น เปิด<a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน">ตารางไอคอน</a> และนำชื่อมาใส่ในช่องด้านล่าง</p>
+        <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>" placeholder="ตัวอย่าง: archive , bus , calendar">
     </div>
-
-	<div class="items">
-		<div class="caption">เกี่ยวกับ</div>
-		<div class="content">
-			<textarea id="desc" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $category->description;?></textarea>
-		</div>
-	</div>
 
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
-	<div class="items">
-		<button id="btnSave">บันทึก</button>
+	<div class="section">
+		<button id="btnSave"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
 	</div>
 
     <?php if(!empty($category->id)){?>
-    <div class="delete-zone">
-        <p><strong>ลบหมวดหมู่!</strong> บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
+    <div class="section">
+        <h2>ลบหมวดหมู่</h2>
+        <p>เมื่อหมวดหมู่ถูกลบแล้ว <strong>ไม่สามารถกู้คืนได้</strong> ขอให้คุณแน่ใจว่าต้องการลบจริง ซึ่งบทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
         <div class="select">
             <select id="new_target">
                 <?php foreach ($categories as $var) { if($category_id != $var['id']){?>
@@ -87,7 +87,7 @@ if(!empty($category_id)){
             </select>
         </div>
 
-        <button class="btn" id="btn-delete">ลบหมวดหมู่</button>
+        <button class="btn-delete" id="btn-delete">ลบหมวดหมู่นี้</button>
     </div>
     <?php }?>
 </div>

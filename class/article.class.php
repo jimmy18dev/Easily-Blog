@@ -519,6 +519,20 @@ class Article{
 		$this->db->execute();
     }
 
+    public function deleteDir($dirPath){
+        
+        if(!is_dir($dirPath))
+            return false;
+
+        $files = array_diff(scandir($dirPath), array('.','..'));
+
+        foreach ($files as $file) { 
+            (is_dir("$dirPath/$file")) ? self::deleteDir("$dirPath/$file") : unlink("$dirPath/$file"); 
+        }
+
+        return rmdir($dirPath);
+    }
+
     // Count articles with Owner ID
     public function counter($owner_id){
         $this->db->query('SELECT status FROM article WHERE user_id = :owner_id');
@@ -677,6 +691,12 @@ class Article{
     public function deleteContent($content_id,$article_id){
         $this->db->query('DELETE FROM content WHERE (id = :content_id AND article_id = :article_id)');
         $this->db->bind(':content_id',$content_id);
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+    }
+
+    public function deleteAllContent($article_id){
+        $this->db->query('DELETE FROM content WHERE (article_id = :article_id)');
         $this->db->bind(':article_id',$article_id);
         $this->db->execute();
     }
