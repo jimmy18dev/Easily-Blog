@@ -303,7 +303,7 @@ body {
 }
 .page-form .section h3 {
   font-family: "maledpan", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: #333333;
   margin-bottom: 2%;
   line-height: 1em;
@@ -356,6 +356,52 @@ body {
   background: #FFFFFF;
   border: 1px solid #2962ff;
 }
+.page-form .section .select {
+  width: 50%;
+  float: left;
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+}
+.page-form .section .select.number {
+  width: 10%;
+}
+.page-form .section .select:after {
+  content: '';
+  border-top: 8px solid #BBBBBB;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 18px;
+  pointer-events: none;
+}
+.page-form .section .select select {
+  width: 100%;
+  margin: 0%;
+  float: left;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1em;
+  border: 1px solid #DDDDDD;
+  line-height: 1em;
+  padding: 15px;
+  background: #FFFFFF;
+  font-family: "maledpan", sans-serif;
+  color: #333333;
+  border-radius: 5px;
+}
+.page-form .section .select select:hover {
+  cursor: pointer;
+  border: 1px solid #999999;
+}
+.page-form .section .select select:focus {
+  border: 1px solid #2962ff;
+  color: #2962ff;
+}
 .page-form .section button {
   float: right;
   display: inline-block;
@@ -377,6 +423,13 @@ body {
 .page-form .section button:hover {
   cursor: pointer;
   background: #2979ff;
+}
+.page-form .section button.btn-delete {
+  float: left;
+  background: #EEEEEE;
+  color: #F44336;
+  font-weight: bold;
+  box-shadow: none;
 }
 .page-form .section .list {
   width: 100%;
@@ -668,85 +721,6 @@ body {
 }
 .page-form .section .address-list .items.unselect {
   color: #BBBBBB;
-}
-.page-form .delete-zone {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-top: 1px solid #DDDDDD;
-}
-.page-form .delete-zone p {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.1em;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
-  color: #666666;
-}
-.page-form .delete-zone .select {
-  width: 70%;
-  float: left;
-  display: inline-block;
-  position: relative;
-  margin-right: 15px;
-}
-.page-form .delete-zone .select.number {
-  width: 10%;
-}
-.page-form .delete-zone .select:after {
-  content: '';
-  border-top: 8px solid #BBBBBB;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  position: absolute;
-  z-index: 2;
-  top: 20px;
-  right: 18px;
-  pointer-events: none;
-}
-.page-form .delete-zone .select select {
-  width: 100%;
-  margin: 0%;
-  float: left;
-  display: inline-block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  font-size: 1em;
-  border: 1px solid #DDDDDD;
-  line-height: 1em;
-  padding: 15px;
-  background: #FFFFFF;
-  font-family: "maledpan", sans-serif;
-  color: #333333;
-  border-radius: 5px;
-}
-.page-form .delete-zone .select select:hover {
-  cursor: pointer;
-  border: 1px solid #999999;
-}
-.page-form .delete-zone .select select:focus {
-  border: 1px solid #2962ff;
-  color: #2962ff;
-}
-.page-form .delete-zone .btn {
-  float: right;
-  display: inline-block;
-  background: #F44336;
-  color: #FFFFFF;
-  text-decoration: none;
-  font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
-  line-height: 1em;
-  padding: 15px 25px;
-  border-radius: 5px;
-  border: 0;
-  margin: 0;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
-}
-.page-form .delete-zone .btn:hover {
-  cursor: pointer;
 }
 .editor {
   width: 100%;

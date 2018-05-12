@@ -67,8 +67,8 @@ if(!empty($category_id)){
 
     <?php if(!empty($category->id)){?>
     <div class="section">
-        <h2>ลบหมวดหมู่</h2>
-        <p><strong>!</strong> บทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
+        <h3>ลบหมวดหมู่</h3>
+        <p>เมื่อหมวดหมู่ถูกลบแล้ว <strong>ไม่สามารถกู้คืนได้</strong> ขอให้คุณแน่ใจว่าต้องการลบจริง ซึ่งบทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
         <div class="select">
             <select id="new_target">
                 <?php foreach ($categories as $var) { if($category_id != $var['id']){?>
@@ -77,7 +77,7 @@ if(!empty($category_id)){
             </select>
         </div>
 
-        <button class="btn" id="btn-delete">ลบหมวดหมู่</button>
+        <button class="btn-delete" id="btn-delete">ลบหมวดหมู่นี้</button>
     </div>
     <?php }?>
 </div>
