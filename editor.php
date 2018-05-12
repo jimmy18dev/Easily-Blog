@@ -37,9 +37,6 @@ if($article->owner_id != $user->id){
 </head>
 <body class="paper">
 <div class="header">
-	<a class="btn-profile" href="/profile">
-		<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
-	</a>
 	<div class="status" id="editor-status"></div>
 
 	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-times"></i></a>

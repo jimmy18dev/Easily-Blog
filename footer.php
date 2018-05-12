@@ -5,6 +5,7 @@
 
 		<?php if($user_online){?>
 		<a class="right" href="profile" title="<?php echo $user->fullname;?>"><i class="fal fa-cog"></i>จัดการเว็บไซต์</a>
+		<a class="right" href="/signout">ออกจากระบบ</a>
 		<?php }else{?>
 		<a class="btn right" href="signin">ผู้ดูแลระบบ</a>
 		<?php }?>

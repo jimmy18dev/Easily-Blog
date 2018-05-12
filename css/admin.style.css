@@ -166,12 +166,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 0%;
+  width: 70%;
+  padding: 0 15%;
   float: left;
   display: inline-block;
   height: 56px;
   z-index: 999;
+  background: rgba(255, 255, 255, 0.9);
 }
 .header .status {
   float: left;
@@ -206,7 +207,6 @@ body {
   width: 56px;
   height: 20px;
   padding: 18px 0%;
-  border-radius: 3px;
   line-height: 1em;
   color: #999999;
   text-decoration: none;
@@ -248,25 +248,12 @@ body {
 .header .btn:hover {
   cursor: pointer;
 }
-.header .version {
-  width: 23%;
-  float: left;
-  display: inline-block;
-  height: 16px;
-  padding: 20px 1%;
-  font-size: 0.75em;
-  color: #EEEEEE;
-  font-style: italic;
-}
-.header .version:hover {
-  cursor: default;
-}
 .header a.menu {
   float: left;
   display: inline-block;
   padding: 16px 0%;
   height: 24px;
-  margin-right: 2%;
+  margin-right: 3%;
   font-family: "maledpan", sans-serif;
   font-size: 1.05em;
   text-decoration: none;
@@ -1235,193 +1222,6 @@ body {
   cursor: pointer;
   color: #666666;
 }
-/*
-.page-form{
-	width: 50%;
-	padding: 0% 25%;
-	float: left;
-	display: inline-block;
-	margin-top: 56px * 2;
-
-	.items{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		margin-bottom: 3%;
-
-		.caption{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-family: @topic_font;
-			font-size: @font-size-normal;
-			margin-bottom: 1%;
-			color: #333333;
-
-			a{
-				color: @primary_color;
-				margin-left: 3px;
-				font-size: 0.8em;
-			}
-		}
-		.content{
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			input[type="text"] , textarea{
-				width: 100%;
-				padding: 2%;
-				float: left;
-				display: inline-block;
-				font-size: 1em;
-				border: 0;
-				border-radius: 5px;
-				background: #F5F5F5;
-				color: @primary_color;
-				resize: none;
-				outline: none;
-				line-height: 1.2em;
-				border: 1px solid #F5F5F5;
-				box-sizing: border-box;
-
-				&:hover{ cursor: pointer; }
-				&:focus{
-					background: #FFFFFF;
-					border: 1px solid @primary_color;
-				}
-			}
-
-			.message{
-				width: 35%;
-				float: right;
-				display: inline-block;
-				padding: 2% 0;
-				font-style: italic;
-				color: #BBBBBB;
-				line-height: 1.4em;
-
-				&:hover{
-					cursor: default;
-				}
-
-				a{
-					color: @primary_color;
-				}
-			}
-		}
-
-		button{
-			float: left;
-			display: inline-block;
-			background: #EEEEEE;
-			color: #BBBBBB;
-			font-size: 1.1em;
-			border-radius: 5px;
-			border: 0px;
-			padding: 15px 25px;
-			line-height: 1em;
-			font-family: @topic_font;
-
-			&.active{
-				background: @primary_color;
-				color: #FFFFFF;
-			}
-
-			&:hover{ cursor: pointer; }
-		}
-	}
-
-	.delete-zone{
-		width: 60%;
-		float: left;
-		display: inline-block;
-		margin-bottom: 15%;
-		margin-top: 3%;
-		padding-top: 3%;
-		border-top: 1px solid #DDDDDD;
-
-		p{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-size: 1.1em;
-			font-family: @topic_font;
-			margin-bottom: 3%;
-			color: #666666;
-		}
-
-		.select{
-			width: 70%;
-			float: left;
-			display: inline-block;
-			position: relative;
-			margin-right: 15px;
-
-			&.number{ width: 10%; }
-			&:after{
-				content: '';
-				border-top: 8px solid #BBBBBB;
-				border-left: 5px solid transparent;
-				border-right: 5px solid transparent;
-				position: absolute;
-				z-index: 2;
-				top: 20px;
-				right: 18px;
-				pointer-events: none;
-			}
-
-			select{
-				width: 100%;
-				margin: 0%;
-				float: left;
-				display: inline-block;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				font-size: 1em;
-				border: 1px solid #DDDDDD;
-				line-height: 1em;
-				padding: 15px;
-				background: #FFFFFF;
-				font-family: @topic_font;
-				color: #333333;
-				border-radius: 5px;
-
-				&:hover{
-					cursor: pointer;
-					border: 1px solid #999999;
-				}
-
-				&:focus{
-					border: 1px solid @primary_color;
-					color: @primary_color;
-				}
-			}
-		}
-
-		.btn{
-			float: right;
-			display: inline-block;
-			background: #F44336;
-			color: #FFFFFF;
-			text-decoration: none;
-			font-family: @topic_font;
-			font-size: 1.1em;
-			line-height: 1em;
-			padding: 15px 25px;
-			border-radius: 5px;
-			border: 0;
-			margin: 0;
-			box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
-
-			&:hover{
-				cursor: pointer;
-			}
-		}
-	}
-}
-*/
 .filter {
   width: 50%;
   margin: 0% 25%;
