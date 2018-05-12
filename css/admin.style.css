@@ -147,9 +147,6 @@ body {
   background: #ffffff;
   overflow-x: hidden;
 }
-body.fillcolor {
-  background: #2962ff;
-}
 body.paper {
   background: #FFFFFF;
 }
@@ -187,19 +184,6 @@ body {
 }
 .header .status:hover {
   cursor: default;
-}
-.header .btn-profile {
-  width: 36px;
-  height: 36px;
-  padding: 10px;
-  float: left;
-  display: inline-block;
-}
-.header .btn-profile img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
 }
 .header .btn-icon {
   float: left;
@@ -1389,7 +1373,7 @@ body {
   font-weight: normal;
   font-size: 1.05em;
   margin-bottom: 2%;
-  color: #BBBBBB;
+  color: #999999;
 }
 .lists .list-items {
   width: 100%;

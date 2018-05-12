@@ -36,7 +36,7 @@ $current_page = '';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
+<body class="paper">
 <?php include_once 'header.php';?>
 
 <!-- Article Content -->
@@ -178,7 +178,7 @@ $current_page = '';
 </article>
 
 <?php if(count($related_content) > 0){?>
-<div class="section">
+<div class="section related">
 	<h3>บทความแนะนำ</h3>
 	<div class="lists">
 		<?php foreach ($related_content as $var) { include 'template/article.card.php'; } ?>
