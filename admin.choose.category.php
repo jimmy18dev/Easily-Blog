@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $category = new Category();
 $categories = $category->listAll();
 ?>
@@ -20,7 +30,7 @@ $categories = $category->listAll();
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>เลือกประเภทบทความ</title>
+<title>เลือกประเภทบทความใหม่ | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>

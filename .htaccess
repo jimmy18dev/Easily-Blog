@@ -12,23 +12,23 @@ RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/articles.php?category_id=$1&title=$2 [L]
 
 ### ARTICLE
 RewriteRule ^article/([0-9]+)$ 			/article.php?article_id=$1 [L]
-RewriteRule ^article/([0-9]+)/editor$ 	/editor.php?article_id=$1 [L]
-RewriteRule ^article/([0-9]+)/option$ 	/editor-option.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/editor$ 	/admin.editor.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/option$ 	/admin.editor.option.php?article_id=$1 [L]
 RewriteRule ^article/([0-9]+)/([^_]*)$ 	/article.php?article_id=$1&title=$2 [L]
-RewriteRule ^article/create$ 			/choose-category.php [L]
+RewriteRule ^article/create$ 			/admin.choose.category.php [L]
 
 ### TAG
 RewriteRule ^tag/([^_]*)$ 				/tag.php?name=$1 [L]
 
 ### PROFILE
-RewriteRule ^profile$ 					/profile.php [L]
-RewriteRule ^profile/article/page/([^_]*)$ 	/profile.php?page=$1 [L]
-RewriteRule ^profile/article/([^_]*)$ 	/profile.php?page=$1 [L]
-RewriteRule ^profile/category$ 			/category.php [L]
-RewriteRule ^profile/section$ 			/section.php [L]
-RewriteRule ^profile/category/create$ 	/category-edit.php [L]
-RewriteRule ^profile/category/edit/([0-9]+)$ /category-edit.php?category_id=$1 [L]
-RewriteRule ^profile/edit$ 				/profile-edit.php [L]
+RewriteRule ^profile$ 					/admin.profile.php [L]
+RewriteRule ^profile/article/page/([^_]*)$ 	/admin.profile.php?page=$1 [L]
+RewriteRule ^profile/article/([^_]*)$ 	/admin.profile.php?page=$1 [L]
+RewriteRule ^profile/category$ 			/admin.category.php [L]
+RewriteRule ^profile/section$ 			/admin.section.php [L]
+RewriteRule ^profile/category/create$ 	/admin.category.edit.php [L]
+RewriteRule ^profile/category/edit/([0-9]+)$ /admin.category.edit.php?category_id=$1 [L]
+RewriteRule ^profile/edit$ 				/admin.profile.edit.php [L]
 
 ### ERROR PAGE
 RewriteRule ^error/([^_]*)$ 			/error.php?e=$1 [L]

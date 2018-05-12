@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $category = new Category();
 $categories = $category->listAll();
 $current_page = 'category';
@@ -21,7 +31,7 @@ $current_page = 'category';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>Category</title>
+<title>หมวดหมู่ | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -36,7 +46,7 @@ $current_page = 'category';
         <p>คุณมี <?php echo count($categories);?> หมวดหมู่</p>
     </div>
     <div class="action">
-        <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
+        <a class="btn-create active" href="profile/category/create">สร้างหมวดหมู่</a>
     </div>
 </div>
 

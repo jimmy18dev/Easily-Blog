@@ -10,6 +10,9 @@
 @font-size-desc 		: 0.75em;
 @font-size-icon 		: 1.25em;
 
+@font-size-topic 		: 2.2em;
+@font-size-body 		: 1.2em;
+
 .button(){
 	float: right;
 	display: inline-block;
@@ -603,7 +606,7 @@ body{ background: @bg_color; }
 			resize: none;
 			border: 0px;
 			background: transparent;
-			font-size: 3em;
+			font-size: @font-size-topic;
 			font-family: @topic_font;
 			line-height: 1.2em;
 			min-height: 50px;
@@ -758,12 +761,13 @@ body{ background: @bg_color; }
 				padding: 1.2% 0%;
 				float: left;
 				display: inline-block;
-				font-size: 1.6em;
+				font-size: @font-size-body * 1.2;
 				margin: 0px;
 				border: 0px;
 				color: @font_color_topic;
 				background: transparent;
 				line-height: 1.3em;
+				font-weight: bold;
 
 				&:hover{ cursor: pointer; }
 			}
@@ -772,7 +776,7 @@ body{ background: @bg_color; }
 				padding: 1% 0%;
 				float: left;
 				display: inline-block;
-				font-size: 1.2em;
+				font-size: @font-size-body;
 				line-height: 1.6em;
 				color: #666666;
 				border: 0;

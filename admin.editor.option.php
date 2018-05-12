@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $article 	= new Article();
 $article_id = $_GET['article_id'];
 $article->get($article_id);

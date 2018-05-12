@@ -1,12 +1,13 @@
 <?php
 include_once'autoload.php';
+
 $article = new Article();
 $category = new Category();
 $homesection = new HomeSection();
+
 $sectionitems = $homesection->lists();
 $article_sticky = $article->listSticky();
 $categories = $category->listAll();
-
 $current_page = 'home';
 ?>
 

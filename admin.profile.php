@@ -1,7 +1,16 @@
 <?php
 include_once'autoload.php';
-$article = new Article();
 
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
+$article = new Article();
 $page = (!empty($_GET['page'])?$_GET['page']:1);
 $perpage = 30;
 
@@ -31,7 +40,7 @@ $current_page = 'article';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $user->fullname;?></title>
+<title>บทความ | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -46,7 +55,7 @@ $current_page = 'article';
         <p>จัดการบทความของคุณทั้งหมด ได้จากหน้านี้</p>
     </div>
     <div class="action">
-        <a class="btn-create" href="article/create">เขียนบทความ</a>
+        <a class="btn-create active" href="article/create">เขียนบทความ</a>
     </div>
 </div>
 

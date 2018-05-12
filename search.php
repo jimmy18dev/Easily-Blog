@@ -1,9 +1,11 @@
 <?php
 include_once'autoload.php';
 
-$keyword = trim($_GET['q']);
+
+isset($_GET['q']) ? $keyword = trim($_GET['q']) : $keyword = '';
 
 $article = new Article();
+$articles = [];
 
 if(!empty($keyword)){
 	$articles = $article->listAll(NULL,$keyword,'published',NULL,20,true,NULL,NULL);
@@ -45,7 +47,7 @@ $current_page = 'search';
 
 <div class="section">
 	<div class="lists">
-		<?php if(count($articles['items']) > 0){?>
+		<?php if(isset($articles['items']) && count($articles['items']) > 0){?>
 		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>
 		<?php }else{?>
 		<?php if(!empty($keyword)){?>

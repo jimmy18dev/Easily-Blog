@@ -248,7 +248,7 @@ body.paper {
   line-height: 1.2em;
   height: 20px;
   padding: 18px 0px;
-  margin-right: 18px;
+  margin-right: 3%;
   text-decoration: none;
   color: #111111;
 }
@@ -292,7 +292,7 @@ body.paper {
 }
 .cover .content h1 {
   color: #FFFFFF;
-  font-size: 2.8600000000000003em;
+  font-size: 3.1500000000000004em;
   line-height: 1.5em;
 }
 .cover .content p {
@@ -311,7 +311,7 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.3650000000000002em;
+  font-size: 1.5750000000000002em;
   font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
   color: #333333;
@@ -586,7 +586,7 @@ body.paper {
   background: #CCCCCC;
 }
 .article .article-header h1 {
-  font-size: 2.2em;
+  font-size: 2.1em;
   font-family: "maledpan", sans-serif;
   line-height: 1.2em;
   color: #111111;
@@ -669,7 +669,7 @@ body.paper {
 }
 .article section h2 {
   color: #111111;
-  font-size: 1.05em;
+  font-size: 1.26em;
   margin-bottom: 2%;
   line-height: 1.3em;
 }
@@ -700,8 +700,8 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.7999999999999998em;
-  color: #999999;
+  font-size: 2.2em;
+  color: #DDDDDD;
 }
 .article blockquote i.fa-quote-right {
   text-align: right;
@@ -711,7 +711,8 @@ body.paper {
   padding: 1% 5%;
   float: left;
   display: inline-block;
-  font-size: 1.44em;
+  font-family: "maledpan", sans-serif;
+  font-size: 2.2em;
   line-height: 1.5em;
   color: #333333;
   border: 0;
@@ -719,6 +720,7 @@ body.paper {
   background: transparent;
   resize: none;
   font-style: italic;
+  text-align: center;
 }
 .article blockquote footer {
   width: 80%;
@@ -793,6 +795,7 @@ body.paper {
   padding-bottom: 56.25%;
   margin-top: 2%;
   height: 0;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .article figure.content .videoWrapper iframe {
   position: absolute;
@@ -1156,7 +1159,7 @@ form.search input[type="text"]:focus {
   float: left;
   display: inline-block;
   font-size: 1.05em;
-  padding: 4% 5%;
+  padding: 3.5% 5%;
   margin: 0;
   border: 0;
   background: #FFFFFF;
@@ -1189,7 +1192,7 @@ form.search input[type="text"]:focus {
 .announce {
   width: 50%;
   margin: 0% 25%;
-  margin-top: 24%;
+  margin-top: 20%;
   float: left;
   display: inline-block;
   text-align: center;
@@ -1197,12 +1200,33 @@ form.search input[type="text"]:focus {
 .announce h2 {
   font-family: "maledpan", sans-serif;
   font-weight: normal;
-  color: #333333;
-  font-size: 1.05em;
+  color: #999999;
+  font-size: 2.2em;
 }
 .announce h2 i {
-  margin-right: 15px;
-  color: #ff6d00;
+  margin-right: 20px;
+}
+.announce p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 1%;
+  font-size: 0.75em;
+  color: #999999;
+}
+.announce a {
+  margin-top: 10%;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.05em;
+  color: #FFFFFF;
+  background: #ff6d00;
+  padding: 1% 3%;
+  border-radius: 5px;
+}
+.announce a i {
+  margin-right: 10px;
 }
 .overlay {
   position: fixed;
@@ -1229,6 +1253,9 @@ form.search input[type="text"]:focus {
   .header .btn-icon {
     padding: 18px 5%;
     font-size: 1.2em;
+  }
+  .header .btn-icon span {
+    display: none;
   }
   .header #btn-category {
     display: block;
@@ -1269,7 +1296,7 @@ form.search input[type="text"]:focus {
     text-align: left;
   }
   .cover .content h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
     line-height: 1.2em;
     margin-bottom: 3%;
   }
@@ -1394,7 +1421,7 @@ form.search input[type="text"]:focus {
     font-size: 1.1em;
   }
   .article .article-header h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
     line-height: 1.2em;
   }
   .article .article-header p.desc {
@@ -1580,10 +1607,9 @@ form.search input[type="text"]:focus {
   .login .logo {
     padding: 5% 0%;
     margin-top: 0%;
-    margin-bottom: 5%;
   }
   .login .logo a img {
-    height: 50px;
+    height: 40px;
   }
   .login .content {
     width: 90%;
@@ -1591,15 +1617,19 @@ form.search input[type="text"]:focus {
     margin-bottom: 5%;
   }
   .login .content .btn {
-    padding: 5.6% 0%;
+    padding: 5% 0%;
     font-size: 1.1em;
   }
+  .login .content .btn i {
+    margin-left: 15px;
+  }
   .login .content .separator {
+    padding: 5% 0%;
     font-size: 1.1em;
   }
   .login .content .inputtext {
     font-size: 1.1em;
-    padding: 5%;
+    padding: 3.5% 5%;
     margin-bottom: 5%;
   }
   .login .message {

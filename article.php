@@ -134,10 +134,10 @@ $current_page = '';
 		<?php }else if($var['type'] == 'quote'){?>
 		<!-- Quote Block -->
 		<blockquote class="content">
-			<i class="fal fa-quote-left" aria-hidden="true"></i>
+			<i class="fa fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
-			<footer>–<cite><?php echo $var['topic'];?></cite></footer>
-			<i class="fal fa-quote-right" aria-hidden="true"></i>
+			<footer>— <cite><?php echo $var['topic'];?></cite></footer>
+			<i class="fa fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
 
 		<?php }else if($var['type'] == 'map'){?>

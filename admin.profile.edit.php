@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $current_page = 'edit';
 ?>
 
@@ -19,7 +29,7 @@ $current_page = 'edit';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>แก้ไขโปรไฟล์</title>
+<title>นักเขียน | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -44,7 +54,7 @@ $current_page = 'edit';
         <div class="note">ไม่เกิน 140 ตัวอักษร</div>
     </div>
     <div class="section">
-        <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
+        <button id="btnSaveProfile" class="active">บันทึกการเปลี่ยนแปลง</button>
     </div>
 </div>
 

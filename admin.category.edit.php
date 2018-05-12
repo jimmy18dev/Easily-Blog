@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $category = new Category();
 $category_id = $_GET['category_id'];
 $categories = $category->listAll();
@@ -27,7 +37,7 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo (!empty($category->id)?$category->title.' (แก้ไข)':'สร้างหมวดหมู่');?></title>
+<title><?php echo (!empty($category->id)?$category->title.' (แก้ไข)':'สร้างหมวดหมู่');?> | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -72,7 +82,7 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
 	<div class="section">
-		<button id="btnSave"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
+		<button id="btnSave" class="active"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
 	</div>
 
     <?php if(!empty($category->id)){?>

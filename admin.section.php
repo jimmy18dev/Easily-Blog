@@ -1,5 +1,15 @@
 <?php
 include_once'autoload.php';
+
+if(!$user_online){
+    header('Location: signin');
+    die();
+}
+if($user->type != 'admin' && $user->type != 'writer'){
+    header('Location: permission.php');
+    die();
+}
+
 $homesection = new HomeSection;
 $sections = $homesection->lists();
 
@@ -24,7 +34,7 @@ $current_page = 'section';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title>Section</title>
+<title>ตั้งค่า | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/admin.style.css"/>
@@ -43,7 +53,7 @@ $current_page = 'section';
 <div class="filter">
     <p>คุณสามารถเลือกหมวดหมู่ทที่ให้แสดงบนหน้าแรกของเว็บไซต์ โดยเลือกหมวดหมู่และระบุจำนวนบทความที่ต้องการให้แสดง</p>
 
-    <button class="btn-create" id="btn-add">เพิ่มหมวด</button>
+    <button class="btn-create active" id="btn-add">เพิ่มหมวด</button>
     <div class="select number" title="จำนวนบทความที่แสดง">
         <select id="total_items">
             <?php for($i=2;$i<=12;$i+=2){?>
