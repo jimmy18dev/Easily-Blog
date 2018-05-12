@@ -288,6 +288,18 @@ body {
   display: inline-block;
   margin-top: 112px;
 }
+.page-form h1 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2.4em;
+  font-family: "maledpan", sans-serif;
+  color: #333333;
+  padding-bottom: 3%;
+  margin-bottom: 3%;
+  border-bottom: 1px solid #EEEEEE;
+  line-height: 1em;
+}
 .page-form .section {
   width: 100%;
   float: left;
@@ -296,14 +308,8 @@ body {
 }
 .page-form .section h2 {
   font-family: "maledpan", sans-serif;
-  font-size: 2.2em;
-  color: #333333;
-  margin-bottom: 2%;
-  line-height: 1em;
-}
-.page-form .section h3 {
-  font-family: "maledpan", sans-serif;
-  font-size: 1.4em;
+  font-weight: normal;
+  font-size: 1.8em;
   color: #333333;
   margin-bottom: 2%;
   line-height: 1em;
@@ -435,6 +441,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 3%;
 }
 .page-form .section .list input[type="file"] {
   display: none;
@@ -495,115 +502,74 @@ body {
 }
 .page-form .section .location-current {
   width: 100%;
+  padding: 2.5%;
   float: left;
   display: inline-block;
-}
-.page-form .section .location-current .location-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
+  background: #e9efff;
+  box-sizing: border-box;
   color: #2962ff;
-  background: #EEEEEE;
-  margin-bottom: 1%;
-  border-radius: 5px;
-}
-.page-form .section .location-current .location-items i.fa-map-marker {
-  width: 9%;
-  padding: 2% 0;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 1.2em;
-  line-height: 1.25em;
-}
-.page-form .section .location-current .location-items span {
-  width: 82%;
-  padding: 2% 0;
-  float: left;
-  display: inline-block;
+  line-height: 1em;
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.3em;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 1%;
 }
-.page-form .section .location-current .location-items span:hover {
+.page-form .section .location-current:hover {
   cursor: default;
 }
-.page-form .section .location-current .location-items .btn {
-  width: 9%;
-  padding: 2% 0;
+.page-form .section .location-current:hover .btn {
   color: #F44336;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 1.2em;
-  line-height: 1.25em;
 }
-.page-form .section .location-current .location-items .btn:hover {
+.page-form .section .location-current .btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.8em;
+  line-height: 1em;
+  color: transparent;
+}
+.page-form .section .location-current .btn:hover {
   cursor: pointer;
 }
-.page-form .section .locationInputWrapper {
+.page-form .section ul {
   width: 100%;
   float: left;
   display: inline-block;
+  margin: 0;
+  padding: 0;
   border-radius: 5px;
   overflow: hidden;
-  position: relative;
-  border: 1px solid #2962ff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.page-form .section ul .location-items {
+  width: 100%;
+  padding: 2.5%;
+  float: left;
+  display: inline-block;
+  color: #333333;
+  line-height: 1.5em;
+  border-bottom: 1px solid #EEEEEE;
   box-sizing: border-box;
-}
-.page-form .section .locationInputWrapper input[type="text"] {
-  width: 100%;
   font-size: 1em;
-  line-height: 1.5em;
-  float: left;
-  display: inline-block;
-  margin: 0px;
-  border: 0px;
-  padding: 2%;
-  background: transparent;
+  line-height: 1em;
 }
-.page-form .section .locationInputWrapper input[type="text"]:hover {
-  cursor: pointer;
+.page-form .section ul .location-items:last-child {
+  border-bottom: 0;
 }
-.page-form .section .locationInputWrapper .location-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  color: #333333;
-  line-height: 1.5em;
-  border-top: 1px solid #DDDDDD;
-}
-.page-form .section .locationInputWrapper .location-items i.fa-map-marker {
-  width: 9%;
-  padding: 2% 0;
-  text-align: center;
-  color: #2962ff;
-  float: left;
-  display: inline-block;
-  font-size: 1.4em;
-  line-height: 1.25em;
-}
-.page-form .section .locationInputWrapper .location-items span {
-  width: 91%;
-  padding: 2% 0;
-  color: #333333;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-}
-.page-form .section .locationInputWrapper .location-items .btn {
+.page-form .section ul .location-items i {
   float: right;
-  display: inline-block;
-  color: #BBBBBB;
+  color: transparent;
 }
-.page-form .section .locationInputWrapper .location-items:hover {
+.page-form .section ul .location-items:hover,
+.page-form .section ul .location-items.selected {
+  background: #2962ff;
+  color: #FFFFFF;
+  border-bottom: 1px solid #2962ff;
   cursor: pointer;
-  background: #2962FF;
 }
-.page-form .section .locationInputWrapper .location-items.selected {
-  background: #2962FF;
-}
-.page-form .section .locationInputWrapper .location-items.selected span,
-.page-form .section .locationInputWrapper .location-items.selected i {
+.page-form .section ul .location-items:hover i,
+.page-form .section ul .location-items.selected i {
   color: #FFFFFF;
 }
 .page-form .section .location-list {
@@ -629,34 +595,37 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  margin-top: 1%;
+  margin-top: 2%;
 }
 .page-form .section .tag .tag-items {
   float: left;
   display: inline-block;
-  background: #2962ff;
-  color: #FFFFFF;
-  padding: 2% 1%;
-  padding-left: 2.5%;
+  background: #e9efff;
+  color: #2962ff;
+  padding: 2%;
   line-height: 1em;
   border-radius: 5px;
   margin-right: 1%;
   margin-bottom: 1%;
-  font-weight: bold;
+  position: relative;
 }
 .page-form .section .tag .tag-items .name:hover {
   cursor: default;
 }
 .page-form .section .tag .tag-items .btn-remove-tag {
-  margin-left: 3px;
-  font-size: 0.9em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.7em;
+  line-height: 1em;
   color: transparent;
 }
 .page-form .section .tag .tag-items .btn-remove-tag:hover {
   cursor: pointer;
+  color: #F44336 !important;
 }
 .page-form .section .tag .tag-items:hover .btn-remove-tag {
-  color: #FFFFFF;
+  color: #2962ff;
 }
 .page-form .section .inputWrapper {
   width: 100%;
@@ -664,39 +633,23 @@ body {
   display: table;
   border-radius: 5px;
   overflow: hidden;
-  border: 1px solid #2962ff;
   box-sizing: border-box;
   border-collapse: separate;
 }
 .page-form .section .inputWrapper span {
   width: 1%;
-  padding: 15px;
-  padding-right: 0;
+  padding: 2.5% 0;
+  padding-right: 10px;
   white-space: nowrap;
   vertical-align: middle;
   display: table-cell;
   font-size: 1em;
+  line-height: 1em;
   color: #2962ff;
+  font-weight: bold;
 }
 .page-form .section .inputWrapper span:hover {
   cursor: default;
-}
-.page-form .section .inputWrapper span i {
-  float: left;
-  font-size: 1.2em;
-}
-.page-form .section .inputWrapper .url-input {
-  float: left;
-  width: 100%;
-  display: table-cell;
-  margin: 0;
-  border: 0;
-  font-size: 1em;
-  padding: 15px 2%;
-  box-sizing: border-box;
-}
-.page-form .section .inputWrapper .url-input:hover {
-  cursor: pointer;
 }
 .page-form .section .address-list {
   width: 100%;

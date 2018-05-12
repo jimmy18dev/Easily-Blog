@@ -36,6 +36,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </div>
 
 <div class="page-form">
+	<h1>เพิ่มประสิทธิภาพ</h1>
 	<div class="section" id="cover">
 		<h2>ภาพหน้าปก</h2>
 		<p>ภาพนี้จะถูกใช้เป็นภาพประจำบนความบนหน้าเว็บไซต์ และเมื่อแชร์บทความนบน Facebook ภาพนี้จะแสดงเป็นภาพแรก ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>
@@ -56,20 +57,18 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 				<input type="hidden" name="type" value="cover">
 			</form>
 		</div>
-	</div>
 
-	<div class="section" id="info">
 		<h2>รายละเอียดอย่างย่อ</h2>
 		<p>อธิบายบทความด้วยความยาวไม่เกิน 140 ตัวอักษร ช่วยเพิ่มโอกาสให้ผลการค้นหาใน Google ดียิ่งขึ้น</p>
 		<textarea id="description" placeholder="รายละเอียดอย่างย่อไม่เกิน 140 ตัวอักษร"><?php echo $article->description;?></textarea>
 	</div>
 
-	<div class="section" id="url">
+	<div class="section">
 		<h2>URL Friendly</h2>
 		<p>ลิ้งค์บทความที่ดูเรียบง่ายและมีความหมาย เป็นอีกปัจจัยสำคัญช่วยให้ Google จัดอันดับบทความบนเว็บของเราในอันดับที่ดีมากยิ่งขึ้น</p>
 		<div class="inputWrapper">
 			<span class="prefix"><?php echo $article_url;?></span>
-			<input class="url-input" type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
+			<input type="text" id="articleURL" value="<?php echo $article->url;?>" placeholder="ตั้งชื่อลิงค์ที่นี่...">
 		</div>
 		<p class="note">* หากต้องการเว้นวรรคใช้เครื่องหมาย - หรือ _ เท่านั้น</p>
 	</div>
@@ -80,37 +79,27 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 
 		<?php if(!empty($article->district_id) || !empty($article->amphur_id) || !empty($article->province_id)){?>
 		<div class="location-current">
-			<div class="location-items">
-				<i class="fa fa-map-marker" aria-hidden="true"></i>
-				<span>
-					<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
-					<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
-					<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
-				</span>
-				<div class="btn" id="btnClearLocation" title="ลบที่อยู่ปันจุบัน"><i class="fal fa-times" aria-hidden="true"></i></div>
-			</div>
+			<?php echo (!empty($article->district_name)?'ต.'.$article->district_name.' ':'');?>
+			<?php echo (!empty($article->amphur_name)?'อ.'.$article->amphur_name.' ':'');?>
+			<?php echo (!empty($article->province_name)?'จ.'.$article->province_name:'');?>
+			<div class="btn" id="btnClearLocation" title="ลบที่อยู่ปันจุบัน"><i class="fal fa-times" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 
-		<div class="locationInputWrapper">
-			<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด" autocomplete="off">
-			<ul id="locationList"></ul>
-		</div>
+		<input type="text" id="findLocation" placeholder="ค้นหา ตำบล อำเภอ จังหวัด" autocomplete="off">
+		<ul id="locationList"></ul>
 	</div>
 
-	<div class="section" id="tag">
+	<div class="section">
 		<h2>คำที่เกี่ยวข้อง</h2>
 		<p>กลุ่มคำที่ช่วยให้สามารถจัดกลุ่มบทความในเรื่องเดียวกัน ยกตัวอย่าง เช่น กำหนดคำว่า <strong>โรคเบาหวาน</strong> ในบทความต่างๆ เมื่อผู้อ่านค้นหาบทความเฉพาะคำที่สนใจ ระบบจะแสดงบทความที่เกี่ยวข้องกับ <strong>โรคเบาหวาน</strong> ทั้งหมด</p>
-		<form class="locationInputWrapper" id="tagForm">
-			<input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ...">
-			<div class="tip"></div>
-		</form>
+		<form id="tagForm"><input type="text" id="tag-input" placeholder="ใส่คำที่ค้องการ..."></form>
 		<p class="note">กด Enter เพิ่มบันทึก</p>
 
 		<div class="tag">
 			<?php foreach ($article->tags as $var) {?>
 			<div class="tag-items" data-id="<?php echo $var['tag_id'];?>" data-name="<?php echo $var['name'];?>">
-				<span class="name">#<?php echo $var['name'];?></span>
+				<span class="name"><?php echo $var['name'];?></span>
 				<span class="btn-remove-tag"><i class="fal fa-times"></i></span>
 			</div>
 			<?php }?>

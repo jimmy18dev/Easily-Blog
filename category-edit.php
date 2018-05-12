@@ -38,22 +38,23 @@ if(!empty($category_id)){
 </div>
 
 <div class="page-form">
+    <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
 	<div class="section">
-        <h2><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h2>
+        <h2>ชื่อและคำอธิบาย</h2>
         <p>การตั้งชื่อหมวดหมู่ที่เข้าใจง่ายและไม่ยาวจนเกินไป จะช่วยให้บทความบนเว็บไซต์น่าสนใจมากยิ่งขึ้น</p>
         <input type="text" id="title" autocomplete="off" value="<?php echo $category->title;?>" placeholder="ชื่อหมวดหมู่">
         <textarea id="desc" autocomplete="off" placeholder="คำอธิบาย"><?php echo $category->description;?></textarea>
 	</div>
 
     <div class="section">
-        <h3>URL Friendly</h3>
+        <h2>URL Friendly</h2>
         <p>เพิ่มความหมายให้กับลิงก์ของหมวดหมู่นี้ ตัวอย่างเช่น travels , Interview , รีวิวร้านอาหาร </p>
         <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
         <p class="note">ตัวอย่าง: Technology , Food-Review</p>
     </div>
 
     <div class="section">
-        <h3>ไอคอน</h3>
+        <h2>ไอคอน</h2>
         <p>เพิ่มความน่าสนใจและช่วยให้ผู้อ่านจดจำหมวดหมู่นี้ได้ง่ายขึ้น เพียงคุณเปิด<a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน">ตารางไอคอน</a> และนำชื่อมาใส่ในช่องด้านล่าง</p>
         <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
         <p class="note">ตัวอย่าง: archive , bus , calendar</p>
@@ -67,7 +68,7 @@ if(!empty($category_id)){
 
     <?php if(!empty($category->id)){?>
     <div class="section">
-        <h3>ลบหมวดหมู่</h3>
+        <h2>ลบหมวดหมู่</h2>
         <p>เมื่อหมวดหมู่ถูกลบแล้ว <strong>ไม่สามารถกู้คืนได้</strong> ขอให้คุณแน่ใจว่าต้องการลบจริง ซึ่งบทความที่อยู่ในหมวดนี้จะถูกย้ายไปที่:</p>
         <div class="select">
             <select id="new_target">
