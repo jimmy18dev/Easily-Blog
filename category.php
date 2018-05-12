@@ -30,8 +30,14 @@ $current_page = 'category';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="filter">
-    <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
+<div class="pagehead">
+    <div class="head">
+        <h1>หมวดหมู่</h1>
+        <p>คุณมี <?php echo count($categories);?> หมวดหมู่</p>
+    </div>
+    <div class="action">
+        <a class="btn-create" href="profile/category/create">สร้างหมวดหมู่</a>
+    </div>
 </div>
 
 <div class="lists">

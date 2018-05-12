@@ -35,8 +35,14 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
 </div>
 
+<div class="pagehead">
+	<div class="head">
+		<h1>เพิ่มประสิทธิภาพ</h1>
+		<p>การทำ SEO คือ ทำเว็บไซต์ให้ตรงตามเกณฑ์การให้คะแนนของ Search Engine อย่าง Google ให้มากที่สุด เพื่อให้เว็บไซต์ติดอยู่ในผลการค้นหาลำดับแรก</p>
+	</div>
+</div>
+
 <div class="page-form">
-	<h1>เพิ่มประสิทธิภาพ</h1>
 	<div class="section" id="cover">
 		<h2>ภาพหน้าปก</h2>
 		<p>ภาพนี้จะถูกใช้เป็นภาพประจำบนความบนหน้าเว็บไซต์ และเมื่อแชร์บทความนบน Facebook ภาพนี้จะแสดงเป็นภาพแรก ตรวจสอบด้วย <a href="https://developers.facebook.com/tools/debug/sharing/">Sharing Debugger</a></p>
@@ -45,7 +51,6 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			<?php if(($var['type'] == 'image' || $var['type'] == 'cover') && !empty($var['img_location'])){?>
 			<div class=" items cover-items <?php echo ($var['id'] == $article->cover_id?'active':'');?>" data-cover="<?php echo $var['id'];?>" title="เลือกเป็นภาพปก">
 				<img src="image/upload/<?php echo $article->id;?>/square/<?php echo $var['img_location'];?>">
-				<i class="fa fa-check-circle"></i>
 			</div>
 			<?php }?>
 			<?php }?>

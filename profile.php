@@ -40,8 +40,14 @@ $current_page = 'article';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="filter">
-    <a class="btn-create" href="article/create">เขียนบทความ</a>
+<div class="pagehead">
+    <div class="head">
+        <h1>บทความ</h1>
+        <p>จัดการบทความของคุณทั้งหมด ได้จากหน้านี้</p>
+    </div>
+    <div class="action">
+        <a class="btn-create" href="article/create">เขียนบทความ</a>
+    </div>
 </div>
 
 <?php if($page == 1 && count($article_sticky) > 0){?>

@@ -28,24 +28,22 @@ $current_page = 'edit';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="page-form">
-    <div class="items">
-        <div class="caption">ชื่อ-นามสกุล</div>
-        <div class="content">
-            <input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
-            <div class="message">ชื่อผู้เขียนบทความและแสดงบนหน้าเว็บ</div>
-        </div>
+<div class="pagehead">
+    <div class="head">
+        <h1>โปรไฟล์ผู้เขียน</h1>
+        <p>ชื่อผู้เขียนบทความและแสดงบนหน้าเว็บ</p>
     </div>
-    <div class="items">
-        <div class="caption">เกี่ยวกับ</div>
-        <div class="content">
-            <textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
-            <div class="message">ตำแหน่งงานที่รับผิดชอบ</div>
-        </div>
-    </div>
+</div>
 
-    <div class="items">
-        <button id="btnSaveProfile">บันทึก</button>
+<div class="page-form">
+    <div class="section">
+        <h2>ชื่อ-นามสกุล</h2>
+        <input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
+        <textarea id="bio" autocomplete="off" placeholder="ไม่เกิน 140 ตัวอักษร"><?php echo $user->bio;?></textarea>
+        <p class="note">ตำแหน่งงานที่รับผิดชอบ</p>
+    </div>
+    <div class="section">
+        <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
     </div>
 </div>
 

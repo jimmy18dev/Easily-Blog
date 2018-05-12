@@ -27,6 +27,7 @@ body{
 	height: 56px;
 	z-index: 999;
 	background: rgba(255,255,255,0.9);
+	text-align: center;
 
 	// Editor status.
 	.status{
@@ -101,41 +102,84 @@ body{
 
 	// Navigation Menu.
 	a.menu{
-		float: left;
 		display: inline-block;
-		padding: 16px 0%;
+		padding: 16px 1.5%;
 		height: 24px;
-		margin-right: 3%;
+		clear: both;
 		font-family: @topic_font;
 		font-size: @font-size-normal;
 		text-decoration: none;
 		color: #333333;
+		border-radius: 5px;
 
-		span{margin-left: 10px;}
+		i{ font-size: 0.9em; }
+		span{ margin-left: 10px; }
 		&:hover{ cursor: pointer; }
-		&.active{ color: @primary_color; }
+		&.active{
+			color: @primary_color;
+		}
+	}
+}
+.pagehead{
+	width: 50%;
+	margin: 3% 25%;
+	margin-top: 56px * 2;
+	padding-bottom: 3%;
+	float: left;
+	display: inline-block;
+	border-bottom: 1px solid #EEEEEE;
+
+	.head{
+		width: 70%;
+		float: left;
+		display: inline-block;
+		font-family: @topic_font;
+
+		h1{
+			font-size: 2.6em;
+			line-height: 1em;
+			color: #333333;
+		}
+		p{
+			margin-top: 1em;
+			font-size: @font-size-normal;
+			color: #999999;
+		}
+	}
+	.action{
+		width: 30%;
+		float: left;
+		display: inline-block;
+		margin-top: 1%;
+
+		.btn-create{
+			float: right;
+			display: inline-block;
+			background: @primary_color;
+			color: #FFFFFF;
+			text-decoration: none;
+			font-family: @topic_font;
+			font-size: @font-size-normal;
+			line-height: 1em;
+			padding: 15px 25px;
+			border-radius: 5px;
+			border: 0;
+			margin: 0;
+			box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+
+			&:hover{
+				cursor: pointer;
+				background: @primary_color_light;
+			}
+		}
 	}
 }
 
 .page-form{
 	width: 50%;
-	margin: 10% 25%;
+	margin: 0% 25%;
 	float: left;
 	display: inline-block;
-	margin-top: 56px * 2;
-
-	h1{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		font-size: 2.4em;
-		font-family: @topic_font;
-		color: #333333;
-		padding-bottom: 3%;
-		margin-bottom: 3%;
-		border-bottom: 1px solid #EEEEEE;
-		line-height: 1em;
-	}
 
 	.section{
 		width: 100%;
@@ -148,18 +192,19 @@ body{
 			font-weight: normal;
 			font-size: 1.8em;
 			color: #333333;
-			margin-bottom: 2%;
 			line-height: 1em;
+			margin-bottom: 0.5em;
 		}
 
 		p{
-			width: 100%;
+			width: 70%;
+			margin-right: 30%;
 			float: left;
 			display: inline-block;
-			font-size: 1em;
-			margin-bottom: 3%;
+			font-size: 1.1em;
+			margin-bottom: 1em;
 			color: #666666;
-			line-height: 1.6em;
+			font-family: @topic_font;
 
 			strong{ color: #333333; }
 			a{ color: @primary_color; }
@@ -175,7 +220,7 @@ body{
 
 		input[type="text"] , textarea{
 			width: 100%;
-			padding: 2.5%;
+			padding: 15px;
 			float: left;
 			display: inline-block;
 			font-size: 1em;
@@ -194,6 +239,16 @@ body{
 				background: #FFFFFF;
 				border: 1px solid @primary_color;
 			}
+		}
+
+		.note{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 0.8em;
+			text-align: right;
+			font-style: italic;
+			color: #999999;
 		}
 
 		.select{
@@ -281,51 +336,37 @@ body{
 			width: 100%;
 			float: left;
 			display: inline-block;
-			margin-bottom: 3%;
+			margin-bottom: 5%;
 
 			input[type="file"]{ display: none; }
 			form{ display: none; }
 
 			.items{
-				width: 18.4%;
+				width: 19%;
+				margin: 0.5%;
 				float: left;
 				display: inline-block;
 				box-sizing: border-box;
-				margin-bottom: 2%;
-				margin-right: 2%;
-				border: 3px solid transparent;
-				border-radius: 5px;
-				overflow: hidden;
-				position: relative;
+				border: 2px solid transparent;
+				padding: 5px;
+				border-radius: 7px;
 
-				&:nth-child(5n+0){ margin-right: 0; }
+				// &:nth-child(5n+0){ margin-right: 0; }
 
 				img{
 					width: 100%;
 					float: left;
 					display: inline-block;
+					border-radius: 5px;
 				}
-				.fa-check-circle{ display: none; }
 
-				&.active{
-					border: 3px solid @primary_color;
-					box-shadow: 0px 5px 20px rgba(100,100,100,0.2);
-
-					.fa-check-circle{
-						position: absolute;
-						right: 10%;
-						bottom: 10%;
-						display: block;
-						font-size: 1.4em;
-						color: @primary_color;
-					}
-				}
+				&.active{ border: 2px solid @primary_color; }
 
 				&.btn-add-cover{
-					padding: 6.8% 0%;
+					padding: 7.1% 0;
+					border: 2px dashed #BBBBBB;
 					text-align: center;
-					color: #999999;
-					border: 2px dashed #999999;
+					color: #BBBBBB;
 
 					i{ font-size: 1.6em; }
 
@@ -484,15 +525,13 @@ body{
 
 			span{
 				width: 1%;
-				padding: 2.5% 0;
-				padding-right: 10px;
+				padding-right: 15px;
 				white-space: nowrap;
 				vertical-align: middle;
 				display: table-cell;
 				font-size: 1em;
 				line-height: 1em;
 				color: @primary_color;
-				font-weight: bold;
 
 				&:hover{ cursor: default; }
 			}
@@ -1257,7 +1296,7 @@ body{
 .lists{
 	width: 50%;
 	padding: 0% 25%;
-	padding-bottom: 5%;
+	padding-bottom: 3%;
 	float: left;
 	display: inline-block;
 

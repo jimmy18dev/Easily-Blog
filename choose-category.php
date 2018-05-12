@@ -38,8 +38,11 @@ $categories = $category->listAll();
 	</div>
 </div> -->
 
-<div class="filter">
-    <div class="title">เลือกประเภทบทความ</div>
+<div class="pagehead">
+	<div class="head">
+		<h1>เลือกประเภทบทความ</h1>
+		<p>หลังจากที่คุณสร้างบทความไปแล้ว จะไม่สามารถเปลี่ยนหมวดหมู่ได้อีก</p>
+	</div>
 </div>
 
 <div class="lists no-margin">

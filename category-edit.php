@@ -7,6 +7,8 @@ $categories = $category->listAll();
 if(!empty($category_id)){
     $category->get($category_id);
 }
+
+$category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 ?>
 
 <!doctype html>
@@ -37,8 +39,13 @@ if(!empty($category_id)){
 	<a class="btn-icon right" href="profile/category"><i class="fal fa-times"></i></a>
 </div>
 
+<div class="pagehead">
+    <div class="head">
+        <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
+    </div>
+</div>
+
 <div class="page-form">
-    <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
 	<div class="section">
         <h2>ชื่อและคำอธิบาย</h2>
         <p>การตั้งชื่อหมวดหมู่ที่เข้าใจง่ายและไม่ยาวจนเกินไป จะช่วยให้บทความบนเว็บไซต์น่าสนใจมากยิ่งขึ้น</p>
@@ -49,15 +56,17 @@ if(!empty($category_id)){
     <div class="section">
         <h2>URL Friendly</h2>
         <p>เพิ่มความหมายให้กับลิงก์ของหมวดหมู่นี้ ตัวอย่างเช่น travels , Interview , รีวิวร้านอาหาร </p>
-        <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>">
-        <p class="note">ตัวอย่าง: Technology , Food-Review</p>
+
+        <div class="inputWrapper">
+            <span class="prefix"><?php echo $category_url;?></span>
+            <input type="text" id="link" autocomplete="off" value="<?php echo $category->link;?>" placeholder="ตัวอย่าง: Technology , Food-Review">
+        </div>
     </div>
 
     <div class="section">
         <h2>ไอคอน</h2>
-        <p>เพิ่มความน่าสนใจและช่วยให้ผู้อ่านจดจำหมวดหมู่นี้ได้ง่ายขึ้น เพียงคุณเปิด<a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน">ตารางไอคอน</a> และนำชื่อมาใส่ในช่องด้านล่าง</p>
-        <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>">
-        <p class="note">ตัวอย่าง: archive , bus , calendar</p>
+        <p>เพิ่มความน่าสนใจและช่วยให้ผู้อ่านจดจำหมวดหมู่นี้ได้ง่ายขึ้น เปิด<a href="https://fontawesome.com/icons?d=gallery&s=light" target="_blank" title="เปิดตารางไอคอน">ตารางไอคอน</a> และนำชื่อมาใส่ในช่องด้านล่าง</p>
+        <input type="text" id="icon" autocomplete="off" value="<?php echo $category->icon;?>" placeholder="ตัวอย่าง: archive , bus , calendar">
     </div>
 
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">

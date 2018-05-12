@@ -33,8 +33,11 @@ $current_page = 'section';
 <body>
 <?php include_once 'template/admin.navigation.php'; ?>
 
-<div class="filter">
-    <div class="title">แสดงอยู่ในหน้าแรก</div>
+<div class="pagehead">
+    <div class="head">
+        <h1>ตั้งค่าเว็บไซต์</h1>
+        <p>คุณสามารถแก้ไขเว็บได้จากหน้านี้ </p>
+    </div>
 </div>
 <div class="lists no-margin">
 	<?php if(count($sections) > 0){?>
