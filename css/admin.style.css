@@ -159,9 +159,6 @@ body {
   background: #ffffff;
 }
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 70%;
   padding: 0 15%;
   float: left;
@@ -258,7 +255,7 @@ body {
 .pagehead {
   width: 50%;
   margin: 3% 25%;
-  margin-top: 112px;
+  margin-top: 56px;
   padding-bottom: 3%;
   float: left;
   display: inline-block;
@@ -826,6 +823,9 @@ body {
   float: left;
   display: inline-block;
   position: relative;
+}
+.editor .content.youtube .input-wrapper.hidden {
+  display: none;
 }
 .editor .content.youtube .input-wrapper span {
   width: 8%;

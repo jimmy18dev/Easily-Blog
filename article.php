@@ -1,17 +1,16 @@
 <?php
 include_once 'autoload.php';
-$article = new Article();
 
-$article_id = $_GET['article_id'];
+$article 			= new Article();
+$article_id 		= $_GET['article_id'];
 $article->get($article_id);
-$related_content = $article->related($article->id);
+$related_content 	= $article->related($article->id);
 
+// Redirect to URL Friendly Page.
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
-
-$current_page = '';
 ?>
 
 <!doctype html>
@@ -61,7 +60,7 @@ $current_page = '';
 					</div>
 				</div>
 				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
@@ -83,7 +82,7 @@ $current_page = '';
 			</div>
 
 			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 			<?php }?>
 		</div>
 
@@ -189,7 +188,6 @@ $current_page = '';
 <?php include_once 'footer.php';?>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
-<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>

@@ -17,6 +17,9 @@ $article_id = $_GET['article_id'];
 $article->get($article_id);
 $loop = 1;
 
+// Get Ref
+$ref = (isset($_GET['ref'])?$_GET['ref']:'');
+
 if($article->owner_id != $user->id){
 	header('Location: '.DOMAIN.'/error/NotOwner');
 	die();
@@ -49,13 +52,18 @@ if($article->owner_id != $user->id){
 <div class="header">
 	<div class="status" id="editor-status"></div>
 
-	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="กลับไปคลังบทความ"><i class="fal fa-times"></i></a>
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>" target="_blank" title="ดูบทความแท็บใหม่"><i class="fa fa-eye"></i></a>
-	<?php if($article->status!='published'){?>
-	<div class="btn right active" id="btn-publish" title="เผยแพร่บทความนี้">เผยแพร่</div>
+	<?php if($ref == 'onsite'){?>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
+	<?php }else{?>
+	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
 	<?php }?>
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option" title="ตั้งค่าบทความ"><i class="fa fa-cog"></i></a>
-	<a class="btn-icon right" id="btn-remove" title="ลบบทความนี้"><i class="fa fa-trash"></i></a>
+
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>" target="_blank" title="ดูตัวอย่างแท็บใหม่"><i class="fa fa-eye"></i></a>
+	<?php if($article->status!='published'){?>
+	<div class="btn right active" id="btn-publish" title="เผยแพร่">เผยแพร่</div>
+	<?php }?>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option" title="ตั้งค่า"><i class="fa fa-cog"></i></a>
+	<a class="btn-icon right" id="btn-remove" title="ลบ"><i class="fa fa-trash"></i></a>
 </div>
 
 <div class="editor">
@@ -106,7 +114,7 @@ if($article->owner_id != $user->id){
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
 		</div>
 
-		<div class="input-wrapper">
+		<div class="input-wrapper <?php echo (!empty($var['video_id'])?'hidden':'');?>">
 			<span><i class="fab fa-youtube"></i></span>
 			<input type="<?php echo (!empty($var['video_id'])?'hidden':'text');?>" class="youtube_url" placeholder="YouTube Video URL">
 		</div>

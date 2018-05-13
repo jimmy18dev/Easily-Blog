@@ -46,9 +46,6 @@
 body{ background: @bg_color; }
 
 .header{
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 70%;
 	padding: 0 15%;
 	float: left;
@@ -135,7 +132,7 @@ body{ background: @bg_color; }
 .pagehead{
 	width: 50%;
 	margin: 3% 25%;
-	margin-top: 56px * 2;
+	margin-top: 56px;
 	padding-bottom: 3%;
 	float: left;
 	display: inline-block;
@@ -684,6 +681,8 @@ body{ background: @bg_color; }
 				display: inline-block;
 				position: relative;
 
+				&.hidden{ display: none; }
+
 				span{
 					width: 8%;
 					padding: 2% 0;
@@ -729,9 +728,7 @@ body{ background: @bg_color; }
 					height: 100%;
 				}
 
-				&.hidden{
-					display: none;
-				}
+				&.hidden{ display: none; }
 			}
 		}
 

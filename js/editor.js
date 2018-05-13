@@ -290,7 +290,7 @@ $(document).ready(function(){
             $YouTubeAlt     = $('#content'+content_id).children('.alt');
             $YouTubeID.val(youtube_id);
             var embed = '<iframe src="https://www.youtube.com/embed/'+youtube_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
-            
+
             $YouTubePreview.html(embed);
 
             console.log($YouTubePreview,embed);
@@ -430,8 +430,7 @@ $(document).ready(function(){
         if(!confirm('Delete this Content #'+content_id+' ?')){ return false; }
 
         article.deleteContent(content_id)
-
-        $('#content'+content_id).fadeOut(500);
+        location.reload();
     });
 
     $('.between-option').click(function(){
