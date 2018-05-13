@@ -106,7 +106,11 @@ if($article->owner_id != $user->id){
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
 		</div>
 
-		<input type="<?php echo (!empty($var['video_id'])?'hidden':'');?>" class="youtube_url" placeholder="YouTube Video URL">
+		<div class="input-wrapper">
+			<span><i class="fab fa-youtube"></i></span>
+			<input type="<?php echo (!empty($var['video_id'])?'hidden':'text');?>" class="youtube_url" placeholder="YouTube Video URL">
+		</div>
+
 		<input type="hidden" class="youtube_id" value="<?php echo $var['video_id'];?>">
 
 		<div class="videoWrapper <?php echo (empty($var['video_id'])?'hidden':'');?>">
@@ -122,10 +126,10 @@ if($article->owner_id != $user->id){
 			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
 		</div>
 
-		<i class="fal fa-quote-left" aria-hidden="true"></i>
+		<i class="fa fa-quote-left"></i>
 		<textarea class="body quote-body autosize" placeholder="เขียนคำพูดที่นี่..."><?php echo $var['body'];?></textarea>
 		<input type="text" class="topic quote-cite" placeholder="อ้างอิงที่มา" title="อ้างอิงที่มา" value="<?php echo $var['topic'];?>">
-		<i class="fal fa-quote-right" aria-hidden="true"></i>
+		<i class="fa fa-quote-right"></i>
 	</div>
 	<?php }else if($var['type'] == 'map'){?>
 	<div class="content google-map" id="content<?php echo $var['id'];?>" data-content="<?php echo $var['id'];?>">
@@ -184,23 +188,23 @@ if($article->owner_id != $user->id){
 	<div class="between-option" title="แทรกส่วนนี้">
 		<div class="more-option">
 			<div class="btnAction" data-action="textbox" data-content="<?php echo $var['id'];?>">
-				<i class="fal fa-font"></i>
+				<i class="fa fa-font"></i>
 				<span>บทความ</span>
 			</div>
 			<div class="btnAction" data-action="image" data-content="<?php echo $var['id'];?>">
-				<i class="fal fa-camera"></i>
+				<i class="fa fa-camera"></i>
 				<span>รูปภาพ</span>
 			</div>
 			<div class="btnAction" data-action="quote" data-content="<?php echo $var['id'];?>">
-				<i class="fal fa-quote-right"></i>
+				<i class="fa fa-quote-right"></i>
 				<span>คำพูด</span>
 			</div>
 			<div class="btnAction" data-action="youtube" data-content="<?php echo $var['id'];?>">
-				<i class="fal fa-video"></i>
+				<i class="fab fa-youtube"></i>
 				<span>YouTube</span>
 			</div>
 			<div class="btnAction" data-action="map" data-content="<?php echo $var['id'];?>">
-				<i class="fal fa-map"></i>
+				<i class="fa fa-map"></i>
 				<span>แผนที่</span>
 			</div>
 		</div>
@@ -210,11 +214,11 @@ if($article->owner_id != $user->id){
 
 	<div class="tools-bar">
 		<span class="btn-tool btnAction" data-action="textbox" title="เพิ่มกล่องข้อความ"><i class="fa fa-font"></i></span>
-		<span class="btn-tool" id="btnMultipleImages" title="อัพโหลดรูปภาพ"><i class="fa fa-camera"></i></span>
+		<span class="btn-tool" id="btnMultipleImages" title="อัพโหลดภาพ"><i class="fa fa-camera"></i></span>
 		<span class="btn-tool btnAction" data-action="quote" title="กล่องคำพูด"><i class="fa fa-quote-right"></i></span>
-		<span class="btn-tool btnAction" data-action="youtube" title="คลิปวิดีโอจาก YouTube"><i class="fa fa-video"></i></span>
-		<span class="btn-tool btnAction" data-action="map" title="แผนที่จาก Google Map"><i class="fa fa-map"></i></span>
-		<span class="btn-tool btnAction" id="btnAttachFile" title="แนบไฟล์เอกสาร"><i class="fa fa-paperclip"></i></span>
+		<span class="btn-tool btnAction" data-action="youtube" title="คลิป YouTube"><i class="fab fa-youtube"></i></span>
+		<span class="btn-tool btnAction" data-action="map" title="แผนที่ Google Map"><i class="fa fa-map"></i></span>
+		<span class="btn-tool btnAction" id="btnAttachFile" title="แนบไฟล์"><i class="fa fa-paperclip"></i></span>
 	</div>
 
 	<div class="documents">

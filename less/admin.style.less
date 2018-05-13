@@ -10,7 +10,6 @@
 @font-size-desc 		: 0.75em;
 @font-size-icon 		: 1.25em;
 
-@font-size-topic 		: 2.2em;
 @font-size-body 		: 1.2em;
 
 .button(){
@@ -606,12 +605,13 @@ body{ background: @bg_color; }
 			resize: none;
 			border: 0px;
 			background: transparent;
-			font-size: @font-size-topic;
+			font-size: @font-size-body * 2;
 			font-family: @topic_font;
 			line-height: 1.2em;
 			min-height: 50px;
 			word-wrap: break-word;
 			white-space: pre-wrap;
+			font-weight: bold;
 
 			&:hover{ cursor: pointer; }
 		}
@@ -630,7 +630,7 @@ body{ background: @bg_color; }
 			.control .btn{ color: #BBBBBB; }
 		}
 
-		// Content Controller
+		// Content Controller Bar (Swap, Delete, Rotate)
 		.control{
 			width: 100%;
 			float: left;
@@ -678,18 +678,40 @@ body{ background: @bg_color; }
 		}
 
 		&.youtube{
-			.youtube_url{
+			.input-wrapper{
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 1.2em;
-				padding: 2% 0%;
-				margin: 0;
-				border: 0;
-				text-align: center;
-				background: #EEEEEE;
-				border-radius: 5px;
+				position: relative;
+
+				span{
+					width: 8%;
+					padding: 2% 0;
+					float: left;
+					display: inline-block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					font-size: @font-size-body;
+					text-align: center;
+					line-height: 1.3em;
+					color: #FF0000;
+				}
+
+				.youtube_url{
+					width: 92%;
+					float: left;
+					display: inline-block;
+					font-size: @font-size-body;
+					padding: 2% 0%;
+					padding-left: 8%;
+					margin: 0;
+					border: 0;
+					background: #EEEEEE;
+					border-radius: 5px;
+				}
 			}
+			
 			.videoWrapper{
 				width: 100%;
 				float: left;
@@ -718,7 +740,7 @@ body{ background: @bg_color; }
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 2.4em;
+				font-size: @font-size-body * 2;
 				color: #EEEEEE;
 			}
 
@@ -729,7 +751,8 @@ body{ background: @bg_color; }
 				padding: 1% 5%;
 				float: left;
 				display: inline-block;
-				font-size: 2.2em;
+				font-family: @topic_font;
+				font-size: @font-size-body * 2;
 				line-height: 1.3em;
 				color: #666666;
 				border: 0;
@@ -737,21 +760,19 @@ body{ background: @bg_color; }
 				background: transparent;
 				resize: none;
 				font-style: italic;
+				text-align: center;
 			}
 			.quote-cite{
 				width: 80%;
 				padding: 1% 10%;
 				float: left;
 				display: inline-block;
-				font-size: 1.2em;
+				font-size: @font-size-body;
 				margin: 0px;
 				border: 0px;
 				color: #333333;
 				background: transparent;
 				text-align: right;
-
-				&:focus{
-				}
 			}
 		}
 
@@ -796,7 +817,7 @@ body{ background: @bg_color; }
 			float: left;
 			background: #EEEEEE;
 			color: #BBBBBB;
-			font-size: 1.2em;
+			font-size: @font-size-body;
 		}
 
 		&.photoForm{
@@ -941,27 +962,23 @@ body{ background: @bg_color; }
 	.tools-bar{
 		width: 50%;
 		margin: 5% 25%;
+		padding-top: 1%;
 		float: left;
 		display: inline-block;
 		border-top: 1px solid #EEEEEE;
+		text-align: center;
 
 		i{ margin: 0; }
 
 		.btn-tool{
-			float: left;
 			display: inline-block;
-			padding: 2.5%;
+			padding: 18px;
 			font-size: @font-size-icon;
 			line-height: 1em;
 			background: transparent;
-			color: #999999;
-			border-radius: 5px;
-			font-family: @topic_font;
+			color: #666666;
 
-			&:hover{
-				cursor: pointer;
-				color: #333333;
-			}
+			&:hover{ cursor: pointer; }
 		}
 	}
 
@@ -1541,9 +1558,9 @@ body{ background: @bg_color; }
 	left: 0;
 	width: 100%;
 	height: 100%;
-	-webkit-backdrop-filter: blur(7px);
-	backdrop-filter: blur(7px);
-	background: rgba(255,255,255,0.7);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	background: rgba(255,255,255,0.5);
 	z-index: 99;
 	visibility: hidden;
 	opacity: 0;

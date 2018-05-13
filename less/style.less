@@ -3,7 +3,6 @@
 
 @title_fontsize : 1.05em;
 @desc_fontsize 	: 0.75em;
-@topic_fontsize	: 2.2em;
 @body_fontsize 	: 1.2em;
 
 .header{
@@ -446,20 +445,17 @@
 				width: 10%;
 				float: right;
 				display: inline-block;
-				background: #DADADA;
+				background: #EEEEEE;
 				text-align: center;
 				font-family: @topic_font;
-				color: #333333;
+				color: #999999;
 				border-radius: 5px;
-				padding: 1% 0%;
+				padding: 1.5% 0%;
 				font-size: @title_fontsize;
 				line-height: 1em;
 				text-decoration: none;
 
-				&:hover{
-					cursor: pointer;
-					background: #CCCCCC;
-				}
+				&:hover{ cursor: pointer; }
 			}
 		}
 
@@ -526,7 +522,7 @@
 				}
 				a.btn-edit{
 					color: rgba(255,255,255,0.7);
-					background: transparent;
+					background: rgba(255,255,255,0.1);
 					border: 1px solid rgba(255,255,255,0.7);
 					box-sizing: border-box;
 
@@ -551,7 +547,7 @@
 
 		h2{
 			color: @font_color_topic;
-			font-size: @title_fontsize * 1.2;
+			font-size: @body_fontsize * 1.2;
 			margin-bottom: 2%;
 			line-height: 1.3em;
 		}
@@ -585,7 +581,7 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			font-size: @topic_fontsize;
+			font-size: @body_fontsize * 2;
 			color: #DDDDDD;
 		}
 		i.fa-quote-right{ text-align: right; }
@@ -596,7 +592,7 @@
 			float: left;
 			display: inline-block;
 			font-family: @topic_font;
-			font-size: @topic_fontsize;
+			font-size: @body_fontsize * 2;
 			line-height: 1.5em;
 			color: @font_color_body;
 			border: 0;
@@ -1121,7 +1117,7 @@ form.search{
 		font-family: @topic_font;
 		font-weight: normal;
 		color: #999999;
-		font-size: @topic_fontsize;
+		font-size: @body_fontsize * 2;
 
 		i{ margin-right: 20px; }
 	}

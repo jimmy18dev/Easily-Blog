@@ -571,19 +571,18 @@ body.paper {
   width: 10%;
   float: right;
   display: inline-block;
-  background: #DADADA;
+  background: #EEEEEE;
   text-align: center;
   font-family: "maledpan", sans-serif;
-  color: #333333;
+  color: #999999;
   border-radius: 5px;
-  padding: 1% 0%;
+  padding: 1.5% 0%;
   font-size: 1.05em;
   line-height: 1em;
   text-decoration: none;
 }
 .article .article-header .author a.btn-edit:hover {
   cursor: pointer;
-  background: #CCCCCC;
 }
 .article .article-header h1 {
   font-size: 2.1em;
@@ -647,7 +646,7 @@ body.paper {
 }
 .article .article-cover .article-header .author a.btn-edit {
   color: rgba(255, 255, 255, 0.7);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-sizing: border-box;
 }
@@ -669,7 +668,7 @@ body.paper {
 }
 .article section h2 {
   color: #111111;
-  font-size: 1.26em;
+  font-size: 1.44em;
   margin-bottom: 2%;
   line-height: 1.3em;
 }
@@ -700,7 +699,7 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 2.2em;
+  font-size: 2.4em;
   color: #DDDDDD;
 }
 .article blockquote i.fa-quote-right {
@@ -712,7 +711,7 @@ body.paper {
   float: left;
   display: inline-block;
   font-family: "maledpan", sans-serif;
-  font-size: 2.2em;
+  font-size: 2.4em;
   line-height: 1.5em;
   color: #333333;
   border: 0;
@@ -1201,7 +1200,7 @@ form.search input[type="text"]:focus {
   font-family: "maledpan", sans-serif;
   font-weight: normal;
   color: #999999;
-  font-size: 2.2em;
+  font-size: 2.4em;
 }
 .announce h2 i {
   margin-right: 20px;
