@@ -111,6 +111,30 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 				$returnObject['message'] 	= 'Verify request Send';
 				break;
+			case 'import_facebook_avatar':
+				$fb_avatar = 'https://graph.facebook.com/'.$user->fb_id.'/picture?type=large';
+				$img_folder = '../image/upload/avatar/';
+				$new_filename = 'avatar_'.substr(md5(time().rand(0,2147483647)),6,6).'.jpg';
+				$img_location = $img_folder.$new_filename;
+
+				$stream_opts = [
+					"ssl" => [
+						"verify_peer"=>false,
+						"verify_peer_name"=>false
+					]
+				];    
+
+				file_put_contents($img_location,file_get_contents($fb_avatar,false, stream_context_create($stream_opts)));
+
+				// Delte Old Image.
+                if(!empty($user->avatar) && file_exists($img_folder.$user->avatar))
+                	unlink($img_folder.$user->avatar);
+
+                $user->updateAvatar($user->id,$new_filename); // Update Avatar
+				
+				$returnObject['fb_avatar'] = $fb_avatar;
+				$returnObject['message'] = 'Avatar Imported.';
+				break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';
 			break;

@@ -211,6 +211,62 @@ body{ background: @bg_color; }
 			}
 		}
 
+		.avatar{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-bottom: 5%;
+
+			.pic{
+				width: 20%;
+				float: left;
+				display: inline-block;
+
+				img{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					border-radius: 5px;
+				}
+			}
+
+			.action{
+				width: 75%;
+				margin-left: 5%;
+				margin-top: 6%;
+				float: left;
+				display: inline-block;
+
+				form{ display: none; }
+
+				.btn-action{
+					float: left;
+					display: inline-block;
+					background: @primary_color;
+					color: #FFFFFF;
+					text-decoration: none;
+					font-family: @topic_font;
+					font-size: @font-size-normal;
+					line-height: 1.1em;
+					padding: 15px 25px;
+					border-radius: 5px;
+					margin: 0;
+					margin-right: 15px;
+					box-sizing: border-box;
+					border: 1px solid @primary_color;
+
+					i{ margin-right: 15px; }
+
+					&.facebook-import{
+						background: #FFFFFF;
+						color: @primary_color;
+					}
+
+					&:hover{ cursor: pointer; }
+				}
+			}
+		}
+
 		.toggle-items{
 			width: 100%;
 			padding: 0.5% 0%;

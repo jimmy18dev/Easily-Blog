@@ -360,6 +360,59 @@ body {
   color: #999999;
   font-style: italic;
 }
+.page-form .section .avatar {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.page-form .section .avatar .pic {
+  width: 20%;
+  float: left;
+  display: inline-block;
+}
+.page-form .section .avatar .pic img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+}
+.page-form .section .avatar .action {
+  width: 75%;
+  margin-left: 5%;
+  margin-top: 6%;
+  float: left;
+  display: inline-block;
+}
+.page-form .section .avatar .action form {
+  display: none;
+}
+.page-form .section .avatar .action .btn-action {
+  float: left;
+  display: inline-block;
+  background: #2962ff;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.05em;
+  line-height: 1.1em;
+  padding: 15px 25px;
+  border-radius: 5px;
+  margin: 0;
+  margin-right: 15px;
+  box-sizing: border-box;
+  border: 1px solid #2962ff;
+}
+.page-form .section .avatar .action .btn-action i {
+  margin-right: 15px;
+}
+.page-form .section .avatar .action .btn-action.facebook-import {
+  background: #FFFFFF;
+  color: #2962ff;
+}
+.page-form .section .avatar .action .btn-action:hover {
+  cursor: pointer;
+}
 .page-form .section .toggle-items {
   width: 100%;
   padding: 0.5% 0%;

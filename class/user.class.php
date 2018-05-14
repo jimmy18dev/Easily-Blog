@@ -8,6 +8,7 @@ class User{
     public $fname;
     public $lname;
     public $display;
+    public $avatar;
     public $bio;
     public $verified;
     public $type;
@@ -223,7 +224,7 @@ class User{
     }
 
     public function getUser($user_id){
-        $this->db->query('SELECT id,phone,email,fname,lname,display,bio,password,salt,verified,type,status,ip,register_time,edit_time,visit_time,fb_id,fb_fname,fb_lname,fb_link,gender FROM user WHERE id = :user_id');
+        $this->db->query('SELECT id,phone,email,fname,lname,display,avatar,bio,password,salt,verified,type,status,ip,register_time,edit_time,visit_time,fb_id,fb_fname,fb_lname,fb_link,gender FROM user WHERE id = :user_id');
         $this->db->bind(':user_id',$user_id);
         $this->db->execute();
         $dataset = $this->db->single();
@@ -235,6 +236,7 @@ class User{
         $this->lname           = $dataset['lname'];
         $this->bio             = $dataset['bio'];
         $this->display          = $dataset['display'];
+        $this->avatar          = $dataset['avatar'];
         $this->password       = $dataset['password'];
         $this->salt           = $dataset['salt'];
         $this->ip             = $dataset['ip'];
@@ -389,6 +391,14 @@ class User{
         $this->db->bind(':user_id' ,$user_id);
         $this->db->bind(':password' ,$password);
         $this->db->bind(':salt' ,$salt);
+        $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
+    public function updateAvatar($user_id,$img){
+        $this->db->query('UPDATE user SET avatar = :img,edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':img' ,$img);
+        $this->db->bind(':user_id' ,$user_id);
         $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
         $this->db->execute();
     }

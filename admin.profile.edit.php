@@ -48,6 +48,23 @@ $current_page = 'edit';
 <div class="page-form">
     <div class="section">
         <h2>ข้อมูลจะแสดงบนเว็บไซต์</h2>
+
+        <p>ภาพโปรไฟล์</p>
+        <div class="avatar">
+            <div class="pic">
+                <img src="image/upload/avatar/<?php echo $user->avatar;?>" alt="">
+            </div>
+
+            <div class="action">
+                <form action="upload_avatar.php" id="avatarForm" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" id="avatarFile">
+                </form>
+
+                <div class="btn-action" id="btnChooseAvatar"><i class="fa fa-camera"></i>เลือกภาพใหม่</div>
+                <div class="btn-action facebook-import" id="btnFacebookImport"><i class="fab fa-facebook"></i>ใช้ภาพจาก Facebook</div>
+            </div>
+        </div>
+
         <p>ชื่อ-นามสกุล (แสดงอยู่ในส่วนของผู้เขียน)</p>
         <input type="text" id="display" autocomplete="off" placeholder="ชื่อ-นามสกุล" value="<?php echo $user->display;?>">
         <textarea id="bio" autocomplete="off" placeholder="คำอธิยาบเกี่ยวกับคุณ"><?php echo $user->bio;?></textarea>
@@ -62,6 +79,7 @@ $current_page = 'edit';
 <div id="overlay" class="overlay"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-form.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript">
@@ -98,6 +116,55 @@ $(function(){
 
     $('input,textarea').on('input',function(event) {
     	$btnSaveProfile.addClass('active');
+    });
+
+    // Choose cover image.
+    $('#btnChooseAvatar').click(function(){
+        $('#avatarFile').focus().click();
+    });
+    $('#avatarFile').change(function(){
+        $('#avatarForm').submit()
+    });
+    $('#avatarForm').ajaxForm({
+        beforeSubmit: function(formData, jqForm, options){
+            // $('#btnChooseCover').html('กำลังอัพโหลด...')
+        },
+        uploadProgress: function(event,position,total,percentComplete) {
+            var percent = percentComplete;
+            percent = (percent * 80) / 100;
+            
+            console.log('Upload: '+percentComplete+' %')
+            progressbar.Progressbar(percentComplete+'%')
+        },
+        success: function() {
+            // $photoLoadingBar.animate({width:'100%'},300);
+        },
+        complete: function(xhr) {
+            progressbar.Progressbar('100%')
+            console.log(xhr.responseJSON)
+            location.reload();
+        }
+    });
+
+    $('#btnFacebookImport').click(function(){
+        progressbar.Progressbar('70%');
+
+        $.ajax({
+            url         :'api/user',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request :'import_facebook_avatar'
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+            location.reload();
+        });
     });
 });
 </script>
