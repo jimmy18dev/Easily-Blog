@@ -211,6 +211,19 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<?php }?>
 </article>
 
+<?php if($article->qrcode){?>
+<div class="qrcode">
+	<h3>อ่านต่อในมือถือ</h3>
+	<div class="qrcode-img">
+		<img src="image/qrcode/article_<?php echo $article->id;?>.png" alt="">
+	</div>
+	<div class="guild">
+		<p><strong>iPhone,iPad</strong> - เปิดแอปกล้องและส่องไปที่ QR code จากนั้นจะมี Notification ขึ้นมาด้านบน แสดงเป็น URL คุรสามารถกดที่ Notification และจะลิงก์ไปที่ Safari อัตโนมัติ</p>
+		<p><strong>Android</strong> - เปิดแอป LINE แล้วไปที่ More แตะไปที่ไอค่อน QR Code จากนั้นก็เริ่มทำการสแกนได้เลย แตะ Open หากเป็น  QR Code ของลิงค์ต่างๆ ซึ่งจะแสดง URL หรือชื่อลิงค์ให้เห็นด้วย</p>
+	</div>
+</div>
+<?php }?>
+
 <?php if($article->fb_comment){?>
 <div class="facebook-comment">
 	<h3>ร่วมแสดงความคิดเห็น</h3>

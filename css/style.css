@@ -886,6 +886,50 @@ body.paper {
   color: #999999;
   font-style: italic;
 }
+.qrcode {
+  width: 50%;
+  margin: 0 25%;
+  margin-bottom: 5%;
+  float: left;
+  display: inline-block;
+}
+.qrcode h3 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5750000000000002em;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 3%;
+  color: #333333;
+  line-height: 1em;
+}
+.qrcode .qrcode-img {
+  width: 30%;
+  float: left;
+  display: inline-block;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.qrcode .qrcode-img img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.qrcode .guild {
+  width: 65%;
+  float: right;
+  display: inline-block;
+  font-style: italic;
+  color: #999999;
+}
+.qrcode .guild p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
 .facebook-comment {
   width: 50%;
   margin: 0 25%;

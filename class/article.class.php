@@ -25,6 +25,7 @@ class Article{
     public $tags;
     public $fb_comment;
     public $related_content;
+    public $qrcode;
 
     public $province_id;
     public $province_name;
@@ -145,7 +146,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,article.fb_comment,article.related_content,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,user.display owner_displayname,user.fb_id owner_fb_id,user.avatar owner_avatar,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,article.fb_comment,article.related_content,article.qrcode,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,user.display owner_displayname,user.fb_id owner_fb_id,user.avatar owner_avatar,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -194,6 +195,7 @@ class Article{
         $this->total_contents   = $dataset['total_contents'];
         $this->fb_comment       = ($dataset['fb_comment'] == 1 ? true : false);
         $this->related_content  = ($dataset['related_content'] == 1 ? true : false);
+        $this->qrcode           = ($dataset['qrcode'] == 1 ? true : false);
 
         $this->province_id      = $dataset['province_id'];
         $this->amphur_id        = $dataset['amphur_id'];
@@ -850,6 +852,23 @@ class Article{
         $this->db->execute();
 
         return $related_content;
+    }
+    public function toggleQRCode($article_id){
+        // Get facebook comment status.
+        $this->db->query('SELECT qrcode FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $qrcode = ($data['qrcode'] == 0 ? 1 : 0);
+
+        // Update new Status
+        $this->db->query('UPDATE article SET qrcode = :qrcode WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':qrcode',$qrcode);
+        $this->db->execute();
+
+        return $qrcode;
     }
 }
 ?>

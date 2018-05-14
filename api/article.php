@@ -1,5 +1,6 @@
 <?php
 require_once '../autoload.php';
+require_once '../plugin/phpqrcode/qrlib.php';
 header("Content-type: application/json");
 
 $returnObject = array(
@@ -37,6 +38,11 @@ switch ($_SERVER['REQUEST_METHOD']){
 
                 // $article->createContent($user->id,$article_id,'image',NULL);
                 $article->createContent($user->id,$article_id,'textbox',NULL);
+
+                $qr_content     = DOMAIN.'/article/'.$article_id;
+                $qr_filename    = '../image/qrcode/article_'.$article_id.'.png';
+
+                QRcode::png($qr_content,$qr_filename);
 
     			$returnObject['article_id'] = floatval($article_id);
     			$returnObject['message'] 	= 'New Article created';
@@ -97,6 +103,11 @@ switch ($_SERVER['REQUEST_METHOD']){
                 }
                 $document->deleteAll($article->id);
 
+                // Delele ORCode
+                $qrcode_location = '../image/qrcode/article_'.$article->id.'.png';
+                if(file_exists($qrcode_location))
+                    unlink($qrcode_location);
+
                 // Delete all Image files and Folder.
                 $article->deleteDir('../image/upload/'.$_POST['article_id']);
 
@@ -129,6 +140,11 @@ switch ($_SERVER['REQUEST_METHOD']){
                 $article_id = $_POST['article_id'];
                 $article_id = $article->toggleRelatedContent($article_id);
                 $returnObject['message'] = 'Article Toggle Related Content';
+                break;
+            case 'toggle_qrcode':
+                $article_id = $_POST['article_id'];
+                $article_id = $article->toggleQRCode($article_id);
+                $returnObject['message'] = 'Article Toggle QR Code';
                 break;
 
     		// Content Actions

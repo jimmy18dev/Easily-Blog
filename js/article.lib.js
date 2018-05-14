@@ -531,6 +531,28 @@ var Article = function (article_id){
         });
     }
 
+    // Toggle QR Code
+    this.toggleQRCode = function(){
+        progressbar.Progressbar('70%');
+        $.ajax({
+            url         :article_api,
+            cache       :false,
+            async       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'toggle_qrcode',
+                article_id  :article_id
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%')
+        });
+    }
+
     // TAGS
     // Add article tags.
     this.addTags = function(tag){

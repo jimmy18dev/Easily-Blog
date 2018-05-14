@@ -100,7 +100,7 @@ if($article->owner_id != $user->id){
 		<div class="control">
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
 		<input type="text" class="topic textbox-topic" placeholder="หัวข้อ" value="<?php echo $var['topic'];?>">
@@ -111,7 +111,7 @@ if($article->owner_id != $user->id){
 		<div class="control">
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
 		<div class="input-wrapper <?php echo (!empty($var['video_id'])?'hidden':'');?>">
@@ -131,7 +131,7 @@ if($article->owner_id != $user->id){
 		<div class="control">
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
 		<i class="fa fa-quote-left"></i>
@@ -144,7 +144,7 @@ if($article->owner_id != $user->id){
 		<div class="control">
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 		</div>
 
 		<div class="embed-map">
@@ -160,7 +160,7 @@ if($article->owner_id != $user->id){
 		<div class="control">
 			<div class="info"><?php echo (!empty($var['edited'])?'แก้ไข '.$var['edited']:$var['created']);?></div>
 			<div class="btn btnDeleteContent" title="ลบส่วนนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
-			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fal fa-list" aria-hidden="true"></i></div>
+			<div class="btn btn-swap" title="สลับตำแหน่ง"><i class="fa fa-retweet" aria-hidden="true"></i></div>
 			<div class="btn btn-rotate-image <?php echo (empty($var['img_location'])?'hidden':'');?>" title="หมุนรูปภาพ"><i class="fa fa-redo" aria-hidden="true"></i></div>
 			<div class="btn btn-change-image <?php echo (empty($var['img_location'])?'hidden':'');?>"><span>เลือกภาพใหม่</span></div>
 		</div>
