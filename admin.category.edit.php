@@ -82,7 +82,7 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
     <input type="hidden" id="category_id" value="<?php echo $category->id;?>">
 
 	<div class="section">
-		<button id="btnSave" class="active"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
+		<button id="btnSave"><?php echo (!empty($category->id)?'บันทึกการเปลี่ยนแปลง':'สร้างหมวดหมู่ใหม่');?></button>
 	</div>
 
     <?php if(!empty($category->id)){?>
@@ -116,13 +116,17 @@ $(function(){
 	var progressbar = $('#progressbar');
 
     $btnSave.click(function(){
-    	progressbar.Progressbar('70%');
 
         var category_id = $('#category_id').val();
         var title = $('#title').val();
         var desc = $('#desc').val();
         var link = $('#link').val();
         var icon = $('#icon').val();
+
+        if(!title) return false;
+
+        progressbar.Progressbar('70%');
+        $btnSave.removeClass('active');
 
         $.ajax({
             url         :'api/category',
@@ -171,9 +175,9 @@ $(function(){
         });
     });
 
-    // $('input,textarea').on('input',function(event) {
-    // 	$btnSave.addClass('active');
-    // })
+    $('input,textarea').on('input',function(event) {
+        $btnSave.addClass('active');
+    });
 });
 </script>
 </body>

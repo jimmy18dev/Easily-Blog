@@ -53,7 +53,7 @@ $current_page = 'section';
 <div class="filter">
     <p>คุณสามารถเลือกหมวดหมู่ทที่ให้แสดงบนหน้าแรกของเว็บไซต์ โดยเลือกหมวดหมู่และระบุจำนวนบทความที่ต้องการให้แสดง</p>
 
-    <button class="btn-create active" id="btn-add">เพิ่มหมวด</button>
+    <button class="btn-create" id="btn-add">เพิ่มหมวด</button>
     <div class="select number" title="จำนวนบทความที่แสดง">
         <select id="total_items">
             <?php for($i=2;$i<=12;$i+=2){?>
@@ -78,8 +78,6 @@ $current_page = 'section';
 <div class="lists no-margin">
 	<?php if(count($sections) > 0){?>
 	<?php foreach ($sections as $var) { include 'template/section.items.php'; } ?>
-	<?php }else{?>
-	<div class="empty">ไม่พบหมวดหมู่</div>
 	<?php }?>
 </div>
 
@@ -95,12 +93,19 @@ $(function(){
     var progressbar = $('#progressbar');
     tippy('[title]',{arrow: true});
 
+    $('#category_id').change(function(){
+        $('#btn-add').addClass('active');
+    });
+
 	// Article Sticky
     $('#btn-add').click(function(){
         $this = $(this);
+        $this.removeClass('active');
 
         var category_id = $('#category_id').val();
         var total_items = $('#total_items').val();
+
+        if(!category_id) return false;
 
         $.ajax({
             url         :'api/homesection',

@@ -54,7 +54,7 @@ $current_page = 'edit';
         <div class="note">ไม่เกิน 140 ตัวอักษร</div>
     </div>
     <div class="section">
-        <button id="btnSaveProfile" class="active">บันทึกการเปลี่ยนแปลง</button>
+        <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
     </div>
 </div>
 
@@ -73,6 +73,8 @@ $(function(){
     	progressbar.Progressbar('70%');
         var display = $('#display').val();
         var bio = $('#bio').val();
+
+        $btnSaveProfile.removeClass('active');
 
         $.ajax({
             url         :'api/user',
@@ -96,7 +98,7 @@ $(function(){
 
     $('input,textarea').on('input',function(event) {
     	$btnSaveProfile.addClass('active');
-    })
+    });
 });
 </script>
 </body>
