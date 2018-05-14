@@ -120,6 +120,16 @@ switch ($_SERVER['REQUEST_METHOD']){
                 
                 $returnObject['message'] = 'Article sticky success.';
                 break;
+            case 'toggle_facebook_comment':
+                $article_id = $_POST['article_id'];
+                $article_id = $article->toggleFacebookComment($article_id);
+                $returnObject['message'] = 'Article Toggle Facebook Comment';
+                break;
+            case 'toggle_related_content':
+                $article_id = $_POST['article_id'];
+                $article_id = $article->toggleRelatedContent($article_id);
+                $returnObject['message'] = 'Article Toggle Related Content';
+                break;
 
     		// Content Actions
     		case 'create_content':

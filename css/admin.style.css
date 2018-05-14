@@ -360,6 +360,37 @@ body {
   color: #999999;
   font-style: italic;
 }
+.page-form .section .toggle-items {
+  width: 100%;
+  padding: 0.5% 0%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+}
+.page-form .section .toggle-items:last-child {
+  border-bottom: 1px solid #EEEEEE;
+}
+.page-form .section .toggle-items .caption {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  font-size: 1.1em;
+  color: #666666;
+  font-family: "maledpan", sans-serif;
+  padding-top: 2%;
+}
+.page-form .section .toggle-items .switch {
+  float: right;
+  display: inline-block;
+  font-size: 2.25em;
+  color: #999999;
+}
+.page-form .section .toggle-items .switch .fa-toggle-on {
+  color: #2962ff;
+}
+.page-form .section .toggle-items .switch:hover {
+  cursor: pointer;
+}
 .page-form .section input[type="text"],
 .page-form .section textarea {
   width: 100%;

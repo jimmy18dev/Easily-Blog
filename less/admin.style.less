@@ -211,6 +211,35 @@ body{ background: @bg_color; }
 			}
 		}
 
+		.toggle-items{
+			width: 100%;
+			padding: 0.5% 0%;
+			float: left;
+			display: inline-block;
+			border-top: 1px solid #EEEEEE;
+
+			&:last-child{ border-bottom: 1px solid #EEEEEE; }
+
+			.caption{
+				width: 70%;
+				float: left;
+				display: inline-block;
+				font-size: 1.1em;
+				color: #666666;
+				font-family: @topic_font;
+				padding-top: 2%;
+			}
+			.switch{
+				float: right;
+				display: inline-block;
+				font-size: @font-size-icon * 1.8;
+				color: #999999;
+
+				.fa-toggle-on{ color: @primary_color; }
+				&:hover{ cursor: pointer; }
+			}
+		}
+
 		input[type="text"] , textarea{
 			width: 100%;
 			padding: 15px;

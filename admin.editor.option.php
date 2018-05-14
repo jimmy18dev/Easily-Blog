@@ -120,6 +120,19 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 			<?php }?>
 		</div>
 	</div>
+
+	<div class="section">
+		<h2>ตั้งค่าเพิ่มเติม</h2>
+
+		<div class="toggle-items">
+			<div class="caption">แสดงบทความที่เกี่ยวข้อง (Related Articles)</div>
+			<div class="switch" id="btnToggleRelatedContent"><?php echo ($article->related_content?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+		</div>
+		<div class="toggle-items">
+			<div class="caption">กล่องแสดงความคิดเห็น (Facebook Comments)</div>
+			<div class="switch" id="btnToggleFbComment"><?php echo ($article->fb_comment?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+		</div>
+	</div>
 </div>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">

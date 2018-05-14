@@ -813,5 +813,41 @@ class Article{
         $dataset = $this->db->single();
         return $dataset;
     }
+
+    public function toggleFacebookComment($article_id){
+        // Get facebook comment status.
+        $this->db->query('SELECT fb_comment FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $fb_comment = ($data['fb_comment'] == 0 ? 1 : 0);
+
+        // Update new Status
+        $this->db->query('UPDATE article SET fb_comment = :fb_comment WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':fb_comment',$fb_comment);
+        $this->db->execute();
+
+        return $fb_comment;
+
+    }
+    public function toggleRelatedContent($article_id){
+        // Get facebook comment status.
+        $this->db->query('SELECT related_content FROM article WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->execute();
+        $data = $this->db->single();
+
+        $related_content = ($data['related_content'] == 0 ? 1 : 0);
+
+        // Update new Status
+        $this->db->query('UPDATE article SET related_content = :related_content WHERE id = :article_id');
+        $this->db->bind(':article_id',$article_id);
+        $this->db->bind(':related_content',$related_content);
+        $this->db->execute();
+
+        return $related_content;
+    }
 }
 ?>
