@@ -61,7 +61,9 @@ $current_page = 'edit';
                 </form>
 
                 <div class="btn-action" id="btnChooseAvatar"><i class="fa fa-camera"></i>เลือกภาพใหม่</div>
+                <?php if(!empty($user->fb_id)){?>
                 <div class="btn-action facebook-import" id="btnFacebookImport"><i class="fab fa-facebook"></i>ใช้ภาพจาก Facebook</div>
+                <?php }?>
             </div>
         </div>
 
