@@ -211,6 +211,19 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<?php }?>
 </article>
 
+<div class="sharing">
+	<h3>ส่งต่อบทความนี้</h3>
+	<span>
+		<div class="fb-share-button" data-href="<?php echo $page_url;?>" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Figensite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+	</span>
+	<span>
+		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="<?php echo $page_title;?>" data-url="<?php echo $page_url;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</span>
+	<span>
+		<div class="line-it-button" data-lang="en" data-type="share-a" data-url="<?php echo $page_url;?>" style="display: none;"></div><script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	</span>
+</div>
+
 <?php if($article->qrcode){?>
 <div class="qrcode">
 	<h3>อ่านต่อในมือถือ</h3>

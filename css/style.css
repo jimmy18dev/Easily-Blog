@@ -958,6 +958,28 @@ body.paper {
   color: #333333;
   line-height: 1em;
 }
+.sharing {
+  width: 50%;
+  margin: 0 25%;
+  margin-bottom: 5%;
+  float: left;
+  display: inline-block;
+}
+.sharing h3 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.6500000000000001em;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 3%;
+  color: #333333;
+  line-height: 1em;
+}
+.sharing span {
+  float: left;
+  display: inline-block;
+  margin-right: 2%;
+}
 .pagehead {
   width: 70%;
   padding: 1% 15%;
