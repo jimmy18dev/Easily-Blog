@@ -147,9 +147,6 @@ body {
   background: #ffffff;
   overflow-x: hidden;
 }
-body.fillcolor {
-  background: #2962ff;
-}
 body.paper {
   background: #FFFFFF;
 }
@@ -160,12 +157,8 @@ body.paper {
 }
 body {
   background: #ffffff;
-  overflow-x: hidden;
 }
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 70%;
   padding: 0 15%;
   float: left;
@@ -187,19 +180,6 @@ body {
 }
 .header .status:hover {
   cursor: default;
-}
-.header .btn-profile {
-  width: 36px;
-  height: 36px;
-  padding: 10px;
-  float: left;
-  display: inline-block;
-}
-.header .btn-profile img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
 }
 .header .btn-icon {
   float: left;
@@ -275,7 +255,7 @@ body {
 .pagehead {
   width: 50%;
   margin: 3% 25%;
-  margin-top: 112px;
+  margin-top: 56px;
   padding-bottom: 3%;
   float: left;
   display: inline-block;
@@ -306,21 +286,35 @@ body {
 .pagehead .action .btn-create {
   float: right;
   display: inline-block;
-  background: #2962ff;
-  color: #FFFFFF;
+  background: #EEEEEE;
+  color: #BBBBBB;
   text-decoration: none;
   font-family: "maledpan", sans-serif;
   font-size: 1.05em;
-  line-height: 1em;
+  line-height: 1.1em;
   padding: 15px 25px;
   border-radius: 5px;
   border: 0;
   margin: 0;
-  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+.pagehead .action .btn-create.btn-delete {
+  float: left;
+  background: #F44336;
+  color: #FFFFFF;
+}
+.pagehead .action .btn-create.btn-delete:hover {
+  background: #F44336;
+}
+.pagehead .action .btn-create.active {
+  background: #2962ff;
+  color: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.pagehead .action .btn-create.active:hover {
+  background: #3e71ff;
 }
 .pagehead .action .btn-create:hover {
   cursor: pointer;
-  background: #2979ff;
 }
 .page-form {
   width: 50%;
@@ -365,6 +359,90 @@ body {
   color: #999999;
   font-style: italic;
 }
+.page-form .section .avatar {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.page-form .section .avatar .pic {
+  width: 20%;
+  float: left;
+  display: inline-block;
+}
+.page-form .section .avatar .pic img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 5px;
+}
+.page-form .section .avatar .action {
+  width: 75%;
+  margin-left: 5%;
+  margin-top: 6%;
+  float: left;
+  display: inline-block;
+}
+.page-form .section .avatar .action form {
+  display: none;
+}
+.page-form .section .avatar .action .btn-action {
+  float: left;
+  display: inline-block;
+  background: #2962ff;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.05em;
+  line-height: 1.1em;
+  padding: 15px 25px;
+  border-radius: 5px;
+  margin: 0;
+  margin-right: 15px;
+  box-sizing: border-box;
+  border: 1px solid #2962ff;
+}
+.page-form .section .avatar .action .btn-action i {
+  margin-right: 15px;
+}
+.page-form .section .avatar .action .btn-action.facebook-import {
+  background: #FFFFFF;
+  color: #2962ff;
+}
+.page-form .section .avatar .action .btn-action:hover {
+  cursor: pointer;
+}
+.page-form .section .toggle-items {
+  width: 100%;
+  padding: 0.5% 0%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+}
+.page-form .section .toggle-items:last-child {
+  border-bottom: 1px solid #EEEEEE;
+}
+.page-form .section .toggle-items .caption {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  font-size: 1.1em;
+  color: #666666;
+  font-family: "maledpan", sans-serif;
+  padding-top: 2%;
+}
+.page-form .section .toggle-items .switch {
+  float: right;
+  display: inline-block;
+  font-size: 2.25em;
+  color: #999999;
+}
+.page-form .section .toggle-items .switch .fa-toggle-on {
+  color: #2962ff;
+}
+.page-form .section .toggle-items .switch:hover {
+  cursor: pointer;
+}
 .page-form .section input[type="text"],
 .page-form .section textarea {
   width: 100%;
@@ -401,11 +479,12 @@ body {
   color: #999999;
 }
 .page-form .section .select {
-  width: 50%;
+  width: 100%;
   float: left;
   display: inline-block;
   position: relative;
   margin-right: 15px;
+  margin-bottom: 3%;
 }
 .page-form .section .select.number {
   width: 10%;
@@ -423,57 +502,58 @@ body {
 }
 .page-form .section .select select {
   width: 100%;
-  margin: 0%;
   float: left;
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-size: 1em;
-  border: 1px solid #DDDDDD;
+  margin: 0;
+  font-size: 1.05em;
   line-height: 1em;
-  padding: 15px;
+  padding: 15px 25px;
   background: #FFFFFF;
   font-family: "maledpan", sans-serif;
-  color: #333333;
+  color: #666666;
   border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid #DDDDDD;
 }
 .page-form .section .select select:hover {
   cursor: pointer;
-  border: 1px solid #999999;
-}
-.page-form .section .select select:focus {
-  border: 1px solid #2962ff;
-  color: #2962ff;
+  border: 1px solid #BBBBBB;
 }
 .page-form .section button {
   float: right;
   display: inline-block;
-  background: #2962ff;
-  color: #FFFFFF;
+  background: #EEEEEE;
+  color: #BBBBBB;
   text-decoration: none;
   font-family: "maledpan", sans-serif;
   font-size: 1.05em;
-  line-height: 1em;
-  padding: 15px;
+  line-height: 1.1em;
+  padding: 15px 25px;
   border-radius: 5px;
   border: 0;
   margin: 0;
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
-}
-.page-form .section button i {
-  margin-left: 15px;
-}
-.page-form .section button:hover {
-  cursor: pointer;
-  background: #2979ff;
 }
 .page-form .section button.btn-delete {
   float: left;
-  background: #EEEEEE;
-  color: #F44336;
-  font-weight: bold;
-  box-shadow: none;
+  background: #F44336;
+  color: #FFFFFF;
+}
+.page-form .section button.btn-delete:hover {
+  background: #F44336;
+}
+.page-form .section button.active {
+  background: #2962ff;
+  color: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.page-form .section button.active:hover {
+  background: #3e71ff;
+}
+.page-form .section button:hover {
+  cursor: pointer;
 }
 .page-form .section .list {
   width: 100%;
@@ -671,30 +751,6 @@ body {
 .page-form .section .inputWrapper span:hover {
   cursor: default;
 }
-.page-form .section .address-list {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.page-form .section .address-list .items {
-  float: left;
-  display: inline-block;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  line-height: 1em;
-  color: #666666;
-}
-.page-form .section .address-list .items:hover {
-  cursor: pointer;
-}
-.page-form .section .address-list .items.active {
-  color: #4CAF50;
-  border: 1px solid #4CAF50;
-}
-.page-form .section .address-list .items.unselect {
-  color: #BBBBBB;
-}
 .editor {
   width: 100%;
   padding-bottom: 15%;
@@ -767,12 +823,13 @@ body {
   resize: none;
   border: 0px;
   background: transparent;
-  font-size: 3em;
+  font-size: 2.4em;
   font-family: "maledpan", sans-serif;
   line-height: 1.2em;
   min-height: 50px;
   word-wrap: break-word;
   white-space: pre-wrap;
+  font-weight: bold;
 }
 .editor .article-header textarea:hover {
   cursor: pointer;
@@ -844,15 +901,37 @@ body {
   margin-left: 7px;
   font-size: 0.9em;
 }
-.editor .content.youtube .youtube_url {
+.editor .content.youtube .input-wrapper {
   width: 100%;
+  float: left;
+  display: inline-block;
+  position: relative;
+}
+.editor .content.youtube .input-wrapper.hidden {
+  display: none;
+}
+.editor .content.youtube .input-wrapper span {
+  width: 8%;
+  padding: 2% 0;
+  float: left;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.3em;
+  color: #FF0000;
+}
+.editor .content.youtube .input-wrapper .youtube_url {
+  width: 92%;
   float: left;
   display: inline-block;
   font-size: 1.2em;
   padding: 2% 0%;
+  padding-left: 8%;
   margin: 0;
   border: 0;
-  text-align: center;
   background: #EEEEEE;
   border-radius: 5px;
 }
@@ -891,7 +970,8 @@ body {
   padding: 1% 5%;
   float: left;
   display: inline-block;
-  font-size: 2.2em;
+  font-family: "maledpan", sans-serif;
+  font-size: 2.4em;
   line-height: 1.3em;
   color: #666666;
   border: 0;
@@ -899,6 +979,7 @@ body {
   background: transparent;
   resize: none;
   font-style: italic;
+  text-align: center;
 }
 .editor .content.quote .quote-cite {
   width: 80%;
@@ -917,12 +998,13 @@ body {
   padding: 1.2% 0%;
   float: left;
   display: inline-block;
-  font-size: 1.6em;
+  font-size: 1.44em;
   margin: 0px;
   border: 0px;
   color: #111111;
   background: transparent;
   line-height: 1.3em;
+  font-weight: bold;
 }
 .editor .content.textbox .textbox-topic:hover {
   cursor: pointer;
@@ -1077,27 +1159,25 @@ body {
 .editor .tools-bar {
   width: 50%;
   margin: 5% 25%;
+  padding-top: 1%;
   float: left;
   display: inline-block;
   border-top: 1px solid #EEEEEE;
+  text-align: center;
 }
 .editor .tools-bar i {
   margin: 0;
 }
 .editor .tools-bar .btn-tool {
-  float: left;
   display: inline-block;
-  padding: 2.5%;
+  padding: 18px;
   font-size: 1.25em;
   line-height: 1em;
   background: transparent;
-  color: #999999;
-  border-radius: 5px;
-  font-family: "maledpan", sans-serif;
+  color: #666666;
 }
 .editor .tools-bar .btn-tool:hover {
   cursor: pointer;
-  color: #333333;
 }
 .editor .between-option {
   width: 50%;
@@ -1258,26 +1338,18 @@ body {
 .filter {
   width: 50%;
   margin: 0% 25%;
-  margin-top: 56px;
-  padding-top: 4%;
-  padding-bottom: 2%;
   float: left;
   display: inline-block;
+  margin-bottom: 3%;
 }
-.filter.bottom {
-  padding-top: 3%;
-  padding-bottom: 0;
-  border-top: 1px solid #DDDDDD;
-}
-.filter .title {
-  max-width: 60%;
+.filter p {
+  width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.05em;
-  line-height: 1em;
-  padding: 15px 0px;
   font-family: "maledpan", sans-serif;
+  font-size: 1.05em;
   color: #999999;
+  margin-bottom: 3%;
 }
 .filter .select {
   width: 30%;
@@ -1291,7 +1363,7 @@ body {
 }
 .filter .select:after {
   content: '';
-  border-top: 8px solid #2962ff;
+  border-top: 8px solid #666666;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   position: absolute;
@@ -1302,45 +1374,58 @@ body {
 }
 .filter .select select {
   width: 100%;
-  margin: 0%;
   float: left;
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  margin: 0;
   font-size: 1.05em;
-  border: 1px solid #2962ff;
   line-height: 1em;
-  padding: 14px;
+  padding: 15px 25px;
   background: #FFFFFF;
   font-family: "maledpan", sans-serif;
-  color: #2962ff;
+  color: #666666;
   border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid #DDDDDD;
 }
 .filter .select select:hover {
   cursor: pointer;
+  border: 1px solid #BBBBBB;
 }
 .filter .btn-create {
   float: right;
   display: inline-block;
-  background: #2962ff;
-  color: #FFFFFF;
+  background: #EEEEEE;
+  color: #BBBBBB;
   text-decoration: none;
   font-family: "maledpan", sans-serif;
   font-size: 1.05em;
-  line-height: 1em;
-  padding: 13px 25px;
-  padding-bottom: 17px;
+  line-height: 1.1em;
+  padding: 15px 25px;
   border-radius: 5px;
   border: 0;
   margin: 0;
 }
-.filter .btn-create i {
-  margin-left: 15px;
+.filter .btn-create.btn-delete {
+  float: left;
+  background: #F44336;
+  color: #FFFFFF;
+}
+.filter .btn-create.btn-delete:hover {
+  background: #F44336;
+}
+.filter .btn-create.active {
+  background: #2962ff;
+  color: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.filter .btn-create.active:hover {
+  background: #3e71ff;
 }
 .filter .btn-create:hover {
   cursor: pointer;
-  background: #2979ff;
 }
 .pagination {
   width: 56%;
@@ -1378,9 +1463,6 @@ body {
   float: left;
   display: inline-block;
 }
-.lists.no-margin {
-  padding-bottom: 0;
-}
 .lists h1 {
   width: 100%;
   float: left;
@@ -1389,7 +1471,7 @@ body {
   font-weight: normal;
   font-size: 1.05em;
   margin-bottom: 2%;
-  color: #BBBBBB;
+  color: #999999;
 }
 .lists .list-items {
   width: 100%;
@@ -1404,15 +1486,31 @@ body {
 .lists .list-items:last-child {
   margin-bottom: 0;
 }
+.lists .list-items:hover {
+  cursor: pointer;
+}
 .lists .list-items.selected {
-  background: #FAFAFA;
+  background: #e9efff;
   border: 2px solid #2962ff;
 }
 .lists .list-items.selected .icon-select {
   color: #2962ff;
 }
+.lists .list-items .avatar {
+  width: 5%;
+  padding: 1% 2.5%;
+  padding-top: 2.2%;
+  float: left;
+  display: inline-block;
+}
+.lists .list-items .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
 .lists .list-items .icon {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: left;
   display: inline-block;
@@ -1422,10 +1520,16 @@ body {
   color: #2962ff;
 }
 .lists .list-items .detail {
-  width: 70%;
+  width: 60%;
   padding: 1.5% 0;
   float: left;
   display: inline-block;
+}
+.lists .list-items .detail.box-70 {
+  width: 70%;
+}
+.lists .list-items .detail.box-80 {
+  width: 80%;
 }
 .lists .list-items .detail .title {
   width: 100%;
@@ -1437,9 +1541,6 @@ body {
   font-family: "maledpan", sans-serif;
   font-size: 1.1em;
   color: #333333;
-}
-.lists .list-items .detail .title:hover {
-  cursor: default;
 }
 .lists .list-items .detail .desc {
   font-size: 0.75em;
@@ -1454,7 +1555,7 @@ body {
   text-decoration: underline;
 }
 .lists .list-items .icon-select {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: right;
   display: inline-block;
@@ -1464,7 +1565,7 @@ body {
   color: transparent;
 }
 .lists .list-items .btn {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: right;
   display: inline-block;
@@ -1472,6 +1573,9 @@ body {
   font-size: 1.4em;
   line-height: 2em;
   color: #BBBBBB;
+}
+.lists .list-items .btn.active {
+  color: #2962ff;
 }
 .lists .list-items .btn i.fa-check {
   color: #2962ff;
@@ -1669,9 +1773,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5);
   z-index: 99;
   visibility: hidden;
   opacity: 0;
@@ -1691,7 +1795,7 @@ body {
   margin-top: 25%;
   font-size: 2em;
   text-align: center;
-  color: #2979ff;
+  color: #3e71ff;
 }
 #progressbar {
   position: fixed;

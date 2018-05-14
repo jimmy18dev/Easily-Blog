@@ -58,6 +58,19 @@ $(document).ready(function(){
         article.editURL(url)
     });
 
+    $('#btnToggleFbComment').click(function(){
+        article.toggleFacebookComment();
+        location.reload();
+    });
+    $('#btnToggleRelatedContent').click(function(){
+        article.toggleRelatedContent();
+        location.reload();
+    });
+    $('#btnToggleQRCode').click(function(){
+        article.toggleQRCode();
+        location.reload();
+    });
+
     $('.btn-add-cover').click(function(){
         $('#coverImageFiles').focus().click();
     });

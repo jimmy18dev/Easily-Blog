@@ -21,6 +21,7 @@ require_once 'class/category.class.php';
 require_once 'class/user.class.php';
 require_once 'class/signature.class.php';
 require_once 'class/homesection.class.php';
+require_once 'class/member.class.php';
 
 $wpdb = new Database; // DATABASE CONNECT...
 $user = new User;

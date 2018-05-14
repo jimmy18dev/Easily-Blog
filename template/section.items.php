@@ -1,6 +1,6 @@
 <div class="list-items">
 	<div class="icon"><i class="fal fa-<?php echo (!empty($var['icon'])?$var['icon']:'archive');?>"></i></div>
-	<div class="detail">
+	<div class="detail box-70">
 		<div class="title"><?php echo $var['category_title'];?></div>
 		<div class="desc">แสดง <?php echo $var['total_items']?> บทความ</div>
 	</div>

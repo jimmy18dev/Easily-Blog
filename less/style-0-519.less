@@ -1,6 +1,6 @@
 @title_fontsize : 1.1em;
 @desc_fontsize 	: 0.7em;
-@topic_fontsize	: 2.2em;
+@topic_fontsize	: 1.8em;
 @body_fontsize 	: 1.1em;
 
 .header{
@@ -11,6 +11,8 @@
 	.btn-icon{
 		padding: 18px 5%;
 		font-size: 1.2em;
+
+		span{ display: none; }
 	}
 
 	#btn-category{ display: block; }
@@ -299,6 +301,25 @@
 	}
 }
 
+.facebook-comment{
+	width: 50%;
+	margin: 0 25%;
+	margin-bottom: 5%;
+	float: left;
+	display: inline-block;
+
+	h3{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		font-size: @title_fontsize * 1.5;
+		font-family: @topic_font;
+		margin-bottom: 3%;
+		color: #333333;
+		line-height: 1em;
+	}
+}
+
 .pagehead{
 	width: 90%;
 	padding: 5%;
@@ -395,12 +416,12 @@ form.search{
 }
 
 .login{
+
 	.logo{
 		padding: 5% 0%;
 		margin-top: 0%;
-		margin-bottom: 5%;
 
-		a img{ height: 50px; }
+		a img{ height: 40px; }
 	}
 
 	.content{
@@ -409,14 +430,20 @@ form.search{
 		margin-bottom: 5%;
 
 		.btn{
-			padding: 5.6% 0%;
+			padding: 5% 0%;
+			font-size: @title_fontsize;
+
+			i{ margin-left: 15px; }
+		}
+
+		.separator{
+			padding: 5% 0%;
 			font-size: @title_fontsize;
 		}
 
-		.separator{ font-size: @title_fontsize; }
 		.inputtext{
 			font-size: @title_fontsize;
-			padding: 5%;
+			padding: 3.5% 5%;
 			margin-bottom: 5%;
 		}
 	}

@@ -81,16 +81,12 @@ $(document).ready(function(){
         }
     });
     
-    // $(document).click(function(e){
-    //     if(!$(e.target).is('.between-option')){
-    //         $('.more-option').fadeOut(100);
-    //         $overlay.removeClass('open');
-    //     }
-        
-    //     if(!$(e.target).is('#swap') && !$(e.target).is('.fa-sort')){
-    //         $('#swap').removeClass('-toggle');
-    //     }
-    // })
+    $(document).click(function(e){
+        if(!$(e.target).is('.between-option')){
+            $('.more-option').fadeOut(100);
+            $overlay.removeClass('open');
+        }
+    })
 
     /**
     * Content events listening
@@ -269,7 +265,7 @@ $(document).ready(function(){
     var own_youtube_id;
     $YouTubeURL = $('.youtube_url');
     $YouTubeURL.focus(function(){
-        var content_id  = $(this).parent().attr('data-content');
+        var content_id  = $(this).parent().parent().attr('data-content');
             $YouTubeID  = $('#content'+content_id).children('.youtube_id');
         own_youtube_id  = $YouTubeID.val();
 
@@ -279,7 +275,7 @@ $(document).ready(function(){
     });
 
     $YouTubeURL.on('input',function(){
-        var content_id  = $(this).parent().attr('data-content');
+        var content_id  = $(this).parent().parent().attr('data-content');
             $YouTubeID  = $('#content'+content_id).children('.youtube_id');
         var youtube_url = $(this).val();
         var youtube_id  = YouTubeParser(youtube_url);
@@ -294,7 +290,11 @@ $(document).ready(function(){
             $YouTubeAlt     = $('#content'+content_id).children('.alt');
             $YouTubeID.val(youtube_id);
             var embed = '<iframe src="https://www.youtube.com/embed/'+youtube_id+'?rel=0&amp;controls=0&amp;showinfo=0"></iframe>';
+
             $YouTubePreview.html(embed);
+
+            console.log($YouTubePreview,embed);
+
             $YouTubePreview.fadeIn(300);
             $YouTubeAlt.fadeIn(300);
 
@@ -324,7 +324,7 @@ $(document).ready(function(){
     }
 
     $YouTubeURL.blur(function(){
-        var content_id  = $(this).parent().attr('data-content');
+        var content_id  = $(this).parent().parent().attr('data-content');
             $YouTubeID  = $('#content'+content_id).children('.youtube_id');
         var youtube_url = $(this).val();
         var youtube_id  = YouTubeParser(youtube_url);
@@ -430,8 +430,7 @@ $(document).ready(function(){
         if(!confirm('Delete this Content #'+content_id+' ?')){ return false; }
 
         article.deleteContent(content_id)
-
-        $('#content'+content_id).fadeOut(500);
+        location.reload();
     });
 
     $('.between-option').click(function(){

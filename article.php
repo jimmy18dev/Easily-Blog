@@ -1,17 +1,16 @@
 <?php
 include_once 'autoload.php';
-$article = new Article();
 
-$article_id = $_GET['article_id'];
+$article 			= new Article();
+$article_id 		= $_GET['article_id'];
 $article->get($article_id);
-$related_content = $article->related($article->id);
+$related_content 	= $article->related($article->id);
 
+// Redirect to URL Friendly Page.
 if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
-
-$current_page = '';
 ?>
 
 <!doctype html>
@@ -30,13 +29,48 @@ $current_page = '';
 <meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $article->title;?> - <?php echo $config['settings']['title'];?></title>
+<?php // include'favicon.php';?>
+<?php
+$page_title 	= $article->title.' - '.$config['settings']['title'];
+$page_desc 		= strip_tags($article->description);
+$page_url 		= DOMAIN.'/article/'.$article->id.'/'.$article->url;
+$page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_img;
+?>
+
+<!-- Meta Tag Main -->
+<meta name="description" 			content="<?php echo $page_desc;?>"/>
+<meta property="og:title" 			content="<?php echo $page_title;?>"/>
+<meta property="og:description" 	content="<?php echo $page_desc;?>"/>
+<meta property="og:url" 			content="<?php echo $page_url;?>"/>
+<meta property="og:image" 			content="<?php echo $page_image;?>"/>
+<meta property="og:type" 			content="article"/>
+<meta property="og:site_name" 		content="<?php echo $config['settings']['sitename_en'];?>"/>
+<meta property="fb:app_id" 			content="<?php echo $config['facebook']['api_id'];?>"/>
+<meta property="fb:admins" 			content="<?php echo $config['facebook']['admin_id'];?>"/>
+<meta property="article:author" 	content="<?php echo $article->owner_fb_id;?>"/>
+<meta property="article:publisher"	content="<?php echo $config['facebook']['publisher'];?>"/>
+
+<meta itemprop="name" 				content="<?php echo $page_title;?>">
+<meta itemprop="description" 		content="<?php echo $page_desc;?>">
+<meta itemprop="image" 				content="<?php echo $page_image;?>">
+
+<title><?php echo $page_title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
-<body>
+<body class="paper">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=<?php echo $config['facebook']['api_id'];?>&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <?php include_once 'header.php';?>
 
 <!-- Article Content -->
@@ -52,7 +86,7 @@ $current_page = '';
 		<header class="article-header">
 			<div class="author">
 				<div class="avatar">
-					<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+					<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
 				</div>
 				<div class="detail">
 					<div class="name"><?php echo $article->owner_displayname;?></div>
@@ -61,7 +95,7 @@ $current_page = '';
 					</div>
 				</div>
 				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
@@ -73,7 +107,7 @@ $current_page = '';
 	<header class="article-header">
 		<div class="author">
 			<div class="avatar">
-				<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
 			</div>
 			<div class="detail">
 				<div class="name"><?php echo $article->owner_displayname;?></div>
@@ -83,7 +117,7 @@ $current_page = '';
 			</div>
 
 			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor" title="แก้ไขบทความ">แก้ไข</a>
+			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 			<?php }?>
 		</div>
 
@@ -134,10 +168,10 @@ $current_page = '';
 		<?php }else if($var['type'] == 'quote'){?>
 		<!-- Quote Block -->
 		<blockquote class="content">
-			<i class="fal fa-quote-left" aria-hidden="true"></i>
+			<i class="fa fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
-			<footer>–<cite><?php echo $var['topic'];?></cite></footer>
-			<i class="fal fa-quote-right" aria-hidden="true"></i>
+			<footer>— <cite><?php echo $var['topic'];?></cite></footer>
+			<i class="fa fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
 
 		<?php }else if($var['type'] == 'map'){?>
@@ -177,8 +211,41 @@ $current_page = '';
 	<?php }?>
 </article>
 
-<?php if(count($related_content) > 0){?>
-<div class="section">
+<div class="sharing">
+	<h3>ส่งต่อบทความนี้</h3>
+	<span>
+		<div class="fb-share-button" data-href="<?php echo $page_url;?>" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Figensite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+	</span>
+	<span>
+		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="<?php echo $page_title;?>" data-url="<?php echo $page_url;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</span>
+	<span>
+		<div class="line-it-button" data-lang="en" data-type="share-a" data-url="<?php echo $page_url;?>" style="display: none;"></div><script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	</span>
+</div>
+
+<?php if($article->qrcode){?>
+<div class="qrcode">
+	<h3>อ่านต่อในมือถือ</h3>
+	<div class="qrcode-img">
+		<img src="image/qrcode/article_<?php echo $article->id;?>.png" alt="">
+	</div>
+	<div class="guild">
+		<p><strong>iPhone,iPad</strong> - เปิดแอปกล้องและส่องไปที่ QR code จากนั้นจะมี Notification ขึ้นมาด้านบน แสดงเป็น URL คุรสามารถกดที่ Notification และจะลิงก์ไปที่ Safari อัตโนมัติ</p>
+		<p><strong>Android</strong> - เปิดแอป LINE แล้วไปที่ More แตะไปที่ไอค่อน QR Code จากนั้นก็เริ่มทำการสแกนได้เลย แตะ Open หากเป็น  QR Code ของลิงค์ต่างๆ ซึ่งจะแสดง URL หรือชื่อลิงค์ให้เห็นด้วย</p>
+	</div>
+</div>
+<?php }?>
+
+<?php if($article->fb_comment){?>
+<div class="facebook-comment">
+	<h3>ร่วมแสดงความคิดเห็น</h3>
+	<div class="fb-comments" data-href="<?php echo $page_url;?>" data-width="100%" data-numposts="5"></div>
+</div>
+<?php }?>
+
+<?php if($article->related_content && count($related_content) > 0){?>
+<div class="section related">
 	<h3>บทความแนะนำ</h3>
 	<div class="lists">
 		<?php foreach ($related_content as $var) { include 'template/article.card.php'; } ?>
@@ -189,7 +256,6 @@ $current_page = '';
 <?php include_once 'footer.php';?>
 
 <input type="hidden" id="article_id" value="<?php echo $article->id;?>">
-<div id="progressbar"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/tippy.all.min.js"></script>

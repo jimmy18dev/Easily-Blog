@@ -92,11 +92,13 @@ function login(){
 			var redirect 	= $('#redirect').val();
 
 			setTimeout(function(){
-	        	if(redirect != ''){
-	        		window.location = 'document/'+redirect;
-	        	}else{
-	        		window.location = 'index.php?login=success';
-	        	}
+	        	// if(redirect != ''){
+	        	// 	window.location = 'document/'+redirect;
+	        	// }else{
+	        	// 	window.location = 'index.php?login=success';
+	        	// }
+
+	        	window.location = 'index.php?login=success';
 	        },1000);
 
 		}else if(data.state == 0){
@@ -154,11 +156,7 @@ function register(){
 		var redirect 	= $('#redirect').val();
 
 		setTimeout(function(){
-			if(redirect != ''){
-				window.location = 'document/'+redirect;
-	        }else{
-	        	window.location = 'profile/#success';
-	        }
+			window.location = 'index.php?login=success';
 	    },1000);
 	    
 	}).fail(function() {
