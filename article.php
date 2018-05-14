@@ -86,7 +86,7 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		<header class="article-header">
 			<div class="author">
 				<div class="avatar">
-					<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+					<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
 				</div>
 				<div class="detail">
 					<div class="name"><?php echo $article->owner_displayname;?></div>
@@ -107,7 +107,7 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<header class="article-header">
 		<div class="author">
 			<div class="avatar">
-				<img src="<?php echo (empty($user->fb_id)?'image/avatar.png':'https://graph.facebook.com/'.$user->fb_id.'/picture?type=square');?>" alt="Profile avatar">
+				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
 			</div>
 			<div class="detail">
 				<div class="name"><?php echo $article->owner_displayname;?></div>
