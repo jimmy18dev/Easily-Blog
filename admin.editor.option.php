@@ -10,6 +10,9 @@ if($user->type != 'admin' && $user->type != 'writer'){
     die();
 }
 
+// Get Ref
+$ref = (isset($_GET['ref'])?$_GET['ref']:'');
+
 $article 	= new Article();
 $article_id = $_GET['article_id'];
 $article->get($article_id);
@@ -42,7 +45,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 <body class="paper">
 
 <div class="header">
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>/editor"><i class="fal fa-times"></i></a>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>/editor<?php echo ($ref=='onsite'?'?ref=onsite':'')?>"><i class="fal fa-times"></i></a>
 </div>
 
 <div class="pagehead">

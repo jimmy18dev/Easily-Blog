@@ -62,7 +62,9 @@ if($article->owner_id != $user->id){
 	<?php if($article->status!='published'){?>
 	<div class="btn right active" id="btn-publish" title="เผยแพร่">เผยแพร่</div>
 	<?php }?>
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option" title="ตั้งค่า"><i class="fa fa-cog"></i></a>
+
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option<?php echo ($ref=='onsite'?'?ref=onsite':'')?>" title="ตั้งค่า"><i class="fa fa-cog"></i></a>
+
 	<a class="btn-icon right" id="btn-remove" title="ลบ"><i class="fa fa-trash"></i></a>
 </div>
 

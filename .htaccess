@@ -13,7 +13,7 @@ RewriteRule ^topic/([0-9]+)/([^_]*)$ 	/articles.php?category_id=$1&title=$2 [L]
 ### ARTICLE
 RewriteRule ^article/([0-9]+)$ 			/article.php?article_id=$1 [L]
 RewriteRule ^article/([0-9]+)/editor$ 	/admin.editor.php?article_id=$1 [QSA,L]
-RewriteRule ^article/([0-9]+)/option$ 	/admin.editor.option.php?article_id=$1 [L]
+RewriteRule ^article/([0-9]+)/option$ 	/admin.editor.option.php?article_id=$1 [QSA,L]
 RewriteRule ^article/([0-9]+)/([^_]*)$ 	/article.php?article_id=$1&title=$2 [L]
 RewriteRule ^article/create$ 			/admin.choose.category.php [L]
 
