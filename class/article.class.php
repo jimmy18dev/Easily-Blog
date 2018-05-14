@@ -16,11 +16,14 @@ class Article{
     public $owner_fname;
     public $owner_lname;
     public $owner_displayname;
+    public $owner_fb_id;
     public $total_contents;
     public $contents;
     public $total_document;
     public $documents;
     public $tags;
+    public $fb_comment;
+    public $related_content;
 
     public $province_id;
     public $province_name;
@@ -141,7 +144,7 @@ class Article{
 
     // Get Article and Contents
     public function get($article_id){
-    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,user.display owner_displayname,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
+    	$this->db->query('SELECT article.id,article.title,article.description,article.url,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.province_id,province.province_name,article.amphur_id,amphur.amphur_name,article.district_id,district.district_name,article.status,article.create_time,article.edit_time,article.published_time,article.fb_comment,article.related_content,category.title category_title,category.id category_id,category.link category_link,user.id owner_id,user.fname owner_fname,user.lname owner_lname,user.display owner_displayname,user.fb_id owner_fb_id,article.cover_id,content.img_location cover_img,article.head_cover_id,head_cover.img_location head_cover_img 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -185,7 +188,10 @@ class Article{
         $this->owner_displayname = $dataset['owner_displayname'];
         $this->owner_fname      = $dataset['owner_fname'];
         $this->owner_lname      = $dataset['owner_lname'];
+        $this->owner_fb_id      = $dataset['owner_fb_id'];
         $this->total_contents   = $dataset['total_contents'];
+        $this->fb_comment       = ($dataset['fb_comment'] == 1 ? true : false);
+        $this->related_content  = ($dataset['related_content'] == 1 ? true : false);
 
         $this->province_id      = $dataset['province_id'];
         $this->amphur_id        = $dataset['amphur_id'];

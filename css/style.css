@@ -886,6 +886,23 @@ body.paper {
   color: #999999;
   font-style: italic;
 }
+.facebook-comment {
+  width: 50%;
+  margin: 0 25%;
+  margin-bottom: 5%;
+  float: left;
+  display: inline-block;
+}
+.facebook-comment h3 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5750000000000002em;
+  font-family: "maledpan", sans-serif;
+  margin-bottom: 3%;
+  color: #333333;
+  line-height: 1em;
+}
 .pagehead {
   width: 70%;
   padding: 1% 15%;
@@ -1515,6 +1532,23 @@ form.search input[type="text"]:focus {
   .article .tag a {
     margin-right: 5%;
     margin-bottom: 5%;
+  }
+  .facebook-comment {
+    width: 50%;
+    margin: 0 25%;
+    margin-bottom: 5%;
+    float: left;
+    display: inline-block;
+  }
+  .facebook-comment h3 {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    font-size: 1.6500000000000001em;
+    font-family: "maledpan", sans-serif;
+    margin-bottom: 3%;
+    color: #333333;
+    line-height: 1em;
   }
   .pagehead {
     width: 90%;

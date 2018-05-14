@@ -29,13 +29,48 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $article->title;?> - <?php echo $config['settings']['title'];?></title>
+<?php // include'favicon.php';?>
+<?php
+$page_title 	= $article->title.' - '.$config['settings']['title'];
+$page_desc 		= strip_tags($article->description);
+$page_url 		= DOMAIN.'/article/'.$article->id.'/'.$article->url;
+$page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_img;
+?>
+
+<!-- Meta Tag Main -->
+<meta name="description" 			content="<?php echo $page_desc;?>"/>
+<meta property="og:title" 			content="<?php echo $page_title;?>"/>
+<meta property="og:description" 	content="<?php echo $page_desc;?>"/>
+<meta property="og:url" 			content="<?php echo $page_url;?>"/>
+<meta property="og:image" 			content="<?php echo $page_image;?>"/>
+<meta property="og:type" 			content="article"/>
+<meta property="og:site_name" 		content="<?php echo $config['settings']['sitename_en'];?>"/>
+<meta property="fb:app_id" 			content="<?php echo $config['facebook']['api_id'];?>"/>
+<meta property="fb:admins" 			content="<?php echo $config['facebook']['admin_id'];?>"/>
+<meta property="article:author" 	content="<?php echo $article->owner_fb_id;?>"/>
+<meta property="article:publisher"	content="<?php echo $config['facebook']['publisher'];?>"/>
+
+<meta itemprop="name" 				content="<?php echo $page_title;?>">
+<meta itemprop="description" 		content="<?php echo $page_desc;?>">
+<meta itemprop="image" 				content="<?php echo $page_image;?>">
+
+<title><?php echo $page_title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body class="paper">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=<?php echo $config['facebook']['api_id'];?>&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <?php include_once 'header.php';?>
 
 <!-- Article Content -->
@@ -176,7 +211,14 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	<?php }?>
 </article>
 
-<?php if(count($related_content) > 0){?>
+<?php if($article->fb_comment){?>
+<div class="facebook-comment">
+	<h3>ร่วมแสดงความคิดเห็น</h3>
+	<div class="fb-comments" data-href="<?php echo $page_url;?>" data-width="100%" data-numposts="5"></div>
+</div>
+<?php }?>
+
+<?php if($article->related_content && count($related_content) > 0){?>
 <div class="section related">
 	<h3>บทความแนะนำ</h3>
 	<div class="lists">
