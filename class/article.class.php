@@ -272,7 +272,7 @@ class Article{
     	
         $start = ($perpage * $page) - $perpage;
 
-    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+    	$select = 'SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.id owner_id,user.display author_name,user.avatar author_avatar,article.cover_id,content.img_location cover_img,content.img_type cover_type 
         FROM article AS article 
         LEFT JOIN category AS category ON article.category_id = category.id 
         LEFT JOIN user AS user ON article.user_id = user.id 
@@ -386,7 +386,7 @@ class Article{
 
     public function next($article_id,$category_id){
         // Next Content.
-        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,user.avatar author_avatar,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -410,7 +410,7 @@ class Article{
 
     public function prev($article_id,$category_id){
         // Prev Content.
-        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,user.avatar author_avatar,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -434,7 +434,7 @@ class Article{
 
     public function relatedSticky($article_id){
         // Sticky Content.
-        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,user.avatar author_avatar,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 
@@ -456,7 +456,7 @@ class Article{
     }
 
     public function listSticky(){
-        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,article.cover_id,content.img_location cover_img,content.img_type cover_type 
+        $this->db->query('SELECT article.id,article.title,article.description,article.url,article.highlight,article.create_time,article.edit_time,article.published_time,article.count_read count_read,article.status,article.sticky,category.title category_title,category.id category_id,user.display author_name,user.id author_id,user.lname owner_lname,user.avatar author_avatar,article.cover_id,content.img_location cover_img,content.img_type cover_type 
             FROM article AS article 
             LEFT JOIN category AS category ON article.category_id = category.id 
             LEFT JOIN user AS user ON article.user_id = user.id 

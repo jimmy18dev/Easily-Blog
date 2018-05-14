@@ -66,7 +66,7 @@ $current_page = 'home';
 	$dataset = $article->listAll($key['category_id'],NULL,'published',NULL,$key['total_items'],false,NULL,NULL);
 	$category_data = $category->get($key['category_id']);
 	?>
-	<h3><?php echo $category_data['title'];?></h3>
+	<h3><i class="fal fa-<?php echo (!empty($category_data['icon'])?$category_data['icon']:'folder');?>"></i><?php echo $category_data['title'];?></h3>
 	<div class="lists">
 		<?php if(count($dataset['items']) > 0){?>
 		<?php foreach ($dataset['items'] as $var) { include 'template/article.card.php'; } ?>

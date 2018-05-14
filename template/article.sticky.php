@@ -12,6 +12,6 @@
 		<p><?php echo $var['description'];?></p>
 		<?php }?>
 
-		<p class="info"><span class="owner"><?php echo $var['author_name'];?></span> · <?php echo $var['create_time'];?></p>
+		<p class="info"><span class="owner"><?php if(!empty($var['author_avatar'])){?><img src="image/upload/avatar/<?php echo $var['author_avatar'];?>" alt="<?php echo $var['author_name'];?>"><?php }?><?php echo $var['author_name'];?></span> · <?php echo $var['create_time'];?></p>
 	</header>
 </div>
