@@ -170,7 +170,6 @@ body{ background: @bg_color; }
 .page-form{
 	width: 50%;
 	margin: 0% 25%;
-	margin-bottom: 10%;
 	float: left;
 	display: inline-block;
 
@@ -1353,7 +1352,7 @@ body{ background: @bg_color; }
 		color: #999999;
 	}
 
-	// List items (Category, Section)
+	// List items (Category, Section, Member)
 	.list-items{
 		width: 100%;
 		float: left;
@@ -1374,8 +1373,23 @@ body{ background: @bg_color; }
 			.icon-select{ color: @primary_color; }
 		}
 
+		.avatar{
+			width: 5%;
+			padding: 1% 2.5%;
+			padding-top: 2.2%;
+			float: left;
+			display: inline-block;
+
+			img{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				border-radius: 50%;
+			}
+		}
+
 		.icon{
-			width: 9%;
+			width: 10%;
 			padding: 1.5% 0;
 			float: left;
 			display: inline-block;
@@ -1385,10 +1399,13 @@ body{ background: @bg_color; }
 			color: @primary_color;
 		}
 		.detail{
-			width: 70%;
+			width: 60%;
 			padding: 1.5% 0;
 			float: left;
 			display: inline-block;
+
+			&.box-70{ width: 70%; }
+			&.box-80{ width: 80%; }
 
 			.title{
 				width: 100%;
@@ -1415,7 +1432,7 @@ body{ background: @bg_color; }
 			}
 		}
 		.icon-select{
-			width: 9%;
+			width: 10%;
 			padding: 1.5% 0;
 			float: right;
 			display: inline-block;
@@ -1425,7 +1442,7 @@ body{ background: @bg_color; }
 			color: transparent;
 		}
 		.btn{
-			width: 9%;
+			width: 10%;
 			padding: 1.5% 0;
 			float: right;
 			display: inline-block;
@@ -1433,6 +1450,8 @@ body{ background: @bg_color; }
 			font-size: 1.4em;
 			line-height: 2em;
 			color: #BBBBBB;
+
+			&.active{ color: @primary_color; }
 
 			i.fa-check{ color: @primary_color; }
 

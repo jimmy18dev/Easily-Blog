@@ -319,7 +319,6 @@ body {
 .page-form {
   width: 50%;
   margin: 0% 25%;
-  margin-bottom: 10%;
   float: left;
   display: inline-block;
 }
@@ -1497,8 +1496,21 @@ body {
 .lists .list-items.selected .icon-select {
   color: #2962ff;
 }
+.lists .list-items .avatar {
+  width: 5%;
+  padding: 1% 2.5%;
+  padding-top: 2.2%;
+  float: left;
+  display: inline-block;
+}
+.lists .list-items .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
 .lists .list-items .icon {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: left;
   display: inline-block;
@@ -1508,10 +1520,16 @@ body {
   color: #2962ff;
 }
 .lists .list-items .detail {
-  width: 70%;
+  width: 60%;
   padding: 1.5% 0;
   float: left;
   display: inline-block;
+}
+.lists .list-items .detail.box-70 {
+  width: 70%;
+}
+.lists .list-items .detail.box-80 {
+  width: 80%;
 }
 .lists .list-items .detail .title {
   width: 100%;
@@ -1537,7 +1555,7 @@ body {
   text-decoration: underline;
 }
 .lists .list-items .icon-select {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: right;
   display: inline-block;
@@ -1547,7 +1565,7 @@ body {
   color: transparent;
 }
 .lists .list-items .btn {
-  width: 9%;
+  width: 10%;
   padding: 1.5% 0;
   float: right;
   display: inline-block;
@@ -1555,6 +1573,9 @@ body {
   font-size: 1.4em;
   line-height: 2em;
   color: #BBBBBB;
+}
+.lists .list-items .btn.active {
+  color: #2962ff;
 }
 .lists .list-items .btn i.fa-check {
   color: #2962ff;

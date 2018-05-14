@@ -11,6 +11,9 @@ if($user->type != 'admin' && $user->type != 'writer'){
 }
 
 $current_page = 'edit';
+
+$member = new Member();
+$members = $member->listAll();
 ?>
 
 <!doctype html>
@@ -75,6 +78,13 @@ $current_page = 'edit';
     <div class="section">
         <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
     </div>
+</div>
+
+<div class="lists">
+    <h1>สมาชิก</h1>
+    <?php if(count($members) > 0){?>
+    <?php foreach ($members as $var) { include 'template/member.items.php'; } ?>
+    <?php }?>
 </div>
 
 <div id="progressbar"></div>
@@ -146,6 +156,31 @@ $(function(){
             console.log(xhr.responseJSON)
             location.reload();
         }
+    });
+
+    $('.btn-type').click(function(){
+        progressbar.Progressbar('70%');
+        var user_id = $(this).attr('data-id');
+        var type    = $(this).attr('data-type');
+
+        $.ajax({
+            url         :'api/member',
+            cache       :false,
+            dataType    :"json",
+            type        :"POST",
+            data:{
+                request     :'edit_type',
+                user_id     :user_id,
+                type        :type
+            },
+            error: function (request, status, error){
+                console.log(request.responseText);
+            }
+        }).done(function(data){
+            console.log(data);
+            progressbar.Progressbar('100%');
+            location.reload();
+        });
     });
 
     $('#btnFacebookImport').click(function(){

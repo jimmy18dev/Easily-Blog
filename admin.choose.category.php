@@ -61,7 +61,7 @@ $categories = $category->listAll();
 		<div class="icon">
 			<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 		</div>
-		<div class="detail">
+		<div class="detail box-80">
 			<div class="title"><?php echo $var['title'];?></div>
 			<?php if(!empty($var['description'])){?>
 			<div class="desc"><?php echo $var['description'];?></div>
