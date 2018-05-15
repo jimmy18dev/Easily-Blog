@@ -29,7 +29,7 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 <meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<?php // include'favicon.php';?>
+<?php include'favicon.php';?>
 <?php
 $page_title 	= $article->title.' - '.$config['settings']['title'];
 $page_desc 		= strip_tags($article->description);

@@ -166,7 +166,6 @@ body {
   height: 56px;
   z-index: 999;
   background: rgba(255, 255, 255, 0.9);
-  text-align: center;
 }
 .header .status {
   float: left;
@@ -230,24 +229,29 @@ body {
   cursor: pointer;
 }
 .header a.menu {
+  float: left;
   display: inline-block;
-  padding: 16px 1.5%;
-  height: 24px;
-  clear: both;
+  padding: 19px 1.5%;
+  height: 18px;
   font-family: "maledpan", sans-serif;
-  font-size: 1.05em;
+  font-size: 1.25em;
   text-decoration: none;
   color: #333333;
-  border-radius: 5px;
 }
 .header a.menu i {
-  font-size: 0.9em;
+  float: left;
 }
 .header a.menu span {
+  float: left;
   margin-left: 10px;
+  font-size: 0.8em;
+  line-height: 1.1em;
 }
 .header a.menu:hover {
   cursor: pointer;
+}
+.header a.menu.right {
+  float: right;
 }
 .header a.menu.active {
   color: #2962ff;
@@ -1001,7 +1005,7 @@ body {
   font-size: 1.44em;
   margin: 0px;
   border: 0px;
-  color: #111111;
+  color: #333333;
   background: transparent;
   line-height: 1.3em;
   font-weight: bold;
@@ -1477,7 +1481,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #F0F0F0;
+  background: #EAEAEA;
   margin-bottom: 2%;
   border-radius: 5px;
   box-sizing: border-box;
@@ -1588,7 +1592,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #F0F0F0;
+  background: #EAEAEA;
   margin-bottom: 2%;
   border-radius: 5px;
   overflow: hidden;

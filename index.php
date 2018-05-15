@@ -10,7 +10,6 @@ $article_sticky = $article->listSticky();
 $categories = $category->listAll();
 $current_page = 'home';
 ?>
-
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
 <head>
@@ -27,7 +26,30 @@ $current_page = 'home';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
-<title><?php echo $config['settings']['title'];?></title>
+<?php include'favicon.php';?>
+<?php
+$page_title 	= $config['settings']['title'];
+$page_desc 		= $config['settings']['description'];
+$page_url 		= DOMAIN;
+$page_image 	= DOMAIN.'/image/cover.png';
+?>
+
+<!-- Meta Tag Main -->
+<meta name="description" 			content="<?php echo $page_desc;?>"/>
+<meta property="og:title" 			content="<?php echo $page_title;?>"/>
+<meta property="og:description" 	content="<?php echo $page_desc;?>"/>
+<meta property="og:url" 			content="<?php echo $page_url;?>"/>
+<meta property="og:image" 			content="<?php echo $page_image;?>"/>
+<meta property="og:type" 			content="website"/>
+<meta property="og:site_name" 		content="<?php echo $config['settings']['sitename_en'];?>"/>
+<meta property="fb:app_id" 			content="<?php echo $config['facebook']['api_id'];?>"/>
+<meta property="fb:admins" 			content="<?php echo $config['facebook']['admin_id'];?>"/>
+
+<meta itemprop="name" 				content="<?php echo $page_title;?>">
+<meta itemprop="description" 		content="<?php echo $page_desc;?>">
+<meta itemprop="image" 				content="<?php echo $page_image;?>">
+
+<title><?php echo $page_title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -80,9 +102,6 @@ $current_page = 'home';
 	<?php }?>
 </div>
 <?php }?>
-
-<div class="overlay"></div>
-
 <?php include_once 'footer.php'; ?>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

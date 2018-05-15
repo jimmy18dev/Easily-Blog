@@ -53,7 +53,6 @@ body{ background: @bg_color; }
 	height: 56px;
 	z-index: 999;
 	background: rgba(255,255,255,0.9);
-	text-align: center;
 
 	// Editor status.
 	.status{
@@ -113,19 +112,24 @@ body{ background: @bg_color; }
 
 	// Navigation Menu.
 	a.menu{
+		float: left;
 		display: inline-block;
-		padding: 16px 1.5%;
-		height: 24px;
-		clear: both;
+		padding: 19px 1.5%;
+		height: 18px;
 		font-family: @topic_font;
-		font-size: @font-size-normal;
+		font-size: @font-size-icon;
 		text-decoration: none;
 		color: #333333;
-		border-radius: 5px;
 
-		i{ font-size: 0.9em; }
-		span{ margin-left: 10px; }
+		i{ float: left; }
+		span{
+			float: left;
+			margin-left: 10px;
+			font-size: 0.8em;
+			line-height: 1.1em;
+		}
 		&:hover{ cursor: pointer; }
+		&.right{ float: right; }
 		&.active{ color: @primary_color; }
 	}
 }
@@ -580,34 +584,6 @@ body{ background: @bg_color; }
 				&:hover{ cursor: default; }
 			}
 		}
-
-		// .address-list{
-		// 	width: 100%;
-		// 	float: left;
-		// 	display: inline-block;
-
-		// 	.items{
-		// 		float: left;
-		// 		display: inline-block;
-		// 		padding: 10px;
-		// 		border: 1px solid transparent;
-		// 		border-radius: 5px;
-		// 		line-height: 1em;
-		// 		color: #666666;
-
-		// 		&:hover{
-		// 			cursor: pointer;
-		// 		}
-
-		// 		&.active{
-		// 			color: #4CAF50;
-		// 			border: 1px solid #4CAF50;
-		// 		}
-		// 		&.unselect{
-		// 			color: #BBBBBB;
-		// 		}
-		// 	}
-		// }
 	}
 }
 
@@ -1357,7 +1333,7 @@ body{ background: @bg_color; }
 		width: 100%;
 		float: left;
 		display: inline-block;
-		background: #F0F0F0;
+		background: #EAEAEA;
 		margin-bottom: 2%;
 		border-radius: 5px;
 		box-sizing: border-box;
@@ -1467,7 +1443,7 @@ body{ background: @bg_color; }
 		width: 100%;
 		float: left;
 		display: inline-block;
-		background: #F0F0F0;
+		background: #EAEAEA;
 		margin-bottom: 2%;
 		border-radius: 5px;
 		overflow: hidden;
