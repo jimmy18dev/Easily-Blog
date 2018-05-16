@@ -5,9 +5,9 @@ header("Content-type: text/json");
 $image      = new Image();
 $article    = new Article();
 
-$content_id = $_POST['content_id'];
-$article_id = $_POST['article_id'];
-$type       = $_POST['type'];
+$content_id = (isset($_POST['content_id'])?$_POST['content_id']:'');
+$article_id = (isset($_POST['article_id'])?$_POST['article_id']:'');
+$type       = (isset($_POST['type'])?$_POST['type']:'');
 
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     if(isset($_FILES['image']) && is_uploaded_file($_FILES['image']['tmp_name'])){
@@ -83,7 +83,6 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                     unlink($destination_folder['large'].$content_data['img_location']);
                 }
 
-                // $content->editImageBox($content_id,$article_id,$new_file_name);
                 $article->editImageLocation($content_id,$article_id,$new_file_name,$img_type);
 
                 // This article has cover ?
@@ -103,10 +102,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 $data = array(
     "apiVersion"    => 1.0,
     "message"       => 'Image Upload!',
-    "content_id"    => $content_id,
-    "image_file"    => $new_file_name,
-    "alt"           => $alt,
-    "old_file"      => $content->image_file,
+    "image_file"    => (isset($new_file_name)?$new_file_name:NULL),
     "execute"       => floatval(round(microtime(true)-StTime,4)),
 );
 

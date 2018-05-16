@@ -32,6 +32,8 @@ $members = $member->listAll();
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
+<?php include'favicon.php';?>
+
 <title>นักเขียน | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">
@@ -96,6 +98,8 @@ $members = $member->listAll();
 <script type="text/javascript" src="js/lib/progressbar.js"></script>
 <script type="text/javascript">
 $(function(){
+    tippy('[title]',{arrow: true});
+    
 	$btnSaveProfile = $('#btnSaveProfile');
 	var progressbar = $('#progressbar');
 

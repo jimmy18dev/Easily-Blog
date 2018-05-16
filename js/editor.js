@@ -38,16 +38,18 @@ $(document).ready(function(){
         },
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
-            percent = (percent * 80) / 100;
-            
-            console.log('Upload: '+percentComplete+' %')
-            $progressbar.Progressbar(percentComplete+'%')
+            percent = (percent * 85) / 100;
+
+            console.clear();
+            console.log('Upload: '+percent+' %')
+            $progressbar.Progressbar(percent+'%')
         },
         success: function() {
-            // $photoLoadingBar.animate({width:'100%'},300);
+            console.clear();
+            $progressbar.Progressbar('85%')
         },
         complete: function(xhr) {
-            $progressbar.Progressbar('70%')
+            $progressbar.Progressbar('99.99%')
             console.log(xhr.responseJSON)
             location.reload()
         }
@@ -407,15 +409,16 @@ $(document).ready(function(){
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
             percent = (percent * 80) / 100;
+
+            console.clear();
             $photoLoadingBar.animate({width:percent+'%'},100);
-            
             console.log('Upload: '+percentComplete+' %');
         },
         success: function() {
             $photoLoadingBar.animate({width:'100%'},300);
         },
         complete: function(xhr) {
-            // console.log(xhr.responseText);
+            console.log(xhr.responseText);
             console.log(xhr.responseJSON);
             $photoAlt.fadeIn(300);
             $photoLoading.fadeOut(300);

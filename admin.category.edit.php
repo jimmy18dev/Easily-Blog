@@ -37,6 +37,8 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
+<?php include'favicon.php';?>
+
 <title><?php echo (!empty($category->id)?$category->title.' (แก้ไข)':'สร้างหมวดหมู่');?> | <?php echo $config['settings']['sitename_th'];?></title>
 
 <base href="<?php echo DOMAIN;?>">

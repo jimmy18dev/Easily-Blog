@@ -5,8 +5,8 @@ header("Content-type: text/json");
 $image      = new Image();
 $article    = new Article();
 
-$article_id = $_POST['article_id'];
-$type       = $_POST['type'];
+$article_id = (isset($_POST['article_id'])?$_POST['article_id']:'');
+$type       = (isset($_POST['type'])?$_POST['type']:'');
 
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
 
@@ -87,7 +87,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 $data = array(
     "apiVersion"    => 1.0,
     "message"       => 'Multiple images Uploaded.',
-    "files"          => $_FILES["images"],
+    "files"         => (isset($new_file_name)?$new_file_name:NULL),
     "execute"       => floatval(round(microtime(true)-StTime,4)),
 );
 
