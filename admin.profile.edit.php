@@ -57,7 +57,7 @@ $members = $member->listAll();
         <p>ภาพโปรไฟล์</p>
         <div class="avatar">
             <div class="pic">
-                <img src="image/upload/avatar/<?php echo $user->avatar;?>" alt="">
+                <img src="<?php echo (!empty($user->avatar)?'image/upload/avatar/'.$user->avatar:'image/avatar.png')?>" alt="">
             </div>
 
             <div class="action">
