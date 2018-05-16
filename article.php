@@ -4,6 +4,12 @@ include_once 'autoload.php';
 $article 			= new Article();
 $article_id 		= $_GET['article_id'];
 $article->get($article_id);
+
+if(empty($article->id)){
+    header('Location:'.DOMAIN.'/404.php');
+    die();
+}
+
 $related_content 	= $article->related($article->id);
 
 // Redirect to URL Friendly Page.
@@ -11,6 +17,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
+
+$current_page = 'article';
 ?>
 
 <!doctype html>

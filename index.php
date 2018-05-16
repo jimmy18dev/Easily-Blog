@@ -1,14 +1,13 @@
 <?php
 include_once'autoload.php';
 
-$article = new Article();
-$category = new Category();
-$homesection = new HomeSection();
-
-$sectionitems = $homesection->lists();
+$article 		= new Article();
+$category 		= new Category();
+$homesection 	= new HomeSection();
+$sectionitems 	= $homesection->lists();
 $article_sticky = $article->listSticky();
-$categories = $category->listAll();
-$current_page = 'home';
+$categories 	= $category->listAll();
+$current_page 	= 'home';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -103,7 +102,6 @@ $page_image 	= DOMAIN.'/image/cover.png';
 </div>
 <?php }?>
 <?php include_once 'footer.php'; ?>
-
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/nav.js"></script>

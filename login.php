@@ -8,19 +8,17 @@ if($user_online){
 }
 
 $fb = new Facebook\Facebook([
-	'app_id' 				=> APP_ID,
-	'app_secret' 			=> APP_SECRET,
-	'default_graph_version' => 'v2.12'
+	'app_id' 				=> $config['facebook']['api_id'],
+	'app_secret' 			=> $config['facebook']['app_secret'],
+	'default_graph_version' => 'v3.0'
 ]);
 
 $helper 		= $fb->getRedirectLoginHelper();
 $permissions 	= ['email']; // optional
 $loginUrl 		= $helper->getLoginUrl(DOMAIN.'/fb-callback.php',$permissions);
-
-$signature 	= new Signature;
-$currentPage = 'login';
+$signature 		= new Signature;
+$currentPage 	= 'login';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,28 +30,30 @@ $currentPage = 'login';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
+<?php include'favicon.php';?>
 <?php
-$p_title 	= 'ลงชื่อเข้าใช้';
-$p_desc 	= DESCRIPTION;
-$p_url 		= DOMAIN.'/signin';
+$page_title 	= 'เข้าระบบ - '.$config['settings']['title'];
+$page_desc 		= $config['settings']['description'];
+$page_url 		= DOMAIN.'/signin';
+$page_image 	= DOMAIN.'/image/cover.png';
 ?>
 
 <!-- Meta Tag Main -->
-<meta name="description" content="<?php echo $p_desc;?>"/>
-<meta property="og:title" content="<?php echo $p_title;?>"/>
-<meta property="og:description" content="<?php echo $p_desc;?>"/>
-<meta property="og:url" content="<?php echo $p_url;?>"/>
-<meta property="og:image" content="<?php echo OGIMAGE;?>"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="<?php echo SITENAME;?>"/>
-<meta property="fb:app_id" content="<?php echo APP_ID;?>"/>
-<meta property="fb:admins" content="<?php echo ADMIN_ID;?>"/>
+<meta name="description" 			content="<?php echo $page_desc;?>"/>
+<meta property="og:title" 			content="<?php echo $page_title;?>"/>
+<meta property="og:description" 	content="<?php echo $page_desc;?>"/>
+<meta property="og:url" 			content="<?php echo $page_url;?>"/>
+<meta property="og:image" 			content="<?php echo $page_image;?>"/>
+<meta property="og:type" 			content="website"/>
+<meta property="og:site_name" 		content="<?php echo $config['settings']['sitename_en'];?>"/>
+<meta property="fb:app_id" 			content="<?php echo $config['facebook']['api_id'];?>"/>
+<meta property="fb:admins" 			content="<?php echo $config['facebook']['admin_id'];?>"/>
 
-<meta itemprop="name" content="<?php echo $p_title;?>">
-<meta itemprop="description" content="<?php echo $p_desc;?>">
-<meta itemprop="image" content="<?php echo OGIMAGE;?>">
+<meta itemprop="name" 				content="<?php echo $page_title;?>">
+<meta itemprop="description" 		content="<?php echo $page_desc;?>">
+<meta itemprop="image" 				content="<?php echo $page_image;?>">
 
-<title><?php echo $p_title;?> | <?php echo $config['settings']['title'];?></title>
+<title><?php echo $page_title;?></title>
 
 <base href="<?php echo DOMAIN;?>">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -76,7 +76,7 @@ $p_url 		= DOMAIN.'/signin';
 		</form>
 	</div>
 	<div class="message">
-		ใช้งานครั้งแรก ? <a href="signup?<?php echo (!empty($_GET['redirect'])?'redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
+		ใช้งานครั้งแรก ? <a href="signup<?php echo (!empty($_GET['redirect'])?'?redirect='.$_GET['redirect']:'');?>">ลงทะเบียนใหม่</a>
 	</div>
 </div>
 
