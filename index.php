@@ -76,7 +76,7 @@ $page_image 	= DOMAIN.'/image/cover.png';
 
 <?php if(count($article_sticky) > 0){?>
 <div class="section">
-	<h3><i class="fa fa-star"></i>บทความแนะนำ</h3>
+	<h3>บทความแนะนำ</h3>
 	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
 </div>
 <?php }?>
@@ -87,7 +87,7 @@ $page_image 	= DOMAIN.'/image/cover.png';
 	$dataset = $article->listAll($key['category_id'],NULL,'published',NULL,$key['total_items'],false,NULL,NULL);
 	$category_data = $category->get($key['category_id']);
 	?>
-	<h3><i class="fal fa-<?php echo (!empty($category_data['icon'])?$category_data['icon']:'folder');?>"></i><?php echo $category_data['title'];?></h3>
+	<h3><?php echo $category_data['title'];?></h3>
 	<div class="lists">
 		<?php if(count($dataset['items']) > 0){?>
 		<?php foreach ($dataset['items'] as $var) { include 'template/article.card.php'; } ?>
