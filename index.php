@@ -101,6 +101,9 @@ $page_image 	= DOMAIN.'/image/cover.png';
 	<?php }?>
 </div>
 <?php }?>
+
+<div id="overlay" class="overlay"></div>
+
 <?php include_once 'footer.php'; ?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>

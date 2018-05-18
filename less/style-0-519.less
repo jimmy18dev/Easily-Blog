@@ -1,18 +1,32 @@
 @title_fontsize : 1.1em;
-@desc_fontsize 	: 0.7em;
-@topic_fontsize	: 1.8em;
-@body_fontsize 	: 1.1em;
+@desc_fontsize 	: 0.75em;
+@body_fontsize 	: 1.2em;
 
 .header{
 	width: 100%;
 	padding: 0%;
 
-	.logo{ padding: 13px 5%; }
-	.btn-icon{
-		padding: 18px 5%;
-		font-size: 1.2em;
+	.logo{
+		height: 28px;
+		padding: 14px 5%;
 
-		span{ display: none; }
+		a{
+			font-size: @title_fontsize;
+			line-height: 1.5em;
+		}
+
+		img{ height: 28px; }
+		span{ margin-left: 10px; }
+	}
+
+	.btn-icon{
+		height: 20px;
+		padding: 18px 6%;
+		line-height: 1em;
+		font-size: 1.1em;
+
+		&.right{ float: right; }
+		span{ margin-left: 10px; }
 	}
 
 	#btn-category{ display: block; }
@@ -28,34 +42,36 @@
 	z-index: 9999;
 
 	a{
-		width: 80%;
+		width: 84%;
 		font-size: @title_fontsize;
 		line-height: 1em;
-		height: 20px;
-		padding: 18px 10%;
+		height: auto;
+		padding: 8%;
 		margin: 0;
 		border-bottom: 1px solid #EEEEEE;
-	}
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 
-	&.active{
-		box-shadow: -2px 0px 10px rgba(0,0,0,0.2);
-		transform: translate3d( -100%, 0, 0 );
-		-webkit-transform: translate3d(-100%, 0, 0 );
+		i{ margin-right: 8%; }
 	}
 }
 
 .cover{
 	height: auto;
+	margin-bottom: 5%;
+
 	img{ margin-top: 0px; }
 
 	.content{
 		width: 90%;
-		padding: 5%;
-		margin-top: 14%;
+		margin: 10% 5%;
+		top: inherit;
+		bottom: 0;
 		text-align: left;
 
 		h1{
-			font-size: @topic_fontsize;
+			font-size: @title_fontsize * 2;
 			line-height: 1.2em;
 			margin-bottom: 3%;
 		}
@@ -66,23 +82,27 @@
 // Article Container
 .section{
 	width: 100%;
-	margin: 5% 0%;
+	margin: 0%;
+	margin-top: 5%;
 	padding-bottom: 5%;
 
 	h3{
 		width: 90%;
-		font-size: @title_fontsize * 1.1;
-		margin: 0 5%;
-		margin-bottom: 5%;
+		margin: 5%;
+		font-size: @title_fontsize * 1.2;
+		margin-top: 0%;
 		line-height: 1em;
+
+		i{ margin-right: 10px; }
 
 		&.category_name{ display: block; }
 	}
 
 	.article-sticky{
-		margin-bottom: 3%;
-		border-radius: 0;
+		margin-bottom: 5%;
+		border-radius: 0px;
 		box-shadow: none;
+		border: 0;
 
 		.image{ width: 100%; }
 		header{
@@ -92,13 +112,27 @@
 			.category{
 				font-size: @desc_fontsize;
 				margin-bottom: 5%;
+				padding: 2px 7px;
 			}
 			h2{
 				font-size: @title_fontsize;
 				margin-bottom: 5%;
 				line-height: 1.25em;
 			}
-			p{ font-size: @desc_fontsize; }
+			p{
+				font-size: @desc_fontsize;
+
+				&.info{
+					margin-top: 5%;
+
+					.owner{
+						img{
+							height: 20px;
+							margin-right: 10px;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -108,53 +142,70 @@
 			width: 100%;
 			margin: 0;
 			margin-bottom: 3%;
-			min-height: initial;
+			min-height: 144px;
 			border-radius: 0px;
+			border: 0;
 			box-shadow: none;
 
-			.thumbnail{ width: 30%; }
+			&.last-child{ margin-bottom: 0; }
 
+			.thumbnail{
+				width: 30%;
+				padding-top: 7%;
+			}
 			header{
 				width: 60%;
 				padding: 5%;
 
+				&.fullsize{ width: 90%; }
+
 				h2{
 					font-size: @title_fontsize;
-					line-height: 1.3em;
-					margin-bottom: 2%;
-					letter-spacing: 0.01em;
+					line-height: 1.25em;
+					margin-bottom: 5%;
+					letter-spacing: 0.02em;
 				}
-				p{ font-size: @desc_fontsize; }
+				p{
+					font-size: @desc_fontsize;
+					.owner{
+						img{
+							height: 20px;
+							margin-right: 10px;
+						}
+					}
+				}
 			}
 		}
 		
 		.empty{
-			padding: 15% 0;
+			padding: 10% 0;
 			font-size: @title_fontsize;
 		}
 	}
 
 	a.read-more{
 		width: 90%;
+		padding: 5%;
 		margin: 0%;
 		font-size: @title_fontsize;
-		padding: 5%;
 		border-radius: 0px;
+
+		i{ margin-left: 5px; }
 	}
 }
 
 .pagination{
 	width: 90%;
-	margin: 0% 5%;
+	margin: 0 5%;
 
-	a{ font-size: @title_fontsize; }
+	a{
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: @title_fontsize;
+	}
 }
 
 .article{
-	width: 100%;
-	float: left;
-	display: inline-block;
-
 	.article-header{
 		width: 90%;
 		margin: 5%;
@@ -168,30 +219,31 @@
 			}
 
 			.detail{
-				width: 60%;
-				margin-top: -3%;
+				width: 85%;
+				margin-top: -2%;
 
 				.name{
 					font-size: @title_fontsize;
-					line-height: 1.5em;
+					line-height: 1.35em;
 				}
 				.desc{
 					font-size: @desc_fontsize;
-					line-height: 1.3em;
-
-					&.position{ display: none; }
+					line-height: 1.25em;
 				}
+
+				.position{ display: none; }
 			}
 
 			a.btn-edit{
-				width: 20%;
-				padding: 2% 0%;
+				width: 100%;
+				padding: 3% 0%;
+				margin-top: 5%;
 				font-size: @title_fontsize;
 			}
 		}
 
 		h1{
-			font-size: @topic_fontsize;
+			font-size: @title_fontsize * 2;
 			line-height: 1.2em;
 		}
 
@@ -220,15 +272,13 @@
 		margin-bottom: 5%;
 
 		h2{
-			color: @font_color_topic;
-			font-size: @title_fontsize;
+			font-size: @body_fontsize * 1.2;
 			margin-bottom: 2%;
 			line-height: 1.3em;
 		}
 
 		p{
 			font-size: @body_fontsize;
-			color: @font_color_body;
 			line-height: 1.6em;
 		}
 	}
@@ -246,17 +296,19 @@
 		margin: 0 5%;
 		margin-bottom: 5%;
 
-		i.fa-quote-left, i.fa-quote-right{ font-size: @body_fontsize * 1.5; }
+		i.fa-quote-left, i.fa-quote-right{
+			font-size: @body_fontsize * 2;
+		}
 
 		p{
 			width: 90%;
-			padding: 2% 5%;
-			font-size: @body_fontsize * 1.2;
+			padding: 1% 5%;
+			font-size: @body_fontsize * 2;
 			line-height: 1.5em;
 		}
 		footer{
 			width: 80%;
-			padding: 2% 10%;
+			padding: 1% 10%;
 			font-size: @body_fontsize;
 		}
 	}
@@ -267,14 +319,13 @@
 		margin-bottom: 5%;
 
 		.image-not-found{
-			padding: 30% 0%;
+			padding: 25% 0%;
 			font-size: @body_fontsize;
 		}
 
 		a.btn-open-map{
-			top: 70%;
+			top: 75%;
 			right: 5%;
-			background: @primary_color;
 			padding: 15px;
 			font-size: @title_fontsize;
 		}
@@ -297,27 +348,101 @@
 		a{
 			margin-right: 5%;
 			margin-bottom: 5%;
+			font-size: @body_fontsize;
+		}
+	}
+
+	.documents{
+		width: 100%;
+		margin: 0%;
+		margin-bottom: 5%;
+		padding-top: 5%;
+		float: left;
+		display: inline-block;
+
+		h2{
+			width: 90%;
+			margin: 0 5%;
+			font-size: @title_fontsize;
+			margin-bottom: 5%;
+		}
+
+		.document-items{
+			width: 100%;
+			margin-bottom: 3%;
+			margin-right: 0%;
+			border-radius: 0;
+			box-shadow: none;
+			background: #EEEEEE;
+
+			.icon{
+				width: 10%;
+				padding: 2% 4%;
+				font-size: 1.6em;
+			}
+			.detail{
+				width: 78%;
+				padding: 2% 0;
+				padding-right: 4%;
+
+				.name{ font-size: @title_fontsize; }
+				.desc{ font-size: @desc_fontsize; }
+			}
 		}
 	}
 }
 
-.facebook-comment{
-	width: 50%;
-	margin: 0 25%;
+.qrcode{
+	width: 90%;
+	margin: 0 5%;
 	margin-bottom: 5%;
-	float: left;
-	display: inline-block;
 
 	h3{
-		width: 100%;
-		float: left;
-		display: inline-block;
 		font-size: @title_fontsize * 1.5;
 		font-family: @topic_font;
-		margin-bottom: 3%;
-		color: #333333;
-		line-height: 1em;
+		margin-bottom: 5%;
 	}
+
+	.qrcode-img{
+		width: 100%;
+		border: 1px solid #DDDDDD;
+		border-radius: 5px;
+	}
+
+	.guild{
+		width: 100%;
+		margin-top: 5%;
+
+		p{ font-size: 1em; }
+	}
+}
+
+// Facebook Comment Box
+.facebook-comment{
+	width: 100%;
+	margin: 0%;
+	margin-bottom: 5%;
+
+	h3{
+		width: 90%;
+		margin: 0 5%;
+		font-size: @title_fontsize * 1.5;
+		margin-bottom: 5%;
+	}
+}
+
+// Facebook Comment Box
+.sharing{
+	width: 90%;
+	margin: 0 5%;
+	margin-bottom: 5%;
+
+	h3{
+		font-size: @title_fontsize * 1.5;
+		margin-bottom: 5%;
+	}
+
+	span{ margin-right: 5%; }
 }
 
 .pagehead{
@@ -326,23 +451,23 @@
 	font-size: @title_fontsize;
 }
 
+// Search Box Style
 form.search{
-	width: 90%;
-	margin: 0% 5%;
-	margin-top: 5%;
+	width: 100%;
+	margin: 0%;
 
 	span{
-		width: 17%;
+		width: 20%;
 		font-size: @title_fontsize;
-		line-height: 1.9em;
-		padding: 2% 0;
+		line-height: 2em;
+		padding: 2.5% 0%;
 	}
 
 	input[type="text"]{
-		width: 100%;
-		padding: 2% 0;
-		padding-left: 17%;
+		padding: 2.5% 0%;
+		padding-left: 20%;
 		font-size: @title_fontsize;
+		border-radius: 0px;
 	}
 }
 
@@ -358,27 +483,24 @@ form.search{
 
 		a{
 			padding: 2%;
-			line-height: 1em;
+			i{ margin-right: 5px; }
 		}
 	}
 
 	.license{ font-size: @desc_fontsize; }
 }
 
-.page-nav{ display: none;  }
+.page-nav{ display: none; }
 .about{
-	width: 100%;
-	margin: 0%;
-	float: left;
-	display: inline-block;
+	width: 90%;
+	margin: 5%;
 
 	.content{
-		width: 90%;
-		padding: 5%;
+		padding: 5% 0%;
 
 		h1{
 			font-size: 2em;
-			margin-bottom: 5%;
+			margin-bottom: 3%;
 		}
 		p{
 			font-size: 1.1em;
@@ -388,11 +510,12 @@ form.search{
 		figure{ margin-bottom: 5%; }
 
 		.profile{
+
 			.profile-items{
 				width: 100%;
-				margin-bottom: 5%;
+				margin-bottom: 3%;
 				margin-right: 0%;
-				box-shadow: none;
+				border-radius: 5px;
 
 				.thumbnail{
 					width: 25%;
@@ -416,10 +539,9 @@ form.search{
 }
 
 .login{
-
 	.logo{
 		padding: 5% 0%;
-		margin-top: 0%;
+		margin-top: 5%;
 
 		a img{ height: 40px; }
 	}
@@ -430,7 +552,7 @@ form.search{
 		margin-bottom: 5%;
 
 		.btn{
-			padding: 5% 0%;
+			padding: 5.6% 0%;
 			font-size: @title_fontsize;
 
 			i{ margin-left: 15px; }
@@ -442,7 +564,6 @@ form.search{
 		}
 
 		.inputtext{
-			font-size: @title_fontsize;
 			padding: 3.5% 5%;
 			margin-bottom: 5%;
 		}
@@ -454,10 +575,23 @@ form.search{
 .announce{
 	width: 90%;
 	margin: 0% 5%;
-	margin-top: 50%;
+	margin-top: 45%;
 
 	h2{
+		font-size: @body_fontsize * 1.4;
+	}
+
+	p{
+		margin-top: 2%;
+		font-size: @desc_fontsize;
+	}
+
+	a{
+		margin-top: 15%;
 		font-size: @title_fontsize;
+		padding: 3% 5%;
+		border-radius: 5px;
+
 		i{ margin-right: 10px; }
 	}
 }
