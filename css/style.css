@@ -183,26 +183,29 @@ body.paper {
 .header.transparent a.btn-icon {
   color: #FFFFFF;
 }
-.header .logo {
+.header a.logo {
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 40%;
   float: left;
-  display: inline-block;
-  height: 28px;
-  padding: 14px 0%;
-}
-.header .logo a {
+  display: block;
+  height: 30px;
+  padding: 13px 0%;
+  text-align: center;
   font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
-  line-height: 1.5em;
   text-decoration: none;
+  font-size: 1.2em;
+  line-height: 1em;
   color: #FFFFFF;
 }
-.header .logo img {
-  float: left;
-  display: inline-block;
-  height: 28px;
+.header a.logo img {
+  height: 30px;
+  vertical-align: middle;
 }
-.header .logo span {
-  margin-left: 14px;
+.header a.logo span {
+  margin-left: 5px;
+  vertical-align: middle;
 }
 .header .btn-icon {
   float: left;
