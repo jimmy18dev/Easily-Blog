@@ -1743,15 +1743,19 @@ form.search input[type="text"]:focus {
   .footer {
     width: 86%;
     padding: 7%;
-    margin-top: 7%;
+    margin-top: 5%;
     text-align: left;
   }
   .footer .link {
     font-size: 1.1em;
-    margin-bottom: 7%;
+    margin-bottom: 0%;
   }
   .footer .link a {
-    padding: 2%;
+    float: left;
+    display: inline-block;
+    padding: 0%;
+    margin-right: 7%;
+    margin-bottom: 7%;
   }
   .footer .link a i {
     margin-right: 5px;
