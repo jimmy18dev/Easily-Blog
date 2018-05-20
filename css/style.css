@@ -319,22 +319,33 @@ body.paper {
   margin-top: 4%;
   padding-bottom: 3%;
 }
-.section h3 {
+.section .head {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.32em;
-  font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
-  color: #333333;
+}
+.section .head h3 {
+  float: left;
+  display: inline-block;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.6500000000000001em;
   line-height: 1em;
+  color: #333333;
 }
-.section h3 i {
-  margin-right: 15px;
-  color: #ff6d00;
+.section .head a {
+  float: right;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "maledpan", sans-serif;
+  font-size: 1.1em;
+  color: #BBBBBB;
 }
-.section h3.category_name {
-  display: none;
+.section .head a i {
+  margin-left: 7px;
+}
+.section .head a:hover {
+  text-decoration: underline;
 }
 .section .article-sticky {
   width: 100%;
@@ -344,7 +355,7 @@ body.paper {
   background: #FFFFFF;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
 }
@@ -426,7 +437,7 @@ body.paper {
   background: #FFFFFF;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
 }
@@ -461,7 +472,7 @@ body.paper {
   display: inline-block;
   font-size: 1.1em;
   font-family: "maledpan", sans-serif;
-  line-height: 1.4em;
+  line-height: 1.3em;
   font-weight: normal;
   margin-bottom: 3%;
 }
@@ -499,28 +510,6 @@ body.paper {
   font-size: 1.1em;
   color: #DDDDDD;
   font-style: italic;
-}
-.section a.read-more {
-  width: 15%;
-  margin: 0 39%;
-  float: left;
-  display: inline-block;
-  background: transparent;
-  text-decoration: none;
-  color: #999999;
-  font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
-  line-height: 1em;
-  padding: 1.5% 2%;
-  text-align: center;
-  border-radius: 5px;
-}
-.section a.read-more i {
-  margin-left: 5px;
-}
-.section a.read-more:hover {
-  background: #ff6d00;
-  color: #FFFFFF;
 }
 .pagination {
   width: 70%;
@@ -597,10 +586,10 @@ body.paper {
   width: 10%;
   float: right;
   display: inline-block;
-  background: #ff6d00;
+  background: #DDDDDD;
   text-align: center;
   font-family: "maledpan", sans-serif;
-  color: #FFFFFF;
+  color: #666666;
   border-radius: 5px;
   padding: 1.5% 0%;
   font-size: 1.1em;
@@ -775,8 +764,8 @@ body.paper {
 }
 .article figure.content a.btn-open-map {
   position: absolute;
-  top: 82%;
-  right: 7%;
+  top: 5%;
+  right: 5%;
   background: #ff6d00;
   color: #FFFFFF;
   text-decoration: none;
@@ -912,11 +901,12 @@ body.paper {
   font-size: 1.32em;
   font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
-  color: #333333;
+  color: #999999;
   line-height: 1em;
+  font-weight: normal;
 }
 .qrcode .qrcode-img {
-  width: 30%;
+  width: 15%;
   float: left;
   display: inline-block;
   border: 1px solid #DDDDDD;
@@ -929,19 +919,19 @@ body.paper {
   display: inline-block;
 }
 .qrcode .guild {
-  width: 65%;
+  width: 80%;
   float: right;
   display: inline-block;
   font-style: italic;
   color: #999999;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 .qrcode .guild p {
   width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 1em;
-  font-size: 1em;
+  font-size: 0.75em;
 }
 .facebook-comment {
   width: 50%;
@@ -957,8 +947,14 @@ body.paper {
   font-size: 1.32em;
   font-family: "maledpan", sans-serif;
   margin-bottom: 3%;
-  color: #333333;
+  color: #999999;
   line-height: 1em;
+  font-weight: normal;
+}
+.facebook-comment .fb-comments {
+  width: 100%;
+  float: left;
+  display: inline-block;
 }
 .sharing {
   width: 50%;
@@ -967,20 +963,10 @@ body.paper {
   float: left;
   display: inline-block;
 }
-.sharing h3 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.32em;
-  font-family: "maledpan", sans-serif;
-  margin-bottom: 3%;
-  color: #333333;
-  line-height: 1em;
-}
 .sharing span {
-  float: left;
+  float: right;
   display: inline-block;
-  margin-right: 2%;
+  margin-left: 2%;
 }
 .pagehead {
   width: 70%;
@@ -1344,7 +1330,8 @@ form.search input[type="text"]:focus {
   }
   .header .logo {
     height: 28px;
-    padding: 14px 5%;
+    padding: 14px 7%;
+    padding-right: 0;
   }
   .header .logo a {
     font-size: 1.1em;
@@ -1358,7 +1345,7 @@ form.search input[type="text"]:focus {
   }
   .header .btn-icon {
     height: 20px;
-    padding: 18px 6%;
+    padding: 18px 7%;
     line-height: 1em;
     font-size: 1.1em;
   }
@@ -1397,20 +1384,20 @@ form.search input[type="text"]:focus {
   }
   .cover {
     height: auto;
-    margin-bottom: 5%;
+    margin-bottom: 0%;
   }
   .cover img {
     margin-top: 0px;
   }
   .cover .content {
-    width: 90%;
-    margin: 10% 5%;
+    width: 86%;
+    margin: 10% 7%;
     top: inherit;
     bottom: 0;
     text-align: left;
   }
   .cover .content h1 {
-    font-size: 2.2em;
+    font-size: 1.815em;
     line-height: 1.1em;
     margin-bottom: 3%;
   }
@@ -1424,46 +1411,53 @@ form.search input[type="text"]:focus {
     margin-top: 5%;
     padding-bottom: 5%;
   }
-  .section h3 {
-    width: 90%;
-    margin: 5%;
+  .section .head {
+    width: 100%;
+    margin: 0;
+  }
+  .section .head h3 {
+    width: 51%;
+    padding: 7%;
     font-size: 1.32em;
-    margin-top: 0%;
-    line-height: 1em;
   }
-  .section h3 i {
-    margin-right: 10px;
+  .section .head h3.fullsize {
+    width: 86%;
   }
-  .section h3.category_name {
-    display: block;
+  .section .head a {
+    width: 21%;
+    color: #333333;
+    padding: 7%;
+    font-size: 1.1em;
+    line-height: 1.2em;
   }
   .section .article-sticky {
-    margin-bottom: 5%;
+    margin-bottom: 3.5%;
     border-radius: 0px;
     box-shadow: none;
     border: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   .section .article-sticky .image {
     width: 100%;
   }
   .section .article-sticky header {
-    width: 90%;
-    padding: 5%;
+    width: 86%;
+    padding: 7%;
   }
   .section .article-sticky header .category {
     font-size: 0.7em;
-    margin-bottom: 5%;
+    margin-bottom: 3.5%;
   }
   .section .article-sticky header h2 {
     font-size: 1.1em;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
     line-height: 1.25em;
   }
   .section .article-sticky header p {
     font-size: 0.7em;
   }
   .section .article-sticky header p.info {
-    margin-top: 5%;
+    margin-top: 7%;
   }
   .section .article-sticky header p.info .owner {
     line-height: 1.8em;
@@ -1475,22 +1469,22 @@ form.search input[type="text"]:focus {
   .section .lists .article-card {
     width: 100%;
     margin: 0;
-    margin-bottom: 3%;
+    margin-bottom: 3.5%;
     min-height: 144px;
     border-radius: 0px;
     border: 0;
-    box-shadow: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   .section .lists .article-card.last-child {
     margin-bottom: 0;
   }
   .section .lists .article-card .thumbnail {
     width: 30%;
-    padding-top: 7%;
+    padding-top: 9%;
   }
   .section .lists .article-card header {
-    width: 60%;
-    padding: 5%;
+    width: 56%;
+    padding: 7%;
   }
   .section .lists .article-card header.fullsize {
     width: 90%;
@@ -1498,7 +1492,7 @@ form.search input[type="text"]:focus {
   .section .lists .article-card header h2 {
     font-size: 1.1em;
     line-height: 1.25em;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
   }
   .section .lists .article-card header p {
     font-size: 0.7em;
@@ -1512,24 +1506,17 @@ form.search input[type="text"]:focus {
     padding: 10% 0;
     font-size: 1.1em;
   }
-  .section a.read-more {
-    width: 90%;
-    padding: 5%;
-    margin: 0%;
-    font-size: 1.1em;
-    border-radius: 0px;
-  }
-  .section a.read-more i {
-    margin-left: 5px;
-  }
   .pagination {
-    width: 90%;
-    margin: 0 5%;
+    width: 86%;
+    margin: 0 7%;
   }
   .pagination a {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1.1em;
+  }
+  .article {
+    margin-bottom: 7%;
   }
   .article .article-header {
     width: 86%;
@@ -1702,36 +1689,38 @@ form.search input[type="text"]:focus {
     margin-bottom: 7%;
   }
   .qrcode h3 {
-    font-size: 1.54em;
-    margin-bottom: 3%;
+    font-size: 1.32em;
+    margin-bottom: 7%;
   }
   .qrcode .qrcode-img {
-    width: 100%;
+    width: 30%;
   }
   .qrcode .guild {
-    width: 100%;
-    margin-top: 3%;
+    width: 63%;
+    margin-top: 0%;
   }
   .facebook-comment {
-    width: 86%;
-    margin: 0 7%;
+    width: 100%;
+    margin: 0%;
     margin-bottom: 7%;
   }
   .facebook-comment h3 {
-    font-size: 1.54em;
-    margin-bottom: 3%;
+    width: 86%;
+    margin: 0 7%;
+    font-size: 1.32em;
+    margin-bottom: 3.5%;
+  }
+  .facebook-comment .fb-comments {
+    width: 92%;
+    margin: 0 4%;
   }
   .sharing {
     width: 86%;
     margin: 0 7%;
     margin-bottom: 7%;
   }
-  .sharing h3 {
-    font-size: 1.54em;
-    margin-bottom: 3%;
-  }
   .sharing span {
-    margin-right: 2%;
+    margin-left: 5%;
   }
   .pagehead {
     width: 86%;

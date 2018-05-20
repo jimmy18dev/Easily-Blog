@@ -61,7 +61,9 @@ $page_image 	= DOMAIN.'/image/cover.png';
 <?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
-	<h3 class="category_name"><?php echo $category->title;?></h3>
+	<div class="head">
+		<h3><?php echo $category->title;?></h3>
+	</div>
 	<div class="lists">
 		<?php if(count($articles['items']) > 0){?>
 		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>

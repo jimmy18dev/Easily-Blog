@@ -8,7 +8,8 @@
 
 	.logo{
 		height: 28px;
-		padding: 14px 5%;
+		padding: 14px 7%;
+		padding-right: 0;
 
 		a{
 			font-size: @title_fontsize;
@@ -21,7 +22,7 @@
 
 	.btn-icon{
 		height: 20px;
-		padding: 18px 6%;
+		padding: 18px 7%;
 		line-height: 1em;
 		font-size: 1.1em;
 
@@ -59,19 +60,19 @@
 
 .cover{
 	height: auto;
-	margin-bottom: 5%;
+	margin-bottom: 0%;
 
 	img{ margin-top: 0px; }
 
 	.content{
-		width: 90%;
-		margin: 10% 5%;
+		width: 86%;
+		margin: 10% 7%;
 		top: inherit;
 		bottom: 0;
 		text-align: left;
 
 		h1{
-			font-size: @title_fontsize * 2;
+			font-size: @title_fontsize * 1.65;
 			line-height: 1.1em;
 			margin-bottom: 3%;
 		}
@@ -89,43 +90,55 @@
 	margin-top: 5%;
 	padding-bottom: 5%;
 
-	h3{
-		width: 90%;
-		margin: 5%;
-		font-size: @title_fontsize * 1.2;
-		margin-top: 0%;
-		line-height: 1em;
+	.head{
+		width: 100%;
+		margin: 0;
 
-		i{ margin-right: 10px; }
+		h3{
+			width: 51%;
+			padding: 7%;
+			font-size: @title_fontsize * 1.2;
 
-		&.category_name{ display: block; }
+			&.fullsize{ width: 86%; }
+		}
+
+		// More Article.
+		a{
+			width: 21%;
+			color: #333333;
+			padding: 7%;
+			font-size: @title_fontsize;
+			line-height: 1.2em;
+		}
 	}
 
 	.article-sticky{
-		margin-bottom: 5%;
+		margin-bottom: 3.5%;
 		border-radius: 0px;
 		box-shadow: none;
 		border: 0;
+		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
 		.image{ width: 100%; }
+
 		header{
-			width: 90%;
-			padding: 5%;
+			width: 86%;
+			padding: 7%;
 
 			.category{
 				font-size: @desc_fontsize;
-				margin-bottom: 5%;
+				margin-bottom: 3.5%;
 			}
 			h2{
 				font-size: @title_fontsize;
-				margin-bottom: 5%;
+				margin-bottom: 7%;
 				line-height: 1.25em;
 			}
 			p{
 				font-size: @desc_fontsize;
 
 				&.info{
-					margin-top: 5%;
+					margin-top: 7%;
 
 					.owner{
 						line-height: 1.8em;
@@ -145,28 +158,28 @@
 		.article-card{
 			width: 100%;
 			margin: 0;
-			margin-bottom: 3%;
+			margin-bottom: 3.5%;
 			min-height: 144px;
 			border-radius: 0px;
 			border: 0;
-			box-shadow: none;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
 			&.last-child{ margin-bottom: 0; }
 
 			.thumbnail{
 				width: 30%;
-				padding-top: 7%;
+				padding-top: 9%;
 			}
 			header{
-				width: 60%;
-				padding: 5%;
+				width: 56%;
+				padding: 7%;
 
 				&.fullsize{ width: 90%; }
 
 				h2{
 					font-size: @title_fontsize;
 					line-height: 1.25em;
-					margin-bottom: 5%;
+					margin-bottom: 7%;
 				}
 				p{
 					font-size: @desc_fontsize;
@@ -187,21 +200,11 @@
 			font-size: @title_fontsize;
 		}
 	}
-
-	a.read-more{
-		width: 90%;
-		padding: 5%;
-		margin: 0%;
-		font-size: @title_fontsize;
-		border-radius: 0px;
-
-		i{ margin-left: 5px; }
-	}
 }
 
 .pagination{
-	width: 90%;
-	margin: 0 5%;
+	width: 86%;
+	margin: 0 7%;
 
 	a{
 		padding: 10px 20px;
@@ -211,6 +214,8 @@
 }
 
 .article{
+	margin-bottom: 7%;
+
 	.article-header{
 		width: 86%;
 		margin: 7%;
@@ -403,26 +408,33 @@
 	margin-bottom: 7%;
 
 	h3{
-		font-size: @title_fontsize * 1.4;
-		margin-bottom: 3%;
+		font-size: @title_fontsize * 1.2;
+		margin-bottom: 7%;
 	}
 
-	.qrcode-img{ width: 100%; }
+	.qrcode-img{ width: 30%; }
 	.guild{
-		width: 100%;
-		margin-top: 3%;
+		width: 63%;
+		margin-top: 0%;
 	}
 }
 
 // Facebook Comment Box
 .facebook-comment{
-	width: 86%;
-	margin: 0 7%;
+	width: 100%;
+	margin: 0%;
 	margin-bottom: 7%;
 
 	h3{
-		font-size: @title_fontsize * 1.4;
-		margin-bottom: 3%;
+		width: 86%;
+		margin: 0 7%;
+		font-size: @title_fontsize * 1.2;
+		margin-bottom: 3.5%;
+	}
+
+	.fb-comments{
+		width: 92%;
+		margin: 0 4%;
 	}
 }
 
@@ -432,12 +444,7 @@
 	margin: 0 7%;
 	margin-bottom: 7%;
 
-	h3{
-		font-size: @title_fontsize * 1.4;
-		margin-bottom: 3%;
-	}
-
-	span{ margin-right: 2%; }
+	span{ margin-left: 5%; }
 }
 
 .pagehead{

@@ -176,22 +176,33 @@
 	margin-top: 4%;
 	padding-bottom: 3%;
 
-	h3{
+	.head{
 		width: 100%;
 		float: left;
 		display: inline-block;
-		font-size: @title_fontsize * 1.2;
-		font-family: @topic_font;
 		margin-bottom: 3%;
-		color: #333333;
-		line-height: 1em;
 
-		i{
-			margin-right: 15px;
-			color: @primary_color;
+		h3{
+			float: left;
+			display: inline-block;
+			font-family: @topic_font;
+			font-size: @title_fontsize * 1.5;
+			line-height: 1em;
+			color: #333333;
 		}
 
-		&.category_name{ display: none; }
+		// More Article.
+		a{
+			float: right;
+			display: inline-block;
+			text-decoration: none;
+			font-family: @topic_font;
+			font-size: @title_fontsize;
+			color: #BBBBBB;
+
+			i{ margin-left: 7px; }
+			&:hover{ text-decoration: underline; }
+		}
 	}
 
 	.article-sticky{
@@ -202,7 +213,7 @@
 		background: #FFFFFF;
 		border-radius: 5px;
 		overflow: hidden;
-		box-shadow: 0 20px 20px rgba(0,0,0,0.08);
+		box-shadow: 0 10px 10px rgba(0,0,0,0.08);
 		border: 1px solid #DDDDDD;
 		box-sizing: border-box;
 
@@ -296,7 +307,7 @@
 			background: #FFFFFF;
 			border-radius: 5px;
 			overflow: hidden;
-			box-shadow: 0 20px 20px rgba(0,0,0,0.08);
+			box-shadow: 0 1px 10px rgba(0,0,0,0.05);
 			border: 1px solid #DDDDDD;
 			box-sizing: border-box;
 
@@ -330,7 +341,7 @@
 					display: inline-block;
 					font-size: @title_fontsize;
 					font-family: @topic_font;
-					line-height: 1.4em;
+					line-height: 1.3em;
 					font-weight: normal;
 					margin-bottom: 3%;
 
@@ -374,29 +385,6 @@
 			font-size: @title_fontsize;
 			color: #DDDDDD;
 			font-style: italic;
-		}
-	}
-
-	a.read-more{
-		width: 15%;
-		margin: 0 39%;
-		float: left;
-		display: inline-block;
-		background: transparent;
-		text-decoration: none;
-		color: #999999;
-		font-family: @topic_font;
-		font-size: @title_fontsize;
-		line-height: 1em;
-		padding: 1.5% 2%;
-		text-align: center;
-		border-radius: 5px;
-
-		i{ margin-left: 5px; }
-
-		&:hover{
-			background: @primary_color;
-			color: #FFFFFF;
 		}
 	}
 }
@@ -482,10 +470,10 @@
 				width: 10%;
 				float: right;
 				display: inline-block;
-				background: @primary_color;
+				background: #DDDDDD;
 				text-align: center;
 				font-family: @topic_font;
-				color: #FFFFFF;
+				color: #666666;
 				border-radius: 5px;
 				padding: 1.5% 0%;
 				font-size: @title_fontsize;
@@ -670,8 +658,8 @@
 
 		a.btn-open-map{
 			position: absolute;
-			top: 82%;
-			right: 7%;
+			top: 5%;
+			right: 5%;
 			background: @primary_color;
 			color: #FFFFFF;
 			text-decoration: none;
@@ -820,12 +808,13 @@
 		font-size: @title_fontsize * 1.2;
 		font-family: @topic_font;
 		margin-bottom: 3%;
-		color: #333333;
+		color: #999999;
 		line-height: 1em;
+		font-weight: normal;
 	}
 
 	.qrcode-img{
-		width: 30%;
+		width: 15%;
 		float: left;
 		display: inline-block;
 		border: 1px solid #DDDDDD;
@@ -840,19 +829,19 @@
 	}
 
 	.guild{
-		width: 65%;
+		width: 80%;
 		float: right;
 		display: inline-block;
 		font-style: italic;
 		color: #999999;
-		margin-top: 3%;
+		margin-top: 2%;
 
 		p{
 			width: 100%;
 			float: left;
 			display: inline-block;
 			margin-bottom: 1em;
-			font-size: 1em;
+			font-size: @desc_fontsize;
 		}
 	}
 }
@@ -872,8 +861,15 @@
 		font-size: @title_fontsize * 1.2;
 		font-family: @topic_font;
 		margin-bottom: 3%;
-		color: #333333;
+		color: #999999;
 		line-height: 1em;
+		font-weight: normal;
+	}
+
+	.fb-comments{
+		width: 100%;
+		float: left;
+		display: inline-block;
 	}
 }
 
@@ -885,21 +881,10 @@
 	float: left;
 	display: inline-block;
 
-	h3{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		font-size: @title_fontsize * 1.2;
-		font-family: @topic_font;
-		margin-bottom: 3%;
-		color: #333333;
-		line-height: 1em;
-	}
-
 	span{
-		float: left;
+		float: right;
 		display: inline-block;
-		margin-right: 2%;
+		margin-left: 2%;
 	}
 }
 

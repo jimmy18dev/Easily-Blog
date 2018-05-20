@@ -76,7 +76,9 @@ $page_image 	= DOMAIN.'/image/cover.png';
 
 <?php if(count($article_sticky) > 0){?>
 <div class="section">
-	<h3>บทความแนะนำ</h3>
+	<div class="head">
+		<h3>บทความแนะนำ</h3>
+	</div>
 	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
 </div>
 <?php }?>
@@ -87,7 +89,12 @@ $page_image 	= DOMAIN.'/image/cover.png';
 	$dataset = $article->listAll($key['category_id'],NULL,'published',NULL,$key['total_items'],false,NULL,NULL);
 	$category_data = $category->get($key['category_id']);
 	?>
-	<h3><?php echo $category_data['title'];?></h3>
+	<div class="head">
+		<h3 class="<?php echo (($dataset['total_items'] > $key['total_items']?'':'fullsize'));?>"><?php echo $category_data['title'];?></h3>
+		<?php if($dataset['total_items'] > $key['total_items']){?>
+		<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>#navi">เพิ่มเติม<i class="fal fa-angle-right"></i></a>
+		<?php }?>
+	</div>
 	<div class="lists">
 		<?php if(count($dataset['items']) > 0){?>
 		<?php foreach ($dataset['items'] as $var) { include 'template/article.card.php'; } ?>
@@ -95,10 +102,6 @@ $page_image 	= DOMAIN.'/image/cover.png';
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
-	
-	<?php if($dataset['total_items'] > $key['total_items']){?>
-	<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>#navi">ดูเพิ่มเติม<i class="fal fa-angle-right"></i></a>
-	<?php }?>
 </div>
 <?php }?>
 
