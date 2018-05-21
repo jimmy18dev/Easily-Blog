@@ -62,7 +62,7 @@ $page_image 	= DOMAIN.'/image/cover.png';
 
 <div class="section">
 	<div class="head">
-		<h3><?php echo $category->title;?></h3>
+		<h3 class="fullsize"><?php echo $category->title;?></h3>
 	</div>
 	<div class="lists">
 		<?php if(count($articles['items']) > 0){?>
