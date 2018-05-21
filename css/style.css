@@ -268,6 +268,14 @@ body.paper {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+.navigation.toggle {
+  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+}
+.navigation .mini-logo {
+  display: none;
+}
 .navigation a {
   font-family: "maledpan", sans-serif;
   font-size: 1.1em;
@@ -285,11 +293,6 @@ body.paper {
 }
 .navigation a.active i {
   color: #ff6d00;
-}
-.navigation.toggle {
-  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
-  transform: translate3d(100%, 0, 0);
-  -webkit-transform: translate3d(100%, 0, 0);
 }
 .cover {
   width: 100%;
