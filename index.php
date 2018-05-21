@@ -1,14 +1,13 @@
 <?php
 include_once'autoload.php';
 
-$article = new Article();
-$category = new Category();
-$homesection = new HomeSection();
-
-$sectionitems = $homesection->lists();
+$article 		= new Article();
+$category 		= new Category();
+$homesection 	= new HomeSection();
+$sectionitems 	= $homesection->lists();
 $article_sticky = $article->listSticky();
-$categories = $category->listAll();
-$current_page = 'home';
+$categories 	= $category->listAll();
+$current_page 	= 'home';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -77,7 +76,9 @@ $page_image 	= DOMAIN.'/image/cover.png';
 
 <?php if(count($article_sticky) > 0){?>
 <div class="section">
-	<h3><i class="fa fa-star"></i>บทความแนะนำ</h3>
+	<div class="head">
+		<h3>บทความแนะนำ</h3>
+	</div>
 	<?php foreach ($article_sticky as $var) { include 'template/article.sticky.php'; } ?>
 </div>
 <?php }?>
@@ -88,7 +89,12 @@ $page_image 	= DOMAIN.'/image/cover.png';
 	$dataset = $article->listAll($key['category_id'],NULL,'published',NULL,$key['total_items'],false,NULL,NULL);
 	$category_data = $category->get($key['category_id']);
 	?>
-	<h3><i class="fal fa-<?php echo (!empty($category_data['icon'])?$category_data['icon']:'folder');?>"></i><?php echo $category_data['title'];?></h3>
+	<div class="head">
+		<h3 class="<?php echo (($dataset['total_items'] > $key['total_items']?'':'fullsize'));?>"><?php echo $category_data['title'];?></h3>
+		<?php if($dataset['total_items'] > $key['total_items']){?>
+		<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>#navi">เพิ่มเติม<i class="fal fa-angle-right"></i></a>
+		<?php }?>
+	</div>
 	<div class="lists">
 		<?php if(count($dataset['items']) > 0){?>
 		<?php foreach ($dataset['items'] as $var) { include 'template/article.card.php'; } ?>
@@ -96,14 +102,12 @@ $page_image 	= DOMAIN.'/image/cover.png';
 		<div class="empty">ไม่พบบทความ</div>
 		<?php }?>
 	</div>
-	
-	<?php if($dataset['total_items'] > $key['total_items']){?>
-	<a class="read-more" href="topic/<?php echo $category_data['id'];?><?php echo (!empty($category_data['link'])?'/'.$category_data['link']:'');?>#navi">ดูเพิ่มเติม<i class="fal fa-angle-right"></i></a>
-	<?php }?>
 </div>
 <?php }?>
-<?php include_once 'footer.php'; ?>
 
+<div id="overlay" class="overlay"></div>
+
+<?php include_once 'footer.php'; ?>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/nav.js"></script>

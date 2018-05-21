@@ -4,6 +4,12 @@ include_once 'autoload.php';
 $article 			= new Article();
 $article_id 		= $_GET['article_id'];
 $article->get($article_id);
+
+if(empty($article->id)){
+    header('Location:'.DOMAIN.'/404.php');
+    die();
+}
+
 $related_content 	= $article->related($article->id);
 
 // Redirect to URL Friendly Page.
@@ -11,6 +17,8 @@ if(!empty($article->url) && isset($article->url) && empty($_GET['title'])){
 	header('Location: '.DOMAIN.'/article/'.$article->id.'/'.$article->url);
 	die();
 }
+
+$current_page = 'article';
 ?>
 
 <!doctype html>
@@ -74,7 +82,7 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 <?php include_once 'header.php';?>
 
 <!-- Article Content -->
-<article class="article">
+<article class="article" id="article">
 	<?php if(!empty($article->head_cover_img)){?>
 	<!-- Article Header With Cover image -->
 	<div class="article-cover">
@@ -211,19 +219,6 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<?php }?>
 </article>
 
-<div class="sharing">
-	<h3>ส่งต่อบทความนี้</h3>
-	<span>
-		<div class="fb-share-button" data-href="<?php echo $page_url;?>" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Figensite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-	</span>
-	<span>
-		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="<?php echo $page_title;?>" data-url="<?php echo $page_url;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-	</span>
-	<span>
-		<div class="line-it-button" data-lang="en" data-type="share-a" data-url="<?php echo $page_url;?>" style="display: none;"></div><script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-	</span>
-</div>
-
 <?php if($article->qrcode){?>
 <div class="qrcode">
 	<h3>อ่านต่อในมือถือ</h3>
@@ -239,14 +234,25 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 
 <?php if($article->fb_comment){?>
 <div class="facebook-comment">
-	<h3>ร่วมแสดงความคิดเห็น</h3>
+	<h3>แสดงความคิดเห็น</h3>
 	<div class="fb-comments" data-href="<?php echo $page_url;?>" data-width="100%" data-numposts="5"></div>
 </div>
 <?php }?>
 
+<div class="sharing">
+	<span>
+		<div class="fb-share-button" data-href="<?php echo $page_url;?>" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Figensite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+	</span>
+	<span>
+		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="<?php echo $page_title;?>" data-url="<?php echo $page_url;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</span>
+	<span>
+		<div class="line-it-button" data-lang="en" data-type="share-a" data-url="<?php echo $page_url;?>" style="display: none;"></div><script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	</span>
+</div>
+
 <?php if($article->related_content && count($related_content) > 0){?>
 <div class="section related">
-	<h3>บทความแนะนำ</h3>
 	<div class="lists">
 		<?php foreach ($related_content as $var) { include 'template/article.card.php'; } ?>
 	</div>

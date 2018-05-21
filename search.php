@@ -37,13 +37,14 @@ $current_page = 'search';
 <link rel="stylesheet" type="text/css" href="plugin/fontawesome-pro-5.0.9/css/fontawesome-all.min.css"/>
 </head>
 <body>
+<header class="header">
+	<a href="index.php" class="btn-icon"><i class="fal fa-arrow-left"></i></a>
 
-<?php include_once 'header.php';?>
-
-<form class="search" action="search" method="GET">
-	<span><i class="fal fa-search"></i></span>
-	<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
-</form>
+	<form action="search" method="GET">
+		<button type="submit" class="btn-icon right"><i class="fal fa-search"></i></button>
+		<input type="text" name="q" placeholder="ค้นหาบทความ..." value="<?php echo $keyword;?>" autofocus>
+	</form>
+</header>
 
 <div class="section">
 	<div class="lists">

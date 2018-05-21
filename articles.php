@@ -5,7 +5,7 @@ $category = new Category();
 $category_id = $_GET['category_id'];
 $category->get($category_id);
 $page = (!empty($_GET['page'])?$_GET['page']:1);
-$perpage = 6;
+$perpage = 4;
 $articles = $article->listAll($category->id,NULL,'published',NULL,0,true,$page,$perpage);
 $current_page = 'articles';
 ?>
@@ -61,7 +61,9 @@ $page_image 	= DOMAIN.'/image/cover.png';
 <?php include_once 'template/navigation.php'; ?>
 
 <div class="section">
-	<h3 class="category_name"><?php echo $category->title;?></h3>
+	<div class="head">
+		<h3 class="fullsize"><?php echo $category->title;?></h3>
+	</div>
 	<div class="lists">
 		<?php if(count($articles['items']) > 0){?>
 		<?php foreach ($articles['items'] as $var) { include 'template/article.card.php'; } ?>
@@ -79,6 +81,8 @@ $page_image 	= DOMAIN.'/image/cover.png';
 	<?php }?>
 </div>
 <?php }?>
+
+<div id="overlay" class="overlay"></div>
 
 <?php if($articles['total_items'] > 0){
 	include_once 'footer.php';

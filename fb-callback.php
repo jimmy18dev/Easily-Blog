@@ -3,9 +3,9 @@ require_once 'autoload.php';
 require_once 'plugin/facebook-sdk-v5/autoload.php';
 
 $fb = new Facebook\Facebook([
-    'app_id'                => APP_ID,
-    'app_secret'            => APP_SECRET,
-    'default_graph_version' => 'v2.12'
+    'app_id'                => $config['facebook']['api_id'],
+    'app_secret'            => $config['facebook']['app_secret'],
+    'default_graph_version' => 'v3.0'
 ]);
 
 $helper = $fb->getRedirectLoginHelper();
@@ -15,22 +15,22 @@ try {
     $accessToken = $helper->getAccessToken();
 }catch(Facebook\Exceptions\FacebookResponseException $e) {
     // When Graph returns an error
-    echo 'Graph returned an error: ' . $e->getMessage();
+    echo '#1 Graph returned an error: '.$e->getMessage();
     exit;
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
     // When validation fails or other local issues
-    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    echo '#1 Facebook SDK returned an error: '.$e->getMessage();
     exit;
 }
 
 // Retrieve User Profile via the Graph API
 try {
-    $response = $fb->get('/me?fields=id,email,name,first_name,last_name,link,gender,verified',$accessToken);
+    $response = $fb->get('/me?fields=id,email,name,first_name,last_name,verified',$accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
-    echo 'Graph returned an error: ' . $e->getMessage();
+    echo '#2 Graph returned an error: ' . $e->getMessage();
     exit;
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
-    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    echo '#2 Facebook SDK returned an error: ' . $e->getMessage();
     exit;
 }
 
@@ -40,9 +40,9 @@ $facebook_id    = $fbuser['id'];
 $email          = $fbuser['email'];
 $fname          = $fbuser['first_name'];
 $lname          = $fbuser['last_name'];
-$link           = $fbuser['link'];
+$link           = '';
 $verified       = $fbuser['verified'];
-$gender         = $fbuser['gender'];
+$gender         = '';
 
 $user_id = $user->alreadyFacebookAccount($facebook_id,$email);
 
