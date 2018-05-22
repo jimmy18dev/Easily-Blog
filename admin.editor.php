@@ -175,7 +175,6 @@ if($article->owner_id != $user->id){
 				<img src="image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>">
 				<?php }else{?>
 				<div class="btn-choose-image">
-					<i class="fa fa-picture-o" aria-hidden="true"></i>
 					<span>เลือกไฟล์รูปภาพ</span>
 				</div>
 				<?php }?>

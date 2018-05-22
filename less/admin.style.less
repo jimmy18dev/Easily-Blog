@@ -835,7 +835,7 @@ body{ background: @bg_color; }
 				border: 0px;
 				color: #333333;
 				background: transparent;
-				text-align: right;
+				text-align: center;
 			}
 		}
 
@@ -969,13 +969,6 @@ body{ background: @bg_color; }
 					float: left;
 					display: inline-block;
 
-					i{
-						display: block;
-						font-size: 4em;
-						margin-bottom: 10px;
-						color: #FFFFFF;
-					}
-
 					span{
 						display: block;
 						font-size: 0.9em;
@@ -989,56 +982,52 @@ body{ background: @bg_color; }
 				}
 			}
 
-			.image-option{
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				width: 94%;
-				margin: 3%;
-				float: left;
-				display: inline-block;
+			// .image-option{
+			// 	position: absolute;
+			// 	bottom: 0;
+			// 	right: 0;
+			// 	width: 94%;
+			// 	margin: 3%;
+			// 	float: left;
+			// 	display: inline-block;
 
-				.btn{
-					float: right;
-					display: inline-block;
-					padding: 8px 16px;
-					border-radius: 20px;
-					line-height: 1em;
-					color: #FFFFFF;
-					border: 1px solid #FFFFFF;
-					font-size: 0.75em;
-					margin-left: 8px;
+			// 	.btn{
+			// 		float: right;
+			// 		display: inline-block;
+			// 		padding: 8px 16px;
+			// 		border-radius: 20px;
+			// 		line-height: 1em;
+			// 		color: #FFFFFF;
+			// 		border: 1px solid #FFFFFF;
+			// 		font-size: 0.75em;
+			// 		margin-left: 8px;
 
-					i{
-						margin-right: 8px;
-					}
+			// 		i{
+			// 			margin-right: 8px;
+			// 		}
 
-					&:hover{
-						cursor: pointer;
-						background: rgba(255,255,255,0.2);
-					}
-				}
-			}
+			// 		&:hover{
+			// 			cursor: pointer;
+			// 			background: rgba(255,255,255,0.2);
+			// 		}
+			// 	}
+			// }
 		}
 	}
 
 	.tools-bar{
 		width: 50%;
 		margin: 5% 25%;
-		padding-top: 1%;
-		float: left;
-		display: inline-block;
-		border-top: 1px solid #EEEEEE;
+		display: flex;
 		text-align: center;
-
-		i{ margin: 0; }
+		flex-direction: row;
+		justify-content: center;
+		border-top: 1px solid #EEEEEE;
 
 		.btn-tool{
-			display: inline-block;
-			padding: 18px;
+			padding: 25px;
 			font-size: @font-size-icon;
 			line-height: 1em;
-			background: transparent;
 			color: #666666;
 
 			&:hover{ cursor: pointer; }
