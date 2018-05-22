@@ -52,7 +52,7 @@ if($article->owner_id != $user->id){
 </head>
 <body class="paper">
 <div class="header">
-	<div class="status" id="editor-status"></div>
+	<div class="btn-icon status" title="บันทึกแล้ว" id="editor-status"></div>
 
 	<?php if($ref == 'onsite'){?>
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
@@ -60,9 +60,9 @@ if($article->owner_id != $user->id){
 	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
 	<?php }?>
 
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>" target="_blank" title="ดูตัวอย่างแท็บใหม่"><i class="fa fa-eye"></i></a>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>" id="btn-example" target="_blank" title="ดูตัวอย่างแท็บใหม่"><i class="fa fa-eye"></i></a>
 	<?php if($article->status!='published'){?>
-	<div class="btn right active" id="btn-publish" title="เผยแพร่">เผยแพร่</div>
+	<div class="btn right active" id="btn-publish" title="เผยแพร่"><i class="fa fa-paper-plane"></i><span>เผยแพร่</span></div>
 	<?php }?>
 
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option<?php echo ($ref=='onsite'?'?ref=onsite':'')?>" title="ตั้งค่า"><i class="fa fa-cog"></i></a>

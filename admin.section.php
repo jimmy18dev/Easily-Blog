@@ -55,15 +55,6 @@ $current_page = 'section';
 <div class="filter">
     <p>คุณสามารถเลือกหมวดหมู่ทที่ให้แสดงบนหน้าแรกของเว็บไซต์ โดยเลือกหมวดหมู่และระบุจำนวนบทความที่ต้องการให้แสดง</p>
 
-    <button class="btn-create" id="btn-add">เพิ่มหมวด</button>
-    <div class="select number" title="จำนวนบทความที่แสดง">
-        <select id="total_items">
-            <?php for($i=2;$i<=12;$i+=2){?>
-            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-            <?php }?>
-        </select>
-    </div>
-
     <div class="select">
         <select id="category_id">
             <option value="0" selected disabled hidden>เลือกหมวด</option>
@@ -74,6 +65,15 @@ $current_page = 'section';
             <?php }?>
         </select>
     </div>
+    <div class="select number" title="จำนวนบทความที่แสดง">
+        <select id="total_items">
+            <?php for($i=2;$i<=12;$i+=2){?>
+            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div>
+
+    <button class="btn-create" id="btn-add">เพิ่ม</button>
 </div>
 <?php }?>
 

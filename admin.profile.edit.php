@@ -78,12 +78,11 @@ $members = $member->listAll();
         <div class="note">ไม่เกิน 140 ตัวอักษร</div>
     </div>
     <div class="section">
-        <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
+        <button id="btnSaveProfile">บันทึก</button>
     </div>
 </div>
 
 <div class="lists">
-    <h1>สมาชิก</h1>
     <?php if(count($members) > 0){?>
     <?php foreach ($members as $var) { include 'template/member.items.php'; } ?>
     <?php }?>

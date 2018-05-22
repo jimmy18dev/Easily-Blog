@@ -48,7 +48,7 @@ $current_page = 'category';
         <p>คุณมี <?php echo count($categories);?> หมวดหมู่</p>
     </div>
     <div class="action">
-        <a class="btn-create active" href="profile/category/create">สร้างหมวดหมู่</a>
+        <a class="btn-create active" title="สร้างหมวดหมู่ใหม่" href="profile/category/create">สร้าง</a>
     </div>
 </div>
 

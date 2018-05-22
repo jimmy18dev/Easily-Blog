@@ -57,13 +57,12 @@ $current_page = 'article';
         <p>จัดการบทความของคุณทั้งหมด ได้จากหน้านี้</p>
     </div>
     <div class="action">
-        <a class="btn-create active" href="article/create">เขียนบทความ</a>
+        <a class="btn-create active" title="เขียนบทความใหม่" href="article/create">เขียน</a>
     </div>
 </div>
 
 <?php if($page == 1 && count($article_sticky) > 0){?>
 <div class="lists">
-    <h1>ปักหมุด</h1>
     <?php if(count($article_sticky) > 0){?>
     <?php foreach ($article_sticky as $var) { include 'template/article.items.php'; } ?>
     <?php }?>
@@ -71,7 +70,6 @@ $current_page = 'article';
 <?php }?>
 
 <div class="lists">
-    <h1>บทความของคุณ</h1>
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>

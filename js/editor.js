@@ -10,7 +10,7 @@ $(document).ready(function(){
     // Editor saved status
     function saveStatus(m){
         if(m == 'saved')
-            $('#editor-status').html('บันทึกแล้ว');
+            $('#editor-status').html('<i class="fal fa-check"></i>');
         else
             $('#editor-status').html('');
     }
@@ -165,8 +165,10 @@ $(document).ready(function(){
     
     // Publish Article
     $('#btn-publish').click(function(){
-        $(this).html('กำลังเผยแพร่...');
-        article.publish();
+        $(this).removeClass('active');
+
+        // article.publish();
+        
         setTimeout(function(){
             window.location = 'article/'+article_id;
         },1000);

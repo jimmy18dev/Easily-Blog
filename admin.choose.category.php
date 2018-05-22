@@ -59,7 +59,7 @@ $categories = $category->listAll();
 
 <div class="lists">
 	<?php foreach ($categories as $var) {?>
-	<div class="list-items choose-category" data-id="<?php echo $var['id'];?>">
+	<div class="list-items choose-category btn-1" data-id="<?php echo $var['id'];?>">
 		<div class="icon">
 			<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 		</div>
@@ -75,7 +75,7 @@ $categories = $category->listAll();
 </div>
 
 <div class="filter bottom">
-    <button class="btn-create" id="btnStartWrite">เขียนบทความ</button>
+    <button class="btn-create right" id="btnStartWrite">เขียนบทความ</button>
 </div>
 
 <div id="progressbar"></div>
