@@ -1,6 +1,6 @@
 <div class="list-items">
 	<div class="icon"><i class="fal fa-<?php echo (!empty($var['icon'])?$var['icon']:'archive');?>"></i></div>
-	<div class="detail box-70">
+	<div class="detail btn-2">
 		<div class="title"><?php echo $var['title'];?></div>
 		<div class="desc"><?php echo (!empty($var['description'])?$var['description']:'<a href="profile/category/edit/'.$var['id'].'">เพิ่มรายละเอียด</a>');?></div>
 	</div>

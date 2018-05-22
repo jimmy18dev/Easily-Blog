@@ -68,7 +68,7 @@ $page_image 	= DOMAIN.'/image/cover.png';
 		<a class="btn btn-facebook" href="<?php echo $loginUrl;?>"><i class="fa fa-facebook" aria-hidden="true"></i>ลงชื่อเข้าใช้ด้วย Facebook</a>
 		<div class="separator"><span>หรือ</span></div>
 		<form action="javascript:login();">
-			<input type="phone" class="inputtext" id="username" placeholder="อีเมลหรือเบอร์โทรศัพท์" required autofocus>
+			<input type="phone" class="inputtext" id="username" placeholder="อีเมล หรือ เบอร์โทรศัพท์" required autofocus>
 			<input type="password" class="inputtext" id="password" placeholder="รหัสผ่าน" required>
 			<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
 			<input type="hidden" id="redirect" value="<?php echo $_GET['redirect'];?>">

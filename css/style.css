@@ -255,8 +255,8 @@ body.paper {
   display: none;
 }
 .navigation {
-  width: 70%;
-  padding: 0 15%;
+  width: 90%;
+  padding: 0 5%;
   height: 56px;
   float: left;
   display: flex;
@@ -1175,6 +1175,11 @@ body.paper {
   color: #FFFFFF;
   background: #3b5998;
 }
+.login .content .btn.loading {
+  background: transparent;
+  color: #999999;
+  box-shadow: none;
+}
 .login .content .btn:hover {
   cursor: pointer;
 }
@@ -1193,8 +1198,8 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.1em;
-  padding: 3.5% 5%;
+  font-size: 1em;
+  padding: 5%;
   margin: 0;
   border: 0;
   background: #FFFFFF;
@@ -1203,7 +1208,6 @@ body.paper {
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
   color: #333333;
-  font-family: "maledpan", sans-serif;
 }
 .login .content .inputtext:hover {
   cursor: pointer;
@@ -1790,7 +1794,7 @@ body.paper {
     font-size: 1.1em;
   }
   .login .content .inputtext {
-    padding: 3.5% 5%;
+    padding: 5%;
     margin-bottom: 3.5%;
   }
   .login .message {

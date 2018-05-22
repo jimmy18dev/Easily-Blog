@@ -6,7 +6,7 @@
 		<img src="image/avatar.png">
 		<?php }?>
 	</div>
-	<div class="detail">
+	<div class="detail btn-3">
 		<div class="title">
 			<?php
 			if(!empty($var['display'])){

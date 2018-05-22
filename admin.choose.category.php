@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+	header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -63,7 +63,7 @@ $categories = $category->listAll();
 		<div class="icon">
 			<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 		</div>
-		<div class="detail box-80">
+		<div class="detail">
 			<div class="title"><?php echo $var['title'];?></div>
 			<?php if(!empty($var['description'])){?>
 			<div class="desc"><?php echo $var['description'];?></div>

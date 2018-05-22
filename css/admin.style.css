@@ -1472,14 +1472,13 @@ body {
   color: #999999;
 }
 .lists .list-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   background: #EAEAEA;
   margin-bottom: 2%;
   border-radius: 5px;
   box-sizing: border-box;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 .lists .list-items:last-child {
   margin-bottom: 0;
@@ -1489,50 +1488,37 @@ body {
 }
 .lists .list-items.selected {
   background: #e9efff;
-  border: 2px solid #2962ff;
+  border: 1px solid #2962ff;
 }
 .lists .list-items.selected .icon-select {
   color: #2962ff;
 }
 .lists .list-items .avatar {
-  width: 5%;
-  padding: 1% 2.5%;
-  padding-top: 2.2%;
-  float: left;
-  display: inline-block;
+  width: 6%;
+  padding: 2%;
 }
 .lists .list-items .avatar img {
   width: 100%;
   float: left;
-  display: inline-block;
   border-radius: 50%;
 }
 .lists .list-items .icon {
   width: 10%;
-  padding: 1.5% 0;
-  float: left;
-  display: inline-block;
   text-align: center;
-  font-size: 1.4em;
-  line-height: 2em;
+  font-size: 1.2em;
   color: #2962ff;
 }
 .lists .list-items .detail {
-  width: 60%;
-  padding: 1.5% 0;
-  float: left;
-  display: inline-block;
+  width: 80%;
+  padding: 1% 0;
 }
-.lists .list-items .detail.box-70 {
+.lists .list-items .detail.btn-2 {
   width: 70%;
 }
-.lists .list-items .detail.box-80 {
-  width: 80%;
+.lists .list-items .detail.btn-3 {
+  width: 60%;
 }
 .lists .list-items .detail .title {
-  width: 100%;
-  float: left;
-  display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -1554,22 +1540,16 @@ body {
 }
 .lists .list-items .icon-select {
   width: 10%;
-  padding: 1.5% 0;
-  float: right;
-  display: inline-block;
   text-align: center;
-  font-size: 1.4em;
-  line-height: 2em;
+  font-size: 1.2em;
+  padding: 2% 0;
   color: transparent;
 }
 .lists .list-items .btn {
   width: 10%;
-  padding: 1.5% 0;
-  float: right;
-  display: inline-block;
   text-align: center;
-  font-size: 1.4em;
-  line-height: 2em;
+  font-size: 1.2em;
+  padding: 2% 0;
   color: #BBBBBB;
 }
 .lists .list-items .btn.active {
@@ -1579,7 +1559,6 @@ body {
   color: #2962ff;
 }
 .lists .list-items .btn:hover {
-  color: #666666;
   cursor: pointer;
 }
 .lists .article-items {
@@ -2911,47 +2890,41 @@ body {
     margin-bottom: 5%;
   }
   .lists .list-items {
-    margin-bottom: 3%;
+    margin-bottom: 2%;
   }
   .lists .list-items .avatar {
     width: 10%;
-    padding: 1% 2.5%;
-    padding-top: 2.2%;
+    padding: 5%;
   }
   .lists .list-items .icon {
-    width: 15%;
-    padding: 1.5% 0;
+    width: 20%;
     font-size: 1.1em;
-    line-height: 2.2em;
   }
   .lists .list-items .detail {
-    width: 40%;
-    padding: 1.5% 0;
-  }
-  .lists .list-items .detail.box-70 {
-    width: 55%;
-  }
-  .lists .list-items .detail.box-80 {
     width: 70%;
   }
+  .lists .list-items .detail.btn-2 {
+    width: 40%;
+  }
+  .lists .list-items .detail.btn-3 {
+    width: 20%;
+  }
   .lists .list-items .detail .title {
-    font-size: 1.1em;
+    font-size: 1em;
   }
   .lists .list-items .detail .desc {
     font-size: 0.65em;
     line-height: 1.2em;
   }
   .lists .list-items .icon-select {
-    width: 15%;
-    padding: 1.5% 0;
+    width: 20%;
     font-size: 1.1em;
-    line-height: 2.2em;
+    padding: 4% 0;
   }
   .lists .list-items .btn {
-    width: 15%;
-    padding: 1.5% 0;
+    width: 20%;
     font-size: 1.1em;
-    line-height: 2.2em;
+    padding: 4% 0;
   }
   .lists .article-items {
     margin-bottom: 3%;

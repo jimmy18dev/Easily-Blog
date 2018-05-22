@@ -99,8 +99,8 @@
 }
 
 .navigation{
-	width: 70%;
-	padding: 0 15%;
+	width: 90%;
+	padding: 0 5%;
 	height: 56px;
 	float: left;
 	display: flex;
@@ -1093,6 +1093,11 @@
 				color: #FFFFFF;
 				background: #3b5998;
 			}
+			&.loading{
+				background: transparent;
+				color: #999999;
+				box-shadow: none;
+			}
 
 			&:hover{ cursor: pointer; }
 		}
@@ -1113,8 +1118,8 @@
 			width: 100%;
 			float: left;
 			display: inline-block;
-			font-size: @title_fontsize;
-			padding: 3.5% 5%;
+			font-size: 1em;
+			padding: 5%;
 			margin: 0;
 			border: 0;
 			background: #FFFFFF;
@@ -1123,7 +1128,6 @@
 			border: 1px solid #DDDDDD;
 			box-sizing: border-box;
 			color: #333333;
-			font-family: @topic_font;
 
 			// &::-webkit-input-placeholder { color: @primary_color_dark; }
 			// &::-moz-placeholder { color: @primary_color_dark; }

@@ -1376,63 +1376,49 @@ body{ background: @bg_color; }
 
 	// List items (Category, Section, Member)
 	.list-items{
-		width: 100%;
-		float: left;
-		display: inline-block;
+		display: flex;
+		align-items: center;
 		background: #EAEAEA;
 		margin-bottom: 2%;
 		border-radius: 5px;
 		box-sizing: border-box;
-		border: 2px solid transparent;
+		border: 1px solid transparent;
 
 		&:last-child{ margin-bottom: 0; }
-
 		&:hover{ cursor: pointer; }
 
 		&.selected{
 			background: #e9efff;
-			border: 2px solid @primary_color;
+			border: 1px solid @primary_color;
 			.icon-select{ color: @primary_color; }
 		}
 
+		// User Account items
 		.avatar{
-			width: 5%;
-			padding: 1% 2.5%;
-			padding-top: 2.2%;
-			float: left;
-			display: inline-block;
+			width: 6%;
+			padding: 2%;
 
 			img{
 				width: 100%;
 				float: left;
-				display: inline-block;
 				border-radius: 50%;
 			}
 		}
 
 		.icon{
 			width: 10%;
-			padding: 1.5% 0;
-			float: left;
-			display: inline-block;
 			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
+			font-size: 1.2em;
 			color: @primary_color;
 		}
 		.detail{
-			width: 60%;
-			padding: 1.5% 0;
-			float: left;
-			display: inline-block;
-
-			&.box-70{ width: 70%; }
-			&.box-80{ width: 80%; }
+			width: 80%;
+			padding: 1% 0;
+			
+			&.btn-2{ width: 70%; }
+			&.btn-3{ width: 60%; }
 
 			.title{
-				width: 100%;
-				float: left;
-				display: inline-block;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				overflow: hidden;
@@ -1455,32 +1441,21 @@ body{ background: @bg_color; }
 		}
 		.icon-select{
 			width: 10%;
-			padding: 1.5% 0;
-			float: right;
-			display: inline-block;
 			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
+			font-size: 1.2em;
+			padding: 2% 0;
 			color: transparent;
 		}
 		.btn{
 			width: 10%;
-			padding: 1.5% 0;
-			float: right;
-			display: inline-block;
 			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
+			font-size: 1.2em;
+			padding: 2% 0;
 			color: #BBBBBB;
 
 			&.active{ color: @primary_color; }
-
 			i.fa-check{ color: @primary_color; }
-
-			&:hover{
-				color: #666666;
-				cursor: pointer;
-			}
+			&:hover{ cursor: pointer; }
 		}
 	}
 
