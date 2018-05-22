@@ -1,40 +1,7 @@
-@font-size-normal 		: 1.05em;
-@font-size-desc 		: 0.7em;
-@font-size-icon 		: 1.25em;
-@font-size-body 		: 1.1em;
-
-.button(){
-	float: right;
-	display: inline-block;
-	background: #EEEEEE;
-	color: #BBBBBB;
-	text-decoration: none;
-	font-family: @topic_font;
-	font-size: @font-size-normal;
-	line-height: 1.1em;
-	padding: 15px 25px;
-	border-radius: 5px;
-	border: 0;
-	margin: 0;
-
-	&.btn-delete{
-		float: left;
-		background: #F44336;
-		color: #FFFFFF;
-		&:hover{ background: #F44336; }
-	}
-
-	&.active{
-		background: @primary_color;
-		color: #FFFFFF;
-		box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
-		&:hover{ background: @primary_color_light; }
-	}
-
-	&:hover{ cursor: pointer; }
-}
-
-body{ background: @bg_color; }
+@font-size-normal 		: 0.9em;
+@font-size-desc 		: 0.65em;
+@font-size-icon 		: 1.2em;
+@font-size-body 		: 1.2em;
 
 .header{
 	width: 100%;
@@ -99,8 +66,8 @@ body{ background: @bg_color; }
 	// Navigation Menu.
 	a.menu{
 		width: 20%;
-		padding: 13px 0%;
-		height: 30px;
+		padding: 14px 0;
+		height: 28px;
 		font-size: @font-size-icon;
 		text-align: center;
 
@@ -108,31 +75,35 @@ body{ background: @bg_color; }
 		span{ display: none; }
 	}
 }
+
 .pagehead{
 	width: 90%;
 	margin: 5%;
 	padding-bottom: 5%;
 
 	.head{
-		width: 70%;
+		width: 100%;
 
 		h1{
-			font-size: 2em;
+			font-size: 1.8em;
 			line-height: 1em;
+			font-weight: normal;
 		}
 		p{
-			margin-top: 1em;
+			margin-top: 0.2em;
 			font-size: @font-size-normal;
 		}
 	}
 	.action{
-		width: 30%;
-		float: left;
-		display: inline-block;
-		margin-top: 1%;
+		width: 100%;
+		margin-top: 5%;
 
 		.btn-create{
-			.button();
+			width: 100%;
+			font-size: @font-size-normal;
+			line-height: 1.1em;
+			padding: 15px 0px;
+			text-align: center;
 		}
 	}
 }
@@ -148,149 +119,66 @@ body{ background: @bg_color; }
 
 		h2{
 			font-size: 1.4em;
+			line-height: 1em;
 			margin-bottom: 0.5em;
 		}
 
 		p{
-			width: 70%;
-			margin-right: 30%;
-			float: left;
-			display: inline-block;
-			font-size: 1.1em;
+			width: 100%;
+			margin-right: 0%;
+			font-size: 1em;
 			margin-bottom: 1em;
-			color: #666666;
-			font-family: @topic_font;
 
-			strong{ color: #333333; }
-			a{ color: @primary_color; }
-
-			&.note{
-				text-align: right;
-				font-size: 0.75em;
-				margin-bottom: 0;
-				color: #999999;
-				font-style: italic;
-			}
+			&.note{ font-size: 0.7em; }
 		}
 
 		.avatar{
-			width: 100%;
-			float: left;
-			display: inline-block;
 			margin-bottom: 5%;
 
-			.pic{
-				width: 20%;
-				float: left;
-				display: inline-block;
-
-				img{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					border-radius: 5px;
-				}
-			}
-
+			.pic{ width: 30%; }
 			.action{
-				width: 75%;
+				width: 65%;
 				margin-left: 5%;
-				margin-top: 6%;
-				float: left;
-				display: inline-block;
-
-				form{ display: none; }
+				margin-top: 0;
 
 				.btn-action{
-					float: left;
-					display: inline-block;
-					background: @primary_color;
-					color: #FFFFFF;
-					text-decoration: none;
-					font-family: @topic_font;
+					width: 100%;
 					font-size: @font-size-normal;
-					line-height: 1.1em;
-					padding: 15px 25px;
-					border-radius: 5px;
+					line-height: 1em;
+					padding: 11px 15px;
 					margin: 0;
-					margin-right: 15px;
-					box-sizing: border-box;
-					border: 1px solid @primary_color;
+					margin-bottom: 5px;
+					text-align: center;
 
-					i{ margin-right: 15px; }
-
-					&.facebook-import{
-						background: #FFFFFF;
-						color: @primary_color;
-					}
-
-					&:hover{ cursor: pointer; }
+					i{ margin-right: 10px; }
 				}
 			}
 		}
 
 		.toggle-items{
-			width: 100%;
-			padding: 0.5% 0%;
-			float: left;
-			display: inline-block;
-			border-top: 1px solid #EEEEEE;
-
-			&:last-child{ border-bottom: 1px solid #EEEEEE; }
+			padding: 2% 0%;
 
 			.caption{
-				width: 70%;
-				float: left;
-				display: inline-block;
-				font-size: 1.1em;
-				color: #666666;
-				font-family: @topic_font;
-				padding-top: 2%;
+				width: 80%;
+				font-size: 1em;
+				padding-top: 4%;
+				line-height: 1.2em;
 			}
 			.switch{
-				float: right;
-				display: inline-block;
+				width: 15%;
 				font-size: @font-size-icon * 1.8;
-				color: #999999;
-
-				.fa-toggle-on{ color: @primary_color; }
-				&:hover{ cursor: pointer; }
+				text-align: right;
 			}
 		}
 
 		input[type="text"] , textarea{
-			width: 100%;
 			padding: 15px;
-			float: left;
-			display: inline-block;
 			font-size: 1em;
-			border-radius: 5px;
-			border: 1px solid #F0F0F0;
-			color: #333333;
-			background: #F0F0F0;
-			margin: 0px;
-			resize: none;
 			line-height: 1.3em;
-			box-sizing: border-box;
-			margin-bottom: 1%;
-
-			&:hover{ cursor: pointer; }
-			&:focus{
-				background: #FFFFFF;
-				border: 1px solid @primary_color;
-			}
+			margin-bottom: 2%;
 		}
 
-		.note{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-size: 0.8em;
-			text-align: right;
-			font-style: italic;
-			color: #999999;
-		}
-
+		.note{ font-size: 0.8em; }
 		.select{
 			width: 100%;
 			float: left;
@@ -338,7 +226,10 @@ body{ background: @bg_color; }
 		}
 
 		button{
-			.button();
+			width: 100%;
+			font-size: @font-size-normal;
+			line-height: 1.1em;
+			padding: 15px 25px;
 		}
 
 		// Image cover selected
@@ -1169,20 +1060,13 @@ body{ background: @bg_color; }
 }
 
 .filter{
-	width: 50%;
-	margin: 0% 25%;
-	float: left;
-	display: inline-block;
-	margin-bottom: 3%;
+	width: 90%;
+	margin: 0 5%;
+	margin-bottom: 5%;
 
 	p{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		font-family: @topic_font;
 		font-size: @font-size-normal;
-		color: #999999;
-		margin-bottom: 3%;
+		margin-bottom: 5%;
 	}
 
 	.select{
@@ -1232,7 +1116,10 @@ body{ background: @bg_color; }
 	}
 
 	.btn-create{
-		.button();
+		width: 100%;
+		font-size: @font-size-normal;
+		line-height: 1.1em;
+		padding: 15px 25px;
 	}
 }
 
@@ -1270,127 +1157,61 @@ body{ background: @bg_color; }
 
 // Container All Items (Articles, Category, Section)
 .lists{
-	width: 100%;
-	padding: 0%;
+	width: 90%;
+	padding: 5%;
 	padding-bottom: 5%;
 
 	h1{
-		width: 90%;
-		margin: 0 5%;
-		margin-bottom: 2%;
 		font-size: @font-size-normal;
+		margin-bottom: 5%;
 	}
 
 	// List items (Category, Section, Member)
 	.list-items{
-		width: 100%;
-		margin-bottom: 2%;
-		border-radius: 0px;
-		border: 1px solid transparent;
-
-		&.selected{ border: 1px solid @primary_color; }
+		margin-bottom: 3%;
 
 		.avatar{
-			width: 5%;
+			width: 10%;
 			padding: 1% 2.5%;
 			padding-top: 2.2%;
-			float: left;
-			display: inline-block;
-
-			img{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				border-radius: 50%;
-			}
 		}
 
 		.icon{
-			width: 10%;
+			width: 15%;
 			padding: 1.5% 0;
-			float: left;
-			display: inline-block;
-			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
-			color: @primary_color;
+			font-size: 1.1em;
+			line-height: 2.2em;
 		}
 		.detail{
-			width: 60%;
+			width: 40%;
 			padding: 1.5% 0;
-			float: left;
-			display: inline-block;
 
-			&.box-70{ width: 70%; }
-			&.box-80{ width: 80%; }
+			&.box-70{ width: 55%; }
+			&.box-80{ width: 70%; }
 
-			.title{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
-				font-family: @topic_font;
-				font-size: 1.1em;
-				color: #333333;
-			}
+			.title{ font-size: 1.1em; }
 			.desc{
 				font-size: @font-size-desc;
-				color: #999999;
-				font-style: italic;
-
-				a{
-					color: @primary_color;
-					text-decoration: none;
-
-					&:hover{ text-decoration: underline; }
-				}
+				line-height: 1.2em;
 			}
 		}
 		.icon-select{
-			width: 10%;
+			width: 15%;
 			padding: 1.5% 0;
-			float: right;
-			display: inline-block;
-			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
-			color: transparent;
+			font-size: 1.1em;
+			line-height: 2.2em;
 		}
 		.btn{
-			width: 10%;
+			width: 15%;
 			padding: 1.5% 0;
-			float: right;
-			display: inline-block;
-			text-align: center;
-			font-size: 1.4em;
-			line-height: 2em;
-			color: #BBBBBB;
-
-			&.active{ color: @primary_color; }
-
-			i.fa-check{ color: @primary_color; }
-
-			&:hover{
-				color: #666666;
-				cursor: pointer;
-			}
+			font-size: 1.1em;
+			line-height: 2.2em;
 		}
 	}
 
 	// Article items
 	.article-items{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		background: #EAEAEA;
-		margin-bottom: 2%;
-		border-radius: 5px;
-		overflow: hidden;
-		position: relative;
-
-		&:last-child{ margin-bottom: 0; }
+		margin-bottom: 3%;
 
 		.sticky{
 			content: '';
@@ -1412,98 +1233,42 @@ body{ background: @bg_color; }
 			}
 		}
 
-		.thumbnail{
-			width: 17%;
-			float: left;
-			display: inline-block;
-			margin-top: 0%;
-
-			img{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				&:hover{ opacity: 0.8; }
-			}
-		}
+		.thumbnail{ width: 35%; }
 		.icon{
-			width: 17%;
-			float: left;
-			display: inline-block;
-			margin-top: 3.5%;
-			text-align: center;
-			color: #BBBBBB;
-			font-size: 2em;
+			width: 35%;
+			margin-top: 8.5%;
+			font-size: 1.5em;
 		}
 		.content{
-			width: 67%;
-			padding: 2%;
-			float: left;
-			display: inline-block;
+			width: 40%;
+			padding: 4% 5%;
 
-			&.fullsize{ width: 79%; }
+			&.fullsize{ width: 55%; }
 
 			h2{
-				width: 100%;
-				float: left;
-				display: inline-block;
 				font-size: @font-size-normal;
-				line-height: 1.3em;
+				line-height: 1.2em;
 				margin-top: 0.5%;
 				margin-bottom: 1%;
-				font-family: @topic_font;
-				font-weight: normal;
-
-				a{
-					text-decoration: none;
-					color: #333333;
-
-					&:hover{
-						text-decoration: underline;
-					}
-				}
 			}
 
 			p{
 				font-size: @font-size-desc;
-				color: #999999;
-
-				&:hover{ cursor: default; }
-
-				i{
-					margin-left: 7px;
-					color: @primary_color;
-				}
-
-				span{
-					float: left;
-					display: inline-block;
-				}
+				line-height: 1.2em;
 			}
 		}
 
 		.btn-publish{
-			width: 12%;
+			width: 15%;
 			padding: 3% 0;
-			float: right;
-			display: inline-block;
 			font-size: 1.4em;
 			line-height: 2.5em;
-			text-align: center;
-			color: @primary_color;
-
-			&:hover{ cursor: pointer; }
 		}
 	}
 
 	.empty{
-		width: 100%;
-		padding: 10% 0;
-		float: left;
-		display: inline-block;
-		text-align: center;
-		font-family: @topic_font;
-		font-size: 1.2em;
-		color: #DDDDDD;
+		padding: 20% 0;
+		font-size: 1em;
 	}
 }
 
@@ -1601,14 +1366,4 @@ body{ background: @bg_color; }
 	}
 }
 
-#progressbar{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 0%;
-	height: 3px;
-	float: left;
-	display: inline-block;
-	z-index: 9999;
-	background: @primary_color;
-}
+#progressbar{ height: 5px; }

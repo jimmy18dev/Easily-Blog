@@ -12,37 +12,6 @@
 
 @font-size-body 		: 1.2em;
 
-.button(){
-	float: right;
-	display: inline-block;
-	background: #EEEEEE;
-	color: #BBBBBB;
-	text-decoration: none;
-	font-family: @topic_font;
-	font-size: @font-size-normal;
-	line-height: 1.1em;
-	padding: 15px 25px;
-	border-radius: 5px;
-	border: 0;
-	margin: 0;
-
-	&.btn-delete{
-		float: left;
-		background: #F44336;
-		color: #FFFFFF;
-		&:hover{ background: #F44336; }
-	}
-
-	&.active{
-		background: @primary_color;
-		color: #FFFFFF;
-		box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
-		&:hover{ background: @primary_color_light; }
-	}
-
-	&:hover{ cursor: pointer; }
-}
-
 body{ background: @bg_color; }
 
 .header{
@@ -104,7 +73,6 @@ body{ background: @bg_color; }
 		&.active{
 			background: @primary_color;
 			color: #FFFFFF;
-			&:hover{ box-shadow: 0px 2px 5px rgba(0,0,0,0.2); }
 		}
 
 		&:hover{ cursor: pointer; }
@@ -166,7 +134,33 @@ body{ background: @bg_color; }
 		margin-top: 1%;
 
 		.btn-create{
-			.button();
+			float: right;
+			display: inline-block;
+			background: #EEEEEE;
+			color: #BBBBBB;
+			text-decoration: none;
+			font-family: @topic_font;
+			font-size: @font-size-normal;
+			line-height: 1.1em;
+			padding: 15px 25px;
+			border-radius: 5px;
+			border: 0;
+			margin: 0;
+
+			&.btn-delete{
+				float: left;
+				background: #F44336;
+				color: #FFFFFF;
+				&:hover{ background: #F44336; }
+			}
+
+			&.active{
+				background: @primary_color;
+				color: #FFFFFF;
+				&:hover{ background: @primary_color_light; }
+			}
+
+			&:hover{ cursor: pointer; }
 		}
 	}
 }
@@ -379,7 +373,33 @@ body{ background: @bg_color; }
 		}
 
 		button{
-			.button();
+			float: right;
+			display: inline-block;
+			background: #EEEEEE;
+			color: #BBBBBB;
+			text-decoration: none;
+			font-family: @topic_font;
+			font-size: @font-size-normal;
+			line-height: 1.1em;
+			padding: 15px 25px;
+			border-radius: 5px;
+			border: 0;
+			margin: 0;
+
+			&.btn-delete{
+				float: left;
+				background: #F44336;
+				color: #FFFFFF;
+				&:hover{ background: #F44336; }
+			}
+
+			&.active{
+				background: @primary_color;
+				color: #FFFFFF;
+				&:hover{ background: @primary_color_light; }
+			}
+
+			&:hover{ cursor: pointer; }
 		}
 
 		// Image cover selected
@@ -1273,7 +1293,33 @@ body{ background: @bg_color; }
 	}
 
 	.btn-create{
-		.button();
+		float: right;
+		display: inline-block;
+		background: #EEEEEE;
+		color: #BBBBBB;
+		text-decoration: none;
+		font-family: @topic_font;
+		font-size: @font-size-normal;
+		line-height: 1.1em;
+		padding: 15px 25px;
+		border-radius: 5px;
+		border: 0;
+		margin: 0;
+
+		&.btn-delete{
+			float: left;
+			background: #F44336;
+			color: #FFFFFF;
+			&:hover{ background: #F44336; }
+		}
+
+		&.active{
+			background: @primary_color;
+			color: #FFFFFF;
+			&:hover{ background: @primary_color_light; }
+		}
+
+		&:hover{ cursor: pointer; }
 	}
 }
 

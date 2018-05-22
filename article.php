@@ -93,17 +93,10 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		</picture>
 		<header class="article-header">
 			<div class="author">
-				<div class="avatar">
-					<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
-				</div>
-				<div class="detail">
-					<div class="name"><?php echo $article->owner_displayname;?></div>
-					<div class="desc position">Web Developer and Web Designer</div>
-					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-					</div>
-				</div>
+				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
+				<span><strong><?php echo $article->owner_displayname;?></strong> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
+				 - <a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
@@ -114,18 +107,10 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<!-- Article Header -->
 	<header class="article-header">
 		<div class="author">
-			<div class="avatar">
-				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
-			</div>
-			<div class="detail">
-				<div class="name"><?php echo $article->owner_displayname;?></div>
-				<div class="desc position">Web Developer and Web Designer</div>
-				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-				</div>
-			</div>
-
+			<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
+			<span><strong><?php echo $article->owner_displayname;?></strong> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
+			 - <a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 			<?php }?>
 		</div>
 

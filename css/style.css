@@ -218,6 +218,7 @@ body.paper {
   font-size: 1.2em;
   line-height: 1em;
   color: #FFFFFF;
+  font-weight: bold;
 }
 .header a.logo img {
   height: 30px;
@@ -382,7 +383,6 @@ body.paper {
   background: #FFFFFF;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
 }
@@ -447,7 +447,7 @@ body.paper {
   border-radius: 50%;
 }
 .section.related .lists .article-card {
-  background: #FAFAFA;
+  background: #F5F5F5;
 }
 .section .lists {
   width: 100%;
@@ -464,7 +464,6 @@ body.paper {
   background: #FFFFFF;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
 }
@@ -578,53 +577,25 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 5%;
-}
-.article .article-header .author .avatar {
-  width: 8%;
-  float: left;
-  display: inline-block;
-  margin-right: 3%;
-}
-.article .article-header .author .avatar img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
-}
-.article .article-header .author .detail {
-  width: 79%;
-  float: left;
-  display: inline-block;
-  margin-top: -0.5%;
-}
-.article .article-header .author .detail .name {
-  font-size: 1.1em;
-  font-family: "maledpan", sans-serif;
-  line-height: 1.8em;
-  color: #ff6d00;
-}
-.article .article-header .author .detail .desc {
+  margin-bottom: 1%;
   font-size: 0.75em;
+  color: #999999;
+}
+.article .article-header .author img {
+  vertical-align: middle;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.article .article-header .author span {
+  vertical-align: middle;
+}
+.article .article-header .author strong {
   color: #333333;
-  line-height: 1.3em;
 }
-.article .article-header .author a.btn-edit {
-  width: 10%;
-  float: right;
-  display: inline-block;
-  background: #DDDDDD;
-  text-align: center;
-  font-family: "maledpan", sans-serif;
-  color: #666666;
-  border-radius: 5px;
-  padding: 1.5% 0%;
-  font-size: 1.1em;
-  line-height: 1em;
-  text-decoration: none;
-}
-.article .article-header .author a.btn-edit:hover {
-  cursor: pointer;
+.article .article-header .author a {
+  vertical-align: middle;
+  color: #ff6d00;
 }
 .article .article-header h1 {
   font-size: 2.2em;
@@ -681,11 +652,11 @@ body.paper {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 }
-.article .article-cover .article-header .author .detail .name {
-  color: #FFFFFF;
+.article .article-cover .article-header .author {
+  color: #DDDDDD;
 }
-.article .article-cover .article-header .author .detail .desc {
-  color: #EEEEEE;
+.article .article-cover .article-header .author strong {
+  color: #FFFFFF;
 }
 .article .article-cover .article-header h1 {
   color: #FFFFFF;
@@ -1317,6 +1288,13 @@ body.paper {
     top: 0;
     left: 22%;
     font-family: "maledpan", sans-serif;
+    font-size: 1.35em;
+  }
+  .header a.logo img {
+    display: none;
+  }
+  .header a.logo span {
+    margin-left: 0px;
   }
   .header input[type="text"] {
     width: 55%;
@@ -1470,6 +1448,14 @@ body.paper {
     height: 20px;
     margin-right: 10px;
   }
+  .section.related .lists .article-card {
+    background: #FFFFFF;
+    margin-bottom: 0;
+    border-top: 1px solid #EEEEEE;
+  }
+  .section.related .lists .article-card:last-child {
+    border-bottom: 1px solid #EEEEEE;
+  }
   .section .lists .article-card {
     width: 100%;
     margin: 0;
@@ -1477,7 +1463,6 @@ body.paper {
     min-height: 144px;
     border-radius: 0px;
     border: 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   .section .lists .article-card.last-child {
     margin-bottom: 0;
@@ -1491,7 +1476,7 @@ body.paper {
     padding: 7%;
   }
   .section .lists .article-card header.fullsize {
-    width: 90%;
+    width: 86%;
   }
   .section .lists .article-card header h2 {
     font-size: 1.1em;
@@ -1527,32 +1512,12 @@ body.paper {
     margin: 7%;
   }
   .article .article-header .author {
-    margin-bottom: 7%;
-  }
-  .article .article-header .author .avatar {
-    width: 10%;
-    margin-right: 5%;
-  }
-  .article .article-header .author .detail {
-    width: 85%;
-    margin-top: -2%;
-  }
-  .article .article-header .author .detail .name {
-    font-size: 1.1em;
-    line-height: 1.35em;
-  }
-  .article .article-header .author .detail .desc {
+    margin-bottom: 3.5%;
     font-size: 0.7em;
-    line-height: 1.25em;
   }
-  .article .article-header .author .detail .position {
-    display: none;
-  }
-  .article .article-header .author a.btn-edit {
-    width: 100%;
-    padding: 3% 0%;
-    margin-top: 5%;
-    font-size: 1.1em;
+  .article .article-header .author img {
+    height: 20px;
+    margin-right: 7px;
   }
   .article .article-header h1 {
     font-size: 1.4300000000000002em;

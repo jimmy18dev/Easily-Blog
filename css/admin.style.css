@@ -222,9 +222,6 @@ body {
   background: #2962ff;
   color: #FFFFFF;
 }
-.header .btn.active:hover {
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
 .header .btn:hover {
   cursor: pointer;
 }
@@ -312,7 +309,6 @@ body {
 .pagehead .action .btn-create.active {
   background: #2962ff;
   color: #FFFFFF;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .pagehead .action .btn-create.active:hover {
   background: #3e71ff;
@@ -551,7 +547,6 @@ body {
 .page-form .section button.active {
   background: #2962ff;
   color: #FFFFFF;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .page-form .section button.active:hover {
   background: #3e71ff;
@@ -1423,7 +1418,6 @@ body {
 .filter .btn-create.active {
   background: #2962ff;
   color: #FFFFFF;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .filter .btn-create.active:hover {
   background: #3e71ff;
@@ -1814,9 +1808,6 @@ body {
 }
 /* Other Device and Screen */
 @media only screen and (min-width: 0px) and (max-width: 519px) {
-  body {
-    background: #ffffff;
-  }
   .header {
     width: 100%;
     padding: 0%;
@@ -1845,7 +1836,7 @@ body {
     color: #999999;
     text-decoration: none;
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1.2em;
   }
   .header .btn-icon.right {
     float: right;
@@ -1884,9 +1875,9 @@ body {
   }
   .header a.menu {
     width: 20%;
-    padding: 13px 0%;
-    height: 30px;
-    font-size: 1.25em;
+    padding: 14px 0;
+    height: 28px;
+    font-size: 1.2em;
     text-align: center;
   }
   .header a.menu i {
@@ -1901,54 +1892,27 @@ body {
     padding-bottom: 5%;
   }
   .pagehead .head {
-    width: 70%;
+    width: 100%;
   }
   .pagehead .head h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     line-height: 1em;
+    font-weight: normal;
   }
   .pagehead .head p {
-    margin-top: 1em;
-    font-size: 1.05em;
+    margin-top: 0.2em;
+    font-size: 0.9em;
   }
   .pagehead .action {
-    width: 30%;
-    float: left;
-    display: inline-block;
-    margin-top: 1%;
+    width: 100%;
+    margin-top: 5%;
   }
   .pagehead .action .btn-create {
-    float: right;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
+    width: 100%;
+    font-size: 0.9em;
     line-height: 1.1em;
-    padding: 15px 25px;
-    border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .pagehead .action .btn-create.btn-delete {
-    float: left;
-    background: #F44336;
-    color: #FFFFFF;
-  }
-  .pagehead .action .btn-create.btn-delete:hover {
-    background: #F44336;
-  }
-  .pagehead .action .btn-create.active {
-    background: #2962ff;
-    color: #FFFFFF;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  .pagehead .action .btn-create.active:hover {
-    background: #3e71ff;
-  }
-  .pagehead .action .btn-create:hover {
-    cursor: pointer;
+    padding: 15px 0px;
+    text-align: center;
   }
   .page-form {
     width: 100%;
@@ -1961,149 +1925,64 @@ body {
   }
   .page-form .section h2 {
     font-size: 1.4em;
+    line-height: 1em;
     margin-bottom: 0.5em;
   }
   .page-form .section p {
-    width: 70%;
-    margin-right: 30%;
-    float: left;
-    display: inline-block;
-    font-size: 1.1em;
+    width: 100%;
+    margin-right: 0%;
+    font-size: 1em;
     margin-bottom: 1em;
-    color: #666666;
-    font-family: "maledpan", sans-serif;
-  }
-  .page-form .section p strong {
-    color: #333333;
-  }
-  .page-form .section p a {
-    color: #2962ff;
   }
   .page-form .section p.note {
-    text-align: right;
-    font-size: 0.75em;
-    margin-bottom: 0;
-    color: #999999;
-    font-style: italic;
+    font-size: 0.7em;
   }
   .page-form .section .avatar {
-    width: 100%;
-    float: left;
-    display: inline-block;
     margin-bottom: 5%;
   }
   .page-form .section .avatar .pic {
-    width: 20%;
-    float: left;
-    display: inline-block;
-  }
-  .page-form .section .avatar .pic img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-radius: 5px;
+    width: 30%;
   }
   .page-form .section .avatar .action {
-    width: 75%;
+    width: 65%;
     margin-left: 5%;
-    margin-top: 6%;
-    float: left;
-    display: inline-block;
-  }
-  .page-form .section .avatar .action form {
-    display: none;
+    margin-top: 0;
   }
   .page-form .section .avatar .action .btn-action {
-    float: left;
-    display: inline-block;
-    background: #2962ff;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
-    line-height: 1.1em;
-    padding: 15px 25px;
-    border-radius: 5px;
+    width: 100%;
+    font-size: 0.9em;
+    line-height: 1em;
+    padding: 11px 15px;
     margin: 0;
-    margin-right: 15px;
-    box-sizing: border-box;
-    border: 1px solid #2962ff;
+    margin-bottom: 5px;
+    text-align: center;
   }
   .page-form .section .avatar .action .btn-action i {
-    margin-right: 15px;
-  }
-  .page-form .section .avatar .action .btn-action.facebook-import {
-    background: #FFFFFF;
-    color: #2962ff;
-  }
-  .page-form .section .avatar .action .btn-action:hover {
-    cursor: pointer;
+    margin-right: 10px;
   }
   .page-form .section .toggle-items {
-    width: 100%;
-    padding: 0.5% 0%;
-    float: left;
-    display: inline-block;
-    border-top: 1px solid #EEEEEE;
-  }
-  .page-form .section .toggle-items:last-child {
-    border-bottom: 1px solid #EEEEEE;
+    padding: 2% 0%;
   }
   .page-form .section .toggle-items .caption {
-    width: 70%;
-    float: left;
-    display: inline-block;
-    font-size: 1.1em;
-    color: #666666;
-    font-family: "maledpan", sans-serif;
-    padding-top: 2%;
+    width: 80%;
+    font-size: 1em;
+    padding-top: 4%;
+    line-height: 1.2em;
   }
   .page-form .section .toggle-items .switch {
-    float: right;
-    display: inline-block;
-    font-size: 2.25em;
-    color: #999999;
-  }
-  .page-form .section .toggle-items .switch .fa-toggle-on {
-    color: #2962ff;
-  }
-  .page-form .section .toggle-items .switch:hover {
-    cursor: pointer;
+    width: 15%;
+    font-size: 2.16em;
+    text-align: right;
   }
   .page-form .section input[type="text"],
   .page-form .section textarea {
-    width: 100%;
     padding: 15px;
-    float: left;
-    display: inline-block;
     font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #F0F0F0;
-    color: #333333;
-    background: #F0F0F0;
-    margin: 0px;
-    resize: none;
     line-height: 1.3em;
-    box-sizing: border-box;
-    margin-bottom: 1%;
-  }
-  .page-form .section input[type="text"]:hover,
-  .page-form .section textarea:hover {
-    cursor: pointer;
-  }
-  .page-form .section input[type="text"]:focus,
-  .page-form .section textarea:focus {
-    background: #FFFFFF;
-    border: 1px solid #2962ff;
+    margin-bottom: 2%;
   }
   .page-form .section .note {
-    width: 100%;
-    float: left;
-    display: inline-block;
     font-size: 0.8em;
-    text-align: right;
-    font-style: italic;
-    color: #999999;
   }
   .page-form .section .select {
     width: 100%;
@@ -2135,7 +2014,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     margin: 0;
-    font-size: 1.05em;
+    font-size: 0.9em;
     line-height: 1em;
     padding: 15px 25px;
     background: #FFFFFF;
@@ -2150,37 +2029,10 @@ body {
     border: 1px solid #BBBBBB;
   }
   .page-form .section button {
-    float: right;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
+    width: 100%;
+    font-size: 0.9em;
     line-height: 1.1em;
     padding: 15px 25px;
-    border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .page-form .section button.btn-delete {
-    float: left;
-    background: #F44336;
-    color: #FFFFFF;
-  }
-  .page-form .section button.btn-delete:hover {
-    background: #F44336;
-  }
-  .page-form .section button.active {
-    background: #2962ff;
-    color: #FFFFFF;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  .page-form .section button.active:hover {
-    background: #3e71ff;
-  }
-  .page-form .section button:hover {
-    cursor: pointer;
   }
   .page-form .section .list {
     width: 100%;
@@ -2450,7 +2302,7 @@ body {
     resize: none;
     border: 0px;
     background: transparent;
-    font-size: 2.2em;
+    font-size: 2.4em;
     font-family: "maledpan", sans-serif;
     line-height: 1.2em;
     min-height: 50px;
@@ -2545,7 +2397,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: center;
     line-height: 1.3em;
     color: #FF0000;
@@ -2554,7 +2406,7 @@ body {
     width: 92%;
     float: left;
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 1.2em;
     padding: 2% 0%;
     padding-left: 8%;
     margin: 0;
@@ -2586,7 +2438,7 @@ body {
     width: 100%;
     float: left;
     display: inline-block;
-    font-size: 2.2em;
+    font-size: 2.4em;
     color: #EEEEEE;
   }
   .editor .content.quote i.fa-quote-right {
@@ -2598,7 +2450,7 @@ body {
     float: left;
     display: inline-block;
     font-family: "maledpan", sans-serif;
-    font-size: 2.2em;
+    font-size: 2.4em;
     line-height: 1.3em;
     color: #666666;
     border: 0;
@@ -2613,7 +2465,7 @@ body {
     padding: 1% 10%;
     float: left;
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin: 0px;
     border: 0px;
     color: #333333;
@@ -2625,7 +2477,7 @@ body {
     padding: 1.2% 0%;
     float: left;
     display: inline-block;
-    font-size: 1.32em;
+    font-size: 1.44em;
     margin: 0px;
     border: 0px;
     color: #333333;
@@ -2641,7 +2493,7 @@ body {
     padding: 1% 0%;
     float: left;
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.6em;
     color: #666666;
     border: 0;
@@ -2658,7 +2510,7 @@ body {
     float: left;
     background: #EEEEEE;
     color: #BBBBBB;
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
   .editor .content.photoForm img {
     width: 100%;
@@ -2798,7 +2650,7 @@ body {
   .editor .tools-bar .btn-tool {
     display: inline-block;
     padding: 18px;
-    font-size: 1.25em;
+    font-size: 1.2em;
     line-height: 1em;
     background: transparent;
     color: #666666;
@@ -2845,7 +2697,7 @@ body {
   }
   .editor .between-option .more-option .btnAction i {
     display: block;
-    font-size: 1.25em;
+    font-size: 1.2em;
     margin-bottom: 3px;
   }
   .editor .between-option .more-option .btnAction span {
@@ -2963,20 +2815,13 @@ body {
     color: #666666;
   }
   .filter {
-    width: 50%;
-    margin: 0% 25%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 3%;
+    width: 90%;
+    margin: 0 5%;
+    margin-bottom: 5%;
   }
   .filter p {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
-    color: #999999;
-    margin-bottom: 3%;
+    font-size: 0.9em;
+    margin-bottom: 5%;
   }
   .filter .select {
     width: 30%;
@@ -3007,7 +2852,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     margin: 0;
-    font-size: 1.05em;
+    font-size: 0.9em;
     line-height: 1em;
     padding: 15px 25px;
     background: #FFFFFF;
@@ -3022,37 +2867,10 @@ body {
     border: 1px solid #BBBBBB;
   }
   .filter .btn-create {
-    float: right;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
+    width: 100%;
+    font-size: 0.9em;
     line-height: 1.1em;
     padding: 15px 25px;
-    border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .filter .btn-create.btn-delete {
-    float: left;
-    background: #F44336;
-    color: #FFFFFF;
-  }
-  .filter .btn-create.btn-delete:hover {
-    background: #F44336;
-  }
-  .filter .btn-create.active {
-    background: #2962ff;
-    color: #FFFFFF;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  .filter .btn-create.active:hover {
-    background: #3e71ff;
-  }
-  .filter .btn-create:hover {
-    cursor: pointer;
   }
   .pagination {
     width: 56%;
@@ -3084,125 +2902,59 @@ body {
     background: #FAFAFA;
   }
   .lists {
-    width: 100%;
-    padding: 0%;
+    width: 90%;
+    padding: 5%;
     padding-bottom: 5%;
   }
   .lists h1 {
-    width: 90%;
-    margin: 0 5%;
-    margin-bottom: 2%;
-    font-size: 1.05em;
+    font-size: 0.9em;
+    margin-bottom: 5%;
   }
   .lists .list-items {
-    width: 100%;
-    margin-bottom: 2%;
-    border-radius: 0px;
-    border: 1px solid transparent;
-  }
-  .lists .list-items.selected {
-    border: 1px solid #2962ff;
+    margin-bottom: 3%;
   }
   .lists .list-items .avatar {
-    width: 5%;
+    width: 10%;
     padding: 1% 2.5%;
     padding-top: 2.2%;
-    float: left;
-    display: inline-block;
-  }
-  .lists .list-items .avatar img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-radius: 50%;
   }
   .lists .list-items .icon {
-    width: 10%;
+    width: 15%;
     padding: 1.5% 0;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-size: 1.4em;
-    line-height: 2em;
-    color: #2962ff;
+    font-size: 1.1em;
+    line-height: 2.2em;
   }
   .lists .list-items .detail {
-    width: 60%;
+    width: 40%;
     padding: 1.5% 0;
-    float: left;
-    display: inline-block;
   }
   .lists .list-items .detail.box-70 {
-    width: 70%;
+    width: 55%;
   }
   .lists .list-items .detail.box-80 {
-    width: 80%;
+    width: 70%;
   }
   .lists .list-items .detail .title {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: "maledpan", sans-serif;
     font-size: 1.1em;
-    color: #333333;
   }
   .lists .list-items .detail .desc {
-    font-size: 0.7em;
-    color: #999999;
-    font-style: italic;
-  }
-  .lists .list-items .detail .desc a {
-    color: #2962ff;
-    text-decoration: none;
-  }
-  .lists .list-items .detail .desc a:hover {
-    text-decoration: underline;
+    font-size: 0.65em;
+    line-height: 1.2em;
   }
   .lists .list-items .icon-select {
-    width: 10%;
+    width: 15%;
     padding: 1.5% 0;
-    float: right;
-    display: inline-block;
-    text-align: center;
-    font-size: 1.4em;
-    line-height: 2em;
-    color: transparent;
+    font-size: 1.1em;
+    line-height: 2.2em;
   }
   .lists .list-items .btn {
-    width: 10%;
+    width: 15%;
     padding: 1.5% 0;
-    float: right;
-    display: inline-block;
-    text-align: center;
-    font-size: 1.4em;
-    line-height: 2em;
-    color: #BBBBBB;
-  }
-  .lists .list-items .btn.active {
-    color: #2962ff;
-  }
-  .lists .list-items .btn i.fa-check {
-    color: #2962ff;
-  }
-  .lists .list-items .btn:hover {
-    color: #666666;
-    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 2.2em;
   }
   .lists .article-items {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    background: #EAEAEA;
-    margin-bottom: 2%;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-  }
-  .lists .article-items:last-child {
-    margin-bottom: 0;
+    margin-bottom: 3%;
   }
   .lists .article-items .sticky {
     content: '';
@@ -3224,92 +2976,39 @@ body {
     cursor: pointer;
   }
   .lists .article-items .thumbnail {
-    width: 17%;
-    float: left;
-    display: inline-block;
-    margin-top: 0%;
-  }
-  .lists .article-items .thumbnail img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .lists .article-items .thumbnail img:hover {
-    opacity: 0.8;
+    width: 35%;
   }
   .lists .article-items .icon {
-    width: 17%;
-    float: left;
-    display: inline-block;
-    margin-top: 3.5%;
-    text-align: center;
-    color: #BBBBBB;
-    font-size: 2em;
+    width: 35%;
+    margin-top: 8.5%;
+    font-size: 1.5em;
   }
   .lists .article-items .content {
-    width: 67%;
-    padding: 2%;
-    float: left;
-    display: inline-block;
+    width: 40%;
+    padding: 4% 5%;
   }
   .lists .article-items .content.fullsize {
-    width: 79%;
+    width: 55%;
   }
   .lists .article-items .content h2 {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1.05em;
-    line-height: 1.3em;
+    font-size: 0.9em;
+    line-height: 1.2em;
     margin-top: 0.5%;
     margin-bottom: 1%;
-    font-family: "maledpan", sans-serif;
-    font-weight: normal;
-  }
-  .lists .article-items .content h2 a {
-    text-decoration: none;
-    color: #333333;
-  }
-  .lists .article-items .content h2 a:hover {
-    text-decoration: underline;
   }
   .lists .article-items .content p {
-    font-size: 0.7em;
-    color: #999999;
-  }
-  .lists .article-items .content p:hover {
-    cursor: default;
-  }
-  .lists .article-items .content p i {
-    margin-left: 7px;
-    color: #2962ff;
-  }
-  .lists .article-items .content p span {
-    float: left;
-    display: inline-block;
+    font-size: 0.65em;
+    line-height: 1.2em;
   }
   .lists .article-items .btn-publish {
-    width: 12%;
+    width: 15%;
     padding: 3% 0;
-    float: right;
-    display: inline-block;
     font-size: 1.4em;
     line-height: 2.5em;
-    text-align: center;
-    color: #2962ff;
-  }
-  .lists .article-items .btn-publish:hover {
-    cursor: pointer;
   }
   .lists .empty {
-    width: 100%;
-    padding: 10% 0;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.2em;
-    color: #DDDDDD;
+    padding: 20% 0;
+    font-size: 1em;
   }
   .swap {
     position: fixed;
@@ -3405,14 +3104,6 @@ body {
     color: #3e71ff;
   }
   #progressbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    float: left;
-    display: inline-block;
-    z-index: 9999;
-    background: #2962ff;
+    height: 5px;
   }
 }
