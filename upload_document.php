@@ -30,7 +30,7 @@ if(isset($_FILES['file'])){
         $full_filename  = $new_filename.'.'.$file_ext['extension'];
         move_uploaded_file($file_tmp,'files/'.$full_filename);
 
-        $file_id = $document->create(1,$article_id,$filename,$description,$full_filename,$file_ext,$file_size);
+        $file_id = $document->create(1,$article_id,$filename,$description,$full_filename,$file_ext['extension'],$file_size);
     }else{
         // print_r($errors);
         $file_id = -1;

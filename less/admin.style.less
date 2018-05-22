@@ -9,7 +9,6 @@
 @font-size-normal 		: 1.05em;
 @font-size-desc 		: 0.75em;
 @font-size-icon 		: 1.25em;
-
 @font-size-body 		: 1.2em;
 
 body{ background: @bg_color; }
@@ -1094,92 +1093,52 @@ body{ background: @bg_color; }
 	.documents{
 		width: 50%;
 		margin: 0 25%;
-		float: left;
-		display: inline-block;
-
-		h2{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			font-family: @topic_font;
-			font-size: 1.6em;
-			font-weight: normal;
-			margin-bottom: 2%;
-		}
+		display: flex;
+		flex-direction: column;
 
 		.document-items{
-			width: 96%;
-			padding: 2%;
-			float: left;
-			display: inline-block;
-			background: #F5F5F5;
-			margin-bottom: 1%;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			background: #EEEEEE;
+			margin-bottom: 2%;
 			border-radius: 5px;
+			overflow: hidden;
 			position: relative;
 
 			&.form{ display: none; }
 
-			&:hover{
-				.btn{
-					color: #BBBBBB;
-				}
-			}
-
 			.inputfile{ display: none; }
 
 			.icon{
-				width: 5%;
-				float: left;
-				display: inline-block;
-				font-size: 1.4em;
-				margin-top: 0.4%;
+				width: 10%;
+				padding: 2% 0;
+				font-size: @font-size-icon;
 				text-align: center;
 				color: #999999;
+				float: left;
 			}
 			.detail{
-				width: 93%;
-				margin-left: 2%;
-				float: left;
-				display: inline-block;
+				width: 88%;
+				padding: 2% 0;
+				padding-right: 2%;
 
-				.name{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
-					line-height: 1.2em;
-				}
 				.file_title{
 					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
+					font-size: @font-size-body;
 					line-height: 1.2em;
 					padding: 0;
 					margin: 0;
 					border: 0;
 					background: transparent;
 				}
-				.info{
-					font-size: 0.75em;
+				p{
+					font-size: @font-size-desc;
 					color: #999999;
-				}
-				.progress{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					background: #DDDDDD;
-					border-radius: 5px;
-					margin-top: 1%;
+					font-style: italic;
 
-					.bar{
-						width: 30%;
-						height: 5px;
-						float: left;
-						display: inline-block;
-						border-radius: 5px;
-						.bgGradient(#3BED8D,#38ACC5);
-					}
+					&:hover{ cursor: default; }
 				}
 			}
 
@@ -1188,17 +1147,13 @@ body{ background: @bg_color; }
 				top: 0;
 				right: 0;
 				padding: 1.5%;
-				float: right;
 				display: inline-block;
 				text-align: center;
 				line-height: 1em;
 				font-size: 1em;
-				color: transparent;
+				color: #999999;
 
-				&:hover{
-					cursor: pointer;
-					color: #666666;
-				}
+				&:hover{ cursor: pointer; }
 			}
 		}
 	}

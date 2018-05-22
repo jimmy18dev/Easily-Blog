@@ -513,8 +513,6 @@ $(document).ready(function(){
     $btnAttachFile      = $('#btnAttachFile');
     $fileName           = $('#fileName');
     $fileInput          = $('#file');
-    $documentProgress   = $('#documentProgress');
-    $documentProgressBar = $('#documentProgressBar');
 
     $btnAttachFile.click(function(){
         $fileInput.focus().click();
@@ -557,28 +555,24 @@ $(document).ready(function(){
             if(!FileSize(filesize)) return false;
             if(!FileType(extension)) return false;
             if(!title || !filename) return false;
-
-            $documentForm.fadeIn(300);
-            $documentProgress.fadeIn(300);
-            $documentProgressBar.width('0%');
         },
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
-            percent = (percent * 80) / 100;
-            $documentProgressBar.animate({width:percent+'%'},0);
+            percent = (percent * 85) / 100;
+
+            console.clear();
+            console.log('Upload: '+percent+' %')
+            $progressbar.Progressbar(percent+'%')
         },
         success: function() {
-            $documentProgressBar.animate({width:'90%'},100);
+            $progressbar.Progressbar('99%')
         },
         complete: function(xhr) {
             console.log(xhr.responseText);
+
             if(xhr.responseJSON){
-
                 var file_id = xhr.responseJSON.file_id;
-
-                $documentProgressBar.animate({width:'100%'},300,function(){
-                    location.reload();
-                });
+                location.reload();
             }else{
                 alert('ไฟล์ของคุณไม่สามารถอัพโหลดเข้าระบบได้ กรุณาติดต่อผู้ดูแลระบบ');
                 location.reload();

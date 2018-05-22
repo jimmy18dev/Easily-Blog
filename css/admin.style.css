@@ -1161,63 +1161,41 @@ body {
 .editor .documents {
   width: 50%;
   margin: 0 25%;
-  float: left;
-  display: inline-block;
-}
-.editor .documents h2 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-family: "maledpan", sans-serif;
-  font-size: 1.6em;
-  font-weight: normal;
-  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
 }
 .editor .documents .document-items {
-  width: 96%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
-  background: #F5F5F5;
-  margin-bottom: 1%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background: #EEEEEE;
+  margin-bottom: 2%;
   border-radius: 5px;
+  overflow: hidden;
   position: relative;
 }
 .editor .documents .document-items.form {
   display: none;
 }
-.editor .documents .document-items:hover .btn {
-  color: #BBBBBB;
-}
 .editor .documents .document-items .inputfile {
   display: none;
 }
 .editor .documents .document-items .icon {
-  width: 5%;
-  float: left;
-  display: inline-block;
-  font-size: 1.4em;
-  margin-top: 0.4%;
+  width: 10%;
+  padding: 2% 0;
+  font-size: 1.25em;
   text-align: center;
   color: #999999;
+  float: left;
 }
 .editor .documents .document-items .detail {
-  width: 93%;
-  margin-left: 2%;
-  float: left;
-  display: inline-block;
-}
-.editor .documents .document-items .detail .name {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.2em;
+  width: 88%;
+  padding: 2% 0;
+  padding-right: 2%;
 }
 .editor .documents .document-items .detail .file_title {
   width: 100%;
-  float: left;
-  display: inline-block;
   font-size: 1.2em;
   line-height: 1.2em;
   padding: 0;
@@ -1225,43 +1203,27 @@ body {
   border: 0;
   background: transparent;
 }
-.editor .documents .document-items .detail .info {
+.editor .documents .document-items .detail p {
   font-size: 0.75em;
   color: #999999;
+  font-style: italic;
 }
-.editor .documents .document-items .detail .progress {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #DDDDDD;
-  border-radius: 5px;
-  margin-top: 1%;
-}
-.editor .documents .document-items .detail .progress .bar {
-  width: 30%;
-  height: 5px;
-  float: left;
-  display: inline-block;
-  border-radius: 5px;
-  background: #3bed8d;
-  background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
-  background: linear-gradient(to right, #3bed8d, #38acc5);
+.editor .documents .document-items .detail p:hover {
+  cursor: default;
 }
 .editor .documents .document-items .btn {
   position: absolute;
   top: 0;
   right: 0;
   padding: 1.5%;
-  float: right;
   display: inline-block;
   text-align: center;
   line-height: 1em;
   font-size: 1em;
-  color: transparent;
+  color: #999999;
 }
 .editor .documents .document-items .btn:hover {
   cursor: pointer;
-  color: #666666;
 }
 .filter {
   width: 50%;
@@ -2062,15 +2024,6 @@ body {
     width: 90%;
     margin: 0 5%;
   }
-  .editor .documents h2 {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.6em;
-    font-weight: normal;
-    margin-bottom: 2%;
-  }
   .editor .documents .document-items {
     width: 96%;
     padding: 2%;
@@ -2590,14 +2543,6 @@ body {
     color: #3e71ff;
   }
   #progressbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    float: left;
-    display: inline-block;
-    z-index: 9999;
-    background: #2962ff;
+    height: 5px;
   }
 }
