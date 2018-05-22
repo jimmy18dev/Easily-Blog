@@ -52,7 +52,7 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 </div>
 
 <div class="pagehead">
-    <div class="head">
+    <div class="head fullsize">
         <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
     </div>
 </div>

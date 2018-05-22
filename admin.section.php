@@ -46,7 +46,7 @@ $current_page = 'section';
 <?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="pagehead">
-    <div class="head">
+    <div class="head fullsize">
         <h1>ตั้งค่าเว็บไซต์</h1>
     </div>
 </div>

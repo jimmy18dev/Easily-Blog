@@ -265,6 +265,9 @@ body {
   display: inline-block;
   font-family: "maledpan", sans-serif;
 }
+.pagehead .head.fullsize {
+  width: 100%;
+}
 .pagehead .head h1 {
   font-size: 2.4em;
   line-height: 1em;
@@ -401,35 +404,38 @@ body {
 .page-form .section .avatar .action .btn-action:hover {
   cursor: pointer;
 }
-.page-form .section .toggle-items {
+.page-form .section .toggle {
   width: 100%;
-  padding: 0.5% 0%;
-  float: left;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+}
+.page-form .section .toggle .toggle-items {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5% 0;
   border-top: 1px solid #EEEEEE;
 }
-.page-form .section .toggle-items:last-child {
+.page-form .section .toggle .toggle-items:last-child {
   border-bottom: 1px solid #EEEEEE;
 }
-.page-form .section .toggle-items .caption {
-  width: 70%;
-  float: left;
-  display: inline-block;
+.page-form .section .toggle .toggle-items .caption {
+  width: 90%;
   font-size: 1.1em;
   color: #666666;
   font-family: "maledpan", sans-serif;
-  padding-top: 2%;
 }
-.page-form .section .toggle-items .switch {
-  float: right;
-  display: inline-block;
+.page-form .section .toggle .toggle-items .switch {
+  width: 10%;
   font-size: 2.25em;
   color: #999999;
+  text-align: right;
 }
-.page-form .section .toggle-items .switch .fa-toggle-on {
+.page-form .section .toggle .toggle-items .switch .fa-toggle-on {
   color: #2962ff;
 }
-.page-form .section .toggle-items .switch:hover {
+.page-form .section .toggle .toggle-items .switch:hover {
   cursor: pointer;
 }
 .page-form .section input[type="text"],
@@ -635,21 +641,16 @@ body {
 .page-form .section ul .location-items {
   width: 100%;
   padding: 2.5%;
-  float: left;
-  display: inline-block;
+  display: flex;
   color: #333333;
-  line-height: 1.5em;
   border-bottom: 1px solid #EEEEEE;
   box-sizing: border-box;
   font-size: 1em;
   line-height: 1em;
+  align-items: center;
 }
 .page-form .section ul .location-items:last-child {
   border-bottom: 0;
-}
-.page-form .section ul .location-items i {
-  float: right;
-  color: transparent;
 }
 .page-form .section ul .location-items:hover,
 .page-form .section ul .location-items.selected {
@@ -657,29 +658,6 @@ body {
   color: #FFFFFF;
   border-bottom: 1px solid #2962ff;
   cursor: pointer;
-}
-.page-form .section ul .location-items:hover i,
-.page-form .section ul .location-items.selected i {
-  color: #FFFFFF;
-}
-.page-form .section .location-list {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.page-form .section .location-list .location-items {
-  width: 96%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-}
-.page-form .section .location-list .location-items i {
-  margin-right: 7px;
-}
-.page-form .section .location-list .location-items:hover {
-  cursor: pointer;
-  background: #EEEEEE;
 }
 .page-form .section .tag {
   width: 100%;
@@ -1809,493 +1787,174 @@ body {
     display: none;
   }
   .pagehead {
-    width: 50%;
-    margin: 3% 25%;
-    margin-top: 56px;
-    padding-bottom: 3%;
-    float: left;
-    display: inline-block;
-    border-bottom: 1px solid #EEEEEE;
+    width: 90%;
+    margin: 5%;
+    padding-bottom: 5%;
   }
   .pagehead .head {
     width: 70%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
+  }
+  .pagehead .head.fullsize {
+    width: 100%;
   }
   .pagehead .head h1 {
-    font-size: 2.4em;
-    line-height: 1em;
-    color: #333333;
+    font-size: 1.8em;
+    font-weight: normal;
   }
   .pagehead .head p {
     margin-top: 0.5em;
-    font-size: 1.05em;
-    color: #999999;
+    font-size: 1em;
+    line-height: 1.2em;
   }
   .pagehead .action {
     width: 30%;
-    float: left;
-    display: inline-block;
-    margin-top: 1%;
+    margin-top: 3%;
   }
   .pagehead .action .btn-create {
-    float: right;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
-    line-height: 1.1em;
+    font-size: 1em;
+    line-height: 1em;
     padding: 15px 25px;
     border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .pagehead .action .btn-create.active {
-    background: #2962ff;
-    color: #FFFFFF;
-  }
-  .pagehead .action .btn-create.active:hover {
-    background: #3e71ff;
-  }
-  .pagehead .action .btn-create:hover {
-    cursor: pointer;
   }
   .page-form {
-    width: 50%;
-    margin: 0% 25%;
-    float: left;
-    display: inline-block;
+    width: 90%;
+    margin: 0% 5%;
   }
   .page-form .section {
-    width: 100%;
-    float: left;
-    display: inline-block;
     margin-bottom: 5%;
   }
   .page-form .section h2 {
-    font-family: "maledpan", sans-serif;
-    font-weight: normal;
-    font-size: 1.8em;
+    font-size: 1.4em;
     color: #333333;
     line-height: 1em;
     margin-bottom: 0.5em;
   }
   .page-form .section p {
-    width: 70%;
-    margin-right: 30%;
-    float: left;
-    display: inline-block;
-    font-size: 1.1em;
+    width: 100%;
+    margin-right: 0;
+    font-size: 1em;
     margin-bottom: 1em;
-    color: #666666;
-    font-family: "maledpan", sans-serif;
-  }
-  .page-form .section p strong {
-    color: #333333;
-  }
-  .page-form .section p a {
-    color: #2962ff;
   }
   .page-form .section p.note {
-    text-align: right;
-    font-size: 0.75em;
-    margin-bottom: 0;
-    color: #999999;
-    font-style: italic;
-  }
-  .page-form .section .avatar {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 5%;
+    font-size: 0.65em;
   }
   .page-form .section .avatar .pic {
-    width: 20%;
-    float: left;
-    display: inline-block;
-  }
-  .page-form .section .avatar .pic img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-radius: 5px;
+    width: 35%;
   }
   .page-form .section .avatar .action {
-    width: 75%;
+    width: 60%;
     margin-left: 5%;
-    margin-top: 6%;
-    float: left;
-    display: inline-block;
-  }
-  .page-form .section .avatar .action form {
-    display: none;
+    margin-top: 0;
   }
   .page-form .section .avatar .action .btn-action {
-    float: left;
-    display: inline-block;
-    background: #2962ff;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
-    line-height: 1.1em;
-    padding: 15px 25px;
+    width: 100%;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 15px;
     border-radius: 5px;
     margin: 0;
-    margin-right: 15px;
-    box-sizing: border-box;
-    border: 1px solid #2962ff;
+    margin-bottom: 3%;
+    text-align: center;
   }
   .page-form .section .avatar .action .btn-action i {
-    margin-right: 15px;
+    margin-right: 10px;
   }
-  .page-form .section .avatar .action .btn-action.facebook-import {
-    background: #FFFFFF;
-    color: #2962ff;
+  .page-form .section .toggle {
+    margin-bottom: 5%;
   }
-  .page-form .section .avatar .action .btn-action:hover {
-    cursor: pointer;
-  }
-  .page-form .section .toggle-items {
+  .page-form .section .toggle .toggle-items {
     width: 100%;
-    padding: 0.5% 0%;
-    float: left;
-    display: inline-block;
-    border-top: 1px solid #EEEEEE;
+    display: flex;
+    align-items: center;
+    padding: 1% 0;
   }
-  .page-form .section .toggle-items:last-child {
-    border-bottom: 1px solid #EEEEEE;
+  .page-form .section .toggle .toggle-items .caption {
+    width: 75%;
+    font-size: 1em;
+    line-height: 1.2em;
   }
-  .page-form .section .toggle-items .caption {
-    width: 70%;
-    float: left;
-    display: inline-block;
-    font-size: 1.1em;
-    color: #666666;
-    font-family: "maledpan", sans-serif;
-    padding-top: 2%;
-  }
-  .page-form .section .toggle-items .switch {
-    float: right;
-    display: inline-block;
+  .page-form .section .toggle .toggle-items .switch {
+    width: 25%;
     font-size: 2.52em;
-    color: #999999;
-  }
-  .page-form .section .toggle-items .switch .fa-toggle-on {
-    color: #2962ff;
-  }
-  .page-form .section .toggle-items .switch:hover {
-    cursor: pointer;
   }
   .page-form .section input[type="text"],
   .page-form .section textarea {
-    width: 100%;
     padding: 15px;
-    float: left;
-    display: inline-block;
     font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #F0F0F0;
-    color: #333333;
-    background: #F0F0F0;
-    margin: 0px;
-    resize: none;
     line-height: 1.3em;
-    box-sizing: border-box;
     margin-bottom: 1%;
   }
-  .page-form .section input[type="text"]:hover,
-  .page-form .section textarea:hover {
-    cursor: pointer;
-  }
-  .page-form .section input[type="text"]:focus,
-  .page-form .section textarea:focus {
-    background: #FFFFFF;
-    border: 1px solid #2962ff;
-  }
   .page-form .section .note {
-    width: 100%;
-    float: left;
-    display: inline-block;
     font-size: 0.8em;
-    text-align: right;
-    font-style: italic;
-    color: #999999;
   }
   .page-form .section .select {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    position: relative;
-    margin-right: 15px;
-    margin-bottom: 3%;
-  }
-  .page-form .section .select.number {
-    width: 10%;
-  }
-  .page-form .section .select:after {
-    content: '';
-    border-top: 8px solid #BBBBBB;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    position: absolute;
-    z-index: 2;
-    top: 20px;
-    right: 18px;
-    pointer-events: none;
-  }
-  .page-form .section .select select {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-    font-size: 1.05em;
-    line-height: 1em;
-    padding: 15px 25px;
-    background: #FFFFFF;
-    font-family: "maledpan", sans-serif;
-    color: #666666;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: 1px solid #DDDDDD;
-  }
-  .page-form .section .select select:hover {
-    cursor: pointer;
-    border: 1px solid #BBBBBB;
-  }
-  .page-form .section button {
-    float: right;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
-    line-height: 1.1em;
-    padding: 15px 25px;
-    border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .page-form .section button.btn-delete {
-    float: left;
-    background: #F44336;
-    color: #FFFFFF;
-  }
-  .page-form .section button.btn-delete:hover {
-    background: #F44336;
-  }
-  .page-form .section button.active {
-    background: #2962ff;
-    color: #FFFFFF;
-  }
-  .page-form .section button.active:hover {
-    background: #3e71ff;
-  }
-  .page-form .section button:hover {
-    cursor: pointer;
-  }
-  .page-form .section .list {
-    width: 100%;
-    float: left;
-    display: inline-block;
+    margin-right: 0;
     margin-bottom: 5%;
   }
-  .page-form .section .list input[type="file"] {
-    display: none;
+  .page-form .section .select:after {
+    top: 20px;
+    right: 15px;
   }
-  .page-form .section .list form {
-    display: none;
+  .page-form .section .select select {
+    font-size: 1em;
+    padding: 15px;
+  }
+  .page-form .section button {
+    width: 100%;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 15px 0px;
+  }
+  .page-form .section .list {
+    margin-bottom: 5%;
   }
   .page-form .section .list .items {
-    width: 19%;
-    margin: 0.5%;
-    float: left;
-    display: inline-block;
-    box-sizing: border-box;
-    border: 2px solid transparent;
-    padding: 5px;
-    border-radius: 7px;
-  }
-  .page-form .section .list .items img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-radius: 5px;
-  }
-  .page-form .section .list .items.active {
-    border: 2px solid #2962ff;
+    width: 46%;
+    margin: 2%;
+    padding: 2%;
   }
   .page-form .section .list .items.btn-add-cover {
-    padding: 7.1% 0;
-    border: 2px dashed #BBBBBB;
-    text-align: center;
-    color: #BBBBBB;
+    padding: 17% 0;
   }
   .page-form .section .list .items.btn-add-cover i {
     font-size: 1.6em;
   }
-  .page-form .section .list .items.btn-add-cover:hover {
-    border: 2px dashed #2962ff;
-    color: #2962ff;
-  }
-  .page-form .section .list .items:hover {
-    cursor: pointer;
-  }
   .page-form .section .location-current {
-    width: 100%;
-    padding: 2.5%;
-    float: left;
-    display: inline-block;
-    background: #e9efff;
-    box-sizing: border-box;
-    color: #2962ff;
-    line-height: 1em;
+    padding: 5%;
     font-size: 1em;
     line-height: 1.3em;
-    position: relative;
-    border-radius: 5px;
-    margin-bottom: 1%;
-  }
-  .page-form .section .location-current:hover {
-    cursor: default;
-  }
-  .page-form .section .location-current:hover .btn {
-    color: #F44336;
+    margin-bottom: 2.5%;
   }
   .page-form .section .location-current .btn {
-    position: absolute;
     top: 10px;
     right: 10px;
     font-size: 0.8em;
-    line-height: 1em;
-    color: transparent;
-  }
-  .page-form .section .location-current .btn:hover {
-    cursor: pointer;
-  }
-  .page-form .section ul {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    color: #F44336;
   }
   .page-form .section ul .location-items {
-    width: 100%;
-    padding: 2.5%;
-    float: left;
-    display: inline-block;
-    color: #333333;
-    line-height: 1.5em;
-    border-bottom: 1px solid #EEEEEE;
-    box-sizing: border-box;
-    font-size: 1em;
-    line-height: 1em;
-  }
-  .page-form .section ul .location-items:last-child {
-    border-bottom: 0;
-  }
-  .page-form .section ul .location-items i {
-    float: right;
-    color: transparent;
-  }
-  .page-form .section ul .location-items:hover,
-  .page-form .section ul .location-items.selected {
-    background: #2962ff;
-    color: #FFFFFF;
-    border-bottom: 1px solid #2962ff;
-    cursor: pointer;
-  }
-  .page-form .section ul .location-items:hover i,
-  .page-form .section ul .location-items.selected i {
-    color: #FFFFFF;
-  }
-  .page-form .section .location-list {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .page-form .section .location-list .location-items {
-    width: 96%;
-    padding: 2%;
-    float: left;
-    display: inline-block;
-    border-bottom: 1px solid #EEEEEE;
-  }
-  .page-form .section .location-list .location-items i {
-    margin-right: 7px;
-  }
-  .page-form .section .location-list .location-items:hover {
-    cursor: pointer;
-    background: #EEEEEE;
+    padding: 5%;
+    line-height: 1.2em;
   }
   .page-form .section .tag {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin-top: 2%;
+    margin-top: 5%;
   }
   .page-form .section .tag .tag-items {
-    float: left;
-    display: inline-block;
-    background: #e9efff;
-    color: #2962ff;
-    padding: 2%;
-    line-height: 1em;
-    border-radius: 5px;
-    margin-right: 1%;
-    margin-bottom: 1%;
-    position: relative;
-  }
-  .page-form .section .tag .tag-items .name:hover {
-    cursor: default;
+    padding: 5%;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
   }
   .page-form .section .tag .tag-items .btn-remove-tag {
-    position: absolute;
     top: 5px;
     right: 5px;
     font-size: 0.7em;
-    line-height: 1em;
-    color: transparent;
-  }
-  .page-form .section .tag .tag-items .btn-remove-tag:hover {
-    cursor: pointer;
-    color: #F44336 !important;
-  }
-  .page-form .section .tag .tag-items:hover .btn-remove-tag {
-    color: #2962ff;
-  }
-  .page-form .section .inputWrapper {
-    width: 100%;
-    float: left;
-    display: table;
-    border-radius: 5px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border-collapse: separate;
+    color: #F44336;
   }
   .page-form .section .inputWrapper span {
-    width: 1%;
-    padding-right: 15px;
-    white-space: nowrap;
-    vertical-align: middle;
-    display: table-cell;
+    width: 100%;
+    margin-bottom: 2.5%;
+    padding-right: 0;
+    display: inline-block;
     font-size: 1em;
-    line-height: 1em;
-    color: #2962ff;
-  }
-  .page-form .section .inputWrapper span:hover {
-    cursor: default;
   }
   .editor {
     width: 100%;
@@ -2893,7 +2552,7 @@ body {
     float: left;
     display: inline-block;
     font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
+    font-size: 1em;
     color: #999999;
     margin-bottom: 3%;
   }
@@ -2926,7 +2585,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     margin: 0;
-    font-size: 1.05em;
+    font-size: 1em;
     line-height: 1em;
     padding: 15px 25px;
     background: #FFFFFF;
@@ -2947,7 +2606,7 @@ body {
     color: #BBBBBB;
     text-decoration: none;
     font-family: "maledpan", sans-serif;
-    font-size: 1.05em;
+    font-size: 1em;
     line-height: 1.1em;
     padding: 15px 25px;
     border-radius: 5px;
@@ -3009,7 +2668,7 @@ body {
     display: inline-block;
     font-family: "maledpan", sans-serif;
     font-weight: normal;
-    font-size: 1.05em;
+    font-size: 1em;
     margin-bottom: 2%;
     color: #999999;
     background: #CAADDA;
@@ -3072,7 +2731,7 @@ body {
     width: 100%;
     float: left;
     display: inline-block;
-    font-size: 1.05em;
+    font-size: 1em;
     line-height: 1.3em;
     margin-top: 0.5%;
     margin-bottom: 1%;
@@ -3087,7 +2746,7 @@ body {
     text-decoration: underline;
   }
   .lists .article-items .content p {
-    font-size: 0.75em;
+    font-size: 0.65em;
     color: #999999;
   }
   .lists .article-items .content p:hover {
@@ -3172,7 +2831,7 @@ body {
     color: #333333;
   }
   .lists .list-items .detail .desc {
-    font-size: 0.75em;
+    font-size: 0.65em;
     color: #999999;
     font-style: italic;
   }
