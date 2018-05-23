@@ -2025,94 +2025,27 @@ body {
     margin: 0 5%;
   }
   .editor .documents .document-items {
-    width: 96%;
-    padding: 2%;
-    float: left;
-    display: inline-block;
-    background: #F5F5F5;
-    margin-bottom: 1%;
-    border-radius: 5px;
-    position: relative;
-  }
-  .editor .documents .document-items.form {
-    display: none;
-  }
-  .editor .documents .document-items:hover .btn {
-    color: #BBBBBB;
-  }
-  .editor .documents .document-items .inputfile {
-    display: none;
+    margin-bottom: 2%;
   }
   .editor .documents .document-items .icon {
-    width: 5%;
-    float: left;
-    display: inline-block;
+    width: 18%;
+    padding: 2% 0;
     font-size: 1.4em;
-    margin-top: 0.4%;
-    text-align: center;
-    color: #999999;
   }
   .editor .documents .document-items .detail {
-    width: 93%;
-    margin-left: 2%;
-    float: left;
-    display: inline-block;
-  }
-  .editor .documents .document-items .detail .name {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1.2em;
-    line-height: 1.2em;
+    width: 72%;
+    padding: 3% 0;
+    padding-right: 10%;
   }
   .editor .documents .document-items .detail .file_title {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.2em;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: transparent;
   }
-  .editor .documents .document-items .detail .info {
-    font-size: 0.75em;
-    color: #999999;
-  }
-  .editor .documents .document-items .detail .progress {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    background: #DDDDDD;
-    border-radius: 5px;
-    margin-top: 1%;
-  }
-  .editor .documents .document-items .detail .progress .bar {
-    width: 30%;
-    height: 5px;
-    float: left;
-    display: inline-block;
-    border-radius: 5px;
-    background: #3bed8d;
-    background: -webkit-linear-gradient(to right, #3bed8d, #38acc5);
-    background: linear-gradient(to right, #3bed8d, #38acc5);
+  .editor .documents .document-items .detail p {
+    font-size: 0.65em;
   }
   .editor .documents .document-items .btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1.5%;
-    float: right;
-    display: inline-block;
-    text-align: center;
-    line-height: 1em;
-    font-size: 1em;
-    color: transparent;
-  }
-  .editor .documents .document-items .btn:hover {
-    cursor: pointer;
-    color: #666666;
+    padding: 3%;
   }
   .filter {
     width: 50%;

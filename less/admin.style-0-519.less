@@ -425,98 +425,26 @@
 		margin: 0 5%;
 
 		.document-items{
-			width: 96%;
-			padding: 2%;
-			float: left;
-			display: inline-block;
-			background: #F5F5F5;
-			margin-bottom: 1%;
-			border-radius: 5px;
-			position: relative;
-
-			&.form{ display: none; }
-
-			&:hover{
-				.btn{
-					color: #BBBBBB;
-				}
-			}
-
-			.inputfile{ display: none; }
+			margin-bottom: 2%;
 
 			.icon{
-				width: 5%;
-				float: left;
-				display: inline-block;
-				font-size: 1.4em;
-				margin-top: 0.4%;
-				text-align: center;
-				color: #999999;
+				width: 18%;
+				padding: 2% 0;
+				font-size: @font-size-icon;
 			}
 			.detail{
-				width: 93%;
-				margin-left: 2%;
-				float: left;
-				display: inline-block;
+				width: 72%;
+				padding: 3% 0;
+				padding-right: 10%;
 
-				.name{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
-					line-height: 1.2em;
-				}
 				.file_title{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 1.2em;
+					font-size: 1em;
 					line-height: 1.2em;
-					padding: 0;
-					margin: 0;
-					border: 0;
-					background: transparent;
 				}
-				.info{
-					font-size: 0.75em;
-					color: #999999;
-				}
-				.progress{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					background: #DDDDDD;
-					border-radius: 5px;
-					margin-top: 1%;
-
-					.bar{
-						width: 30%;
-						height: 5px;
-						float: left;
-						display: inline-block;
-						border-radius: 5px;
-						.bgGradient(#3BED8D,#38ACC5);
-					}
-				}
+				p{ font-size: @font-size-desc; }
 			}
 
-			.btn{
-				position: absolute;
-				top: 0;
-				right: 0;
-				padding: 1.5%;
-				float: right;
-				display: inline-block;
-				text-align: center;
-				line-height: 1em;
-				font-size: 1em;
-				color: transparent;
-
-				&:hover{
-					cursor: pointer;
-					color: #666666;
-				}
-			}
+			.btn{ padding: 3%; }
 		}
 	}
 }
