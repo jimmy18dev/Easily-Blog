@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+	header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -51,7 +51,7 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 </div>
 
 <div class="pagehead">
-	<div class="head">
+	<div class="head fullsize">
 		<h1>เพิ่มประสิทธิภาพ</h1>
 		<p>การทำ SEO คือ ทำเว็บไซต์ให้ตรงตามเกณฑ์การให้คะแนนของ Search Engine อย่าง Google ให้มากที่สุด เพื่อให้เว็บไซต์ติดอยู่ในผลการค้นหาลำดับแรก</p>
 	</div>
@@ -129,17 +129,19 @@ $article_url = DOMAIN.'/article/'.$article->id.'/';
 	<div class="section">
 		<h2>ตั้งค่าเพิ่มเติม</h2>
 
-		<div class="toggle-items">
-			<div class="caption">บทความที่เกี่ยวข้อง (Related Articles)</div>
-			<div class="switch" id="btnToggleRelatedContent"><?php echo ($article->related_content?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
-		</div>
-		<div class="toggle-items">
-			<div class="caption">กล่องแสดงความคิดเห็น (Facebook Comments)</div>
-			<div class="switch" id="btnToggleFbComment"><?php echo ($article->fb_comment?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
-		</div>
-		<div class="toggle-items">
-			<div class="caption">คิวอาร์โค้ดสำหรับเปิดบทความบนมือถือ</div>
-			<div class="switch" id="btnToggleQRCode"><?php echo ($article->qrcode?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+		<div class="toggle">
+			<div class="toggle-items">
+				<div class="caption">บทความที่เกี่ยวข้อง (Related Articles)</div>
+				<div class="switch" id="btnToggleRelatedContent"><?php echo ($article->related_content?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+			</div>
+			<div class="toggle-items">
+				<div class="caption">กล่องแสดงความคิดเห็น (Facebook Comments)</div>
+				<div class="switch" id="btnToggleFbComment"><?php echo ($article->fb_comment?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+			</div>
+			<div class="toggle-items">
+				<div class="caption">คิวอาร์โค้ดสำหรับเปิดบทความบนมือถือ</div>
+				<div class="switch" id="btnToggleQRCode"><?php echo ($article->qrcode?'<i class="fal fa-toggle-on"></i>':'<i class="fal fa-toggle-off"></i>');?></div>
+			</div>
 		</div>
 	</div>
 </div>

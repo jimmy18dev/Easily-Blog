@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+    header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -46,7 +46,7 @@ $current_page = 'section';
 <?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="pagehead">
-    <div class="head">
+    <div class="head fullsize">
         <h1>ตั้งค่าเว็บไซต์</h1>
     </div>
 </div>
@@ -54,15 +54,6 @@ $current_page = 'section';
 <?php if(count($categories) != count($sections)){?>
 <div class="filter">
     <p>คุณสามารถเลือกหมวดหมู่ทที่ให้แสดงบนหน้าแรกของเว็บไซต์ โดยเลือกหมวดหมู่และระบุจำนวนบทความที่ต้องการให้แสดง</p>
-
-    <button class="btn-create" id="btn-add">เพิ่มหมวด</button>
-    <div class="select number" title="จำนวนบทความที่แสดง">
-        <select id="total_items">
-            <?php for($i=2;$i<=12;$i+=2){?>
-            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-            <?php }?>
-        </select>
-    </div>
 
     <div class="select">
         <select id="category_id">
@@ -74,6 +65,15 @@ $current_page = 'section';
             <?php }?>
         </select>
     </div>
+    <div class="select number" title="จำนวนบทความที่แสดง">
+        <select id="total_items">
+            <?php for($i=2;$i<=12;$i+=2){?>
+            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div>
+
+    <button class="btn-create" id="btn-add">เพิ่ม</button>
 </div>
 <?php }?>
 

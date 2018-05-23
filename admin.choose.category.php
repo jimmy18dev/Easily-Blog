@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+	header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -51,7 +51,7 @@ $categories = $category->listAll();
 </div> -->
 
 <div class="pagehead">
-	<div class="head">
+	<div class="head fullsize">
 		<h1>เลือกประเภทบทความ</h1>
 		<p>หลังจากที่คุณสร้างบทความไปแล้ว จะไม่สามารถเปลี่ยนหมวดหมู่ได้อีก</p>
 	</div>
@@ -59,11 +59,11 @@ $categories = $category->listAll();
 
 <div class="lists">
 	<?php foreach ($categories as $var) {?>
-	<div class="list-items choose-category" data-id="<?php echo $var['id'];?>">
+	<div class="list-items choose-category btn-1" data-id="<?php echo $var['id'];?>">
 		<div class="icon">
 			<?php echo(!empty($var['icon'])?'<i class="fal fa-'.$var['icon'].'"></i>':'<i class="fal fa-folder"></i>')?>
 		</div>
-		<div class="detail box-80">
+		<div class="detail">
 			<div class="title"><?php echo $var['title'];?></div>
 			<?php if(!empty($var['description'])){?>
 			<div class="desc"><?php echo $var['description'];?></div>
@@ -75,7 +75,7 @@ $categories = $category->listAll();
 </div>
 
 <div class="filter bottom">
-    <button class="btn-create" id="btnStartWrite">เขียนบทความ</button>
+    <button class="btn-create right" id="btnStartWrite">เขียนบทความ</button>
 </div>
 
 <div id="progressbar"></div>

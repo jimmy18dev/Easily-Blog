@@ -88,22 +88,15 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<div class="article-cover">
 		<picture>
 			<source srcset="image/upload/<?php echo $article->id;?>/square/<?php echo $article->head_cover_img;?>" media="(min-width:0px) and (max-width :519px)">
-			<source srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>">
-			<img srcset="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="My default image">
+			<img src="image/upload/<?php echo $article->id;?>/large/<?php echo $article->head_cover_img;?>" alt="<?php echo $article->title;?>">
 		</picture>
+		
 		<header class="article-header">
 			<div class="author">
-				<div class="avatar">
-					<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
-				</div>
-				<div class="detail">
-					<div class="name"><?php echo $article->owner_displayname;?></div>
-					<div class="desc position">Web Developer and Web Designer</div>
-					<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-					</div>
-				</div>
+				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
+				<span><strong><?php echo $article->owner_displayname;?></strong> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 				<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-				<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
+				 - <a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 				<?php }?>
 			</div>
 			<h1><?php echo $article->title;?></h1>
@@ -114,18 +107,10 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 	<!-- Article Header -->
 	<header class="article-header">
 		<div class="author">
-			<div class="avatar">
-				<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
-			</div>
-			<div class="detail">
-				<div class="name"><?php echo $article->owner_displayname;?></div>
-				<div class="desc position">Web Developer and Web Designer</div>
-				<div class="desc"><?php echo $article->category_title;?> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
-				</div>
-			</div>
-
+			<img src="<?php echo (empty($article->owner_avatar)?'image/avatar.png':'image/upload/avatar/'.$article->owner_avatar);?>" alt="<?php echo $article->owner_displayname?>">
+			<span><strong><?php echo $article->owner_displayname;?></strong> · <time datetime="2008-02-14 20:00"><?php echo $article->edit_time;?></time></span>
 			<?php if(!empty($article->id) && $article->owner_id == $user->id){?>
-			<a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
+			 - <a class="btn-edit" href="article/<?php echo $article->id;?>/editor?ref=onsite" title="แก้ไขบทความ">แก้ไข</a>
 			<?php }?>
 		</div>
 
@@ -178,19 +163,22 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		<blockquote class="content">
 			<i class="fa fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
-			<footer>— <cite><?php echo $var['topic'];?></cite></footer>
+			<footer>— <cite><?php echo $var['topic'];?></cite> —</footer>
 			<i class="fa fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
 
 		<?php }else if($var['type'] == 'map'){?>
 		<!-- Google Map Embed -->
-		<figure class="content image">
-			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x500&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="Google Map">
-			<?php if(!empty($var['alt'])){?>
-			<figcaption><?php echo $var['alt'];?></figcaption>
-			<?php }?>
-
+		<figure class="google-map">
 			<a class="btn-open-map" title="แสดงเส้นทาง" href="http://maps.google.com/maps?q=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>" target="_blank"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+
+			<figure>
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&zoom=16&size=800x500&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:0xF44336%7C<?php echo $var['lat'];?>,<?php echo $var['lng'];?>&key=<?php echo GOOGLE_MAP_KEY;?>&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" alt="Google Map">
+				
+				<?php if(!empty($var['alt'])){?>
+				<figcaption><?php echo $var['alt'];?></figcaption>
+				<?php }?>
+			</figure>
 		</figure>
 		<?php }?>
 	<?php } ?>
@@ -200,10 +188,14 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		<h2>ไฟล์เอกสาร</h2>
 		<?php foreach ($article->documents as $var) {?>
 		<a href="files/<?php echo $var['file_name'];?>" class="document-items" target="_blank">
-			<span class="icon"><i class="fa fa-file"></i></span>
+			<div class="icon">
+			<?php if(in_array($var['file_type'],array(1, 3, 4, 5))){?>
+				<i class="fal fa-file-<?php echo $var['file_type'];?>"></i>
+			<?php }?>
+			</div>
 			<span class="detail">
 				<span class="name"><?php echo $var['title'];?></span>
-				<span class="desc">ขนาด <?php echo $var['file_size'];?> (<?php echo $var['file_type'];?>)</span>
+				<span class="desc">ขนาด <?php echo $var['file_size'];?></span>
 			</span>
 		</a>
 		<?php }?>
@@ -240,15 +232,15 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 <?php }?>
 
 <div class="sharing">
-	<span>
+	<div class="sharing-items">
 		<div class="fb-share-button" data-href="<?php echo $page_url;?>" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Figensite.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-	</span>
-	<span>
+	</div>
+	<div class="sharing-items">
 		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="<?php echo $page_title;?>" data-url="<?php echo $page_url;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-	</span>
-	<span>
+	</div>
+	<div class="sharing-items">
 		<div class="line-it-button" data-lang="en" data-type="share-a" data-url="<?php echo $page_url;?>" style="display: none;"></div><script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-	</span>
+	</div>
 </div>
 
 <?php if($article->related_content && count($related_content) > 0){?>

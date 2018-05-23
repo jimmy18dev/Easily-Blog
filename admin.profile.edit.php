@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+    header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -44,7 +44,7 @@ $members = $member->listAll();
 <?php include_once 'template/admin.navigation.php'; ?>
 
 <div class="pagehead">
-    <div class="head">
+    <div class="head fullsize">
         <h1>โปรไฟล์ผู้เขียน</h1>
         <p>คำแนะนำ: การใส่ชื่อผู้เขียนลงในบทความ จะช่วยให้เว็บไซต์มีความน่าเชื่อถือมากยิ่งขึ้น</p>
     </div>
@@ -67,7 +67,7 @@ $members = $member->listAll();
 
                 <div class="btn-action" id="btnChooseAvatar"><i class="fa fa-camera"></i>เลือกภาพใหม่</div>
                 <?php if(!empty($user->fb_id)){?>
-                <div class="btn-action facebook-import" id="btnFacebookImport"><i class="fab fa-facebook"></i>ใช้ภาพจาก Facebook</div>
+                <div class="btn-action facebook-import" id="btnFacebookImport"><i class="fab fa-facebook"></i>ใช้รูปจาก Facebook</div>
                 <?php }?>
             </div>
         </div>
@@ -78,12 +78,11 @@ $members = $member->listAll();
         <div class="note">ไม่เกิน 140 ตัวอักษร</div>
     </div>
     <div class="section">
-        <button id="btnSaveProfile">บันทึกการเปลี่ยนแปลง</button>
+        <button id="btnSaveProfile">บันทึก</button>
     </div>
 </div>
 
 <div class="lists">
-    <h1>สมาชิก</h1>
     <?php if(count($members) > 0){?>
     <?php foreach ($members as $var) { include 'template/member.items.php'; } ?>
     <?php }?>

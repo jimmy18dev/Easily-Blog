@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+	header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -52,7 +52,7 @@ if($article->owner_id != $user->id){
 </head>
 <body class="paper">
 <div class="header">
-	<div class="status" id="editor-status"></div>
+	<div class="btn-icon status" title="บันทึกแล้ว" id="editor-status"></div>
 
 	<?php if($ref == 'onsite'){?>
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
@@ -60,9 +60,9 @@ if($article->owner_id != $user->id){
 	<a class="btn-icon right" href="profile#<?php echo $article->id;?>" title="ออกจากหน้านี้"><i class="fal fa-times"></i></a>
 	<?php }?>
 
-	<a class="btn-icon right" href="article/<?php echo $article->id;?>" target="_blank" title="ดูตัวอย่างแท็บใหม่"><i class="fa fa-eye"></i></a>
+	<a class="btn-icon right" href="article/<?php echo $article->id;?>" id="btn-example" target="_blank" title="ดูตัวอย่างแท็บใหม่"><i class="fa fa-eye"></i></a>
 	<?php if($article->status!='published'){?>
-	<div class="btn right active" id="btn-publish" title="เผยแพร่">เผยแพร่</div>
+	<div class="btn right active" id="btn-publish" title="เผยแพร่"><i class="fa fa-paper-plane"></i><span>เผยแพร่</span></div>
 	<?php }?>
 
 	<a class="btn-icon right" href="article/<?php echo $article->id;?>/option<?php echo ($ref=='onsite'?'?ref=onsite':'')?>" title="ตั้งค่า"><i class="fa fa-cog"></i></a>
@@ -175,7 +175,6 @@ if($article->owner_id != $user->id){
 				<img src="image/upload/<?php echo $article->id;?>/normal/<?php echo $var['img_location'];?>">
 				<?php }else{?>
 				<div class="btn-choose-image">
-					<i class="fa fa-picture-o" aria-hidden="true"></i>
 					<span>เลือกไฟล์รูปภาพ</span>
 				</div>
 				<?php }?>
@@ -235,26 +234,16 @@ if($article->owner_id != $user->id){
 
 	<div class="documents">
 		<form action="upload_document.php" class="document-items form" id="documentForm" method="POST" enctype="multipart/form-data">
-			<div class="icon">
-				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-			</div>
-			<div class="detail">
-				<div class="name" id="fileName">เลือกไฟล์เอกสารของคุณ</div>
-				<div class="progress" id="documentProgress">
-					<div class="bar" id="documentProgressBar"></div>
-				</div>
-			</div>
-			
 			<input type="file" name="file" class="inputfile" id="file">
 			<input type="hidden" name="article_id" value="<?php echo $article->id;?>">
 			<input type="hidden" id="maximumSize" value="<?php echo $document->return_bytes(ini_get('post_max_size'));?>">
 		</form>
 		<?php foreach ($article->documents as $var) {?>
 		<div class="document-items" data-file="<?php echo $var['id'];?>">
-			<div class="icon"><i class="fa fa-file"></i></div>
+			<div class="icon"><i class="fal fa-file-<?php echo $var['file_type'];?>"></i></div>
 			<div class="detail">
 				<input type="text" class="file_title" title="แก้ไขชื่อเอกสาร" placeholder="ตั้งชื่อไฟล์นี้" value="<?php echo $var['title'];?>">
-				<div class="info"><?php echo $var['file_type'];?> ขนาด <?php echo $var['file_size'];?> <?php echo $var['file_name'];?></div>
+				<p>ขนาด <?php echo $var['file_size'];?></p>
 			</div>
 			<div class="btn btn-doc-delete" title="ลบเอกสารนี้"><i class="fal fa-times" aria-hidden="true"></i></div>
 		</div>

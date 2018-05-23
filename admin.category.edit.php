@@ -2,11 +2,11 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+    header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
@@ -52,7 +52,7 @@ $category_url = DOMAIN.'/topic/'.(!empty($category->id)?$category->id.'/':'');
 </div>
 
 <div class="pagehead">
-    <div class="head">
+    <div class="head fullsize">
         <h1><?php echo (!empty($category->id)?'แก้ไขหมวดหมู่':'สร้างหมวดหมู่');?></h1>
     </div>
 </div>

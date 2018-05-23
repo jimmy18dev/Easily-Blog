@@ -2,19 +2,19 @@
 include_once'autoload.php';
 
 if(!$user_online){
-    header('Location: signin');
+    header('Location: '.DOMAIN.'/signin');
     die();
 }
 if($user->type != 'admin' && $user->type != 'writer'){
-    header('Location: permission.php');
+    header('Location: '.DOMAIN.'/permission.php');
     die();
 }
 
 $article = new Article();
 $page = (!empty($_GET['page'])?$_GET['page']:1);
-$perpage = 30;
+$perpage = 5;
 
-$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
+$articles = $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
 
 if($page == 1){
     $article_sticky = $article->listSticky();
@@ -57,13 +57,12 @@ $current_page = 'article';
         <p>จัดการบทความของคุณทั้งหมด ได้จากหน้านี้</p>
     </div>
     <div class="action">
-        <a class="btn-create active" href="article/create">เขียนบทความ</a>
+        <a class="btn-create active" title="เขียนบทความใหม่" href="article/create">เขียน</a>
     </div>
 </div>
 
 <?php if($page == 1 && count($article_sticky) > 0){?>
 <div class="lists">
-    <h1>ปักหมุด</h1>
     <?php if(count($article_sticky) > 0){?>
     <?php foreach ($article_sticky as $var) { include 'template/article.items.php'; } ?>
     <?php }?>
@@ -71,7 +70,6 @@ $current_page = 'article';
 <?php }?>
 
 <div class="lists">
-    <h1>บทความของคุณ</h1>
 	<?php if(count($articles['items']) > 0){?>
 	<?php foreach ($articles['items'] as $var) { include 'template/article.items.php'; } ?>
 	<?php }else{?>

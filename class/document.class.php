@@ -40,17 +40,17 @@ class Document{
 
     public function docType($type){
         if($type == 'pdf')
-            $icon = 'PDF';
+            $icon = 'pdf';
         else if($type == 'doc' || $type == 'docx')
-            $icon = 'Word';
+            $icon = 'word';
         else if($type == 'xls' || $type == 'xlsx')
-            $icon = 'Excel';
+            $icon = 'excel';
         else if($type == 'ppt' || $type == 'pptx')
-            $icon = 'PowerPoint';
+            $icon = 'powerpoint';
         else if($type == 'txt')
             $icon = 'txt';
         else if($type == 'zip')
-            $icon = 'Zip';
+            $icon = 'zip';
         else
             $icon = 'n/a';
 
