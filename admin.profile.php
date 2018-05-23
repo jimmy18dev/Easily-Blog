@@ -14,7 +14,7 @@ $article = new Article();
 $page = (!empty($_GET['page'])?$_GET['page']:1);
 $perpage = 5;
 
-$articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
+$articles = $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
 
 if($page == 1){
     $article_sticky = $article->listSticky();

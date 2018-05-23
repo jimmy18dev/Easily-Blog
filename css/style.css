@@ -737,6 +737,48 @@ body.paper {
   background: transparent;
   text-align: center;
 }
+.article .google-map {
+  width: 50%;
+  margin: 0 25%;
+  margin-bottom: 5%;
+  float: left;
+  display: inline-block;
+  position: relative;
+}
+.article .google-map img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.article .google-map figcaption {
+  width: 98%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.75em;
+  border: 0px;
+  padding: 2% 1%;
+  background: transparent;
+  font-style: italic;
+  color: #999999;
+}
+.article .google-map a.btn-open-map {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background: #ff6d00;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px;
+  line-height: 1em;
+  font-size: 1.1em;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+.article .google-map a.btn-open-map:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
+}
 .article figure.content {
   width: 50%;
   margin: 0 25%;
@@ -760,23 +802,6 @@ body.paper {
   font-size: 1.2em;
   font-style: italic;
   color: #CCCCCC;
-}
-.article figure.content a.btn-open-map {
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  background: #ff6d00;
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 15px;
-  line-height: 1em;
-  font-size: 1.1em;
-  border-radius: 50%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-}
-.article figure.content a.btn-open-map:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
 }
 .article figure.content figcaption {
   width: 98%;
@@ -975,7 +1000,7 @@ body.paper {
   float: left;
   display: inline-block;
 }
-.sharing span {
+.sharing .sharing-items {
   float: right;
   display: inline-block;
   margin-left: 2%;
@@ -1603,6 +1628,21 @@ body.paper {
     padding: 3.5% 10%;
     font-size: 1.1em;
   }
+  .article .google-map {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 5%;
+  }
+  .article .google-map figcaption {
+    width: 90%;
+    padding: 2% 5%;
+  }
+  .article .google-map a.btn-open-map {
+    top: 7%;
+    right: 7%;
+    padding: 15px;
+    font-size: 1.1em;
+  }
   .article figure.content {
     width: 100%;
     margin: 0%;
@@ -1610,12 +1650,6 @@ body.paper {
   }
   .article figure.content .image-not-found {
     padding: 25% 0%;
-    font-size: 1.1em;
-  }
-  .article figure.content a.btn-open-map {
-    top: 7%;
-    right: 7%;
-    padding: 15px;
     font-size: 1.1em;
   }
   .article figure.content figcaption {
@@ -1709,7 +1743,7 @@ body.paper {
     margin: 0 7%;
     margin-bottom: 7%;
   }
-  .sharing span {
+  .sharing .sharing-items {
     margin-left: 5%;
   }
   .pagehead {

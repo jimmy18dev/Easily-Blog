@@ -616,6 +616,53 @@
 		}
 	}
 
+	.google-map{
+		width: 50%;
+		margin: 0 25%;
+		margin-bottom: 5%;
+		float: left;
+		display: inline-block;
+		position: relative;
+
+		img{
+			width: 100%;
+			float: left;
+			display: inline-block;
+		}
+
+		figcaption{
+			width: 98%;
+			float: left;
+			display: inline-block;
+			text-align: center;
+			font-size: @desc_fontsize;
+			border: 0px;
+			padding: 2% 1%;
+			background: transparent;
+			font-style: italic;
+			color: #999999;
+		}
+
+		a.btn-open-map{
+			position: absolute;
+			top: 5%;
+			right: 5%;
+			background: @primary_color;
+			color: #FFFFFF;
+			text-decoration: none;
+			padding: 15px;
+			line-height: 1em;
+			font-size: @title_fontsize;
+			border-radius: 50%;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+
+			&:hover{
+				cursor: pointer;
+				box-shadow: 0px 0px 40px rgba(0,0,0,0.4);
+			}
+		}
+	}
+
 	figure.content{
 		width: 50%;
 		margin: 0 25%;
@@ -640,25 +687,6 @@
 			font-size: @body_fontsize;
 			font-style: italic;
 			color: #CCCCCC;
-		}
-
-		a.btn-open-map{
-			position: absolute;
-			top: 5%;
-			right: 5%;
-			background: @primary_color;
-			color: #FFFFFF;
-			text-decoration: none;
-			padding: 15px;
-			line-height: 1em;
-			font-size: @title_fontsize;
-			border-radius: 50%;
-			box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-
-			&:hover{
-				cursor: pointer;
-				box-shadow: 0px 0px 40px rgba(0,0,0,0.4);
-			}
 		}
 
 		figcaption{
@@ -871,7 +899,7 @@
 	float: left;
 	display: inline-block;
 
-	span{
+	.sharing-items{
 		float: right;
 		display: inline-block;
 		margin-left: 2%;
