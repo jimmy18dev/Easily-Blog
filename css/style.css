@@ -735,7 +735,7 @@ body.paper {
   border: 0px;
   color: #ff6d00;
   background: transparent;
-  text-align: right;
+  text-align: center;
 }
 .article figure.content {
   width: 50%;
@@ -860,6 +860,21 @@ body.paper {
   font-size: 1.6em;
   text-align: center;
   color: #333333;
+}
+.article .documents .document-items .icon .fa-file-word {
+  color: #1976D2;
+}
+.article .documents .document-items .icon .fa-file-powerpoint {
+  color: #E65100;
+}
+.article .documents .document-items .icon .fa-file-excel {
+  color: #2E7D32;
+}
+.article .documents .document-items .icon .fa-file-pdf {
+  color: #E53935;
+}
+.article .documents .document-items .icon .fa-file-archive {
+  color: #FFAB00;
 }
 .article .documents .document-items .detail {
   width: 90%;
@@ -1585,7 +1600,7 @@ body.paper {
   }
   .article blockquote footer {
     width: 80%;
-    padding: 1% 10%;
+    padding: 3.5% 10%;
     font-size: 1.1em;
   }
   .article figure.content {

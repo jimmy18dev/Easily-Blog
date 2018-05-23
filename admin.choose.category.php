@@ -51,7 +51,7 @@ $categories = $category->listAll();
 </div> -->
 
 <div class="pagehead">
-	<div class="head">
+	<div class="head fullsize">
 		<h1>เลือกประเภทบทความ</h1>
 		<p>หลังจากที่คุณสร้างบทความไปแล้ว จะไม่สามารถเปลี่ยนหมวดหมู่ได้อีก</p>
 	</div>

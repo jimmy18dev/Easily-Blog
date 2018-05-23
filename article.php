@@ -163,7 +163,7 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		<blockquote class="content">
 			<i class="fa fa-quote-left" aria-hidden="true"></i>
 			<p><?php echo $var['body'];?></p>
-			<footer>— <cite><?php echo $var['topic'];?></cite></footer>
+			<footer>— <cite><?php echo $var['topic'];?></cite> —</footer>
 			<i class="fa fa-quote-right" aria-hidden="true"></i>
 		</blockquote>
 
@@ -185,10 +185,14 @@ $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_i
 		<h2>ไฟล์เอกสาร</h2>
 		<?php foreach ($article->documents as $var) {?>
 		<a href="files/<?php echo $var['file_name'];?>" class="document-items" target="_blank">
-			<span class="icon"><i class="fa fa-file"></i></span>
+			<div class="icon">
+			<?php if(in_array($var['file_type'],array(1, 3, 4, 5))){?>
+				<i class="fal fa-file-<?php echo $var['file_type'];?>"></i>
+			<?php }?>
+			</div>
 			<span class="detail">
 				<span class="name"><?php echo $var['title'];?></span>
-				<span class="desc">ขนาด <?php echo $var['file_size'];?> (<?php echo $var['file_type'];?>)</span>
+				<span class="desc">ขนาด <?php echo $var['file_size'];?></span>
 			</span>
 		</a>
 		<?php }?>

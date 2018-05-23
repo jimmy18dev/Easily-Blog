@@ -1189,6 +1189,21 @@ body {
   color: #999999;
   float: left;
 }
+.editor .documents .document-items .icon .fa-file-word {
+  color: #1976D2;
+}
+.editor .documents .document-items .icon .fa-file-powerpoint {
+  color: #E65100;
+}
+.editor .documents .document-items .icon .fa-file-excel {
+  color: #2E7D32;
+}
+.editor .documents .document-items .icon .fa-file-pdf {
+  color: #E53935;
+}
+.editor .documents .document-items .icon .fa-file-archive {
+  color: #FFAB00;
+}
 .editor .documents .document-items .detail {
   width: 88%;
   padding: 2% 0;

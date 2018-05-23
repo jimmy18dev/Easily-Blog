@@ -30,7 +30,21 @@ if(isset($_FILES['file'])){
         $full_filename  = $new_filename.'.'.$file_ext['extension'];
         move_uploaded_file($file_tmp,'files/'.$full_filename);
 
-        $file_id = $document->create(1,$article_id,$filename,$description,$full_filename,$file_ext['extension'],$file_size);
+        // File Extension Validate
+        if($file_ext['extension'] == 'pdf')
+            $file_extension = 'pdf';
+        else if($file_ext['extension'] == 'xls' || $file_ext['extension'] == 'xlsx')
+            $file_extension = 'excel';
+        else if($file_ext['extension'] == 'doc' || $file_ext['extension'] == 'docx')
+            $file_extension = 'excel';
+        else if($file_ext['extension'] == 'ppt' || $file_ext['extension'] == 'pptx')
+            $file_extension = 'excel';
+        else if($file_ext['extension'] == 'zip')
+            $file_extension = 'archive';
+        else
+            $file_extension = 'alt';
+
+        $file_id = $document->create(1,$article_id,$filename,$description,$full_filename,$file_extension,$file_size);
     }else{
         // print_r($errors);
         $file_id = -1;
