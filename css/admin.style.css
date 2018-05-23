@@ -1347,17 +1347,6 @@ body {
   float: left;
   display: inline-block;
 }
-.lists h1 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-family: "maledpan", sans-serif;
-  font-weight: normal;
-  font-size: 1.05em;
-  margin-bottom: 2%;
-  color: #999999;
-  background: #CAADDA;
-}
 .lists .article-items {
   width: 100%;
   display: flex;
@@ -2048,150 +2037,64 @@ body {
     padding: 3%;
   }
   .filter {
-    width: 50%;
-    margin: 0% 25%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 3%;
+    width: 90%;
+    margin: 0% 5%;
+    margin-bottom: 5%;
   }
   .filter p {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
     font-size: 1em;
-    color: #999999;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
   }
   .filter .select {
-    width: 30%;
+    width: 66%;
     float: left;
     display: inline-block;
     position: relative;
-    margin-right: 15px;
+    margin-right: 0;
   }
   .filter .select.number {
-    width: 10%;
-  }
-  .filter .select:after {
-    content: '';
-    border-top: 8px solid #666666;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    position: absolute;
-    z-index: 2;
-    top: 20px;
-    right: 18px;
-    pointer-events: none;
-  }
-  .filter .select select {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-    font-size: 1em;
-    line-height: 1em;
-    padding: 15px 25px;
-    background: #FFFFFF;
-    font-family: "maledpan", sans-serif;
-    color: #666666;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: 1px solid #DDDDDD;
-  }
-  .filter .select select:hover {
-    cursor: pointer;
-    border: 1px solid #BBBBBB;
-  }
-  .filter .btn-create {
-    float: left;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #BBBBBB;
-    text-decoration: none;
-    font-family: "maledpan", sans-serif;
-    font-size: 1em;
-    line-height: 1.1em;
-    padding: 15px 25px;
-    border-radius: 5px;
-    border: 0;
-    margin: 0;
-  }
-  .filter .btn-create.right {
+    width: 30%;
     float: right;
   }
-  .filter .btn-create.active {
-    background: #2962ff;
-    color: #FFFFFF;
+  .filter .select:after {
+    top: 20px;
+    right: 15px;
   }
-  .filter .btn-create.active:hover {
-    background: #3e71ff;
+  .filter .select select {
+    font-size: 1em;
+    padding: 15px;
   }
-  .filter .btn-create:hover {
-    cursor: pointer;
+  .filter .btn-create {
+    width: 100%;
+    margin-top: 5%;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 15px 0px;
   }
   .pagination {
-    width: 56%;
-    margin: 0 22%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 3%;
+    width: 90%;
+    margin: 0;
   }
   .pagination a {
-    float: left;
-    display: inline-block;
-    color: #999999;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    font-family: "maledpan", sans-serif;
-    margin-right: 5px;
+    width: 20%;
+    padding: 5% 0;
+    font-size: 1em;
+    text-align: center;
   }
   .pagination a.active {
-    color: #FFFFFF;
-    background: #2962ff;
+    color: #2962ff;
+    background: transparent;
   }
   .pagination a.active:hover {
-    background: #2962ff;
-  }
-  .pagination a:hover {
-    cursor: pointer;
-    background: #FAFAFA;
+    background: transparent;
   }
   .lists {
-    width: 50%;
-    padding: 0% 25%;
-    padding-bottom: 3%;
-    float: left;
-    display: inline-block;
-  }
-  .lists h1 {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-family: "maledpan", sans-serif;
-    font-weight: normal;
-    font-size: 1em;
-    margin-bottom: 2%;
-    color: #999999;
-    background: #CAADDA;
+    width: 90%;
+    padding: 0% 5%;
+    padding-bottom: 5%;
   }
   .lists .article-items {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background: #EAEAEA;
-    margin-bottom: 2%;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-  }
-  .lists .article-items:last-child {
-    margin-bottom: 0;
+    margin-bottom: 2.5%;
   }
   .lists .article-items .sticky {
     content: '';
@@ -2213,267 +2116,101 @@ body {
     cursor: pointer;
   }
   .lists .article-items .thumbnail {
-    width: 18%;
-  }
-  .lists .article-items .thumbnail img {
-    width: 100%;
-  }
-  .lists .article-items .thumbnail img:hover {
-    opacity: 0.8;
+    width: 30%;
   }
   .lists .article-items .icon {
-    width: 18%;
-    text-align: center;
-    color: #BBBBBB;
+    width: 30%;
     font-size: 2em;
   }
   .lists .article-items .content {
-    width: 66%;
-    padding: 2% 3%;
+    width: 50%;
+    padding: 2.5% 5%;
   }
   .lists .article-items .content.fullsize {
-    width: 76%;
+    width: 60%;
   }
   .lists .article-items .content h2 {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    font-size: 1em;
-    line-height: 1.3em;
+    font-size: 0.9em;
+    line-height: 1.2em;
     margin-top: 0.5%;
     margin-bottom: 1%;
-    font-family: "maledpan", sans-serif;
-    font-weight: normal;
-  }
-  .lists .article-items .content h2 a {
-    text-decoration: none;
-    color: #333333;
-  }
-  .lists .article-items .content h2 a:hover {
-    text-decoration: underline;
   }
   .lists .article-items .content p {
     font-size: 0.65em;
-    color: #999999;
-  }
-  .lists .article-items .content p:hover {
-    cursor: default;
   }
   .lists .article-items .content p i {
-    margin-left: 7px;
-    color: #2962ff;
-  }
-  .lists .article-items .content p span {
-    float: left;
-    display: inline-block;
+    margin-left: 5px;
   }
   .lists .article-items .btn-publish {
     width: 10%;
     padding: 2% 0;
     font-size: 1.4em;
-    text-align: center;
-    color: #2962ff;
-  }
-  .lists .article-items .btn-publish:hover {
-    cursor: pointer;
   }
   .lists .list-items {
-    width: 100%;
-    float: left;
-    display: flex;
-    align-items: center;
-    background: #EAEAEA;
-    margin-bottom: 2%;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-  }
-  .lists .list-items:last-child {
-    margin-bottom: 0;
-  }
-  .lists .list-items:hover {
-    cursor: pointer;
-  }
-  .lists .list-items.selected {
-    background: #e9efff;
-    border: 1px solid #2962ff;
-  }
-  .lists .list-items.selected .icon-select {
-    color: #2962ff;
+    margin-bottom: 2.5%;
   }
   .lists .list-items .avatar {
-    width: 6%;
-    padding: 2%;
-  }
-  .lists .list-items .avatar img {
-    width: 100%;
-    float: left;
-    border-radius: 50%;
+    width: 12%;
+    padding: 4%;
   }
   .lists .list-items .icon {
-    width: 10%;
-    text-align: center;
+    width: 20%;
     font-size: 1.2em;
-    color: #2962ff;
   }
   .lists .list-items .detail {
     width: 90%;
-    padding: 1.5% 0;
+    padding: 2% 0;
   }
   .lists .list-items .detail.btn-1 {
-    width: 80%;
-  }
-  .lists .list-items .detail.btn-2 {
-    width: 70%;
-  }
-  .lists .list-items .detail.btn-3 {
     width: 60%;
   }
+  .lists .list-items .detail.btn-2 {
+    width: 40%;
+  }
+  .lists .list-items .detail.btn-3 {
+    width: 20%;
+  }
   .lists .list-items .detail .title {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: "maledpan", sans-serif;
     font-size: 1.1em;
-    color: #333333;
   }
   .lists .list-items .detail .desc {
     font-size: 0.65em;
-    color: #999999;
-    font-style: italic;
-  }
-  .lists .list-items .detail .desc a {
-    color: #2962ff;
-    text-decoration: none;
-  }
-  .lists .list-items .detail .desc a:hover {
-    text-decoration: underline;
+    line-height: 1.2em;
   }
   .lists .list-items .icon-select {
-    width: 10%;
-    text-align: center;
+    width: 20%;
     font-size: 1.2em;
     padding: 2% 0;
-    color: transparent;
   }
   .lists .list-items .btn {
-    width: 10%;
-    text-align: center;
+    width: 20%;
     font-size: 1.2em;
     padding: 2% 0;
-    color: #BBBBBB;
-  }
-  .lists .list-items .btn.active {
-    color: #2962ff;
-  }
-  .lists .list-items .btn i.fa-check {
-    color: #2962ff;
-  }
-  .lists .list-items .btn:hover {
-    cursor: pointer;
   }
   .lists .empty {
-    width: 100%;
-    padding: 10% 0;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-family: "maledpan", sans-serif;
+    padding: 15% 0;
     font-size: 1.2em;
-    color: #DDDDDD;
   }
   .swap {
-    position: fixed;
-    top: 0;
-    right: -12%;
-    width: 12%;
-    height: 100%;
-    float: left;
-    display: inline-block;
-    background: #FFFFFF;
-    z-index: 999;
-    overflow-y: scroll;
-    transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-  }
-  .swap.-toggle {
-    transform: translateX(-100%);
+    right: -80%;
+    width: 80%;
   }
   .swap .swap-items {
     width: 80%;
     padding: 2%;
     margin: 0 10%;
     margin-bottom: 5%;
-    float: left;
-    display: inline-block;
-    color: #999999;
-    border-radius: 5px;
     font-size: 5px;
     line-height: 1.1em;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    border: 2px solid transparent;
   }
   .swap .swap-items.text {
     padding: 5%;
   }
-  .swap .swap-items.text a {
-    display: none;
-  }
-  .swap .swap-items.-active {
-    border: 2px solid #2962ff;
-    opacity: 0.5;
-  }
-  .swap .swap-items:hover {
-    cursor: pointer;
-    border: 2px solid #2962ff;
-  }
   .swap .swap-items:first-child {
-    margin-top: 56px;
+    margin-top: 0;
   }
   .swap .swap-items i {
-    width: 100%;
-    float: left;
-    display: inline-block;
     padding: 15% 0%;
-  }
-  .swap .swap-items img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.5);
-    z-index: 99;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-  }
-  .overlay.open {
-    visibility: visible;
-    opacity: 1;
-  }
-  .overlay .icon-loading {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin-top: 25%;
-    font-size: 2em;
-    text-align: center;
-    color: #3e71ff;
   }
   #progressbar {
     height: 5px;

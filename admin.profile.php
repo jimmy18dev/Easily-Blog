@@ -12,7 +12,7 @@ if($user->type != 'admin' && $user->type != 'writer'){
 
 $article = new Article();
 $page = (!empty($_GET['page'])?$_GET['page']:1);
-$perpage = 30;
+$perpage = 5;
 
 $articles 	= $article->listAll(NULL,NULL,'author',$user->id,0,false,$page,$perpage);
 
