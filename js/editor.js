@@ -167,7 +167,7 @@ $(document).ready(function(){
     $('#btn-publish').click(function(){
         $(this).removeClass('active');
 
-        // article.publish();
+        article.publish();
         
         setTimeout(function(){
             window.location = 'article/'+article_id;

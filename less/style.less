@@ -107,6 +107,7 @@
 	position: relative;
 	justify-content: center;
 	align-items: center;
+	border-bottom: 1px solid #EEEEEE;
 
 	.transitionAnimation(0.3s);
 
@@ -207,9 +208,10 @@
 			float: left;
 			display: inline-block;
 			font-family: @topic_font;
-			font-size: @title_fontsize * 1.5;
+			font-size: @title_fontsize * 1.4;
 			line-height: 1em;
 			color: #333333;
+			font-weight: normal;
 		}
 
 		// More Article.
@@ -315,25 +317,25 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
+		background: #CAADAD;
 
 		// Article Card Style.
 		.article-card{
-			width: 48.5%;
-			margin-bottom: 3%;
-			margin-right: 3%;
-			min-height: 144px;
+			width: 30.66%;
+			margin-right: 4%;
+			margin-bottom: 4%;
 			float: left;
 			display: inline-block;
 			background: #FFFFFF;
-			border-radius: 5px;
-			overflow: hidden;
-			border: 1px solid #DDDDDD;
 			box-sizing: border-box;
 
-			&:nth-child(even){ margin-right: 0; }
+			&:nth-child(3n+0){
+				background: #CAADDD;
+				margin-right: 0;
+			}
 
 			.thumbnail{
-				width: 30%;
+				width: 100%;
 				float: left;
 				display: inline-block;
 
@@ -347,8 +349,7 @@
 			}
 
 			header{
-				width: 60%;
-				padding: 5%;
+				width: 100%;
 				float: left;
 				display: inline-block;
 

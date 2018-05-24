@@ -12,6 +12,7 @@ config.php
 
 files/*
 image/upload/*
+image/qrcode/*
 database/backup/*
 docker/mysql/data/*
 

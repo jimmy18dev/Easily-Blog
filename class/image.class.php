@@ -58,25 +58,68 @@ class Image{
     public function resize($source, $destination,$image_type,$max_size, $image_width, $image_height, $quality){
         if($image_width <= 0 || $image_height <= 0){
             return false;
-        } //return false if nothing to resize
+        } // return false if nothing to resize
 
-        //do not resize if image is smaller than max size
+        // do not resize if image is smaller than max size
         if($image_width <= $max_size && $image_height <= $max_size){
             if($this->save_image($source, $destination, $image_type, $quality)){
                 return true;
             }
         }
 
-        //Construct a proportional size of new image
-        $image_scale    = min($max_size/$image_width, $max_size/$image_height);
+        // Construct a proportional size of new image
+        $image_scale    = min($max_size / $image_width, $max_size / $image_height);
+
         $new_width      = ceil($image_scale * $image_width);
         $new_height     = ceil($image_scale * $image_height);
 
-        $new_canvas     = imagecreatetruecolor($new_width, $new_height); //Create a new true color image
+        $new_canvas     = imagecreatetruecolor($new_width, $new_height); // Create a new true color image
 
         //Copy and resize part of an image with resampling
         if(imagecopyresampled($new_canvas, $source, 0, 0, 0, 0, $new_width, $new_height, $image_width, $image_height)){
-            $this->save_image($new_canvas, $destination, $image_type, $quality); //save resized image
+            $this->save_image($new_canvas, $destination, $image_type, $quality); // save resized image
+        }
+
+        return true;
+    }
+
+    public function ratio($source, $destination, $image_type, $square_size, $image_width, $image_height, $quality){
+        if($image_width <= 0 || $image_height <= 0){
+            return false;
+        }
+
+        echo 'Original w:'.$image_width.' h:'.$image_height;
+
+        $ratio_16by9    = 16 / 9; //a float with a value of ~1.777
+        $ratio_source   = $image_width / $image_height;
+
+        // compare the source aspect ratio to 16:9 ratio
+        // float values to two decimal places is close enough for this comparison
+        $is_16x9 = round($ratio_source, 2) == round($ratio_16by9, 2);
+
+        $y_offset = 0;
+        $x_offset = 0;
+
+        if(!$is_16x9) {
+            if($ratio_source < $ratio_16by9) { 
+                // taller than 16:9, cast answer to integer
+                $new_height = (int) round($image_width / $ratio_16by9);
+                $new_width  = $image_width;
+                $y_offset   = (int) round(($image_height - $new_height) / 2);
+                echo 'Dimension(taller) w:'.$new_width.' h:'.$new_height.' x:'.$x_offset.' y:'.$y_offset;
+
+            } else { 
+                // shorter than 16:9
+                $new_height = $image_height;
+                $new_width = (int) round($image_height * $ratio_16by9);
+                echo 'Dimension(shorter): w:'.$new_width.' h:'.$new_height.' x:'.$x_offset.' y:'.$y_offset;
+            }
+        }
+
+        $new_canvas = imagecreatetruecolor($new_width, $new_height); // Create a new true color image
+        
+        if(imagecopyresampled($new_canvas,$source,0,0,$x_offset,$y_offset,$new_width, $new_height, $new_width, $new_height)){
+            $this->save_image($new_canvas,$destination,$image_type,$quality);
         }
 
         return true;

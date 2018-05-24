@@ -52,17 +52,20 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
                         mkdir($img_folder.'normal/', 0777, true);
                         mkdir($img_folder.'square/', 0777, true);
                         mkdir($img_folder.'thumbnail/', 0777, true);
+                        mkdir($img_folder.'cover/', 0777, true);
                     }
 
                     $save_as['thumbnail']   = $img_folder.'thumbnail/'.$new_file_name;
                     $save_as['square']      = $img_folder.'square/'.$new_file_name;
                     $save_as['normal']      = $img_folder.'normal/'.$new_file_name;
                     $save_as['large']       = $img_folder.'large/'.$new_file_name;
+                    $save_as['cover']       = $img_folder.'cover/'.$new_file_name;
 
                     $image->resize($image_res,$save_as['normal'],$im_type,$size['normal'],$im_width,$im_height,$quality['normal']);
                     $image->resize($image_res,$save_as['large'],$im_type,$size['large'],$im_width,$im_height,$quality['large']);
                     $image->square($image_res,$save_as['square'],$im_type,$size['square'],$im_width,$im_height,$quality['square']);
                     $image->square($image_res,$save_as['thumbnail'],$im_type,$size['thumbnail'],$im_width,$im_height,$quality['thumbnail']);
+                    $image->ratio($image_res,$save_as['cover'],$im_type,$size['cover'],$im_width,$im_height,$quality['cover']);
 
                     // Content type "Cover" only!
                     $content_id = $article->createContent($user->id,$article_id,'image',NULL);

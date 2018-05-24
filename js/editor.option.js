@@ -91,7 +91,7 @@ $(document).ready(function(){
             // $photoLoadingBar.animate({width:'100%'},300);
         },
         complete: function(xhr) {
-            // console.log(xhr.responseText);
+            console.log(xhr.responseText);
             console.log(xhr.responseJSON);
             location.reload();
         }

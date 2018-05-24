@@ -144,7 +144,7 @@ button {
   /* IE11 */
 }
 body {
-  background: #eeeeee;
+  background: #ffffff;
   overflow-x: hidden;
 }
 body.paper {
@@ -259,6 +259,7 @@ body.paper {
   position: relative;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #EEEEEE;
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -352,9 +353,10 @@ body.paper {
   float: left;
   display: inline-block;
   font-family: "maledpan", sans-serif;
-  font-size: 1.6500000000000001em;
+  font-size: 1.54em;
   line-height: 1em;
   color: #333333;
+  font-weight: normal;
 }
 .section .head a {
   float: right;
@@ -448,25 +450,23 @@ body.paper {
   width: 100%;
   float: left;
   display: inline-block;
+  background: #CAADAD;
 }
 .section .lists .article-card {
-  width: 48.5%;
-  margin-bottom: 3%;
-  margin-right: 3%;
-  min-height: 144px;
+  width: 30.66%;
+  margin-right: 4%;
+  margin-bottom: 4%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid #DDDDDD;
   box-sizing: border-box;
 }
-.section .lists .article-card:nth-child(even) {
+.section .lists .article-card:nth-child(3n+0) {
+  background: #CAADDD;
   margin-right: 0;
 }
 .section .lists .article-card .thumbnail {
-  width: 30%;
+  width: 100%;
   float: left;
   display: inline-block;
 }
@@ -479,8 +479,7 @@ body.paper {
   opacity: 0.9;
 }
 .section .lists .article-card header {
-  width: 60%;
-  padding: 5%;
+  width: 100%;
   float: left;
   display: inline-block;
 }
