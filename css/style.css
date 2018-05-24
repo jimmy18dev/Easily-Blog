@@ -1316,6 +1316,442 @@ body.paper {
   cursor: pointer;
 }
 /* Other Device and Screen */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .header {
+    width: 90%;
+    padding: 0 5%;
+  }
+  .header a.logo {
+    padding: 13px 0;
+    font-size: 1.2em;
+    line-height: 1em;
+  }
+  .header .btn-icon {
+    height: 20px;
+    padding: 18px 20px;
+    line-height: 1em;
+    font-size: 1.1em;
+  }
+  .header .btn-icon span {
+    margin-left: 10px;
+  }
+  .header input[type="text"] {
+    height: 36px;
+    font-size: 1em;
+    margin: 10px 0;
+    padding: 0 2%;
+  }
+  .navigation {
+    width: 96%;
+    padding: 0 2%;
+    height: 56px;
+  }
+  .navigation a {
+    font-size: 1.1em;
+  }
+  .cover {
+    height: 50vh;
+  }
+  .cover img {
+    margin-top: 0px;
+  }
+  .cover .content {
+    margin-top: 14%;
+  }
+  .cover .content h1 {
+    font-size: 3.3000000000000003em;
+  }
+  .cover .content p {
+    font-size: 1.1em;
+  }
+  .section {
+    width: 90%;
+    margin: 0 5%;
+    margin-top: 4%;
+    padding-bottom: 3%;
+  }
+  .section .head {
+    margin-bottom: 3%;
+  }
+  .section .head h3 {
+    font-size: 1.6500000000000001em;
+  }
+  .section .head a {
+    font-size: 1.1em;
+  }
+  .section .article-sticky {
+    margin-bottom: 3%;
+  }
+  .section .article-sticky .image {
+    width: 66%;
+  }
+  .section .article-sticky header {
+    width: 28.33%;
+    padding-top: 3%;
+    padding-right: 3%;
+  }
+  .section .article-sticky header .category {
+    font-size: 0.75em;
+    margin-bottom: 3%;
+  }
+  .section .article-sticky header h2 {
+    font-size: 1.1em;
+    margin-bottom: 5%;
+    line-height: 1.25em;
+  }
+  .section .article-sticky header p {
+    font-size: 0.75em;
+  }
+  .section .article-sticky header p.info {
+    margin-top: 5%;
+  }
+  .section .article-sticky header p.info .owner img {
+    height: 19px;
+    margin-right: 7px;
+  }
+  .section .lists .article-card {
+    width: 48.5%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    min-height: 144px;
+  }
+  .section .lists .article-card .thumbnail {
+    width: 32%;
+  }
+  .section .lists .article-card header {
+    width: 58%;
+    padding: 5%;
+  }
+  .section .lists .article-card header h2 {
+    font-size: 1.1em;
+    line-height: 1.3em;
+    margin-bottom: 5%;
+  }
+  .section .lists .article-card header p {
+    font-size: 0.75em;
+  }
+  .section .lists .article-card header p .owner img {
+    height: 19px;
+    margin-right: 7px;
+  }
+  .section .lists .empty {
+    padding: 10% 0;
+    font-size: 1.1em;
+  }
+  .pagination {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .pagination a {
+    padding: 10px 20px;
+    font-size: 1.1em;
+  }
+  .article .article-header {
+    width: 60%;
+    margin: 5% 20%;
+    margin-top: 56px;
+  }
+  .article .article-header .author {
+    margin-bottom: 2%;
+    font-size: 0.75em;
+  }
+  .article .article-header .author img {
+    height: 25px;
+    margin-right: 7px;
+  }
+  .article .article-header h1 {
+    font-size: 2.2em;
+    line-height: 1.2em;
+  }
+  .article .article-header p.desc {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin-top: 3%;
+  }
+  .article .article-cover {
+    height: 100vh;
+    margin-bottom: 5%;
+  }
+  .article .article-cover picture img {
+    transform: scale(1.3);
+  }
+  .article .article-cover .article-header {
+    width: 60%;
+    margin: 0;
+    padding: 10% 20%;
+    padding-top: 21%;
+  }
+  .article section {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .article section h2 {
+    font-size: 1.4300000000000002em;
+    margin-bottom: 2%;
+    line-height: 1.3em;
+  }
+  .article section p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+  }
+  .article p.content {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+    font-size: 1.2em;
+    line-height: 1.6em;
+  }
+  .article blockquote {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .article blockquote i.fa-quote-left,
+  .article blockquote i.fa-quote-right {
+    font-size: 2.4em;
+  }
+  .article blockquote p {
+    width: 90%;
+    padding: 1% 5%;
+    font-size: 2.4em;
+    line-height: 1.5em;
+  }
+  .article blockquote footer {
+    width: 80%;
+    padding: 1% 10%;
+    font-size: 1.2em;
+  }
+  .article .google-map {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .article .google-map figcaption {
+    width: 98%;
+    font-size: 0.75em;
+    padding: 2% 1%;
+  }
+  .article .google-map a.btn-open-map {
+    top: 5%;
+    right: 5%;
+    padding: 15px;
+    font-size: 1.1em;
+  }
+  .article figure.content {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .article figure.content .image-not-found {
+    padding: 25% 0%;
+    font-size: 1.2em;
+  }
+  .article figure.content figcaption {
+    width: 98%;
+    font-size: 0.75em;
+    padding: 2% 1%;
+  }
+  .article .tag {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+    padding-top: 3%;
+  }
+  .article .tag a {
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.2em;
+  }
+  .article .documents {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+    padding-top: 3%;
+  }
+  .article .documents h2 {
+    font-size: 1.4300000000000002em;
+    margin-bottom: 3%;
+    line-height: 1.3em;
+  }
+  .article .documents .document-items {
+    margin-bottom: 2%;
+  }
+  .article .documents .document-items .icon {
+    width: 10%;
+    padding: 2% 0%;
+    font-size: 1.6em;
+  }
+  .article .documents .document-items .detail {
+    width: 90%;
+    padding: 2% 0;
+  }
+  .article .documents .document-items .detail .name {
+    font-size: 1.1em;
+    line-height: 1.3em;
+  }
+  .article .documents .document-items .detail .desc {
+    font-size: 0.75em;
+  }
+  .qrcode {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .qrcode h3 {
+    font-size: 1.4300000000000002em;
+    margin-bottom: 3%;
+  }
+  .qrcode .qrcode-img {
+    width: 15%;
+  }
+  .qrcode .guild {
+    width: 80%;
+    margin-top: 1%;
+  }
+  .qrcode .guild p {
+    font-size: 0.75em;
+  }
+  .facebook-comment {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .facebook-comment h3 {
+    font-size: 1.4300000000000002em;
+    margin-bottom: 3%;
+    line-height: 1em;
+  }
+  .sharing {
+    width: 60%;
+    margin: 0 20%;
+    margin-bottom: 5%;
+  }
+  .sharing .sharing-items {
+    margin-left: 2%;
+  }
+  .pagehead {
+    width: 60%;
+    padding: 1% 20%;
+    font-size: 1.1em;
+  }
+  .footer {
+    width: 60%;
+    padding: 3% 20%;
+    margin-top: 5%;
+  }
+  .footer .link {
+    font-size: 1.1em;
+    margin-bottom: 2%;
+  }
+  .footer .link a {
+    padding: 2%;
+  }
+  .footer .link a i {
+    margin-right: 5px;
+  }
+  .footer .license {
+    font-size: 0.75em;
+  }
+  .page-nav {
+    right: 10%;
+    width: 15%;
+    padding: 0% 3%;
+    margin-top: 2.8%;
+  }
+  .page-nav a {
+    padding: 3% 0;
+    font-size: 1.2em;
+  }
+  .about {
+    width: 60%;
+    margin-left: 5%;
+  }
+  .about .content {
+    padding: 5% 0%;
+  }
+  .about .content h1 {
+    font-size: 2em;
+    margin-bottom: 3%;
+  }
+  .about .content p {
+    font-size: 1.1em;
+    margin-bottom: 5%;
+  }
+  .about .content figure {
+    margin-bottom: 5%;
+  }
+  .about .content .profile .profile-items {
+    width: 48.5%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+  }
+  .about .content .profile .profile-items .thumbnail {
+    width: 23%;
+    margin-right: 5%;
+  }
+  .about .content .profile .profile-items .info {
+    width: 72%;
+    padding-top: 2%;
+  }
+  .about .content .profile .profile-items .info h2 {
+    font-size: 1.1em;
+  }
+  .about .content .profile .profile-items .info p {
+    font-size: 0.75em;
+  }
+  .about .content iframe {
+    height: 400px;
+    margin-bottom: 5%;
+  }
+  .login .logo {
+    padding: 5% 0%;
+    margin-top: 5%;
+  }
+  .login .content {
+    width: 30%;
+    margin: 0 35%;
+    margin-bottom: 3%;
+  }
+  .login .content .btn {
+    padding: 5.6% 0%;
+    font-size: 1.1em;
+  }
+  .login .content .btn i {
+    margin-left: 15px;
+  }
+  .login .content .separator {
+    padding: 5% 0%;
+    font-size: 1.1em;
+  }
+  .login .content .inputtext {
+    font-size: 1em;
+    padding: 5%;
+  }
+  .login .message {
+    font-size: 1.1em;
+  }
+  .announce {
+    width: 60%;
+    margin: 0% 20%;
+    margin-top: 25%;
+  }
+  .announce h2 {
+    font-size: 2.4em;
+  }
+  .announce p {
+    margin-top: 1%;
+    font-size: 0.75em;
+  }
+  .announce a {
+    margin-top: 10%;
+    font-size: 1.1em;
+    padding: 1% 3%;
+  }
+  .announce a i {
+    margin-right: 10px;
+  }
+}
 @media only screen and (min-width: 0px) and (max-width: 519px) {
   .header {
     width: 100%;
