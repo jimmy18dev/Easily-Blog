@@ -249,45 +249,33 @@ body.paper {
 .header button {
   height: 56px !important;
 }
-.navigation {
-  width: 90%;
-  padding: 0 5%;
-  height: 56px;
-  float: left;
+nav {
+  width: 70%;
+  padding: 0 15%;
   display: flex;
   background: #FFFFFF;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
 }
-.navigation.toggle {
-  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
-  transform: translate3d(100%, 0, 0);
-  -webkit-transform: translate3d(100%, 0, 0);
+nav ul {
+  display: flex;
+  list-style: none;
 }
-.navigation .mini-logo {
-  display: none;
-}
-.navigation a {
+nav ul li {
   font-family: "maledpan", sans-serif;
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1em;
+}
+nav ul li a {
+  display: block;
+  padding: 1.2em 0;
+  margin-right: 2em;
   text-decoration: none;
-  color: #111111;
-  padding: 1em;
+  color: #666666;
+  text-align: center;
 }
-.navigation a i {
-  margin-right: 7px;
-  color: #999999;
+nav ul li a i {
+  margin-right: 0.5em;
 }
-.navigation a.active {
-  color: #ff6d00;
-}
-.navigation a.active i {
+nav ul li a.active {
   color: #ff6d00;
 }
 .cover {
@@ -2282,53 +2270,34 @@ body.paper {
     margin: 10px 0;
     padding: 0 5%;
   }
-  .navigation {
-    position: fixed;
-    top: 0;
-    left: -80%;
-    height: 100%;
-    display: inline-block;
-    width: 80%;
+  nav {
+    width: 100%;
     padding: 0;
-    z-index: 9999;
   }
-  .navigation .mini-logo {
-    float: left;
-    display: inherit;
-    width: 92%;
-    font-size: 1.1em;
-    height: auto;
-    padding: 10% 4%;
-    margin: 0;
-    font-family: "maledpan", sans-serif;
-  }
-  .navigation .mini-logo img {
-    height: 28px;
-    vertical-align: middle;
-    margin-right: 7px;
-  }
-  .navigation .mini-logo span {
-    vertical-align: middle;
-  }
-  .navigation a {
-    float: left;
-    display: inherit;
-    width: 84%;
-    font-size: 1.1em;
-    line-height: 1em;
-    height: auto;
-    padding: 8%;
-    margin: 0;
-    border-top: 1px solid #EEEEEE;
-    text-overflow: ellipsis;
+  nav ul {
     white-space: nowrap;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    webkit-overflow-scrolling: touch;
   }
-  .navigation a:last-child {
-    border-bottom: 1px solid #EEEEEE;
+  nav ul li {
+    font-size: 1em;
+    line-height: 1em;
   }
-  .navigation a i {
-    margin-right: 8%;
+  nav ul li a {
+    padding: 0.6em;
+    padding-top: 0.8em;
+    margin-right: 0;
+  }
+  nav ul li a span {
+    display: block;
+    font-size: 0.7em;
+  }
+  nav ul li a i {
+    display: block;
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 1.3em;
   }
   .cover {
     height: auto;

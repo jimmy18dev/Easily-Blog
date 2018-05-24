@@ -13,6 +13,7 @@ config.php
 files/*
 image/upload/*
 database/backup/*
+docker/mysql/data/*
 
 Thumbs.db
 ehthumbs.db
