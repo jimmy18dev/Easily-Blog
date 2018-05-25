@@ -1,7 +1,7 @@
 <div class="article-sticky">
 	<figure class="image">
 		<a href="article/<?php echo $var['id'];?>/<?php echo $var['url'];?>">
-			<img src="image/upload/<?php echo $var['id'];?>/normal/<?php echo $var['cover_img'];?>" alt="">
+			<img src="image/upload/<?php echo $var['id'];?>/cover/<?php echo $var['cover_img'];?>" alt="">
 		</a>
 	</figure>
 	<header>
