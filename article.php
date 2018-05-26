@@ -40,7 +40,7 @@ $current_page = 'article';
 <?php include'favicon.php';?>
 <?php
 $page_title 	= $article->title.' - '.$config['settings']['title'];
-$page_desc 		= strip_tags($article->description);
+$page_desc 		= (!empty(strip_tags($article->description))?strip_tags($article->description):$config['settings']['description']);
 $page_url 		= DOMAIN.'/article/'.$article->id.'/'.$article->url;
 $page_image 	= DOMAIN.'/image/upload/'.$article->id.'/normal/'.$article->cover_img;
 ?>
